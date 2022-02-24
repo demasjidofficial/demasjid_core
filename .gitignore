@@ -136,3 +136,6 @@ nb-configuration.xml
 
 # Node Modules
 node_modules/
+
+# Domains
+domains
