@@ -5,6 +5,7 @@ Aplikasi untuk manajemen masjid
 ## Instalasi
 
 - git clone git@github.com:demasjidofficial/demasjid_core.git
+- cd demasjid_core
 - composer install
 - buat database
 - copy env menjadi .env ==> cp env .env
