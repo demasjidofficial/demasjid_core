@@ -46,8 +46,8 @@ class CreateMembers extends Migration
                 'null'       => true,
             ],
             'state' => [
-                'type'       => 'enum',
-                'constraint' => ['Draft', 'Submit', 'Approve', 'Reject', 'Void'],
+                'type'       => 'varchar',
+                'constraint' => 20,
                 'default'    => 'Approve',
                 'null'       => true,
             ],

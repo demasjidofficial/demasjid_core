@@ -18,9 +18,8 @@ class CreateWilayah extends Migration
                 'constraint' => 70,
             ],
             'level' => [
-                'type'       => 'enum',
-                'constraint' => ['Provinsi', 'Kota/Kabupaten', 'Kecamatan', 'Desa'],
-                'default'    => 'Desa',
+                'type'       => 'varchar',
+                'constraint' => 50,                
             ],
         ]);
         $this->forge->addPrimaryKey('kode');

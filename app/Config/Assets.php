@@ -52,7 +52,7 @@ class Assets extends OriginalAssets
      */
     public $folders = [
         'app'   => ROOTPATH . 'themes/app',
-        'admin' => ROOTPATH . 'themes/Admin',
+        'admin' => ROOTPATH . 'themes/Admin',        
         'auth'  => ROOTPATH . 'themes/Auth',
         'other' => ROOTPATH . 'vendor',
     ];

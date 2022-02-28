@@ -13,11 +13,18 @@
     </x-page-head>
 
     <x-admin-box>
-        <div>
+        <div x-data="{filtered: false}">
+            <x-filter-link />
             <div class="row">
                 <!-- List wilayahs -->
-                <div class="col" id="wilayah-list">
+                <div class="col table-responsive" id="wilayah-list">
                     <?= $this->include($viewPrefix . '\_table'); ?>
+                    <?= $pager->links() ?>
+                </div>
+
+                <!-- Filters -->
+                <div class="col-auto" x-show="filtered" x-transition.duration.240ms>
+                    <?= view_cell('Bonfire\Libraries\Cells\Filters::renderList', 'model=WilayahFilter target=#wilayah-list') ?>
                 </div>
             </div>
         </div>

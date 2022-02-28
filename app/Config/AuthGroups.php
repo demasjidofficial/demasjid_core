@@ -74,6 +74,29 @@ class AuthGroups extends ShieldGroups
         'widgets.settings'    => 'Can view the settings for site Widgets',
         'consent.settings'    => 'Can view the settings for the Consent module',
         'recycler.view'       => 'Can view the Recycler area',
+
+        /** module masjid */        
+        'masjid.member.list' => 'Can view list member',
+        'masjid.member.create' => 'Can create member',
+        'masjid.member.edit' => 'Can edit member',
+        'masjid.member.delete' => 'Can edit member',
+
+        'masjid.pengurus.list' => 'Can view list pengurus',
+        'masjid.pengurus.create' => 'Can create pengurus',
+        'masjid.pengurus.edit' => 'Can edit pengurus',
+        'masjid.pengurus.delete' => 'Can edit pengurus',
+
+        'masjid.jabatan.list' => 'Can view list jabatan',
+        'masjid.jabatan.create' => 'Can create jabatan',
+        'masjid.jabatan.edit' => 'Can edit jabatan',
+        'masjid.jabatan.delete' => 'Can edit jabatan',
+
+        'masjid.wilayah.list' => 'Can view list wilayah',
+        'masjid.wilayah.create' => 'Can create wilayah',
+        'masjid.wilayah.edit' => 'Can edit wilayah',
+        'masjid.wilayah.delete' => 'Can edit wilayah',
+        
+
     ];
 
     /**
@@ -92,6 +115,7 @@ class AuthGroups extends ShieldGroups
             'widgets.*',
             'consent.*',
             'recycler.*',
+            'masjid.*',
         ],
         'admin' => [
             'admin.access',
@@ -106,6 +130,7 @@ class AuthGroups extends ShieldGroups
             'widgets.*',
             'consent.*',
             'guides.*',
+            'masjid.*',
         ],
         'developer' => [
             'admin.access',

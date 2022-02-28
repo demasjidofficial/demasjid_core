@@ -16,8 +16,9 @@
         <div>
             <div class="row">
                 <!-- List penguruss -->
-                <div class="col" id="pengurus-list">
+                <div class="col table-responsive" id="pengurus-list">
                     <?= $this->include($viewPrefix . '\_table'); ?>
+                    <?= $pager->links() ?>
                 </div>
             </div>
         </div>

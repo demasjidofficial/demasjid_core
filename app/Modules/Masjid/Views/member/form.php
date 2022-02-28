@@ -27,7 +27,7 @@
             <?php } ?>
 
             <fieldset>
-                                <div class="row mb-3">
+                <div class="row mb-3">
                     <?= form_label('name', '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
@@ -37,18 +37,27 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('wilayah_id', '', ['for' => 'wilayah_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('wilayah_id', '', ['for' => 'wilayah_id', 'class' => 'col-form-label col-sm-2']) ?>                    
                     <div class="col-sm-10">
-                        <?= form_input('wilayah_id', old('wilayah_id', $data->wilayah_id ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('wilayah_id')) { ?>
-                        <p class="text-danger"><?= error('wilayah_id'); ?></p>
-                        <?php } ?>
+                        <div class="input-group">                        
+                            <?php
+                                if(isset($data->wilayah_id)){
+                                    echo form_input('wilayah_id', old('wilayah_id', $data->wilayah_id ?? ''), "class='form-control varchar' readonly");
+                                }else{
+                                    echo form_input('wilayah_id', old('wilayah_id', $data->wilayah_id ?? ''), "class='form-control varchar' required");
+                                }
+                            ?>                        
+                            <button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i> </button>
+                            <?php if (has_error('wilayah_id')) { ?>
+                            <p class="text-danger"><?= error('wilayah_id'); ?></p>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <?= form_label('code', '', ['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('code', old('code', $data->code ?? ''), "class='form-control varchar' required") ?>
+                        <?= form_input('code', old('code', $data->code ?? ''), "class='form-control varchar' readonly") ?>
                         <?php if (has_error('code')) { ?>
                         <p class="text-danger"><?= error('code'); ?></p>
                         <?php } ?>
@@ -64,27 +73,29 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('path_logo', '', ['for' => 'path_logo', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('path_logo', old('path_logo', $data->path_logo ?? ''), "class='form-control varchar' ") ?>
-                        <?php if (has_error('path_logo')) { ?>
-                        <p class="text-danger"><?= error('path_logo'); ?></p>
+                    <?= form_label('logo', '', ['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">                        
+                        <?= !isset($data->path_logo) ? '' : "<img src='".site_url($data->path_logo)."' class='img-thumbnail' >" ?>
+                        <?= form_upload('logo', old('logo', $data->logo ?? ''), "class='form-control varchar' accept='image/*' ") ?>
+                        <?php if (has_error('logo')) { ?>
+                        <p class="text-danger"><?= error('logo'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('path_image', '', ['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('image', '', ['for' => 'image', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar' ") ?>
-                        <?php if (has_error('path_image')) { ?>
-                        <p class="text-danger"><?= error('path_image'); ?></p>
+                        <?= !isset($data->path_image) ? '' : "<img src='".site_url($data->path_image)."' class='img-thumbnail' >" ?>
+                        <?= form_upload('image', old('image', $data->image ?? ''), "class='form-control varchar' accept='image/*' ") ?>
+                        <?php if (has_error('image')) { ?>
+                        <p class="text-danger"><?= error('image'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <?= form_label('state', '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control enum' ") ?>
+                        <?= form_dropdown('state', $state ,old('state', $data->state ?? ''), "class='form-control enum' ") ?>
                         <?php if (has_error('state')) { ?>
                         <p class="text-danger"><?= error('state'); ?></p>
                         <?php } ?>

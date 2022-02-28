@@ -13,11 +13,27 @@
     </x-page-head>
 
     <x-admin-box>
-        <div>
+        <div>            
             <div class="row">
+                <div x-data="{filtered: false}">
+                    <x-filter-link />
+
+                    <div class="row">
+                        <!-- List Users -->
+                        <div class="col" id="user-list">
+                            <?= $this->include('Bonfire\Modules\Users\Views\_table') ?>
+                        </div>
+
+                        <!-- Filters -->
+                        <div class="col-auto" x-show="filtered" x-transition.duration.240ms>
+                            <?= view_cell('Bonfire\Libraries\Cells\Filters::renderList', 'model=UserFilter target=#user-list') ?>
+                        </div>
+                    </div>
+                </div>
                 <!-- List jabatans -->
-                <div class="col" id="jabatan-list">
+                <div class="col table-responsive" id="jabatan-list">
                     <?= $this->include($viewPrefix . '\_table'); ?>
+                    <?= $pager->links() ?>
                 </div>
             </div>
         </div>

@@ -13,13 +13,17 @@ class {class} extends AdminCrudController
     protected $viewPrefix = 'App\Modules\Masjid\Views\{table}\\';
     protected $baseRoute = 'admin/masjid/{table}';
     protected $langModel = '{table}';
-    protected $modelName = 'App\Models\{model}Model';
+    protected $modelName = 'App\Modules\Api\Models\{model}Model';
     public function index(){
         return parent::index();
     }
 
     public function edit($id = null){
         return parent::edit($id);
+    }
+
+    public function update($id = null){
+        return parent::update($id);
     }
 
     public function show($id = null){
@@ -46,6 +50,7 @@ class {class} extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
+            'pager' => $model->pager
         ];
     }
 
