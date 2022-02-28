@@ -28,6 +28,10 @@ trait Filterable
 
         // Replace an options with computed values
         array_walk($filters, function (&$item, $key) {
+            if (! isset($item['options'])) {
+                return;
+            }
+
             if (! is_string($item['options'])) {
                 return;
             }

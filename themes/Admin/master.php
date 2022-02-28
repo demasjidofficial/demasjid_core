@@ -46,5 +46,11 @@
 <!--<script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>-->
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+<?= asset_link('admin/js/app.js', 'js') ?>
+<script>
+document.body.addEventListener('htmx:configRequest', (event) => {
+  event.detail.headers['<?= csrf_header() ?>'] = '<?= csrf_hash() ?>';
+})
+</script>
 <?= $this->renderSection('scripts') ?>
 </body></html>

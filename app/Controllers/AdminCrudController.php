@@ -52,10 +52,11 @@ class AdminCrudController extends AdminController
     {
         /** @var jabatanFilter $jabatanModel */
         // $jabatanModel = model(jabatanFilter::class);
-
-        $view = $this->viewPrefix . ($this->request->isAJAX() ? '_table' : 'index');
-
-        return $this->render($view, $this->getDataIndex());
+        
+        $view = $this->viewPrefix . ($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
+        $dataIndex = $this->getDataIndex();
+        $this->writeLog();
+        return $this->render($view, $dataIndex);
     }
 
     /**
@@ -125,11 +126,11 @@ class AdminCrudController extends AdminController
      * @return array an array
      */
     public function update($id = null)
-    {
+    {        
         $data                                 = $this->request->getPost();
         $updateData                           = array_filter($data);
-        $updateData[$this->model->primaryKey] = $id;
-        if (! $this->model->save($updateData)) {
+        
+        if (! $this->model->update($id, $updateData)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -145,22 +146,21 @@ class AdminCrudController extends AdminController
      * @return array an array
      */
     public function delete($id = null)
-    {
+    {        
         $delete = $this->model->delete($id);
         if ($this->model->db->affectedRows() === 0) {
             if ($this->isHxRequest()) {
                 Services::session()->setFlashdata('error', lang('Bonfire.resourceNotFound'));
 
-                return '<div id="htmx-alert" hx-swap-oob="true">' . service('alerts')->display() . '</div>';
+                return '<aside id="alerts-wrapper" hx-swap-oob="true">{alerts}</aside>';
             }
 
             return redirect()->back()->with('error', lang('Bonfire.unknownError'));
         }
         $this->writeLog();
         if ($this->isHxRequest()) {
-            Services::session()->setFlashdata('message', lang('Bonfire.resourceDeleted', [$this->langModel]));
-
-            return '<div id="htmx-alert" hx-swap-oob="true">' . service('alerts')->display() . '</div>';
+            Services::session()->setFlashdata('message', lang('Bonfire.resourceDeleted', [$this->langModel]));            
+            return '<aside id="alerts-wrapper" hx-swap-oob="true">{alerts}</aside>';
         }
 
         return redirect()->back()->with('message', lang('Bonfire.resourceDeleted', [$this->langModel]));

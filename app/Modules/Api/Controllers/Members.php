@@ -199,45 +199,45 @@ class Members extends BaseResourceController
     public function create()
     {        
         $wilayahId = $this->request->getPost('wilayah_id');
-        $this->uploadFile();
+        $this->uploadLogo();
+        $this->uploadImage();
         $this->model->set('path_logo', $this->getPathLogo());
         $this->model->set('path_image', $this->getPathImage());
-        $this->model->set('code', $this->getCodeUnique($wilayahId));
+        $this->model->set('code', $this->model->getCodeUnique($wilayahId));
         
         return parent::create();
     }
 
-    private function uploadFile()
-    {
-        $logo  = $this->request->getFile('logo');
-        $image = $this->request->getFile('image');
+    private function uploadLogo(){
+        $this->uploadFile('logo');
+    }
+
+    private function uploadImage(){
+        $this->uploadFile('image');
+    }
+
+    private function uploadFile($name)
+    {        
+        $image = $this->request->getFile($name);
         
-        if(empty($logo)){
-            throw new RuntimeException('file logo is required');
-        }
-
         if(empty($image)){
-            throw new RuntimeException('file image is required');
-        }
-
-        if (! $logo->isValid()) {
-            throw new RuntimeException($logo->getErrorString() . '(' . $logo->getError() . ')');
-        }
+            throw new RuntimeException('file '.$name.' is required');
+        }        
 
         if (! $image->isValid()) {
             throw new RuntimeException($image->getErrorString() . '(' . $image->getError() . ')');
         }
-        $imageFolder = 'uploads/'.$this->imageFolder;
-        if (! $logo->hasMoved()) {
-            $newName = $logo->getRandomName();            
-            $logo->move(WRITEPATH . $imageFolder, $newName);
-            $this->setPathLogo($imageFolder.'/' . $logo->getName());
-        }
+        $imageFolder = 'uploads/'.$this->imageFolder;        
 
         if ($image->isValid() && ! $image->hasMoved()) {
             $newName = $image->getRandomName();
-            $image->move(WRITEPATH . $imageFolder, $newName);
-            $this->setPathImage($imageFolder.'/' . $image->getName());
+            $image->move(ROOTPATH . 'public/'.$imageFolder, $newName);
+            if($name == 'image'){
+                $this->setPathImage($imageFolder.'/' . $image->getName());
+            }else{
+                $this->setPathLogo($imageFolder.'/' . $image->getName());
+            }
+            
         }
     }
 
@@ -283,15 +283,5 @@ class Members extends BaseResourceController
         $this->pathImage = $pathImage;
 
         return $this;
-    }
-
-    private function getCodeUnique($wilayahId){
-        $lastSequence = 0;
-        $lastMember = $this->model->where('wilayah_id',$wilayahId)->orderBy('id','desc')->first();
-        if($lastMember){
-            $lastSequence = intval(substr($lastMember->code, -2));
-        }
-        $lastSequence++;
-        return str_replace('.','',$wilayahId).str_pad($lastSequence,2,'0',STR_PAD_LEFT);
-    }
+    }    
 }

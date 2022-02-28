@@ -57,6 +57,7 @@ class PengurusController extends AdminCrudController
             'baseRoute'     => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data'          => $model->paginate(setting('App.perPage')),
+            'pager'         => $model->pager
         ];
     }
 

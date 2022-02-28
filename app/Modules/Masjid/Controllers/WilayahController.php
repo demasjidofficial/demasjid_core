@@ -12,7 +12,7 @@ class WilayahController extends AdminCrudController
     protected $viewPrefix     = 'App\Modules\Masjid\Views\wilayah\\';
     protected $baseRoute      = 'admin/masjid/wilayah';
     protected $langModel      = 'wilayah';
-    protected $modelName      = 'App\Models\WilayahModel';
+    protected $modelName      = 'App\Modules\Api\Models\WilayahModel';
 
     public function index()
     {
@@ -42,6 +42,7 @@ class WilayahController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(WilayahFilter::class);
+        $model->filter($this->request->getGet('filters'));
 
         return [
             'headers' => [
@@ -54,6 +55,7 @@ class WilayahController extends AdminCrudController
             'baseRoute'     => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data'          => $model->paginate(setting('App.perPage')),
+            'pager'         => $model->pager
         ];
     }
 

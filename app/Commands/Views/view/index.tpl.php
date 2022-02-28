@@ -16,8 +16,9 @@
         <div>
             <div class="row">
                 <!-- List {table}s -->
-                <div class="col" id="{table}-list">
+                <div class="col table-responsive" id="{table}-list">
                     <@php echo $this->include($viewPrefix.'\_table'); ?>
+                    <@php echo $pager->links() ?>
                 </div>
             </div>
         </div>
