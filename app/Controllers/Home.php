@@ -12,6 +12,7 @@ class Home extends BaseController
      */
     public function index()
     {
-        return $this->render('welcome_message');
+        //return $this->render('welcome_message');
+        return $this->render('website_home');
     }
 }
