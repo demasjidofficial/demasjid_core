@@ -120,10 +120,10 @@
                     <!-- about-img -->
                     <div class="about-img ">
                         <div class="about-font-img d-none d-lg-block">
-                            <img src="assets/img/gallery/about2.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/about2.png" alt="">
                         </div>
                         <div class="about-back-img ">
-                            <img src="assets/img/gallery/about1.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/about1.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/img/gallery/case1.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/case1.png" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
@@ -173,7 +173,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/img/gallery/case2.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/case2.png" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Providing Healthy Food For The Children</a></h3>
@@ -199,7 +199,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/img/gallery/case3.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/case3.png" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Supply Drinking Water For  The People</a></h3>
@@ -227,7 +227,7 @@
     </div>
     <!-- Our Cases End -->
     <!-- Featured_job_start -->
-    <section class="featured-job-area section-padding30 section-bg2" data-background="assets/img/gallery/section_bg03.png">
+    <section class="featured-job-area section-padding30 section-bg2" data-background="assets/app/theme-charityworks/img/gallery/section_bg03.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9 col-md-10 col-sm-12">
@@ -244,7 +244,7 @@
                     <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
-                                <a href="#"><img src="assets/img/gallery/socialEvents1.png" alt=""></a>
+                                <a href="#"><img src="assets/app/theme-charityworks/img/gallery/socialEvents1.png" alt=""></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#"><h4>Donation is Hope</h4></a>
@@ -262,7 +262,7 @@
                     <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
-                                <a href="#"><img src="assets/img/gallery/socialEvents2.png" alt=""></a>
+                                <a href="#"><img src="assets/app/theme-charityworks/img/gallery/socialEvents2.png" alt=""></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#"><h4>A hand for Children</h4></a>
@@ -280,7 +280,7 @@
                     <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
-                                <a href="#"><img src="assets/img/gallery/socialEvents3.png" alt=""></a>
+                                <a href="#"><img src="assets/app/theme-charityworks/img/gallery/socialEvents3.png" alt=""></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#"><h4>Help for Children</h4></a>
@@ -313,7 +313,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-team mb-30">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team1.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/team1.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -330,7 +330,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-team mb-30">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team2.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/team2.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -347,7 +347,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-team mb-30">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team3.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/team3.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -364,7 +364,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-team mb-30">
                         <div class="team-img">
-                            <img src="assets/img/gallery/team4.png" alt="">
+                            <img src="assets/app/theme-charityworks/img/gallery/team4.png" alt="">
                             <!-- Blog Social -->
                             <ul class="team-social">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -385,7 +385,7 @@
     <!-- Want To work -->
     <section class="wantToWork-area ">
         <div class="container">
-            <div class="wants-wrapper w-padding2  section-bg" data-background="assets/img/gallery/section_bg01.png">
+            <div class="wants-wrapper w-padding2  section-bg" data-background="assets/app/theme-charityworks/img/gallery/section_bg01.png">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-xl-5 col-lg-9 col-md-8">
                         <div class="wantToWork-caption wantToWork-caption2">
@@ -413,7 +413,7 @@
                                 <!-- founder -->
                                 <div class="testimonial-founder">
                                     <div class="founder-img mb-40">
-                                        <img src="assets/img/gallery/testimonial.png" alt="">
+                                        <img src="assets/app/theme-charityworks/img/gallery/testimonial.png" alt="">
                                         <span>Margaret Lawson</span>
                                         <p>Creative Director</p>
                                     </div>
@@ -429,7 +429,7 @@
                                 <!-- founder -->
                                 <div class="testimonial-founder">
                                     <div class="founder-img mb-40">
-                                        <img src="assets/img/gallery/testimonial.png" alt="">
+                                        <img src="assets/app/theme-charityworks/img/gallery/testimonial.png" alt="">
                                         <span>Margaret Lawson</span>
                                         <p>Creative Director</p>
                                     </div>
@@ -445,7 +445,7 @@
                                 <!-- founder -->
                                 <div class="testimonial-founder">
                                     <div class="founder-img mb-40">
-                                        <img src="assets/img/gallery/testimonial.png" alt="">
+                                        <img src="assets/app/theme-charityworks/img/gallery/testimonial.png" alt="">
                                         <span>Margaret Lawson</span>
                                         <p>Creative Director</p>
                                     </div>
@@ -478,7 +478,7 @@
                     <div class="home-blog-single mb-30">
                         <div class="blog-img-cap">
                             <div class="blog-img">
-                                <img src="assets/img/gallery/home-blog1.png" alt="">
+                                <img src="assets/app/theme-charityworks/img/gallery/home-blog1.png" alt="">
                                 <!-- Blog date -->
                                 <div class="blog-date text-center">
                                     <span>24</span>
@@ -496,7 +496,7 @@
                     <div class="home-blog-single mb-30">
                         <div class="blog-img-cap">
                             <div class="blog-img">
-                                <img src="assets/img/gallery/home-blog2.png" alt="">
+                                <img src="assets/app/theme-charityworks/img/gallery/home-blog2.png" alt="">
                                 <!-- Blog date -->
                                 <div class="blog-date text-center">
                                     <span>24</span>
@@ -515,7 +515,7 @@
     </section>
     <!-- Blog Area End -->
     <!--? Count Down Start -->
-    <div class="count-down-area pt-25 section-bg" data-background="assets/img/gallery/section_bg02.png">
+    <div class="count-down-area pt-25 section-bg" data-background="assets/app/theme-charityworks/img/gallery/section_bg02.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-12">

@@ -6,16 +6,16 @@
 	<title><?= config('App')->siteName ?? 'Demasjid' ?></title>
 
     <!-- CSS here -->
-	<?= asset_link('app/theme-charityworks/css/bootstrap.min.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/owl.carousel.min.css', 'css') ?>
+	<?= asset_link('app/theme-charityworks/css/bootstrap.css', 'css') ?>
+	<?= asset_link('app/theme-charityworks/css/owl-carousel.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/slicknav.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/flaticon.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/progressbar_barfiller.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/gijgo.css', 'css') ?>
-    <?= asset_link('app/theme-charityworks/css/animate.min.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/animate.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/animated-headline.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/magnific-popup.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/fontawesome-all.min.css', 'css') ?>
+	<?= asset_link('app/theme-charityworks/css/fontawesome-all.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/themify-icons.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/slick.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/nice-select.css', 'css') ?>
@@ -31,7 +31,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="assets/app/theme-charityworks/img/logo/loder.png" alt="">
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.html"><img src="assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -153,7 +153,7 @@
     </main>
 
     <footer>
-        <div class="footer-wrapper section-bg2" data-background="assets/img/gallery/footer_bg.png">
+        <div class="footer-wrapper section-bg2" data-background="assets/app/theme-charityworks/img/gallery/footer_bg.png">
             <!-- Footer Top-->
             <div class="footer-area footer-padding">
                 <div class="container">
@@ -163,7 +163,7 @@
                             <div class="single-footer-caption mb-30">
                                 <div class="footer-tittle">
                                     <div class="footer-logo mb-20">
-                                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="index.html"><img src="assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                                             onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
                                                 <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm"><img src="assets/img/gallery/form.png" alt=""></button>
+                                                class="email_icon newsletter-submit button-contactForm"><img src="assets/app/theme-charityworks/img/gallery/form.png" alt=""></button>
                                             </div>
                                             <div class="mt-10 info"></div>
                                         </form>
@@ -262,43 +262,43 @@
 
     <!-- JS here -->
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js'></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js'></script>
 
-    <?= asset_link('app/theme-charityworks/js/popper.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/bootstrap.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/popper.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/bootstrap.js', 'js') ?>
     <!-- Jquery Mobile Menu -->
-    <?= asset_link('app/theme-charityworks/js/jquery.slicknav.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-slicknav.js', 'js') ?>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <?= asset_link('app/theme-charityworks/js/owl.carousel.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/slick.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/owl-carousel.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/slick.js', 'js') ?>
     <!-- One Page, Animated-HeadLin -->
-    <?= asset_link('app/theme-charityworks/js/wow.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/animated.headline.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/jquery.magnific-popup.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/wow.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/animated-headline.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-magnific-popup.js', 'js') ?>
 
     <!-- Date Picker -->
-    <?= asset_link('app/theme-charityworks/js/gijgo.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/gijgo.js', 'js') ?>
     <!-- Nice-select, sticky -->
-    <?= asset_link('app/theme-charityworks/js/jquery.nice-select.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/jquery.sticky.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-nice-select.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-sticky.js', 'js') ?>
     <!-- Progress -->
-    <?= asset_link('app/theme-charityworks/js/jquery.barfiller.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-barfiller.js', 'js') ?>
     
     <!-- counter , waypoint,Hover Direction -->
-    <?= asset_link('app/theme-charityworks/js/jquery.counterup.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/waypoints.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/jquery.countdown.min.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/hover-direction-snake.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-counterup.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/waypoints.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-countdown.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/hover-direction-snake.js', 'js') ?>
 
     <!-- contact js -->
     <?= asset_link('app/theme-charityworks/js/contact.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/jquery.form.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/jquery.validate.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-form.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-validate.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/mail-script.js', 'js') ?>
-    <?= asset_link('app/theme-charityworks/js/jquery.ajaxchimp.min.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-ajaxchimp.js', 'js') ?>
     
     <!-- Jquery Plugins, main Jquery -->	
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
