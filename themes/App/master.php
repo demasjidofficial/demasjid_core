@@ -5,6 +5,8 @@
 
 	<title><?= config('App')->siteName ?? 'Demasjid' ?></title>
 
+    <link rel='icon' href='assets/app/theme-charityworks/img/logo/dmsjdfav_alfurqonsby.png' />
+
     <!-- CSS here -->
 	<?= asset_link('app/theme-charityworks/css/bootstrap.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/owl-carousel.css', 'css') ?>

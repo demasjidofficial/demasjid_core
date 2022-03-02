@@ -25,8 +25,8 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".6s">Berbagai program<br> untuk kemaslahatan jamaah.</h1>
-                                <P data-animation="fadeInUp" data-delay=".8s" >Program-program kami meliputi pesantren, baitul mal, muamalah, kajian, dst.</P>
+                                <h1 data-animation="fadeInUp" data-delay=".6s">Dari, Oleh, <br> & Untuk Masjid.</h1>
+                                <P data-animation="fadeInUp" data-delay=".8s" >Berbagai program-program meliputi pesantren, baitul mal, muamalah, kajian, dst untuk kemakmuran masjid dan kemaslahatan jamaah.</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
                                     <a href="#" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donasi</a>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- slider Area End-->
