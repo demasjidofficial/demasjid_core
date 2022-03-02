@@ -48,15 +48,15 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left d-flex">
                                     <ul>     
-                                        <li>Phone: +99 (0) 101 0000 888</li>
-                                        <li>Email: noreply@yourdomain.com</li>
+                                        <li>WA/Tlp: +62 851 6136 4811</li>
+                                        <li>Email: masjidalfurqonsby@demasjid.com</li>
                                     </ul>
                                     <div class="header-social">    
                                         <ul>
                                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -65,16 +65,21 @@
                                         <form action="#">
                                             <div class="select-itms">
                                                 <select name="select" id="select1">
-                                                    <option value="">English</option>
-                                                    <option value="">Bangla</option>
+                                                    <option value="">Indonesia</option>
                                                     <option value="">Arabic</option>
-                                                    <option value="">Hindi</option>
+                                                    <option value="">English</option>
                                                 </select>
                                             </div>
                                         </form>
                                     </div>
-                                    <ul class="contact-now">     
-                                        <li><a href="#">Subscribe Now</a></li>
+                                    <ul class="contact-now">    
+                                    <li>
+                                        <?php if (auth()->loggedIn()) : ?>
+                                        <a href="/logout" >LOGOUT</a>
+                                        <?php else : ?>
+                                        <a href="/login">LOGIN</a>
+                                        <?php endif ?>
+                                    </li>
                                     </ul>
                                 </div>
                             </div>
@@ -87,7 +92,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
+                                    <a href="#"><img src="assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -96,8 +101,15 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">                                                                                          
-                                                <li><a href="#">Beranda</a></li>
-                                                <li><a href="#">Tentang</a></li>
+                                                <li><a href="/">Beranda</a></li>
+                                                <li><a href="#">Tentang</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="#">Visi & Misi</a></li>
+                                                        <li><a href="#">Struktur</a></li>
+                                                        <li><a href="#">Pengurus</a></li>
+                                                        <li><a href="#">Pembina</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><a href="#">Layanan</a>
                                                     <ul class="submenu">
                                                         <li><a href="#">Zakat</a></li>
@@ -121,13 +133,13 @@
                                                         <li><a href="#">Life</a></li>
                                                     </ul>
                                                 </li>
-                                                <!--li><a href="#">Kontak</a></li-->
+                                                <li><a href="#kontak">Kontak</a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#" class="btn header-btn">Donasi</a>
+                                        <a href="#" class="btn header-btn">Donasi Sekarang</a>
                                     </div>
                                 </div>
                             </div> 
@@ -155,7 +167,7 @@
     <footer>
         <div class="footer-wrapper section-bg2" data-background="assets/app/theme-charityworks/img/gallery/footer_bg.png">
             <!-- Footer Top-->
-            <div class="footer-area footer-padding">
+            <div class="footer-area footer-padding" id="kontak">
                 <div class="container">
                     <div class="row d-flex justify-content-between">
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
@@ -163,7 +175,7 @@
                             <div class="single-footer-caption mb-30">
                                 <div class="footer-tittle">
                                     <div class="footer-logo mb-20">
-                                        <a href="index.html"><img src="assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="#"><img src="assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -172,13 +184,13 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Contact Info</h4>
+                                    <h4>Info Kontak</h4>
                                     <ul>
                                         <li>
-                                            <p>Address :Your address goes here, your demo address.</p>
+                                            <p>Alamat :<br/>Jl. Teuku Imam Bonjol 99 Surabaya 60299</p>
                                         </li>
-                                        <li><a href="#">Phone : +8880 44338899</a></li>
-                                        <li><a href="#">Email : info@colorlib.com</a></li>
+                                        <li><a href="#">WA/Tlp : <br/>+62 851 6136 4811</a></li>
+                                        <li><a href="#">Email : <br/>masjidalfurqonsby@demasjid.com</a></li>
                                     </ul>
                                 </div>
 
@@ -187,13 +199,14 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Important Link</h4>
+                                    <h4>Tautan Penting</h4>
                                     <ul>
-                                        <li><a href="#"> View Project</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Artikel</a></li>
+                                        <li><a href="#">Agenda</a></li>
+                                        <li><a href="#">Camp</a></li>
+                                        <li><a href="#">Care</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Kebijakan Privasi</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -201,9 +214,9 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Newsletter</h4>
+                                    <h4>Buletin DeMasjid</h4>
                                     <div class="footer-pera footer-pera2">
-                                    <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                                    <p>Dapatkan informasi terbaru layanan & pengembangan DeMasjid.</p>
                                 </div>
                                 <!-- Form -->
                                 <div class="footer-form" >
@@ -232,20 +245,19 @@
                 <div class="container">
                     <div class="footer-border">
                         <div class="row d-flex justify-content-between align-items-center">
-                            <div class="col-xl-10 col-lg-9 ">
+                            <div class="col-xl-8 col-lg-8 ">
                                 <div class="footer-copy-right">
-                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved.
-  <!--br/>Page rendered in {elapsed_time} seconds  &hearts;  Environment: < ?= ENVIRONMENT ?-->
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                    <p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Dikembangkan oleh <a href="<?= prep_url('https://demasjid.com') ?>" target="_blank">Demasjid Team</a>
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-lg-3">
+                            <div class="col-xl-3 col-lg-3">
                                 <div class="footer-social f-right">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fas fa-globe"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
