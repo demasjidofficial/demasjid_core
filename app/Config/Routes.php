@@ -40,6 +40,9 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/activation', 'Activation::index');
+$routes->get('/qrcode', 'Activation::qrcode');
+$routes->post('/activation', 'Activation::create');
 $routes->get('/swagger', 'Swagger::index');
 $routes->post('api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
 $routes->post('api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');

@@ -159,10 +159,10 @@ testimonial.slick({
 }
 
 /* 6. Nice Selectorp  */
-  var nice_Select = $('select');
-    if(nice_Select.length){
-      nice_Select.niceSelect();
-    }
+  // var nice_Select = $('select');
+  //   if(nice_Select.length){
+  //     nice_Select.niceSelect();
+  //   }
 
 /* 7. data-background */
     $("[data-background]").each(function () {
