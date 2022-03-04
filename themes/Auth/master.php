@@ -3,35 +3,43 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title><?= config('App')->siteName ?? 'Demasjid' ?> Panel</title>
+	<title><?= config('App')->siteName ?? 'Demasjid' ?> Panel </title>
 
     <link rel='icon' href='assets/auth/img/demasjid-logo-icon.png' />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <?= asset_link('auth/css/auth.css', 'css') ?>
-    <?= asset_link('other/components/font-awesome/css/all.css', 'css') ?>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <?= asset_link('admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css', 'css') ?>
+    <!-- iCheck -->
+    <?= asset_link('admin/theme-adminlte/plugins/icheck-bootstrap/icheck-bootstrap-min.css', 'css') ?>
+    <!-- Theme style -->
+    <?= asset_link('admin/theme-adminlte/adminlte-min.css', 'css') ?>
+
     <?= $this->renderSection('styles') ?>
 </head>
-<body>
-
-<aside id="alerts-wrapper">
-{alerts}
-</aside>
-
-<header class="navbar navbar-light bg-none flex-md-nowrap p-0 shadow-sm">
-    <a class="px-3 d-block fs-3 text-dark text-decoration-none col-md-3 col-lg-2 me-0" href="/<?= ADMIN_AREA ?>">
-        <?= setting('App.siteName') ?? 'Bonfire' ?>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="<?= ADMIN_AREA ?>">
+        <!--b>< ?= setting('App.siteName') ?? 'Demasjid' ?></b>Panel-->
+        <img src="assets/auth/img/demasjid-logo2.png" style="width:65%" />
     </a>
-</header>
+  </div>
+  <!-- /.login-logo -->
+  
+  <?= $this->renderSection('main') ?>
 
-<div class="container-fluid main">
-    <main class="ms-sm-auto px-md-4">
-        <?= $this->renderSection('main') ?>
-    </main>
 </div>
+<!-- /.login-box -->
 
+<!-- jQuery -->
+<?= asset_link('admin/theme-adminlte/plugins/jquery/jquery-min.js', 'js') ?>
+<!-- Bootstrap 4 -->
+<?= asset_link('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js', 'js') ?>
+<!-- AdminLTE App -->
+<?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <?= $this->renderSection('scripts') ?>
-</body></html>
+</body>
+</html>

@@ -4,48 +4,90 @@
 
 <?= $this->section('main') ?>
 
-<div class="container d-flex justify-content-center p-5">
-    <div class="card col-5 shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title mb-5"><?= lang('Auth.login') ?></h5>
+<div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">
+          <h3 style="text-align:center;">Assalamualaikum<br/>Silakan login akun</h3>
+      </p>
 
-            <form action="<?= route_to('login') ?>" method="post">
-                <?= csrf_field() ?>
+      <form action="<?= route_to('login') ?>" method="post">
+        <?= csrf_field() ?> 
 
-                <!-- Email -->
-                <div class="mb-2">
-                    <input type="email" class="form-control" name="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required />
-                </div>
-
-                <!-- Password -->
-                <div class="mb-2">
-                    <input type="password" class="form-control" name="password" autocomplete="off" placeholder="<?= lang('Auth.password') ?>" required />
-                </div>
-
-                <?php if ($allowRemember) : ?>
-                    <div class="form-check my-4">
-                        <input class="form-check-input" type="checkbox" value="1" name="remember" id="remember">
-                        <label class="form-check-label" for="remember">
-                            <?= lang('Auth.rememberMe') ?>
-                        </label>
-                    </div>
-                <?php endif ?>
-
-                <div class="d-grid col-12 mx-auto m-5">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg"><?= lang('Auth.login') ?></button>
-                </div>
-
-                <?php if (setting('Auth.allowMagicLinkLogins')) : ?>
-                    <p class="text-center"><?= lang('Auth.forgotPassword') ?> <a href="<?= route_to('magic-link') ?>"><?= lang('Auth.useMagicLink') ?></a></p>
-                <?php endif ?>
-
-                <?php if (setting('Auth.allowRegistration')) : ?>
-                    <p class="text-center"><?= lang('Auth.needAccount') ?> <a href="<?= route_to('register') ?>"><?= lang('Auth.register') ?></a></p>
-                <?php endif ?>
-
-            </form>
+        <!-- Email -->
+        <div class="input-group mb-3">
+          <input type="email" name="email" class="form-control" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
         </div>
+        <!-- Password -->
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="<?= lang('Auth.password') ?>" >
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <!-- Remember -->
+        <?php if ($allowRemember) : ?>
+        <div class="row">
+          <div class="col-12">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                <?= lang('Auth.rememberMe') ?> 
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <br/>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-success btn-block"><?= lang('Auth.login') ?></button>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <?php endif ?>
+
+      </form>
+
+      <!-- Sign in via FB & Google
+      <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+        </a>
+      </div>
+      !-- /.social-auth-links -->
+
+
+      <br/>
+
+      <?php if (setting('Auth.allowMagicLinkLogins')) : ?>
+      <p class="mb-1">
+        <?= lang('Auth.forgotPassword') ?> 
+        <a href="<?= route_to('magic-link') ?>"><?= lang('Auth.useMagicLink') ?></a>
+      </p>
+      <?php endif ?>
+
+      <?php if (setting('Auth.allowRegistration')) : ?>
+      <p class="mb-0">
+        <?= lang('Auth.needAccount') ?>
+        <a href="<?= route_to('register') ?>" class="text-center"><?= lang('Auth.register') ?></a>
+      </p>
+      <?php endif ?>
+
     </div>
-</div>
+    <!-- /.login-card-body -->
+  </div>
 
 <?= $this->endSection() ?>
