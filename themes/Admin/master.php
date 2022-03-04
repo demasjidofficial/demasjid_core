@@ -29,6 +29,8 @@
     <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
     <!-- summernote -->
     <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
+    <!-- flags -->
+    <?= asset_link('admin/theme-adminlte/plugins/flag-icon-css/css/flag-icon-min.css', 'css') ?>
 
     <!--    
     < ?= asset_link('admin/css/admin.css', 'css') ?>

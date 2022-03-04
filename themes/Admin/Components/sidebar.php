@@ -15,7 +15,7 @@
           <img src="assets/admin/images/user.png" class="img-circle elevation-2" alt="">
         </div>
         <div class="info">
-          <a href="#" class="d-block">
+          <a href="/<?= ADMIN_AREA ?>/users/<?= auth()->id() ?>" class="d-block">
             <?= auth()->user()->renderAvatar(32) ?>
           </a>
         </div>
