@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title><?= config('App')->siteName ?? 'Demasjid' ?></title>
+	<title>Masjid Al Furqon Surabaya | <?= config('App')->siteName ?? 'Demasjid' ?></title>
 
     <link rel='icon' href='assets/app/theme-charityworks/img/logo/dmsjdfav_alfurqonsby.png' />
 
