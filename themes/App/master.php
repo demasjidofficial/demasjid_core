@@ -295,8 +295,9 @@
 
     <!-- Date Picker -->
     <?= asset_link('app/theme-charityworks/js/gijgo.js', 'js') ?>
-    <!-- Nice-select, sticky -->
+    <!-- Nice-select, sticky 
     <?= asset_link('app/theme-charityworks/js/jquery-nice-select.js', 'js') ?>
+    -->
     <?= asset_link('app/theme-charityworks/js/jquery-sticky.js', 'js') ?>
     <!-- Progress -->
     <?= asset_link('app/theme-charityworks/js/jquery-barfiller.js', 'js') ?>
@@ -318,5 +319,6 @@
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/main.js', 'js') ?>
 
+    <?= $this->renderSection('scripts') ?>
 </body>
 </html>

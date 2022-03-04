@@ -15,7 +15,9 @@
 		"spatie/commonmark-highlighter": "^3.0",
 		"tatter/alerts": "^3.0",
 		"asligresik/easyapi": "*",
-		"pragmarx/ia-arr": "^7.3"				
+		"pragmarx/ia-arr": "^7.3",
+		"tightenco/collect": "^8.83",
+		"endroid/qr-code": "^4.4"				
 	},
 	"require-dev": {
 		"codeigniter/coding-standard": "^1.1",
