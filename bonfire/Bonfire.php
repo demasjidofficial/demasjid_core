@@ -83,19 +83,21 @@ class Bonfire
         // Sidebar menu
         $menus->createMenu('sidebar');
         $menus->menu('sidebar')
-            ->createCollection('content', 'Content');
-        $menus->menu('sidebar')
-            ->createCollection('settings', 'Settings')
-            ->setFontAwesomeIcon('fas fa-cog')
-            ->setCollapsible();
-        $menus->menu('sidebar')
-            ->createCollection('tools', 'Tools')
-            ->setFontAwesomeIcon('fas fa-toolbox')
-            ->setCollapsible();
-        $menus->menu('sidebar')
             ->createCollection('masjid', 'Masjid')
-            ->setFontAwesomeIcon('fas fa-home')
+            ->setFontAwesomeIcon('nav-icon fas fa-home')
             ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('content', 'Konten')
+            ->setFontAwesomeIcon('nav-icon fas fa-palette');
+        $menus->menu('sidebar')
+            ->createCollection('settings', 'Pengaturan')
+            ->setFontAwesomeIcon('nav-icon fas fa-cog')
+            ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('tools', 'Alat')
+            ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
+            ->setCollapsible();
+        
 
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');

@@ -50,41 +50,10 @@
   <!-- /Header -->
   
   <!-- Main Sidebar Container -->
-  <!--?= $this->include('_sidebar_main') ?-->
   <x-sidebar />
   <!-- /.main-sidebar -->
  
-
-  <!--aside id="alerts-wrapper">
-    {alerts}
-  </aside-->
-
   
-  <!--div class="main" x-data="{open: true}">
-	<div class="h-100 d-flex align-items-stretch">
-        <nav id="sidebars" class="sidebar" x-bind:class="{ 'collapsed': ! open }">
-            <div class="sidebar-wrap  h-100 w-100 position-relative">
-                <x-sidebar />
-
-                <div class="nav-item position-absolute bottom-0 w-100">
-                    <a href="#" class="nav-link sidebar-toggle" @click="open = !open">
-                        <i class="fas fa-angle-double-left"></i>
-                        <span>Collapse sidebar</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-		<main class="ms-sm-auto flex-grow-1" style="overflow: auto">
-            < ?= $this->include('_header') ?>
-
-            <div class="px-md-4">
-                < ?= $this->renderSection('main') ?>
-            </div>
-		</main>
-	</div>
-  </div-->
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -116,7 +85,7 @@
   <!-- /.content-wrapper -->
 
   <!-- Sidebar Control -->
-  <?= $this->include('_sidebar_control') ?>
+  <!--?= $this->include('_sidebar_control') ?-->
   <!-- /Sidebar Control -->
 
   <!-- Footer -->
@@ -124,13 +93,6 @@
   <!-- /Footer -->
 
 </div><!--/.wrapper-->
-
-<!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-< !--<script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>-- >
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script src="https://unpkg.com/htmx.org@1.5.0"></script-- >
-
-< ?= asset_link('admin/js/app.js', 'js') ?-->
 
 <script>
 document.body.addEventListener('htmx:configRequest', (event) => {

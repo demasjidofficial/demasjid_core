@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/<?= ADMIN_AREA ?>" class="brand-link">
-      <img src="assets/admin/images/app-logo.svg" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="assets/admin/images/demasjid-logo-icon.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">
           <?= setting('App.siteName') ?? 'Demasjid' ?> Panel
       </span>
@@ -34,29 +34,50 @@
             </a>
           </li>
 
+          
+
           <!-- Menu Collections -->
           <?php if (isset($menu)) : ?>
           <?php foreach ($menu->collections() as $collection) : ?>
 
           <?php if ($collection->isCollapsible()) : ?> 
           <li class="nav-item">
-            
-            <a href="#" class="nav-link < ?= $collection->isActive() ? 'active' : '' ?>">
+            <a href="#" class="nav-link <?= $collection->isActive() ? 'active' : '' ?>">
               <!--i class="nav-icon far fa-arrow-right"-->
               <?= $collection->icon ?>
               <p><?= $collection->title ?><i class="right fas fa-angle-left"></i></p>
             </a>
             <!-- Sub Menu List -->
             <ul class="nav nav-treeview">
+            <?php foreach ($collection->items() as $item) : ?>
+              <?php if ($item->userCanSee()): ?>
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a class="nav-link <?= url_is($item->url . '*') ? 'active' : '' ?>" href="<?= $item->url ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p><?= $item->title ?></p>
                 </a>
               </li>
+              <?php endif ?>
+            <?php endforeach ?>
             </ul>
           </li> 
+
+          <?php else : ?>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link <?= $collection->isActive() ? 'active' : '' ?>">
+              <?= $collection->icon ?>
+              <p><?= $collection->title ?></p>
+            </a>
+          </li>
+          
           <?php endif ?>
+
+          <!--?php if (!$collection->isCollapsible()) : ?>
+          <li class="nav-item">
+            <a href="#">Tes</a>
+          </li>
+          < ?php endif ?-->
 
           <?php endforeach ?>
           <?php endif ?>
@@ -77,62 +98,63 @@
 </aside>
 
 
-<a class="px-3 d-block fs-3 text-light text-decoration-none me-0" href="/<?= ADMIN_AREA ?>">
+<!--
+<a class="px-3 d-block fs-3 text-light text-decoration-none me-0" href="/< ?= ADMIN_AREA ?>">
     <div class="site-stamp rounded d-inline-flex align-content-center justify-content-center">
-        <?= substr(setting('App.siteName') ?? 'bonfire', 0, 1) ?>
+        < ?= substr(setting('App.siteName') ?? 'bonfire', 0, 1) ?>
     </div>
-    <span class="site-name"><?= setting('App.siteName') ?? 'bonfire' ?></span>
+    <span class="site-name">< ?= setting('App.siteName') ?? 'bonfire' ?></span>
 </a>
 <div class="pt-3">
 
-    <!-- Dashboard -->
+    < !-- Dashboard --
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link <?= url_is('/' . ADMIN_AREA) ? 'active' : '' ?>" href="/<?= ADMIN_AREA ?>" title="Dashboard">
+            <a class="nav-link < ?= url_is('/' . ADMIN_AREA) ? 'active' : '' ?>" href="/< ?= ADMIN_AREA ?>" title="Dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
         </li>
     </ul>
 
-    <?php if (isset($menu)) : ?>
-        <?php foreach ($menu->collections() as $collection) : ?>
+    < ?php if (isset($menu)) : ?>
+        < ?php foreach ($menu->collections() as $collection) : ?>
 
         <div>
             <ul class="nav flex-column px-0">
-                <?php if ($collection->isCollapsible()) : ?>
+                < ?php if ($collection->isCollapsible()) : ?>
                     <li class="nav-item">
-                        <a class="nav-link <?= $collection->isActive() ? 'active' : '' ?>" href="#">
-                            <?= $collection->icon ?>
-                            <span><?= $collection->title ?></span>
+                        <a class="nav-link < ?= $collection->isActive() ? 'active' : '' ?>" href="#">
+                            < ?= $collection->icon ?>
+                            <span>< ?= $collection->title ?></span>
                         </a>
                     </li>
-                    <ul class="nav subnav flex-column mb-2  <?= $collection->isActive() ? 'active' : 'flyout' ?>">
+                    <ul class="nav subnav flex-column mb-2  < ?= $collection->isActive() ? 'active' : 'flyout' ?>">
                         <li class="nav-item nav-title">
                             <a class="nav-link">
-                                <?= $collection->title ?>
+                                < ?= $collection->title ?>
                             </a>
                         </li>
-                <?php endif ?>
+                < ?php endif ?>
 
 
-                <?php foreach ($collection->items() as $item) : ?>
-                    <?php if ($item->userCanSee()): ?>
+                < ?php foreach ($collection->items() as $item) : ?>
+                    < ?php if ($item->userCanSee()): ?>
                         <li class="nav-item">
-                            <a class="nav-link <?= url_is($item->url . '*') ? 'active' : '' ?>" href="<?= $item->url ?>">
-                                <?php if (! $collection->isCollapsible()) : ?>
-                                    <?= $item->icon ?>
-                                <?php endif ?>
-                                <span><?= $item->title ?></span>
+                            <a class="nav-link < ?= url_is($item->url . '*') ? 'active' : '' ?>" href="< ?= $item->url ?>">
+                                < ?php if (! $collection->isCollapsible()) : ?>
+                                    < ?= $item->icon ?>
+                                < ?php endif ?>
+                                <span>< ?= $item->title ?></span>
                             </a>
                         </li>
-                    <?php endif ?>
-                <?php endforeach ?>
-                <?php if ($collection->isCollapsible()) : ?>
+                    < ?php endif ?>
+                < ?php endforeach ?>
+                < ?php if ($collection->isCollapsible()) : ?>
                     </ul>
-                <?php endif ?>
+                < ?php endif ?>
             </ul>
         </div>
-        <?php endforeach ?>
-    <?php endif ?>
-</div>
+        < ?php endforeach ?>
+    < ?php endif ?>
+</div-->
