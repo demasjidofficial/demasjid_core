@@ -1,14 +1,60 @@
 <?= $this->extend('master') ?>
 
+<?= $this->section('styles') ?>
+<style>
+.login-box { width:60% !important; }
+.login-logo img { width:30% !important; }
+.card-footer { background-color: transparent !important; }
+@media only screen and (max-device-width: 480px) {
+    .login-box { width:95% !important;margin-bottom:1% !important; }
+    .login-logo img { width:40% !important; }
+}
+</style>
+<?= $this->endSection() ?>
+
 <?= $this->section('main') ?>
 
 <div class="card">
-    <div class="card-body login-card-body rounded25">
-      <p class="login-box-msg">
+
+    <?= form_open_multipart('/activation') ?>
+
+    <div class="card-header">
+        <p class="login-box-msg">
           <h5 style="text-align:center;">Assalamualaikum<br/>Silakan lengkapi untuk aktivasinya</h5>
-      </p>
-      
-      <?= form_open_multipart('/activation') ?>
+        </p>
+    </div>
+
+    <div class="card-body rounded25">
+        
+      <div class="row">
+
+        <div class="col-md-6">
+        <!-- Nama Masjid -->
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <?= form_input('name', '', 'class="form-control" placeholder="Masukkan nama masjid" required') ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Masjid -->
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <?= form_input('email', '', 'class="form-control" placeholder="Masukkan email aktif" required') ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- WA/Tlp Masjid -->
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <?= form_input('watelp', '', 'class="form-control" placeholder="Masukkan WA/Telp aktif" required') ?>
+                </div>
+            </div>
+        </div>
 
         <!-- Logo Masjid -->
         <div class="row">
@@ -50,14 +96,10 @@
         </div>
         <!-- /.row -->
 
-        <!-- Nama Masjid -->
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <?= form_input('name', '', 'class="form-control" placeholder="Masukkan nama masjid" required') ?>
-                </div>
-            </div>
-        </div>
+        </div><!-- /.col -->
+
+        <div class="col-md-6">
+
         <!-- Provinsi -->
         <div class="row">
             <div class="col-md-12">
@@ -111,17 +153,19 @@
                 </div>
             </div>
         </div>
-        <!-- Button Aktifkan -->
-        <div class="row">
-            <div class="col-12">
-                <?= form_submit('','AKTIFKAN', 'class="btn btn-success btn-block"') ?>
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      <?= form_close() ?>
 
-    </div>
+        </div><!-- /.col -->
+
+      </div><!-- /.row -->
+    
+    <div class="card-footer">
+        <!-- Button Aktifkan -->
+        <?= form_submit('','AKTIFKAN', 'class="btn btn-success btn-block"') ?>
+    </div><!-- /.card-footer -->
+
+    <?= form_close() ?>
+
+    </div><!-- /.card -->
 </div>
      
 <?= $this->endSection() ?>

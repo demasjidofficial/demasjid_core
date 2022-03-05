@@ -45,7 +45,6 @@ class Activation extends BaseController
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
-        
         return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique, 'name' => $data['name']]));
     }
 
