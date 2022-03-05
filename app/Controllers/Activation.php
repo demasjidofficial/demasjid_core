@@ -15,6 +15,8 @@ use Endroid\QrCode\Writer\PngWriter;
 
 class Activation extends BaseController
 {
+    protected $theme = 'Auth';
+
     use UploadedFile;
     protected $modelName = 'App\Modules\Api\Models\MemberModel';
     private $pathLogo;

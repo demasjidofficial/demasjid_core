@@ -5,7 +5,7 @@
 <?= $this->section('main') ?>
 
 <div class="card">
-    <div class="card-body login-card-body">
+    <div class="card-body login-card-body rounded25">
       <p class="login-box-msg">
           <h3 style="text-align:center;">Assalamualaikum<br/>Silakan login akun</h3>
       </p>
@@ -48,7 +48,10 @@
         <br/>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="btn btn-success btn-block"><?= lang('Auth.login') ?></button>
+            <button type="submit" class="btn btn-success btn-block">
+              MASUK
+              <!--?= lang('Auth.login') ?-->
+            </button>
           </div>
           <!-- /.col -->
         </div>

@@ -1,0 +1,13 @@
+
+.bg-demasjid {
+    background-image: url("../images/background/demasjid_bg_owhite_c.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.rounded5 {border-radius:5px !important;}
+.rounded10{border-radius:10px !important;}
+.rounded15{border-radius:15px !important;}
+.rounded20{border-radius:20px !important;}
+.rounded25{border-radius:25px !important;}
+.clickable{cursor:pointer;}

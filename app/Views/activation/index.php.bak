@@ -2,138 +2,90 @@
 
 <?= $this->section('main') ?>
 
-<div class="card">
-    <div class="card-body login-card-body rounded25">
-      <p class="login-box-msg">
-          <h5 style="text-align:center;">Assalamualaikum<br/>Silakan lengkapi untuk aktivasinya</h5>
-      </p>
-      
-      <?= form_open_multipart('/activation') ?>
-
-        <!-- Logo Masjid -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="logo" id="logo" accept="image/*" required />
-                        <label class="custom-file-label">Pilih logo masjid</label>
+<!-- Register Area Start -->
+<div class="section-padding10">
+    <div class="card ml-10 mr-10 p-3">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
+                <!-- Section Tittle -->
+                <div class="text-center mb-40">
+                    <h2>Assalamualaikum <br>Silakan lengkapi untuk aktivasinya</h2>                    
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
+                <?= form_open_multipart('/activation') ?>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="input-group border">
+                            <label class="pl-2">Logo</label>
+                            <?= form_upload('logo','','class="form-control form-control-lg fade in" accept="image/*"  required') ?>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-camera"></i></span>
+                            </div>
                         </div>
-                        <div class="input-group-append clickable">
-                        <span class="input-group-text">
-                            <i class="fas fa-camera"></i>
-                        </span>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group border">
+                            <label class="pl-2">Foto</label>
+                            <?= form_upload('image','','class="form-control form-control-lg fade in" accept="image/*"  required') ?>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-camera"></i></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Foto Masjid -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="image" accept="image/*" required />
-                        <label class="custom-file-label">Pilih foto masjid</label>
-                        </div>
-                        <div class="input-group-append clickable">
-                        <span class="input-group-text">
-                            <i class="fas fa-camera"></i>
-                        </span>
-                        </div>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_input('name', '', 'class="form-control form-control-lg" placeholder="nama" required') ?>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Nama Masjid -->
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <?= form_input('name', '', 'class="form-control" placeholder="Masukkan nama masjid" required') ?>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_dropdown('provinsi',[] ,'', 'class="form-control form-control-lg provinsi" placeholder="nama"') ?>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Provinsi -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--?= form_dropdown('provinsi',[] ,'', 'class="form-control select2 provinsi" placeholder="Pilih provinsi"') ?-->
-                    <select class="form-control select2 provinsi" name="provinsi" style="width: 100%;">
-                    <option value="">Pilih provinsi</option>
-                    </select>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_dropdown('kabupaten',[] ,'', 'class="form-control form-control-lg kabupaten" placeholder="nama"') ?>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Kota/Kab -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!--?= form_dropdown('kabupaten',[] ,'', 'class="form-control kabupaten" placeholder="Pilih Kota/Kab"') ?-->
-                    <select class="form-control select2 kabupaten" name="kabupaten" style="width: 100%;">
-                        <option value="">Pilih kota/kab</option>
-                    </select>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_dropdown('kecamatan',[] ,'', 'class="form-control form-control-lg kecamatan" placeholder="nama"') ?>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Kecamatan -->
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <!--?= form_dropdown('kecamatan',[] ,'', 'class="form-control kecamatan" placeholder="Pilih Kecamatan"') ?-->
-                    <select class="form-control select2 kecamatan" name="kecamatan" style="width: 100%;">
-                        <option value="">Pilih kecamatan</option>
-                    </select>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_dropdown('wilayah_id',[] ,'', 'class="form-control form-control-lg desa" placeholder="nama" required') ?>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Kelurahan/Desa -->
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <!--?= form_dropdown('wilayah_id',[] ,'', 'class="form-control desa" placeholder="Pilih Kelurahan/Desa" required') ?-->
-                    <select class="form-control select2 desa" name="wilayah_id" style="width: 100%;" required>
-                        <option value="">Pilih kelurahan/desa</option>
-                    </select>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_textarea('address', '', 'class="form-control form-control-lg" rows="4" placeholder="alamat" required') ?>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Alamat -->
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <?= form_textarea('address', '', 'class="form-control" rows="2" placeholder="Masukkan alamat" required') ?>
+                <div class="form-group row mt-3">
+                    <div class="col-12">
+                        <?= form_submit('','activation', 'class="btn btn-success form-control rounded"') ?>
+                    </div>
                 </div>
+                <?= form_close() ?>
             </div>
         </div>
-        <!-- Button Aktifkan -->
-        <div class="row">
-            <div class="col-12">
-                <?= form_submit('','AKTIFKAN', 'class="btn btn-success btn-block"') ?>
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      <?= form_close() ?>
-
     </div>
-</div>
-     
+</div>        
+
+<?= $this->endSection() ?>
+
+<?= $this->section('styles') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/select2/css/select2.css', 'css') ?>
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-    <!-- bs-custom-file-input -->
-    <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
     <script type="text/javascript">
-        $(function () {
-            bsCustomFileInput.init();
-        });
         $(function(){
             $('input:file').change(function() {
                 var i = $(this).prev('label').clone();
@@ -165,6 +117,7 @@
                     cache: true
                 }
             });
+        
             $('select.kabupaten').select2({
                 ajax: {
                     url: "<?= site_url('api/wilayahs') ?>",
@@ -190,6 +143,7 @@
                     cache: true
                 }
             });
+
             $('select.kecamatan').select2({
                 ajax: {
                     url: "<?= site_url('api/wilayahs') ?>",
@@ -215,6 +169,7 @@
                     cache: true
                 }
             });
+
             $('select.desa').select2({
                 ajax: {
                     url: "<?= site_url('api/wilayahs') ?>",

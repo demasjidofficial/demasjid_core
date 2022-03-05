@@ -13,12 +13,17 @@
     <?= asset_link('admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css', 'css') ?>
     <!-- iCheck -->
     <?= asset_link('admin/theme-adminlte/plugins/icheck-bootstrap/icheck-bootstrap-min.css', 'css') ?>
+    <!-- Select2 -->
+    <?= asset_link('admin/theme-adminlte/plugins/select2/css/select2.css', 'css') ?>
     <!-- Theme style -->
     <?= asset_link('admin/theme-adminlte/adminlte-min.css', 'css') ?>
+    <!-- Demasjid style -->
+    <?= asset_link('admin/css/admin-demasjid.css', 'css') ?>
 
     <?= $this->renderSection('styles') ?>
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page bg-demasjid">
+
 <div class="login-box">
   <div class="login-logo">
     <a href="<?= ADMIN_AREA ?>">
