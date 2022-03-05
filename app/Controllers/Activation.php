@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Modules\Api\Models\MemberModel;
+use App\Modules\Api\Models\WilayahModel;
 use App\Traits\UploadedFile;
 use Endroid\QrCode\Color\Color;
 use Endroid\QrCode\Label\Label;
@@ -26,8 +28,7 @@ class Activation extends BaseController
 
     public function index()
     {
-        helper('form');
-
+        helper('form');        
         return $this->render('activation/index');
     }
 
@@ -46,13 +47,13 @@ class Activation extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         
-        return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique, 'name' => $data['name']]));
+        return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique]));
     }
 
     public function qrcode()
-    {
+    {        
         $code = $this->request->getGet('code');
-        $name = $this->request->getGet('name') ?? 'Demasjid';
+        $masjid = (new MemberModel)->where(['code' => $code])->first();        
         $writer = new PngWriter();
         $qrCode = QrCode::create($code)
             ->setEncoding(new Encoding('UTF-8'))
@@ -71,11 +72,12 @@ class Activation extends BaseController
             ->setResizeToWidth(100);
 
         // Create generic label
-        $label = Label::create($name)
+        $label = Label::create($masjid->name)
             ->setTextColor(new Color(255, 0, 0));
 
         $result = $writer->write($qrCode, $logo, $label);
-        return $this->render('activation/qrcode', ['dataUri' => $result->getDataUri()]);
+        $fullAddress = (new WilayahModel())->extractWilayah($masjid->wilayah_id)->orderBy('kode','desc')->findAll();
+        return $this->render('activation/qrcode', ['dataUri' => $result->getDataUri(), 'masjid' => $masjid, 'full' => $fullAddress]);
     }
 
     /**

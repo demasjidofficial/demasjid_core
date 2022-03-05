@@ -79,6 +79,8 @@ class MemberController extends AdminCrudController
                 'wilayah_id' => 'wilayah_id',
                 'code'       => 'code',
                 'address'    => 'address',
+                'email  '    => 'email',
+                'telephone'    => 'telephone',
                 'path_logo'  => 'logo',
                 'path_image' => 'image',
                 'state'      => 'state',

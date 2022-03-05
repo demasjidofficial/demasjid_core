@@ -16,6 +16,8 @@ class MemberModel extends BaseModel
         'wilayah_id',
         'code',
         'address',
+        'email',
+        'telephone',
         'path_logo',
         'path_image',
         'state',
@@ -28,6 +30,8 @@ class MemberModel extends BaseModel
         'wilayah_id' => 'max_length[15]|required',
         // 'code'       => 'max_length[18]|required|is_unique[member.code,code,{id}]',
         'address'    => 'max_length[255]|required',
+        'email'    => 'max_length[50]|required',
+        'telephone'    => 'max_length[15]|required',
         'path_logo'  => 'max_length[255]|required',
         'path_image' => 'max_length[255]|required',
         'created_at' => 'valid_date|required',
@@ -42,5 +46,5 @@ class MemberModel extends BaseModel
         }
         $lastSequence++;
         return str_replace('.','',$wilayahId).str_pad($lastSequence,2,'0',STR_PAD_LEFT);
-    }
+    }    
 }
