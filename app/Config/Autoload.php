@@ -56,6 +56,7 @@ class Autoload extends AutoloadConfig
         'Bonfire\Consent'  => ROOTPATH . 'bonfire/Modules/Consent',
         'Bonfire\Widgets'  => ROOTPATH . 'bonfire/Modules/Widgets',
         'Themes'           => ROOTPATH . 'themes',
+        'App\Modules\Pesantren' => ROOTPATH . 'app/Modules/Pesantren',
     ];
 
     /**

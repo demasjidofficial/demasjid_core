@@ -10,8 +10,8 @@ use {filterNamespace}\Models\{model}Filter;
 class {class} extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\{table}\\';
-    protected $baseRoute = 'admin/masjid/{table}';
+    protected $viewPrefix = 'App\Modules\{module}\Views\{table}\\';
+    protected $baseRoute = 'admin/{route}/{baseRoute}';
     protected $langModel = '{table}';
     protected $modelName = 'App\Modules\Api\Models\{model}Model';
     public function index(){
