@@ -39,7 +39,19 @@ class CreateInfaqShodaqoh extends Migration
             'description' => [
                 'type'       => 'text',
             ],
-            'allocation_for' => [
+            'program_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
+            'category_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
+            'donationtype_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -49,12 +61,6 @@ class CreateInfaqShodaqoh extends Migration
                 'type'       => 'varchar',
                 'constraint' => 20,
                 'default'    => 'Open',
-                'null'       => true,
-            ],
-            'category_id' => [
-                'type'       => 'int',
-                'constraint' => 11,
-                'unsigned'   => true,
                 'null'       => true,
             ],
             'created_at' => [
