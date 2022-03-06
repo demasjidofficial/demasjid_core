@@ -67,7 +67,7 @@ class CrudGenerator extends BaseCommand
         $name      = ucfirst($table) . 'Controller';
         $modelName = ucfirst($table) . 'Filter';
         // $class = '\\App\\Masjid\\Controllers\\ProfileController';
-        $options = ['force' => $force];
+        $options = ['force' => $force, 'table' => $table];
         if (! empty($namespace)) {
             $options['namespace'] = $namespace;
             $name                 = str_replace('/', '\\', $namespace) . '\\Controllers\\' . $name;
