@@ -21,20 +21,12 @@
     <div class="card-header">
         <p class="login-box-msg">
           <h5 style="text-align:center;">Assalamualaikum<br/>Silakan lengkapi untuk aktivasinya</h5>
-<<<<<<< HEAD
-      </p>
-      
-      <?= form_open_multipart('/activation') ?>
-=======
         </p>
-    </div>
+    </div><!-- /.card-header -->
 
-    <div class="card-body rounded25">
-        
+    <div class="card-body rounded25">        
       <div class="row">
-
         <div class="col-md-6">
->>>>>>> 65d732814adafe91d7daca66ee7c4cb12e719ea5
         <!-- Nama Masjid -->
         <div class="row">
             <div class="col-12">
@@ -53,19 +45,11 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         <!-- telephone Masjid -->
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
                     <?= form_input('telephone', '', 'class="form-control" placeholder="Masukkan WA/Telp aktif" required') ?>
-=======
-        <!-- WA/Tlp Masjid -->
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <?= form_input('watelp', '', 'class="form-control" placeholder="Masukkan WA/Telp aktif" required') ?>
->>>>>>> 65d732814adafe91d7daca66ee7c4cb12e719ea5
                 </div>
             </div>
         </div>
@@ -110,13 +94,9 @@
         </div>
         <!-- /.row -->
 
-<<<<<<< HEAD
-=======
-        </div><!-- /.col -->
-
+        </div><!-- /.col-md-6 -->
         <div class="col-md-6">
 
->>>>>>> 65d732814adafe91d7daca66ee7c4cb12e719ea5
         <!-- Provinsi -->
         <div class="row">
             <div class="col-md-12">
@@ -150,7 +130,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Kelurahan/Desa -->
         <div class="row">
             <div class="col-12">
@@ -175,7 +154,7 @@
 
       </div><!-- /.row -->
     
-    <div class="card-footer">
+    <div class="card-footer paddinglr0">
         <!-- Button Aktifkan -->
         <?= form_submit('','AKTIFKAN', 'class="btn btn-success btn-block"') ?>
     </div><!-- /.card-footer -->

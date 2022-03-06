@@ -10,4 +10,8 @@
 .rounded15{border-radius:15px !important;}
 .rounded20{border-radius:20px !important;}
 .rounded25{border-radius:25px !important;}
+.rounded50{border-radius:50px !important;}
+.btn, button, input[type=submit], input[type=button] {border-radius:50px !important;}
+.paddinglr0{padding-left:0;padding-right:0;}
+.paddingtb0{padding-top:0;padding-bottom:0;}
 .clickable{cursor:pointer;}
