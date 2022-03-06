@@ -2,6 +2,8 @@
 <td><?= esc($item->wilayah_id) ?></a></td>
 <td><?= esc($item->code) ?></a></td>
 <td><?= esc($item->address) ?></a></td>
+<td><?= esc($item->email) ?></a></td>
+<td><?= esc($item->telephone) ?></a></td>
 <td><img class="img-thumbnail" src="<?= site_url(esc($item->path_logo)) ?>"></td>
 <td><img class="img-thumbnail" src="<?= site_url(esc($item->path_image)) ?>"></td>
 <td><?= esc($item->state) ?></a></td>

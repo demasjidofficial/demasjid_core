@@ -22,12 +22,10 @@
         <p class="login-box-msg">
           <h5 style="text-align:center;">Assalamualaikum<br/>Silakan lengkapi untuk aktivasinya</h5>
         </p>
-    </div>
+    </div><!-- /.card-header -->
 
-    <div class="card-body rounded25">
-        
+    <div class="card-body rounded25">        
       <div class="row">
-
         <div class="col-md-6">
         <!-- Nama Masjid -->
         <div class="row">
@@ -47,11 +45,11 @@
             </div>
         </div>
 
-        <!-- WA/Tlp Masjid -->
+        <!-- telephone Masjid -->
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <?= form_input('watelp', '', 'class="form-control" placeholder="Masukkan WA/Telp aktif" required') ?>
+                    <?= form_input('telephone', '', 'class="form-control" placeholder="Masukkan WA/Telp aktif" required') ?>
                 </div>
             </div>
         </div>
@@ -96,8 +94,7 @@
         </div>
         <!-- /.row -->
 
-        </div><!-- /.col -->
-
+        </div><!-- /.col-md-6 -->
         <div class="col-md-6">
 
         <!-- Provinsi -->
@@ -133,7 +130,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Kelurahan/Desa -->
         <div class="row">
             <div class="col-12">
@@ -158,7 +154,7 @@
 
       </div><!-- /.row -->
     
-    <div class="card-footer">
+    <div class="card-footer paddinglr0">
         <!-- Button Aktifkan -->
         <?= form_submit('','AKTIFKAN', 'class="btn btn-success btn-block"') ?>
     </div><!-- /.card-footer -->
@@ -174,9 +170,17 @@
     <!-- bs-custom-file-input -->
     <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
+    
     <script type="text/javascript">
         $(function () {
             bsCustomFileInput.init();
+            $('input[name=email]').inputmask({
+                'alias': 'email'
+            })
+            $('input[name=telephone]').inputmask({
+                'regex': String.raw`\d{11,13}`
+            })
         });
         $(function(){
             $('input:file').change(function() {

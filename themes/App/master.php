@@ -115,9 +115,9 @@
                                                 <li><a href="#">Layanan</a>
                                                     <ul class="submenu">
                                                         <li><a href="#">Zakat</a></li>
-                                                        <li><a href="#">Infaq</a></li>
-                                                        <li><a href="#">Shodaqoh</a></li>
+                                                        <li><a href="#">Infaq/Shodaqoh</a></li>
                                                         <li><a href="#">Wakaf</a></li>
+                                                        <li><a href="#">Qurban</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Program</a>
@@ -135,13 +135,19 @@
                                                         <li><a href="#">Life</a></li>
                                                     </ul>
                                                 </li>
+                                                <li><a href="#">Laporan</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="#">Keuangan</a></li>
+                                                        <li><a href="#">Pembangunan</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><a href="#kontak">Kontak</a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#" class="btn header-btn">Donasi Sekarang</a>
+                                        <a href="#" class="btn header-btn">Donasi</a>
                                     </div>
                                 </div>
                             </div> 

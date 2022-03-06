@@ -80,6 +80,30 @@ class Member extends BaseEntity
 
     /**
      * @OA\Property(
+     *     description="email",
+     *     title="email",
+     *     type="string",
+     * 	   format="-",
+     * 	   nullable=false,
+     * 	   maxLength=50,
+     * )
+     */
+    private $email;
+
+    /**
+     * @OA\Property(
+     *     description="telephone",
+     *     title="telephone",
+     *     type="string",
+     * 	   format="-",
+     * 	   nullable=false,
+     * 	   maxLength=15,
+     * )
+     */
+    private $telephone;
+
+    /**
+     * @OA\Property(
      *     description="path_logo",
      *     title="path_logo",
      *     type="string",
@@ -133,7 +157,7 @@ class Member extends BaseEntity
      * 	   nullable=false,
      * )
      */
-    private $updated_at;
+    private $updated_at;    
 }
 /**
  * @OA\RequestBody(

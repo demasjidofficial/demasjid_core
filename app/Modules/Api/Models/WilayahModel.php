@@ -19,4 +19,11 @@ class WilayahModel extends BaseModel
         'nama'  => 'max_length[70]|required',
         'level' => 'required',
     ];
+
+    public function extractWilayah($kode){
+        helper('app');
+        $this->whereIn('kode', extractWilayah($kode));
+
+        return $this;
+    }
 }
