@@ -2,14 +2,14 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; sitemenus</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  sitemenus</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; bminfaqshodaqohcategory</a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  bminfaqshodaqohcategory</h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
         <div class="alert danger">
-            This sitemenus was deleted on <?php echo $data->deleted_at->humanize(); ?>.
-            <a href="#">Restore sitemenus?</a>
+            This bminfaqshodaqohcategory was deleted on <?php echo $data->deleted_at->humanize(); ?>.
+            <a href="#">Restore bminfaqshodaqohcategory?</a>
         </div>
     <?php } ?>
 
@@ -46,29 +46,11 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('parent','',['for' => 'parent', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('description','',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('parent',$sitemenusItems ,old('parent', $data->parent ?? ''), "class='form-control select2' ") ?>
-                        <?php if (has_error('parent')) { ?>
-                        <p class="text-danger"><?php echo error('parent'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('language_id')) { ?>
-                        <p class="text-danger"><?php echo error('language_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('state','',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?>
-                        <?php if (has_error('state')) { ?>
-                        <p class="text-danger"><?php echo error('state'); ?></p>
+                        <?= form_textarea('description', old('description', $data->description ?? ''), "rows='4' class='form-control text' required") ?>
+                        <?php if (has_error('description')) { ?>
+                        <p class="text-danger"><?php echo error('description'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -84,7 +66,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> sitemenus</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> bminfaqshodaqohcategory</button>
             </div>
 
         </form>

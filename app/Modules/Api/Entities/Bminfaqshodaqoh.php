@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Sitemenus
+* Class Bminfaqshodaqoh
 * @OA\Schema(
-*     title="Sitemenus",
-*     description="Sitemenus"
+*     title="Bminfaqshodaqoh",
+*     description="Bminfaqshodaqoh"
 * )
 *
 * @OA\Tag(
-*     name="Sitemenus",
-*     description="Everything about your Sitemenus" 
+*     name="Bminfaqshodaqoh",
+*     description="Everything about your Bminfaqshodaqoh" 
 * )
 */ 
-class Sitemenus extends BaseEntity
+class Bminfaqshodaqoh extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -51,26 +51,84 @@ class Sitemenus extends BaseEntity
 	private $label;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="parent",
-	 *     title="parent",
-	 *     type="integer",
-	 * 	   format="-",	 
+	 *     description="needed_funds",
+	 *     title="needed_funds",
+	 *     type="number",
+	 * 	   format="float",	 
 	 * 	   nullable=true,
+	 * 	   maxLength=10,
 	 * )
 	 *		 
 	 */
-	private $parent;
+	private $needed_funds;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="language_id",
-	 *     title="language_id",
+	 *     description="collected_funds",
+	 *     title="collected_funds",
+	 *     type="number",
+	 * 	   format="float",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=10,
+	 * )
+	 *		 
+	 */
+	private $collected_funds;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="path_image",
+	 *     title="path_image",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $path_image;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="description",
+	 *     title="description",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * )
+	 *		 
+	 */
+	private $description;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="program_id",
+	 *     title="program_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
-	private $language_id;
+	private $program_id;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="category_id",
+	 *     title="category_id",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * )
+	 *		 
+	 */
+	private $category_id;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="donationtype_id",
+	 *     title="donationtype_id",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * )
+	 *		 
+	 */
+	private $donationtype_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="state",
@@ -120,16 +178,16 @@ class Sitemenus extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="Sitemenus",
- *     description="Sitemenus object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Sitemenus"),
+ *     request="Bminfaqshodaqoh",
+ *     description="Bminfaqshodaqoh object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Bminfaqshodaqoh"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Bminfaqshodaqoh")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Bminfaqshodaqoh")
  *     )
  * )
  */

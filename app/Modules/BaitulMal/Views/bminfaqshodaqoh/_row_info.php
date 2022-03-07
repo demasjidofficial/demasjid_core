@@ -1,7 +1,12 @@
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->label) ?></a></td>
-<td><?php echo esc($item->parent) ?></a></td>
-<td><?php echo esc($item->language_id) ?></a></td>
+<td><?php echo esc($item->needed_funds) ?></a></td>
+<td><?php echo esc($item->collected_funds) ?></a></td>
+<td><?php echo esc($item->path_image) ?></a></td>
+<td><?php echo esc($item->description) ?></a></td>
+<td><?php echo esc($item->program_id) ?></a></td>
+<td><?php echo esc($item->category_id) ?></a></td>
+<td><?php echo esc($item->donationtype_id) ?></a></td>
 <td><?php echo esc($item->state) ?></a></td>
 <td><?php echo esc($item->created_by) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">

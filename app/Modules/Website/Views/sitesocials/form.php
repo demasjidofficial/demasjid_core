@@ -2,14 +2,14 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; sitemenus</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  sitemenus</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; sitesocials</a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  sitesocials</h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
         <div class="alert danger">
-            This sitemenus was deleted on <?php echo $data->deleted_at->humanize(); ?>.
-            <a href="#">Restore sitemenus?</a>
+            This sitesocials was deleted on <?php echo $data->deleted_at->humanize(); ?>.
+            <a href="#">Restore sitesocials?</a>
         </div>
     <?php } ?>
 
@@ -37,29 +37,20 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('label','',['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('link','',['for' => 'link', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('label', old('label', $data->label ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('label')) { ?>
-                        <p class="text-danger"><?php echo error('label'); ?></p>
+                        <?= form_input('link', old('link', $data->link ?? ''), "class='form-control varchar' required") ?>
+                        <?php if (has_error('link')) { ?>
+                        <p class="text-danger"><?php echo error('link'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('parent','',['for' => 'parent', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('path_icon','',['for' => 'path_icon', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('parent',$sitemenusItems ,old('parent', $data->parent ?? ''), "class='form-control select2' ") ?>
-                        <?php if (has_error('parent')) { ?>
-                        <p class="text-danger"><?php echo error('parent'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('language_id')) { ?>
-                        <p class="text-danger"><?php echo error('language_id'); ?></p>
+                        <?= form_input('path_icon', old('path_icon', $data->path_icon ?? ''), "class='form-control varchar' ") ?>
+                        <?php if (has_error('path_icon')) { ?>
+                        <p class="text-danger"><?php echo error('path_icon'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -84,7 +75,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> sitemenus</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> sitesocials</button>
             </div>
 
         </form>

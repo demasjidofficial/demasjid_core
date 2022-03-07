@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Sitemenus
+* Class Sitesections
 * @OA\Schema(
-*     title="Sitemenus",
-*     description="Sitemenus"
+*     title="Sitesections",
+*     description="Sitesections"
 * )
 *
 * @OA\Tag(
-*     name="Sitemenus",
-*     description="Everything about your Sitemenus" 
+*     name="Sitesections",
+*     description="Everything about your Sitesections" 
 * )
 */ 
-class Sitemenus extends BaseEntity
+class Sitesections extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -27,20 +27,8 @@ class Sitemenus extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="name",
-	 *     title="name",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=128,
-	 * )
-	 *		 
-	 */
-	private $name;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="label",
-	 *     title="label",
+	 *     description="title",
+	 *     title="title",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -48,29 +36,52 @@ class Sitemenus extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $label;
+	private $title;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="parent",
-	 *     title="parent",
+	 *     description="subtitle",
+	 *     title="subtitle",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $subtitle;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="content",
+	 *     title="content",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * )
+	 *		 
+	 */
+	private $content;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="sequence",
+	 *     title="sequence",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
-	private $parent;
+	private $sequence;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="language_id",
-	 *     title="language_id",
+	 *     description="sitepage_id",
+	 *     title="sitepage_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
-	private $language_id;
+	private $sitepage_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="state",
@@ -120,16 +131,16 @@ class Sitemenus extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="Sitemenus",
- *     description="Sitemenus object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Sitemenus"),
+ *     request="Sitesections",
+ *     description="Sitesections object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Sitesections"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Sitesections")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Sitesections")
  *     )
  * )
  */

@@ -38,7 +38,7 @@
 			"Config\\": "app/Config",
 			"App\\Modules\\Masjid\\":"app/Modules/Masjid",
 			"App\\Modules\\Website\\":"app/Modules/Website",
-			"App\\Modules\\Website\\":"app/Modules/BaitulMal"
+			"App\\Modules\\BaitulMal\\":"app/Modules/BaitulMal"
 		},
 		"exclude-from-classmap": [
 			"**/Database/Migrations/**"

@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Sitemenus
+* Class Bminfaqshodaqohcategory
 * @OA\Schema(
-*     title="Sitemenus",
-*     description="Sitemenus"
+*     title="Bminfaqshodaqohcategory",
+*     description="Bminfaqshodaqohcategory"
 * )
 *
 * @OA\Tag(
-*     name="Sitemenus",
-*     description="Everything about your Sitemenus" 
+*     name="Bminfaqshodaqohcategory",
+*     description="Everything about your Bminfaqshodaqohcategory" 
 * )
 */ 
-class Sitemenus extends BaseEntity
+class Bminfaqshodaqohcategory extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -51,38 +51,15 @@ class Sitemenus extends BaseEntity
 	private $label;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="parent",
-	 *     title="parent",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * )
-	 *		 
-	 */
-	private $parent;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="language_id",
-	 *     title="language_id",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * )
-	 *		 
-	 */
-	private $language_id;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="state",
-	 *     title="state",
+	 *     description="description",
+	 *     title="description",
 	 *     type="string",
 	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=20,
+	 * 	   nullable=false,
 	 * )
 	 *		 
 	 */
-	private $state;
+	private $description;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -120,16 +97,16 @@ class Sitemenus extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="Sitemenus",
- *     description="Sitemenus object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Sitemenus"),
+ *     request="Bminfaqshodaqohcategory",
+ *     description="Bminfaqshodaqohcategory object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Bminfaqshodaqohcategory"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Bminfaqshodaqohcategory")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Bminfaqshodaqohcategory")
  *     )
  * )
  */

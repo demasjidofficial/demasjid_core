@@ -1,7 +1,8 @@
-<td><?php echo esc($item->name) ?></a></td>
-<td><?php echo esc($item->label) ?></a></td>
-<td><?php echo esc($item->parent) ?></a></td>
-<td><?php echo esc($item->language_id) ?></a></td>
+<td><?php echo esc($item->title) ?></a></td>
+<td><?php echo esc($item->subtitle) ?></a></td>
+<td><?php echo esc($item->content) ?></a></td>
+<td><?php echo esc($item->sequence) ?></a></td>
+<td><?php echo esc($item->sitepage_id) ?></a></td>
 <td><?php echo esc($item->state) ?></a></td>
 <td><?php echo esc($item->created_by) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">

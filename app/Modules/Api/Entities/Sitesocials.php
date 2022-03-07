@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Sitemenus
+* Class Sitesocials
 * @OA\Schema(
-*     title="Sitemenus",
-*     description="Sitemenus"
+*     title="Sitesocials",
+*     description="Sitesocials"
 * )
 *
 * @OA\Tag(
-*     name="Sitemenus",
-*     description="Everything about your Sitemenus" 
+*     name="Sitesocials",
+*     description="Everything about your Sitesocials" 
 * )
 */ 
-class Sitemenus extends BaseEntity
+class Sitesocials extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -32,15 +32,15 @@ class Sitemenus extends BaseEntity
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
-	 * 	   maxLength=128,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
 	private $name;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="label",
-	 *     title="label",
+	 *     description="link",
+	 *     title="link",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -48,29 +48,19 @@ class Sitemenus extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $label;
+	private $link;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="parent",
-	 *     title="parent",
-	 *     type="integer",
+	 *     description="path_icon",
+	 *     title="path_icon",
+	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
-	private $parent;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="language_id",
-	 *     title="language_id",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * )
-	 *		 
-	 */
-	private $language_id;
+	private $path_icon;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="state",
@@ -120,16 +110,16 @@ class Sitemenus extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="Sitemenus",
- *     description="Sitemenus object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Sitemenus"),
+ *     request="Sitesocials",
+ *     description="Sitesocials object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Sitesocials"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Sitesocials")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Sitesocials")
  *     )
  * )
  */

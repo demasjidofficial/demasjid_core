@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateSiteSections extends Migration
+class CreateUoM extends Migration
 {
     public function up()
     {
@@ -15,33 +15,28 @@ class CreateSiteSections extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'title' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-            ],
-            'subtitle' => [
+            'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],  
-            'content' => [
-                'type'       => 'text',
-            ],
-            'sequence' => [
-                'type'       => 'int',
-                'constraint' => 5,
-                'unsigned'   => true,
+            'code' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
                 'null'       => true,
             ],
-            'sitepage_id' => [
+            'type' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'null'       => true,
+            ],
+            'ratio' => [
+                'type'       => 'float',
+                'null'       => true,
+            ],
+            'uomcategory_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,
-            ],
-            'state' => [
-                'type'       => 'varchar',
-                'constraint' => 20,
-                'default'    => 'Draft',
                 'null'       => true,
             ],
             'created_at' => [
@@ -60,11 +55,11 @@ class CreateSiteSections extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('sitesections', true);
+        $this->forge->createTable('uom', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('sitesections', true);
+        $this->forge->dropTable('uom', true);
     }
 }

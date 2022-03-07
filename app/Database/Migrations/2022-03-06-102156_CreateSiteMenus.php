@@ -30,6 +30,18 @@ class CreateSiteMenus extends Migration
                 'unsigned'   => true,
                 'null'       => true,
             ],
+            'language_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
+            'state' => [
+                'type'       => 'varchar',
+                'constraint' => 20,
+                'default'    => 'Draft',
+                'null'       => true,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -37,6 +49,12 @@ class CreateSiteMenus extends Migration
             'updated_at' => [
                 'type' => 'datetime',
                 'null' => false,
+            ],
+            'created_by' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,   
             ],
         ]);
         $this->forge->addPrimaryKey('id');

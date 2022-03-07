@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Sitemenus
+* Class Sitepages
 * @OA\Schema(
-*     title="Sitemenus",
-*     description="Sitemenus"
+*     title="Sitepages",
+*     description="Sitepages"
 * )
 *
 * @OA\Tag(
-*     name="Sitemenus",
-*     description="Everything about your Sitemenus" 
+*     name="Sitepages",
+*     description="Everything about your Sitepages" 
 * )
 */ 
-class Sitemenus extends BaseEntity
+class Sitepages extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -27,20 +27,8 @@ class Sitemenus extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="name",
-	 *     title="name",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=128,
-	 * )
-	 *		 
-	 */
-	private $name;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="label",
-	 *     title="label",
+	 *     description="title",
+	 *     title="title",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -48,18 +36,88 @@ class Sitemenus extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $label;
+	private $title;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="parent",
-	 *     title="parent",
+	 *     description="subtitle",
+	 *     title="subtitle",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $subtitle;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="path_image",
+	 *     title="path_image",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $path_image;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="content",
+	 *     title="content",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * )
+	 *		 
+	 */
+	private $content;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="permalink",
+	 *     title="permalink",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $permalink;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="meta_title",
+	 *     title="meta_title",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $meta_title;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="meta_desc",
+	 *     title="meta_desc",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * )
+	 *		 
+	 */
+	private $meta_desc;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="sitemenu_id",
+	 *     title="sitemenu_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
-	private $parent;
+	private $sitemenu_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="language_id",
@@ -120,16 +178,16 @@ class Sitemenus extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="Sitemenus",
- *     description="Sitemenus object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Sitemenus"),
+ *     request="Sitepages",
+ *     description="Sitepages object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Sitepages"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Sitepages")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Sitemenus")
+ *         @OA\Schema(ref="#/components/schemas/Sitepages")
  *     )
  * )
  */

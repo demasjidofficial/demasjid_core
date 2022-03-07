@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateSiteSections extends Migration
+class CreateLanguages extends Migration
 {
     public function up()
     {
@@ -15,33 +15,23 @@ class CreateSiteSections extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'title' => [
+            'code' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],
-            'subtitle' => [
+            'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],  
-            'content' => [
-                'type'       => 'text',
-            ],
-            'sequence' => [
-                'type'       => 'int',
-                'constraint' => 5,
-                'unsigned'   => true,
-                'null'       => true,
-            ],
-            'sitepage_id' => [
-                'type'       => 'int',
-                'constraint' => 11,
-                'unsigned'   => true,
+            'path_icon' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
                 'null'       => true,
             ],
             'state' => [
                 'type'       => 'varchar',
                 'constraint' => 20,
-                'default'    => 'Draft',
+                'default'    => 'Active',
                 'null'       => true,
             ],
             'created_at' => [
@@ -60,11 +50,11 @@ class CreateSiteSections extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('sitesections', true);
+        $this->forge->createTable('languages', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('sitesections', true);
+        $this->forge->dropTable('languages', true);
     }
 }

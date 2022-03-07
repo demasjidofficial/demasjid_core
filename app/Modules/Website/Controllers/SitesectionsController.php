@@ -3,17 +3,17 @@
 namespace App\Modules\Website\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\SitemenusModel;
-use App\Modules\Website\Models\SitemenusFilter;
+use App\Modules\Api\Models\SitesectionsModel;
+use App\Modules\Website\Models\SitesectionsFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class SitemenusController extends AdminCrudController
+class SitesectionsController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Website\Views\sitemenus\\';
-    protected $baseRoute = 'admin/website/sitemenus';
-    protected $langModel = 'sitemenus';
-    protected $modelName = 'App\Modules\Api\Models\SitemenusModel';
+    protected $viewPrefix = 'App\Modules\Website\Views\sitesections\\';
+    protected $baseRoute = 'admin/website/sitesections';
+    protected $langModel = 'sitesections';
+    protected $modelName = 'App\Modules\Api\Models\SitesectionsModel';
     public function index(){
         return parent::index();
     }
@@ -40,13 +40,14 @@ class SitemenusController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(SitemenusFilter::class);
+        $model = model(SitesectionsFilter::class);
         return [
             'headers' => [
-                                    'name' => 'name',
-                'label' => 'label',
-                'parent' => 'parent',
-                'language_id' => 'language_id',
+                                    'title' => 'title',
+                'subtitle' => 'subtitle',
+                'content' => 'content',
+                'sequence' => 'sequence',
+                'sitepage_id' => 'sitepage_id',
                 'state' => 'state',
                 'created_by' => 'created_by'
             ],
@@ -62,7 +63,7 @@ class SitemenusController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new SitemenusModel();
+        $model = new SitesectionsModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -71,7 +72,7 @@ class SitemenusController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+        
         return $dataEdit;
     }
 }
