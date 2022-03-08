@@ -55,7 +55,9 @@ $routes->group('api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' =
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
 });
-
+$routes->get('/ind', '\App\Modules\Website\Controllers\IndController::index');
+$routes->get('/ara', '\App\Modules\Website\Controllers\AraController::index');
+$routes->get('/eng', '\App\Modules\Website\Controllers\EngController::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -8,5 +8,8 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Website\Controllers'], 
     $routes->resource('website/posts', ['controller' => 'SitepostsController']);
     $routes->resource('website/sections', ['controller' => 'SitesectionsController']);
     $routes->resource('website/socials', ['controller' => 'SitesocialsController']);    
+    $routes->resource('/ind', ['controllers' => 'IndController']);
+    $routes->resource('/ara', ['controllers' => 'AraController']);
+    $routes->resource('/eng', ['controllers' => 'EngController']);
 });
 
