@@ -28,7 +28,8 @@ $routes->setAutoRoute(false);
  * Route Definitions
  * --------------------------------------------------------------------
  */
-
+$routes->setPrioritize();
+$routes->get('{locale}', 'Home::index', ['priority' => 1]);
 // Auth routes
 $routes->get('register', '\App\Controllers\Auth\RegisterController::registerView');
 $routes->get('login', '\App\Controllers\Auth\LoginController::loginView');
@@ -41,8 +42,6 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 // route since we don't have to scan directories.
 
 //$routes->get('/', 'Home::index');
-$routes->get('/{locale}', 'Home::index');
-
 $routes->get('/activation', 'Activation::index');
 $routes->get('/qrcode', 'Activation::qrcode');
 $routes->post('/activation', 'Activation::create');
@@ -58,6 +57,7 @@ $routes->group('api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' =
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
 });
+
 //$routes->get('/id', '\App\Modules\Website\Controllers\IdController::index');
 //$routes->get('/ar', '\App\Modules\Website\Controllers\ArController::index');
 //$routes->get('/en', '\App\Modules\Website\Controllers\EnController::index');
