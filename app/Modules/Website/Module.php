@@ -24,26 +24,37 @@ class Module extends BaseModule
             'title'           => 'Menu',
             'url'             => url_to('App\Modules\Website\Controllers\SitemenusController::index'),
             'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'website.sitemenus.list',
+            'permission'      => 'website.menus.list',
         ]);
         $sitepagesItem = new MenuItem([
             'title'           => 'Halaman',
             'url'             => url_to('App\Modules\Website\Controllers\SitepagesController::index'),
             'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'website.sitepages.list',
+            'permission'      => 'website.pages.list',
         ]);
         $sitepostsItem = new MenuItem([
             'title'           => 'Pos',
             'url'             => url_to('App\Modules\Website\Controllers\SitepostsController::index'),
             'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'website.siteposts.list',
+            'permission'      => 'website.posts.list',
         ]);
         $sitesectionsItem = new MenuItem([
             'title'           => 'Section',
             'url'             => url_to('App\Modules\Website\Controllers\SitesectionsController::index'),
             'fontAwesomeIcon' => 'fas fa-maps',
-            'permission'      => 'website.sitesections.list',
+            'permission'      => 'website.sections.list',
         ]);
-        $sidebar->menu('sidebar')->collection('website')->addItem($sitemenusItem)->addItem($sitepagesItem)->addItem($sitepostsItem)->addItem($sitesectionsItem);
+        $sitesocialsItem = new MenuItem([
+            'title'           => 'Sosial Media',
+            'url'             => url_to('App\Modules\Website\Controllers\SitesocialsController::index'),
+            'fontAwesomeIcon' => 'fas fa-maps',
+            'permission'      => 'website.socials.list',
+        ]);
+        $sidebar->menu('sidebar')->collection('website')
+                                 ->addItem($sitemenusItem)
+                                 ->addItem($sitepagesItem)
+                                 ->addItem($sitepostsItem)
+                                 ->addItem($sitesectionsItem)
+                                 ->addItem($sitesocialsItem);
     }
 }

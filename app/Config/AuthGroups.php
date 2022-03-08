@@ -96,7 +96,31 @@ class AuthGroups extends ShieldGroups
         'masjid.wilayah.edit' => 'Can edit wilayah',
         'masjid.wilayah.delete' => 'Can edit wilayah',
         
+        /** module website */        
+        'website.menus.list' => 'Can view list menus on website',
+        'website.menus.create' => 'Can create menus on website',
+        'website.menus.edit' => 'Can edit menus on website',
+        'website.menus.delete' => 'Can edit menus on website',
 
+        'website.pages.list' => 'Can view list pages on website',
+        'website.pages.create' => 'Can create pages on website',
+        'website.pages.edit' => 'Can edit pages on website',
+        'website.pages.delete' => 'Can edit pages on website',
+
+        'website.posts.list' => 'Can view list posts on website',
+        'website.posts.create' => 'Can create posts on website',
+        'website.posts.edit' => 'Can edit posts on website',
+        'website.posts.delete' => 'Can edit posts on website',
+
+        'website.sections.list' => 'Can view list sections part on website',
+        'website.sections.create' => 'Can create sections part on website',
+        'website.sections.edit' => 'Can edit sections part on website',
+        'website.sections.delete' => 'Can edit sections part on website',
+
+        'website.socials.list' => 'Can view list socials on website',
+        'website.socials.create' => 'Can create socials on website',
+        'website.socials.edit' => 'Can edit socials on website',
+        'website.socials.delete' => 'Can edit socials on website',
     ];
 
     /**
