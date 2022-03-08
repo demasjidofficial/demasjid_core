@@ -28,36 +28,38 @@ $routes->setAutoRoute(false);
  * Route Definitions
  * --------------------------------------------------------------------
  */
-
+$routes->setPrioritize();
+$routes->get('{locale}', 'Home::index', ['priority' => 1]);
 // Auth routes
-$routes->get('/{locale}/register', '\App\Controllers\Auth\RegisterController::registerView');
-$routes->get('/{locale}/login', '\App\Controllers\Auth\LoginController::loginView');
-$routes->get('/{locale}/login/magic-link', '\App\Controllers\Auth\MagicLinkController::loginView', ['as' => 'magic-link']);
-$routes->post('/{locale}/login/magic-link', '\App\Controllers\Auth\MagicLinkController::loginAction');
-$routes->get('/{locale}/login/verify-magic-link', '\App\Controllers\Auth\MagicLinkController::verify', ['as' => 'verify-magic-link']);
+$routes->get('register', '\App\Controllers\Auth\RegisterController::registerView');
+$routes->get('login', '\App\Controllers\Auth\LoginController::loginView');
+$routes->get('login/magic-link', '\App\Controllers\Auth\MagicLinkController::loginView', ['as' => 'magic-link']);
+$routes->post('login/magic-link', '\App\Controllers\Auth\MagicLinkController::loginAction');
+$routes->get('login/verify-magic-link', '\App\Controllers\Auth\MagicLinkController::verify', ['as' => 'verify-magic-link']);
 service('auth')->routes($routes, ['except' => ['login', 'register']]);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
 //$routes->get('/', 'Home::index');
-$routes->get('/{locale}', 'Home::index');
 
-$routes->get('/{locale}/activation', 'Activation::index');
-$routes->get('/{locale}/qrcode', 'Activation::qrcode');
+$routes->get('/activation', 'Activation::index');
+$routes->get('/qrcode', 'Activation::qrcode');
+
 $routes->post('/activation', 'Activation::create');
 $routes->get('/swagger', 'Swagger::index');
-$routes->post('{locale}/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
-$routes->post('{locale}/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
-$routes->get('{locale}/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
-$routes->post('{locale}/api/members', '\App\Modules\Api\Controllers\Members::create');
-$routes->group('{locale}/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], static function ($routes) {
+$routes->post('/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
+$routes->post('/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
+$routes->get('/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
+$routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
+$routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], static function ($routes) {
     $routes->resource('users');
     $routes->resource('jabatans');
     $routes->resource('pengurus');
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
 });
+
 //$routes->get('/id', '\App\Modules\Website\Controllers\IdController::index');
 //$routes->get('/ar', '\App\Modules\Website\Controllers\ArController::index');
 //$routes->get('/en', '\App\Modules\Website\Controllers\EnController::index');
