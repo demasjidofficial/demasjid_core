@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Modules\Website\Controllers;
 
-class EngController extends BaseController
+use App\Controllers\BaseControllers;
+
+class EnController extends BaseController
 {
     /**
      * Displays the initial page that visitors

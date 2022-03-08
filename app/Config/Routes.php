@@ -39,7 +39,10 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+//$routes->get('/', 'Home::index');
+$routes->get('/{locale}', 'Home::index');
+
 $routes->get('/activation', 'Activation::index');
 $routes->get('/qrcode', 'Activation::qrcode');
 $routes->post('/activation', 'Activation::create');
@@ -55,9 +58,9 @@ $routes->group('api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' =
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
 });
-$routes->get('/ind', '\App\Modules\Website\Controllers\IndController::index');
-$routes->get('/ara', '\App\Modules\Website\Controllers\AraController::index');
-$routes->get('/eng', '\App\Modules\Website\Controllers\EngController::index');
+//$routes->get('/id', '\App\Modules\Website\Controllers\IdController::index');
+//$routes->get('/ar', '\App\Modules\Website\Controllers\ArController::index');
+//$routes->get('/en', '\App\Modules\Website\Controllers\EnController::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Modules\Website\Controllers;
 
-class AraController extends BaseController
+use App\Controllers\BaseControllers;
+
+class ArController extends BaseController
 {
     /**
      * Displays the initial page that visitors

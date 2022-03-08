@@ -50,8 +50,8 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left d-flex">
                                     <ul>     
-                                        <li>WA/Tlp: +62 851 6136 4811</li>
-                                        <li>Email: masjidalfurqonsby@demasjid.com</li>
+                                        <li><?= lang('app.phone')?>: +62 851 6136 4811</li>
+                                        <li><?= lang('app.email')?>: masjidalfurqonsby@demasjid.com</li>
                                     </ul>
                                     <div class="header-social">    
                                         <ul>
@@ -66,10 +66,10 @@
                                     <div class="select-this">
                                         <form action="#">
                                             <div class="select-itms">
-                                                <select name="select" id="select1">
-                                                    <option value="">Indonesia</option>
-                                                    <option value="">Arabic</option>
-                                                    <option value="">English</option>
+                                                <select name="select" id="select-lang">
+                                                    <option value="/id"><?= lang('app.indonesia')?></option>
+                                                    <option value="/sa"><?= lang('app.arab')?></option>
+                                                    <option value="/en"><?= lang('app.english')?></option>
                                                 </select>
                                             </div>
                                         </form>
@@ -77,9 +77,9 @@
                                     <ul class="contact-now">    
                                     <li>
                                         <?php if (auth()->loggedIn()) : ?>
-                                        <a href="/logout" >LOGOUT</a>
+                                        <a href="/logout" ><?= strtoupper(lang('app.logout'))?></a>
                                         <?php else : ?>
-                                        <a href="/login">LOGIN</a>
+                                        <a href="/login"><?= strtoupper(lang('app.login'))?></a>
                                         <?php endif ?>
                                     </li>
                                     </ul>
@@ -103,51 +103,51 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">                                                                                          
-                                                <li><a href="/">Beranda</a></li>
-                                                <li><a href="#">Tentang</a>
+                                                <li><a href="/"><?= lang('app.home')?></a></li>
+                                                <li><a href="#"><?= lang('app.about')?></a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Visi & Misi</a></li>
-                                                        <li><a href="#">Struktur</a></li>
-                                                        <li><a href="#">Pengurus</a></li>
-                                                        <li><a href="#">Pembina</a></li>
+                                                        <li><a href="#"><?= lang('app.vision_mission')?></a></li>
+                                                        <li><a href="#"><?= lang('app.structure')?></a></li>
+                                                        <li><a href="#"><?= lang('app.commitee')?></a></li>
+                                                        <li><a href="#"><?= lang('app.erector')?></a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Layanan</a>
+                                                <li><a href="#"><?= lang('app.services')?></a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Zakat</a></li>
-                                                        <li><a href="#">Infaq/Shodaqoh</a></li>
-                                                        <li><a href="#">Wakaf</a></li>
-                                                        <li><a href="#">Qurban</a></li>
+                                                        <li><a href="#"><?= lang('app.zakat')?></a></li>
+                                                        <li><a href="#"><?= lang('app.infaqshodaqoh')?></a></li>
+                                                        <li><a href="#"><?= lang('app.wakaf')?></a></li>
+                                                        <li><a href="#"><?= lang('app.qurban')?></a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Program</a>
+                                                <li><a href="#"><?= lang('app.program')?></a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Kajian</a></li>
-                                                        <li><a href="#">Pesantren</a></li>
-                                                        <li><a href="#">TPQ/TPA</a></li>
+                                                        <li><a href="#"><?= lang('app.kajian')?></a></li>
+                                                        <li><a href="#"><?= lang('app.pesantren')?></a></li>
+                                                        <li><a href="#"><?= lang('app.tpq')?></a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Muamalah</a>
+                                                <li><a href="#"><?= lang('app.muamalah')?></a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Room</a></li>
-                                                        <li><a href="#">Net</a></li>
-                                                        <li><a href="#">Share</a></li>
-                                                        <li><a href="#">Life</a></li>
+                                                        <li><a href="#"><?= lang('app.room')?></a></li>
+                                                        <li><a href="#"><?= lang('app.net')?></a></li>
+                                                        <li><a href="#"><?= lang('app.share')?></a></li>
+                                                        <li><a href="#"><?= lang('app.life')?></a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Laporan</a>
+                                                <li><a href="#"><?= lang('app.reports')?></a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Keuangan</a></li>
-                                                        <li><a href="#">Pembangunan</a></li>
+                                                        <li><a href="#"><?= lang('app.finance_reports')?></a></li>
+                                                        <li><a href="#"><?= lang('app.construction_reports')?></a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#kontak">Kontak</a></li>
+                                                <li><a href="#kontak"><?= lang('app.contact')?></a></li>
                                             </ul>
                                         </nav>
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#" class="btn header-btn">Donasi</a>
+                                        <a href="#" class="btn header-btn"><?= lang('app.donation')?></a>
                                     </div>
                                 </div>
                             </div> 
@@ -192,13 +192,13 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Info Kontak</h4>
+                                    <h4><?= lang('app.contact_info')?></h4>
                                     <ul>
                                         <li>
-                                            <p>Alamat :<br/>Jl. Teuku Imam Bonjol 99 Surabaya 60299</p>
+                                            <p><?= lang('app.alamat')?> :<br/>Jl. Teuku Imam Bonjol 99 Surabaya 60299</p>
                                         </li>
-                                        <li><a href="#">WA/Tlp : <br/>+62 851 6136 4811</a></li>
-                                        <li><a href="#">Email : <br/>masjidalfurqonsby@demasjid.com</a></li>
+                                        <li><a href="#"><?= lang('app.phone')?> : <br/>+62 851 6136 4811</a></li>
+                                        <li><a href="#"><?= lang('app.email')?> : <br/>masjidalfurqonsby@demasjid.com</a></li>
                                     </ul>
                                 </div>
 
@@ -207,10 +207,10 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Tautan Penting</h4>
+                                    <h4><?= lang('app.important_link')?></h4>
                                     <ul>
-                                        <li><a href="#">Artikel</a></li>
-                                        <li><a href="#">Agenda</a></li>
+                                        <li><a href="#"><?= lang('app.article')?></a></li>
+                                        <li><a href="#"><?= lang('app.agenda')?></a></li>
                                         <li><a href="#">Camp</a></li>
                                         <li><a href="#">Care</a></li>
                                         <li><a href="#">FAQ</a></li>
@@ -222,16 +222,16 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Buletin DeMasjid</h4>
+                                    <h4><?= lang('app.buletin')?> DeMasjid</h4>
                                     <div class="footer-pera footer-pera2">
-                                    <p>Dapatkan informasi terbaru layanan & pengembangan DeMasjid.</p>
+                                    <p><?= lang('app.buletin_desc')?></p>
                                 </div>
                                 <!-- Form -->
                                 <div class="footer-form" >
                                     <div id="mc_embed_signup">
-                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                        <form target="_blank" action=""
                                         method="get" class="subscribe_form relative mail_part">
-                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                            <input type="email" name="email" id="newsletter-form-email" placeholder="<?= lang('app.email_address')?>"
                                             class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
@@ -256,7 +256,7 @@
                             <div class="col-xl-8 col-lg-8 ">
                                 <div class="footer-copy-right">
                                     <p>
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Dikembangkan oleh <a href="<?= prep_url('https://demasjid.com') ?>" target="_blank">Demasjid Team</a>
+                                    <?= lang('app.copyright')?> &copy;<script>document.write(new Date().getFullYear());</script>. <?= lang('app.developedby')?> <a href="<?= prep_url('https://demasjid.com') ?>" target="_blank">Demasjid Team</a>
                                     </p>
                                 </div>
                             </div>
@@ -325,6 +325,17 @@
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/main.js', 'js') ?>
 
+    <script type="text/javascript">
+        $(function(){
+            $('#select-lang').on('change', function(){
+                var lang = $(this).val();
+                if(lang){
+                    window.location = lang;
+                }
+                return false;
+            })
+        })
+    </script>
     <?= $this->renderSection('scripts') ?>
 </body>
 </html>
