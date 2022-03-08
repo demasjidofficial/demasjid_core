@@ -79,7 +79,6 @@ class CreateInfaqShodaqoh extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        //$this->forge->addForeignKey('category_id', 'bminfaqshodaqohcategory', 'id');
         $this->forge->createTable('bminfaqshodaqoh', true);
     }
 

@@ -86,6 +86,10 @@ class Bonfire
             ->createCollection('masjid', 'Masjid')
             ->setFontAwesomeIcon('nav-icon fas fa-home')
             ->setCollapsible();
+            $menus->menu('sidebar')
+            ->createCollection('website', 'Website')
+            ->setFontAwesomeIcon('nav-icon fas fa-globe')
+            ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
             ->setFontAwesomeIcon('nav-icon fas fa-palette');
@@ -97,6 +101,7 @@ class Bonfire
             ->createCollection('tools', 'Alat')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
+	
         
 
         // Top "icon" menu for notifications, account, etc.

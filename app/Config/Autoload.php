@@ -57,7 +57,6 @@ class Autoload extends AutoloadConfig
         'Bonfire\Widgets'  => ROOTPATH . 'bonfire/Modules/Widgets',
         'Themes'           => ROOTPATH . 'themes',
         'App\Modules\Pesantren' => ROOTPATH . 'app/Modules/Pesantren',
-        'App\Modules\Pesantren' => ROOTPATH . 'app/Modules/BaitulMal',
     ];
 
     /**
