@@ -12,7 +12,16 @@ class Home extends BaseController
      */
     public function index()
     {
-        //return $this->render('welcome_message');
+        return $this->render('website_home');
+    }
+
+    public function p()
+    {
+        return $this->render('page_donasi');
+    }
+
+    public function b()
+    {
         return $this->render('website_home');
     }
 }

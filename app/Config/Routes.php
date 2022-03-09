@@ -60,9 +60,10 @@ $routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' 
     $routes->resource('members',['except' => ['create']]);
 });
 
-//$routes->get('/id', '\App\Modules\Website\Controllers\IdController::index');
-//$routes->get('/ar', '\App\Modules\Website\Controllers\ArController::index');
-//$routes->get('/en', '\App\Modules\Website\Controllers\EnController::index');
+//$routes->get('/ws', '\App\Modules\Website\Controllers\WsController::index'); // belum berfungsi!
+
+$routes->get('{locale}(:any)', 'Home::index/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
