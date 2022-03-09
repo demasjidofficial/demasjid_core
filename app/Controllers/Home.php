@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\HTTP\Response;
+
 class Home extends BaseController
 {
     /**
@@ -10,9 +12,26 @@ class Home extends BaseController
      *
      * @return string
      */
-    public function index()
+    public function index($page = null)
     {
-        //return $this->render('welcome_message');
-        return $this->render('website_home');
+        switch($page){
+            case 'ws':
+                return $this->ws();
+                break;
+            case 'donasi':
+                return $this->donasi();
+                break;
+            default:
+            return $this->render('website_home');    
+        }        
+    }
+
+    private function ws(){
+
+        return 'ws';
+    }
+
+    private function donasi(){
+        return 'donasi';
     }
 }

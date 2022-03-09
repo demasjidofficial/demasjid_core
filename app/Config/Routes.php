@@ -29,7 +29,10 @@ $routes->setAutoRoute(false);
  * --------------------------------------------------------------------
  */
 $routes->setPrioritize();
-$routes->get('{locale}', 'Home::index', ['priority' => 1]);
+$routes->addRedirect('/', '/id');
+$routes->get('{locale}', 'Home::index', ['priority' => 1]); 
+$routes->get('{locale}/(:segment)', 'Home::index/$1', ['priority' => 1]); 
+
 // Auth routes
 $routes->get('register', '\App\Controllers\Auth\RegisterController::registerView');
 $routes->get('login', '\App\Controllers\Auth\LoginController::loginView');
