@@ -32,14 +32,9 @@
     <!-- flags -->
     <?= asset_link('admin/theme-adminlte/plugins/flag-icon-css/css/flag-icon-min.css', 'css') ?>
 
-    <!--    
-    < ?= asset_link('admin/css/admin.css', 'css') ?>
-    < ?= asset_link('other/components/font-awesome/css/all.css', 'css') ?>
-    -->
-
     <?= $this->renderSection('styles') ?>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -63,12 +58,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Dasbor</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="#">Admin</a></li>
+              <li class="breadcrumb-item active">Dasbor</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -85,10 +80,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <!-- Sidebar Control -->
-  <!--?= $this->include('_sidebar_control') ?-->
-  <!-- /Sidebar Control -->
 
   <!-- Footer -->
   <?= $this->include('_footer') ?>
@@ -113,8 +104,6 @@ document.body.addEventListener('htmx:configRequest', (event) => {
 </script>
 <!-- Bootstrap 4 -->
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js', 'js') ?>
-<!-- ChartJS -->
-<?= asset_link('admin/theme-adminlte/plugins/chart.js/Chart.min.js', 'js') ?>
 <!-- Sparkline -->
 <?= asset_link('admin/theme-adminlte/plugins/sparklines/sparkline.js', 'js') ?>
 <!-- JQVMap -->
@@ -133,12 +122,6 @@ document.body.addEventListener('htmx:configRequest', (event) => {
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
-
-<!-- AdminLTE for demo purposes --
-<script src="assets/admin/theme-adminlte/adminlte-demo.js"></script>
-< !-- AdminLTE dashboard demo (This is only for demo purposes) --
-<script src="assets/admin/theme-adminlte/adminlte-dashboard.js"></script>
--->
 
 <?= $this->renderSection('scripts') ?>
 </body>

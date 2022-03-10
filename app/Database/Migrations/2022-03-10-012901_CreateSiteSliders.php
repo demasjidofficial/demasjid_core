@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateLanguages extends Migration
+class CreateSiteSliders extends Migration
 {
     public function up()
     {
@@ -15,30 +15,41 @@ class CreateLanguages extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'code' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-            ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
-            'path_icon' => [
+            ],
+            'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
+                'null'       => true,
+            ],
+            'content' => [
+                'type'       => 'text',
+            ],
+            'sequence' => [
+                'type'       => 'int',
+                'constraint' => 2,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
+            'sitepage_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
+            ],
+            'language_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
                 'null'       => true,
             ],
             'state' => [
                 'type'       => 'varchar',
                 'constraint' => 20,
-                'default'    => 'active',
+                'default'    => 'Draft',
                 'null'       => true,
-            ],
-            'is_default' => [
-                'type'       => 'int',
-                'constraint' => 1,
-                'unsigned'   => true,
-                'null'       => true,   
             ],
             'created_at' => [
                 'type'       => 'datetime',
@@ -56,11 +67,11 @@ class CreateLanguages extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('languages', true);
+        $this->forge->createTable('sitesliders', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('languages', true);
+        $this->forge->dropTable('sitesliders', true);
     }
 }

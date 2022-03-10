@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\HTTP\Response;
+
 class Home extends BaseController
 {
     /**
@@ -10,18 +12,57 @@ class Home extends BaseController
      *
      * @return string
      */
-    public function index()
+
+    public function index($page = null)
     {
-        return $this->render('website_home');
+	    switch($page){
+            case 'p':
+                return $this->p();
+                break;
+            case 'ws':
+                return $this->ws();
+                break;
+            case 'donasi':
+                return $this->donasi();
+                break;
+            case 'b':
+                return $this->b();
+                break;
+            case $page:
+                return $page;
+                break;
+            default:
+                return $this->render('website_home');    
+        }        
     }
 
+    /**
+     * Method for Pages Feature
+     */
     public function p()
     {
-        return $this->render('page_donasi');
+        $path = $this->request->getGet('path');
+        $data['path'] = $path;
+        return $this->render('App\Modules\Website\Views\page_donasi', $data);
     }
 
-    public function b()
+    /**
+     * Method for Posts/Blogs Feature
+     */
+    private function b()
     {
-        return $this->render('website_home');
+        $path = $this->request->getGet('path');
+        return $path;
     }
+
+    private function ws()
+    {
+        return 'ws';
+    }
+
+    private function donasi()
+    {
+        return 'donasi';
+    }
+    
 }
