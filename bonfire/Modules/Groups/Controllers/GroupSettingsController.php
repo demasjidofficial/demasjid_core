@@ -138,6 +138,7 @@ class GroupSettingsController extends AdminController
     {
         $groups = new Groups();
         $group  = $groups->info($group);
+        
         if ($group === null) {
             return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', ['user group']));
         }

@@ -33,7 +33,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/app/theme-charityworks/img/logo/loder.png" alt="">
+                    <img src="/assets/app/theme-charityworks/img/logo/loder.png" alt="">
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="#"><img src="assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
+                                    <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -183,7 +183,7 @@
                             <div class="single-footer-caption mb-30">
                                 <div class="footer-tittle">
                                     <div class="footer-logo mb-20">
-                                        <a href="#"><img src="assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +236,7 @@
                                             onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
                                                 <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm"><img src="assets/app/theme-charityworks/img/gallery/form.png" alt=""></button>
+                                                class="email_icon newsletter-submit button-contactForm"><img src="/assets/app/theme-charityworks/img/gallery/form.png" alt=""></button>
                                             </div>
                                             <div class="mt-10 info"></div>
                                         </form>

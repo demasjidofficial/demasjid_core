@@ -31,7 +31,7 @@
     <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
     <!-- flags -->
     <?= asset_link('admin/theme-adminlte/plugins/flag-icon-css/css/flag-icon-min.css', 'css') ?>
-
+    <?= asset_link('admin/css/admin-demasjid.css', 'css') ?>
     <!--    
     < ?= asset_link('admin/css/admin.css', 'css') ?>
     < ?= asset_link('other/components/font-awesome/css/all.css', 'css') ?>
@@ -44,7 +44,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="assets/admin/images/spinner.gif" alt="" height="60" width="60">
+    <img class="animation__shake" src="/assets/admin/images/spinner.gif" alt="" height="60" width="60">
   </div>
 
   <!-- Header -->
@@ -96,13 +96,6 @@
 
 </div><!--/.wrapper-->
 
-<script>
-document.body.addEventListener('htmx:configRequest', (event) => {
-  event.detail.headers['<?= csrf_header() ?>'] = '<?= csrf_hash() ?>';
-})
-</script>
-
-
 <!-- jQuery -->
 <?= asset_link('admin/theme-adminlte/plugins/jquery/jquery-min.js', 'js') ?>
 <!-- jQuery UI 1.11.4 -->
@@ -133,13 +126,18 @@ document.body.addEventListener('htmx:configRequest', (event) => {
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
-
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.7.0"></script>
 <!-- AdminLTE for demo purposes --
-<script src="assets/admin/theme-adminlte/adminlte-demo.js"></script>
+<script src="/assets/admin/theme-adminlte/adminlte-demo.js"></script>
 < !-- AdminLTE dashboard demo (This is only for demo purposes) --
-<script src="assets/admin/theme-adminlte/adminlte-dashboard.js"></script>
+<script src="/assets/admin/theme-adminlte/adminlte-dashboard.js"></script>
 -->
-
+<script>
+document.body.addEventListener('htmx:configRequest', (event) => {
+  event.detail.headers['<?= csrf_header() ?>'] = '<?= csrf_hash() ?>';
+})
+</script>
 <?= $this->renderSection('scripts') ?>
 </body>
 </html>

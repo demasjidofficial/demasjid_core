@@ -85,24 +85,27 @@ class Bonfire
         $menus->menu('sidebar')
             ->createCollection('masjid', 'Masjid')
             ->setFontAwesomeIcon('nav-icon fas fa-home')
-            ->setCollapsible();
-            $menus->menu('sidebar')
+            ->setCollapsible()
+        ;
+        $menus->menu('sidebar')
             ->createCollection('website', 'Website')
             ->setFontAwesomeIcon('nav-icon fas fa-globe')
-            ->setCollapsible();
+            ->setCollapsible()
+            ;
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
-            ->setFontAwesomeIcon('nav-icon fas fa-palette');
+            ->setFontAwesomeIcon('nav-icon fas fa-palette')
+        ;        
         $menus->menu('sidebar')
-            ->createCollection('settings', 'Pengaturan')
-            ->setFontAwesomeIcon('nav-icon fas fa-cog')
+            ->createCollection('content', 'Content');
+        $menus->menu('sidebar')
+            ->createCollection('settings', 'Settings')
+            ->setFontAwesomeIcon('fas fa-cog')
             ->setCollapsible();
         $menus->menu('sidebar')
-            ->createCollection('tools', 'Alat')
-            ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
+            ->createCollection('tools', 'Tools')
+            ->setFontAwesomeIcon('fas fa-toolbox')
             ->setCollapsible();
-	
-        
 
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');
@@ -174,20 +177,18 @@ class Bonfire
         }
     }
 
-    private function getAppModules()
-    {
+    private function getAppModules(){
         $modules = [];
-        $map     = directory_map(APPPATH . 'Modules', 1);
+        $map = directory_map(APPPATH . 'Modules', 1);
 
-        foreach ($map as $row) {
-            if (substr($row, -1) !== DIRECTORY_SEPARATOR) {
-                continue;
+            foreach ($map as $row) {
+                if (substr($row, -1) !== DIRECTORY_SEPARATOR) {
+                    continue;
+                }
+
+                $name                                 = trim($row, DIRECTORY_SEPARATOR);
+                $modules["App\\Modules\\{$name}"] = APPPATH . "Modules/{$name}";
             }
-
-            $name                             = trim($row, DIRECTORY_SEPARATOR);
-            $modules["App\\Modules\\{$name}"] = APPPATH . "Modules/{$name}";
-        }
-
         return $modules;
     }
 }

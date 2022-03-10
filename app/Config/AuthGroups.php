@@ -59,6 +59,7 @@ class AuthGroups extends ShieldGroups
         'admin.access'        => 'Can access the sites admin area',
         'admin.settings'      => 'Can access the main site settings',
         'groups.settings'     => 'Can edit existing user groups',
+        'groups.edit'         => 'Can edit existing user groups',
         'users.list'          => 'Can view a list of users in the system',
         'users.manage-admins' => 'Can manage other admins',
         'users.view'          => 'Can view user details',
@@ -74,7 +75,7 @@ class AuthGroups extends ShieldGroups
         'widgets.settings'    => 'Can view the settings for site Widgets',
         'consent.settings'    => 'Can view the settings for the Consent module',
         'recycler.view'       => 'Can view the Recycler area',
-
+        
         /** module masjid */        
         'masjid.member.list' => 'Can view list member',
         'masjid.member.create' => 'Can create member',
@@ -140,6 +141,7 @@ class AuthGroups extends ShieldGroups
             'consent.*',
             'recycler.*',
             'masjid.*',
+            'website.*'            
         ],
         'admin' => [
             'admin.access',

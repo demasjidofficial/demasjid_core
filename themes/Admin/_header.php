@@ -77,7 +77,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 mr-3 img-circle">
+              <img src="/assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Usman
@@ -93,7 +93,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
+              <img src="/assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Ahmad
@@ -109,7 +109,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
+              <img src="/assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Khalid

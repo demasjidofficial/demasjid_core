@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/<?= ADMIN_AREA ?>" class="brand-link">
-      <img src="assets/admin/images/demasjid-logo-icon.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="/assets/admin/images/demasjid-logo-icon.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">
           <?= setting('App.siteName') ?? 'Demasjid' ?> Panel
       </span>
@@ -12,7 +12,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="assets/admin/images/user.png" class="img-circle elevation-2" alt="">
+          <img src="/assets/admin/images/user.png" class="img-circle elevation-2" alt="">
         </div>
         <div class="info">
           <a href="/<?= ADMIN_AREA ?>/users/<?= auth()->id() ?>" class="d-block">
