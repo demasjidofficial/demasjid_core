@@ -26,10 +26,7 @@ class Home extends BaseController
                 return $this->donasi();
                 break;
             case 'b':
-                return $this->b();
-                break;
-            case $page:
-                return $page;
+                return $this->b();                            
                 break;
             default:
                 return $this->render('website_home');    
