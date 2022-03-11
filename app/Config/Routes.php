@@ -44,26 +44,30 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-//$routes->get('/', 'Home::index');
 $routes->get('/activation', 'Activation::index');
 $routes->get('/qrcode', 'Activation::qrcode');
 $routes->post('/activation', 'Activation::create');
 $routes->get('/swagger', 'Swagger::index');
-$routes->post('api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
-$routes->post('api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
-$routes->get('api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
-$routes->post('api/members', '\App\Modules\Api\Controllers\Members::create');
-$routes->group('api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], static function ($routes) {
+$routes->post('/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
+$routes->post('/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
+$routes->get('/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
+$routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
+$routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], 
+static function ($routes) {
     $routes->resource('users');
     $routes->resource('jabatans');
     $routes->resource('pengurus');
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
+    //$routes->resource('menus');
+    //$routes->resource('pages');
+    //$routes->resource('posts');
+    //$routes->resource('sections');
+    //$routes->resource('sliders');
+    //$routes->resource('socials');
 });
 
-//$routes->get('/id', '\App\Modules\Website\Controllers\IdController::index');
-//$routes->get('/ar', '\App\Modules\Website\Controllers\ArController::index');
-//$routes->get('/en', '\App\Modules\Website\Controllers\EnController::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

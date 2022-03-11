@@ -118,6 +118,11 @@ class AuthGroups extends ShieldGroups
         'website.sections.edit' => 'Can edit sections part on website',
         'website.sections.delete' => 'Can edit sections part on website',
 
+        'website.sliders.list' => 'Can view list sliders on website',
+        'website.sliders.create' => 'Can create sliders on website',
+        'website.sliders.edit' => 'Can edit sliders on website',
+        'website.sliders.delete' => 'Can edit sliders on website',
+
         'website.socials.list' => 'Can view list socials on website',
         'website.socials.create' => 'Can create socials on website',
         'website.socials.edit' => 'Can edit socials on website',

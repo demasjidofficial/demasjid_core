@@ -33,7 +33,7 @@ class Module extends BaseModule
             'permission'      => 'website.pages.list',
         ]);
         $sitepostsItem = new MenuItem([
-            'title'           => 'Pos',
+            'title'           => 'Posting',
             'url'             => url_to('App\Modules\Website\Controllers\SitepostsController::index'),
             'fontAwesomeIcon' => 'fas fa-users',
             'permission'      => 'website.posts.list',
@@ -43,6 +43,12 @@ class Module extends BaseModule
             'url'             => url_to('App\Modules\Website\Controllers\SitesectionsController::index'),
             'fontAwesomeIcon' => 'fas fa-maps',
             'permission'      => 'website.sections.list',
+        ]);
+        $siteslidersItem = new MenuItem([
+            'title'           => 'Slide',
+            'url'             => url_to('App\Modules\Website\Controllers\SiteslidersController::index'),
+            'fontAwesomeIcon' => 'fas fa-maps',
+            //'permission'      => 'website.sliders.list',
         ]);
         $sitesocialsItem = new MenuItem([
             'title'           => 'Sosial Media',
@@ -55,6 +61,7 @@ class Module extends BaseModule
                                  ->addItem($sitepagesItem)
                                  ->addItem($sitepostsItem)
                                  ->addItem($sitesectionsItem)
+                                 ->addItem($siteslidersItem)
                                  ->addItem($sitesocialsItem);
     }
 }

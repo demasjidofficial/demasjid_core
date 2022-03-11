@@ -2,9 +2,9 @@
 
 namespace App\Modules\Website\Controllers;
 
-use App\Controllers\BaseControllers;
+//use App\Controllers\BaseController;
 
-class ArController extends BaseController
+class WsController extends BaseController
 {
     /**
      * Displays the initial page that visitors
@@ -12,10 +12,9 @@ class ArController extends BaseController
      *
      * @return string
      */
-    protected $lang = "ar";
-
     public function index()
     {
+        //return $this->render('welcome_message');
         return $this->render('page_donasi');
     }
 }
