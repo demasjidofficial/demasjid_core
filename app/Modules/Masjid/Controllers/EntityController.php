@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Modules\Website\Controllers;
+namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\SitemenusModel;
-use App\Modules\Website\Models\SitemenusFilter;
+use App\Modules\Api\Models\EntityModel;
+use App\Modules\Masjid\Models\EntityFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class SitemenusController extends AdminCrudController
+class EntityController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Website\Views\sitemenus\\';
-    protected $baseRoute = 'admin/website/sitemenus';
-    protected $langModel = 'sitemenus';
-    protected $modelName = 'App\Modules\Api\Models\SitemenusModel';
+    protected $viewPrefix = 'App\Modules\Masjid\Views\entity\\';
+    protected $baseRoute = 'admin/masjid/entity';
+    protected $langModel = 'entity';
+    protected $modelName = 'App\Modules\Api\Models\EntityModel';
     public function index(){
         return parent::index();
     }
@@ -40,14 +40,11 @@ class SitemenusController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(SitemenusFilter::class);
+        $model = model(EntityFilter::class);
         return [
             'headers' => [
-                'name' => 'name',
-                'label' => 'label',
-                'parent' => 'parent',
-                'language_id' => 'language_id',
-                'state' => 'state',
+                                    'name' => 'name',
+                'type' => 'type',
                 'created_by' => 'created_by'
             ],
             'controller' => $this->getBaseController(),
@@ -62,7 +59,7 @@ class SitemenusController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new SitemenusModel();
+        $model = new EntityModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -71,7 +68,8 @@ class SitemenusController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['typeItems'] = EntityModel::TYPE;
+        
         return $dataEdit;
     }
 }

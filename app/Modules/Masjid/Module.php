@@ -44,6 +44,33 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-maps',
             'permission'      => 'masjid.wilayah.list',
         ]);
-        $sidebar->menu('sidebar')->collection('masjid')->addItem($jabatanItem)->addItem($pengurusItem)->addItem($memberItem)->addItem($wilayahItem);
+
+        $entityItem = new MenuItem([
+            'title'           => 'Entity / Organisasi',
+            'url'             => url_to('App\Modules\Masjid\Controllers\EntityController::index'),
+            'fontAwesomeIcon' => 'fas fa-books',
+            //'permission'      => 'masjid.entity.list',
+        ]);
+
+        $accountBalanceItem = new MenuItem([
+            'title'           => 'Master Kas',
+            'url'             => url_to('App\Modules\Masjid\Controllers\AccountBalanceController::index'),
+            'fontAwesomeIcon' => 'fas fa-books',
+            //'permission'      => 'masjid.account_balance.list',
+        ]);
+        $balanceItem = new MenuItem([
+            'title'           => 'Kas',
+            'url'             => url_to('App\Modules\Masjid\Controllers\BalanceController::index'),
+            'fontAwesomeIcon' => 'fas fa-money',
+            //'permission'      => 'masjid.balance.list',
+        ]);
+        $sidebar->menu('sidebar')->collection('masjid')
+            ->addItem($jabatanItem)
+            ->addItem($pengurusItem)
+            ->addItem($memberItem)
+            ->addItem($wilayahItem)
+            ->addItem($entityItem)
+            ->addItem($accountBalanceItem)
+            ->addItem($balanceItem);
     }
 }

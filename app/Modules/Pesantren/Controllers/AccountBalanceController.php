@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Modules\Website\Controllers;
+namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\SitemenusModel;
-use App\Modules\Website\Models\SitemenusFilter;
+use App\Modules\Api\Models\AccountBalanceModel;
+use App\Modules\Pesantren\Models\AccountBalanceFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class SitemenusController extends AdminCrudController
+class AccountBalanceController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Website\Views\sitemenus\\';
-    protected $baseRoute = 'admin/website/sitemenus';
-    protected $langModel = 'sitemenus';
-    protected $modelName = 'App\Modules\Api\Models\SitemenusModel';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\account_balance\\';
+    protected $baseRoute = 'admin/pesantren/accountbalance';
+    protected $langModel = 'account_balance';
+    protected $modelName = 'App\Modules\Api\Models\AccountBalanceModel';
     public function index(){
         return parent::index();
     }
@@ -40,14 +40,12 @@ class SitemenusController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(SitemenusFilter::class);
+        $model = model(AccountBalanceFilter::class);
         return [
             'headers' => [
-                'name' => 'name',
-                'label' => 'label',
-                'parent' => 'parent',
-                'language_id' => 'language_id',
-                'state' => 'state',
+                                    'name' => 'name',
+                'account' => 'account',
+                'entity_id' => 'entity_id',
                 'created_by' => 'created_by'
             ],
             'controller' => $this->getBaseController(),
@@ -62,7 +60,7 @@ class SitemenusController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new SitemenusModel();
+        $model = new AccountBalanceModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -71,7 +69,7 @@ class SitemenusController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

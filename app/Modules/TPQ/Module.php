@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Pesantren;
+namespace App\Modules\TPQ;
 
 use App\Config\BaseModule;
 use Bonfire\Libraries\Menus\MenuItem;
@@ -20,20 +20,19 @@ class Module extends BaseModule
         $sidebar = service('menus');
 
         // Content Menu for sidebar
-        // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
             'title'           => 'Master Kas',
-            'url'             => url_to('App\Modules\Pesantren\Controllers\AccountBalanceController::index'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-books',
-            'permission'      => 'pesantren.account_balance.list',
+            'permission'      => 'tpq.account_balance.list',
         ]);
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
-            'url'             => url_to('App\Modules\Pesantren\Controllers\BalanceController::index'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\BalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-money',
-            'permission'      => 'pesantren.balance.list',
+            'permission'      => 'tpq.balance.list',
         ]);
         
-        $sidebar->menu('sidebar')->collection('pesantren')->addItem($accountBalanceItem)->addItem($balanceItem);
+        $sidebar->menu('sidebar')->collection('tpq')->addItem($accountBalanceItem)->addItem($balanceItem);
     }
 }
