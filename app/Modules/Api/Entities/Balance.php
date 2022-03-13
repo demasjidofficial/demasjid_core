@@ -117,7 +117,9 @@ class Balance extends BaseEntity
 	protected $datamap = [
         'created_name' => 'full_name',
     ];
-
+	protected $casts = [
+        'transaction_date'        => 'datetime'        
+    ];
 	public function getFullName(){
 
         return $this->first_name.' '.$this->last_name;

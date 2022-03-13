@@ -8,6 +8,8 @@ class BalanceModel extends BaseModel
     protected $returnType = 'App\Modules\Api\Entities\Balance';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
+	protected $beforeInsert = ['createdBy', 'clearAmountFormat'];
+	protected $beforeUpdate = ['clearAmountFormat'];
     protected $allowedFields = [
         'account_balance_id',		
 		'description',
@@ -18,17 +20,28 @@ class BalanceModel extends BaseModel
 		'updated_at',
 		'created_by'
     ];
+	
     protected $validationRules = [
         'id' => 'numeric|required|is_unique[balance.id,id,{id}]',
 		'account_balance_id' => 'numeric|required',		
 		'description' => 'max_length[200]|required',
 		'type' => 'string|required',		
-		'amount' => 'numeric|required',
+		'amount' => 'required',
 		'transaction_date' => 'valid_date|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric'
     ];   
+
+	protected function clearAmountFormat(array $data)
+    {
+        
+        if (isset($data['data']['amount'])) {
+            $data['data']['amount'] = str_replace('.', '', $data['data']['amount']);
+        }        
+
+        return $data;
+    }
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {

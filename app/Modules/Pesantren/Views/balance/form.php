@@ -30,7 +30,7 @@
                 <div class="row mb-3">
                     <?= form_label('transaction_date','',['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('transaction_date', old('transaction_date', $data->transaction_date ?? ''), "class='form-control date' required") ?>
+                        <?= form_input('transaction_date', old('transaction_date', $data->transaction_date ?? ''), "class='form-control date' required readonly") ?>
                         <?php if (has_error('transaction_date')) { ?>
                         <p class="text-danger"><?php echo error('transaction_date'); ?></p>
                         <?php } ?>
@@ -105,10 +105,17 @@
             $('input[name=transaction_date]').daterangepicker({
                 "singleDatePicker": true,
                 "autoApply": true,
+                "locale": {
+                    "format": 'YYYY-MM-DD'
+                }                
             });
             $('input[name=amount]').inputmask({
-                'alias': 'numeric'
-            })            
+                'alias': 'numeric',
+                'groupSeparator': '.',
+                'radixPoint': ',',
+                'digits': 0, 
+                'autoGroup': true
+            })
         });            
     </script>
 <?= $this->endSection() ?>

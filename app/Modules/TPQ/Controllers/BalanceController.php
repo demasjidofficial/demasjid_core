@@ -15,6 +15,7 @@ class BalanceController extends AdminCrudController
     protected $langModel = 'balance';
     protected $modelName = 'App\Modules\Api\Models\BalanceModel';
     public function index(){
+        helper('number');
         return parent::index();
     }
 
@@ -42,15 +43,15 @@ class BalanceController extends AdminCrudController
     {
         $model = model(BalanceFilter::class);
         $model->tpq();
+        $model->orderBy('transaction_date');
         return [
             'headers' => [
-                                    'account_balance_id' => 'account_balance_id',
-                'name' => 'name',
+                // 'account_balance_id' => 'account_balance_id',                
+                'transaction_date' => 'transaction_date',
                 'description' => 'description',
                 'debit' => 'debit',
-                'credit' => 'credit',
-                'amount' => 'amount',
-                'transaction_date' => 'transaction_date',
+                'credit' => 'credit',                
+                'saldo'  => 'saldo',                
                 'created_by' => 'created_by'
             ],
             'controller' => $this->getBaseController(),

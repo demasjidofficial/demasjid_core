@@ -2,7 +2,12 @@
     <?php echo $this->include('_table_head') ?>
     <tbody>
     <?php if (isset($data) && count($data)) : ?>
-        <?php foreach ($data as $item) : ?>
+        <?php $saldo = 0 ?>
+        <?php foreach ($data as $item) : 
+            $amount = $item->type == 'debit' ? $item->amount : -1 * $item->amount;
+            $saldo += $amount;
+            $item->saldo = $saldo;
+        ?>
             <tr>
                 <td>
                     <input type="checkbox" name="selects[]" class="form-check">

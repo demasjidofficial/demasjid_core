@@ -51,7 +51,7 @@
               <?php if ($item->userCanSee()): ?>
               <li class="nav-item">
                 <a class="nav-link <?= url_is($item->url . '*') ? 'active' : '' ?>" href="<?= $item->url ?>">
-                  <i class="far fa-circle nav-icon"></i>
+                  <?= $item->icon() ?>
                   <p><?= $item->title ?></p>
                 </a>
               </li>
