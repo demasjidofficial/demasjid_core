@@ -43,7 +43,7 @@ class EntityController extends AdminCrudController
         $model = model(EntityFilter::class);
         return [
             'headers' => [
-                                    'name' => 'name',
+                'name' => 'name',
                 'type' => 'type',
                 'created_by' => 'created_by'
             ],

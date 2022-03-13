@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class SitesocialsModel extends BaseModel
 {
     protected $table = 'sitesocials';
@@ -25,6 +23,14 @@ class SitesocialsModel extends BaseModel
 		'state' => 'max_length[20]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric'
-    ];   
+		// 'created_by' => 'numeric'
+    ];
+
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
+        $this->join('users', 'users.id = '.$this->table.'.created_by');
+
+        return parent::findAll($limit, $offset);
+    }   
 }

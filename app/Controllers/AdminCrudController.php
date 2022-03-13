@@ -99,6 +99,7 @@ class AdminCrudController extends AdminController
     {
         $data = $this->request->getPost();
         if (! $this->model->insert($data)) {
+            dd($this->model->errors());
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();

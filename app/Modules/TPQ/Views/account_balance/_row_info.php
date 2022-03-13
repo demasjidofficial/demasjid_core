@@ -1,7 +1,7 @@
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->account) ?></a></td>
-<td><?php echo esc($item->entity_id) ?></a></td>
-<td><?php echo esc($item->created_by) ?></a></td>
+<td><?php echo esc($item->entity_name) ?></a></td>
+<td><?php echo esc($item->created_name) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

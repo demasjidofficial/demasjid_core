@@ -4,6 +4,7 @@ namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\AccountBalanceModel;
+use App\Modules\Api\Models\EntityModel;
 use App\Modules\Pesantren\Models\AccountBalanceFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
@@ -69,7 +70,7 @@ class AccountBalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->where('type',EntityModel::PESANTREN)->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

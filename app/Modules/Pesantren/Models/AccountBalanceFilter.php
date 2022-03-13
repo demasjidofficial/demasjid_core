@@ -26,6 +26,7 @@ class AccountBalanceFilter extends AccountBalanceModel
      */
     public function filter(array $params = null)
     {
-        return [];
+        //$this->whereIn('entity_id', [2]);
+        return $this;
     }
 }

@@ -49,20 +49,20 @@ class Module extends BaseModule
             'title'           => 'Entity / Organisasi',
             'url'             => url_to('App\Modules\Masjid\Controllers\EntityController::index'),
             'fontAwesomeIcon' => 'fas fa-books',
-            //'permission'      => 'masjid.entity.list',
+            'permission'      => 'masjid.entity.list',
         ]);
 
         $accountBalanceItem = new MenuItem([
             'title'           => 'Master Kas',
             'url'             => url_to('App\Modules\Masjid\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-books',
-            //'permission'      => 'masjid.account_balance.list',
+            'permission'      => 'masjid.account_balance.list',
         ]);
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\Masjid\Controllers\BalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-money',
-            //'permission'      => 'masjid.balance.list',
+            'permission'      => 'masjid.balance.list',
         ]);
         $sidebar->menu('sidebar')->collection('masjid')
             ->addItem($jabatanItem)

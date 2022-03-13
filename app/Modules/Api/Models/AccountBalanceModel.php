@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class AccountBalanceModel extends BaseModel
 {
     protected $table = 'account_balance';
@@ -23,6 +21,14 @@ class AccountBalanceModel extends BaseModel
 		'entity_id' => 'numeric|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric'
+		// 'created_by' => 'numeric'
     ];   
+
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'entity.name as entity_name'];
+        $this->join('users', 'users.id = '.$this->table.'.created_by');
+		$this->join('entity', 'entity.id = '.$this->table.'.entity_id');
+        return parent::findAll($limit, $offset);
+    }
 }

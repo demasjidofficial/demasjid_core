@@ -99,7 +99,7 @@ class AuthGroups extends ShieldGroups
 
         'masjid.entity.list' => 'Can view list jabatan',
 
-        'masjid.account.list' => 'Can view list account balance',
+        'masjid.balance.list' => 'Can view list account balance',
         'masjid.account_balance.list' => 'Can view list account balance',
         
         /** module website */        
@@ -134,11 +134,11 @@ class AuthGroups extends ShieldGroups
         'website.socials.delete' => 'Can edit socials on website',
 
         /** pesantren */
-        'pesantren.account.list' => 'Can view list account balance',
+        'pesantren.balance.list' => 'Can view list account balance',
         'pesantren.account_balance.list' => 'Can view list account balance',
 
         /** tpq */
-        'tpq.account.list' => 'Can view list account balance',
+        'tpq.balance.list' => 'Can view list account balance',
         'tpq.account_balance.list' => 'Can view list account balance',        
     ];
 
