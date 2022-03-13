@@ -41,5 +41,20 @@ class EntityModel extends BaseModel
         $this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);
+    }    
+
+    public function masjid(){
+        $this->where('type', self::MASJID);
+        return $this;
+    }
+
+    public function pesantren(){
+        $this->where('type', self::PESANTREN);
+        return $this;
+    }
+
+    public function tpq(){
+        $this->where('type', self::TPQ);
+        return $this;
     }
 }

@@ -1,5 +1,8 @@
 <?php namespace App\Modules\Api\Models;
 
+use CodeIgniter\Database\BaseBuilder;
+use CodeIgniter\Database\MySQLi\Builder;
+
 class AccountBalanceModel extends BaseModel
 {
     protected $table = 'account_balance';
@@ -31,4 +34,27 @@ class AccountBalanceModel extends BaseModel
 		$this->join('entity', 'entity.id = '.$this->table.'.entity_id');
         return parent::findAll($limit, $offset);
     }
+
+    private function filterAccount(string $type){        
+        $this->whereIn('entity_id', function(BaseBuilder $builder) use ($type){
+
+            return $builder->select('id')->from('entity')->where('type', $type);
+        });
+        return $this;    
+    }
+
+    public function masjid(){
+
+        return $this->filterAccount(EntityModel::MASJID);
+    }
+
+    public function pesantren(){
+
+        return $this->filterAccount(EntityModel::PESANTREN);
+    }
+
+    public function tpq(){
+
+        return $this->filterAccount(EntityModel::TPQ);
+    }    
 }

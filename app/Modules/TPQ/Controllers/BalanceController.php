@@ -41,6 +41,7 @@ class BalanceController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(BalanceFilter::class);
+        $model->tpq();
         return [
             'headers' => [
                                     'account_balance_id' => 'account_balance_id',
@@ -73,7 +74,7 @@ class BalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key','account_balance.name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key','account_balance.name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

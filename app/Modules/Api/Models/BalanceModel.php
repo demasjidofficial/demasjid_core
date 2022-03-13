@@ -1,5 +1,7 @@
 <?php namespace App\Modules\Api\Models;
 
+use CodeIgniter\Database\BaseBuilder;
+
 class BalanceModel extends BaseModel
 {
     protected $table = 'balance';
@@ -7,11 +9,9 @@ class BalanceModel extends BaseModel
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
     protected $allowedFields = [
-        'account_balance_id',
-		'name',
+        'account_balance_id',		
 		'description',
-		'debit',
-		'credit',
+		'type',		
 		'amount',
 		'transaction_date',
 		'created_at',
@@ -20,11 +20,9 @@ class BalanceModel extends BaseModel
     ];
     protected $validationRules = [
         'id' => 'numeric|required|is_unique[balance.id,id,{id}]',
-		'account_balance_id' => 'numeric|required',
-		'name' => 'max_length[50]|required',
+		'account_balance_id' => 'numeric|required',		
 		'description' => 'max_length[200]|required',
-		'debit' => 'numeric|required',
-		'credit' => 'numeric|required',
+		'type' => 'string|required',		
 		'amount' => 'numeric|required',
 		'transaction_date' => 'valid_date|required',
 		'created_at' => 'valid_date|required',
@@ -38,5 +36,31 @@ class BalanceModel extends BaseModel
         $this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);
+    }
+
+	private function filterBalance(string $type){       
+		$this->whereIn('account_balance_id', function(BaseBuilder $builder)  use ($type){
+			return $builder->select('id')->from('account_balance')
+				->whereIn('entity_id', function(BaseBuilder $builder) use ($type){
+					return $builder->select('id')->from('entity')->where('type', $type);
+				});
+		}); 
+        
+        return $this;    
+    }
+
+	public function masjid(){
+
+        return $this->filterBalance(EntityModel::MASJID);
+    }
+
+	public function pesantren(){
+
+        return $this->filterBalance(EntityModel::PESANTREN);
+    }
+
+	public function tpq(){
+
+        return $this->filterBalance(EntityModel::TPQ);
     }
 }

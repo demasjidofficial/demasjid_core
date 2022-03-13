@@ -26,52 +26,44 @@
                 <input type="hidden" name="id" value="<?php echo $data->id; ?>">
             <?php } ?>
 
-            <fieldset>
-                                <div class="row mb-3">
-                    <?= form_label('account_balance_id','',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_dropdown('account_balance_id',$account_balanceItems ,old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2' required") ?>
-                        <?php if (has_error('account_balance_id')) { ?>
-                        <p class="text-danger"><?php echo error('account_balance_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
+            <fieldset>                
                 <div class="row mb-3">
-                    <?= form_label('name','',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('transaction_date','',['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('name')) { ?>
-                        <p class="text-danger"><?php echo error('name'); ?></p>
+                        <?= form_input('transaction_date', old('transaction_date', $data->transaction_date ?? ''), "class='form-control date' required") ?>
+                        <?php if (has_error('transaction_date')) { ?>
+                        <p class="text-danger"><?php echo error('transaction_date'); ?></p>
                         <?php } ?>
                     </div>
-                </div>
+                </div>                
                 <div class="row mb-3">
                     <?= form_label('description','',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar' required") ?>
+                        <?= form_textarea('description', old('description', $data->description ?? ''), "class='form-control varchar' required rows=3") ?>
                         <?php if (has_error('description')) { ?>
                         <p class="text-danger"><?php echo error('description'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('debit','',['for' => 'debit', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('type','',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('debit', old('debit', $data->debit ?? ''), "class='form-control int' required") ?>
-                        <?php if (has_error('debit')) { ?>
-                        <p class="text-danger"><?php echo error('debit'); ?></p>
+                        <div class="row col-sm-12">
+                            <div class="form-check col-sm-6">
+                                <?= form_radio(['name' => 'type'], 'debit' , (isset($data->type) ? ($data->type == 'debit' ? true: false) : true) , "class='form-check-input' required") ?>
+                                <label class="form-check-label">Kas Masuk</label>
+                            </div>
+                            <div class="form-check col-sm-6">
+                                <?= form_radio(['name' => 'type'], 'credit' , (isset($data->type) ? ($data->type == 'credit' ? true: false) : false) , "class='form-check-input' required") ?>
+                                <label class="form-check-label">Kas Keluar</label>
+                            </div>                     
+                        </div>                           
+                        <?php if (has_error('type')) { ?>
+                        <p class="text-danger"><?php echo error('type'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <?= form_label('credit','',['for' => 'credit', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('credit', old('credit', $data->credit ?? ''), "class='form-control int' required") ?>
-                        <?php if (has_error('credit')) { ?>
-                        <p class="text-danger"><?php echo error('credit'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
+                
                 <div class="row mb-3">
                     <?= form_label('amount','',['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
@@ -82,14 +74,15 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('transaction_date','',['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('account_balance_id','',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('transaction_date', old('transaction_date', $data->transaction_date ?? ''), "class='form-control date' required") ?>
-                        <?php if (has_error('transaction_date')) { ?>
-                        <p class="text-danger"><?php echo error('transaction_date'); ?></p>
+                        <?= form_dropdown('account_balance_id',$account_balanceItems ,old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2' required") ?>
+                        <?php if (has_error('account_balance_id')) { ?>
+                        <p class="text-danger"><?php echo error('account_balance_id'); ?></p>
                         <?php } ?>
                     </div>
-                </div>                
+                </div>
+                                
             </fieldset>
 
             <div class="text-end py-3">
@@ -101,3 +94,21 @@
     </x-admin-box>
 
 <?php $this->endSection(); ?>
+
+<?= $this->section('scripts') ?>
+    <!-- bs-custom-file-input -->    
+    <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
+    
+    <script type="text/javascript">
+        $(function () {
+            $('input[name=transaction_date]').daterangepicker({
+                "singleDatePicker": true,
+                "autoApply": true,
+            });
+            $('input[name=amount]').inputmask({
+                'alias': 'numeric'
+            })            
+        });            
+    </script>
+<?= $this->endSection() ?>

@@ -17,5 +17,9 @@ class BaseModel extends ModelsBaseModel
         }
 
         return $data;
-    }    
+    }
+
+    public function findAllExcludeJoin(int $limit = 0, int $offset = 0){
+        return parent::findAll($limit, $offset);
+    }
 }

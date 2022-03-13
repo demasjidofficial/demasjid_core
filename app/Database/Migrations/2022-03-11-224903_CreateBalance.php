@@ -19,34 +19,24 @@ class CreateBalance extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-            ],
-            'name' => [
-                'type'          => 'varchar',
-                'constraint'    => 50,
-            ],
+            ],            
             'description' => [
                 'type'          => 'varchar',
                 'constraint'    => 200,
             ],   
-            'debit' => [
-                'type'          => 'int',
-                'constraint'     => 11,
-                'unsigned'       => true,
-            ],
-            'credit' => [
-                'type'          => 'int',
-                'constraint'     => 11,
-                'unsigned'       => true,
-            ],
+            'type' => [
+                'type'          => 'varchar',
+                'constraint'     => 6,                
+            ],            
             'amount' => [
                 'type'          => 'int',
-                'constraint'     => 15,
-                'unsigned'       => false,
+                'constraint'     => 11,
+                'unsigned'       => true,
             ],
             'transaction_date' => [
                 'type'          => 'date',
                 'null'          => false,                
-            ],            
+            ],
             'created_at' => [
                 'type'          => 'datetime',
                 'null'          => false,                

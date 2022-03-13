@@ -42,6 +42,8 @@ class AccountBalanceController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(AccountBalanceFilter::class);
+        $entities = $this->listPesantrenEntity();        
+        $model->whereIn('entity_id', $entities);
         return [
             'headers' => [
                                     'name' => 'name',
@@ -70,7 +72,7 @@ class AccountBalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->where('type',EntityModel::PESANTREN)->asArray()->findAll(), 'text', 'key');
+            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->pesantren()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
-    }
+    }    
 }

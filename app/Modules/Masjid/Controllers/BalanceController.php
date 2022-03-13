@@ -41,15 +41,15 @@ class BalanceController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(BalanceFilter::class);
+        $model->masjid();
         return [
             'headers' => [
-                                    'account_balance_id' => 'account_balance_id',
-                'name' => 'name',
+                // 'account_balance_id' => 'account_balance_id',                
+                'transaction_date' => 'transaction_date',
                 'description' => 'description',
                 'debit' => 'debit',
                 'credit' => 'credit',
-                'amount' => 'amount',
-                'transaction_date' => 'transaction_date',
+                'amount' => 'amount',                
                 'created_by' => 'created_by'
             ],
             'controller' => $this->getBaseController(),
@@ -73,7 +73,7 @@ class BalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key', 'account_balance.name as text'])->asArray()->findAll(), 'text', 'key');;
+            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

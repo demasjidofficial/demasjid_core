@@ -35,19 +35,7 @@ class Balance extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $account_balance_id;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="name",
-	 *     title="name",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=50,
-	 * )
-	 *		 
-	 */
-	private $name;
+	private $account_balance_id;	
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="description",
@@ -59,29 +47,17 @@ class Balance extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $description;
+	private $description;	
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="debit",
-	 *     title="debit",
-	 *     type="integer",
-	 * 	   format="-",	 
+	 *     description="type",
+	 *     title="type",
+	 *     type="string",	 
 	 * 	   nullable=false,
 	 * )
 	 *		 
 	 */
-	private $debit;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="credit",
-	 *     title="credit",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $credit;
+	private $type;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="amount",
