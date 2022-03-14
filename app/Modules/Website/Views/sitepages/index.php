@@ -4,10 +4,10 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2>sitepages</h2>
+                <h2>Halaman</h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  sitepages</a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  Tambah Baru</a>
             </div>
         </div>
     </x-page-head>

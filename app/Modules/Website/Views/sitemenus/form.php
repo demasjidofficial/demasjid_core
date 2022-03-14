@@ -2,8 +2,8 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; sitemenus</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  sitemenus</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; Kembali</a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  Menu</h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -84,7 +84,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> sitemenus</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> Simpan</button>
             </div>
 
         </form>
