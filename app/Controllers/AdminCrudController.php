@@ -2,11 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Modules\Api\Models\EntityModel;
 use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\Database;
 use Config\Services;
+use IlluminateAgnostic\Arr\Support\Arr;
 use Psr\Log\LoggerInterface;
 
 class AdminCrudController extends AdminController
@@ -99,6 +101,7 @@ class AdminCrudController extends AdminController
     {
         $data = $this->request->getPost();
         if (! $this->model->insert($data)) {
+            dd($this->model->errors());
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -278,5 +281,20 @@ class AdminCrudController extends AdminController
         $this->viewPrefix = $viewPrefix;
 
         return $this;
+    }
+
+    protected function listPesantrenEntity(){
+
+        return Arr::pluck((new EntityModel())->pesantren()->asArray()->findAllExcludeJoin(),'id');
+    }
+
+    protected function listMasjidEntity(){
+
+        return Arr::pluck((new EntityModel())->masjid()->asArray()->findAllExcludeJoin(),'id');
+    }
+
+    protected function listTpqEntity(){
+
+        return Arr::pluck((new EntityModel())->tpq()->asArray()->findAllExcludeJoin(),'id');
     }
 }

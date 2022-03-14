@@ -96,6 +96,11 @@ class AuthGroups extends ShieldGroups
         'masjid.wilayah.create' => 'Can create wilayah',
         'masjid.wilayah.edit' => 'Can edit wilayah',
         'masjid.wilayah.delete' => 'Can edit wilayah',
+
+        'masjid.entity.list' => 'Can view list jabatan',
+
+        'masjid.balance.list' => 'Can view list account balance',
+        'masjid.account_balance.list' => 'Can view list account balance',
         
         /** module website */        
         'website.menus.list' => 'Can view list menus on website',
@@ -127,6 +132,14 @@ class AuthGroups extends ShieldGroups
         'website.socials.create' => 'Can create socials on website',
         'website.socials.edit' => 'Can edit socials on website',
         'website.socials.delete' => 'Can edit socials on website',
+
+        /** pesantren */
+        'pesantren.balance.list' => 'Can view list account balance',
+        'pesantren.account_balance.list' => 'Can view list account balance',
+
+        /** tpq */
+        'tpq.balance.list' => 'Can view list account balance',
+        'tpq.account_balance.list' => 'Can view list account balance',        
     ];
 
     /**
@@ -146,7 +159,9 @@ class AuthGroups extends ShieldGroups
             'consent.*',
             'recycler.*',
             'masjid.*',
-            'website.*'            
+            'website.*',
+            'pesantren.*',
+            'tpq.*'        
         ],
         'admin' => [
             'admin.access',

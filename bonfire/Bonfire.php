@@ -88,6 +88,16 @@ class Bonfire
             ->setCollapsible()
         ;
         $menus->menu('sidebar')
+            ->createCollection('pesantren', 'Pesantren')
+            ->setFontAwesomeIcon('nav-icon fas fa-bank')
+            ->setCollapsible()
+            ;
+        $menus->menu('sidebar')
+            ->createCollection('tpq', 'TPQ')
+            ->setFontAwesomeIcon('nav-icon fas fa-bank')
+            ->setCollapsible()
+            ;        
+        $menus->menu('sidebar')
             ->createCollection('website', 'Website')
             ->setFontAwesomeIcon('nav-icon fas fa-globe')
             ->setCollapsible()

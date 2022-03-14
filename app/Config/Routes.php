@@ -59,6 +59,8 @@ static function ($routes) {
     $routes->resource('pengurus');
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
+    $routes->resource('entities');
+    $routes->resource('balances');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

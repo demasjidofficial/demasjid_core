@@ -20,30 +20,20 @@ class Module extends BaseModule
         $sidebar = service('menus');
 
         // Content Menu for sidebar
-        $pengurusItem = new MenuItem([
-            'title'           => 'Pengurus',
-            'url'             => url_to('App\Modules\Masjid\Controllers\PengurusController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'masjid.pengurus.list',
+        // Content Menu for sidebar
+        $accountBalanceItem = new MenuItem([
+            'title'           => 'Master Kas',
+            'url'             => url_to('App\Modules\Pesantren\Controllers\AccountBalanceController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            'permission'      => 'pesantren.account_balance.list',
         ]);
-        $jabatanItem = new MenuItem([
-            'title'           => 'Jabatan',
-            'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'masjid.jabatan.list',
+        $balanceItem = new MenuItem([
+            'title'           => 'Kas',
+            'url'             => url_to('App\Modules\Pesantren\Controllers\BalanceController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            'permission'      => 'pesantren.balance.list',
         ]);
-        $memberItem = new MenuItem([
-            'title'           => 'Member',
-            'url'             => url_to('App\Modules\Masjid\Controllers\MemberController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'masjid.member.list',
-        ]);
-        $wilayahItem = new MenuItem([
-            'title'           => 'Wilayah',
-            'url'             => url_to('App\Modules\Masjid\Controllers\WilayahController::index'),
-            'fontAwesomeIcon' => 'fas fa-maps',
-            'permission'      => 'masjid.wilayah.list',
-        ]);
-        // $sidebar->menu('sidebar')->collection('pesantren')->addItem($jabatanItem)->addItem($pengurusItem)->addItem($memberItem)->addItem($wilayahItem);
+        
+        $sidebar->menu('sidebar')->collection('pesantren')->addItem($accountBalanceItem)->addItem($balanceItem);
     }
 }
