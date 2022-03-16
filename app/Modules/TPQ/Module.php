@@ -24,13 +24,13 @@ class Module extends BaseModule
             'title'           => 'Master Kas',
             'url'             => url_to('App\Modules\TPQ\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            'permission'      => 'tpq.account_balance.list',
+            //'permission'      => 'tpq.account_balance.list',
         ]);
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\TPQ\Controllers\BalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-list nav-icon',
-            'permission'      => 'tpq.balance.list',
+            //'permission'      => 'tpq.balance.list',
         ]);
         
         $sidebar->menu('sidebar')->collection('tpq')->addItem($accountBalanceItem)->addItem($balanceItem);

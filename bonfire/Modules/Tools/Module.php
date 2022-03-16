@@ -27,15 +27,15 @@ class Module extends BaseModule
         // Settings menu for sidebar
         $sidebar = service('menus');
         $item    = new MenuItem([
-            'title'           => 'System Info',
+            'title'           => 'Info Sistem',
             'namedRoute'      => 'sys-info',
-            'fontAwesomeIcon' => 'fas fa-info-circle',
+            'fontAwesomeIcon' => 'fas fa-info-circle nav-icon',
         ]);
 
         $itemLogs = new MenuItem([
             'title'           => 'Logs',
             'namedRoute'      => 'sys-logs',
-            'fontAwesomeIcon' => 'fas fa-clipboard-list',
+            'fontAwesomeIcon' => 'fas fa-clipboard-list nav-icon',
         ]);
         $sidebar->menu('sidebar')->collection('tools')->addItem($item);
         $sidebar->menu('sidebar')->collection('tools')->addItem($itemLogs);

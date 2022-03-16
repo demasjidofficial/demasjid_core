@@ -23,37 +23,37 @@ class Module extends BaseModule
         $sitemenusItem = new MenuItem([
             'title'           => 'Menu',
             'url'             => url_to('App\Modules\Website\Controllers\SitemenusController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.menus.list',
         ]);
         $sitepagesItem = new MenuItem([
             'title'           => 'Halaman',
             'url'             => url_to('App\Modules\Website\Controllers\SitepagesController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.pages.list',
         ]);
         $sitepostsItem = new MenuItem([
             'title'           => 'Posting',
             'url'             => url_to('App\Modules\Website\Controllers\SitepostsController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.posts.list',
         ]);
         $sitesectionsItem = new MenuItem([
             'title'           => 'Section',
             'url'             => url_to('App\Modules\Website\Controllers\SitesectionsController::index'),
-            'fontAwesomeIcon' => 'fas fa-maps',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.sections.list',
         ]);
         $siteslidersItem = new MenuItem([
             'title'           => 'Slide',
             'url'             => url_to('App\Modules\Website\Controllers\SiteslidersController::index'),
-            'fontAwesomeIcon' => 'fas fa-maps',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'website.sliders.list',
         ]);
         $sitesocialsItem = new MenuItem([
             'title'           => 'Sosial Media',
             'url'             => url_to('App\Modules\Website\Controllers\SitesocialsController::index'),
-            'fontAwesomeIcon' => 'fas fa-maps',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.socials.list',
         ]);
         $sidebar->menu('sidebar')->collection('website')

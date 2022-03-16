@@ -25,13 +25,13 @@ class Module extends BaseModule
             'title'           => 'Master Kas',
             'url'             => url_to('App\Modules\Pesantren\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            'permission'      => 'pesantren.account_balance.list',
+            //'permission'      => 'pesantren.account_balance.list',
         ]);
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\Pesantren\Controllers\BalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            'permission'      => 'pesantren.balance.list',
+            //'permission'      => 'pesantren.balance.list',
         ]);
         
         $sidebar->menu('sidebar')->collection('pesantren')->addItem($accountBalanceItem)->addItem($balanceItem);

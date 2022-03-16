@@ -29,8 +29,8 @@ class Module extends BaseModule
         $item    = new MenuItem([
             'title'           => 'Email',
             'namedRoute'      => 'email-settings',
-            'fontAwesomeIcon' => 'fas fa-envelope',
-            'permission'      => 'admin.settings',
+            'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
+            //'permission'      => 'admin.settings',
         ]);
         $sidebar->menu('sidebar')->collection('settings')->addItem($item);
     }

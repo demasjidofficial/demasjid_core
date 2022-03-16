@@ -24,45 +24,45 @@ class Module extends BaseModule
             'title'           => 'Pengurus',
             'url'             => url_to('App\Modules\Masjid\Controllers\PengurusController::index'),
             'fontAwesomeIcon' => 'fas fa-users nav-icon',
-            'permission'      => 'masjid.pengurus.list',
+            //'permission'      => 'masjid.pengurus.list',
         ]);
         $jabatanItem = new MenuItem([
             'title'           => 'Jabatan',
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
             'fontAwesomeIcon' => 'fas fa-users nav-icon',
-            'permission'      => 'masjid.jabatan.list',
+            //'permission'      => 'masjid.jabatan.list',
         ]);
         $memberItem = new MenuItem([
             'title'           => 'Member',
             'url'             => url_to('App\Modules\Masjid\Controllers\MemberController::index'),
             'fontAwesomeIcon' => 'fas fa-users nav-icon',
-            'permission'      => 'masjid.member.list',
+            //'permission'      => 'masjid.member.list',
         ]);
         $wilayahItem = new MenuItem([
             'title'           => 'Wilayah',
             'url'             => url_to('App\Modules\Masjid\Controllers\WilayahController::index'),
-            'fontAwesomeIcon' => 'fas fa-maps nav-icon',
-            'permission'      => 'masjid.wilayah.list',
+            'fontAwesomeIcon' => 'fas fa-map nav-icon',
+            //'permission'      => 'masjid.wilayah.list',
         ]);
 
         $entityItem = new MenuItem([
-            'title'           => 'Entity / Organisasi',
+            'title'           => 'Entitas',
             'url'             => url_to('App\Modules\Masjid\Controllers\EntityController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            'permission'      => 'masjid.entity.list',
+            //'permission'      => 'masjid.entity.list',
         ]);
 
         $accountBalanceItem = new MenuItem([
             'title'           => 'Master Kas',
             'url'             => url_to('App\Modules\Masjid\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            'permission'      => 'masjid.account_balance.list',
+            //'permission'      => 'masjid.account_balance.list',
         ]);
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\Masjid\Controllers\BalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            'permission'      => 'masjid.balance.list',
+            //'permission'      => 'masjid.balance.list',
         ]);
         $sidebar->menu('sidebar')->collection('masjid')
             ->addItem($jabatanItem)

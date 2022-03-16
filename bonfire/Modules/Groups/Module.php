@@ -31,8 +31,8 @@ class Module extends BaseModule
         $item    = new MenuItem([
             'title'           => 'User Groups',
             'namedRoute'      => 'user-group-settings',
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'groups.settings',
+            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            //'permission'      => 'groups.settings',
         ]);
         $sidebar->menu('sidebar')->collection('settings')->addItem($item);
 

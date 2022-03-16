@@ -6,8 +6,8 @@
 	"license": "MIT",
 	"require": {
 		"php": "^7.4||^8.0",
-		"ext-json": "*",
-		"codeigniter4/framework": "^4",		
+		"ext-json": "*",	
+		"codeigniter4/framework": "^4",	
 		"components/font-awesome": "^5.15",
 		"league/commonmark": "^2.0",
 		"lonnieezell/codigniter-shield": "dev-develop",

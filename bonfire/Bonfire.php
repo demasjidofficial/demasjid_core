@@ -84,17 +84,17 @@ class Bonfire
         $menus->createMenu('sidebar');
         $menus->menu('sidebar')
             ->createCollection('masjid', 'Masjid')
-            ->setFontAwesomeIcon('nav-icon fas fa-home')
+            ->setFontAwesomeIcon('nav-icon fas fa-building')
             ->setCollapsible()
         ;
         $menus->menu('sidebar')
             ->createCollection('pesantren', 'Pesantren')
-            ->setFontAwesomeIcon('nav-icon fas fa-bank')
+            ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
             ->setCollapsible()
             ;
         $menus->menu('sidebar')
             ->createCollection('tpq', 'TPQ')
-            ->setFontAwesomeIcon('nav-icon fas fa-bank')
+            ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
             ->setCollapsible()
             ;        
         $menus->menu('sidebar')
@@ -106,15 +106,15 @@ class Bonfire
             ->createCollection('content', 'Konten')
             ->setFontAwesomeIcon('nav-icon fas fa-palette')
         ;        
+        //$menus->menu('sidebar')
+        //    ->createCollection('content', 'Content');
         $menus->menu('sidebar')
-            ->createCollection('content', 'Content');
-        $menus->menu('sidebar')
-            ->createCollection('settings', 'Settings')
-            ->setFontAwesomeIcon('fas fa-cog')
+            ->createCollection('settings', 'Pengaturan')
+            ->setFontAwesomeIcon('nav-icon fas fa-cog')
             ->setCollapsible();
         $menus->menu('sidebar')
-            ->createCollection('tools', 'Tools')
-            ->setFontAwesomeIcon('fas fa-toolbox')
+            ->createCollection('tools', 'Alat')
+            ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
 
         // Top "icon" menu for notifications, account, etc.

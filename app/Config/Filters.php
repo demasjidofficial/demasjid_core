@@ -85,8 +85,10 @@ class Filters extends BaseConfig
         'session' => [
             'before' => [ADMIN_AREA . '*'],
         ],
+        /*
         'admin' => [
             'before' => [ADMIN_AREA . '*'],
         ],
+        */
     ];
 }

@@ -31,8 +31,8 @@ class Module extends BaseModule
         $item    = new MenuItem([
             'title'           => 'Users',
             'namedRoute'      => 'user-settings',
-            'fontAwesomeIcon' => 'fas fa-user',
-            'permission'      => 'users.settings',
+            'fontAwesomeIcon' => 'fas fa-user nav-icon',
+            //'permission'      => 'users.settings',
         ]);
         $sidebar->menu('sidebar')->collection('settings')->addItem($item);
 
@@ -40,8 +40,8 @@ class Module extends BaseModule
         $item = new MenuItem([
             'title'           => 'Users',
             'namedRoute'      => 'user-list',
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'users.list',
+            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            //'permission'      => 'users.list',
         ]);
         $sidebar->menu('sidebar')->collection('content')->addItem($item);
 
@@ -53,7 +53,7 @@ class Module extends BaseModule
             'title'   => 'Users',
             'value'   => $users->countAll(),
             'url'     => ADMIN_AREA . '/users',
-            'faIcon'  => 'fa fa-user',
+            'faIcon'  => 'fa fa-user nav-icon',
         ]);
         $widgets->widget('stats')->collection('stats')->addItem($statsItem);
     }
