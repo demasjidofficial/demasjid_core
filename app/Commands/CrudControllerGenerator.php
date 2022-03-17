@@ -125,7 +125,7 @@ class CrudControllerGenerator extends ControllerGenerator
                 continue;
             }
             $fieldStr = <<<FIELD
-                                '{$field->name}' => '{$field->name}'
+                                '{$field->name}' => lang('crud.{$field->name}')
                 FIELD;
             $headers[] = $fieldStr;
             $fk        = $foreignKey[$field->name] ?? false;

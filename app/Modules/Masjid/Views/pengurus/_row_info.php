@@ -1,17 +1,25 @@
-<td><?= esc($item->name) ?></a></td>
-<td><?= esc($item->contact) ?></a></td>
-<td><?= esc($item->description) ?></a></td>
-<td><?= esc($item->jabatan) ?></a></td>
-<td class="d-flex justify-content-end"  hx-confirm="<?= lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
+<td><?php echo esc($item->name) ?></a></td>
+<td><?php echo esc($item->contact) ?></a></td>
+<td><?php echo esc($item->description) ?></a></td>
+<td><?php echo esc($item->jabatan_id) ?></a></td>
+<td><?php echo esc($item->address) ?></a></td>
+<td><?php echo esc($item->telephone) ?></a></td>
+<td><?php echo esc($item->email) ?></a></td>
+<td><?php echo esc($item->provinsi_id) ?></a></td>
+<td><?php echo esc($item->kota_id) ?></a></td>
+<td><?php echo esc($item->kecamatan_id) ?></a></td>
+<td><?php echo esc($item->desa_id) ?></a></td>
+<td><?php echo esc($item->entity_id) ?></a></td>
+<td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
-        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-toggle="dropdown" aria-expanded="true"></button>
+        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-toggle="dropdown" aria-expanded="false"></button>
         <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="<?= $editUrl ?>" class="dropdown-item"><?= lang('Bonfire.edit') ?></a></li>
+            <li><a href="<?php echo $editUrl ?>" class="dropdown-item"><?php echo lang('Bonfire.edit') ?></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li class="dropdown-item">
-                <button class="btn" hx-delete="<?= $deleteUrl ?>" hx-select="#htmx-alert" hx-swap="innerHTML" hx-indicator="#htmx-request-indicator">
-                <?= lang('Bonfire.delete') ?>
+            <li>
+                <button class="btn" hx-delete="<?php echo $deleteUrl ?>" hx-select="#htmx-alert" hx-swap="innerHTML" hx-indicator="#htmx-request-indicator">
+                <?php echo lang('Bonfire.delete') ?>
                 </button>
             </li>
         </ul>
