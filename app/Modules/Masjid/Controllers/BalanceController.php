@@ -45,14 +45,13 @@ class BalanceController extends AdminCrudController
         $model->masjid();
         $model->orderBy('transaction_date');
         return [
-            'headers' => [
-                // 'account_balance_id' => 'account_balance_id',                
-                'transaction_date' => 'transaction_date',
-                'description' => 'description',
-                'debit' => 'debit',
-                'credit' => 'credit',                
-                'saldo'  => 'saldo',                
-                'created_by' => 'created_by'
+            'headers' => [                
+                'transaction_date' => lang('crud.transaction_date'),
+                'description' => lang('crud.description'),
+                'debit' => lang('crud.debit'),
+                'credit' => lang('crud.credit'),                
+                'saldo'  => lang('crud.saldo'),
+                'account_balance_id' => lang('crud.account'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

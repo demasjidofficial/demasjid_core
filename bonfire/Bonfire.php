@@ -105,6 +105,7 @@ class Bonfire
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
             ->setFontAwesomeIcon('nav-icon fas fa-palette')
+            ->setCollapsible();
         ;        
         //$menus->menu('sidebar')
         //    ->createCollection('content', 'Content');

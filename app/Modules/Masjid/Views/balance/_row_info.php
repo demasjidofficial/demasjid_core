@@ -3,7 +3,7 @@
 <td><?php echo $item->type == 'debit' ? format_number($item->amount) : '' ?></a></td>
 <td><?php echo $item->type == 'credit' ? format_number($item->amount) : '' ?></a></td>
 <td><?php echo format_number($item->saldo) ?></a></td>
-<td><?php echo esc($item->created_name) ?></a></td>
+<td><?php echo esc($item->account_name).' ('.$item->account.')' ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

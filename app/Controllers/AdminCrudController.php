@@ -100,8 +100,7 @@ class AdminCrudController extends AdminController
     public function create()
     {
         $data = $this->request->getPost();
-        if (! $this->model->insert($data)) {
-            dd($this->model->errors());
+        if (! $this->model->insert($data)) {            
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();

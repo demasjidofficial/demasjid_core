@@ -2,14 +2,14 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; balance</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  balance</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.balance') ?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.balance') ?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
         <div class="alert danger">
-            This balance was deleted on <?php echo $data->deleted_at->humanize(); ?>.
-            <a href="#">Restore balance?</a>
+            This<?= lang('crud.balance') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
+            <a href="#">Restore<?= lang('crud.balance') ?>?</a>
         </div>
     <?php } ?>
 
@@ -28,7 +28,7 @@
 
             <fieldset>                
                 <div class="row mb-3">
-                    <?= form_label('transaction_date','',['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.transaction_date'),'',['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('transaction_date', old('transaction_date', $data->transaction_date ?? ''), "class='form-control date' required readonly") ?>
                         <?php if (has_error('transaction_date')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>                
                 <div class="row mb-3">
-                    <?= form_label('description','',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('description', old('description', $data->description ?? ''), "class='form-control varchar' required rows=3") ?>
                         <?php if (has_error('description')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('type','',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <div class="row col-sm-12">
                             <div class="form-check col-sm-6">
@@ -65,7 +65,7 @@
                 </div>
                 
                 <div class="row mb-3">
-                    <?= form_label('amount','',['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.amount'),'',['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('amount', old('amount', $data->amount ?? ''), "class='form-control int' required") ?>
                         <?php if (has_error('amount')) { ?>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('account_balance_id','',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.account'),'',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('account_balance_id',$account_balanceItems ,old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2' required") ?>
                         <?php if (has_error('account_balance_id')) { ?>
@@ -86,7 +86,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> balance</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.balance') ?></button>
             </div>
 
         </form>

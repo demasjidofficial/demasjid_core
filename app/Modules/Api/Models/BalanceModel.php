@@ -45,7 +45,8 @@ class BalanceModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'account_balance.name as account_name', 'account_balance.account'];
+        $this->join('account_balance', 'account_balance.id = '.$this->table.'.account_balance_id');
         $this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);

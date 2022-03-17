@@ -47,10 +47,10 @@ class AccountBalanceController extends AdminCrudController
         $model->whereIn('entity_id', $entities);
         return [
             'headers' => [
-                                    'name' => 'name',
-                'account' => 'account',
-                'entity_id' => 'entity_id',
-                'created_by' => 'created_by'
+                'name' => lang('crud.name'),
+                'account' => lang('crud.account'),
+                'entity_id' => lang('crud.entity_id'),
+                'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
