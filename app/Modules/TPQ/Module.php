@@ -29,7 +29,7 @@ class Module extends BaseModule
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\TPQ\Controllers\BalanceController::index'),
-            'fontAwesomeIcon' => 'fas fa-list nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
         

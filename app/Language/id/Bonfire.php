@@ -29,6 +29,7 @@ return [
     'lastModified'     => 'Terakhir Diperbarui',
     'fileSize'         => 'Ukuran Berkas',
 
-    'save' => 'Simpan',
-    'new'  => 'Baru',
+    'save'             => 'Simpan',
+    'new'              => 'Baru',
+    'register'         => 'Daftar',
 ];

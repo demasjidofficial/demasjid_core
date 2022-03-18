@@ -23,25 +23,25 @@ class Module extends BaseModule
         $pengurusItem = new MenuItem([
             'title'           => 'Pengurus',
             'url'             => url_to('App\Modules\Masjid\Controllers\PengurusController::index'),
-            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.pengurus.list',
         ]);
         $jabatanItem = new MenuItem([
             'title'           => 'Jabatan',
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
-            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.jabatan.list',
         ]);
         $memberItem = new MenuItem([
             'title'           => 'Member',
             'url'             => url_to('App\Modules\Masjid\Controllers\MemberController::index'),
-            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.member.list',
         ]);
         $wilayahItem = new MenuItem([
             'title'           => 'Wilayah',
             'url'             => url_to('App\Modules\Masjid\Controllers\WilayahController::index'),
-            'fontAwesomeIcon' => 'fas fa-map nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.wilayah.list',
         ]);
 

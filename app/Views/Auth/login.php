@@ -15,7 +15,8 @@
 
         <!-- Email -->
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required>
+          <!--input type="email" name="email" class="form-control" placeholder="< ?= lang('Auth.email') ?>" value="< ?= old('email') ?>" required-->
+          <input type="email" name="email" class="form-control" placeholder="Masukkan email" value="<?= old('email') ?>" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -24,7 +25,8 @@
         </div>
         <!-- Password -->
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="<?= lang('Auth.password') ?>" >
+          <!--input type="password" name="password" class="form-control" placeholder="< ?= lang('Auth.password') ?>" -->
+          <input type="password" name="password" class="form-control" placeholder="Masukkan sandi" >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -38,7 +40,7 @@
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
-                <?= lang('Auth.rememberMe') ?> 
+                <!--?= lang('Auth.rememberMe') ?-->Ingatkan saya 
               </label>
             </div>
           </div>
@@ -72,22 +74,29 @@
       </div>
       !-- /.social-auth-links -->
 
-
       <br/>
 
       <?php if (setting('Auth.allowMagicLinkLogins')) : ?>
       <p class="mb-1">
-        <?= lang('Auth.forgotPassword') ?> 
-        <a href="<?= route_to('magic-link') ?>"><?= lang('Auth.useMagicLink') ?></a>
+        <!--?= lang('Auth.forgotPassword') ?--> Lupa sandi? 
+        <a href="<?= route_to('magic-link') ?>">
+          <!--?= lang('Auth.useMagicLink') ?-->
+          Reset sandi
+        </a>
       </p>
       <?php endif ?>
 
-      <?php if (setting('Auth.allowRegistration')) : ?>
+      <!--?php if (setting('Auth.allowRegistration')) : ?>
       <p class="mb-0">
-        <?= lang('Auth.needAccount') ?>
-        <a href="<?= route_to('register') ?>" class="text-center"><?= lang('Auth.register') ?></a>
+        < ?= lang('Auth.needAccount') ?>
+        <a href="< ?= route_to('register') ?>" class="text-center">< ?= lang('Auth.register') ?></a>
       </p>
-      <?php endif ?>
+      < ?php endif ?-->
+
+      <p class="mb-0">
+        Belum aktivasi DeMasjid?
+        <a href="<?= route_to('activation') ?>" class="text-center">Aktivasi sekarang</a>
+      </p>
 
     </div>
     <!-- /.login-card-body -->

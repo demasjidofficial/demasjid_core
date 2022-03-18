@@ -85,27 +85,30 @@ class Bonfire
         $menus->menu('sidebar')
             ->createCollection('masjid', 'Masjid')
             ->setFontAwesomeIcon('nav-icon fas fa-building')
-            ->setCollapsible()
-        ;
+            ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('pesantren', 'Pesantren')
             ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
-            ->setCollapsible()
-            ;
+            ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('tpq', 'TPQ')
             ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
-            ->setCollapsible()
-            ;        
+            ->setCollapsible();        
         $menus->menu('sidebar')
             ->createCollection('website', 'Website')
             ->setFontAwesomeIcon('nav-icon fas fa-globe')
-            ->setCollapsible()
-            ;
+            ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('baitulmal', 'Baitul Mal')
+            ->setFontAwesomeIcon('nav-icon fas fa-calculator')
+            ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('board', 'Board')
+            ->setFontAwesomeIcon('nav-icon fas fa-tv')
+            ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
-            ->setFontAwesomeIcon('nav-icon fas fa-palette')
-        ;        
+            ->setFontAwesomeIcon('nav-icon fas fa-palette');        
         //$menus->menu('sidebar')
         //    ->createCollection('content', 'Content');
         $menus->menu('sidebar')
