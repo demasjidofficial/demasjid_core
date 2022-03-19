@@ -1,5 +1,10 @@
 <?php $this->extend('master'); ?>
 
+<?php $this->section('styles'); ?>
+    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css', 'css') ?>
+<?= $this->endSection() ?>
+
 <?php $this->section('main'); ?>
     <x-page-head>
         <a href="<?php echo $backUrl ?>" class="back">&larr; Kembali</a>
@@ -27,7 +32,7 @@
             <?php } ?>
 
             <fieldset>
-                                <div class="row mb-3">
+                <div class="row mb-3">
                     <?= form_label('name','',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
@@ -92,3 +97,11 @@
     </x-admin-box>
 
 <?php $this->endSection(); ?>
+
+<?= $this->section('scripts') ?>
+<?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js', 'js') ?>
+<script type="text/javascript">
+
+</script>
+<?= $this->endSection() ?>

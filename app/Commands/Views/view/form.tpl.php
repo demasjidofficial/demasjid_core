@@ -2,14 +2,14 @@
 
 <@php $this->section('main'); ?>
     <@x-page-head>
-        <a href="<@php echo $backUrl ?>" class="back">&larr; {table}</a>
-        <h4><@php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  {table}</h4>
+        <a href="<@php echo $backUrl ?>" class="back">&larr; <@= lang('crud.{table}') ?></a>
+        <h4><@php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <@= lang('crud.{table}') ?></h4>
     </x-page-head>
 
     <@php if (isset($data) && null !== $data->deleted_at) { ?>
         <div class="alert danger">
-            This {table} was deleted on <@php echo $data->deleted_at->humanize(); ?>.
-            <a href="#">Restore {table}?</a>
+            This <@= lang('crud.{table}') ?> was deleted on <@php echo $data->deleted_at->humanize(); ?>.
+            <a href="#">Restore <@= lang('crud.{table}') ?>?</a>
         </div>
     <@php } ?>
 
@@ -31,7 +31,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> {table}</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <@= lang('crud.{table}') ?></button>
             </div>
 
         </form>

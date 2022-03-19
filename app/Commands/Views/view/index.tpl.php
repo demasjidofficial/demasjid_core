@@ -4,10 +4,10 @@
     <@x-page-head>
         <div class="row">
             <div class="col">
-                <h2>{table}</h2>
+                <h2><@= lang('crud.{table}') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<@php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  {table}</a>
+                <a href="<@php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <@= lang('{table}') ?></a>
             </div>
         </div>
     </x-page-head>

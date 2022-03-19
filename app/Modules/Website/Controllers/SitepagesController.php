@@ -43,17 +43,16 @@ class SitepagesController extends AdminCrudController
         $model = model(SitepagesFilter::class);
         return [
             'headers' => [
-                                    'title' => 'title',
-                'subtitle' => 'subtitle',
-                'path_image' => 'path_image',
-                'content' => 'content',
-                'permalink' => 'permalink',
-                'meta_title' => 'meta_title',
-                'meta_desc' => 'meta_desc',
-                'sitemenu_id' => 'sitemenu_id',
-                'language_id' => 'language_id',
-                'state' => 'state',
-                'created_by' => 'created_by'
+                'path_image' => lang('crud.image'),
+                'title' => lang('crud.title'),
+                'subtitle' => lang('crud.subtitle'),
+                'content' => lang('crud.content'),
+                'permalink' => lang('crud.permalink'),
+                'meta_title' => lang('crud.meta_title'),
+                'meta_desc' => lang('crud.meta_desc'),
+                'sitemenu_id' => lang('crud.menu'),
+                //'language_id' => lang('crud.language'),
+                'state' => lang('crud.state'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

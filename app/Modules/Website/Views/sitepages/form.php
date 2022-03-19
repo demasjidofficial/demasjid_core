@@ -1,9 +1,16 @@
 <?php $this->extend('master'); ?>
 
+<?php $this->section('styles'); ?>
+    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/codemirror.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/theme/monokai.css', 'css') ?>
+<?= $this->endSection() ?>
+
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; sitepages</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  sitepages</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.pages') ?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -27,7 +34,7 @@
             <?php } ?>
 
             <fieldset>
-                                <div class="row mb-3">
+                <div class="row mb-3">
                     <?= form_label('title','',['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('title', old('title', $data->title ?? ''), "class='form-control varchar' required") ?>
@@ -58,6 +65,7 @@
                     <?= form_label('content','',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>
+                        
                         <?php if (has_error('content')) { ?>
                         <p class="text-danger"><?php echo error('content'); ?></p>
                         <?php } ?>
@@ -137,3 +145,23 @@
     </x-admin-box>
 
 <?php $this->endSection(); ?>
+
+<?= $this->section('scripts') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/codemirror.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/css/css.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js', 'js') ?>
+
+    <script type="text/javascript">
+        $(function(){
+            $('[name=content]').summernote({
+                height: 450,   //set editable area's height
+                codemirror: { // codemirror options
+                    theme: 'monokai'
+                }
+            });
+        })
+    </script>
+<?= $this->endSection() ?>
