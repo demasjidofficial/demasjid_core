@@ -19,7 +19,13 @@ class Module extends BaseModule
         // Settings menu for sidebar
         $sidebar = service('menus');
 
-        // Content Menu for sidebar
+        $pengurusItem = new MenuItem([
+            'title'           => 'Pengurus',
+            'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
+            'fontAwesomeIcon' => 'fas fa-user nav-icon',
+            //'permission'      => 'tpq.balance.list',
+        ]);
+
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
             'title'           => 'Master Kas',
@@ -34,6 +40,9 @@ class Module extends BaseModule
             //'permission'      => 'pesantren.balance.list',
         ]);
         
-        $sidebar->menu('sidebar')->collection('pesantren')->addItem($accountBalanceItem)->addItem($balanceItem);
+        $sidebar->menu('sidebar')->collection('pesantren')
+            ->addItem($pengurusItem)
+            ->addItem($accountBalanceItem)
+            ->addItem($balanceItem);
     }
 }

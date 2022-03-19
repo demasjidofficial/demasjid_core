@@ -15,5 +15,17 @@ return [
 	'entity' => 'Entitas',
 	'entity_id' => 'Entitas',
 	'name' => 'Nama',
-	'created_by' => 'Dibuat Oleh'
-];
+	'created_by' => 'Dibuat Oleh',
+
+	'pengurus' => 'Pengurus',
+	'provinsi_id' => 'Provinsi',
+	'kota_id' => 'Kota',
+	'kecamatan_id' => 'Kecamatan',
+	'desa_id' => 'Desa',
+	'jabatan_id'=> 'Jabatan',
+	'address' => 'Alamat',
+	'path_image' => 'Photo',
+	'telephone' => 'Telepon',
+	'email' => 'Email',
+	'role' => 'Peran'
+ ];
