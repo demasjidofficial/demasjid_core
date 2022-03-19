@@ -47,7 +47,7 @@ class PengurusController extends AdminCrudController
 
     public function create()
     {
-        $uploaded = $this->uploadFile('path_image');
+        $uploaded = $this->uploadFile('image');
         $this->model->set('path_image', $uploaded);
 
         return parent::create();

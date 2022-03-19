@@ -27,5 +27,8 @@ return [
 	'path_image' => 'Photo',
 	'telephone' => 'Telepon',
 	'email' => 'Email',
-	'role' => 'Peran'
+	'role' => 'Peran',
+	'profile' => 'Profil',
+
+	'path_logo' => 'Gambar',
  ];

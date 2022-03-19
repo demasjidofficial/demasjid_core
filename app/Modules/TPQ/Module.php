@@ -26,6 +26,13 @@ class Module extends BaseModule
             //'permission'      => 'tpq.balance.list',
         ]);
 
+        $profileItem = new MenuItem([
+            'title'           => 'Profile',
+            'url'             => url_to('App\Modules\TPQ\Controllers\ProfileController::index'),
+            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            //'permission'      => 'masjid.pengurus.list',
+        ]);
+
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
             'title'           => 'Master Kas',
@@ -42,6 +49,7 @@ class Module extends BaseModule
         
         $sidebar->menu('sidebar')->collection('tpq')
             ->addItem($pengurusItem)
+            ->addItem($profileItem)
             ->addItem($accountBalanceItem)
             ->addItem($balanceItem);
     }

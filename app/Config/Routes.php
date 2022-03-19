@@ -61,6 +61,8 @@ static function ($routes) {
     $routes->resource('members',['except' => ['create']]);
     $routes->resource('entities');
     $routes->resource('balances');
+    $routes->resource('profiles');
+    $routes->resource('pengurus');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');
