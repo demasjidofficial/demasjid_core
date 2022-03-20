@@ -74,7 +74,7 @@ class BalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key','account_balance.name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key','account_balance.name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

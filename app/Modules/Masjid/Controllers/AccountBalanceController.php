@@ -73,7 +73,7 @@ class AccountBalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }
