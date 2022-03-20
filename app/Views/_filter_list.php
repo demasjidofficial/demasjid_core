@@ -2,7 +2,7 @@
     <?php if (isset($filters) && count($filters)) { ?>
     <form action="<?php echo current_url(); ?>" method="get"
           hx-get="<?php echo current_url(); ?>"
-          hx-trigger="change delay:400ms from:.filter-check"
+          hx-trigger="change delay:400ms, from:.filter-check"
           hx-target="<?php echo $target; ?>"
     >
         <?php echo csrf_field(); ?>

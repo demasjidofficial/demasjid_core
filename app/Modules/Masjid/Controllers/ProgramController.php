@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Modules\Website\Controllers;
+namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\SitemenusModel;
-use App\Modules\Website\Models\SitemenusFilter;
+use App\Modules\Api\Models\ProgramModel;
+use App\Modules\Masjid\Models\ProgramFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class SitemenusController extends AdminCrudController
+class ProgramController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Website\Views\sitemenus\\';
-    protected $baseRoute = 'admin/website/sitemenus';
-    protected $langModel = 'sitemenus';
-    protected $modelName = 'App\Modules\Api\Models\SitemenusModel';
+    protected $viewPrefix = 'App\Modules\Masjid\Views\program\\';
+    protected $baseRoute = 'admin/masjid/program';
+    protected $langModel = 'program';
+    protected $modelName = 'App\Modules\Api\Models\ProgramModel';
     public function index(){
         return parent::index();
     }
@@ -23,6 +23,9 @@ class SitemenusController extends AdminCrudController
     }
 
     public function update($id = null){
+        list($startDate, $endDate) = explode(' - ',$this->request->getPost('period'));
+        $this->model->set('start_date', $startDate);
+        $this->model->set('end_date', $endDate);
         return parent::update($id);
     }
 
@@ -31,6 +34,9 @@ class SitemenusController extends AdminCrudController
     }
 
     public function create(){
+        list($startDate, $endDate) = explode(' - ',$this->request->getPost('period'));
+        $this->model->set('start_date', $startDate);
+        $this->model->set('end_date', $endDate);
         return parent::create();
     }
 
@@ -40,15 +46,14 @@ class SitemenusController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(SitemenusFilter::class);
+        $model = model(ProgramFilter::class);
         return [
             'headers' => [
-                'name' => 'name',
-                'label' => 'label',
-                'parent' => 'parent',
-                'language_id' => 'language_id',
-                'state' => 'state',
-                'created_by' => 'created_by'
+                'start_date' => lang('crud.start_date'),
+                'end_date' => lang('crud.end_date'),
+                'name' => lang('crud.name'),
+                'description' => lang('crud.program_description'),                
+                'state' => lang('crud.state'),                
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -62,16 +67,18 @@ class SitemenusController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new SitemenusModel();
+        $model = new ProgramModel();
 
         if(!empty($id)){
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
-            $dataEdit['data'] = $data;
+            $data->period = $data->start_date.' - '.$data->end_date;
+            $dataEdit['data'] = $data;            
         }
-            $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['stateItems'] = ProgramModel::listState();
+        
         return $dataEdit;
     }
 }

@@ -63,6 +63,7 @@ static function ($routes) {
     $routes->resource('balances');
     $routes->resource('profiles');
     $routes->resource('pengurus');
+    $routes->resource('programs');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

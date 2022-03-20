@@ -47,6 +47,16 @@ return [
 	'profile' => 'Profil',
 
 	'path_logo' => 'Gambar',
+	'period'	=> 'Periode',
+	'program'	=> 'Program',
+	'start_date' => 'Tanggal Mulai',
+	'end_date'	=> 'Tanggal Selesai',
+	'program_description' => 'Uraian',
+
+	'sedang_berlangsung' => 'Sedang Berlangsung',
+	'batal' => 'Batal',
+	'belum_mulai' => 'Belum Mulai',
+	'selesai'	=> 'Selesai',
 
 	'country_id' => 'ID',
 	'country_en' => 'EN',

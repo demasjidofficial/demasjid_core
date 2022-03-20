@@ -87,6 +87,11 @@ class AuthGroups extends ShieldGroups
         'masjid.pengurus.edit' => 'Can edit pengurus',
         'masjid.pengurus.delete' => 'Can edit pengurus',
 
+        'masjid.profile.list' => 'Can view list profile',
+        'masjid.profile.create' => 'Can create profile',
+        'masjid.profile.edit' => 'Can edit profile',
+        'masjid.profile.delete' => 'Can edit profile',
+
         'masjid.jabatan.list' => 'Can view list jabatan',
         'masjid.jabatan.create' => 'Can create jabatan',
         'masjid.jabatan.edit' => 'Can edit jabatan',
@@ -101,6 +106,8 @@ class AuthGroups extends ShieldGroups
 
         'masjid.balance.list' => 'Can view list account balance',
         'masjid.account_balance.list' => 'Can view list account balance',
+        
+        'masjid.program.list' => 'Can view list program',
         
         /** module website */        
         'website.menus.list' => 'Can view list menus on website',
@@ -137,9 +144,19 @@ class AuthGroups extends ShieldGroups
         'pesantren.balance.list' => 'Can view list account balance',
         'pesantren.account_balance.list' => 'Can view list account balance',
 
+        'pesantren.profile.list' => 'Can view list profile',
+        'pesantren.profile.create' => 'Can create profile',
+        'pesantren.profile.edit' => 'Can edit profile',
+        'pesantren.profile.delete' => 'Can edit profile',
+
         /** tpq */
         'tpq.balance.list' => 'Can view list account balance',
-        'tpq.account_balance.list' => 'Can view list account balance',        
+        'tpq.account_balance.list' => 'Can view list account balance',  
+
+        'tpq.profile.list' => 'Can view list profile',
+        'tpq.profile.create' => 'Can create profile',
+        'tpq.profile.edit' => 'Can edit profile',
+        'tpq.profile.delete' => 'Can edit profile',      
     ];
 
     /**

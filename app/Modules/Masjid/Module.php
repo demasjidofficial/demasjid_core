@@ -72,6 +72,13 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.balance.list',
         ]);
+
+        $programItem = new MenuItem([
+            'title'           => 'Program',
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramController::index'),
+            'fontAwesomeIcon' => 'fas fa-th fa-1 nav-icon',
+            //'permission'      => 'masjid.program.list',
+        ]);
         $sidebar->menu('sidebar')->collection('masjid')
             ->addItem($jabatanItem)
             ->addItem($pengurusItem)
@@ -80,6 +87,7 @@ class Module extends BaseModule
             ->addItem($wilayahItem)
             ->addItem($entityItem)
             ->addItem($accountBalanceItem)
+            ->addItem($programItem)
             ->addItem($balanceItem);
     }
 }

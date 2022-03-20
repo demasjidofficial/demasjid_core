@@ -18,8 +18,7 @@
             <div class="row">
                 <!-- List wilayahs -->
                 <div class="col table-responsive" id="wilayah-list">
-                    <?= $this->include($viewPrefix . '\_table'); ?>
-                    <?= $pager->links() ?>
+                    <?= $this->include($viewPrefix . '\_table'); ?>                    
                 </div>
 
                 <!-- Filters -->

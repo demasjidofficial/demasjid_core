@@ -10,5 +10,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/member', ['controller' => 'MemberController']);
     $routes->resource('masjid/entity', ['controller' => 'EntityController']);
     $routes->resource('masjid/accountbalance', ['controller' => 'AccountBalanceController']);
-    $routes->resource('masjid/balance', ['controller' => 'BalanceController']);    
+    $routes->resource('masjid/balance', ['controller' => 'BalanceController']);
+    $routes->resource('masjid/program', ['controller' => 'ProgramController']);
+    
 });
