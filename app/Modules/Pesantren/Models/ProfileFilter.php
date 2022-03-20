@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Masjid\Models;
+namespace App\Modules\Pesantren\Models;
 
 use App\Modules\Api\Models\ProfileModel;
 use Bonfire\Traits\Filterable;

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Modules\Masjid\Controllers;
+namespace App\Modules\TPQ\Controllers;
 
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\PengurusModel;
 use App\Modules\Api\Models\WilayahModel;
-use App\Modules\Masjid\Models\PengurusFilter;
+use App\Modules\TPQ\Models\PengurusFilter;
 use App\Traits\UploadedFile;
 use IlluminateAgnostic\Arr\Support\Arr;
 
@@ -13,8 +13,8 @@ class PengurusController extends AdminCrudController
 {
     use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\pengurus\\';
-    protected $baseRoute = 'admin/masjid/pengurus';
+    protected $viewPrefix = 'App\Modules\TPQ\Views\pengurus\\';
+    protected $baseRoute = 'admin/tpq/pengurus';
     protected $langModel = 'pengurus';
     protected $modelName = 'App\Modules\Api\Models\PengurusModel';
     private $imageFolder = 'images';
@@ -61,7 +61,7 @@ class PengurusController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(PengurusFilter::class);
-        $model->masjid();
+        $model->tpq();
         return [
             'headers' => [
                 'name' => lang('crud.name'),
@@ -108,7 +108,7 @@ class PengurusController extends AdminCrudController
         }
 
         $dataEdit['jabatanItems'] = Arr::pluck(model('App\Modules\Api\Models\JabatanModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
-        $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['id as key', 'name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['id as key', 'name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
         $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
         
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Modules\Masjid\Models;
+namespace App\Modules\Pesantren\Models;
 
-use App\Modules\Api\Models\ProfileModel;
+use App\Modules\Api\Models\PengurusModel;
 use Bonfire\Traits\Filterable;
 
-class ProfileFilter extends ProfileModel
+class PengurusFilter extends PengurusModel
 {
     use Filterable;
 

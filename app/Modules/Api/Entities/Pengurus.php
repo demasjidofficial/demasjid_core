@@ -39,18 +39,6 @@ class Pengurus extends BaseEntity
 	private $name;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="contact",
-	 *     title="contact",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=255,
-	 * )
-	 *		 
-	 */
-	private $contact;
-	/**
-	 * @OA\Property(		 		 		 
 	 *     description="description",
 	 *     title="description",
 	 *     type="string",
@@ -83,6 +71,18 @@ class Pengurus extends BaseEntity
 	 *		 
 	 */
 	private $address;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="path_image",
+	 *     title="path_image",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $path_image;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="telephone",

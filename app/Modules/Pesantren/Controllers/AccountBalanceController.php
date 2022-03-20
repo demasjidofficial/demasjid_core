@@ -42,7 +42,7 @@ class AccountBalanceController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(AccountBalanceFilter::class);
-        $entities = $this->listPesantrenEntity();        
+        $entities = $this->listPesantrenEntity();
         $model->whereIn('entity_id', $entities);
         return [
             'headers' => [

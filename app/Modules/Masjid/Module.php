@@ -26,6 +26,14 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.pengurus.list',
         ]);
+
+        $profileItem = new MenuItem([
+            'title'           => 'Profile',
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProfileController::index'),
+            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            //'permission'      => 'masjid.pengurus.list',
+        ]);
+
         $jabatanItem = new MenuItem([
             'title'           => 'Jabatan',
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
@@ -67,6 +75,7 @@ class Module extends BaseModule
         $sidebar->menu('sidebar')->collection('masjid')
             ->addItem($jabatanItem)
             ->addItem($pengurusItem)
+            ->addItem($profileItem)
             ->addItem($memberItem)
             ->addItem($wilayahItem)
             ->addItem($entityItem)

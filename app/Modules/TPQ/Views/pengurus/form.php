@@ -29,10 +29,10 @@
 
         <fieldset>
             <div class="row mb-3">
-                <div class="col-sm-12 text-center">                    
+                <div class="col-sm-12 text-center">
                     <img src="<?= isset($data->path_image) ? site_url($data->path_image) : '/assets/admin/images/user.png' ?>" alt="" class="profile-user-img img-fluid img-circle">
                 </div>
-                <div class="offset-sm-4 col-sm-4">                    
+                <div class="offset-sm-4 col-sm-4">
                     <div class="input-group">
                         <div class="custom-file">
                             <?= form_upload('image', old('image', $data->image ?? ''), "class='custom-file-input' accept='image/*' required ") ?>

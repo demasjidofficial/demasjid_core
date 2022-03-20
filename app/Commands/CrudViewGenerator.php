@@ -222,20 +222,20 @@ class CrudViewGenerator extends BaseCommand
         switch ($type) {
             case 'text':
                 $formInput = <<<FIELD
-                    <?= form_textarea('{$name}', old('{$name}', \$data->{$name} ?? ''), "rows='4' class='{$classInput}' {$required}") ?>
+                    <?= form_textarea('{$name}', old('{$name}', \$data->{$name} ?? ''), "rows='4' class='{$classInput}' {$required} placeholder='".lang('crud.{$name}')."' ") ?>
                     FIELD;
             break;
 
             case 'select2':
                 $optionItems = $objForeignKey['foreign_table_name'] . 'Items';
                 $formInput   = <<<FIELD
-                    <?= form_dropdown('{$name}',\${$optionItems} ,old('{$name}', \$data->{$name} ?? ''), "class='{$classInput}' {$required}") ?>
+                    <?= form_dropdown('{$name}',\${$optionItems} ,old('{$name}', \$data->{$name} ?? ''), "class='{$classInput}' {$required} placeholder='".lang('crud.{$name}')."' ") ?>
                     FIELD;
             break;
 
             default:
                 $formInput = <<<FIELD
-                    <?= form_input('{$name}', old('{$name}', \$data->{$name} ?? ''), "class='{$classInput}' {$required}") ?>
+                    <?= form_input('{$name}', old('{$name}', \$data->{$name} ?? ''), "class='{$classInput}' {$required} placeholder='".lang('crud.{$name}')."' ") ?>
                     FIELD;
         }
 

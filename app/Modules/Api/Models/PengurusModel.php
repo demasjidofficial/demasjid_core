@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class PengurusModel extends BaseModel
 {
     protected $table = 'pengurus';
@@ -10,10 +8,10 @@ class PengurusModel extends BaseModel
     protected $useTimestamps = true;  
     protected $allowedFields = [
         'name',
-		'contact',
 		'description',
 		'jabatan_id',
 		'address',
+		'path_image',
 		'telephone',
 		'email',
 		'created_at',
@@ -27,10 +25,10 @@ class PengurusModel extends BaseModel
     protected $validationRules = [
         'id' => 'numeric|required|is_unique[pengurus.id,id,{id}]',
 		'name' => 'max_length[255]|required',
-		'contact' => 'max_length[255]|required',
 		'description' => 'required',
 		'jabatan_id' => 'numeric|required',
 		'address' => 'max_length[100]',
+		'path_image' => 'max_length[255]',
 		'telephone' => 'max_length[15]',
 		'email' => 'max_length[35]',
 		'created_at' => 'valid_date|required',
@@ -40,5 +38,13 @@ class PengurusModel extends BaseModel
 		'kecamatan_id' => 'max_length[15]',
 		'desa_id' => 'max_length[15]',
 		'entity_id' => 'numeric'
-    ];   
+    ];
+
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'jabatan.name as jabatan_name'];
+        $this->join('jabatan', 'jabatan.id = '.$this->table.'.jabatan_id');
+
+        return parent::findAll($limit, $offset);
+    }
 }

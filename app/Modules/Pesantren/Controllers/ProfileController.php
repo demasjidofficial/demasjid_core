@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Masjid\Controllers;
+namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\EntityModel;
@@ -14,8 +14,8 @@ class ProfileController extends AdminCrudController
 {
     use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\profile\\';
-    protected $baseRoute = 'admin/masjid/profile';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\profile\\';
+    protected $baseRoute = 'admin/pesantren/profile';
     protected $langModel = 'profile';
     protected $modelName = 'App\Modules\Api\Models\ProfileModel';
     private $imageFolder = 'images';
@@ -92,7 +92,7 @@ class ProfileController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(EntityFilter::class);
-        $model->masjid();
+        $model->pesantren();
         $entities = $model->findAll();
         $entityId = $this->request->getGet('entity') ?? null;
         $profileId = null;
@@ -102,7 +102,6 @@ class ProfileController extends AdminCrudController
                 $profileId = $tmpProfile->id;
             }
         }
-        
 
         return [
             'controller' => $this->getBaseController(),
@@ -137,7 +136,7 @@ class ProfileController extends AdminCrudController
             $dataEdit['kecamatanItems'] += [$data->kecamatan_id => $wilayah[$data->kecamatan_id]['nama']];
             $dataEdit['desaItems'] += [$data->desa_id => $wilayah[$data->desa_id]['nama']];
         } else {
-            $activeEntity = $this->request->getGet('entity') ?? (new EntityModel())->masjid()->first()->id;
+            $activeEntity = $this->request->getGet('entity') ?? (new EntityModel())->pesantren()->first()->id;
             $dataEdit['activeEntity'] = $activeEntity;
         }
         $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
