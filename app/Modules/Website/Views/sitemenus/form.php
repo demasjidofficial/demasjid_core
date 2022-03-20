@@ -59,15 +59,17 @@
                         <?php } ?>
                     </div>
                 </div>
+                <!--
                 <div class="row mb-3">
-                    <?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    < ?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('language_id')) { ?>
-                        <p class="text-danger"><?php echo error('language_id'); ?></p>
-                        <?php } ?>
+                        < ?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
+                        < ?php if (has_error('language_id')) { ?>
+                        <p class="text-danger">< ?php echo error('language_id'); ?></p>
+                        < ?php } ?>
                     </div>
                 </div>
+                -->
                 <div class="row mb-3">
                     <?= form_label('state','',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
@@ -76,16 +78,7 @@
                         <p class="text-danger"><?php echo error('state'); ?></p>
                         <?php } ?>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('created_by','',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('created_by')) { ?>
-                        <p class="text-danger"><?php echo error('created_by'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
+                </div>                
             </fieldset>
 
             <div class="text-end py-3">

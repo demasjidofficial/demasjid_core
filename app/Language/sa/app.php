@@ -75,4 +75,6 @@ return [
 	'release' => 'Rilis',
 	'publish' => 'Terbit',
 	'cancel' => 'Batal',
+	'active' => 'Aktif',
+	'inactive' => 'Non-Aktif',
 ];
