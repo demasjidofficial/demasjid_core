@@ -31,6 +31,7 @@ return [
 
 	'back' => 'Kembali',
 	'pages' => 'Halaman',
+	'add_new' => 'Tambah Baru',
 	
 	'pengurus' => 'Pengurus',
 	'provinsi_id' => 'Provinsi',
@@ -39,12 +40,20 @@ return [
 	'desa_id' => 'Desa',
 	'jabatan_id'=> 'Jabatan',
 	'address' => 'Alamat',
-	'path_image' => 'Photo',
+	'path_image' => 'Gambar',
 	'telephone' => 'Telepon',
 	'email' => 'Email',
 	'role' => 'Peran',
 	'profile' => 'Profil',
 
 	'path_logo' => 'Gambar',
+
+	'country_id' => 'ID',
+	'country_en' => 'EN',
+	'country_ar' => 'AR',
+
+	'enter_text_id' => 'Masukkan teks Indonesia',
+	'enter_text_ar' => 'كتابة نص باللغة الإنجليزية',
+	'enter_text_en' => 'Enter English text',
  ];
 

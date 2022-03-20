@@ -22,14 +22,14 @@ class Module extends BaseModule
         $pengurusItem = new MenuItem([
             'title'           => 'Pengurus',
             'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
-            'fontAwesomeIcon' => 'fas fa-user nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $profileItem = new MenuItem([
-            'title'           => 'Profile',
+            'title'           => 'Profil',
             'url'             => url_to('App\Modules\Pesantren\Controllers\ProfileController::index'),
-            'fontAwesomeIcon' => 'fas fa-users nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.pengurus.list',
         ]);
         // Content Menu for sidebar
