@@ -67,4 +67,14 @@ return [
 
 	'developedby'	 	=> 'Developed by',
 	'email_address'		=> 'Email Address',
+
+	'draft' => 'Draf',
+	'open' => 'Open',
+	'inprogress' => 'Berjalan',
+	'done' => 'Selesai',
+	'release' => 'Rilis',
+	'publish' => 'Terbit',
+	'cancel' => 'Batal',
+	'active' => 'Aktif',
+	'inactive' => 'Non-Aktif',
 ];

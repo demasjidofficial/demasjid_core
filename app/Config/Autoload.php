@@ -58,6 +58,9 @@ class Autoload extends AutoloadConfig
         'Themes'           => ROOTPATH . 'themes',
         'App\Modules\Pesantren' => ROOTPATH . 'app/Modules/Pesantren',
         'App\Modules\TPQ'       => ROOTPATH . 'app/Modules/TPQ',
+        'App\Modules\BaitulMal' => ROOTPATH . 'app/Modules/BaitulMal',
+        'App\Modules\Board'     => ROOTPATH . 'app/Modules/Board',
+        'App\Modules\Settings'  => ROOTPATH . 'app/Modules/Settings',
     ];
 
     /**

@@ -7,8 +7,8 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; Kembali</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  Menu</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.menu') ?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -59,15 +59,17 @@
                         <?php } ?>
                     </div>
                 </div>
+                <!--
                 <div class="row mb-3">
-                    <?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    < ?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('language_id')) { ?>
-                        <p class="text-danger"><?php echo error('language_id'); ?></p>
-                        <?php } ?>
+                        < ?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
+                        < ?php if (has_error('language_id')) { ?>
+                        <p class="text-danger">< ?php echo error('language_id'); ?></p>
+                        < ?php } ?>
                     </div>
                 </div>
+                -->
                 <div class="row mb-3">
                     <?= form_label('state','',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
@@ -80,7 +82,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> Simpan</button>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save') ?></button>
             </div>
 
         </form>

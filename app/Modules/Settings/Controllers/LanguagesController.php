@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Modules\TPQ\Controllers;
+namespace App\Modules\Settings\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\BalanceModel;
-use App\Modules\TPQ\Models\BalanceFilter;
+use App\Modules\Api\Models\LanguagesModel;
+use App\Modules\Settings\Models\LanguagesFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class BalanceController extends AdminCrudController
+class LanguagesController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\TPQ\Views\balance\\';
-    protected $baseRoute = 'admin/tpq/balance';
-    protected $langModel = 'balance';
-    protected $modelName = 'App\Modules\Api\Models\BalanceModel';
+    protected $viewPrefix = 'App\Modules\Settings\Views\languages\\';
+    protected $baseRoute = 'admin/settings/languages';
+    protected $langModel = 'languages';
+    protected $modelName = 'App\Modules\Api\Models\LanguagesModel';
     public function index(){
-        helper('number');
         return parent::index();
     }
 
@@ -41,17 +40,14 @@ class BalanceController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(BalanceFilter::class);
-        $model->tpq();
-        $model->orderBy('transaction_date');
+        $model = model(LanguagesFilter::class);
         return [
             'headers' => [
-                'transaction_date' => lang('crud.transaction_date'),
-                'description' => lang('crud.description'),
-                'debit' => lang('crud.debit'),
-                'credit' => lang('crud.credit'),                
-                'saldo'  => lang('crud.saldo'),
-                'account_balance_id' => lang('crud.account'),
+                'code' => lang('crud.code'),
+                'name' => lang('crud.name'),
+                'path_icon' => lang('crud.path_icon'),
+                'state' => lang('crud.state'),
+                //'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -65,7 +61,7 @@ class BalanceController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new BalanceModel();
+        $model = new LanguagesModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -74,7 +70,7 @@ class BalanceController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountBalanceModel')->select(['account_balance.id as key','account_balance.name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
+        
         return $dataEdit;
     }
 }

@@ -20,7 +20,6 @@
         </div>
     <?php } ?>
 
-
     <x-admin-box>
 
     <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
@@ -33,33 +32,73 @@
         <?php } ?>
 
         
-        <div class="row mb-3">
-            <?= form_label(lang('crud.menu'),'',['for' => 'sitemenu_id', 'class' => 'col-form-label col-sm-2']) ?>
-            <div class="col-sm-10">
-                <?= form_input('sitemenu_id', old('sitemenu_id', $data->sitemenu_id ?? ''), "class='form-control int' ") ?>
-                <?php if (has_error('sitemenu_id')) { ?>
-                <p class="text-danger"><?php echo error('sitemenu_id'); ?></p>
-                <?php } ?>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.menu'),'',['for' => 'sitemenu_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <!--?= form_input('sitemenu_id', old('sitemenu_id', $data->sitemenu_id ?? ''), "class='form-control int' ") ?-->
+
+                        <?= form_dropdown('sitemenu_id', $menuItems, old('sitemenu_id', $data->sitemenu_id ?? ''), "class='form-control select2bs4 sitemenu_id' required") ?>
+                        <?php if (has_error('sitemenu_id')) { ?>
+                        <p class="text-danger"><?php echo error('sitemenu_id'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="row mb-3">
+                <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
+
+                    <?= form_dropdown('state', ['draft' => lang('app.draft'), 'release' => lang('app.release')], old('state', $data->state ?? ''), "class='form-control select2bs4 state' required") ?>
+                    <?php if (has_error('state')) { ?>
+                    <p class="text-danger"><?php echo error('state'); ?></p>
+                    <?php } ?>
+                </div>
+                </div>
             </div>
         </div>
-        <div class="row mb-3">
-            <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
-            <div class="col-sm-10">
-                <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?>
-                <?php if (has_error('state')) { ?>
-                <p class="text-danger"><?php echo error('state'); ?></p>
-                <?php } ?>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+
+                        <!--?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar' ") ?-->
+
+                        <?php if(isset($data->path_image)): ?>
+                        <div class="justify-content-center photo-wrapper">           
+                            <img src="<?= site_url($data->path_image) ?>" alt="" class="img-thumbnail" style="height:150px">
+                        </div>
+                        <?php endif ?>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <?= form_upload('path_image', old('path_image', $data->path_image ?? ''), "class='custom-file-input'  placeholder='".lang('crud.path_image')."' accept='image/*' ") ?>
+                                    <label class="custom-file-label">Pilih gambar halaman</label>
+                                </div>
+                                <div class="input-group-append clickable">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-camera"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <?php if (has_error('path_image')) { ?>
+                        <p class="text-danger"><?php echo error('path_image'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <?= form_label(lang('crud.image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
-            <div class="col-sm-10">
-                <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar' ") ?>
-                <?php if (has_error('path_image')) { ?>
-                <p class="text-danger"><?php echo error('path_image'); ?></p>
-                <?php } ?>
-            </div>
-        </div>
+            
+            <div class="col-md-5">
+                &nbsp;
+            </div>           
+
+        </div><!--/.row -->
 
         <!--div class="row mb-3">
             < ?= form_label('created_by','',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
@@ -303,7 +342,7 @@
 
 
         <div class="text-end py-3">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('app.save')?></button>
+            <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save')?></button>
         </div>
 
     </form>

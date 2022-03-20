@@ -27,7 +27,7 @@
             <?php } ?>
 
             <fieldset>
-                                <div class="row mb-3">
+                <div class="row mb-3">
                     <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>

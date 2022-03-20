@@ -52,7 +52,6 @@ return [
 	'start_date' => 'Tanggal Mulai',
 	'end_date'	=> 'Tanggal Selesai',
 	'program_description' => 'Uraian',
-	'cost_estimate' => 'Anggaran Biaya',
 
 	'sedang_berlangsung' => 'Sedang Berlangsung',
 	'batal' => 'Batal',

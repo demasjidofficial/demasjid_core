@@ -67,4 +67,14 @@ return [
 	
 	'developedby'	 	=> 'طورت بواسطة',
 	'email_address'		=> 'عنوان بريد الكتروني',
+
+	'draft' => 'Draf',
+	'open' => 'Open',
+	'inprogress' => 'Berjalan',
+	'done' => 'Selesai',
+	'release' => 'Rilis',
+	'publish' => 'Terbit',
+	'cancel' => 'Batal',
+	'active' => 'Aktif',
+	'inactive' => 'Non-Aktif',
 ];
