@@ -95,7 +95,7 @@
 
 <?php $this->endSection(); ?>
 
-<?= $this->section('scripts') ?>
+<?php $this->section('scripts') ?>
     <!-- bs-custom-file-input -->    
     <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
@@ -118,4 +118,4 @@
             })
         });            
     </script>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

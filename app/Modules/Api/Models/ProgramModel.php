@@ -9,13 +9,17 @@ class ProgramModel extends BaseModel
 	protected $table = 'program';
     protected $returnType = 'App\Modules\Api\Entities\Program';
     protected $primaryKey = 'id';
-    protected $useTimestamps = true;	 
+    protected $useTimestamps = true;
+	protected $beforeInsert = ['createdBy', 'clearAmountFormat'];
+	protected $beforeUpdate = ['clearAmountFormat'];
     protected $allowedFields = [
         'name',
 		'description',
 		'start_date',
 		'end_date',
 		'state',
+		'cost_estimate',
+		'path_image',
 		'created_at',
 		'updated_at',
 		'created_by'
@@ -24,7 +28,8 @@ class ProgramModel extends BaseModel
         'id' => 'numeric|required|is_unique[program.id,id,{id}]',
 		'name' => 'max_length[50]|required',
 		'description' => 'required',
-		'start_date' => 'valid_date|required',
+		'start_date' => 'valid_date|required',		
+		'cost_estimate' => 'required',
 		'end_date' => 'valid_date|required',
 		'state' => 'max_length[20]|required',
 		'created_at' => 'valid_date|required',
@@ -42,4 +47,13 @@ class ProgramModel extends BaseModel
 		];
 	}
 
+	protected function clearAmountFormat(array $data)
+    {
+        
+        if (isset($data['data']['cost_estimate'])) {
+            $data['data']['cost_estimate'] = str_replace('.', '', $data['data']['cost_estimate']);
+        }        
+
+        return $data;
+    }
 }
