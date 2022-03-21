@@ -7,4 +7,5 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Pesantren\Controllers']
     $routes->resource('pesantren/profile', ['controller' => 'ProfileController']);
     $routes->resource('pesantren/accountbalance', ['controller' => 'AccountBalanceController']);
     $routes->resource('pesantren/balance', ['controller' => 'BalanceController']);  
+    $routes->resource('pesantren/kelas', ['controller' => 'KelasController']);  
 });
