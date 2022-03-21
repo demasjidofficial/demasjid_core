@@ -5,15 +5,17 @@ namespace App\Modules\Masjid\Controllers;
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\ProgramModel;
 use App\Modules\Masjid\Models\ProgramFilter;
-use IlluminateAgnostic\Arr\Support\Arr;
+use App\Traits\UploadedFile;
 
 class ProgramController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\program\\';
     protected $baseRoute = 'admin/masjid/program';
     protected $langModel = 'program';
     protected $modelName = 'App\Modules\Api\Models\ProgramModel';
+    private $imageFolder = 'images';
     public function index(){
         return parent::index();
     }
@@ -23,6 +25,14 @@ class ProgramController extends AdminCrudController
     }
 
     public function update($id = null){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
         list($startDate, $endDate) = explode(' - ',$this->request->getPost('period'));
         $this->model->set('start_date', $startDate);
         $this->model->set('end_date', $endDate);
@@ -34,6 +44,15 @@ class ProgramController extends AdminCrudController
     }
 
     public function create(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         list($startDate, $endDate) = explode(' - ',$this->request->getPost('period'));
         $this->model->set('start_date', $startDate);
         $this->model->set('end_date', $endDate);

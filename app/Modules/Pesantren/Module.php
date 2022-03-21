@@ -45,11 +45,18 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.balance.list',
         ]);
-        
+        $kelas = new MenuItem([
+            'title'           => 'Kelas',
+            'url'             => url_to('App\Modules\Pesantren\Controllers\KelasController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'pesantren.kelas.list',
+        ]);
         $sidebar->menu('sidebar')->collection('pesantren')
             ->addItem($pengurusItem)
             ->addItem($profileItem)
             ->addItem($accountBalanceItem)
-            ->addItem($balanceItem);
+            ->addItem($balanceItem)
+            ->addItem($kelas);
+          
     }
 }
