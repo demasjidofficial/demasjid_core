@@ -164,6 +164,9 @@
                                 <p>Kebutuhan:<span> <br/>Rp 350.000.000</span></p>
                             </div>
                         </div>
+                        <div class="btn-donation-wrapper" style="text-align:center;">
+                            <button class="btn btn-donation">Donasi Sekarang</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -190,6 +193,9 @@
                                 <p>Kebutuhan:<span> <br/>Rp 135.000.000</span></p>
                             </div>
                         </div>
+                        <div class="btn-donation-wrapper" style="text-align:center;">
+                            <button class="btn btn-donation">Donasi Sekarang</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -215,6 +221,9 @@
                                 <p>Terkumpul:<span> <br/>Rp 225.000.000</span></p>
                                 <p>Kebutuhan:<span> <br/>Rp 550.000.000</span></p>
                             </div>
+                        </div>
+                        <div class="btn-donation-wrapper" style="text-align:center;">
+                            <button class="btn btn-donation">Donasi Sekarang</button>
                         </div>
                     </div>
                 </div>

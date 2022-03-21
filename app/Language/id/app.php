@@ -39,6 +39,7 @@ return [
 	'kajian'	=> 'Kajian',
 	'pesantren'	=> 'Pesantren',
 	'tpq'		=> 'TPQ',
+	'construction' => 'Pembangunan',
 	'muamalah'	=> 'Muamalah',
 	'room'		=> 'Room',
 	'net'		=> 'Net',

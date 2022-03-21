@@ -43,11 +43,11 @@ class SitesocialsController extends AdminCrudController
         $model = model(SitesocialsFilter::class);
         return [
             'headers' => [
-                                    'name' => 'name',
-                'link' => 'link',
-                'path_icon' => 'path_icon',
-                'state' => 'state',
-                'created_by' => 'created_by'
+                'name' => lang('crud.name'),
+                'link' => lang('crud.link'),
+                'path_icon' => lang('crud.path_icon'),
+                'state' => lang('crud.state'),
+                'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

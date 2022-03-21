@@ -69,5 +69,8 @@ return [
 	'code' => 'Kode',
 	'path_icon' => 'Ikon',
 	'languages' => 'Bahasa',
+
+	'social_media' => 'Media Sosial',
+	'link' => 'Tautan',
  ];
 

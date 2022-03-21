@@ -2,8 +2,8 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; sitesocials</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  sitesocials</h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back')?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.social_media')?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -27,7 +27,7 @@
             <?php } ?>
 
             <fieldset>
-                                <div class="row mb-3">
+                <div class="row mb-3">
                     <?= form_label('name','',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
@@ -75,7 +75,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> sitesocials</button>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save')?></button>
             </div>
 
         </form>
