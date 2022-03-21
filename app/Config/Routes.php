@@ -65,6 +65,7 @@ static function ($routes) {
     $routes->resource('pengurus');
     $routes->resource('programs');
     $routes->resource('kelas');
+    $routes->resource('uom');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');
