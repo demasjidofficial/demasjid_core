@@ -14,5 +14,5 @@ $routes->get('site-offline', static function () {
 
 // Bonfire Admin routes
 $routes->group(ADMIN_AREA, ['namespace' => '\Bonfire\Controllers'], static function ($routes) {
-    $routes->get('/', 'Dashboard::index');
+    // $routes->get('/', 'Dashboard::index');
 });

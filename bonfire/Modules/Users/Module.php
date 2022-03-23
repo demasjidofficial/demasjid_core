@@ -43,18 +43,6 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-users nav-icon',
             //'permission'      => 'users.list',
         ]);
-        $sidebar->menu('sidebar')->collection('content')->addItem($item);
-
-        // Settings widgets stats on dashboard
-        $widgets   = service('widgets');
-        $users     = new UserModel();
-        $statsItem = new StatsItem([
-            'bgColor' => 'bg-blue',
-            'title'   => 'Users',
-            'value'   => $users->countAll(),
-            'url'     => ADMIN_AREA . '/users',
-            'faIcon'  => 'fa fa-user nav-icon',
-        ]);
-        $widgets->widget('stats')->collection('stats')->addItem($statsItem);
+        $sidebar->menu('sidebar')->collection('content')->addItem($item);        
     }
 }
