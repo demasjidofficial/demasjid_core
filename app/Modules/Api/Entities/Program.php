@@ -120,6 +120,11 @@ class Program extends BaseEntity
         'start_date'        => 'datetime',
 		'end_date'        => 'datetime',
     ];
+
+	// public function getAnggaran(){
+    //     helper('number');
+    //     return number_to_currency($this->cost_estimate,'Rp');
+	// }
 }
 /**
  *

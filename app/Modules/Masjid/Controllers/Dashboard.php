@@ -12,6 +12,8 @@
 namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminController;
+use App\Libraries\Widgets\Panel\Panel;
+use App\Libraries\Widgets\Panel\PanelItem;
 use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\BalanceModel;
@@ -41,6 +43,8 @@ class Dashboard extends AdminController
         helper('number');
         $this->setupWidgets();
         $this->setWidgetStats();
+        $this->setWidgetZis();
+        $this->setWidgetProgram();
         $widgets = service('widgets');
         echo $this->render('App\Modules\Masjid\Views\dashboard', [
             'widgets' => $widgets,
@@ -54,6 +58,16 @@ class Dashboard extends AdminController
         $widgets->createWidget(Stats::class, 'stats');
         $widgets->widget('stats')
             ->createCollection('stats')
+        ;
+
+        $widgets->createWidget(Stats::class, 'zis');
+        $widgets->widget('zis')
+            ->createCollection('zis')
+        ;
+
+        $widgets->createWidget(Panel::class, 'program');
+        $widgets->widget('program')
+            ->createCollection('program')
         ;
 
         $widgets->createWidget(Charts::class, 'charts');
@@ -104,6 +118,74 @@ class Dashboard extends AdminController
             ->addItem($incomeItem)
             ->addItem($costItem)
             ->addItem($userItem);
+    }
+
+    private function setWidgetProgram()
+    {
+        $widgets = service('widgets');        
+        $programItem = new PanelItem([
+            'itemClass' => 'table-responsive',
+            'content' => $this->generateProgram()  
+        ]);
+        
+        $widgets->widget('program')->collection('program')
+            ->addItem($programItem);
+    }
+
+    private function setWidgetZis()
+    {
+        $widgets = service('widgets');        
+        $zakatItem = new StatsItem([
+            'bgColor' => 'bg-warning',
+            'bgIcon' => 'bg-info',
+            'title' => 'Zakat',
+            'value' => number_to_currency(450,'IDR', 'id'),
+            // 'url'     => ADMIN_AREA . '/settings/groups',
+            'faIcon' => 'fas fa-tag',
+        ]);
+        
+        $infaqItem = new StatsItem([
+            'bgColor' => 'bg-success',
+            'bgIcon' => 'bg-success',
+            'title' => 'Infaq',
+            'value' => number_to_currency(400,'IDR', 'id'),
+            // 'url'     => ADMIN_AREA . '/settings/groups',
+            'faIcon' => 'fas fa-heart',
+        ]);
+        
+        $wakafItem = new StatsItem([
+            'bgColor' => 'bg-danger',
+            'bgIcon' => 'bg-danger',
+            'title' => 'Wakaf',
+            'value' => number_to_currency(4500,'IDR', 'id'),
+            // 'url'     => ADMIN_AREA . '/settings/groups',
+            'faIcon' => 'fas fa-cloud-download-alt',
+        ]);
+        $qurbanItem = new StatsItem([
+            'bgColor' => 'bg-info',
+            'bgIcon' => 'bg-warning',
+            'title' => 'Qurban',
+            'value' => number_to_currency(45000,'IDR', 'id'),
+            // 'url'     => ADMIN_AREA . '/settings/groups',
+            'faIcon' => 'fas fa-comment',
+        ]);
+        $widgets->widget('zis')->collection('zis')
+            ->addItem($zakatItem)
+            ->addItem($infaqItem)
+            ->addItem($wakafItem)
+            ->addItem($qurbanItem);
+    }
+
+    protected function generateProgram(){
+        $data = (new ProgramModel())->select(['name','description', 'state' ,'cost_estimate as anggaran'])->asArray()->findAll();
+        $table = new \CodeIgniter\View\Table();
+
+        $table->setHeading('Kode', 'Nama Program', 'Status', 'Anggaran');
+
+        $template = [
+            'table_open'         => '<table class="table m-0">'];
+        $table->setTemplate($template);
+        return $table->generate($data);
     }
 }
 
