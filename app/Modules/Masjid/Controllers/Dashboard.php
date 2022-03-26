@@ -41,6 +41,7 @@ class Dashboard extends AdminController
     public function index()
     {
         helper('number');
+        helper('app');
         $this->setupWidgets();
         $this->setWidgetStats();
         $this->setWidgetZis();
@@ -179,7 +180,13 @@ class Dashboard extends AdminController
     protected function generateProgram(){
         $data = (new ProgramModel())->select(['name','description', 'state' ,'cost_estimate as anggaran'])->asArray()->findAll();
         $table = new \CodeIgniter\View\Table();
-
+        $table->function = function ($item) {
+            if(is_numeric($item)){
+                return number_to_currency($item,'IDR','id');
+            }
+            
+            return convertStateProgram($item);
+        };
         $table->setHeading('Kode', 'Nama Program', 'Status', 'Anggaran');
 
         $template = [

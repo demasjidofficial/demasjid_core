@@ -24,3 +24,17 @@ if (!function_exists('extractWilayah')) {
         return $result;
     }
 }
+
+if (!function_exists('convertStateProgram')) {
+    function convertStateProgram($state)
+    {
+        $validState = [
+            'belum_mulai' => '<span class="badge badge-info">Dibuka</span>',
+            'selesai' => '<span class="badge badge-danger">Selesai</span>',
+            'batal' => '<span class="badge badge-warning">Batal</span>',
+            'berlangsung' => '<span class="badge badge-success">Sedang Berlangsung</span>'
+        ];    
+
+        return $validState[$state] ?? $state;
+    }
+}
