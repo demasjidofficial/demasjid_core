@@ -35,11 +35,19 @@ class Module extends BaseModule
 
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
-            'title'           => 'Master Kas',
+            'title'           => 'Kode Perkiraan Akun',
             'url'             => url_to('App\Modules\TPQ\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.account_balance.list',
         ]);
+
+        $chartOfAccoutItem = new MenuItem([
+            'title'           => 'Master Kas',
+            'url'             => url_to('App\Modules\TPQ\Controllers\ChartOfAccountController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.account_balance.list',
+        ]);
+
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\TPQ\Controllers\BalanceController::index'),
@@ -51,6 +59,7 @@ class Module extends BaseModule
             ->addItem($pengurusItem)
             ->addItem($profileItem)
             ->addItem($accountBalanceItem)
+            ->addItem($chartOfAccoutItem)
             ->addItem($balanceItem);
     }
 }

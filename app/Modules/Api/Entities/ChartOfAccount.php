@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Balance
+* Class ChartOfAccount
 * @OA\Schema(
-*     title="Balance",
-*     description="Balance"
+*     title="ChartOfAccount",
+*     description="ChartOfAccount"
 * )
 *
 * @OA\Tag(
-*     name="Balance",
-*     description="Everything about your Balance" 
+*     name="ChartOfAccount",
+*     description="Everything about your ChartOfAccount" 
 * )
 */ 
-class Balance extends BaseEntity
+class ChartOfAccount extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -27,59 +27,51 @@ class Balance extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="account_balance_id",
-	 *     title="account_balance_id",
+	 *     description="code",
+	 *     title="code",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=10,
+	 * )
+	 *		 
+	 */
+	private $code;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="name",
+	 *     title="name",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=60,
+	 * )
+	 *		 
+	 */
+	private $name;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="group_account",
+	 *     title="group_account",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=60,
+	 * )
+	 *		 
+	 */
+	private $group_account;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="entity_id",
+	 *     title="entity_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
 	 * )
 	 *		 
 	 */
-	private $account_balance_id;	
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="description",
-	 *     title="description",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=200,
-	 * )
-	 *		 
-	 */
-	private $description;	
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="type",
-	 *     title="type",
-	 *     type="string",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $type;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="amount",
-	 *     title="amount",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $amount;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="transaction_date",
-	 *     title="transaction_date",
-	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $transaction_date;
+	private $entity_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -113,31 +105,20 @@ class Balance extends BaseEntity
 	 *		 
 	 */
 	private $created_by; 
-
-	protected $datamap = [
-        'created_name' => 'full_name',
-    ];
-	protected $casts = [
-        'transaction_date'        => 'datetime' 
-    ];
-	public function getFullName(){
-
-        return $this->first_name.' '.$this->last_name;
-	}
 }
 /**
  *
  * @OA\RequestBody(
- *     request="Balance",
- *     description="Balance object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Balance"),
+ *     request="ChartOfAccount",
+ *     description="ChartOfAccount object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/ChartOfAccount"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Balance")
+ *         @OA\Schema(ref="#/components/schemas/ChartOfAccount")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Balance")
+ *         @OA\Schema(ref="#/components/schemas/ChartOfAccount")
  *     )
  * )
  */
