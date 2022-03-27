@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Modules\Pesantren\Controllers;
+namespace App\Modules\Settings\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\KelasModel;
-use App\Modules\Pesantren\Models\KelasFilter;
+use App\Modules\Api\Models\UomModel;
+use App\Modules\Settings\Models\UomFilter;
 
-class KelasController extends AdminCrudController
+class UomController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Pesantren\Views\kelas\\';
-    protected $baseRoute = 'admin/pesantren/kelas';
-    protected $langModel = 'kelas';
-    protected $modelName = 'App\Modules\Api\Models\KelasModel';
+    protected $viewPrefix = 'App\Modules\Settings\Views\uom\\';
+    protected $baseRoute = 'admin/settings/uom';
+    protected $langModel = 'uom';
+    protected $modelName = 'App\Modules\Api\Models\UomModel';
     public function index(){
         return parent::index();
     }
@@ -40,19 +40,15 @@ class KelasController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(KelasFilter::class);
-        $entities = $this->listPesantrenEntity();        
-        $model->whereIn('entity_id', $entities);
+        $model = model(UomFilter::class);
         return [
             'headers' => [
-                                    'name' => 'name',
-                'description' => 'description',
-                'level' => 'level',
-                'capacity' => 'capacity',
-                'duration' => 'duration',
-                'uom_id' => 'uom_id',
-                'entity_id' => 'entity_id',
-                'created_by' => 'created_by'
+                                    'name' => lang('crud.name'),
+                'code' => lang('crud.code'),
+                'type' => lang('crud.type'),
+                'ratio' => lang('crud.ratio'),
+                'uomcategory_id' => lang('crud.uomcategory_id'),
+                'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -66,7 +62,7 @@ class KelasController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new KelasModel();
+        $model = new UomModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -75,10 +71,7 @@ class KelasController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            // $dataEdit['uomItems'] = ['1' => 'Jam', '2' => 'Hari'];
-            $dataEdit['uomItems'] = Arr::pluck(model('App\Modules\Api\Models\UomModel')->select(['uom.id as key','uom.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
-    
-            $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->pesantren()->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['uom_categoryItems'] = Arr::pluck(model('App\Modules\Api\Models\UomCategoryModel')->select(['uom_category.id as key','uom_category.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

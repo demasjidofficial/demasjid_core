@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Program
+* Class UomCategory
 * @OA\Schema(
-*     title="Program",
-*     description="Program"
+*     title="UomCategory",
+*     description="UomCategory"
 * )
 *
 * @OA\Tag(
-*     name="Program",
-*     description="Everything about your Program" 
+*     name="UomCategory",
+*     description="Everything about your UomCategory" 
 * )
 */ 
-class Program extends BaseEntity
+class UomCategory extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -21,6 +21,7 @@ class Program extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
@@ -32,7 +33,7 @@ class Program extends BaseEntity
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
-	 * 	   maxLength=50,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
@@ -43,45 +44,12 @@ class Program extends BaseEntity
 	 *     title="description",
 	 *     type="string",
 	 * 	   format="-",	 
-	 * 	   nullable=false,
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
 	private $description;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="start_date",
-	 *     title="start_date",
-	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $start_date;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="end_date",
-	 *     title="end_date",
-	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $end_date;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="state",
-	 *     title="state",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=20,
-	 * )
-	 *		 
-	 */
-	private $state;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -111,34 +79,34 @@ class Program extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
 	private $created_by; 
+	protected $datamap = [
+		'created_name' => 'full_name',
+	];
 
-	protected $casts = [
-        'start_date'        => 'datetime',
-		'end_date'        => 'datetime',
-    ];
+	public function getFullName()
+	{
 
-	// public function getAnggaran(){
-    //     helper('number');
-    //     return number_to_currency($this->cost_estimate,'Rp');
-	// }
+		return $this->first_name . ' ' . $this->last_name;
+	}
 }
 /**
  *
  * @OA\RequestBody(
- *     request="Program",
- *     description="Program object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Program"),
+ *     request="UomCategory",
+ *     description="UomCategory object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/UomCategory"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Program")
+ *         @OA\Schema(ref="#/components/schemas/UomCategory")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Program")
+ *         @OA\Schema(ref="#/components/schemas/UomCategory")
  *     )
  * )
  */

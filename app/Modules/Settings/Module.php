@@ -26,6 +26,20 @@ class Module extends BaseModule
             //'permission'      => 'settings.languages.list',
         ]);
 
+        $uomItem = new MenuItem([
+            'title'           => 'Satuan',
+            'url'             => url_to('App\Modules\Settings\Controllers\UomController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'settings.languages.list',
+        ]);
+
+        $uomcategoryItem = new MenuItem([
+            'title'           => 'Kategori Satuan',
+            'url'             => url_to('App\Modules\Settings\Controllers\UomCategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'settings.languages.list',
+        ]);
+
         /*    
         $profileItem = new MenuItem([
             'title'           => 'Profil',
@@ -50,6 +64,8 @@ class Module extends BaseModule
         */
 
         $sidebar->menu('sidebar')->collection('settings')
-                ->addItem($languagesItem);
+                ->addItem($languagesItem)
+                ->addItem($uomItem)
+                ->addItem($uomcategoryItem);
     }
 }

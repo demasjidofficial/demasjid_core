@@ -52,7 +52,7 @@ class Bonfire
 
         if ($this->inAdmin) {
             $this->setupMenus();
-            $this->setupWidgets();
+            // $this->setupWidgets();
         }
 
         $this->discoverCoreModules();
