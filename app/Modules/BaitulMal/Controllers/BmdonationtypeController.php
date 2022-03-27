@@ -11,7 +11,7 @@ class BmdonationtypeController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\bmdonationtype\\';
-    protected $baseRoute = 'admin/baitulmal/bmdonationtype';
+    protected $baseRoute = 'admin/baitulmal/donationtype';
     protected $langModel = 'bmdonationtype';
     protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
     public function index(){

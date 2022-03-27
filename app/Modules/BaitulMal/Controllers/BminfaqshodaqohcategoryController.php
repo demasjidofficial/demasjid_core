@@ -11,7 +11,7 @@ class BminfaqshodaqohcategoryController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\bminfaqshodaqohcategory\\';
-    protected $baseRoute = 'admin/baitulmal/bminfaqshodaqohcategory';
+    protected $baseRoute = 'admin/baitulmal/infaqshodaqohcategory';
     protected $langModel = 'bminfaqshodaqohcategory';
     protected $modelName = 'App\Modules\Api\Models\BminfaqshodaqohcategoryModel';
     public function index(){

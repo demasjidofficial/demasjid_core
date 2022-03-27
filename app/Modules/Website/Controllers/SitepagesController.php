@@ -77,7 +77,7 @@ class SitepagesController extends AdminCrudController
         }
         //$menuItems = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['menu.id as key','menu.name as text'])->website()->asArray()->findAllExcludeJoin(), 'text', 'key');
 
-        $dataEdit['menuItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['menuItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
 
         return $dataEdit;
     }

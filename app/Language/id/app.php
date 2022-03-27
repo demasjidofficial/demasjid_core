@@ -36,7 +36,7 @@ return [
 	'wakaf'		=> 'Wakaf',
 	'qurban'	=> 'Qurban',
 	'program'	=> 'Program',
-	'kajian'	=> 'Kajian',
+	'kajian'	=> 'Dakwah & Sosial',
 	'pesantren'	=> 'Pesantren',
 	'tpq'		=> 'TPQ',
 	'construction' => 'Pembangunan',

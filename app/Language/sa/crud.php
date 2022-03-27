@@ -72,5 +72,7 @@ return [
 
 	'social_media' => 'Media Sosial',
 	'link' => 'Tautan',
+	'label' => 'Label',
+	'parent' => 'Induk',
  ];
 

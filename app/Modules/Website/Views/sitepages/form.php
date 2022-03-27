@@ -39,7 +39,7 @@
                     <div class="col-sm-10">
                         <!--?= form_input('sitemenu_id', old('sitemenu_id', $data->sitemenu_id ?? ''), "class='form-control int' ") ?-->
 
-                        <?= form_dropdown('sitemenu_id', $menuItems, old('sitemenu_id', $data->sitemenu_id ?? ''), "class='form-control select2bs4 sitemenu_id' required") ?>
+                        <?= form_dropdown('sitemenu_id', $menuItems, old('sitemenu_id', $data->sitemenu_id ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.menu')."' required") ?>
                         <?php if (has_error('sitemenu_id')) { ?>
                         <p class="text-danger"><?php echo error('sitemenu_id'); ?></p>
                         <?php } ?>
@@ -52,7 +52,7 @@
                 <div class="col-sm-10">
                     <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
 
-                    <?= form_dropdown('state', ['draft' => lang('app.draft'), 'release' => lang('app.release')], old('state', $data->state ?? ''), "class='form-control select2bs4 state' required") ?>
+                    <?= form_dropdown('state', ['draft' => lang('app.draft'), 'release' => lang('app.release')], old('state', $data->state ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.state')."' required") ?>
                     <?php if (has_error('state')) { ?>
                     <p class="text-danger"><?php echo error('state'); ?></p>
                     <?php } ?>
@@ -358,7 +358,6 @@
     <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/css/css.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js', 'js') ?>
-
     <script type="text/javascript">
         $(function(){
             $('[name=content]').summernote({
@@ -367,6 +366,10 @@
                     theme: 'monokai'
                 }
             });
+            $('.add-begin-option').each(function(){
+                var selected = $('input[name=title]').val()=='' ? 'selected="selected"' : '';
+                $(this).prepend('<option '+selected+'>Pilih '+$(this).attr('data-label')+'</option>');
+            })
         })
     </script>
 <?= $this->endSection() ?>

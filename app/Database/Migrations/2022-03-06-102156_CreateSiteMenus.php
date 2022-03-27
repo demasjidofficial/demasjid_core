@@ -58,7 +58,7 @@ class CreateSiteMenus extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('parent', 'sitemenus', 'id');
+        //$this->forge->addForeignKey('parent', 'sitemenus', 'id');
         $this->forge->createTable('sitemenus', true);
     }
 
