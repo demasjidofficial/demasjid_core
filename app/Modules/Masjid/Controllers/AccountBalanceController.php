@@ -48,7 +48,7 @@ class AccountBalanceController extends AdminCrudController
         return [
             'headers' => [
                 'name' => lang('crud.name'),
-                'account' => lang('crud.account'),
+                'account' => lang('crud.bank_account'),
                 'entity_id' => lang('crud.entity_id'),
                 'created_by' => lang('crud.created_by')
             ],

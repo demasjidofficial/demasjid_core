@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'transaction_date' => 'Tanggal Transaksi',
+	'transaction_date' => 'Tgl. Transaksi',
     'description' => 'Keterangan',
     'debit' => 'Debit',
     'credit' => 'Kredit',    
@@ -49,8 +49,8 @@ return [
 	'path_logo' => 'Gambar',
 	'period'	=> 'Periode',
 	'program'	=> 'Program',
-	'start_date' => 'Tanggal Mulai',
-	'end_date'	=> 'Tanggal Selesai',
+	'start_date' => 'Tgl. Mulai',
+	'end_date'	=> 'Tgl. Selesai',
 	'program_description' => 'Uraian',
 	'cost_estimate' => 'Anggaran Biaya',
 
@@ -75,5 +75,7 @@ return [
 	'link' => 'Tautan',
 	'label' => 'Label',
 	'parent' => 'Induk',
+
+	'job_position' => 'Jabatan',
  ];
 

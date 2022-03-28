@@ -13,9 +13,7 @@
         </div>
     <?php } ?>
 
-
     <x-admin-box>
-
 
         <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 

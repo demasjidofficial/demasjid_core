@@ -101,7 +101,7 @@
     </fieldset>
 
     <div class="text-end py-3">
-        <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i>
-            <?= lang('crud.profile') ?></button>
+        <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i>
+            <?= lang('app.save') ?></button>
     </div>
 </form>

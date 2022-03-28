@@ -61,6 +61,7 @@ class Autoload extends AutoloadConfig
         'App\Modules\BaitulMal' => ROOTPATH . 'app/Modules/BaitulMal',
         'App\Modules\Board'     => ROOTPATH . 'app/Modules/Board',
         'App\Modules\Settings'  => ROOTPATH . 'app/Modules/Settings',
+        'App\Modules\Bot'  => ROOTPATH . 'app/Modules/Bot',
     ];
 
     /**

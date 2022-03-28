@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.account_balance') ?></a>
+        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.back') ?></a>
         <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.account_balance') ?></h4>
     </x-page-head>
 
@@ -13,9 +13,7 @@
         </div>
     <?php } ?>
 
-
     <x-admin-box>
-
 
         <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
@@ -37,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.account'),'',['for' => 'account', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.bank_account'),'',['for' => 'account', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('account', old('account', $data->account ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('account')) { ?>
@@ -48,7 +46,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.entity'),'',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2' required") ?>
+                        <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.entity')."' required") ?>
                         <?php if (has_error('entity_id')) { ?>
                         <p class="text-danger"><?php echo error('entity_id'); ?></p>
                         <?php } ?>
@@ -57,7 +55,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.account_balance') ?></button>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save') ?></button>
             </div>
 
         </form>
@@ -65,3 +63,14 @@
     </x-admin-box>
 
 <?php $this->endSection(); ?>
+
+<?php $this->section('scripts') ?>
+    <script type="text/javascript">
+        $(function () {
+            $('.add-begin-option').each(function(){
+                var selected = $('input[name=name]').val()=='' ? 'selected="selected"' : '';
+                $(this).prepend('<option '+selected+'>Pilih '+$(this).attr('data-label')+'</option>');
+            });
+        });            
+    </script>
+<?php $this->endSection() ?>

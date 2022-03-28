@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Modules\Masjid\Controllers;
+namespace App\Modules\Bot\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\EntityModel;
-use App\Modules\Masjid\Models\EntityFilter;
+//use App\Modules\Api\Models\BmdonationtypeModel;
+//use App\Modules\BaitulMal\Models\BmdonationtypeFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class EntityController extends AdminCrudController
+class BotwaController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\entity\\';
-    protected $baseRoute = 'admin/masjid/entity';
-    protected $langModel = 'entity';
-    protected $modelName = 'App\Modules\Api\Models\EntityModel';
+    protected $viewPrefix = 'App\Modules\Bot\Views\botwhatsapp\\';
+    protected $baseRoute = 'admin/bot/whatsapp';
+    protected $langModel = 'botwhatsapp';
+    //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
+    
     public function index(){
         return parent::index();
     }
 
+    /*
     public function edit($id = null){
         return parent::edit($id);
     }
@@ -37,14 +39,18 @@ class EntityController extends AdminCrudController
     public function delete($id = null){
         return parent::delete($id);
     }
+    */
 
+    /*
     protected function getDataIndex()
     {
-        $model = model(EntityFilter::class);
+        $model = model(BmdonationtypeFilter::class);
         return [
             'headers' => [
                 'name' => lang('crud.name'),
-                'type' => lang('crud.type'),
+                'description' => lang('crud.description'),
+                'uom_id' => lang('crud.uom_id'),
+                'state' => lang('crud.state'),
                 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
@@ -59,7 +65,7 @@ class EntityController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new EntityModel();
+        $model = new BotWaModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -68,8 +74,8 @@ class EntityController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['typeItems'] = EntityModel::TYPE;
         
         return $dataEdit;
     }
+    */
 }

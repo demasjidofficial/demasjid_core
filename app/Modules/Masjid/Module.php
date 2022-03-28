@@ -61,7 +61,7 @@ class Module extends BaseModule
         ]);
 
         $accountBalanceItem = new MenuItem([
-            'title'           => 'Master Kas',
+            'title'           => 'Akun Kas',
             'url'             => url_to('App\Modules\Masjid\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.account_balance.list',
@@ -76,7 +76,7 @@ class Module extends BaseModule
         $programItem = new MenuItem([
             'title'           => 'Program',
             'url'             => url_to('App\Modules\Masjid\Controllers\ProgramController::index'),
-            'fontAwesomeIcon' => 'fas fa-th fa-1 nav-icon',
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.program.list',
         ]);
         $sidebar->menu('sidebar')->collection('masjid')

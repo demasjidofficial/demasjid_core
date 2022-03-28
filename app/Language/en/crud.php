@@ -8,6 +8,7 @@ return [
     'saldo'  => 'Saldo',
     'account_balance_id' => 'Akun Id',
 	'account' => 'Akun',
+	'bank_account' => 'Rekening',
 	'balance' => 'Kas',
 	'account_balance' => 'Akun Kas',
 	'type' => 'Jenis',
@@ -74,5 +75,7 @@ return [
 	'link' => 'Tautan',
 	'label' => 'Label',
 	'parent' => 'Induk',
+
+	'job_position' => 'Jabatan',
  ];
 

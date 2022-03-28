@@ -4,10 +4,10 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.pengurus') ?></h2>
+                <h2><?= lang('crud.bmdonationtype') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('bmdonationtype') ?></a>
             </div>
         </div>
     </x-page-head>
@@ -15,8 +15,8 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <!-- List penguruss -->
-                <div class="col table-responsive" id="pengurus-list">
+                <!-- List bmdonationtypes -->
+                <div class="col table-responsive" id="bmdonationtype-list">
                     <?php echo $this->include($viewPrefix.'\_table'); ?>
                     <?php echo $pager->links() ?>
                 </div>
@@ -27,5 +27,7 @@
 <?php $this->endSection(); ?>
 
 <?php $this->section('scripts'); ?>
-<script></script>
+<script>
+
+</script>
 <?php $this->endSection(); ?>

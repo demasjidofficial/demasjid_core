@@ -74,5 +74,7 @@ return [
 	'link' => 'Tautan',
 	'label' => 'Label',
 	'parent' => 'Induk',
+
+	'job_position' => 'Jabatan',
  ];
 

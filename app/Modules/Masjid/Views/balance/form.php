@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.balance') ?></a>
+        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.back') ?></a>
         <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.balance') ?></h4>
     </x-page-head>
 
@@ -13,9 +13,7 @@
         </div>
     <?php } ?>
 
-
     <x-admin-box>
-
 
         <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
@@ -76,7 +74,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.account'),'',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('account_balance_id',$account_balanceItems ,old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2' required") ?>
+                        <?= form_dropdown('account_balance_id',$account_balanceItems ,old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.account')."' required") ?>
                         <?php if (has_error('account_balance_id')) { ?>
                         <p class="text-danger"><?php echo error('account_balance_id'); ?></p>
                         <?php } ?>
@@ -86,7 +84,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.balance') ?></button>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save') ?></button>
             </div>
 
         </form>
@@ -99,7 +97,6 @@
     <!-- bs-custom-file-input -->    
     <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
-    
     <script type="text/javascript">
         $(function () {
             $('input[name=transaction_date]').daterangepicker({
@@ -115,7 +112,11 @@
                 'radixPoint': ',',
                 'digits': 0, 
                 'autoGroup': true
-            })
+            });
+            $('.add-begin-option').each(function(){
+                var selected = $('input[name=amount]').val()=='' ? 'selected="selected"' : '';
+                $(this).prepend('<option '+selected+'>Pilih '+$(this).attr('data-label')+'</option>');
+            });
         });            
     </script>
 <?php $this->endSection() ?>

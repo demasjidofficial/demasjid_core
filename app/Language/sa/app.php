@@ -77,4 +77,11 @@ return [
 	'cancel' => 'Batal',
 	'active' => 'Aktif',
 	'inactive' => 'Non-Aktif',
+
+	'balance_sheet' => 'Balance Sheet',
+	'financialposition_statement' => 'Financial Position Statement', // atau sama dengan Balance Sheet
+	'cashflow_statement' => 'Cash-Flow Statement',
+	'donor_report' => 'Donor Report',
+	'donor' => 'Donor',
+	'donation' => 'Donation',
 ];

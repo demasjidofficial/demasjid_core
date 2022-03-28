@@ -45,8 +45,8 @@ class JabatanController extends AdminCrudController
 
         return [
             'headers' => [
-                'name'        => 'name',
-                'description' => 'description',
+                'name'        => lang('crud.name'),
+                'description' => lang('crud.description'),
             ],
             'controller'    => $this->getBaseController(),
             'viewPrefix'    => $this->getViewPrefix(),

@@ -13,6 +13,3 @@
     <?php endif ?>
     </tbody>
 </table>
-
-
-<!--span class="right badge badge-danger">New</span-->
