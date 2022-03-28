@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateProgram extends Migration
+class CreateChartOfAccount extends Migration
 {
     public function up()
     {
@@ -15,26 +15,24 @@ class CreateProgram extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'code' => [
+                'type'          => 'varchar',
+                'constraint'    => 10,
+                'null'          => true,
+            ],
             'name' => [
                 'type'          => 'varchar',
-                'constraint'    => 50,
+                'constraint'    => 60,
             ],
-            'description' => [
-                'type'          => 'text',                
-                'comment'       => 'deskripsi singkat program'
-            ],
-            'start_date' => [
-                'type'          => 'date',
-                'null'          => false,
-            ],
-            'end_date' => [
-                'type'          => 'date',
-                'null'          => false,
-            ],
-            'state' => [
+            'group_account' => [
                 'type'          => 'varchar',
-                'constraint'    => 20,
-                'comment'       => 'valid value belum_mulai, berlangsung, batal, selesai'
+                'constraint'    => 60,
+                'comment'       => 'Aset lancar,Aset tidak lancar,Ekuitas/Kewajiban,Aset neto'
+            ],
+            'entity_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'created_at' => [
                 'type'          => 'datetime',
@@ -52,12 +50,12 @@ class CreateProgram extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('program', true);
-
+        $this->forge->addForeignKey('entity_id', 'entity', 'id');
+        $this->forge->createTable('chart_of_account', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('program');
+        $this->forge->dropTable('chart_of_account');
     }
 }

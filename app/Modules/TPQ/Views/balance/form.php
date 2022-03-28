@@ -63,6 +63,17 @@
                 </div>
                 
                 <div class="row mb-3">
+                    <?= form_label(lang('crud.chart_of_account'),'',['for' => 'chart_of_account_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_dropdown('chart_of_account_id',$chart_of_accountItems ,old('chart_of_account_id', $data->chart_of_account_id ?? ''), "class='form-control select2' required") ?>
+                        <?php if (has_error('chart_of_account_id')) { ?>
+                        <p class="text-danger"><?php echo error('chart_of_account_id'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                
+
+                <div class="row mb-3">
                     <?= form_label(lang('crud.amount'),'',['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('amount', old('amount', $data->amount ?? ''), "class='form-control int' required") ?>
@@ -93,7 +104,7 @@
 
 <?php $this->endSection(); ?>
 
-<?= $this->section('scripts') ?>
+<?php $this->section('scripts') ?>
     <!-- bs-custom-file-input -->    
     <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
     <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
@@ -116,4 +127,4 @@
             })
         });            
     </script>
-<?= $this->endSection() ?>
+<?php $this->endSection() ?>

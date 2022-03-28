@@ -12,12 +12,13 @@ class BalanceModel extends BaseModel
 	protected $beforeUpdate = ['clearAmountFormat'];
     protected $allowedFields = [
         'account_balance_id',		
+        'chart_of_account_id',
 		'description',
 		'type',		
 		'amount',
 		'transaction_date',
 		'created_at',
-		'updated_at',
+		'updated_at',        
 		'created_by'
     ];
 	
@@ -45,8 +46,9 @@ class BalanceModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'account_balance.name as account_name', 'account_balance.account'];
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'account_balance.name as account_name', 'account_balance.account', 'chart_of_account.name as chart_of_account_name'];
         $this->join('account_balance', 'account_balance.id = '.$this->table.'.account_balance_id');
+        $this->join('chart_of_account', 'chart_of_account.id = '.$this->table.'.chart_of_account_id');
         $this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);

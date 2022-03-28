@@ -66,6 +66,14 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.account_balance.list',
         ]);
+
+        $chartOfAccoutItem = new MenuItem([
+            'title'           => 'Kode Perkiraan Akun',
+            'url'             => url_to('App\Modules\Masjid\Controllers\ChartOfAccountController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.account_balance.list',
+        ]);
+
         $balanceItem = new MenuItem([
             'title'           => 'Kas',
             'url'             => url_to('App\Modules\Masjid\Controllers\BalanceController::index'),
@@ -88,6 +96,7 @@ class Module extends BaseModule
             ->addItem($entityItem)
             ->addItem($accountBalanceItem)
             ->addItem($programItem)
+            ->addItem($chartOfAccoutItem)
             ->addItem($balanceItem);
     }
 }

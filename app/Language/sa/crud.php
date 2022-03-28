@@ -76,5 +76,10 @@ return [
 	'parent' => 'Induk',
 
 	'job_position' => 'Jabatan',
+
+	'penerimaan_operasional' => 'Penerimaan Operasional',
+    'pengeluaran_operasional' => 'Pengeluaran Operasional',
+    'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
+    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional'
  ];
 
