@@ -11,7 +11,7 @@ class SitesectionsController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesections\\';
-    protected $baseRoute = 'admin/website/sitesections';
+    protected $baseRoute = 'admin/website/sections';
     protected $langModel = 'sitesections';
     protected $modelName = 'App\Modules\Api\Models\SitesectionsModel';
     public function index(){

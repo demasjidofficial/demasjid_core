@@ -9,7 +9,7 @@ return [
     'account_balance_id' => 'Akun Id',
 	'account' => 'Akun',
 	'balance' => 'Kas',
-	'chart_of_account' => 'Kode Perkiraan Akun',
+	'chart_of_account' => 'Bagan Akun',
 	'group_account' => 'Kelompok',
 	'account_balance' => 'Akun Kas',
 	'type' => 'Jenis',
@@ -83,7 +83,21 @@ return [
 	'penerimaan_operasional' => 'Penerimaan Operasional',
     'pengeluaran_operasional' => 'Pengeluaran Operasional',
     'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
-    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional'
+    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
 
+	'choose' => 'Pilih',
+	'zone' => 'Wilayah',
+	'zone_level' => 'Level Wilayah',
+
+	'member' => 'Anggota',
+	'member_mosque' => 'Masjid Anggota',
+
+	'logo' => 'Logo',
+	'bot_whatsapp' => 'BOT Whatsapp',
+	'bot_telegram' => 'BOT Telegram',
+	'bot_email' => 'BOT Email',
+	'bot_sms' => 'BOT Sms',
+
+	'class' => 'Kelas',
  ];
 

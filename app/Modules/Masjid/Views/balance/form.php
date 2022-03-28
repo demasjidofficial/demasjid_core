@@ -63,17 +63,6 @@
                 </div>
                 
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.chart_of_account'),'',['for' => 'chart_of_account_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_dropdown('chart_of_account_id',$chart_of_accountItems ,old('chart_of_account_id', $data->chart_of_account_id ?? ''), "class='form-control select2' required") ?>
-                        <?php if (has_error('chart_of_account_id')) { ?>
-                        <p class="text-danger"><?php echo error('chart_of_account_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                
-
-                <div class="row mb-3">
                     <?= form_label(lang('crud.amount'),'',['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('amount', old('amount', $data->amount ?? ''), "class='form-control int' required") ?>
@@ -82,6 +71,17 @@
                         <?php } ?>
                     </div>
                 </div>
+
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.chart_of_account'),'',['for' => 'chart_of_account_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_dropdown('chart_of_account_id',$chart_of_accountItems ,old('chart_of_account_id', $data->chart_of_account_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.chart_of_account')."' required") ?>
+                        <?php if (has_error('chart_of_account_id')) { ?>
+                        <p class="text-danger"><?php echo error('chart_of_account_id'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+
                 <div class="row mb-3">
                     <?= form_label(lang('crud.account'),'',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
@@ -126,7 +126,7 @@
             });
             $('.add-begin-option').each(function(){
                 var selected = $('input[name=amount]').val()=='' ? 'selected="selected"' : '';
-                $(this).prepend('<option '+selected+'>Pilih '+$(this).attr('data-label')+'</option>');
+                $(this).prepend('<option '+selected+'><?= lang('crud.choose')?> '+$(this).attr('data-label')+'</option>');
             });
         });            
     </script>

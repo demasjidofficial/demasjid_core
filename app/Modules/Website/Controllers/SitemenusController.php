@@ -12,7 +12,7 @@ class SitemenusController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitemenus\\';
-    protected $baseRoute = 'admin/website/sitemenus';
+    protected $baseRoute = 'admin/website/menus';
     protected $langModel = 'sitemenus';
     protected $modelName = 'App\Modules\Api\Models\SitemenusModel';
     public function index(){

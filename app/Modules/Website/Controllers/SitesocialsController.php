@@ -11,7 +11,7 @@ class SitesocialsController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesocials\\';
-    protected $baseRoute = 'admin/website/sitesocials';
+    protected $baseRoute = 'admin/website/socials';
     protected $langModel = 'sitesocials';
     protected $modelName = 'App\Modules\Api\Models\SitesocialsModel';
     public function index(){

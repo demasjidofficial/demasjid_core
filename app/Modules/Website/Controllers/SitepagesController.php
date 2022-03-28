@@ -11,7 +11,7 @@ class SitepagesController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitepages\\';
-    protected $baseRoute = 'admin/website/sitepages';
+    protected $baseRoute = 'admin/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
     public function index(){

@@ -21,20 +21,26 @@ class Module extends BaseModule
 
         // Content Menu for sidebar
         $boardnewsItem = new MenuItem([
-            'title'           => 'Berita',
+            'title'           => lang('app.board_news'),
             'url'             => url_to('App\Modules\Board\Controllers\BoardnewsController::index'),
             'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
             //'permission'      => 'baitulmal.donationtype.list',
         ]);
         $boardtempItem = new MenuItem([
-            'title'           => 'Temperatur',
+            'title'           => lang('app.board_temperature'),
             'url'             => url_to('App\Modules\Board\Controllers\BoardtemperatureController::index'),
             'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqoh.list',
         ]);
         $boarddonationItem = new MenuItem([
-            'title'           => 'Donasi',
+            'title'           => lang('app.board_donation'),
             'url'             => url_to('App\Modules\Board\Controllers\BoarddonationController::index'),
+            'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
+            //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
+        ]);
+        $boardlivebroadcastItem = new MenuItem([
+            'title'           => lang('app.board_livebroadcast'),
+            'url'             => url_to('App\Modules\Board\Controllers\BoardlivebroadcastController::index'),
             'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
@@ -42,6 +48,7 @@ class Module extends BaseModule
         $sidebar->menu('sidebar')->collection('board')
                 ->addItem($boardnewsItem)
                 ->addItem($boardtempItem)
-                ->addItem($boarddonationItem);
+                ->addItem($boarddonationItem)
+                ->addItem($boardlivebroadcastItem);
     }
 }

@@ -36,61 +36,81 @@
     < ?= asset_link('admin/css/admin.css', 'css') ?>
     < ?= asset_link('other/components/font-awesome/css/all.css', 'css') ?>
     -->
-
+    <style>
+      .tf-v1-sidetab-button-text {
+          font-size: 14px !important;
+          margin-left: 1px !important;
+      }
+      .tf-v1-sidetab-button {
+          left: -40px !important;
+          max-width: 390px !important;
+          height: 40px !important;
+          padding: 0 14px !important;
+          /*border-radius: 8px 8px 0 0;*/
+    }
+    .tf-v1-sidetab-button-icon {
+        margin-right: 0px !important;
+    }
+    </style>
     <?= $this->renderSection('styles') ?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="/assets/admin/images/spinner.gif" alt="" height="60" width="60">
-  </div>
-
-  <!-- Header -->
-  <?= $this->include('_header') ?>
-  <!-- /Header -->
-  
-  <!-- Main Sidebar Container -->
-  <x-sidebar />
-  <!-- /.main-sidebar -->
- 
-  
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dasbor</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Dasbor</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="/assets/admin/images/spinner.gif" alt="" height="60" width="60">
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <?= $this->renderSection('main') ?>
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    <!-- Header -->
+    <?= $this->include('_header') ?>
+    <!-- /Header -->
+    
+    <!-- Main Sidebar Container -->
+    <x-sidebar />
+    <!-- /.main-sidebar -->
+  
+    
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Dasbor</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                <li class="breadcrumb-item active">Dasbor</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
 
-  <!-- Footer -->
-  <?= $this->include('_footer') ?>
-  <!-- /Footer -->
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <?= $this->renderSection('main') ?>
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
-</div><!--/.wrapper-->
+    <!-- Footer -->
+    <?= $this->include('_footer') ?>
+    <!-- /Footer -->
+
+  </div><!--/.wrapper-->
+
+  <!-- Feedback Form -->
+  <div data-tf-sidetab="lWWECIkd" data-tf-width="420" data-tf-height="450" data-tf-custom-icon="https://images.typeform.com/images/dcB899G2zqGn" data-tf-button-color="#026451" data-tf-button-text="<?= lang('app.helpus_grow')?>" data-tf-iframe-props="title=Feedback Form" data-tf-medium="snippet" style="all:unset;"></div>
+  <script src="//embed.typeform.com/next/embed.js"></script>
+  <!--/Feedback Form -->
 
 <!-- jQuery -->
 <?= asset_link('admin/theme-adminlte/plugins/jquery/jquery-min.js', 'js') ?>

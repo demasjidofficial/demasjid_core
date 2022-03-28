@@ -111,7 +111,6 @@
 <?php $this->section('scripts') ?>
 <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
 <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
-
 <script type="text/javascript">
     $(function () {
         $('input[name=period]').daterangepicker({

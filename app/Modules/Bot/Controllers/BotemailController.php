@@ -1,23 +1,25 @@
 <?php
 
-namespace App\Modules\Website\Controllers;
+namespace App\Modules\Bot\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\SitepostsModel;
-use App\Modules\Website\Models\SitepostsFilter;
+//use App\Modules\Api\Models\BmdonationtypeModel;
+//use App\Modules\BaitulMal\Models\BmdonationtypeFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class SitepostsController extends AdminCrudController
+class BotemailController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Website\Views\siteposts\\';
-    protected $baseRoute = 'admin/website/posts';
-    protected $langModel = 'siteposts';
-    protected $modelName = 'App\Modules\Api\Models\SitepostsModel';
+    protected $viewPrefix = 'App\Modules\Bot\Views\botemail\\';
+    protected $baseRoute = 'admin/bot/email';
+    protected $langModel = 'botemail';
+    //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
+    
     public function index(){
         return parent::index();
     }
 
+    /*
     public function edit($id = null){
         return parent::edit($id);
     }
@@ -37,23 +39,19 @@ class SitepostsController extends AdminCrudController
     public function delete($id = null){
         return parent::delete($id);
     }
+    */
 
+    /*
     protected function getDataIndex()
     {
-        $model = model(SitepostsFilter::class);
+        $model = model(BmdonationtypeFilter::class);
         return [
             'headers' => [
-                                    'title' => 'title',
-                'subtitle' => 'subtitle',
-                'path_image' => 'path_image',
-                'content' => 'content',
-                'permalink' => 'permalink',
-                'meta_title' => 'meta_title',
-                'meta_desc' => 'meta_desc',
-                'labels' => 'labels',
-                'language_id' => 'language_id',
-                'state' => 'state',
-                'created_by' => 'created_by'
+                'name' => lang('crud.name'),
+                'description' => lang('crud.description'),
+                'uom_id' => lang('crud.uom_id'),
+                'state' => lang('crud.state'),
+                'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -67,7 +65,7 @@ class SitepostsController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new SitepostsModel();
+        $model = new BotWaModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -79,4 +77,5 @@ class SitepostsController extends AdminCrudController
         
         return $dataEdit;
     }
+    */
 }

@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.balance') ?></a>
+        <a href="<?php echo $backUrl ?>" class="back">&larr;<?= lang('crud.back') ?></a>
         <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.balance') ?></h4>
     </x-page-head>
 
@@ -95,7 +95,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.balance') ?></button>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save') ?></button>
             </div>
 
         </form>

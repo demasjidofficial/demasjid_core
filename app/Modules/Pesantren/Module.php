@@ -20,41 +20,41 @@ class Module extends BaseModule
         $sidebar = service('menus');
 
         $pengurusItem = new MenuItem([
-            'title'           => 'Pengurus',
+            'title'           => lang('crud.pengurus'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $profileItem = new MenuItem([
-            'title'           => 'Profil',
+            'title'           => lang('crud.profile'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\ProfileController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.pengurus.list',
         ]);
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
-            'title'           => 'Master Kas',
+            'title'           => lang('crud.account_balance'), 
             'url'             => url_to('App\Modules\Pesantren\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.account_balance.list',
         ]);
 
         $chartOfAccoutItem = new MenuItem([
-            'title'           => 'Kode Perkiraan Akun',
+            'title'           => lang('crud.chart_of_account'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\ChartOfAccountController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.account_balance.list',
         ]);
 
         $balanceItem = new MenuItem([
-            'title'           => 'Kas',
+            'title'           => lang('crud.balance'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\BalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.balance.list',
         ]);
         $kelas = new MenuItem([
-            'title'           => 'Kelas',
+            'title'           => lang('crud.class'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\KelasController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',

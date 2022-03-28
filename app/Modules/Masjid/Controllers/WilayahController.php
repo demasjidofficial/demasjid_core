@@ -71,6 +71,7 @@ class WilayahController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+        $dataEdit['zoneLevelItems'] = ['Desa/Kelurahan', 'Kecamatan', 'Kabupaten/Kota'];
 
         return $dataEdit;
     }

@@ -11,7 +11,7 @@ class BotwaController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Bot\Views\botwhatsapp\\';
-    protected $baseRoute = 'admin/bot/whatsapp';
+    protected $baseRoute = 'admin/bot/easywa';
     protected $langModel = 'botwhatsapp';
     //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
     
