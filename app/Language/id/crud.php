@@ -55,6 +55,7 @@ return [
 	'end_date'	=> 'Tgl. Selesai',
 	'program_description' => 'Uraian',
 	'cost_estimate' => 'Anggaran Biaya',
+	'cost_actual' => 'Realisasi Biaya',
 
 	'sedang_berlangsung' => 'Sedang Berlangsung',
 	'batal' => 'Batal',
@@ -83,7 +84,8 @@ return [
 	'penerimaan_operasional' => 'Penerimaan Operasional',
     'pengeluaran_operasional' => 'Pengeluaran Operasional',
     'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
-    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional'
-
+    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
+	'kas' => 'Kas',
+	'bank' => 'Bank'
  ];
 

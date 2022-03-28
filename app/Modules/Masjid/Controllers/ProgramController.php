@@ -71,6 +71,8 @@ class ProgramController extends AdminCrudController
                 'start_date' => lang('crud.start_date'),
                 'end_date' => lang('crud.end_date'),
                 'name' => lang('crud.name'),
+                'cost_estimate' => lang('crud.cost_estimate'),
+                'cost_actual' => lang('crud.cost_actual'),
                 'description' => lang('crud.program_description'),                
                 'state' => lang('crud.state'),                
             ],

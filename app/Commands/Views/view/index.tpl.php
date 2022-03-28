@@ -7,7 +7,7 @@
                 <h2><@= lang('crud.{table}') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<@php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <@= lang('{table}') ?></a>
+                <a href="<@php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <@= lang('crud.{table}') ?></a>
             </div>
         </div>
     </x-page-head>

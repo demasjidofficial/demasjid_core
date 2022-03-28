@@ -19,6 +19,7 @@ class ProgramModel extends BaseModel
 		'end_date',
 		'state',
 		'cost_estimate',
+		'cost_actual',
 		'path_image',
 		'created_at',
 		'updated_at',
