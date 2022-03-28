@@ -9,6 +9,7 @@ return [
     'account_balance_id' => 'Akun Id',
 	'account' => 'Akun',
 	'balance' => 'Kas',
+	'chart_of_account' => 'Bagan Akun',
 	'account_balance' => 'Akun Kas',
 	'type' => 'Jenis',
 	'amount' => 'Jumlah',
@@ -80,6 +81,9 @@ return [
 	'penerimaan_operasional' => 'Penerimaan Operasional',
     'pengeluaran_operasional' => 'Pengeluaran Operasional',
     'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
-    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional'
+    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
+
+	'choose' => 'Pilih',
+	'zone' => 'Wilayah',
  ];
 

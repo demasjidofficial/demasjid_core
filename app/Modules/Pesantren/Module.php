@@ -34,7 +34,11 @@ class Module extends BaseModule
         ]);
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
+<<<<<<< HEAD
             'title'           => lang('crud.account_balance'),
+=======
+            'title'           => lang('crud.account_balance'), 
+>>>>>>> dm
             'url'             => url_to('App\Modules\Pesantren\Controllers\AccountBalanceController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.account_balance.list',

@@ -84,4 +84,11 @@ return [
 	'donor_report' => 'Laporan Donatur',
 	'donor' => 'Donatur',
 	'donation' => 'Donasi',
+
+	'board_news' => 'Berita',
+	'board_temperature' => 'Temperatur',
+	'board_donation' => 'Donasi',
+	'board_livebroadcast' => 'Siaran Langsung',
+
+	'helpus_grow' => 'Beri Feedback',
 ];

@@ -22,19 +22,19 @@ class Module extends BaseModule
         // Content Menu for sidebar
         $botWhatsappItem = new MenuItem([
             'title'           => 'Whatsapp',
-            'url'             => url_to('App\Modules\Bot\Controllers\BotWaController::index'),
+            'url'             => url_to('App\Modules\Bot\Controllers\BotwaController::index'),
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.donationtype.list',
         ]);
         $botTelegramItem = new MenuItem([
             'title'           => 'Telegram',
-            'url'             => url_to('App\Modules\Bot\Controllers\BotTelegramController::index'),
+            'url'             => url_to('App\Modules\Bot\Controllers\BottelegramController::index'),
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqoh.list',
         ]);
         $botEmailItem = new MenuItem([
             'title'           => 'Email',
-            'url'             => url_to('App\Modules\Bot\Controllers\BotEmailController::index'),
+            'url'             => url_to('App\Modules\Bot\Controllers\BotemailController::index'),
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);

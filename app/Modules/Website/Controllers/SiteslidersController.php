@@ -11,7 +11,7 @@ class SiteslidersController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesliders\\';
-    protected $baseRoute = 'admin/website/sitesliders';
+    protected $baseRoute = 'admin/website/sliders';
     protected $langModel = 'sitesliders';
     protected $modelName = 'App\Modules\Api\Models\SiteslidersModel';
     public function index(){

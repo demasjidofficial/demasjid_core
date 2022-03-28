@@ -2,8 +2,8 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?= $backUrl ?>" class="back">&larr; member</a>
-        <h4><?= isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  member</h4>
+        <a href="<?= $backUrl ?>" class="back">&larr; <?= lang('crud.back')?></a>
+        <h4><?= isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.member_mosque')?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -28,7 +28,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label('name', '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('wilayah_id', '', ['for' => 'wilayah_id', 'class' => 'col-form-label col-sm-2']) ?>                    
+                    <?= form_label(lang('crud.zone'), '', ['for' => 'wilayah_id', 'class' => 'col-form-label col-sm-2']) ?>                    
                     <div class="col-sm-10">
                         <div class="input-group">                        
                             <?php
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('code', '', ['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.code'), '', ['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('code', old('code', $data->code ?? ''), "class='form-control varchar' readonly") ?>
                         <?php if (has_error('code')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('address', '', ['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.address'), '', ['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('address', old('address', $data->address ?? ''), "class='form-control varchar' rows=3 required") ?>
                         <?php if (has_error('address')) { ?>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('logo', '', ['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.logo'), '', ['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">                        
                         <?= !isset($data->path_logo) ? '' : "<img src='".site_url($data->path_logo)."' class='img-thumbnail' >" ?>
                         <?= form_upload('logo', old('logo', $data->logo ?? ''), "class='form-control varchar' accept='image/*' ") ?>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('image', '', ['for' => 'image', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.image'), '', ['for' => 'image', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= !isset($data->path_image) ? '' : "<img src='".site_url($data->path_image)."' class='img-thumbnail' >" ?>
                         <?= form_upload('image', old('image', $data->image ?? ''), "class='form-control varchar' accept='image/*' ") ?>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('state', '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('state', $state ,old('state', $data->state ?? ''), "class='form-control enum' ") ?>
                         <?php if (has_error('state')) { ?>
@@ -104,7 +104,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> member</button>
+                <button type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i> <?= lang('app.save')?></button>
             </div>
 
         </form>
