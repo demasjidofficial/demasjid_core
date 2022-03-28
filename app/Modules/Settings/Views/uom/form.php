@@ -63,21 +63,21 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.uomcategory_id'),'',['for' => 'uomcategory_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('uomcategory_id', old('uomcategory_id', $data->uomcategory_id ?? ''), "class='form-control int'  placeholder='".lang('crud.uomcategory_id')."' ") ?>
-                        <?php if (has_error('uomcategory_id')) { ?>
-                        <p class="text-danger"><?php echo error('uomcategory_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                     <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
                         <?php if (has_error('created_by')) { ?>
                         <p class="text-danger"><?php echo error('created_by'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div> -->
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.uomcategory_id'),'',['for' => 'uomcategory_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_dropdown('uomcategory_id',$uom_categoryItems ,old('uomcategory_id', $data->uomcategory_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.uomcategory_id')."' ") ?>
+                        <?php if (has_error('uomcategory_id')) { ?>
+                        <p class="text-danger"><?php echo error('uomcategory_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>

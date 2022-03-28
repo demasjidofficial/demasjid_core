@@ -75,18 +75,6 @@ class Uom extends BaseEntity
 	private $ratio;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="uomcategory_id",
-	 *     title="uomcategory_id",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $uomcategory_id;
-	/**
-	 * @OA\Property(		 		 		 
 	 *     description="created_at",
 	 *     title="created_at",
 	 *     type="string",
@@ -107,6 +95,19 @@ class Uom extends BaseEntity
 	 *		 
 	 */
 	private $updated_at;
+	
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="uomcategory_id",
+	 *     title="uomcategory_id",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=11,
+	 * )
+	 *		 
+	 */
+	private $uomcategory_id; 
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_by",
@@ -118,15 +119,21 @@ class Uom extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $created_by; 
+	private $created_by;
 	protected $datamap = [
 		'created_name' => 'full_name',
+		'category_name' => 'category_name',
 	];
 
 	public function getFullName()
 	{
 
 		return $this->first_name . ' ' . $this->last_name;
+	}
+	public function getCategoryName()
+	{
+
+		return $this->category;
 	}
 }
 /**

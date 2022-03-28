@@ -4,6 +4,10 @@ namespace App\Modules\Api\Models;
 
 class AccountBalanceModel extends BaseModel
 {
+    const GROUP = [
+        'kas',
+        'bank'
+    ];
     protected $table = 'account_balance';
     protected $returnType = 'App\Modules\Api\Entities\AccountBalance';
     protected $primaryKey = 'id';
@@ -13,6 +17,7 @@ class AccountBalanceModel extends BaseModel
         'account',
         'entity_id',
         'created_at',
+        'group_account',
         'updated_at',
         'created_by',
     ];
@@ -23,6 +28,7 @@ class AccountBalanceModel extends BaseModel
         'entity_id' => 'numeric|required',
         'created_at' => 'valid_date|required',
         'updated_at' => 'valid_date|required',
+        'group_account' => 'required',
         // 'created_by' => 'numeric'
     ];
 
@@ -34,4 +40,9 @@ class AccountBalanceModel extends BaseModel
 
         return parent::findAll($limit, $offset);
     }
+
+    public static function groupAccountList(){
+
+        return array_combine(self::GROUP, [lang('crud.kas'),lang('crud.bank') ]);
+	}
 }

@@ -14,7 +14,6 @@
 </div>
 <?php } ?>
 
-
 <x-admin-box>
 
 
@@ -56,15 +55,6 @@
                 </div>
             </div>
             <div class="row mb-3">
-                    <?= form_label(lang('crud.cost_estimate'),'',['for' => 'cost_estimate', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('cost_estimate', old('cost_estimate', $data->cost_estimate ?? ''), "class='form-control int' required") ?>
-                        <?php if (has_error('cost_estimate')) { ?>
-                        <p class="text-danger"><?php echo error('cost_estimate'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-            <div class="row mb-3">
                 <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?php if(isset($data->path_image)): ?>
@@ -85,6 +75,26 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <?= form_label(lang('crud.cost_estimate'),'',['for' => 'cost_estimate', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <div class="input-group mb-2">                        
+                        <?= form_input('program_cost[][name]', old('program_cost[][name]', $data->program_cost_name ?? ''), "class='form-control mr-1' placeholder='deskripsi' required") ?>                        
+                        <?= form_input('program_cost[][cost_estimate]', old('program_cost[][cost_estimate]', $data->program_cost_estimate ?? ''), "class='form-control numeric' placeholder='jumlah' required") ?>
+                        
+                        <div class="input-group-append">
+                            <span class="input-group-text" role="button" onclick="addRow(this)">
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <?= form_hidden('cost_estimate', $data->cost_estimate ?? 0) ?>
+                    
+                    <?php if (has_error('cost_estimate')) { ?>
+                    <p class="text-danger"><?php echo error('cost_estimate'); ?></p>
+                    <?php } ?>
                 </div>
             </div>
             <div class="row mb-3">
@@ -120,13 +130,29 @@
                 "format": 'YYYY-MM-DD'
             }
         });
-        $('input[name=cost_estimate]').inputmask({
-                'alias': 'numeric',
-                'groupSeparator': '.',
-                'radixPoint': ',',
-                'digits': 0, 
-                'autoGroup': true
-            })
+        
+        $('.numeric').inputmask({
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
+        })
     });
+
+    function addRow(elm){
+        const _topParent = $(elm).closest('.input-group');
+        const _clone = _topParent.clone();
+        _clone.find('span.input-group-text')
+                .replaceWith(`<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                <i class="fas fa-minus"></i>
+                            </span>`);  
+        _clone.insertAfter(_topParent);
+    }
+
+    function removeRow(elm){
+        const _topParent = $(elm).closest('.input-group');
+        _topParent.remove();
+    }
 </script>
 <?php $this->endSection() ?>

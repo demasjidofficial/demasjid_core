@@ -42,7 +42,8 @@ class AdminCrudController extends AdminController
     {
         parent::initController($request, $response, $logger);
         $this->setModel($this->modelName);
-        helper('form');
+        helper(['form','number','app']);
+        
     }
 
     /**

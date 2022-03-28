@@ -93,7 +93,7 @@ class Dashboard extends AdminController
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-success',
             'title' => 'Dana Masuk',
-            'value' => number_to_currency($allIncome->amount,'IDR','id'),
+            'value' => number_to_currency($allIncome->amount ?? 0,'IDR','id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-thumbs-up',
         ]);
@@ -102,7 +102,7 @@ class Dashboard extends AdminController
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-danger',
             'title' => 'Dana Keluar',
-            'value' => number_to_currency($allCost->amount,'IDR', 'id'),
+            'value' => number_to_currency($allCost->amount ?? 0,'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-shopping-cart',
         ]);
@@ -182,7 +182,7 @@ class Dashboard extends AdminController
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if(is_numeric($item)){
-                return number_to_currency($item,'IDR','id');
+                return number_to_currency($item ?? 0,'IDR','id');
             }
             
             return convertStateProgram($item);

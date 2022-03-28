@@ -1,8 +1,10 @@
 <td><?php echo esc($item->start_date->format('d M Y')) ?></a></td>
 <td><?php echo esc($item->end_date->format('d M Y')) ?></a></td>
 <td><?php echo esc($item->name) ?></a></td>
+<td class="text-right"><?php echo local_currency($item->cost_estimate) ?></a></td>
+<td class="text-right"><?php echo local_currency($item->cost_actual) ?></a></td>
 <td><?php echo esc($item->description) ?></a></td>
-<td><?php echo esc(lang('crud.'.$item->state)) ?></a></td>
+<td><?php echo convertStateProgram($item->state) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

@@ -42,12 +42,12 @@ class AccountBalanceController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(AccountBalanceFilter::class);
-        $entities = $this->listTpqEntity();        
-        $model->whereIn('entity_id', $entities);
+        $model->tpq();
         return [
             'headers' => [
                 'name' => lang('crud.name'),
                 'account' => lang('crud.account'),
+                'group_account' => lang('crud.group_account'),
                 'entity_id' => lang('crud.entity_id'),
                 'created_by' => lang('crud.created_by')
             ],
@@ -73,6 +73,7 @@ class AccountBalanceController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
             $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key','entity.name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
+            $dataEdit['groupAccountItems'] = AccountBalanceModel::groupAccountList();
         return $dataEdit;
     }
 }

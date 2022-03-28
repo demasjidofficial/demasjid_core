@@ -1,7 +1,6 @@
 <?php namespace App\Modules\Api\Models;
 
 
-
 class UomModel extends BaseModel
 {
     protected $table = 'uom';
@@ -14,10 +13,10 @@ class UomModel extends BaseModel
 		'code',
 		'type',
 		'ratio',
-		'uomcategory_id',
 		'created_at',
 		'updated_at',
-		'created_by'
+		'created_by',
+		'uomcategory_id'
     ];
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[uom.id,id,{id}]',
@@ -25,16 +24,16 @@ class UomModel extends BaseModel
 		'code' => 'max_length[255]',
 		'type' => 'max_length[255]',
 		'ratio' => 'decimal',
-		'uomcategory_id' => 'numeric|max_length[11]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]'
+		// 'created_by' => 'numeric|max_length[11]',
+		'uomcategory_id' => 'numeric|max_length[11]'
     ];   
 		public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'uom_category.name as category'];
         $this->join('users', 'users.id = '.$this->table.'.created_by');
-
+        $this->join('uom_category', 'uom_category.id = '.$this->table.'.uomcategory_id');
         return parent::findAll($limit, $offset);
-    }    
+    }	
 }
