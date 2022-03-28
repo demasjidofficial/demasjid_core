@@ -83,7 +83,8 @@ return [
 	'penerimaan_operasional' => 'Penerimaan Operasional',
     'pengeluaran_operasional' => 'Pengeluaran Operasional',
     'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
-    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional'
+    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
 
+	'class' => 'Kelas',
  ];
 
