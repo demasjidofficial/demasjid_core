@@ -71,7 +71,10 @@ class UomController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['uom_categoryItems'] = Arr::pluck(model('App\Modules\Api\Models\UomCategoryModel')->select(['uom_category.id as key','uom_category.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        
+            // $dataEdit['uom_categoryItems'] = ['1' => 'Jam', '2' => 'Hari'];
+            $dataEdit['uom_categoryItems'] = Arr::pluck(model('App\Modules\Api\Models\UomCategoryModel')->select(['uom_category.id as key','uom_category.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+            
         return $dataEdit;
     }
 }
