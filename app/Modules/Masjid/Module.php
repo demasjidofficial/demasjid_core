@@ -81,6 +81,13 @@ class Module extends BaseModule
             //'permission'      => 'masjid.balance.list',
         ]);
 
+        $programCategoryItem = new MenuItem([
+            'title'           => lang('crud.program_category'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramCategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.program.list',
+        ]);
+
         $programItem = new MenuItem([
             'title'           => lang('crud.program'),
             'url'             => url_to('App\Modules\Masjid\Controllers\ProgramController::index'),
@@ -95,6 +102,7 @@ class Module extends BaseModule
             ->addItem($wilayahItem)
             ->addItem($entityItem)
             ->addItem($accountBalanceItem)
+            ->addItem($programCategoryItem)
             ->addItem($programItem)
             ->addItem($chartOfAccoutItem)
             ->addItem($balanceItem);

@@ -1,5 +1,7 @@
 <?php namespace App\Modules\Api\Models;
 
+use App\Modules\Api\Entities\ProgramCost;
+
 class ProgramModel extends BaseModel
 {
     const BEGIN = 'belum_mulai';
@@ -18,6 +20,7 @@ class ProgramModel extends BaseModel
 		'start_date',
 		'end_date',
 		'state',
+		'program_category_id',
 		'cost_estimate',
 		'cost_actual',
 		'path_image',
@@ -57,4 +60,54 @@ class ProgramModel extends BaseModel
 
         return $data;
     }
+
+	public function insert($data = null, bool $returnID = true)
+    {   
+		$this->db->transBegin();
+        $programCost = $data['program_cost'];
+        $newId = parent::insert($data, $returnID);
+		$this->insertDetail($newId, $programCost);
+
+		if ($this->db->transStatus() === false) {
+			$this->db->transRollback();
+
+            return false;
+		} else {
+			$this->db->transCommit();
+
+            return $newId;
+		}
+    }	
+
+	public function update($id = null, $data = null): bool
+    {   
+		$this->db->transBegin();
+        $programCost = $data['program_cost'];                
+        $result = parent::update($id, $data);
+        $this->insertDetail($id, $programCost);
+		if ($this->db->transStatus() === false) {
+			$this->db->transRollback();
+
+            return false;
+		} else {
+			$this->db->transCommit();
+
+            return $result;
+		}
+    }
+
+	private function insertDetail($id, $programCost){
+		if(!empty($programCost)){
+            (new ProgramCostModel())->where('program_id', $id)->delete();
+			foreach($programCost['name'] as $key => $name){
+                $detail = [
+					'program_id' => $id,
+					'name' => $name,					
+					'cost_estimate' => str_replace('.', '', $programCost['cost_estimate'][$key])
+				];
+                
+                (new ProgramCostModel())->insert($detail);				
+			}
+		}
+	}
 }

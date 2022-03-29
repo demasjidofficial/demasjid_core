@@ -56,8 +56,11 @@ return [
 	'program_description' => 'Uraian',
 	'cost_estimate' => 'Anggaran Biaya',
 	'cost_actual' => 'Realisasi Biaya',
+	'program_category_id' => 'Kategori',
+	'program_category' => 'Kategori Program',
 
 	'sedang_berlangsung' => 'Sedang Berlangsung',
+	'berlangsung' => 'Sedang Berlangsung',
 	'batal' => 'Batal',
 	'belum_mulai' => 'Belum Mulai',
 	'selesai'	=> 'Selesai',

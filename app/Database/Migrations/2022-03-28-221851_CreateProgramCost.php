@@ -6,7 +6,7 @@ use CodeIgniter\Database\Migration;
 
 class CreateProgramCost extends Migration
 {
-        public function up()
+    public function up()
     {
         $this->forge->addField([
             'id' => [

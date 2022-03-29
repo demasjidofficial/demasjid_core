@@ -3,9 +3,11 @@
 namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
+use App\Modules\Api\Models\ProgramCostModel;
 use App\Modules\Api\Models\ProgramModel;
 use App\Modules\Masjid\Models\ProgramFilter;
 use App\Traits\UploadedFile;
+use IlluminateAgnostic\Arr\Support\Arr;
 
 class ProgramController extends AdminCrudController
 {
@@ -96,9 +98,13 @@ class ProgramController extends AdminCrudController
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $data->period = $data->start_date.' - '.$data->end_date;
-            $dataEdit['data'] = $data;            
+            $dataEdit['data'] = $data;
+
+            $dataEdit['detailProgramCost'] = (new ProgramCostModel())->where('program_id', $id)->findAll();
+            
         }
         $dataEdit['stateItems'] = ProgramModel::listState();
+        $dataEdit['programCategoryItems'] = Arr::pluck(model('App\Modules\Api\Models\ProgramCategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         
         return $dataEdit;
     }

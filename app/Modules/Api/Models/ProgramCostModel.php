@@ -17,12 +17,12 @@ class ProgramCostModel extends BaseModel
 		'updated_at'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[program_cost.id,id,{id}]',
-		'program_id' => 'numeric|required',
-		'name' => 'max_length[150]|required',
-		'cost_estimate' => 'numeric|required',
-		'cost_actual' => 'numeric',
-		'created_at' => 'valid_date|required',
-		'updated_at' => 'valid_date|required'
+        // 'id' => 'numeric|required|is_unique[program_cost.id,id,{id}]',
+		// 'program_id' => 'numeric|required',
+		// 'name' => 'max_length[150]|required',
+		// 'cost_estimate' => 'numeric|required',
+		// 'cost_actual' => 'numeric',
+		// 'created_at' => 'valid_date|required',
+		// 'updated_at' => 'valid_date|required'
     ];   
 }
