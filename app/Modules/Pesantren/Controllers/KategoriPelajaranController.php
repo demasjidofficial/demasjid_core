@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Modules\Settings\Controllers;
+namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\UomModel;
-use App\Modules\Settings\Models\UomFilter;
+use App\Modules\Api\Models\KategoriPelajaranModel;
+use App\Modules\Pesantren\Models\KategoriPelajaranFilter;
 
-class UomController extends AdminCrudController
+class KategoriPelajaranController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Settings\Views\uom\\';
-    protected $baseRoute = 'admin/settings/uom';
-    protected $langModel = 'uom';
-    protected $modelName = 'App\Modules\Api\Models\UomModel';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\kategori_pelajaran\\';
+    protected $baseRoute = 'admin/pesantren/kategoripelajaran';
+    protected $langModel = 'kategori_pelajaran';
+    protected $modelName = 'App\Modules\Api\Models\KategoriPelajaranModel';
     public function index(){
         return parent::index();
     }
@@ -40,14 +40,11 @@ class UomController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(UomFilter::class);
+        $model = model(KategoriPelajaranFilter::class);
         return [
             'headers' => [
                                     'name' => lang('crud.name'),
-                'code' => lang('crud.code'),
-                'type' => lang('crud.type'),
-                'ratio' => lang('crud.ratio'),
-                'uomcategory_id' => lang('crud.uom_category'),
+                'description' => lang('crud.description'),
                 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
@@ -62,7 +59,7 @@ class UomController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new UomModel();
+        $model = new KategoriPelajaranModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -72,9 +69,6 @@ class UomController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
         
-            // $dataEdit['uom_categoryItems'] = ['1' => 'Jam', '2' => 'Hari'];
-            $dataEdit['uom_categoryItems'] = Arr::pluck(model('App\Modules\Api\Models\UomCategoryModel')->select(['uom_category.id as key','uom_category.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
-            
         return $dataEdit;
     }
 }

@@ -45,14 +45,14 @@ class KelasController extends AdminCrudController
         $model->whereIn('entity_id', $entities);
         return [
             'headers' => [
-                                    'name' => 'name',
-                'description' => 'description',
-                'level' => 'level',
-                'capacity' => 'capacity',
-                'duration' => 'duration',
-                'uom_id' => 'uom_id',
-                'entity_id' => 'entity_id',
-                'created_by' => 'created_by'
+                'name' => lang('crud.name'),
+                'description' => lang('crud.description'),
+                'level' => lang('crud.level'),
+                'capacity' => lang('crud.capacity'),
+                'duration' => lang('crud.duration'),
+                'uom_id' => lang('crud.uom'),
+                'entity_id' => lang('crud.entity'),
+                'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

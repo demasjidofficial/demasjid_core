@@ -105,6 +105,18 @@ return [
 	'bot_email' => 'BOT Email',
 	'bot_sms' => 'BOT Sms',
 
+
+
 	'class' => 'Kelas',
+	'level' => 'Tingkat',
+	'capacity' => 'Kapasitas',
+	'duration' => 'Durasi',
+
+	
+	'uom_category' => 'Kategori Satuan',
+	'uom' => 'Satuan',
+	'ratio' => 'Ratio',
+	
+	'kategori_pelajaran' => 'Kategori Pelajaran',
  ];
 

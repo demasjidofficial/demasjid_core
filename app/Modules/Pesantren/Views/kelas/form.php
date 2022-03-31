@@ -3,7 +3,7 @@
 <?php $this->section('main'); ?>
     <x-page-head>
         <a href="<?php echo $backUrl ?>" class="back">&larr; kelas</a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  kelas</h4>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.class') ?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label('name','',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('description','',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('description')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('level','',['for' => 'level', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.level'),'',['for' => 'level', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('level', old('level', $data->level ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('level')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('capacity','',['for' => 'capacity', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.capacity'),'',['for' => 'capacity', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('capacity', old('capacity', $data->capacity ?? ''), "class='form-control int' ") ?>
                         <?php if (has_error('capacity')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('duration','',['for' => 'duration', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.duration'),'',['for' => 'duration', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('duration', old('duration', $data->duration ?? ''), "class='form-control int' ") ?>
                         <?php if (has_error('duration')) { ?>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('uom_id','',['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.uom'),'',['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('uom_id',$uomItems ,old('uom_id', $data->uom_id ?? ''), "class='form-control select2' required") ?>
                         <?php if (has_error('uom_id')) { ?>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('entity_id','',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.entity_id'),'',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2' required") ?>
                         <?php if (has_error('entity_id')) { ?>
@@ -90,7 +90,7 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                     <?= form_label('created_by','',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int' ") ?>
@@ -98,11 +98,11 @@
                         <p class="text-danger"><?php echo error('created_by'); ?></p>
                         <?php } ?>
                     </div>
-                </div>
+                </div> -->
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> kelas</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.class') ?></button>
             </div>
 
         </form>

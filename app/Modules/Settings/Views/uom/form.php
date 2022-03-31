@@ -73,7 +73,7 @@
                     </div>
                 </div> -->
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.uomcategory_id'),'',['for' => 'uomcategory_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.uom_category'),'',['for' => 'uomcategory_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('uomcategory_id',$uom_categoryItems ,old('uomcategory_id', $data->uomcategory_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.uomcategory_id')."' ") ?>
                         <?php if (has_error('uomcategory_id')) { ?>
