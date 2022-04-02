@@ -91,4 +91,6 @@ return [
 	'board_livebroadcast' => 'Siaran Langsung',
 
 	'helpus_grow' => 'Beri Feedback',
+
+	'dashboard' => 'Dasbor',	
 ];

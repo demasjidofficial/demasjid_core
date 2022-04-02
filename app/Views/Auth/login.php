@@ -92,11 +92,12 @@
         <a href="< ?= route_to('register') ?>" class="text-center">< ?= lang('Auth.register') ?></a>
       </p>
       < ?php endif ?-->
-
+      <!--
       <p class="mb-0">
         Belum aktivasi DeMasjid?
-        <a href="<?= route_to('activation') ?>" class="text-center">Aktivasi sekarang</a>
+        <a href="< ?= route_to('activation') ?>" class="text-center">Aktivasi sekarang</a>
       </p>
+      -->
 
     </div>
     <!-- /.login-card-body -->
