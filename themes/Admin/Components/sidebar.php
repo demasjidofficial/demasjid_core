@@ -30,7 +30,7 @@
           <li class="nav-item">
             <a href="/admin" class="nav-link <?= url_is('/' . ADMIN_AREA) ? 'active' : '' ?>" href="/<?= ADMIN_AREA ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>Dasbor<!--i class="right fas fa-angle-left"></i--></p>
+              <p><?= lang('app.dashboard')?><!--i class="right fas fa-angle-left"></i--></p>
             </a>
           </li>
 

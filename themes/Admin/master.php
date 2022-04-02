@@ -72,24 +72,26 @@
   
     
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
+    <div class="content-wrapper" style="padding: 5px 0;">
+      <!-- Content Header (Page header) --
       <div class="content-header">
         <div class="container-fluid">
+          < !--
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dasbor</h1>
-            </div><!-- /.col -->
+              <h1 class="m-0">< ?= $pageName ?? '[page_name]';?></h1>
+            </div>< !-- /.col --
             <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
+              < !--ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
                 <li class="breadcrumb-item active">Dasbor</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+              </ol--
+            </div>< !-- /.col --
+          </div>< !-- /.row 
+          --
+        </div>< !-- /.container-fluid --
       </div>
-      <!-- /.content-header -->
+      < !-- /.content-header -->
 
       <!-- Main content -->
       <section class="content">
