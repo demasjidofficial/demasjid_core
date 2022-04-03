@@ -123,6 +123,10 @@ return [
 	'kategori_pelajaran_id' => 'Kategori Pelajaran',
 
 	'pelajaran' => 'Pelajaran',
+	'pelajaran_id' => 'Pelajaran',
 	'sequence' => 'Urutan',
+
+	
+	'bab' => 'Bab',
  ];
 

@@ -71,6 +71,12 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
+        $Bab = new MenuItem([
+            'title'           => lang('crud.bab'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\BabController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'pesantren.kelas.list',
+        ]);
         $sidebar->menu('sidebar')->collection('pesantren')
             ->addItem($pengurusItem)
             ->addItem($profileItem)
@@ -79,7 +85,8 @@ class Module extends BaseModule
             ->addItem($chartOfAccoutItem)
             ->addItem($kelas)
             ->addItem($kategoriPelajaran)
-            ->addItem($Pelajaran);
+            ->addItem($Pelajaran)
+            ->addItem($Bab);
           
     }
 }
