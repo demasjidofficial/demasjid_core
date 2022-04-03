@@ -108,6 +108,7 @@ return [
 
 
 	'class' => 'Kelas',
+	'class_id' => 'Kelas',
 	'level' => 'Tingkat',
 	'capacity' => 'Kapasitas',
 	'duration' => 'Durasi',
@@ -115,8 +116,13 @@ return [
 	
 	'uom_category' => 'Kategori Satuan',
 	'uom' => 'Satuan',
+	'uom_id' => 'Satuan',
 	'ratio' => 'Ratio',
 	
 	'kategori_pelajaran' => 'Kategori Pelajaran',
+	'kategori_pelajaran_id' => 'Kategori Pelajaran',
+
+	'pelajaran' => 'Pelajaran',
+	'sequence' => 'Urutan',
  ];
 

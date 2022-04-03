@@ -65,6 +65,12 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
+        $Pelajaran = new MenuItem([
+            'title'           => lang('crud.pelajaran'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\PelajaranController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'pesantren.kelas.list',
+        ]);
         $sidebar->menu('sidebar')->collection('pesantren')
             ->addItem($pengurusItem)
             ->addItem($profileItem)
@@ -72,7 +78,8 @@ class Module extends BaseModule
             ->addItem($balanceItem)
             ->addItem($chartOfAccoutItem)
             ->addItem($kelas)
-            ->addItem($kategoriPelajaran);
+            ->addItem($kategoriPelajaran)
+            ->addItem($Pelajaran);
           
     }
 }
