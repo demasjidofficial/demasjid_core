@@ -20,28 +20,63 @@ class Module extends BaseModule
         $sidebar = service('menus');
 
         // Content Menu for sidebar
-        $donationtypeItem = new MenuItem([
-            'title'           => 'Tipe Donasi',
+        $zakatfitrahItem = new MenuItem([
+            'title'           => 'Zakat Fitrah',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'baitulmal.donationtype.list',
         ]);
-        $infaqshodaqohItem = new MenuItem([
-            'title'           => 'Infaq/Shodaqoh',
+        $zakatmalItem = new MenuItem([
+            'title'           => 'Zakat Mal',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.donationtype.list',
+        ]);
+        $shodaqohItem = new MenuItem([
+            'title'           => 'Shodaqoh',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.donationtype.list',
+        ]);
+        $shodaqohtypeItem = new MenuItem([
+            'title'           => 'Tipe Shodaqoh',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.donationtype.list',
+        ]);
+        $infaqItem = new MenuItem([
+            'title'           => 'Infaq',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqoh.list',
         ]);
-        $infaqshodaqohcategoryItem = new MenuItem([
-            'title'           => 'Kategori Infaq/Shodaqoh',
+        $infaqtypeItem = new MenuItem([
+            'title'           => 'Tipe Infaq',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
+        ]);
+        $wakafItem = new MenuItem([
+            'title'           => 'Wakaf',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
+        ]);
+        $qurbanItem = new MenuItem([
+            'title'           => 'Qurban',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
 
         $sidebar->menu('sidebar')->collection('baitulmal')
-                ->addItem($donationtypeItem)
-                ->addItem($infaqshodaqohItem)
-                ->addItem($infaqshodaqohcategoryItem);
+                ->addItem($zakatfitrahItem)
+                ->addItem($zakatmalItem)
+                ->addItem($shodaqohItem)
+                ->addItem($shodaqohtypeItem)
+                ->addItem($infaqItem)
+                ->addItem($infaqtypeItem)
+                ->addItem($wakafItem)
+                ->addItem($qurbanItem);
     }
 }
