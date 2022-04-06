@@ -3,10 +3,19 @@
 class ChartOfAccountModel extends BaseModel
 {
     const GROUP = [
-        'penerimaan_operasional',
-        'pengeluaran_operasional',
-        'penerimaan_non_operasional',
-        'pengeluaran_non_operasional',
+        //'penerimaan_operasional',
+        //'pengeluaran_operasional',
+        //'penerimaan_non_operasional',
+        //'pengeluaran_non_operasional',
+        'assets', // assets
+        'liability', // liability
+        'equity', // equity
+        'revenues', // revenues
+        'expenses', // expenses
+        'cash_bank', // cash & bank
+        'payable', // payable
+        'receivable', // receivable
+        'depreciation', // depreciation
     ];
 	protected $table = 'chart_of_account';
     protected $returnType = 'App\Modules\Api\Entities\ChartOfAccount';
@@ -34,7 +43,21 @@ class ChartOfAccountModel extends BaseModel
 
 	public static function groupAccountList(){
 
-        return array_combine(self::GROUP, [lang('crud.penerimaan_operasional'),lang('crud.pengeluaran_operasional'),lang('crud.penerimaan_non_operasional'),lang('crud.pengeluaran_non_operasional') ]);
+        return array_combine(self::GROUP, [
+            //lang('crud.penerimaan_operasional'),
+            //lang('crud.pengeluaran_operasional'),
+            //lang('crud.penerimaan_non_operasional'),
+            //lang('crud.pengeluaran_non_operasional')
+            lang('crud.assets'), 
+            lang('crud.liability'), 
+            lang('crud.equity'), 
+            lang('crud.revenues'), 
+            lang('crud.expenses'), 
+            lang('crud.cash_bank'), 
+            lang('crud.payable'), 
+            lang('crud.receivable'), 
+            lang('crud.depreciation') 
+        ]);
 	}
 
 	public function findAll(int $limit = 0, int $offset = 0)

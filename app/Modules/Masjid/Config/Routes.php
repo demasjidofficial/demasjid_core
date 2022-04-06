@@ -15,5 +15,11 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/program', ['controller' => 'ProgramController']);
     $routes->resource('masjid/chartofaccount', ['controller' => 'ChartOfAccountController']);
     $routes->resource('masjid/programcategory', ['controller' => 'ProgramCategoryController']);
-    
+    /**
+     * SUB MODULE
+     */
+    $routes->resource('masjid/finances', ['controller' => 'FinancesController']);
+    $routes->resource('masjid/profiles', ['controller' => 'ProfilesController']);
+    $routes->resource('masjid/programs', ['controller' => 'ProgramsController']);
+    $routes->resource('masjid/masters', ['controller' => 'MastersController']);
 });

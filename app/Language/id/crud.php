@@ -8,7 +8,7 @@ return [
     'saldo'  => 'Saldo',
     'account_balance_id' => 'Akun Id',
 	'account' => 'Akun',
-	'balance' => 'Kas',
+	'balance' => 'Mutasi Kas',
 	'chart_of_account' => 'Bagan Akun',
 	'group_account' => 'Kelompok',
 	'account_balance' => 'Akun Kas',
@@ -47,10 +47,12 @@ return [
 	'email' => 'Email',
 	'role' => 'Peran',
 	'profile' => 'Profil',
+	'profiles' => 'Profil',
 
 	'path_logo' => 'Gambar',
 	'period'	=> 'Periode',
 	'program'	=> 'Program',
+	'programs'	=> 'Program',
 	'start_date' => 'Tgl. Mulai',
 	'end_date'	=> 'Tgl. Selesai',
 	'program_description' => 'Uraian',
@@ -58,6 +60,8 @@ return [
 	'cost_actual' => 'Realisasi Biaya',
 	'program_category_id' => 'Kategori',
 	'program_category' => 'Kategori Program',
+	'program_planning' => 'Agenda Program',
+	'program_realization' => 'Realisasi Program',
 
 	'sedang_berlangsung' => 'Sedang Berlangsung',
 	'berlangsung' => 'Sedang Berlangsung',
@@ -89,6 +93,24 @@ return [
     'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
     'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
 
+	'assets' => 'Aset',
+	'liability' => 'Liabilitas/Kewajiban',
+	'equity' => 'Ekuitas/Modal',
+	'receivable' => 'Piutang',
+	'payable' => 'Hutang',
+	'revenues' => 'Penghasilan/Pendapatan',
+	'expenses' => 'Biaya',
+	'cash_bank' => 'Kas & Bank',
+	'depreciation' => 'Depresiasi',
+	'accounting' => 'Akuntansi',
+	'finances' => 'Keuangan',
+	'transactions' => 'Transaksi',
+	'reports' => 'Laporan',
+	'report_balancesheet' => 'Neraca Saldo',
+	'report_cashflow' => 'Arus Kas',
+	'report_donation' => 'Rekap Donatur',
+	'report_generalledger' => 'Jurnal Umum',
+
 	'kas' => 'Kas',
 	'bank' => 'Bank',
 
@@ -105,15 +127,12 @@ return [
 	'bot_email' => 'BOT Email',
 	'bot_sms' => 'BOT Sms',
 
-
-
 	'class' => 'Kelas',
 	'class_id' => 'Kelas',
 	'level' => 'Tingkat',
 	'capacity' => 'Kapasitas',
 	'duration' => 'Durasi',
 
-	
 	'uom_category' => 'Kategori Satuan',
 	'uom' => 'Satuan',
 	'uom_id' => 'Satuan',
@@ -126,7 +145,9 @@ return [
 	'pelajaran_id' => 'Pelajaran',
 	'sequence' => 'Urutan',
 
-	
 	'bab' => 'Bab',
+
+	'administration' => 'Administrasi',
+	'masters' => 'Master',
  ];
 

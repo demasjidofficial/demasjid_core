@@ -94,17 +94,50 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.program.list',
         ]);
+
+        /**
+         * SUB MODULE
+         */
+        $financesItem = new MenuItem([
+            'title'           => lang('crud.finances'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\FinancesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.finances.list',
+        ]);
+        $profilesItem = new MenuItem([
+            'title'           => lang('crud.profiles'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProfilesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.profiles.list',
+        ]);
+        $programsItem = new MenuItem([
+            'title'           => lang('crud.programs'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.programs.list',
+        ]);
+        $mastersItem = new MenuItem([
+            'title'           => lang('crud.masters'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\MastersController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.masters.list',
+        ]);
+
         $sidebar->menu('sidebar')->collection('masjid')
-            ->addItem($jabatanItem)
-            ->addItem($pengurusItem)
-            ->addItem($profileItem)
-            ->addItem($memberItem)
-            ->addItem($wilayahItem)
-            ->addItem($entityItem)
-            ->addItem($accountBalanceItem)
-            ->addItem($programCategoryItem)
-            ->addItem($programItem)
-            ->addItem($chartOfAccoutItem)
-            ->addItem($balanceItem);
+            //->addItem($jabatanItem)
+            //->addItem($pengurusItem)
+            //->addItem($profileItem)
+            //->addItem($memberItem)
+            //->addItem($wilayahItem)
+            //->addItem($entityItem)
+            //->addItem($accountBalanceItem)
+            //->addItem($programCategoryItem)
+            //->addItem($programItem)
+            //->addItem($chartOfAccoutItem)
+            //->addItem($balanceItem)
+            ->addItem($financesItem)
+            ->addItem($profilesItem)
+            ->addItem($programsItem)
+            ->addItem($mastersItem);
     }
 }
