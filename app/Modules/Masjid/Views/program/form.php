@@ -89,16 +89,24 @@
             
             <div class="row mb-3">
                 <?php echo form_label(lang('crud.cost_estimate'), '', ['for' => 'cost_estimate', 'class' => 'col-form-label col-sm-2']); ?>
-                <div class="col-sm-10">                    
+                <div class="col-sm-10 block_detail_program">                    
                     <?php if (isset($detailProgramCost) && !empty($detailProgramCost)) { ?>
-                    <?php foreach ($detailProgramCost as $detail) { ?>
+                    <?php foreach ($detailProgramCost as $index => $detail) { ?>
                     <div class="input-group mb-2">                        
                         <?php echo form_input('program_cost[name][]', old('program_cost[name]', $detail->name ?? ''), "class='form-control mr-1' placeholder='deskripsi' required"); ?>                        
                         <?php echo form_input('program_cost[cost_estimate][]', old('program_cost[cost_estimate]', $detail->cost_estimate ?? ''), "class='form-control numeric' onchange='updateTotal(this)' placeholder='jumlah' required"); ?>                        
                         <div class="input-group-append">
-                            <span class="input-group-text" role="button" onclick="addRow(this)">
-                                <i class="fas fa-plus"></i>
-                            </span>
+                            <?php if(!$index){
+                                echo '<span class="input-group-text" role="button" onclick="addRow(this)">
+                                        <i class="fas fa-plus"></i>
+                                    </span>';
+                                }else{
+                                echo '<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                        <i class="fas fa-minus"></i>
+                                    </span>';
+                                }
+                            ?>
+                            
                         </div>
                     </div>
                     <?php } ?>
@@ -188,19 +196,21 @@
                 .replaceWith(`<span class="input-group-text" role="button" onclick="removeRow(this)">
                                 <i class="fas fa-minus"></i>
                             </span>`);  
-        _clone.insertAfter(_topParent);
+        _clone.insertBefore(_topParent.siblings('.input-group:last'));
     }
 
     function removeRow(elm){
-        const _topParent = $(elm).closest('.input-group');
+        const _topParent = $(elm).closest('.input-group')
+        const _elmOther = _topParent.prev()
         _topParent.remove();
+        updateTotal(_elmOther.find('span[role=button]'));
     }
 
     function updateTotal(elm){
         const _form = $(elm).closest('form')
         let _result = 0
         _form.find('input[name ^= "program_cost[cost_estimate]"]').each(function(){
-            _result += parseInt($(this).inputmask('unmaskedvalue'))
+            _result += parseInt($(this).inputmask('unmaskedvalue')) || 0
         })
         _form.find('input[name=cost_estimate]').val(_result)
         _form.find('input[name=total_cost_estimate]').val(_result)
