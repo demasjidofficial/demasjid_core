@@ -147,7 +147,11 @@ return [
 
 	'bab' => 'Bab',
 
+
 	'administration' => 'Administrasi',
 	'masters' => 'Master',
+
+	'bab_id' => 'Bab',
+	'materi' => 'Materi',
  ];
 
