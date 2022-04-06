@@ -93,4 +93,6 @@ return [
 	'helpus_grow' => 'Beri Feedback',
 
 	'dashboard' => 'Dasbor',	
+
+	'more_info' => 'Lihat detil',
 ];
