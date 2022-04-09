@@ -60,10 +60,6 @@
                     </a>
                 </div>
             </div>
-        </div><!--/.row -->
-        
-        <!--h5 class="mb-2">< ?= lang('crud.administration')?></h5-->
-        <div class="row">
             <div class="col-3 col-sm-3">
                 <div class="small-box bg-success">
                     <div class="inner">
@@ -78,7 +74,12 @@
                     </a>
                 </div>
             </div>
-            <!--
+        </div><!--/.row -->
+        
+        <!--h5 class="mb-2">< ?= lang('crud.administration')?></h5--
+        <div class="row">
+            
+            < !--
             <div class="col-3 col-sm-3">
                 <div class="small-box bg-warning">
                     <div class="inner">
@@ -107,8 +108,8 @@
                     </a>
                 </div>
             </div>
-            -->
-        </div><!--/.row -->
+            --
+        </div>< !--/.row -->
     </div>
     <!--/x-admin-box-->
 <?php $this->endSection(); ?>
