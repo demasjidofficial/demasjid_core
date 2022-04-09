@@ -30,7 +30,7 @@ class Module extends BaseModule
             'title'           => lang('crud.profile'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\ProfileController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            //'permission'      => 'masjid.pengurus.list',
+            //'permission'      => 'pesantren.pengurus.list',
         ]);
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
@@ -44,7 +44,7 @@ class Module extends BaseModule
             'title'           => lang('crud.chart_of_account'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\ChartOfAccountController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
-            //'permission'      => 'masjid.account_balance.list',
+            //'permission'      => 'pesantren.account_balance.list',
         ]);
 
         $balanceItem = new MenuItem([
@@ -83,24 +83,71 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
+
         $pendaftaran = new MenuItem([
             'title'           => lang('crud.pendaftaran'),
             'url'             => url_to('App\Modules\Pesantren\Controllers\PendaftaranController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
+
+        /**
+         * SUB MODULE
+         */
+        $financesItem = new MenuItem([
+            'title'           => lang('crud.finances'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\FinancesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'pesantren.finances.list',
+        ]);
+        $profilesItem = new MenuItem([
+            'title'           => lang('crud.profiles'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\ProfilesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'pesantren.profiles.list',
+        ]);
+        $programsItem = new MenuItem([
+            'title'           => lang('crud.programs'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\ProgramsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'pesantren.programs.list',
+        ]);
+        $mastersItem = new MenuItem([
+            'title'           => lang('crud.masters'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\MastersController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'pesantren.masters.list',
+        ]);
+        $schedulesItem = new MenuItem([
+            'title'           => lang('crud.schedules'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\SchedulesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'pesantren.schedules.list',
+        ]);
+        $learningsItem = new MenuItem([
+            'title'           => lang('crud.learnings'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\LearningsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'pesantren.learnings.list',
+        ]);
         $sidebar->menu('sidebar')->collection('pesantren')
-            ->addItem($pengurusItem)
-            ->addItem($profileItem)
-            ->addItem($accountBalanceItem)
-            ->addItem($balanceItem)
-            ->addItem($chartOfAccoutItem)
-            ->addItem($kelas)
-            ->addItem($kategoriPelajaran)
-            ->addItem($Pelajaran)
-            ->addItem($Bab)
-            ->addItem($pendaftaran)
-            ->addItem($Materi);
+            //->addItem($pengurusItem)
+            //->addItem($profileItem)
+            //->addItem($accountBalanceItem)
+            //->addItem($balanceItem)
+            //->addItem($chartOfAccoutItem)
+            //->addItem($kelas)
+            //->addItem($kategoriPelajaran)
+            //->addItem($Pelajaran)
+            //->addItem($Bab)
+            //->addItem($Materi)
+            //->addItem($pendaftaran)
+            ->addItem($financesItem)
+            ->addItem($profilesItem)
+            ->addItem($programsItem)
+            ->addItem($mastersItem)
+            ->addItem($schedulesItem)
+            ->addItem($learningsItem);
           
     }
 }

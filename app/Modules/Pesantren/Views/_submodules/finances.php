@@ -27,7 +27,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/chartofaccount')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/pesantren/chartofaccount')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/accountbalance')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/pesantren/accountbalance')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -55,7 +55,7 @@
                     <div class="icon">
                     <i class="fas fa-calculator"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/balance')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/pesantren/balance')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -72,7 +72,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportbalancesheet')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/pesantren/reportbalancesheet')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportcashflow')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/pesantren/reportcashflow')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -100,7 +100,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportdonation')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/pesantren/reportdonation')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -114,7 +114,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportgeneralledger')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/pesantren/reportgeneralledger')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>

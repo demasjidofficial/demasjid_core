@@ -16,7 +16,7 @@
 
     <!--x-admin-box-->
     <div style="padding: 0 15px;">
-        <h5 class="mb-2"><?= lang('crud.transactions')?></h5>
+        <h5 class="mb-2"><?= lang('crud.administration')?></h5>
         <div class="row">
             <div class="col-3 col-sm-3">
                 <div class="small-box bg-info">
@@ -62,7 +62,7 @@
             </div>
         </div><!--/.row -->
         <h5 class="mb-2"><?= lang('crud.reports')?></h5>
-            <div class="row">
+        <div class="row">
             <div class="col-2 col-sm-3">
                     <div class="small-box bg-primary">
                         <div class="inner">
@@ -119,7 +119,23 @@
                         </a>
                     </div>
                 </div>
-            </div><!--/.row -->
+        </div><!--/.row -->
+        <div class="row">
+            <div class="col-2 col-sm-3">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.report_cashbankmutation')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-book"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/masjid/reportcashbankmutation')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <!--/x-admin-box-->
 <?php $this->endSection(); ?>
