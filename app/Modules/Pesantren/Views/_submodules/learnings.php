@@ -60,9 +60,6 @@
                     </a>
                 </div>
             </div>
-        </div><!--/.row -->
-
-        <div class="row">
             <div class="col-md-3">
                 <div class="small-box bg-secondary">
                     <div class="inner">
@@ -77,6 +74,9 @@
                     </a>
                 </div>
             </div>
+        </div><!--/.row -->
+
+        <div class="row">
             <div class="col-md-3">
                 <div class="small-box bg-success">
                     <div class="inner">
@@ -101,6 +101,50 @@
                     <i class="fas fa-file"></i>
                     </div>
                     <a href="<?= site_url('/admin/pesantren/absences')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.registration_open')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/pesantren/bukapendaftaran')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.registration')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/pesantren/pendaftaran')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div><!--/.row -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="small-box bg-secondary">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.registration_admission')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/pesantren/penerimaanpendaftaran')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

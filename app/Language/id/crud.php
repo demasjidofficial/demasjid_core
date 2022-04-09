@@ -185,5 +185,8 @@ return [
 	'teacher' => 'Guru',
 	'absences' => 'Absensi',
 
+	'registration_open' => 'Buka Pendaftaran',
+	'registration' => 'Pendaftaran',
+	'registration_admission' => 'Penerimaan Pendaftaran',
  ];
 
