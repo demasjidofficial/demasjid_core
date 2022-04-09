@@ -122,6 +122,12 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.masters.list',
         ]);
+        $schedulesItem = new MenuItem([
+            'title'           => lang('crud.schedules'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.schedules.list',
+        ]);
 
         $sidebar->menu('sidebar')->collection('masjid')
             //->addItem($jabatanItem)
@@ -138,6 +144,7 @@ class Module extends BaseModule
             ->addItem($financesItem)
             ->addItem($profilesItem)
             ->addItem($programsItem)
-            ->addItem($mastersItem);
+            ->addItem($mastersItem)
+            ->addItem($schedulesItem);
     }
 }

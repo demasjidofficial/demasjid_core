@@ -13,4 +13,13 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Pesantren\Controllers']
     $routes->resource('pesantren/pelajaran', ['controller' => 'PelajaranController']);
     $routes->resource('pesantren/bab', ['controller' => 'BabController']);
     $routes->resource('pesantren/materi', ['controller' => 'MateriController']);
+    /**
+     * SUB MODULE
+     */
+    $routes->resource('pesantren/finances', ['controller' => 'FinancesController']);
+    $routes->resource('pesantren/profiles', ['controller' => 'ProfilesController']);
+    $routes->resource('pesantren/programs', ['controller' => 'ProgramsController']);
+    $routes->resource('pesantren/masters', ['controller' => 'MastersController']);
+    $routes->resource('pesantren/schedules', ['controller' => 'SchedulesController']);
+    $routes->resource('pesantren/learnings', ['controller' => 'LearningsController']);
 });

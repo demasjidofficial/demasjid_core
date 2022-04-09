@@ -4,7 +4,7 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.programs') ?></h2>
+                <h2><?= lang('crud.schedules') ?></h2>
             </div>
             <div class="col-auto">
                 <!--
@@ -18,46 +18,44 @@
     <div style="padding: 0 15px;">
         <h5 class="mb-2"><?= lang('crud.administration')?></h5>
         <div class="row">
-            <!--
-            <div class="col-md-3">
+            <div class="col-3 col-sm-3">
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p>< ?= lang('crud.program_category')?></p>
+                    <p><?= lang('crud.schedules_sholatrawatib')?></p>
                     </div>
                     <div class="icon">
-                    <i class="fas fa-file"></i>
+                    <i class="fas fa-clock"></i>
                     </div>
-                    <a href="< ?= site_url('/admin/pesantren/programcategory')?>" class="small-box-footer">
-                        < ?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-            -->
-            <div class="col-md-3">
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                    <h3>&nbsp;</h3>
-                    <p><?= lang('crud.program_planning')?></p>
-                    </div>
-                    <div class="icon">
-                    <i class="fas fa-file"></i>
-                    </div>
-                    <a href="<?= site_url('/admin/pesantren/program')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/masjid/schedulesholatrawatib')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-3 col-sm-3">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.schedules_sholatnonrawatib')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-clock"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/masjid/schedulesholatnonrawatib')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-sm-3">
                 <div class="small-box bg-purple">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.program_realization')?></p>
+                    <p><?= lang('crud.schedules_kajian')?></p>
                     </div>
                     <div class="icon">
-                    <i class="fas fa-calculator"></i>
+                    <i class="fas fa-clock"></i>
                     </div>
-                    <a href="<?= site_url('/admin/pesantren/programrealization')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/masjid/schedulekajian')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

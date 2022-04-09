@@ -63,6 +63,16 @@ return [
 	'program_planning' => 'Agenda Program',
 	'program_realization' => 'Realisasi Program',
 
+	'schedules' => 'Jadwal',
+	'schedules_sholatrawatib' => 'Sholat Rawatib',
+	'schedules_sholatnonrawatib' => 'Sholat Non Rawatib',
+	'schedules_kajian' => 'Kajian',
+	'schedules_lessonweekly' => 'Pelajaran Mingguan',
+	'schedules_academiccalendar' => 'Kalender Akademik',
+	'schedules_lessontest' => 'Ujian Pelajaran',
+	'schedules_lessontestsemester' => 'Ujian Semester',
+	'learnings' => 'Pembelajaran',
+
 	'sedang_berlangsung' => 'Sedang Berlangsung',
 	'berlangsung' => 'Sedang Berlangsung',
 	'batal' => 'Batal',
@@ -110,6 +120,7 @@ return [
 	'report_cashflow' => 'Arus Kas',
 	'report_donation' => 'Rekap Donatur',
 	'report_generalledger' => 'Jurnal Umum',
+	'report_cashbankmutation' => 'Mutasi Kas & Bank',
 
 	'kas' => 'Kas',
 	'bank' => 'Bank',
@@ -147,11 +158,14 @@ return [
 
 	'bab' => 'Bab',
 
-
 	'administration' => 'Administrasi',
 	'masters' => 'Master',
 
 	'bab_id' => 'Bab',
 	'materi' => 'Materi',
+
+	'student' => 'Siswa',
+	'teacher' => 'Guru',
+	'absences' => 'Absensi',
  ];
 
