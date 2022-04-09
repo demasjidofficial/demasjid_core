@@ -13,4 +13,5 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Pesantren\Controllers']
     $routes->resource('pesantren/pelajaran', ['controller' => 'PelajaranController']);
     $routes->resource('pesantren/bab', ['controller' => 'BabController']);
     $routes->resource('pesantren/materi', ['controller' => 'MateriController']);
+    $routes->resource('pesantren/pendaftaran', ['controller' => 'PendaftaranController']);
 });

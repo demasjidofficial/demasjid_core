@@ -153,5 +153,24 @@ return [
 
 	'bab_id' => 'Bab',
 	'materi' => 'Materi',
+	
+	
+	'siswa' => 'Siswa',
+	'pendaftaran' => 'Pendaftaran',
+	'nick_name' => 'Nama Panggilan',
+	'nis' => 'NIS',
+	'birth_place' => 'Tempat Lahir',
+	'birth_date' => 'Tanggal Lahir',
+	'gender' => 'Jenis Kelamin',
+	'school_origin' => 'Sekolah Asal',
+	'father_name' => 'Nama Ayah',
+	'father_job' => 'Pekerjaan Ayah',
+	'father_tlpn' => 'Telepon Ayah',
+	'father_email' => 'Email Ayah',
+	'mother_name' => 'Nama Ibu',
+	'mother_job' => 'Pekerjaan Ibu',
+	'mother_tlpn' => 'Telepon Ibu',
+	'mother_email' => 'Email Ibu',
+
  ];
 
