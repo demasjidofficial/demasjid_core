@@ -43,6 +43,7 @@ class Activation extends BaseController
         $this->model->set('path_image', $this->getPathImage());
         $codeUnique = $this->model->getCodeUnique($wilayahId);
         $this->model->set('code', $codeUnique);
+        $this->model->set('state', MemberModel::$defaultState);
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }

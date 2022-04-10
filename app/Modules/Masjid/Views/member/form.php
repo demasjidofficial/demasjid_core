@@ -93,6 +93,15 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <?= form_label(lang('crud.domain'), '', ['for' => 'domain', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('domain', old('domain', $data->domain ?? ''), "class='form-control varchar' required") ?>
+                        <?php if (has_error('domain')) { ?>
+                        <p class="text-danger"><?= error('domain'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('state', $state ,old('state', $data->state ?? ''), "class='form-control enum' ") ?>
@@ -112,3 +121,13 @@
     </x-admin-box>
 
 <?php $this->endSection(); ?>
+<?php $this->section('scripts') ?>      
+    <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>    
+    <script type="text/javascript">
+        $(function () {            
+            $('input[name=domain]').inputmask({
+                'alias': 'url',                
+            });            
+        });            
+    </script>
+<?php $this->endSection() ?>

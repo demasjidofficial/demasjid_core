@@ -41,6 +41,7 @@ return [
 	'kecamatan_id' => 'Kecamatan',
 	'desa_id' => 'Desa',
 	'jabatan_id'=> 'Jabatan',
+	'wilayah_id' => 'Kode Wilayah',
 	'address' => 'Alamat',
 	'path_image' => 'Gambar',
 	'telephone' => 'Telepon',
@@ -131,6 +132,7 @@ return [
 
 	'member' => 'Anggota',
 	'member_mosque' => 'Masjid Anggota',
+	'domain' => 'Domain',
 
 	'logo' => 'Logo',
 	'bot_whatsapp' => 'BOT Whatsapp',
