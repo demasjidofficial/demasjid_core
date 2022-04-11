@@ -208,7 +208,7 @@ class MemberController extends AdminCrudController
     private function sendEmailActivation($id)
     {        
         $data = $this->model->find($id);
-        $data->email = 'ahmad.afandi85@gmail.com';
+        // $data->email = 'ahmad.afandi85@gmail.com';
         helper('email');
         $email = emailer(['SMTPCrypto' => setting('Email.SMTPCrypto')]);
         $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
