@@ -40,7 +40,7 @@ class Home extends BaseController
     {
         $path = $this->request->getGet('path');
         $data['path'] = $path;
-        return $this->render('App\Modules\Website\Views\page_donasi', $data);
+        return $this->render('App\Modules\Website\Views\page', $data);
     }
 
     /**

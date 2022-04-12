@@ -69,14 +69,59 @@ class Module extends BaseModule
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
 
+        /**
+         * SUB MODULE
+         */
+        $zakatsItem = new MenuItem([
+            'title'           => lang('crud.zakats'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_ZakatsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.zakats.list',
+        ]);
+        $infaqsItem = new MenuItem([
+            'title'           => lang('crud.infaqs'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_InfaqsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.infaqs.list',
+        ]);
+        $shodaqohsItem = new MenuItem([
+            'title'           => lang('crud.shodaqohs'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_ShodaqohsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.shodaqohs.list',
+        ]);
+        $wakafsItem = new MenuItem([
+            'title'           => lang('crud.wakafs'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_WakafsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.wakafs.list',
+        ]);
+        $qurbansItem = new MenuItem([
+            'title'           => lang('crud.qurbans'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_QurbansController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.qurbans.list',
+        ]);
+        $configsItem = new MenuItem([
+            'title'           => lang('crud.configs'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_ConfigsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.configs.list',
+        ]);
         $sidebar->menu('sidebar')->collection('baitulmal')
-                ->addItem($zakatfitrahItem)
-                ->addItem($zakatmalItem)
-                ->addItem($shodaqohItem)
-                ->addItem($shodaqohtypeItem)
-                ->addItem($infaqItem)
-                ->addItem($infaqtypeItem)
-                ->addItem($wakafItem)
-                ->addItem($qurbanItem);
+                //->addItem($zakatfitrahItem)
+                //->addItem($zakatmalItem)
+                //->addItem($shodaqohItem)
+                //->addItem($shodaqohtypeItem)
+                //->addItem($infaqItem)
+                //->addItem($infaqtypeItem)
+                //->addItem($wakafItem)
+                //->addItem($qurbanItem)
+                ->addItem($zakatsItem)
+                ->addItem($infaqsItem)
+                ->addItem($shodaqohsItem)
+                ->addItem($wakafsItem)
+                ->addItem($qurbansItem)
+                ->addItem($configsItem);
     }
 }

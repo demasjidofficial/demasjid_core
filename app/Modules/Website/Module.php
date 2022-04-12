@@ -56,12 +56,19 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.socials.list',
         ]);
+        $visitsiteItem = new MenuItem([
+            'title'           => 'Tinjau Situs',
+            'url'             => site_url(),
+            'fontAwesomeIcon' => 'fas fa-link nav-icon',
+            //'permission'      => 'website.socials.list',
+        ]);
         $sidebar->menu('sidebar')->collection('website')
                                  ->addItem($sitemenusItem)
                                  ->addItem($sitepagesItem)
                                  ->addItem($sitepostsItem)
                                  ->addItem($sitesectionsItem)
                                  ->addItem($siteslidersItem)
-                                 ->addItem($sitesocialsItem);
+                                 ->addItem($sitesocialsItem)
+                                 ->addItem($visitsiteItem);
     }
 }
