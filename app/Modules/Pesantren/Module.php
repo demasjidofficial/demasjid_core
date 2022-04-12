@@ -96,37 +96,37 @@ class Module extends BaseModule
          */
         $financesItem = new MenuItem([
             'title'           => lang('crud.finances'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\FinancesController::index'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\_FinancesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.finances.list',
         ]);
         $profilesItem = new MenuItem([
             'title'           => lang('crud.profiles'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\ProfilesController::index'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\_ProfilesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.profiles.list',
         ]);
         $programsItem = new MenuItem([
             'title'           => lang('crud.programs'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\ProgramsController::index'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\_ProgramsController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.programs.list',
         ]);
         $mastersItem = new MenuItem([
             'title'           => lang('crud.masters'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\MastersController::index'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\_MastersController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.masters.list',
         ]);
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\SchedulesController::index'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\_SchedulesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.schedules.list',
         ]);
         $learningsItem = new MenuItem([
             'title'           => lang('crud.learnings'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\LearningsController::index'),
+            'url'             => url_to('App\Modules\Pesantren\Controllers\_LearningsController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.learnings.list',
         ]);

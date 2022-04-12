@@ -153,6 +153,9 @@
 document.body.addEventListener('htmx:configRequest', (event) => {
   event.detail.headers['<?= csrf_header() ?>'] = '<?= csrf_hash() ?>';
 })
+$(function(){
+  $('.no-need').parents('li.nav-item').css('display','none');
+})
 </script>
 <?= $this->renderSection('scripts') ?>
 </body>

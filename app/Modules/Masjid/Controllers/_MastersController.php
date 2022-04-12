@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Modules\Pesantren\Controllers;
+namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
-//use App\Modules\Api\Models\FinancesModel;
-//use App\Modules\Pesantren\Models\FinancesFilter;
+//use App\Modules\Api\Models\MastersModel;
+//use App\Modules\Masjid\Models\MastersFilter;
 //use IlluminateAgnostic\Arr\Support\Arr;
 
-class FinancesController extends AdminCrudController
+class _MastersController extends AdminCrudController
 {
     //protected $baseController = __CLASS__;
-    //protected $viewPrefix = 'App\Modules\Pesantren\Views\submodules\\';
+    //protected $viewPrefix = 'App\Modules\Masjid\Views\submodules\\';
     //protected $baseRoute = 'admin/masjid/';
     //protected $langModel = 'accounting';
-    //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
+    //protected $modelName = 'App\Modules\Api\Models\MastersModel';
     public function index(){
         //return parent::index();
-        return $this->render('App\Modules\Pesantren\Views\_submodules\finances',[]);
+        return $this->render('App\Modules\Masjid\Views\_submodules\masters',[]);
     }
 
     /*
@@ -45,7 +45,7 @@ class FinancesController extends AdminCrudController
     protected function getDataIndex()
     {
         
-        $model = model(FinancesFilter::class);
+        $model = model(MastersFilter::class);
         $model->masjid();
         $model->orderBy('transaction_date');
         return [
@@ -72,7 +72,7 @@ class FinancesController extends AdminCrudController
     {
         /*
         $dataEdit = parent::getDataEdit($id);
-        $model = new FinancesModel();
+        $model = new MastersModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -81,7 +81,7 @@ class FinancesController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountFinancesModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
+            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountMastersModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
             $dataEdit['chart_of_accountItems'] = Arr::pluck(model('App\Modules\Api\Models\ChartOfAccountModel')->select(['id as key','name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
         

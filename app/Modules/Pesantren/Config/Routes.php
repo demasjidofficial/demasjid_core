@@ -18,11 +18,11 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Pesantren\Controllers']
     /**
      * SUB MODULE
      */
-    $routes->resource('pesantren/finances', ['controller' => 'FinancesController']);
-    $routes->resource('pesantren/profiles', ['controller' => 'ProfilesController']);
-    $routes->resource('pesantren/programs', ['controller' => 'ProgramsController']);
-    $routes->resource('pesantren/masters', ['controller' => 'MastersController']);
-    $routes->resource('pesantren/schedules', ['controller' => 'SchedulesController']);
-    $routes->resource('pesantren/learnings', ['controller' => 'LearningsController']);
+    $routes->resource('pesantren/finances', ['controller' => '_FinancesController']);
+    $routes->resource('pesantren/profiles', ['controller' => '_ProfilesController']);
+    $routes->resource('pesantren/programs', ['controller' => '_ProgramsController']);
+    $routes->resource('pesantren/masters', ['controller' => '_MastersController']);
+    $routes->resource('pesantren/schedules', ['controller' => '_SchedulesController']);
+    $routes->resource('pesantren/learnings', ['controller' => '_LearningsController']);
 
 });
