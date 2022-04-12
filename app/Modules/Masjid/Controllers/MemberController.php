@@ -213,7 +213,7 @@ class MemberController extends AdminCrudController
         $email = emailer(['SMTPCrypto' => setting('Email.SMTPCrypto')]);
         $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
             ->setTo($data->email)
-            ->setSubject(lang('Auth.emailActivateSubject'))
+            ->setSubject(lang('crud.activation_user').' Demasjid')
             ->setMessage(view($this->getViewPrefix().'email_activation', ['data' => $data]));        
         if($email->send()){
             $this->writeLog('Email berhasil dikirim '.$data->email);

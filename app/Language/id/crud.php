@@ -133,6 +133,7 @@ return [
 	'member' => 'Anggota',
 	'member_mosque' => 'Masjid Anggota',
 	'domain' => 'Domain',
+	'activation_user' => 'Aktivasi User',
 
 	'logo' => 'Logo',
 	'bot_whatsapp' => 'BOT Whatsapp',
