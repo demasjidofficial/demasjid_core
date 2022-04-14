@@ -4,7 +4,8 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.profile') ?></h2>
+                <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
+                <h4><?= lang('crud.profile') ?></h4>
             </div>            
         </div>
     </x-page-head>    

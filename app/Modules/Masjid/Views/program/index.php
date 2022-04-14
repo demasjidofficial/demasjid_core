@@ -4,7 +4,8 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.program') ?></h2>
+                <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
+                <h4><?= lang('crud.program') ?></h4>
             </div>
             <div class="col-auto">
                 <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
