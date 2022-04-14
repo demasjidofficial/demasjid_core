@@ -119,7 +119,7 @@ class Module extends BaseModule
                 //->addItem($qurbanItem)
                 ->addItem($zakatsItem)
                 ->addItem($infaqsItem)
-                ->addItem($shodaqohsItem)
+                //->addItem($shodaqohsItem)
                 ->addItem($wakafsItem)
                 ->addItem($qurbansItem)
                 ->addItem($configsItem);

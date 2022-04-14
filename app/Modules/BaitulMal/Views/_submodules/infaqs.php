@@ -27,7 +27,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/baitulmal/infaqcategory')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/baitulmal/infaqshodaqohcategory')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/baitulmal/infaq')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/baitulmal/infaqshodaqoh')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

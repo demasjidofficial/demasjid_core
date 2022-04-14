@@ -191,5 +191,19 @@ return [
 	'registration_open' => 'Buka Pendaftaran',
 	'registration' => 'Pendaftaran',
 	'registration_admission' => 'Penerimaan Pendaftaran',
+
+	'configs' => 'Konfigurasi',
+	'zakats' => 'Zakat',
+	'zakat_category' => 'Kategori Zakat',
+	'zakat' => 'Zakat',
+	'infaqs' => 'Infak/Sedekah',
+	'wakafs' => 'Wakaf',
+	'wakaf_category' => 'Kategori Wakaf',
+	'wakaf' => 'Wakaf',
+	'qurbans' => 'Qurban',
+	'infaq_category' => 'Kategori Infak',
+	'infaq' => 'Infak/Sedekah',
+	'donation_type' => 'Tipe Donasi',
+	'donation_method' => 'Metode Donasi',
  ];
 

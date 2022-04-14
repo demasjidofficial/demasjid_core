@@ -18,30 +18,32 @@
     <div style="padding: 0 15px;">
         <h5 class="mb-2"><?= lang('crud.administration')?></h5>
         <div class="row">
+            <!--
             <div class="col-md-3">
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.member')?></p>
+                    <p>< ?= lang('crud.member')?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-users"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/member')?>" class="small-box-footer">
-                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    <a href="< ?= site_url('/admin/masjid/member')?>" class="small-box-footer">
+                        < ?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
+            -->
             <div class="col-md-3">
                 <div class="small-box bg-warning">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.zone')?></p>
+                    <p><?= lang('crud.student')?></p>
                     </div>
                     <div class="icon">
-                    <i class="fas fa-map"></i>
+                    <i class="fas fa-users"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/wilayah')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/students')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -50,12 +52,12 @@
                 <div class="small-box bg-purple">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.job_position')?></p>
+                    <p><?= lang('crud.teacher')?></p>
                     </div>
                     <div class="icon">
-                    <i class="fas fa-file"></i>
+                    <i class="fas fa-users"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/jabatan')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/teachers')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

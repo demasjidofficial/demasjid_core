@@ -22,12 +22,12 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.zakat_fitrah')?></p>
+                    <p><?= lang('crud.zakat_category')?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/baitulmal/zakatfitrah')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/baitulmal/zakatcategory')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -36,12 +36,12 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.zakat_mal')?></p>
+                    <p><?= lang('crud.zakat')?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/baitulmal/zakatmal')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/baitulmal/zakat')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

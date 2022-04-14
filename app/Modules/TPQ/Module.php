@@ -54,12 +54,56 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
-        
+        /**
+         * SUB MODULE
+         */
+        $financesItem = new MenuItem([
+            'title'           => lang('crud.finances'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\_FinancesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'tpq.finances.list',
+        ]);
+        $profilesItem = new MenuItem([
+            'title'           => lang('crud.profiles'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\_ProfilesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'tpq.profiles.list',
+        ]);
+        $programsItem = new MenuItem([
+            'title'           => lang('crud.programs'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\_ProgramsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'tpq.programs.list',
+        ]);
+        $mastersItem = new MenuItem([
+            'title'           => lang('crud.masters'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\_MastersController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'tpq.masters.list',
+        ]);
+        $schedulesItem = new MenuItem([
+            'title'           => lang('crud.schedules'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\_SchedulesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'tpq.schedules.list',
+        ]);
+        $learningsItem = new MenuItem([
+            'title'           => lang('crud.learnings'),
+            'url'             => url_to('App\Modules\TPQ\Controllers\_LearningsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'tpq.learnings.list',
+        ]);
         $sidebar->menu('sidebar')->collection('tpq')
-            ->addItem($pengurusItem)
-            ->addItem($profileItem)
-            ->addItem($accountBalanceItem)
-            ->addItem($chartOfAccoutItem)
-            ->addItem($balanceItem);
+            //->addItem($pengurusItem)
+            //->addItem($profileItem)
+            //->addItem($accountBalanceItem)
+            //->addItem($chartOfAccoutItem)
+            //->addItem($balanceItem)
+            ->addItem($financesItem)
+            ->addItem($profilesItem)
+            ->addItem($programsItem)
+            ->addItem($mastersItem)
+            ->addItem($schedulesItem)
+            ->addItem($learningsItem);
     }
 }
