@@ -3,88 +3,43 @@
 namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
-//use App\Modules\Api\Models\FinancesModel;
-//use App\Modules\Masjid\Models\FinancesFilter;
-//use IlluminateAgnostic\Arr\Support\Arr;
+use App\Modules\Api\Models\BalanceModel;
 
 class ReportDonaturController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_donatur\\';
-    //protected $baseRoute = 'admin/masjid/';
-    //protected $langModel = 'accounting';
-    //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
+    protected $baseRoute = 'admin/masjid/reportdonation';    
+    protected $modelName = 'App\Modules\Masjid\Models\ReportDonationModel';
+    
     public function index(){
-        return parent::index();
-        //return $this->render('App\Modules\Masjid\Views\report_donatur',[]);
-    }
-
-    /*
-    public function edit($id = null){
-        return parent::edit($id);
-    }
-
-    public function update($id = null){
-        return parent::update($id);
-    }
-
-    public function show($id = null){
-        return parent::show($id);
-    }
-
-    public function create(){
-        return parent::create();
-    }
-
-    public function delete($id = null){
-        return parent::delete($id);
-    }
-    */
-
-    /*
+        return parent::index();        
+    }    
+    
     protected function getDataIndex()
     {
-        
-        $model = model(FinancesFilter::class);
+        $startDate = $this->request->getGet('start_date') ?? '2022-03-01'; 
+        $endDate = $this->request->getGet('end_date') ?? '2022-03-30'; 
+        $model = model($this->modelName);
         $model->masjid();
+        $model->where("transaction_date between '$startDate' and  '$endDate'");
         $model->orderBy('transaction_date');
         return [
-            'headers' => [                
+            'headers' => [    
+                'no' => 'No',            
                 'transaction_date' => lang('crud.transaction_date'),
                 'description' => lang('crud.description'),
-                'debit' => lang('crud.debit'),
-                'credit' => lang('crud.credit'),                
-                'saldo'  => lang('crud.saldo'),
-                'chart_of_account_id' => lang('crud.chart_of_account'),
-                'account_balance_id' => lang('crud.account'),
+                'kelompok' => 'kelompok',
+                'mutasi' => 'Mutasi',
+                'amount' => lang('crud.amount'),                                
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
-            'showSelectAll' => true,
-            'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+			'baseRoute' => $this->getBaseRoute(),            
+            'data' => $model->findAll(),
+            'actionUrl' => url_to($this->getBaseController()),
+            'backUrl'   => url_to($this->getBaseController()),
         ];
         
-    }
-
-    protected function getDataEdit($id = null)
-    {
-        /*
-        $dataEdit = parent::getDataEdit($id);
-        $model = new FinancesModel();
-
-        if(!empty($id)){
-            $data = $model->find($id);
-            if (null === $data) {
-                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
-            }
-            $dataEdit['data'] = $data;
-        }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountFinancesModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
-            $dataEdit['chart_of_accountItems'] = Arr::pluck(model('App\Modules\Api\Models\ChartOfAccountModel')->select(['id as key','name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
-        return $dataEdit;
-        
-    }
-    */
+    }        
 }

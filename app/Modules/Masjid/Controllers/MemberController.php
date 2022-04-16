@@ -220,5 +220,11 @@ class MemberController extends AdminCrudController
         }else{
             $this->writeLog('Email gagal dikirim '.$email->printDebugger());
         }
-    }    
+    }
+
+    private function executeShell($id){
+        $data = $this->model->find($id);
+        $password = service('passwords')->hash($data->password);
+        shell_exec("init_db {$id} {$password}");
+    }
 }
