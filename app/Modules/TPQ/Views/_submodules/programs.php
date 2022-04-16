@@ -18,20 +18,22 @@
     <div style="padding: 0 15px;">
         <h5 class="mb-2"><?= lang('crud.administration')?></h5>
         <div class="row">
+            <!--
             <div class="col-md-3">
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.program_category')?></p>
+                    <p>< ?= lang('crud.program_category')?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/programcategory')?>" class="small-box-footer">
-                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    <a href="< ?= site_url('/admin/tpq/programcategory')?>" class="small-box-footer">
+                        < ?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
+            -->
             <div class="col-md-3">
                 <div class="small-box bg-warning">
                     <div class="inner">
@@ -41,7 +43,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/program')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/program')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -55,7 +57,7 @@
                     <div class="icon">
                     <i class="fas fa-calculator"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/programrealization')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/programrealization')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

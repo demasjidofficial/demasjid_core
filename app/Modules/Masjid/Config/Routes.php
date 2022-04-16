@@ -23,9 +23,9 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     /**
      * SUB MODULE
      */
-    $routes->resource('masjid/finances', ['controller' => 'FinancesController']);
-    $routes->resource('masjid/profiles', ['controller' => 'ProfilesController']);
-    $routes->resource('masjid/programs', ['controller' => 'ProgramsController']);
-    $routes->resource('masjid/masters', ['controller' => 'MastersController']);
-    $routes->resource('masjid/schedules', ['controller' => 'SchedulesController']);
+    $routes->resource('masjid/finances', ['controller' => '_FinancesController']);
+    $routes->resource('masjid/profiles', ['controller' => '_ProfilesController']);
+    $routes->resource('masjid/programs', ['controller' => '_ProgramsController']);
+    $routes->resource('masjid/masters', ['controller' => '_MastersController']);
+    $routes->resource('masjid/schedules', ['controller' => '_SchedulesController']);
 });

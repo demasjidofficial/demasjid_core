@@ -17,7 +17,8 @@
 		"asligresik/easyapi": "*",
 		"pragmarx/ia-arr": "^7.3",
 		"tightenco/collect": "^8.83",
-		"endroid/qr-code": "^4.4"				
+		"endroid/qr-code": "^4.4",
+		"dompdf/dompdf": "^1.2"				
 	},
 	"require-dev": {
 		"codeigniter/coding-standard": "^1.1",

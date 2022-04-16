@@ -27,7 +27,7 @@
                     <div class="icon">
                     <i class="fas fa-building"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/profile')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/profile')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -41,25 +41,27 @@
                     <div class="icon">
                     <i class="fas fa-users"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/pengurus')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/pengurus')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
+            <!--
             <div class="col-md-3">
                 <div class="small-box bg-purple">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.entity')?></p>
+                    <p>< ?= lang('crud.entity')?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/entity')?>" class="small-box-footer">
-                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    <a href="< ?= site_url('/admin/tpq/entity')?>" class="small-box-footer">
+                        < ?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
+            -->
         </div><!--/.row -->
         
     </div>

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Modules\Masjid\Controllers;
+namespace App\Modules\TPQ\Controllers;
 
 use App\Controllers\AdminCrudController;
 //use App\Modules\Api\Models\FinancesModel;
-//use App\Modules\Masjid\Models\FinancesFilter;
+//use App\Modules\TPQ\Models\FinancesFilter;
 //use IlluminateAgnostic\Arr\Support\Arr;
 
-class FinancesController extends AdminCrudController
+class _SchedulesController extends AdminCrudController
 {
     //protected $baseController = __CLASS__;
-    //protected $viewPrefix = 'App\Modules\Masjid\Views\submodules\\';
+    //protected $viewPrefix = 'App\Modules\TPQ\Views\submodules\\';
     //protected $baseRoute = 'admin/masjid/';
     //protected $langModel = 'accounting';
     //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
     public function index(){
         //return parent::index();
-        return $this->render('App\Modules\Masjid\Views\_submodules\finances',[]);
+        return $this->render('App\Modules\TPQ\Views\_submodules\schedules',[]);
     }
 
     /*

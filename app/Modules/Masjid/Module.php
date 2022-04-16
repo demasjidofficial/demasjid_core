@@ -100,31 +100,31 @@ class Module extends BaseModule
          */
         $financesItem = new MenuItem([
             'title'           => lang('crud.finances'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\FinancesController::index'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_FinancesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.finances.list',
         ]);
         $profilesItem = new MenuItem([
             'title'           => lang('crud.profiles'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\ProfilesController::index'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_ProfilesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.profiles.list',
         ]);
         $programsItem = new MenuItem([
             'title'           => lang('crud.programs'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramsController::index'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_ProgramsController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.programs.list',
         ]);
         $mastersItem = new MenuItem([
             'title'           => lang('crud.masters'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\MastersController::index'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_MastersController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.masters.list',
         ]);
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_SchedulesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.schedules.list',
         ]);

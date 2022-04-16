@@ -7,7 +7,7 @@ use App\Controllers\AdminCrudController;
 //use App\Modules\Pesantren\Models\ProgramsFilter;
 //use IlluminateAgnostic\Arr\Support\Arr;
 
-class LearningsController extends AdminCrudController
+class _LearningsController extends AdminCrudController
 {
     //protected $baseController = __CLASS__;
     //protected $viewPrefix = 'App\Modules\Pesantren\Views\submodules\\';

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Modules\Pesantren\Controllers;
+namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
 //use App\Modules\Api\Models\FinancesModel;
-//use App\Modules\Pesantren\Models\FinancesFilter;
+//use App\Modules\BaitulMal\Models\FinancesFilter;
 //use IlluminateAgnostic\Arr\Support\Arr;
 
-class SchedulesController extends AdminCrudController
+class _ConfigsController extends AdminCrudController
 {
     //protected $baseController = __CLASS__;
-    //protected $viewPrefix = 'App\Modules\Pesantren\Views\submodules\\';
+    //protected $viewPrefix = 'App\Modules\BaitulMal\Views\submodules\\';
     //protected $baseRoute = 'admin/masjid/';
     //protected $langModel = 'accounting';
     //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
     public function index(){
         //return parent::index();
-        return $this->render('App\Modules\Pesantren\Views\_submodules\schedules',[]);
+        return $this->render('App\Modules\BaitulMal\Views\_submodules\configs',[]);
     }
 
     /*

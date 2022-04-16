@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover table-sm">
     <?php echo $this->include('_table_head') ?>
     <tbody>
     <?php if (isset($data) && count($data)) : ?>
@@ -8,7 +8,7 @@
             $saldo += $amount;
             $item->saldo = $saldo;
         ?>
-            <tr>
+            <tr class="tr-td-middle">
                 <td>
                     <input type="checkbox" name="selects[]" class="form-check">
                 </td>

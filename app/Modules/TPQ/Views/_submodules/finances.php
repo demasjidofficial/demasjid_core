@@ -27,7 +27,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/chartofaccount')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/chartofaccount')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="icon">
                     <i class="fas fa-file"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/accountbalance')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/accountbalance')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -55,7 +55,7 @@
                     <div class="icon">
                     <i class="fas fa-calculator"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/balance')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/tpq/balance')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -72,7 +72,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportbalancesheet')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/tpq/reportbalancesheet')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -86,7 +86,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportcashflow')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/tpq/reportcashflow')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -100,7 +100,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportdonation')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/tpq/reportdonation')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -114,7 +114,7 @@
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportgeneralledger')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/tpq/reportgeneralledger')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>

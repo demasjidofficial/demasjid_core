@@ -1,9 +1,9 @@
-<table class="table table-hover">
+<table class="table table-hover table-sm">
     <?= $this->include('_table_head') ?>
     <tbody>
     <?php if (isset($data) && count($data)) : ?>
         <?php foreach ($data as $item) : ?>
-            <tr>
+            <tr class="tr-td-middle">
                 <td>
                     <input type="checkbox" name="selects[]" class="form-check">
                 </td>

@@ -64,6 +64,7 @@ return [
 	'delete'	=> 'Hapus',
 	'next'		=> 'Selanjutnya',
 	'prev'		=> 'Sebelumnya',
+	'download'  => 'Download',
 
 	'developedby'	 	=> 'Dikembangkan oleh',
 	'email_address'		=> 'Alamat Email',

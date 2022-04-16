@@ -46,7 +46,7 @@ class ChartOfAccountController extends AdminCrudController
             'headers' => [
                 'code' => lang('crud.code'),
                 'name' => lang('crud.name'),
-                'group_account' => lang('crud.group_account'),
+                'group_account' => lang('crud.account_type'),
                 'entity_id' => lang('crud.entity_id'),                
             ],
             'controller' => $this->getBaseController(),

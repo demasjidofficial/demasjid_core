@@ -93,14 +93,14 @@ class Bonfire
         $menus->menu('sidebar')
             ->createCollection('tpq', 'TPQ')
             ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
-            ->setCollapsible();        
-        $menus->menu('sidebar')
-            ->createCollection('website', 'Website')
-            ->setFontAwesomeIcon('nav-icon fas fa-globe')
             ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('baitulmal', 'Baitul Mal')
             ->setFontAwesomeIcon('nav-icon fas fa-calculator')
+            ->setCollapsible();        
+        $menus->menu('sidebar')
+            ->createCollection('website', 'Website')
+            ->setFontAwesomeIcon('nav-icon fas fa-globe')
             ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('board', 'Board')
@@ -112,7 +112,7 @@ class Bonfire
             ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
-            ->setFontAwesomeIcon('nav-icon fas fa-palette');        
+            ->setFontAwesomeIcon('nav-icon fas fa-palette no-need');        
         $menus->menu('sidebar')
             ->createCollection('settings', 'Pengaturan')
             ->setFontAwesomeIcon('nav-icon fas fa-cog')
@@ -136,11 +136,11 @@ class Bonfire
 
         $widgets->createWidget(Stats::class, 'stats');
         $widgets->widget('stats')
-            ->createCollection('stats');
+                ->createCollection('stats');
 
         $widgets->createWidget(Charts::class, 'charts');
         $widgets->widget('charts')
-            ->createCollection('charts');
+                ->createCollection('charts');
     }
 
     /**
