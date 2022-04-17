@@ -64,7 +64,9 @@ return [
 	'delete'	=> 'Hapus',
 	'next'		=> 'Selanjutnya',
 	'prev'		=> 'Sebelumnya',
-	'download'  => 'Download',
+	'download'  => 'Unduh',
+	'download_pdf'  => 'Pdf',
+	'download_xls'  => 'Excel',
 
 	'developedby'	 	=> 'Dikembangkan oleh',
 	'email_address'		=> 'Alamat Email',
@@ -92,8 +94,7 @@ return [
 	'board_livebroadcast' => 'Siaran Langsung',
 
 	'helpus_grow' => 'Beri Feedback',
-
 	'dashboard' => 'Dasbor',	
-
 	'more_info' => 'Lihat detil',
+	'search' => 'Cari',
 ];

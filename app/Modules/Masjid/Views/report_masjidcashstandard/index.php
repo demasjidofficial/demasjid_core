@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
             <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
-            <h4><?= lang('crud.report_balancesheet') ?></h4>
+            <h4><?= lang('crud.report_masjidcashstandard') ?></h4>
         </div>        
     </div>
 </x-page-head>

@@ -4,7 +4,8 @@
 <x-page-head>
     <div class="row">
         <div class="col">
-            <h2><?= lang('crud.balance') ?></h2>
+            <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
+            <h4><?= lang('crud.report_donation') ?></h4>
         </div>        
     </div>
 </x-page-head>
@@ -20,23 +21,25 @@
                             <?= form_input('period', old('period', $period ?? ''), "class='form-control date' required readonly") ?>
                         </div>
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i>
-                            <?= lang('app.search') ?></button>
-                            <button type="submit" name="download" class="btn btn-success" value="pdf"> <i class="fas fa-file-pdf"></i>
-                            <?= lang('app.download') ?></button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i>
+                            <?= lang('app.search') ?>&nbsp;&nbsp;&nbsp;</button>
+                            <button type="submit" name="download" class="btn btn-danger" value="pdf"> <i class="fas fa-file-pdf"></i>
+                                <?= lang('app.download_pdf') ?>
+                            </button>
+                            <button type="submit" name="download" class="btn btn-success" value="xls"> <i class="fas fa-file-excel"></i>
+                                <?= lang('app.download_xls') ?>
+                            </button>
                         </div>
                     </div>
-
                 </fieldset>                
-
             </form>
-        </div>
+        </div><!--/.row -->
         <div class="row">
             <!-- List balances -->
             <div class="col table-responsive" id="donatur-list">
                 <?php echo $this->include($viewPrefix.'\_table'); ?>
             </div>
-        </div>
+        </div><!--/.row -->
     </div>
 
 </x-admin-box>

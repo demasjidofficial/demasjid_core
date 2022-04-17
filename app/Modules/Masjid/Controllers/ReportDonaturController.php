@@ -20,13 +20,19 @@ class ReportDonaturController extends AdminCrudController
         $this->writeLog();
         $download = $this->request->getGet('download');
         if ($download) {
-            // $viewHtml = $this->render($view, $dataIndex);            
-            $viewHtml = '<div>tess</div>';
-            $this->generate($viewHtml);
-
+            // $viewHtml = $this->render($view, $dataIndex);    
+            switch($download){        
+                case 'pdf':
+                    $viewHtml = '<div>tess</div>';
+                    $this->generate($viewHtml);
+                break;
+                case 'xls':
+                    //$viewHtml = '<div>tess</div>';
+                    //$this->generate($viewHtml);
+                break;
+            }
             return;
         }
-
         return $this->render($view, $dataIndex);
     }
 
@@ -41,7 +47,6 @@ class ReportDonaturController extends AdminCrudController
         $dompdf->setPaper('A4');
         // render html as PDF
         $dompdf->render();
-
         // output the generated pdf
         $dompdf->stream($filename);
     }
