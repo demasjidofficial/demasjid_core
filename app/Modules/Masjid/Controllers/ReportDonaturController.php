@@ -5,6 +5,8 @@ namespace App\Modules\Masjid\Controllers;
 use App\Controllers\AdminCrudController;
 use CodeIgniter\I18n\Time;
 use Dompdf\Dompdf;
+use PhpOffice\PhpSpreadsheet\Reader\Html;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ReportDonaturController extends AdminCrudController
 {
@@ -15,40 +17,27 @@ class ReportDonaturController extends AdminCrudController
 
     public function index()
     {
-        $view = $this->viewPrefix.($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
+        $view = $this->viewPrefix.'index';
         $dataIndex = $this->getDataIndex();
         $this->writeLog();
         $download = $this->request->getGet('download');
         if ($download) {
-            // $viewHtml = $this->render($view, $dataIndex);    
-            switch($download){        
-                case 'pdf':
-                    $viewHtml = '<div>tess</div>';
+            $view = $this->viewPrefix.'_table';            
+            $viewHtml = $this->render($view, $dataIndex);
+            
+            switch ($download) {
+                case 'pdf':                    
                     $this->generate($viewHtml);
-                break;
-                case 'xls':
-                    //$viewHtml = '<div>tess</div>';
-                    //$this->generate($viewHtml);
+                break;                
+                case 'xls':                    
+                    $this->exportExcel($viewHtml);
                 break;
             }
+
             return;
         }
-        return $this->render($view, $dataIndex);
-    }
 
-    public function generate($viewHtml)
-    {
-        $filename = date('y-m-d-H-i-s').'-qadr-labs-report';
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf();
-        // load HTML content
-        $dompdf->loadHtml($viewHtml);
-        // (optional) setup the paper size and orientation
-        $dompdf->setPaper('A4');
-        // render html as PDF
-        $dompdf->render();
-        // output the generated pdf
-        $dompdf->stream($filename);
+        return $this->render($view, $dataIndex);
     }
 
     protected function getDataIndex()
@@ -85,5 +74,32 @@ class ReportDonaturController extends AdminCrudController
             'backUrl' => url_to($this->getBaseController()),
             'period' => $startDate.' - '.$endDate,
         ];
+    }
+
+    private function exportExcel($viewHtml)
+    {
+        $reader = new Html();
+        $spreadsheet = $reader->loadFromString($viewHtml);
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xls');
+        $filename = date('y-m-d-H-i-s').'-qadr-labs-report.xls';
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="'. urlencode($filename).'"');
+        $writer->save('php://output');        
+    }
+
+    private function generate($viewHtml)
+    {
+        $filename = date('y-m-d-H-i-s').'-qadr-labs-report';
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
+        // load HTML content
+        $dompdf->loadHtml($viewHtml);
+        // (optional) setup the paper size and orientation
+        $dompdf->setPaper('A4');
+        // render html as PDF
+        $dompdf->render();
+        // output the generated pdf
+        $dompdf->stream($filename);
     }
 }
