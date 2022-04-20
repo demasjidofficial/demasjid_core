@@ -3,7 +3,7 @@
 <?= $this->section('main') ?>
 
     <div>
-        <span><br/><?= $path;?></span>
+        <span><br/><?= $pl;?></span>
     </div>
 
 <?= $this->endSection() ?>
