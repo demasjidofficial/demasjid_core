@@ -1,3 +1,9 @@
+<div class="text-center text-bold">
+    <div><?= $title['name'] ?></div>
+    <div><?= $title['type'] ?></div>
+    <div><?= $title['period'] ?></div>    
+</div>
+<hr>
 <table class="table table-hover">
     <?php echo $this->include('_table_head') ?>
     <tbody>

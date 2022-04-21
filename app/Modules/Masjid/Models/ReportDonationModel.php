@@ -2,8 +2,10 @@
 
 namespace App\Modules\Masjid\Models;
 
-use App\Modules\Api\Models\BalanceModel;
 use Bonfire\Traits\Filterable;
+use CodeIgniter\Database\BaseBuilder;
+use App\Modules\Api\Models\BalanceModel;
+use App\Modules\Masjid\Config\Finance;
 
 class ReportDonationModel extends BalanceModel
 {
@@ -27,5 +29,15 @@ class ReportDonationModel extends BalanceModel
     public function filter(array $params = null)
     {
         return [];
+    }
+
+    public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $finance = new Finance;        
+        $this->whereIn('chart_of_account_id', function(BaseBuilder $builder) use($finance) {            
+            return $builder->select('id')->from('chart_of_account')->whereIn('code',$finance->donationAccount);
+        });
+
+        return parent::findAll($limit, $offset);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
+use App\Modules\Api\Models\EntityModel;
 use CodeIgniter\I18n\Time;
 use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Reader\Html;
@@ -22,7 +23,7 @@ class ReportDonaturController extends AdminCrudController
         $this->writeLog();
         $download = $this->request->getGet('download');
         if ($download) {
-            $view = $this->viewPrefix.'_table';            
+            $view = $this->viewPrefix.'index_pdf';            
             $viewHtml = $this->render($view, $dataIndex);
             
             switch ($download) {
@@ -73,7 +74,18 @@ class ReportDonaturController extends AdminCrudController
             'actionUrl' => url_to($this->getBaseController()),
             'backUrl' => url_to($this->getBaseController()),
             'period' => $startDate.' - '.$endDate,
+            'title' => [
+                    'name' => $this->getIdentityInfo(),
+                    'type' => 'Laporan Donatur',
+                    'period' => 'Periode '.Time::parse($startDate)->format('d M Y').' sd '.Time::parse($endDate)->format('d M Y')
+                ]
         ];
+    }
+    
+    private function getIdentityInfo(){
+        $entity = (new EntityModel())->masjid()->first();
+
+        return $entity->name ?? 'Masjid not defined';
     }
 
     private function exportExcel($viewHtml)
@@ -89,7 +101,7 @@ class ReportDonaturController extends AdminCrudController
     }
 
     private function generate($viewHtml)
-    {
+    {        
         $filename = date('y-m-d-H-i-s').'-qadr-labs-report';
         // instantiate and use the dompdf class
         $dompdf = new Dompdf();

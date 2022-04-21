@@ -11,12 +11,9 @@ class ReportCashBankMutationController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_cashbankmutation\\';
-    //protected $baseRoute = 'admin/masjid/';
-    //protected $langModel = 'accounting';
-    //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
+    
     public function index(){
-        return parent::index();
-        //return $this->render('App\Modules\Masjid\Views\report_balancesheet',[]);
+        return parent::index();        
     }
 
     /*
