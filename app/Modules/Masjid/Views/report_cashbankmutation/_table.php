@@ -16,12 +16,16 @@
     </thead>
     <tbody>
         <?php 
-            $total = 0;
+            $totalDebit = $totalCredit = 0;
             $no = 1;
         ?>
         <?php if (isset($data) && count($data)) : ?>        
         <?php foreach ($data as $item) : 
-          $total += $item->amount;
+          if($item->amount > 0){
+            $totalDebit += $item->amount ;
+          }else{
+            $totalCredit += $item->amount ;
+          }          
         ?>
         <tr>
             <td class="text-center"><?= $no++ ?></td>
@@ -32,8 +36,17 @@
     </tbody>
     <tfoot>
         <tr>
-            <th class="text-right" colspan="5">Jumlah</th>
-            <th class="text-right"><?php echo local_currency($total, 'IDR', null, 2) ?></th>
+            <th class="text-right" colspan="5">Mutasi Kas dan Bank</th>
+            <th class="text-right"><?php echo local_currency($totalDebit, 'IDR', null, 2) ?></th>
+            <th class="text-right"><?php echo local_currency($totalCredit, 'IDR', null, 2) ?></th>
+        </tr>
+        <tr>
+            <th class="text-right" colspan="5">Saldo Awal Mutasi Kas dan Bank</th>
+            <th class="text-right"><?php echo local_currency($startBalance, 'IDR', null, 2) ?></th>            
+        </tr>
+        <tr>
+            <th class="text-right" colspan="5">Saldo Akhir Mutasi Kas dan Bank</th>
+            <th class="text-right"><?php echo local_currency($startBalance + $totalDebit - $totalCredit, 'IDR', null, 2) ?></th>            
         </tr>
     </tfoot>
 </table>

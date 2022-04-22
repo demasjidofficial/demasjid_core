@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'date' => 'Tanggal',
 	'transaction_date' => 'Tgl. Transaksi',
     'description' => 'Keterangan',
     'debit' => 'Debit',

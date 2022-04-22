@@ -2,14 +2,11 @@
 
 namespace App\Modules\Masjid\Controllers;
 
-use App\Controllers\AdminCrudController;
+use App\Controllers\ReportController;
 use App\Modules\Api\Models\EntityModel;
 use CodeIgniter\I18n\Time;
-use Dompdf\Dompdf;
-use PhpOffice\PhpSpreadsheet\Reader\Html;
-use PhpOffice\PhpSpreadsheet\IOFactory;
 
-class ReportDonaturController extends AdminCrudController
+class ReportDonaturController extends ReportController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_donatur\\';
@@ -28,10 +25,12 @@ class ReportDonaturController extends AdminCrudController
             
             switch ($download) {
                 case 'pdf':                    
-                    $this->generate($viewHtml);
+                    $filename = date('y-m-d-H-i-s').'-donatur.pdf';
+                    $this->exportPdf($filename, $viewHtml);
                 break;                
-                case 'xls':                    
-                    $this->exportExcel($viewHtml);
+                case 'xls':
+                    $filename = date('y-m-d-H-i-s').'-donatur.xls';              
+                    $this->exportExcel($filename, $viewHtml);
                 break;
             }
 
@@ -61,7 +60,8 @@ class ReportDonaturController extends AdminCrudController
 
         return [
             'headers' => [
-                'transaction_date' => lang('crud.transaction_date'),
+                'no' => 'no',
+                'transaction_date' => lang('crud.date'),
                 'description' => lang('crud.description'),
                 'kelompok' => 'kelompok',
                 'mutasi' => 'Mutasi',
@@ -86,32 +86,5 @@ class ReportDonaturController extends AdminCrudController
         $entity = (new EntityModel())->masjid()->first();
 
         return $entity->name ?? 'Masjid not defined';
-    }
-
-    private function exportExcel($viewHtml)
-    {
-        $reader = new Html();
-        $spreadsheet = $reader->loadFromString($viewHtml);
-
-        $writer = IOFactory::createWriter($spreadsheet, 'Xls');
-        $filename = date('y-m-d-H-i-s').'-qadr-labs-report.xls';
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="'. urlencode($filename).'"');
-        $writer->save('php://output');        
-    }
-
-    private function generate($viewHtml)
-    {        
-        $filename = date('y-m-d-H-i-s').'-qadr-labs-report';
-        // instantiate and use the dompdf class
-        $dompdf = new Dompdf();
-        // load HTML content
-        $dompdf->loadHtml($viewHtml);
-        // (optional) setup the paper size and orientation
-        $dompdf->setPaper('A4');
-        // render html as PDF
-        $dompdf->render();
-        // output the generated pdf
-        $dompdf->stream($filename);
-    }
+    }    
 }

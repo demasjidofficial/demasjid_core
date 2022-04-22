@@ -167,15 +167,7 @@ class AdminCrudController extends AdminController
         }
 
         return redirect()->back()->with('message', lang('Bonfire.resourceDeleted', [$this->langModel]));
-    }
-
-    protected function writeLog()
-    {
-        if (ENVIRONMENT !== 'production') {
-            $query = $this->db->getLastQuery();
-            log_message('critical', (string) $query);
-        }
-    }
+    }    
 
     /**
      * Get the value of baseController

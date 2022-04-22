@@ -17,8 +17,8 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/programcategory', ['controller' => 'ProgramCategoryController']);
     $routes->resource('masjid/reportbalancesheet', ['controller' => 'ReportBalanceSheetController']);
     $routes->resource('masjid/reportcashflow', ['controller' => 'ReportCashFlowController']);
-    $routes->resource('masjid/reportcashbankmutation', ['controller' => 'ReportCashBankMutationController']);
-    $routes->resource('masjid/reportdonation', ['controller' => 'ReportDonaturController']);
+    $routes->get('masjid/reportcashbankmutation', 'ReportCashBankMutationController::index');
+    $routes->get('masjid/reportdonation', 'ReportDonaturController::index');
     $routes->resource('masjid/reportgeneralledger', ['controller' => 'ReportGeneralLedgerController']);
     /**
      * SUB MODULE

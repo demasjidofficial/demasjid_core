@@ -24,7 +24,7 @@ class BaseModel extends ModelsBaseModel
         return parent::findAll($limit, $offset);
     }
 
-    protected function filterEntity(string $type){        
+    protected function filterEntity(string $type){    
         $this->whereIn('entity_id', function(BaseBuilder $builder) use ($type){
 
             return $builder->select('id')->from('entity')->where('type', $type);
