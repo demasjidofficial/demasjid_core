@@ -15,24 +15,11 @@
     </x-page-head>
 
     <!--x-admin-box-->
-    <div style="padding: 0 15px;">
+
+    <div style="padding: 0 15px !important;">
         <h5 class="mb-2"><?= lang('crud.administration')?></h5>
         <div class="row">
-            <div class="col-md-3">
-                <div class="small-box bg-info">
-                    <div class="inner">
-                    <h3>&nbsp;</h3>
-                    <p><?= lang('crud.member')?></p>
-                    </div>
-                    <div class="icon">
-                    <i class="fas fa-users"></i>
-                    </div>
-                    <a href="<?= site_url('/admin/masjid/member')?>" class="small-box-footer">
-                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
+            <div class="col-2 col-sm-3">
                 <div class="small-box bg-warning">
                     <div class="inner">
                     <h3>&nbsp;</h3>
@@ -46,7 +33,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-2 col-sm-3">
                 <div class="small-box bg-purple">
                     <div class="inner">
                     <h3>&nbsp;</h3>
@@ -60,9 +47,56 @@
                     </a>
                 </div>
             </div>
+            <div class="col-2 col-sm-3">
+                <div class="small-box bg-secondary">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.muadzin')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/masjid/muadzin')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-2 col-sm-3">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>&nbsp;</h3>
+                        <p><?= lang('crud.imam_mubaligh')?></p>
+                        </div>
+                        <div class="icon">
+                        <i class="fas fa-users"></i>
+                        </div>
+                        <a href="<?= site_url('/admin/masjid/imammubaligh')?>" class="small-box-footer">
+                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div><!--/.row -->
-       
+
+        <div class="row" style="padding: 0 15px;">
+            <div class="col-2 col-sm-3">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>&nbsp;</h3>
+                        <p><?= lang('crud.member')?></p>
+                        </div>
+                        <div class="icon">
+                        <i class="fas fa-users"></i>
+                        </div>
+                        <a href="<?= site_url('/admin/masjid/member')?>" class="small-box-footer">
+                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row -->
     </div>
+
     <!--/x-admin-box-->
 <?php $this->endSection(); ?>
 

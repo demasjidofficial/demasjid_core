@@ -43,7 +43,7 @@ class SitepostsController extends AdminCrudController
         $model = model(SitepostsFilter::class);
         return [
             'headers' => [
-                                    'title' => 'title',
+                'title' => 'title',
                 'subtitle' => 'subtitle',
                 'path_image' => 'path_image',
                 'content' => 'content',

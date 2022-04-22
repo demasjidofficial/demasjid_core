@@ -97,4 +97,13 @@ return [
 	'dashboard' => 'Dasbor',	
 	'more_info' => 'Lihat detil',
 	'search' => 'Cari',
+	'print' => 'Cetak',
+
+	'menus' => 'Menu',
+	'pages' => 'Halaman',
+	'posts' => 'Artikel',
+	'sections' => 'Seksion',
+	'socials' => 'Sosial Media',
+	'slides' => 'Slide',
+	'visit_site' => 'Tinjau Situs',
 ];
