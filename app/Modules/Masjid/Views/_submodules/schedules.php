@@ -50,12 +50,26 @@
                 <div class="small-box bg-purple">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p><?= lang('crud.schedules_kajian')?></p>
+                    <p><?= lang('crud.schedules_program')?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-clock"></i>
                     </div>
-                    <a href="<?= site_url('/admin/masjid/schedulekajian')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/masjid/scheduleprogram')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-3 col-sm-3">
+                <div class="small-box bg-secondary">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.schedules_calendar')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-clock"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/masjid/schedulecalendar')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

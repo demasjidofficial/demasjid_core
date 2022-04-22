@@ -19,6 +19,7 @@
 .btn-3-dots:hover{color:darkcyan;}
 .table-sm thead tr th,
 .table-sm tbody tr td{vertical-align:middle !important;}
+.nav-treeview .nav-item{text-indent: 8px;}
 
 /*
  * --------------------------------------------------------------------------

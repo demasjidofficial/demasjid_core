@@ -13,14 +13,15 @@
 <x-admin-box>
     <div>
         <div class="row">
-            <form action="<?php echo $actionUrl; ?>" method="get">
-                <fieldset>
-                    <div class="row mb-3">
-                        <?= form_label(lang('crud.period'),'',['for' => 'period', 'class' => 'col-form-label col-auto']) ?>
-                        <div class="col-auto">
+            <form action="<?php echo $actionUrl; ?>" method="get" class="form-horizontal" style="width:100%;">
+                <!--fieldset-->
+                    <!--div class="row mb-3"-->
+                    <div class="form-group row">
+                        <?= form_label(lang('crud.period'),'',['for' => 'period', 'class' => 'col-sm-1 col-form-label']) ?>
+                        <div class="col-sm-3">
                             <?= form_input('period', old('period', $period ?? ''), "class='form-control date' required readonly") ?>
                         </div>
-                        <div class="col-auto">
+                        <div class="col-sm-5">
                             <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i>
                             <?= lang('app.search') ?>&nbsp;&nbsp;&nbsp;</button>
                             <button type="submit" name="download" class="btn btn-danger" value="pdf"> <i class="fas fa-file-pdf"></i>
@@ -29,9 +30,13 @@
                             <button type="submit" name="download" class="btn btn-success" value="xls"> <i class="fas fa-file-excel"></i>
                                 <?= lang('app.download_xls') ?>
                             </button>
+                            <button type="submit" name="print" class="btn btn-secondary" value="html"> <i class="fas fa-print"></i>
+                                <?= lang('app.print') ?>
+                            </button>
                         </div>
                     </div>
-                </fieldset>                
+                    <!--/div-->
+                <!--/fieldset-->                
             </form>
         </div><!--/.row -->
         <div class="row">

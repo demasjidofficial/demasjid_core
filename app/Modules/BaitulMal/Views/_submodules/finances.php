@@ -109,12 +109,12 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                         <h3>&nbsp;</h3>
-                        <p><?= lang('crud.report_generalledger')?></p>
+                        <p><?= lang('crud.report_journal')?></p>
                         </div>
                         <div class="icon">
                         <i class="fas fa-book"></i>
                         </div>
-                        <a href="<?= site_url('/admin/masjid/reportgeneralledger')?>" class="small-box-footer">
+                        <a href="<?= site_url('/admin/masjid/reportjournal')?>" class="small-box-footer">
                             <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
