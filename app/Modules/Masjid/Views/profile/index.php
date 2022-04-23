@@ -36,7 +36,12 @@
                 var file = $(this).get(0).files[0].name;
                 $(this).prev('label').text(file);
             });
-            
+            $('input[name=email]').inputmask({
+                'alias': 'email'                
+            });
+            $('input[name=telephone]').inputmask({
+                'mask': '629{3}-9{4}-9{3,5}'
+            });
             $(document).on('select2:open', () => {
                 document.querySelector('.select2-search__field').focus();
             });

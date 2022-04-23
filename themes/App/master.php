@@ -3,9 +3,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Masjid Al Furqon Surabaya | <?= config('App')->siteName ?? 'Demasjid' ?></title>
+	<title><?= $masjid_profile['name'] ?>| <?= config('App')->siteName ?? 'Demasjid' ?></title>
 
-    <link rel='icon' href='assets/app/theme-charityworks/img/logo/dmsjdfav_alfurqonsby.png' />
+    <link rel='icon' href='<?= $masjid_profile['path_logo'] ?>' />
 
     <!-- CSS here -->
 	<?= asset_link('app/theme-charityworks/css/bootstrap.css', 'css') ?>

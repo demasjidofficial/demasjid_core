@@ -10,6 +10,8 @@ class ProfileModel extends BaseModel
 		'desa_id',
 		'code',
 		'address',
+		'email',
+		'telephone',
 		'path_logo',
 		'path_image',
 		'entity_id',
