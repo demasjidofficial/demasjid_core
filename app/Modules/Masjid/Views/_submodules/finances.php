@@ -135,6 +135,20 @@
                     </a>
                 </div>
             </div>
+            <div class="col-2 col-sm-3">
+                <div class="small-box bg-purple">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('crud.report_cashbankmutation')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-book"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/masjid/reportcashbankmutation')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <!--/x-admin-box-->
