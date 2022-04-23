@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Modules\Api\Models\ProfileModel;
 use CodeIgniter\HTTP\Response;
 
 class Home extends BaseController
@@ -15,20 +16,8 @@ class Home extends BaseController
 
     public function index()
     {
-        // get data of masjid profile
-        $masjid_profile = [
-            'id' => 1,
-            'name' => 'Al Barokah',
-            'wilayah_id' => '12.71.04.1002',
-            'code' => '127104100201',
-            'address' => 'Jl. Buya Hamka 99',
-            'email' => 'albarokahmedan@gmail.com',
-            'telephone' => '+62 851 6136 4811',
-            'path_logo' => 'uploads/images/1646549698_85845ca62e63ffefead8.png',
-            'path_image' => 'uploads/images/1646549698_7329cdc7d95856037a16.jpeg',
-            'domain' => '',
-            'state' => 'approve',
-        ];
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
+        $masjid_profile = $profile;
         
         // get data of masjid socials
         $masjid_socials = [
