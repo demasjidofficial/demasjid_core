@@ -18,7 +18,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/app/theme-charityworks/img/gallery/santri-dhuafa.jpeg" alt="">
+                            <img src="/assets/app/theme-charityworks/img/gallery/santri-dhuafa.jpeg" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Beasiswa 10.000 santri nusantara 2019</a></h3>
@@ -44,7 +44,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/app/theme-charityworks/img/gallery/ifthar.jpeg" alt="">
+                            <img src="/assets/app/theme-charityworks/img/gallery/ifthar.jpeg" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Penyediaan ifthar Romadhon 1444H</a></h3>
@@ -70,7 +70,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/app/theme-charityworks/img/gallery/butuhsaranaairbersih.jpeg" alt="">
+                            <img src="/assets/app/theme-charityworks/img/gallery/butuhsaranaairbersih.jpeg" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Pembangunan sarana air bersih layak pakai & konsumsi</a></h3>

@@ -1,5 +1,5 @@
 <footer>
-        <div class="footer-wrapper section-bg2" data-background="assets/app/theme-charityworks/img/gallery/footer_bg.png">
+        <div class="footer-wrapper section-bg2" data-background="/assets/app/theme-charityworks/img/gallery/footer_bg.png">
             <!-- Footer Top-->
             <div class="footer-area footer-padding" id="kontak">
                 <div class="container">

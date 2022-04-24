@@ -102,7 +102,7 @@ class StatsCollection extends StatsItem
      */
     public function items(): array
     {
-        $this->sortItems();
+        // $this->sortItems();
 
         return $this->items;
     }
