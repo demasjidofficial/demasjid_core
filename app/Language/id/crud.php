@@ -188,6 +188,10 @@ return [
 	'mother_tlpn' => 'Telepon Ibu',
 	'mother_email' => 'Email Ibu',
 
+	'menunggu' => 'Menunggu',
+	'diterima' => 'Diterima',
+	'tidak_diterima' => 'Tidak Diterima',
+
 	'student' => 'Siswa',
 	'teacher' => 'Guru',
 	'absences' => 'Absensi',
