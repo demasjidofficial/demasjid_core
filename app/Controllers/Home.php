@@ -218,9 +218,40 @@ class Home extends BaseController
         return 'ws';
     }
 
-    private function donasi($data = null)
+    /*
+    public function donasi($data = null)
     {
-        return 'donasi';
+        return $this->render('App\Modules\Website\Views\donasi', $data);
+
+        //return 'donasi';
     }
     
+    public function pesantren()
+    {
+        $request = $this->request->getGet('req');
+        $data = [];
+
+        if ($request == 'pendaftaran') {
+            return $this->render('App\Modules\Pesantren\Views\website\pendaftaran', $data);
+        }
+        if ($request == 'pengumuman') {
+            return $this->render('App\Modules\Pesantren\Views\website\pengumuman', $data);
+        }
+        return null;
+    }
+
+    public function tpq($data = null)
+    {
+        $request = $this->request->getGet('req');
+        $data = [];
+
+        if ($request == 'pendaftaran') {
+            return $this->render('App\Modules\TPQ\Views\website\pendaftaran', $data);
+        }
+        if ($request == 'pengumuman') {
+            return $this->render('App\Modules\TPQ\Views\website\pengumuman', $data);
+        }
+        return null;
+    }
+    */
 }
