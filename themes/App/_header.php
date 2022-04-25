@@ -83,11 +83,13 @@
                                                         <li><a href="#"><?= lang('app.infaqshodaqoh')?></a></li>
                                                         <li><a href="#"><?= lang('app.wakaf')?></a></li>
                                                         <li><a href="#"><?= lang('app.qurban')?></a></li>
+                                                        <li><a href="#"><?= lang('app.ambulan')?></a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="#"><?= lang('app.program')?></a>
                                                     <ul class="submenu">
                                                         <li><a href="#"><?= lang('app.kajian')?></a></li>
+                                                        <li><a href="#"><?= lang('app.sosial')?></a></li>
                                                         <li><a href="#"><?= lang('app.pesantren')?></a></li>
                                                         <li><a href="#"><?= lang('app.tpq')?></a></li>
                                                         <!--
