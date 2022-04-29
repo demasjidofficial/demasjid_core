@@ -6,6 +6,7 @@ use App\Modules\Api\Models\ProfileModel;
 use CodeIgniter\HTTP\Response;
 use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
+use App\Modules\Api\Models\SitesocialsModel;
 
 class Home extends BaseController
 {
@@ -26,21 +27,8 @@ class Home extends BaseController
         $masjid_profile = $profile;
         
         // get data of masjid socials
-        $masjid_socials = [
-            [
-                'id' => 1,
-                'name' => 'Facebook',
-                'link' => 'https://facebook.com/masjidalfurqonsby',
-                'path_icon' => 'fab fa-facebook-f',
-            ],
-            [
-                'id' => 2,
-                'name' => 'Instagram',
-                'link' => 'https://instagram.com/masjidalfurqonsby',
-                'path_icon' => 'fab fa-instagram',
-            ],
-        ];
-
+        $masjid_socials = (new SitesocialsModel())->asArray()->findAll();
+        
         // get data of activated languages
         $languages = [
             [
