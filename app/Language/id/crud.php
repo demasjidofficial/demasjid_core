@@ -215,5 +215,8 @@ return [
 	'donation_method' => 'Metode Donasi',
 	'muadzin' => 'Muadzin',
 	'imam_mubaligh' => 'Imam & Mubaligh',
+	'contact' => 'Kontak',
+	'is_permanent' => 'Imam Tetap',
+	'is_khotib' => 'Khotib / Penceramah'
  ];
 

@@ -13,6 +13,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/accountbalance', ['controller' => 'AccountBalanceController']);
     $routes->resource('masjid/balance', ['controller' => 'BalanceController']);
     $routes->resource('masjid/program', ['controller' => 'ProgramController']);
+    $routes->resource('masjid/imam', ['controller' => 'ImamController']);
     $routes->resource('masjid/chartofaccount', ['controller' => 'ChartOfAccountController']);
     $routes->resource('masjid/programcategory', ['controller' => 'ProgramCategoryController']);
     $routes->resource('masjid/reportbalancesheet', ['controller' => 'ReportBalanceSheetController']);
