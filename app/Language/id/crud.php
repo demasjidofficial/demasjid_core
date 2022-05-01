@@ -219,8 +219,14 @@ return [
 	'is_permanent' => 'Imam Tetap',
 	'is_khotib' => 'Khotib / Penceramah',
 	'imam_id' => 'Imam',
+	'khotib_id' => 'Khotib / Penceramah',
 	'is_automatic' => 'Mengikuti Jadwal Otomatis',
 	'pray_time' => 'Waktu',
-	'rawatib_schedule' => 'Jadwal Sholat 5 Waktu'
+	'pray_date' => 'Tanggal',
+	'rawatib_schedule' => 'Jadwal Sholat 5 Waktu',
+	'sholat_jumat' => 'Sholat Jumat',
+	'sholat_tarawih' => 'Sholat Tarawih',
+	'sholat_ied' => 'Sholat Hari Raya',
+	'sholat_gerhana' => 'Sholat Gerhana'
  ];
 

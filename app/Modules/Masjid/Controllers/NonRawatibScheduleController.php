@@ -3,17 +3,18 @@
 namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\RawatibScheduleModel;
-use App\Modules\Masjid\Models\RawatibScheduleFilter;
+use App\Modules\Api\Models\NonRawatibScheduleModel;
+use App\Modules\Masjid\Models\NonRawatibScheduleFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class RawatibScheduleController extends AdminCrudController
+class NonRawatibScheduleController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\schedule\rawatib_schedule\\';
-    protected $baseRoute = 'admin/masjid/rawatibschedule';
-    protected $langModel = 'rawatib_schedule';
-    protected $modelName = 'App\Modules\Api\Models\RawatibScheduleModel';
+    protected $viewPrefix = 'App\Modules\Masjid\Views\schedule\non_rawatib_schedule\\';
+    protected $baseRoute = 'admin/masjid/nonrawatibschedule';
+    protected $langModel = 'non_rawatib_schedule';
+    protected $modelName = 'App\Modules\Api\Models\NonRawatibScheduleModel';
+    protected $typeSholat = '';
     public function index(){
         return parent::index();
     }
@@ -40,17 +41,19 @@ class RawatibScheduleController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(RawatibScheduleFilter::class);
+        $model = model(NonRawatibScheduleFilter::class);
+        $model->where('type_sholat', $this->typeSholat);
         return [
-            'headers' => [
-                                    'name' => lang('crud.name'),
-                'pray_time' => lang('crud.pray_time'),
-                'is_automatic' => lang('crud.is_automatic'),
-                'imam_id' => lang('crud.imam_id')                
+            'headers' => [                
+                'name' => lang('crud.name'),
+                'pray_date' => lang('crud.pray_date'),
+                'imam_id' => lang('crud.imam_id'),
+                'khotib_id' => lang('crud.khotib_id')                
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
 			'baseRoute' => $this->getBaseRoute(),
+            'type'      => $this->typeSholat,
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -60,7 +63,7 @@ class RawatibScheduleController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new RawatibScheduleModel();
+        $model = new NonRawatibScheduleModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -69,8 +72,10 @@ class RawatibScheduleController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['imamItems'] = Arr::pluck(model('App\Modules\Api\Models\ImamModel')->select(['id as key','name as text'])->permanent()->asArray()->findAll(), 'text', 'key');
+            $dataEdit['imamItems'] = Arr::pluck(model('App\Modules\Api\Models\ImamModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['khotibItems'] = Arr::pluck(model('App\Modules\Api\Models\ImamModel')->select(['id as key','name as text'])->khotib()->asArray()->findAll(), 'text', 'key');
             $dataEdit['sholatItems'] = $model->getListSholat();
+            $dataEdit['type'] = $this->typeSholat;
         return $dataEdit;
     }
 }
