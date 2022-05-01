@@ -21,6 +21,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->get('masjid/reportcashbankmutation', 'ReportCashBankMutationController::index');
     $routes->get('masjid/reportdonation', 'ReportDonaturController::index');
     $routes->resource('masjid/reportgeneralledger', ['controller' => 'ReportGeneralLedgerController']);
+    $routes->resource('masjid/rawatibschedule', ['controller' => 'RawatibScheduleController']);
     /**
      * SUB MODULE
      */
@@ -29,4 +30,6 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/programs', ['controller' => '_ProgramsController']);
     $routes->resource('masjid/masters', ['controller' => '_MastersController']);
     $routes->resource('masjid/schedules', ['controller' => '_SchedulesController']);
+
+    $routes->get('masjid/prayerschedule', 'PrayerScheduleController::index');    
 });

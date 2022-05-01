@@ -1,6 +1,7 @@
 <?php namespace App\Modules\Api\Models;
 
 use asligresik\easyapi\Models\BaseModel;
+use CodeIgniter\Database\BaseBuilder;
 
 class ImamModel extends BaseModel
 {
@@ -31,4 +32,14 @@ class ImamModel extends BaseModel
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric'
     ];   
+
+	public function permanent(){    
+        $this->where('is_permanent', true);
+        return $this;    
+    }
+
+	public function khotib(){    
+        $this->where('is_khotib', true);
+        return $this;    
+    }
 }

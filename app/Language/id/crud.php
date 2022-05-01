@@ -217,6 +217,10 @@ return [
 	'imam_mubaligh' => 'Imam & Mubaligh',
 	'contact' => 'Kontak',
 	'is_permanent' => 'Imam Tetap',
-	'is_khotib' => 'Khotib / Penceramah'
+	'is_khotib' => 'Khotib / Penceramah',
+	'imam_id' => 'Imam',
+	'is_automatic' => 'Mengikuti Jadwal Otomatis',
+	'pray_time' => 'Waktu',
+	'rawatib_schedule' => 'Jadwal Sholat 5 Waktu'
  ];
 
