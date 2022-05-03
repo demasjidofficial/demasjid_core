@@ -21,6 +21,8 @@
 .table-sm tbody tr td{vertical-align:middle !important;}
 .nav-treeview .nav-item{text-indent: 8px;}
 
+/*iframe#odoo-ee-pricing #wrapwrap.o_odoo_pricing header#top {display:none !important;}*/
+
 /*
  * --------------------------------------------------------------------------
  * RESOURCE FILTERS
