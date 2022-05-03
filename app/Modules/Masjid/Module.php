@@ -124,11 +124,11 @@ class Module extends BaseModule
         ]);
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\_SchedulesController::index'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.schedules.list',
-        ]);
-
+        ]);        
+        
         $sidebar->menu('sidebar')->collection('masjid')
             //->addItem($jabatanItem)
             //->addItem($pengurusItem)
