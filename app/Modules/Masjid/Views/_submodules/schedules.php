@@ -21,11 +21,11 @@
             <div class="col-3 col-sm-3">
                 <div class="small-box bg-info">
                     <div class="inner">
-                    <h3>&nbsp;</h3>
-                    <p><?= lang('crud.schedules_sholatrawatib')?></p>
+                        <h3>&nbsp;</h3>
+                        <p><?= lang('crud.schedules_sholatrawatib')?></p>
                     </div>
                     <div class="icon">
-                    <i class="fas fa-clock"></i>
+                        <i class="fas fa-clock"></i>
                     </div>
                     <a href="<?= site_url('/admin/masjid/schedulesholatrawatib')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
@@ -35,11 +35,11 @@
             <div class="col-3 col-sm-3">
                 <div class="small-box bg-warning">
                     <div class="inner">
-                    <h3>&nbsp;</h3>
-                    <p><?= lang('crud.schedules_sholatnonrawatib')?></p>
+                        <h3>&nbsp;</h3>
+                        <p><?= lang('crud.schedules_sholatnonrawatib')?></p>
                     </div>
                     <div class="icon">
-                    <i class="fas fa-clock"></i>
+                        <i class="fas fa-clock"></i>
                     </div>
                     <a href="<?= site_url('/admin/masjid/schedulesholatnonrawatib')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>

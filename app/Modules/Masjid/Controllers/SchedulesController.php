@@ -58,15 +58,15 @@ class SchedulesController extends AdminController
             'bgColor' => 'bg-success',
             'bgIcon' => 'bg-info',
             'title' => 'Rawatib',            
-            'url'     => ADMIN_AREA . '/masjid/rawatibschedule',
-            'faIcon' => 'fas fa-book',
+            'url' => ADMIN_AREA . '/masjid/rawatibschedule',
+            'faIcon' => 'fas fa-clock',
         ]);
 
         $jumatItem = new StatsItem([
             'bgColor' => 'bg-warning',
             'bgIcon' => 'bg-info',
             'title' => 'Jumat',            
-            'url'     => ADMIN_AREA . '/masjid/jumatschedule',
+            'url' => ADMIN_AREA . '/masjid/jumatschedule',
             'faIcon' => 'fas fa-clock',
         ]);
 
@@ -74,7 +74,7 @@ class SchedulesController extends AdminController
             'bgColor' => 'bg-primary',
             'bgIcon' => 'bg-primary',
             'title' => 'Tarawih',            
-            'url'     => ADMIN_AREA . '/masjid/tarawihschedule',
+            'url' => ADMIN_AREA . '/masjid/tarawihschedule',
             'faIcon' => 'fas fa-clock',
         ]);
 
@@ -82,32 +82,32 @@ class SchedulesController extends AdminController
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-primary',
             'title' => 'Ied',            
-            'url'     => ADMIN_AREA . '/masjid/iedschedule',
+            'url' => ADMIN_AREA . '/masjid/iedschedule',
             'faIcon' => 'fas fa-clock',
         ]);
 
         $gerhanaItem = new StatsItem([
-            'bgColor' => 'bg-danger',
+            'bgColor' => 'bg-secondary',
             'bgIcon' => 'bg-primary',
-            'title' => 'Ied',            
-            'url'     => ADMIN_AREA . '/masjid/gerhanaschedule',
+            'title' => 'Gerhana',            
+            'url' => ADMIN_AREA . '/masjid/gerhanaschedule',
             'faIcon' => 'fas fa-clock',
         ]);
 
         $programItem = new StatsItem([
-            'bgColor' => 'bg-danger',
+            'bgColor' => 'bg-purple',
             'bgIcon' => 'bg-primary',
             'title' => lang('crud.schedules_program'),            
-            'url'     => ADMIN_AREA . '/masjid/programschedule',
+            'url' => ADMIN_AREA . '/masjid/programschedule',
             'faIcon' => 'fas fa-clock',
         ]);
 
         $calendarItem = new StatsItem([
-            'bgColor' => 'bg-danger',
+            'bgColor' => 'bg-info',
             'bgIcon' => 'bg-primary',
             'title' => lang('crud.schedules_calendar'),            
-            'url'     => ADMIN_AREA . '/masjid/calendarschedule',
-            'faIcon' => 'fas fa-clock',
+            'url' => ADMIN_AREA . '/masjid/calendarschedule',
+            'faIcon' => 'fas fa-calendar',
         ]);
         
         $widgets->widget('schedule')->collection('schedule')
