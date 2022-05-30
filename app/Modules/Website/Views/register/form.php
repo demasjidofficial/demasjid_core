@@ -9,7 +9,7 @@
 </div>
 <?php } ?>
 
-<div class="container">
+<div class="container p-4">
 
   <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
@@ -250,21 +250,14 @@
           <p class="text-danger"><?php echo error('mother_email'); ?></p>
           <?php } ?>
         </div>
-      </div>
-      <!-- <div class="row mb-3">
-                    <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
-                        <?php if (has_error('created_by')) { ?>
-                        <p class="text-danger"><?php echo error('created_by'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div> -->
+      </div>      
     </fieldset>
 
-    <div class="text-end py-3">
-      <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i>
+    <div class="row">
+      <div class="col-sm-10 offset-2">
+      <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>
         <?= lang('crud.pendaftaran') ?></button>
+      </div>
     </div>
 
   </form>
@@ -275,7 +268,15 @@
 <?= $this->section('styles') ?>
 <?= asset_link('admin/theme-adminlte/plugins/select2/css/select2.min.css', 'css') ?>
 <?= asset_link('admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css', 'css') ?>
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<style>
+  .form-control{
+    font-size: 1.5rem;
+    height: calc(3.5rem + 2px);
+  }
+</style>
 <?php $this->endSection(); ?>
+
 <?= $this->section('scripts') ?>
 <!-- bs-custom-file-input -->
 <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
@@ -289,10 +290,10 @@
 <script type="text/javascript">
 $(function() {
   bsCustomFileInput.init();
-  $('input[name=email]').inputmask({
+  $('input[name$=email]').inputmask({
     'alias': 'email'
   })
-  $('input[name=telephone]').inputmask({
+  $('input[name$=tlpn]').inputmask({
     'regex': String.raw `\d{11,13}`
   })
   $('input[name=birth_date]').daterangepicker({

@@ -49,7 +49,7 @@ class RegisterController extends AdminCrudController
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
 
-        $url = url_to($this->getBaseController()).'?entity='.$this->request->getPost('entity_id');
+        $url = url_to($this->getBaseController()); // .'?entity='.$this->request->getPost('entity_id');
 
         return redirect()->to($url)->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }    
