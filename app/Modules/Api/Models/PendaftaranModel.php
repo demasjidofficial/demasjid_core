@@ -87,7 +87,7 @@ class PendaftaranModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
 		$this->selectColumn = [$this->table . '.*', 'users.first_name', 'users.last_name',  'kelas.name as name_kelas'];
-		$this->join('users', 'users.id = ' . $this->table . '.created_by');
+		$this->join('users', 'users.id = ' . $this->table . '.created_by','left');
 		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
 
 		return parent::findAll($limit, $offset);

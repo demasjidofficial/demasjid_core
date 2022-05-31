@@ -27,7 +27,7 @@
           <img src="<?= isset($data->path_image) ? site_url($data->path_image) : '/assets/admin/images/user.png' ?>"
             alt="" class="profile-user-img img-fluid img-circle">
         </div>
-        <div class="offset-sm-4 col-sm-4">
+        <div class="offset-sm-4 col-sm-4 mt-3">
           <div class="input-group">
             <div class="custom-file">
               <?= form_upload('image', old('image', $data->image ?? ''), "class='custom-file-input' accept='image/*' required ") ?>
@@ -98,14 +98,15 @@
           <?php } ?>
         </div>
       </div>
+      
       <div class="row mb-3">
         <?= form_label(lang('crud.gender'),'',['for' => 'gender', 'class' => 'col-form-label col-sm-2']) ?>
-        <div class="col-sm-10">
-          <div class="form-check col-sm-6">
+        <div class="col-sm-10">          
+          <div class="form-check  form-check-inline">
             <?= form_radio(['name' => 'gender'], 'l' , (isset($data->gender) ? ($data->gender == 'l' ? true: false) : false) , "class='form-check-input' required") ?>
             <label class="form-check-label">Laki-laki</label>
           </div>
-          <div class="form-check col-sm-6">
+          <div class="form-check  form-check-inline">
             <?= form_radio(['name' => 'gender'], 'p' , (isset($data->gender) ? ($data->gender == 'p' ? true: false) : true) , "class='form-check-input' required") ?>
             <label class="form-check-label">Perempuan</label>
           </div>
@@ -272,6 +273,9 @@
 <style>
   .form-control{
     font-size: 1.5rem;
+    height: calc(3.5rem + 2px);
+  }
+  .custom-file-input,.custom-file,.custom-file-label{    
     height: calc(3.5rem + 2px);
   }
 </style>

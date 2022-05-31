@@ -9,6 +9,7 @@ use App\Modules\Api\Models\WilayahModel;
 use App\Traits\UploadedFile;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
 use App\Modules\Api\Models\ProfileModel;
+use App\Modules\Api\Models\RegisterModel;
 use App\Modules\Api\Models\SitesocialsModel;
 
 class RegisterController extends AdminCrudController
@@ -19,7 +20,7 @@ class RegisterController extends AdminCrudController
     protected $viewPrefix = 'App\Modules\Website\Views\register\\';
     protected $baseRoute = 'website/register';
     protected $langModel = 'pendaftaran';
-    protected $modelName = 'App\Modules\Api\Models\PendaftaranModel';
+    protected $modelName = 'App\Modules\Api\Models\RegisterModel';
     private $imageFolder = 'images';    
 
 
@@ -45,6 +46,7 @@ class RegisterController extends AdminCrudController
         $this->model->set('path_image', $uploadedImage);
 
         $data = $this->request->getPost();
+        $data['state'] = RegisterModel::WAIT;
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }

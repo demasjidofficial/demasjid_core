@@ -46,7 +46,7 @@
 
     <!--aside id="alerts-wrapper">
     {alerts}
-    </aside-->
+    </-aside-->
 
     <main>
         <?= $this->renderSection('main') ?>
