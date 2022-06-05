@@ -111,7 +111,7 @@
                                                         <li><a href="#"><?= lang('app.construction_reports')?></a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#kontak"><?= lang('app.contact')?></a></li>
+                                                <li><a href="#kontak"><?= lang('app.contact')?></a></li>                                                
                                             </ul>
                                         </nav>
                                     </div>

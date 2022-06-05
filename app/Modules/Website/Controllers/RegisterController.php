@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Pesantren\Controllers;
+namespace App\Modules\Website\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
@@ -8,48 +8,33 @@ use App\Modules\Api\Models\PendaftaranModel;
 use App\Modules\Api\Models\WilayahModel;
 use App\Traits\UploadedFile;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
+use App\Modules\Api\Models\ProfileModel;
+use App\Modules\Api\Models\RegisterModel;
+use App\Modules\Api\Models\SitesocialsModel;
 
-class PendaftaranController extends AdminCrudController
+class RegisterController extends AdminCrudController
 {
     use UploadedFile;
+    protected $theme      = 'App';
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Pesantren\Views\pendaftaran\\';
-    protected $baseRoute = 'admin/pesantren/pendaftaran';
+    protected $viewPrefix = 'App\Modules\Website\Views\register\\';
+    protected $baseRoute = 'website/register';
     protected $langModel = 'pendaftaran';
-    protected $modelName = 'App\Modules\Api\Models\PendaftaranModel';
-    private $imageFolder = 'images';
+    protected $modelName = 'App\Modules\Api\Models\RegisterModel';
+    private $imageFolder = 'images';    
 
-    public function index(){
-        return parent::index();
+
+    public function new(){        
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();        
+        $socials = (new SitesocialsModel())->asArray()->findAll();
+        return $this->render($this->viewPrefix . 'form', array_merge(
+            [
+                'masjid_profile' => $profile,
+                'masjid_socials' => $socials,
+                'languages' => [],
+            ],$this->getDataEdit())
+        );
     }
-
-    public function edit($id = null){
-        return parent::edit($id);
-    }
-
-    public function update($id = null)
-    {
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('path_image', $uploaded);
-            }
-        }
-
-        $data = $this->request->getPost();
-        $updateData = array_filter($data);
-
-        if (!$this->model->update($id, $updateData)) {
-            return redirect()->back()->withInput()->with('errors', $this->model->errors());
-        }
-        $this->writeLog();
-        $url = url_to($this->getBaseController()).'?entity='.$this->request->getPost('entity_id');
-
-        return redirect()->to($url)->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
-    }
-
     public function show($id = null)
     {
         return parent::show($id);
@@ -61,18 +46,15 @@ class PendaftaranController extends AdminCrudController
         $this->model->set('path_image', $uploadedImage);
 
         $data = $this->request->getPost();
+        $data['state'] = RegisterModel::WAIT;
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
-        $this->writeLog();
-        $url = url_to($this->getBaseController()).'?entity='.$this->request->getPost('entity_id');
+
+        $url = url_to($this->getBaseController()); // .'?entity='.$this->request->getPost('entity_id');
 
         return redirect()->to($url)->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
-    }
-
-    public function delete($id = null){
-        return parent::delete($id);
-    }
+    }    
 
     protected function getDataIndex()
     {

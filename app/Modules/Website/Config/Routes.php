@@ -11,3 +11,6 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Website\Controllers'], 
     $routes->resource('website/socials', ['controller' => 'SitesocialsController']);    
 });
 
+$routes->get('website/register', '\App\Modules\Website\Controllers\RegisterController::new');
+$routes->post('website/register', '\App\Modules\Website\Controllers\RegisterController::create');
+
