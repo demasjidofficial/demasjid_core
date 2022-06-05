@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Modules\Api\Models\ProfileModel;
 use CodeIgniter\HTTP\Response;
 
-class FrontendPesantrenController extends BaseController
+class PesantrenController extends BaseController
 {
     /**
      * Displays the initial page that visitors
