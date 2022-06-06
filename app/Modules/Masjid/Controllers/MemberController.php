@@ -194,6 +194,8 @@ class MemberController extends AdminCrudController
 
     private function isActivation($id)
     {
+
+        return true;
         $newState = $this->request->getPost('state');        
         $data = $this->model->find($id);
         if ($data->state == MemberModel::$defaultState) {
@@ -209,16 +211,17 @@ class MemberController extends AdminCrudController
     {        
         $data = $this->model->find($id);
         // $data->email = 'ahmad.afandi85@gmail.com';
+        $this->generateDomainFolder($data->domain, $data->code);
         helper('email');
         $email = emailer(['SMTPCrypto' => setting('Email.SMTPCrypto')]);
         $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
             ->setTo($data->email)
             ->setSubject(lang('crud.activation_user').' Demasjid')
             ->setMessage(view($this->getViewPrefix().'email_activation', ['data' => $data]));        
-        if($email->send()){
-            $this->writeLog('Email berhasil dikirim '.$data->email);
+        if($email->send()){            
+            log_message('critical','Email berhasil dikirim '.$data->email);
         }else{
-            $this->writeLog('Email gagal dikirim '.$email->printDebugger());
+            log_message('critical','Email gagal dikirim '.$email->printDebugger());
         }
     }
 
@@ -226,5 +229,84 @@ class MemberController extends AdminCrudController
         $data = $this->model->find($id);
         $password = service('passwords')->hash($data->password);
         shell_exec("init_db {$id} {$password}");
+    }
+
+    private function generateDomainFolder($domainName, $domainFolder){
+        helper('filesystem');
+        $original = env('domain.template.source').'template';
+        $target = env('domain.template.destination').$domainFolder;
+        try {
+            directory_mirror($original, $target, false);
+            log_message('critical','generate file '.$target.DIRECTORY_SEPARATOR.'.env');
+            $this->generateEnv($target.DIRECTORY_SEPARATOR.'.env', $domainName, $domainFolder);
+            log_message('critical','generate file '.$target.DIRECTORY_SEPARATOR.$domainFolder.'.conf');
+            $this->generateHostConfig($target.DIRECTORY_SEPARATOR.$domainFolder.'.conf', $domainName, $domainFolder);
+        } catch (\Throwable $th) {
+             log_message('critical','Failed generate domain folder '.$domainFolder);
+        }        
+    }
+
+    private function generateEnv($pathFile, $domainName, $domainFolder){
+        $content = <<<STR
+[database]
+database = ${domainFolder}
+username = demasjid
+password = Demasjid123*
+[app]
+baseURL = ${domainName}
+
+STR;
+    log_message('critical','generate file '.$pathFile);
+    write_file($pathFile, $content);
+    }
+    private function generateHostConfig($pathFile, $domainName, $domainFolder){
+        $domainName = str_replace('https://', '', $domainName);
+        $domainName = str_replace('http://', '', $domainName);
+        $content = <<<STR
+    server {
+    server_name ${domainName};
+
+    #root  /var/www/html/demasjid_core/public;
+    root  /var/www/html/demasjid_core/domains/${domainFolder};
+    error_log /var/log/nginx/${domainFolder}.log;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files \$uri \$uri/ /index.php\$is_args\$args;
+    }
+
+    location ~ \.php$ {
+        # include snippets/fastcgi-php.conf;
+	  fastcgi_param CI_ENVIRONMENT "production";
+        # With php-fpm:
+        # fastcgi_pass unix:/run/php-fpm/www.sock;
+        # With php-cgi:
+        # fastcgi_pass 127.0.0.1:9000;        
+        try_files \$uri =404;
+        fastcgi_pass unix:/run/php-fpm/www.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+        include fastcgi_params;
+
+    }
+
+    error_page 404 /index.php;
+
+    # deny access to hidden files such as .htaccess
+    location ~ /\. {
+        deny all;
+    }
+  
+    # listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/demo.demasjid.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/demo.demasjid.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+STR;
+        log_message('critical','generate file '.$pathFile);
+        write_file($pathFile, $content);
     }
 }
