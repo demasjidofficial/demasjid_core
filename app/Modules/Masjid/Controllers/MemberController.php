@@ -193,9 +193,7 @@ class MemberController extends AdminCrudController
     }
 
     private function isActivation($id)
-    {
-
-        return true;
+    {        
         $newState = $this->request->getPost('state');        
         $data = $this->model->find($id);
         if ($data->state == MemberModel::$defaultState) {
