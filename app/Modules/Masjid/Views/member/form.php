@@ -73,6 +73,15 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <?= form_label(lang('crud.email'), '', ['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('email', old('email', $data->email ?? ''), "class='form-control varchar' rows=3 required") ?>
+                        <?php if (has_error('email')) { ?>
+                        <p class="text-danger"><?= error('email'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <?= form_label(lang('crud.logo'), '', ['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">                        
                         <?= !isset($data->path_logo) ? '' : "<img src='".site_url($data->path_logo)."' class='img-thumbnail' >" ?>
