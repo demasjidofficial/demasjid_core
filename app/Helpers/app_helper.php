@@ -25,6 +25,19 @@ if (!function_exists('extractWilayah')) {
     }
 }
 
+if (!function_exists('descWilayah')) {
+    function descWilayah($kode, $wilayahMap)
+    {
+        $result = [];
+        $tmp =  extractWilayah($kode);
+        foreach($tmp as $k => $v){
+            $result[] = $k.' : '.$wilayahMap[$kode]['nama'];
+        }
+        return '<div>'.implode('</div><div>',$result).'</div>';
+    }
+}
+
+
 if (!function_exists('convertStateProgram')) {
     function convertStateProgram($state)
     {

@@ -65,7 +65,7 @@
                     <!-- Section Tittle -->
                     <div class="section-tittle mb-35">
                         <span>Sekilas tentang kami</span>
-                        <h2>Masjid Al Furqon Surabaya</h2>
+                        <h2><?= $masjid_profile['name'] ?? '' ?></h2>
                     </div>
                     <p>Sebuah masjid di timur kota Surabaya dengan luas lahan 1.500 m2 dan luas bangunan 1.100 m2 di
                         tengah pemukiman padat penduduk dari berbagai macam etnis. Oleh karena itu, harapan kami ingin

@@ -1,5 +1,11 @@
+<?php 
+    $wilayahDetail = $item->detail_wilayah;
+?>
 <td><?= esc($item->name) ?></a></td>
-<td><?= esc($item->wilayah_id) ?></a></td>
+<td><?= esc($item->wilayah_id)?></a></td>
+<td><?= esc($wilayahMap[$wilayahDetail['kota/kabupaten']]['nama']   ?? '')?></a></td>
+<td><?= esc($wilayahMap[$wilayahDetail['kecamatan']]['nama']   ?? '')?></a></td>
+<td><?= esc($wilayahMap[$wilayahDetail['desa']]['nama']   ?? '') ?></a></td>
 <td><?= esc($item->code) ?></a></td>
 <td><?= esc($item->address) ?></a></td>
 <td><?= esc($item->email) ?></a></td>

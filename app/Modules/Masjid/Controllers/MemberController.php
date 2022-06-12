@@ -4,6 +4,7 @@ namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\MemberModel;
+use App\Modules\Api\Models\WilayahModel;
 use App\Modules\Masjid\Libraries\Generator;
 use App\Modules\Masjid\Models\MemberFilter;
 
@@ -127,11 +128,14 @@ class MemberController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(MemberFilter::class);
-
+        $dataModel = $model->paginate(setting('App.perPage'));        
         return [
             'headers' => [
                 'name' => lang('crud.name'),
                 'wilayah_id' => lang('crud.wilayah_id'),
+                'kota' => 'Kota',
+                'kecamatan' => 'Kecamatan',
+                'desa' => 'Desa',
                 'code' => lang('crud.code'),
                 'address' => lang('crud.address'),
                 'email' => lang('crud.email'),
@@ -145,7 +149,8 @@ class MemberController extends AdminCrudController
             'viewPrefix' => $this->getViewPrefix(),
             'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
-            'data' => $model->paginate(setting('App.perPage')),
+            'wilayahMap' => $this->getWilayah($dataModel),
+            'data' => $dataModel,            
             'pager' => $model->pager,
         ];
     }
@@ -252,4 +257,13 @@ class MemberController extends AdminCrudController
              log_message('critical','Failed generate domain folder '.$th->getMessage());
         }        
     }    
+
+    private function getWilayah($dataModel){
+        $listwilayah = [];
+        foreach($dataModel as $d){
+            $listwilayah = array_merge($listwilayah, array_values(extractWilayah($d->wilayah_id)));
+        }
+        $wilayah = collect((new WilayahModel())->whereIn('kode',array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
+        return $wilayah;
+    }
 }
