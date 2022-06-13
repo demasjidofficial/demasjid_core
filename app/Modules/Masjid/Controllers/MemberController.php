@@ -165,7 +165,13 @@ class MemberController extends AdminCrudController
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
-            $dataEdit['data'] = $data;
+            $wilayah = collect((new WilayahModel())->extractWilayah($data->wilayah_id)->asArray()->findAll())->keyBy('kode');
+            $extractWilayah = extractWilayah($data->wilayah_id);
+            $data->desa = $wilayah[$extractWilayah['desa']]['nama'] ?? '';
+            $data->kota = $wilayah[$extractWilayah['kota/kabupaten']]['nama'] ?? '';
+            $data->kecamatan = $wilayah[$extractWilayah['kecamatan']]['nama'] ?? '';
+            $dataEdit['data'] = $data;            
+
         }
         $dataEdit['state'] = array_combine(MemberModel::$state, MemberModel::$state);
 
