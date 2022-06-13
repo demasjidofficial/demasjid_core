@@ -223,8 +223,7 @@ class MemberController extends AdminCrudController
         $data = $this->model->find($id);
         // $data->email = 'ahmad.afandi85@gmail.com';
         $this->generateDomainFolder($data);
-
-        return;
+        $this->copyAssetImage($data);
         helper('email');
         $email = emailer(['SMTPCrypto' => setting('Email.SMTPCrypto')]);
         $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
@@ -271,5 +270,12 @@ class MemberController extends AdminCrudController
         }
         $wilayah = collect((new WilayahModel())->whereIn('kode',array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
         return $wilayah;
+    }
+
+    private function copyAssetImage($data){
+        $domainFolder = $data->code;
+        $target = env('domain.template.destination').$domainFolder;
+        copy($data->path_logo, $target.DIRECTORY_SEPARATOR.$data->path_logo);
+        copy($data->path_image, $target.DIRECTORY_SEPARATOR.$data->path_image);
     }
 }
