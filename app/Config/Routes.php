@@ -69,8 +69,7 @@ static function ($routes) {
     $routes->resource('chartOfAccounts');
     $routes->resource('programCosts');
     $routes->resource('rawatibSchedules');
-    $routes->resource('nonRawatibSchedules');
-    $routes->resource('nonRawatibScheduleClones');
+    $routes->resource('nonRawatibSchedules');    
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

@@ -25,8 +25,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/jumatschedule', ['controller' => 'JumatScheduleController']);
     $routes->resource('masjid/iedschedule', ['controller' => 'IedScheduleController']);
     $routes->resource('masjid/tarawihschedule', ['controller' => 'TarawihScheduleController']);
-    $routes->resource('masjid/gerhanaschedule', ['controller' => 'GerhanaScheduleController']);
-    $routes->resource('masjid/nonrawatibscheduleclone', ['controller' => 'NonRawatibScheduleCloneController']);
+    $routes->resource('masjid/gerhanaschedule', ['controller' => 'GerhanaScheduleController']);    
     
     /**
      * SUB MODULE
