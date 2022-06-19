@@ -38,6 +38,31 @@ Aplikasi untuk manajemen masjid
 
 - [Postman Collection](https://www.getpostman.com/collections/3b1f23682fbf40fd101f)
 
+## Pengembangan fitur baru:
+
+- Update source terbaru branch develope dari repo utama
+
+  - git pull origin develope
+
+- Membuat struktur table untuk menyimpan data
+
+  - php spark make:migration NamaFileMigration
+  - edit manual deskripsi table tersebut sesuai kebutuhan
+
+- Generate CRUD untuk operasi di sisi admin
+
+  - php spark make:crud nama_table --namespace App/Modules/Masjid
+  - daftarkan fitur baru ke route (app/Modules/{namaModule}/Config/Routes.php)
+  - custom sesuai kebutuhan
+
+- Menambahkan menu
+
+  - Untuk menu utama bisa ditambahkan di bonfire/Bonfire.php
+  - Untuk menu didalam module bisa ditambahkan di app/Modules/{namaModule}/Module.php
+
+- Setting default hak akses
+  - Bisa dicek di app/Config/AuthGroups.php
+
 ## Server Requirements
 
 This currently has the same requirements as CodeIgniter 4.

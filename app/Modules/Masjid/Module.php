@@ -127,6 +127,13 @@ class Module extends BaseModule
             'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.schedules.list',
+        ]); 
+
+        $schedulesCloneItem = new MenuItem([
+            'title'           => 'clonejadwal',
+            'url'             => url_to('App\Modules\Masjid\Controllers\NonRawatibScheduleCloneController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.schedules.list',
         ]);        
         
         $sidebar->menu('sidebar')->collection('masjid')
@@ -145,6 +152,7 @@ class Module extends BaseModule
             ->addItem($profilesItem)
             ->addItem($programsItem)
             ->addItem($mastersItem)
-            ->addItem($schedulesItem);
+            ->addItem($schedulesItem)
+            ->addItem($schedulesCloneItem);
     }
 }

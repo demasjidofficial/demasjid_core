@@ -1,10 +1,12 @@
 Pengembangan fitur baru:
   - Update source terbaru branch develope dari repo utama
     - git pull origin develope
+    - git checkout -b fitur_baru_kita
 
   - Membuat struktur table untuk menyimpan data
     - php spark make:migration NamaFileMigration
     - edit manual deskripsi table tersebut sesuai kebutuhan
+    - php spark migrate
 
   - Generate CRUD untuk operasi di sisi admin
     - php spark make:crud nama_table --namespace App/Modules/Masjid
@@ -17,3 +19,9 @@ Pengembangan fitur baru:
 
   - Setting default hak akses
     - Bisa dicek di app/Config/AuthGroups.php
+
+  - Pull request ke repo utama
+    - git add -A
+    - git commit -m "komentar anda"
+    - git push origin nama_branch_fitur
+    - pull request di github

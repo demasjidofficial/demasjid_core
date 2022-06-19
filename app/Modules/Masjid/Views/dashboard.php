@@ -233,8 +233,7 @@
 
 <!-- OPTIONAL SCRIPTS -->
 <?= asset_link('admin/theme-adminlte/plugins/chart-js/Chart.js', 'js'); ?>
-<!-- AdminLTE for demo purposes -->
-<?= asset_link('admin/theme-adminlte/adminlte-demo.js', 'js'); ?>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <?= asset_link('admin/theme-adminlte/adminlte-dashboard2.js', 'js'); ?>
 

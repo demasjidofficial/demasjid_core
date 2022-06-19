@@ -70,6 +70,7 @@ static function ($routes) {
     $routes->resource('programCosts');
     $routes->resource('rawatibSchedules');
     $routes->resource('nonRawatibSchedules');
+    $routes->resource('nonRawatibScheduleClones');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');
