@@ -6,6 +6,8 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/donationtype', ['controller' => 'BmdonationtypeController']);
     $routes->resource('baitulmal/infaqshodaqoh', ['controller' => 'BminfaqshodaqohController']);
     $routes->resource('baitulmal/infaqshodaqohcategory', ['controller' => 'BminfaqshodaqohcategoryController']);
+    $routes->resource('baitulmal/donationcampaign', ['controller' => 'BmdonationcampaignController']);
+    $routes->resource('baitulmal/donationcampaigncategory', ['controller' => 'BmdonationcampaigncategoryController']);
     /**
      * SUB MODULE
      */
@@ -15,4 +17,5 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/wakafs', ['controller' => '_WakafsController']);
     $routes->resource('baitulmal/qurbans', ['controller' => '_QurbansController']);
     $routes->resource('baitulmal/configs', ['controller' => '_ConfigsController']);
+    $routes->resource('baitulmal/campaigns', ['controller' => '_CampaignsController']);
 });
