@@ -27,113 +27,133 @@
             <?php } ?>
 
             <fieldset>
-                                <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
-                        <?php if (has_error('name')) { ?>
-                        <p class="text-danger"><?php echo error('name'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.label'),'',['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('label', old('label', $data->label ?? ''), "class='form-control varchar' required placeholder='".lang('crud.label')."' ") ?>
-                        <?php if (has_error('label')) { ?>
-                        <p class="text-danger"><?php echo error('label'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar'  placeholder='".lang('crud.path_image')."' ") ?>
-                        <?php if (has_error('path_image')) { ?>
-                        <p class="text-danger"><?php echo error('path_image'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar'  placeholder='".lang('crud.description')."' ") ?>
-                        <?php if (has_error('description')) { ?>
-                        <p class="text-danger"><?php echo error('description'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.campaignstart_date'),'',['for' => 'campaignstart_date', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('campaignstart_date', old('campaignstart_date', $data->campaignstart_date ?? ''), "class='form-control date' required placeholder='".lang('crud.campaignstart_date')."' ") ?>
-                        <?php if (has_error('campaignstart_date')) { ?>
-                        <p class="text-danger"><?php echo error('campaignstart_date'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.campaignend_date'),'',['for' => 'campaignend_date', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('campaignend_date', old('campaignend_date', $data->campaignend_date ?? ''), "class='form-control date' required placeholder='".lang('crud.campaignend_date')."' ") ?>
-                        <?php if (has_error('campaignend_date')) { ?>
-                        <p class="text-danger"><?php echo error('campaignend_date'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.campaign_tonase'),'',['for' => 'campaign_tonase', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('campaign_tonase', old('campaign_tonase', $data->campaign_tonase ?? ''), "class='form-control decimal'  placeholder='".lang('crud.campaign_tonase')."' ") ?>
-                        <?php if (has_error('campaign_tonase')) { ?>
-                        <p class="text-danger"><?php echo error('campaign_tonase'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.campaigncategory_id'),'',['for' => 'campaigncategory_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('campaigncategory_id', old('campaigncategory_id', $data->campaigncategory_id ?? ''), "class='form-control int'  placeholder='".lang('crud.campaigncategory_id')."' ") ?>
-                        <?php if (has_error('campaigncategory_id')) { ?>
-                        <p class="text-danger"><?php echo error('campaigncategory_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.donationtype_id'),'',['for' => 'donationtype_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('donationtype_id', old('donationtype_id', $data->donationtype_id ?? ''), "class='form-control int'  placeholder='".lang('crud.donationtype_id')."' ") ?>
-                        <?php if (has_error('donationtype_id')) { ?>
-                        <p class="text-danger"><?php echo error('donationtype_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar'  placeholder='".lang('crud.state')."' ") ?>
-                        <?php if (has_error('state')) { ?>
-                        <p class="text-danger"><?php echo error('state'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
-                        <?php if (has_error('created_by')) { ?>
-                        <p class="text-danger"><?php echo error('created_by'); ?></p>
-                        <?php } ?>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
+                                <?php if (has_error('name')) { ?>
+                                <p class="text-danger"><?php echo error('name'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.label'),'',['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('label', old('label', $data->label ?? ''), "class='form-control varchar' required placeholder='".lang('crud.label')."' ") ?>
+                                <?php if (has_error('label')) { ?>
+                                <p class="text-danger"><?php echo error('label'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar'  placeholder='".lang('crud.description')."' ") ?>
+                                <?php if (has_error('description')) { ?>
+                                <p class="text-danger"><?php echo error('description'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.campaign_daterange'),'',['for' => 'campaign_daterange', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('campaign_daterange', old('campaign_daterange', $data->campaign_daterange ?? ''), "class='form-control date'  placeholder='".lang('crud.campaign_daterange')."' ") ?>
+                                <?php if (has_error('campaign_daterange')) { ?>
+                                <p class="text-danger"><?php echo error('campaign_daterange'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.campaign_tonase'),'',['for' => 'campaign_tonase', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('campaign_tonase', old('campaign_tonase', $data->campaign_tonase ?? ''), "class='form-control decimal'  placeholder='".lang('crud.campaign_tonase')."' ") ?>
+                                <?php if (has_error('campaign_tonase')) { ?>
+                                <p class="text-danger"><?php echo error('campaign_tonase'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.campaigncategory_id'),'',['for' => 'campaigncategory_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('campaigncategory_id', old('campaigncategory_id', $data->campaigncategory_id ?? ''), "class='form-control int'  placeholder='".lang('crud.campaigncategory_id')."' ") ?>
+                                <?php if (has_error('campaigncategory_id')) { ?>
+                                <p class="text-danger"><?php echo error('campaigncategory_id'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.donationtype_id'),'',['for' => 'donationtype_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('donationtype_id', old('donationtype_id', $data->donationtype_id ?? ''), "class='form-control int'  placeholder='".lang('crud.donationtype_id')."' ") ?>
+                                <?php if (has_error('donationtype_id')) { ?>
+                                <p class="text-danger"><?php echo error('donationtype_id'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar'  placeholder='".lang('crud.state')."' ") ?>
+                                <?php if (has_error('state')) { ?>
+                                <p class="text-danger"><?php echo error('state'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-6">
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
+                            
+                            <div class="col-md-10">
+                                <?php if(isset($data->path_image)): ?>
+                                <div class="justify-content-center photo-wrapper">           
+                                    <img src="<?= site_url($data->path_image) ?>" alt="" class="img-thumbnail" style="height:150px">
+                                </div>
+                                <?php endif ?>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <?= form_upload('image', old('image', $data->path_image ?? ''), "class='custom-file-input'  placeholder='".lang('crud.path_image')."' accept='image/*' ".(!isset($data->path_logo) ? 'required' : '')) ?>
+                                            <label class="custom-file-label">Pilih gambar kampanye</label>
+                                        </div>
+                                        <div class="input-group-append clickable">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-camera"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>                
                     </div>
                 </div>
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.bmdonationcampaign') ?></button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('app.save') ?></button>
             </div>
 
         </form>
 
     </x-admin-box>
 
+<?php $this->endSection(); ?>
+<?php $this->section('styles') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?php $this->endSection(); ?>
+<?php $this->section('scripts'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<script type="text/javascript">
+    $(function () {              
+        $('input[name=campaign_daterange]').daterangepicker({
+            "locale": {
+                "format": 'DD/MM/YY'
+            }
+        });  
+    });
+
+</script>
 <?php $this->endSection(); ?>

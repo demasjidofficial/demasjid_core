@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class BmdonationcampaignModel extends BaseModel
 {
     protected $table = 'bmdonationcampaign';
@@ -26,7 +24,7 @@ class BmdonationcampaignModel extends BaseModel
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[bmdonationcampaign.id,id,{id}]',
 		'name' => 'max_length[255]|required',
-		'label' => 'max_length[255]|required',
+		'label' => 'max_length[255]',
 		'path_image' => 'max_length[255]',
 		'description' => 'max_length[255]',
 		'campaignstart_date' => 'valid_date|required',
@@ -37,6 +35,5 @@ class BmdonationcampaignModel extends BaseModel
 		'state' => 'max_length[20]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]'
     ];   
 }

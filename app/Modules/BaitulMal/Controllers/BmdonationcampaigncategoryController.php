@@ -45,8 +45,7 @@ class BmdonationcampaigncategoryController extends AdminCrudController
             'headers' => [
                                     'name' => lang('crud.name'),
                 'label' => lang('crud.label'),
-                'description' => lang('crud.description'),
-                'created_by' => lang('crud.created_by')
+                'description' => lang('crud.description')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

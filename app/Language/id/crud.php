@@ -214,6 +214,7 @@ return [
 	'campaigns' => 'Donasi',
 	'campaign' => 'Kampanye',
 	'campaign_category' => 'kategori Kampanye',
+
 	'donation_type' => 'Tipe Donasi',
 	'donation_method' => 'Metode Donasi',
 	'muadzin' => 'Muadzin',
@@ -230,6 +231,16 @@ return [
 	'sholat_jumat' => 'Sholat Jumat',
 	'sholat_tarawih' => 'Sholat Tarawih',
 	'sholat_ied' => 'Sholat Hari Raya',
-	'sholat_gerhana' => 'Sholat Gerhana'
+	'sholat_gerhana' => 'Sholat Gerhana',
+
+	'bmdonationcampaigncategory' => 'kategori Kampanye',
+	'bmdonationcampaign' => 'Kampanye',
+	'campaign_daterange' => 'Durasi',
+	'campaignstart_date' => 'Mulai',
+	'campaignend_date' => 'Akhir',
+	'campaigncategory_id'=> 'Kategori',
+	'donationtype_id' => 'Tipe Donasi',
+	'campaign_tonase' => 'Target',
+	'campaign_collected' => 'Terkumpul',
  ];
 

@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class BmdonationcampaigncategoryModel extends BaseModel
 {
     protected $table = 'bmdonationcampaigncategory';
@@ -23,6 +21,6 @@ class BmdonationcampaigncategoryModel extends BaseModel
 		'description' => 'required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]'
+		// 'created_by' => 'numeric|max_length[11]'
     ];   
 }

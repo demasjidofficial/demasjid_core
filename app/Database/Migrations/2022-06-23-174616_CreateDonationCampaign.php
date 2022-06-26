@@ -22,6 +22,7 @@ class CreateDonationCampaign extends Migration
             'label' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
+                'null'       => true,
             ], 
             'path_image' => [
                 'type'       => 'varchar',
@@ -42,7 +43,11 @@ class CreateDonationCampaign extends Migration
             'campaign_tonase' => [
                 'type'       => 'decimal',
                 'null'       => true, 
-            ],         
+            ],   
+            'campaign_collected' => [
+                'type'       => 'decimal',
+                'default'       => 0, 
+            ],       
             'campaigncategory_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
