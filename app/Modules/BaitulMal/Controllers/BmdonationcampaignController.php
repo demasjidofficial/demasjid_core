@@ -41,6 +41,7 @@ class BmdonationcampaignController extends AdminCrudController
         $datarange = explode(' - ', $data['campaign_daterange']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
+        $data['campaign_tonase'] = (float)(str_replace(',','',$data['campaign_tonase']));
         $data['campaignend_date'] = date("Y-m-d", strtotime(($end_date[2].'-'.$end_date[1].'-'.$end_date[0])));
         $data['campaignstart_date'] = date("Y-m-d", strtotime(($start_date[2].'-'.$start_date[1].'-'.$start_date[0])));
         unset($data['campaign_daterange']);
@@ -64,7 +65,7 @@ class BmdonationcampaignController extends AdminCrudController
         $this->model->set('path_image', $uploadedImage);
 
         $data = $this->request->getPost();
-        
+        $data['campaign_tonase'] = (float)(str_replace(',','',$data['campaign_tonase']));
         $datarange = explode(' - ', $data['campaign_daterange']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
@@ -120,7 +121,8 @@ class BmdonationcampaignController extends AdminCrudController
             $data->campaign_daterange =  $start_date[2] . '/' . $start_date[1] .'/'. (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2)); 
             $dataEdit['data'] = $data;
         }
-        
+        $dataEdit['donationcampaigncategoryItems'] = ['' => 'Pilih Kategori'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaigncategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

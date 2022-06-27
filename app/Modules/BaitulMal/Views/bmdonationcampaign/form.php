@@ -77,7 +77,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.campaigncategory_id'),'',['for' => 'campaigncategory_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('campaigncategory_id', old('campaigncategory_id', $data->campaigncategory_id ?? ''), "class='form-control int'  placeholder='".lang('crud.campaigncategory_id')."' ") ?>
+                                <?= form_dropdown('campaigncategory_id', $donationcampaigncategoryItems, old('campaigncategory_id', $data->campaigncategory_id ?? ''), "class='form-control select2bs4' required") ?>
                                 <?php if (has_error('campaigncategory_id')) { ?>
                                 <p class="text-danger"><?php echo error('campaigncategory_id'); ?></p>
                                 <?php } ?>
@@ -86,7 +86,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.donationtype_id'),'',['for' => 'donationtype_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('donationtype_id', old('donationtype_id', $data->donationtype_id ?? ''), "class='form-control int'  placeholder='".lang('crud.donationtype_id')."' ") ?>
+                                <?= form_dropdown('donationtype_id', $donationtypeItems, old('donationtype_id', $data->donationtype_id ?? ''), "class='form-control select2bs4' required") ?>
                                 <?php if (has_error('donationtype_id')) { ?>
                                 <p class="text-danger"><?php echo error('donationtype_id'); ?></p>
                                 <?php } ?>
@@ -146,13 +146,28 @@
 <?php $this->endSection(); ?>
 <?php $this->section('scripts'); ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<!-- bs-custom-file-input -->
+<?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
 <script type="text/javascript">
     $(function () {              
         $('input[name=campaign_daterange]').daterangepicker({
             "locale": {
                 "format": 'DD/MM/YY'
             }
-        });  
+        });
+        
+        bsCustomFileInput.init();                
+        $('input:file').change(function() {
+            var i = $(this).prev('label').clone();
+            var file = $(this).get(0).files[0].name;
+            $(this).prev('label').text(file);
+        });
+        $('input[name=campaign_tonase]').inputmask({
+            'alias': 'currency',
+            'rightAlign': false               
+        });
     });
 
 </script>

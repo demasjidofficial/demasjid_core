@@ -24,3 +24,4 @@ class BmdonationcampaigncategoryModel extends BaseModel
 		// 'created_by' => 'numeric|max_length[11]'
     ];   
 }
+
