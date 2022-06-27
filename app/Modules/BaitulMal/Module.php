@@ -68,6 +68,18 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
+        $donasiItem = new MenuItem([
+            'title'           => 'Donasi',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
+        ]);
+        $masterItem = new MenuItem([
+            'title'           => 'Master',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
+        ]);
 
         /**
          * SUB MODULE
@@ -102,6 +114,24 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'baitulmal.qurbans.list',
         ]);
+        $donasisItem = new MenuItem([
+            'title'           => lang('crud.donasis'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\DonasiController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.qurbans.list',
+        ]);
+        $campaignsItem = new MenuItem([
+            'title'           => lang('crud.campaigns'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\CampaignsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.qurbans.list',
+        ]);
+        $masterBaitulMalsItem = new MenuItem([
+            'title'           => lang('crud.masters'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\MasterController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'baitulmal.qurbans.list',
+        ]);
         $configsItem = new MenuItem([
             'title'           => lang('crud.configs'),
             'url'             => url_to('App\Modules\BaitulMal\Controllers\_ConfigsController::index'),
@@ -117,8 +147,10 @@ class Module extends BaseModule
                 //->addItem($infaqtypeItem)
                 //->addItem($wakafItem)
                 //->addItem($qurbanItem)
+                ->addItem($donasisItem)
                 ->addItem($zakatsItem)
                 ->addItem($infaqsItem)
+                ->addItem($masterBaitulMalsItem)
                 //->addItem($shodaqohsItem)
                 ->addItem($wakafsItem)
                 ->addItem($qurbansItem)

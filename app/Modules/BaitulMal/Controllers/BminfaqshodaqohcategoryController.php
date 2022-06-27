@@ -43,7 +43,7 @@ class BminfaqshodaqohcategoryController extends AdminCrudController
         $model = model(BminfaqshodaqohcategoryFilter::class);
         return [
             'headers' => [
-                                    'name' => lang('crud.name'),
+                'name' => lang('crud.name'),
                 'label' => lang('crud.label'),
                 'description' => lang('crud.description'),
                 'created_by' => lang('crud.created_by')

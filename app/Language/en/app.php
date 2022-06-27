@@ -84,6 +84,9 @@ return [
 	'donor_report' => 'Donor Report',
 	'donor' => 'Donor',
 	'donation' => 'Donation',
+	'dt_donation' => 'Donation Data',
+	'campaign' => 'Campaigns',
+	'add_campaign' => 'Add New Campaign',
 
 	'board_news' => 'Berita',
 	'board_temperature' => 'Temperatur',
