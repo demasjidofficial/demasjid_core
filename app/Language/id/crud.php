@@ -35,6 +35,7 @@ return [
 	'back' => 'Kembali',
 	'pages' => 'Halaman',
 	'add_new' => 'Tambah Baru',
+	'save' => 'simpan',
 	
 	'pengurus' => 'Pengurus',
 	'provinsi_id' => 'Provinsi',
@@ -129,6 +130,8 @@ return [
 
 	'kas' => 'Kas',
 	'bank' => 'Bank',
+	'ewallet' => 'e-Wallet',
+	'payment_gateway' => 'Payment Gateway',
 
 	'choose' => 'Pilih',
 	'zone' => 'Wilayah',
@@ -167,6 +170,9 @@ return [
 
 	'administration' => 'Administrasi',
 	'masters' => 'Master',
+	'master_bank' => 'Master Bank',
+	'master_ewallet' => 'Master e-Wallet',
+	'master_paymentgateway' => 'Master Payment Gateway',
 
 	'bab_id' => 'Bab',
 	'materi' => 'Materi',	
@@ -242,5 +248,7 @@ return [
 	'donationtype_id' => 'Tipe Donasi',
 	'campaign_tonase' => 'Target',
 	'campaign_collected' => 'Terkumpul',
+	'donasis' => 'Donasi',
+	'campaigns' => 'Kampanye'
  ];
 

@@ -542,6 +542,786 @@ paths:
       security:
         -
           bearer_auth: []
+  /sitemenus:
+    get:
+      tags:
+        - Sitemenus
+      summary: 'Find list Sitemenus'
+      description: 'Returns list of Sitemenus'
+      operationId: getSitemenus
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitemenus' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitemenus' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Sitemenus' } }
+                type: object
+        '404':
+          description: 'Sitemenus not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Sitemenus
+      summary: 'Add a new Sitemenus to the store'
+      operationId: addSitemenus
+      requestBody:
+        $ref: '#/components/requestBodies/Sitemenus'
+      responses:
+        '201':
+          description: 'Created Sitemenus'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitemenus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitemenus'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/sitemenus/{id}':
+    get:
+      tags:
+        - Sitemenus
+      summary: 'Find Sitemenus by ID'
+      description: 'Returns a single Sitemenus'
+      operationId: getSitemenusById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Sitemenus to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitemenus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitemenus'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Sitemenus not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Sitemenus
+      summary: 'Update an existing Sitemenus'
+      operationId: updateSitemenus
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitemenus id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Sitemenus'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Sitemenus not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Sitemenus
+      summary: 'Deletes a Sitemenus'
+      operationId: deleteSitemenus
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitemenus id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /sitepages:
+    get:
+      tags:
+        - Sitepages
+      summary: 'Find list Sitepages'
+      description: 'Returns list of Sitepages'
+      operationId: getSitepages
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitepages' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitepages' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Sitepages' } }
+                type: object
+        '404':
+          description: 'Sitepages not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Sitepages
+      summary: 'Add a new Sitepages to the store'
+      operationId: addSitepages
+      requestBody:
+        $ref: '#/components/requestBodies/Sitepages'
+      responses:
+        '201':
+          description: 'Created Sitepages'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitepages'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitepages'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/sitepages/{id}':
+    get:
+      tags:
+        - Sitepages
+      summary: 'Find Sitepages by ID'
+      description: 'Returns a single Sitepages'
+      operationId: getSitepagesById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Sitepages to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitepages'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitepages'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Sitepages not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Sitepages
+      summary: 'Update an existing Sitepages'
+      operationId: updateSitepages
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitepages id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Sitepages'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Sitepages not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Sitepages
+      summary: 'Deletes a Sitepages'
+      operationId: deleteSitepages
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitepages id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /siteposts:
+    get:
+      tags:
+        - Siteposts
+      summary: 'Find list Siteposts'
+      description: 'Returns list of Siteposts'
+      operationId: getSiteposts
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Siteposts' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Siteposts' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Siteposts' } }
+                type: object
+        '404':
+          description: 'Siteposts not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Siteposts
+      summary: 'Add a new Siteposts to the store'
+      operationId: addSiteposts
+      requestBody:
+        $ref: '#/components/requestBodies/Siteposts'
+      responses:
+        '201':
+          description: 'Created Siteposts'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Siteposts'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Siteposts'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/siteposts/{id}':
+    get:
+      tags:
+        - Siteposts
+      summary: 'Find Siteposts by ID'
+      description: 'Returns a single Siteposts'
+      operationId: getSitepostsById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Siteposts to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Siteposts'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Siteposts'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Siteposts not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Siteposts
+      summary: 'Update an existing Siteposts'
+      operationId: updateSiteposts
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Siteposts id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Siteposts'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Siteposts not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Siteposts
+      summary: 'Deletes a Siteposts'
+      operationId: deleteSiteposts
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Siteposts id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /sitesections:
+    get:
+      tags:
+        - Sitesections
+      summary: 'Find list Sitesections'
+      description: 'Returns list of Sitesections'
+      operationId: getSitesections
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitesections' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitesections' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Sitesections' } }
+                type: object
+        '404':
+          description: 'Sitesections not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Sitesections
+      summary: 'Add a new Sitesections to the store'
+      operationId: addSitesections
+      requestBody:
+        $ref: '#/components/requestBodies/Sitesections'
+      responses:
+        '201':
+          description: 'Created Sitesections'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitesections'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitesections'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/sitesections/{id}':
+    get:
+      tags:
+        - Sitesections
+      summary: 'Find Sitesections by ID'
+      description: 'Returns a single Sitesections'
+      operationId: getSitesectionsById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Sitesections to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitesections'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitesections'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Sitesections not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Sitesections
+      summary: 'Update an existing Sitesections'
+      operationId: updateSitesections
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitesections id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Sitesections'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Sitesections not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Sitesections
+      summary: 'Deletes a Sitesections'
+      operationId: deleteSitesections
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitesections id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /sitesocials:
+    get:
+      tags:
+        - Sitesocials
+      summary: 'Find list Sitesocials'
+      description: 'Returns list of Sitesocials'
+      operationId: getSitesocials
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitesocials' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitesocials' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Sitesocials' } }
+                type: object
+        '404':
+          description: 'Sitesocials not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Sitesocials
+      summary: 'Add a new Sitesocials to the store'
+      operationId: addSitesocials
+      requestBody:
+        $ref: '#/components/requestBodies/Sitesocials'
+      responses:
+        '201':
+          description: 'Created Sitesocials'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitesocials'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitesocials'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/sitesocials/{id}':
+    get:
+      tags:
+        - Sitesocials
+      summary: 'Find Sitesocials by ID'
+      description: 'Returns a single Sitesocials'
+      operationId: getSitesocialsById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Sitesocials to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitesocials'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitesocials'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Sitesocials not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Sitesocials
+      summary: 'Update an existing Sitesocials'
+      operationId: updateSitesocials
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitesocials id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Sitesocials'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Sitesocials not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Sitesocials
+      summary: 'Deletes a Sitesocials'
+      operationId: deleteSitesocials
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitesocials id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /users:
     get:
       tags:
@@ -858,272 +1638,663 @@ components:
       description: Jabatan
       properties:
         id:
-          nullable: false
           title: id
           description: id
           type: integer
           format: '-'
-        name:
           nullable: false
+        name:
           title: name
           description: name
           type: string
           format: '-'
           maxLength: 60
-        description:
           nullable: false
+        description:
           title: description
           description: description
           type: string
           format: '-'
           maxLength: 255
-        created_at:
           nullable: false
+        created_at:
           title: created_at
           description: created_at
           type: string
           format: date
-        updated_at:
           nullable: false
+        updated_at:
           title: updated_at
           description: updated_at
           type: string
           format: date
+          nullable: false
       type: object
     Member:
       title: Member
       description: Member
       properties:
         id:
-          nullable: false
           title: id
           description: id
           type: integer
           format: '-'
-        name:
           nullable: false
+        name:
           title: name
           description: name
           type: string
           format: '-'
           maxLength: 255
-        wilayah_id:
           nullable: false
+        wilayah_id:
           title: wilayah_id
           description: wilayah_id
           type: string
           format: '-'
           maxLength: 15
-        code:
           nullable: false
+        code:
           title: code
           description: code
           type: string
           format: '-'
           maxLength: 18
-        address:
           nullable: false
+        address:
           title: address
           description: address
           type: string
           format: '-'
           maxLength: 255
+          nullable: false
+        email:
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 50
+          nullable: false
+        telephone:
+          title: telephone
+          description: telephone
+          type: string
+          format: '-'
+          maxLength: 15
+          nullable: false
         path_logo:
-          nullable: true
           title: path_logo
           description: path_logo
           type: string
           format: '-'
           maxLength: 255
-        path_image:
           nullable: true
+        path_image:
           title: path_image
           description: path_image
           type: string
           format: '-'
           maxLength: 255
-        state:
           nullable: true
+        state:
           title: state
           description: state
           type: string
           format: '-'
+          nullable: true
         created_at:
-          nullable: false
           title: created_at
           description: created_at
           type: string
           format: date
-        updated_at:
           nullable: false
+        updated_at:
           title: updated_at
           description: updated_at
           type: string
           format: date
+          nullable: false
       type: object
     Pengurus:
       title: Pengurus
       description: Pengurus
       properties:
         id:
-          nullable: false
           title: id
           description: id
           type: integer
           format: '-'
-        name:
           nullable: false
+        name:
           title: name
           description: name
           type: string
           format: '-'
           maxLength: 255
-        contact:
           nullable: false
+        contact:
           title: contact
           description: contact
           type: string
           format: '-'
           maxLength: 255
-        description:
           nullable: false
+        description:
           title: description
           description: description
           type: string
           format: '-'
-        jabatan_id:
           nullable: false
+        jabatan_id:
           title: jabatan_id
           description: jabatan_id
           type: integer
           format: '-'
-        created_at:
           nullable: false
+        created_at:
           title: created_at
           description: created_at
           type: string
           format: date
-        '':
           nullable: false
+        '':
           title: updated_at
           description: updated_at
           type: string
           format: date
+          nullable: false
+      type: object
+    Sitemenus:
+      title: Sitemenus
+      description: Sitemenus
+      properties:
+        id:
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          nullable: false
+        name:
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 128
+          nullable: false
+        label:
+          title: label
+          description: label
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        parent:
+          title: parent
+          description: parent
+          type: integer
+          format: '-'
+          nullable: true
+        language_id:
+          title: language_id
+          description: language_id
+          type: integer
+          format: '-'
+          nullable: true
+        state:
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+          nullable: true
+        created_at:
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+          nullable: false
+        updated_at:
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+          nullable: false
+        created_by:
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          nullable: true
+      type: object
+    Sitepages:
+      title: Sitepages
+      description: Sitepages
+      properties:
+        id:
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          nullable: false
+        title:
+          title: title
+          description: title
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        subtitle:
+          title: subtitle
+          description: subtitle
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        path_image:
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: true
+        content:
+          title: content
+          description: content
+          type: string
+          format: '-'
+          nullable: false
+        permalink:
+          title: permalink
+          description: permalink
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        meta_title:
+          title: meta_title
+          description: meta_title
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        meta_desc:
+          title: meta_desc
+          description: meta_desc
+          type: string
+          format: '-'
+          nullable: false
+        sitemenu_id:
+          title: sitemenu_id
+          description: sitemenu_id
+          type: integer
+          format: '-'
+          nullable: true
+        language_id:
+          title: language_id
+          description: language_id
+          type: integer
+          format: '-'
+          nullable: true
+        state:
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+          nullable: true
+        created_at:
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+          nullable: false
+        updated_at:
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+          nullable: false
+        created_by:
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          nullable: true
+      type: object
+    Siteposts:
+      title: Siteposts
+      description: Siteposts
+      properties:
+        id:
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          nullable: false
+        title:
+          title: title
+          description: title
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        subtitle:
+          title: subtitle
+          description: subtitle
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        path_image:
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: true
+        content:
+          title: content
+          description: content
+          type: string
+          format: '-'
+          nullable: false
+        permalink:
+          title: permalink
+          description: permalink
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        meta_title:
+          title: meta_title
+          description: meta_title
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        meta_desc:
+          title: meta_desc
+          description: meta_desc
+          type: string
+          format: '-'
+          nullable: false
+        labels:
+          title: labels
+          description: labels
+          type: string
+          format: '-'
+          nullable: false
+        language_id:
+          title: language_id
+          description: language_id
+          type: integer
+          format: '-'
+          nullable: true
+        state:
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+          nullable: true
+        created_at:
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+          nullable: false
+        updated_at:
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+          nullable: false
+        created_by:
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          nullable: true
+      type: object
+    Sitesections:
+      title: Sitesections
+      description: Sitesections
+      properties:
+        id:
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          nullable: false
+        title:
+          title: title
+          description: title
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        subtitle:
+          title: subtitle
+          description: subtitle
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        content:
+          title: content
+          description: content
+          type: string
+          format: '-'
+          nullable: false
+        sequence:
+          title: sequence
+          description: sequence
+          type: integer
+          format: '-'
+          nullable: true
+        sitepage_id:
+          title: sitepage_id
+          description: sitepage_id
+          type: integer
+          format: '-'
+          nullable: true
+        state:
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+          nullable: true
+        created_at:
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+          nullable: false
+        updated_at:
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+          nullable: false
+        created_by:
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          nullable: true
+      type: object
+    Sitesocials:
+      title: Sitesocials
+      description: Sitesocials
+      properties:
+        id:
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          nullable: false
+        name:
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        link:
+          title: link
+          description: link
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: false
+        path_icon:
+          title: path_icon
+          description: path_icon
+          type: string
+          format: '-'
+          maxLength: 255
+          nullable: true
+        state:
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+          nullable: true
+        created_at:
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+          nullable: false
+        updated_at:
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+          nullable: false
+        created_by:
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          nullable: true
       type: object
     Users:
       title: Users
       description: Users
       properties:
         id:
-          nullable: false
           title: id
           description: id
           type: integer
           format: '-'
+          nullable: false
         username:
-          nullable: true
           title: username
           description: username
           type: string
           format: '-'
           maxLength: 30
-        first_name:
           nullable: true
+        first_name:
           title: first_name
           description: first_name
           type: string
           format: '-'
           maxLength: 255
-        last_name:
           nullable: true
+        last_name:
           title: last_name
           description: last_name
           type: string
           format: '-'
           maxLength: 255
-        avatar:
           nullable: true
+        avatar:
           title: avatar
           description: avatar
           type: string
           format: '-'
           maxLength: 255
-        status:
           nullable: true
+        status:
           title: status
           description: status
           type: string
           format: '-'
           maxLength: 255
-        status_message:
           nullable: true
+        status_message:
           title: status_message
           description: status_message
           type: string
           format: '-'
           maxLength: 255
+          nullable: true
         active:
-          nullable: false
           title: active
           description: active
           type: integer
           format: '-'
           maxLength: 1
+          nullable: false
         permissions:
-          nullable: true
           title: permissions
           description: permissions
           type: string
           format: '-'
-        last_active:
           nullable: true
+        last_active:
           title: last_active
           description: last_active
           type: string
           format: date
-        created_at:
           nullable: true
+        created_at:
           title: created_at
           description: created_at
           type: string
           format: date
-        updated_at:
           nullable: true
+        updated_at:
           title: updated_at
           description: updated_at
           type: string
           format: date
-        deleted_at:
           nullable: true
+        deleted_at:
           title: deleted_at
           description: deleted_at
           type: string
           format: date
+          nullable: true
       type: object
     Wilayah:
       title: Wilayah
       description: Wilayah
       properties:
         kode:
-          nullable: false
           title: kode
           description: kode
           type: string
           format: '-'
           maxLength: 15
-        nama:
           nullable: false
+        nama:
           title: nama
           description: nama
           type: string
           format: '-'
           maxLength: 70
-        level:
           nullable: false
+        level:
           title: level
           description: level
           type: string
           format: '-'
+          nullable: false
       type: object
   requestBodies:
     Jabatan:
@@ -1162,6 +2333,66 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Pengurus'
+    Sitemenus:
+      description: 'Sitemenus object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Sitemenus'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Sitemenus'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sitemenus'
+    Sitepages:
+      description: 'Sitepages object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Sitepages'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Sitepages'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sitepages'
+    Siteposts:
+      description: 'Siteposts object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Siteposts'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Siteposts'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Siteposts'
+    Sitesections:
+      description: 'Sitesections object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Sitesections'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Sitesections'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sitesections'
+    Sitesocials:
+      description: 'Sitesocials object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Sitesocials'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Sitesocials'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sitesocials'
     Users:
       description: 'Users object that needs to be added'
       content:
@@ -1204,6 +2435,21 @@ tags:
   -
     name: Pengurus
     description: 'Everything about your Pengurus'
+  -
+    name: Sitemenus
+    description: 'Everything about your Sitemenus'
+  -
+    name: Sitepages
+    description: 'Everything about your Sitepages'
+  -
+    name: Siteposts
+    description: 'Everything about your Siteposts'
+  -
+    name: Sitesections
+    description: 'Everything about your Sitesections'
+  -
+    name: Sitesocials
+    description: 'Everything about your Sitesocials'
   -
     name: Users
     description: 'Everything about your Users'

@@ -43,7 +43,7 @@ class BmdonationtypeController extends AdminCrudController
         $model = model(BmdonationtypeFilter::class);
         return [
             'headers' => [
-                                    'name' => lang('crud.name'),
+                'name' => lang('crud.name'),
                 'description' => lang('crud.description'),
                 'uom_id' => lang('crud.uom_id'),
                 'state' => lang('crud.state'),

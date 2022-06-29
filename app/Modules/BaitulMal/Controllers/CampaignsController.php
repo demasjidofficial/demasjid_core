@@ -3,17 +3,17 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\BminfaqshodaqohcategoryModel;
-use App\Modules\BaitulMal\Models\BminfaqshodaqohcategoryFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
+use App\Modules\Api\Models\CampaignsModel;
+use App\Modules\BaitulMal\Models\CampaignsFilter;
 
-class BminfaqshodaqohcategoryController extends AdminCrudController
+class CampaignsController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\BaitulMal\Views\bminfaqshodaqohcategory\\';
-    protected $baseRoute = 'admin/baitulmal/infaqshodaqohcategory';
-    protected $langModel = 'bminfaqshodaqohcategory';
-    protected $modelName = 'App\Modules\Api\Models\BminfaqshodaqohcategoryModel';
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\campaigns\\';
+    protected $baseRoute = 'admin/baitulmal/campaigns';
+    protected $langModel = 'campaigns';
+    protected $modelName = 'App\Modules\Api\Models\CampaignsModel';
     public function index(){
         return parent::index();
     }
@@ -40,13 +40,17 @@ class BminfaqshodaqohcategoryController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(BminfaqshodaqohcategoryFilter::class);
+        $model = model(CampaignsFilter::class);
         return [
             'headers' => [
-                'name' => lang('crud.name'),
-                'label' => lang('crud.label'),
-                'description' => lang('crud.description'),
-                'created_by' => lang('crud.created_by')
+                'id_program' => lang('crud.programs'),
+                'status' => lang('crud.status'),
+                'is_active' => lang('crud.is_active'),
+                'is_delete' => lang('crud.is_delete'),
+                'created_by' => lang('crud.created_by'),
+                'create_date' => lang('crud.create_date'),
+                'modified_by' => lang('crud.modified_by'),
+                'modified_date' => lang('crud.modified_date')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -60,7 +64,7 @@ class BminfaqshodaqohcategoryController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new BminfaqshodaqohcategoryModel();
+        $model = new CampaignsModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -69,7 +73,7 @@ class BminfaqshodaqohcategoryController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+            $dataEdit['programItems'] = Arr::pluck(model('App\Modules\Api\Models\ProgramModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

@@ -8,6 +8,11 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/infaqshodaqohcategory', ['controller' => 'BminfaqshodaqohcategoryController']);
     $routes->resource('baitulmal/donationcampaign', ['controller' => 'BmdonationcampaignController']);
     $routes->resource('baitulmal/donationcampaigncategory', ['controller' => 'BmdonationcampaigncategoryController']);
+    // $routes->resource('baitulmal/addCampaigns', ['controller' => 'CampaignsController']);
+    $routes->resource('baitulmal/masterbank', ['controller' => 'MasterBankController']);
+    $routes->resource('baitulmal/masterpaymentgateway', ['controller' => 'MasterPaymentgatewayController']);
+    $routes->resource('baitulmal/masterewallet', ['controller' => 'MasterEwalletController']);
+    
     /**
      * SUB MODULE
      */
@@ -17,5 +22,9 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/wakafs', ['controller' => '_WakafsController']);
     $routes->resource('baitulmal/qurbans', ['controller' => '_QurbansController']);
     $routes->resource('baitulmal/configs', ['controller' => '_ConfigsController']);
-    $routes->resource('baitulmal/campaigns', ['controller' => '_CampaignsController']);
+    $routes->resource('baitulmal/donasis', ['controller' => 'DonasiController']);
+    $routes->resource('baitulmal/campaigns', ['controller' => 'CampaignsController']);
+    $routes->resource('baitulmal/masterBaitulMals', ['controller' => 'MasterController']);
+    
+
 });
