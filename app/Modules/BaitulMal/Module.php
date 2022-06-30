@@ -84,12 +84,12 @@ class Module extends BaseModule
         /**
          * SUB MODULE
          */
-        $campaignsItem = new MenuItem([
-            'title'           => lang('crud.campaigns'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_CampaignsController::index'),
-            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
-            //'permission'      => 'baitulmal.zakats.list',
-        ]);
+        // $campaignsItem = new MenuItem([
+        //     'title'           => lang('crud.campaigns'),
+        //     'url'             => url_to('App\Modules\BaitulMal\Controllers\_CampaignsController::index'),
+        //     'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+        //     //'permission'      => 'baitulmal.zakats.list',
+        // ]);
         $zakatsItem = new MenuItem([
             'title'           => lang('crud.zakats'),
             'url'             => url_to('App\Modules\BaitulMal\Controllers\_ZakatsController::index'),
@@ -153,7 +153,7 @@ class Module extends BaseModule
                 //->addItem($infaqtypeItem)
                 //->addItem($wakafItem)
                 //->addItem($qurbanItem)
-                ->addItem($campaignsItem)
+                //->addItem($campaignsItem)
                 ->addItem($donasisItem)
                 ->addItem($zakatsItem)
                 ->addItem($infaqsItem)
