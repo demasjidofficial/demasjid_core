@@ -123,6 +123,8 @@ class BmdonationcampaignController extends AdminCrudController
         }
         $dataEdit['donationcampaigncategoryItems'] = ['' => 'Pilih Kategori'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaigncategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['programItems'] = ['' => 'Pilih Program'] + Arr::pluck(model('App\Modules\Api\Models\ProgramModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['stateItems'] = BmdonationcampaignModel::listState();
         return $dataEdit;
     }
 }

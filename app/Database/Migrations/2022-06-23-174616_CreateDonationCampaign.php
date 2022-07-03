@@ -60,6 +60,11 @@ class CreateDonationCampaign extends Migration
                 'unsigned'   => true,
                 'null'       => true,
             ],
+            'program_id' => [
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => true,
+            ],
             'state' => [
                 'type'       => 'varchar',
                 'constraint' => 20,
@@ -84,6 +89,7 @@ class CreateDonationCampaign extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('campaigncategory_id', 'bmdonationcampaigncategory', 'id');     
         $this->forge->addForeignKey('donationtype_id', 'bmdonationtype', 'id'); 
+        $this->forge->addForeignKey('program_id', 'program', 'id');
         $this->forge->createTable('bmdonationcampaign', true);
     }
 

@@ -248,6 +248,7 @@ return [
 	'donationtype_id' => 'Tipe Donasi',
 	'campaign_tonase' => 'Target',
 	'campaign_collected' => 'Terkumpul',
+	'program_id' => 'Program',
 	'donasis' => 'Donasi',
 	'campaigns' => 'Kampanye'
  ];

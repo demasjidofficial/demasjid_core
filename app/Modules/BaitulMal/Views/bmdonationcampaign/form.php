@@ -93,9 +93,18 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <?= form_label(lang('crud.program_id'),'',['for' => 'program_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_dropdown('program_id', $programItems, old('program_id', $data->program_id ?? ''), "class='form-control select2bs4' required") ?>
+                                <?php if (has_error('program_id')) { ?>
+                                <p class="text-danger"><?php echo error('program_id'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar'  placeholder='".lang('crud.state')."' ") ?>
+                                <?php echo form_dropdown('state', $stateItems, old('state', $data->state ?? ''), "class='form-control varchar' required placeholder='".lang('crud.state')."' "); ?>
                                 <?php if (has_error('state')) { ?>
                                 <p class="text-danger"><?php echo error('state'); ?></p>
                                 <?php } ?>
@@ -166,7 +175,9 @@
         });
         $('input[name=campaign_tonase]').inputmask({
             'alias': 'currency',
-            'rightAlign': false               
+            'rightAlign': false,
+            'digits': '0', 
+            'allowMinus': 'false',               
         });
     });
 
