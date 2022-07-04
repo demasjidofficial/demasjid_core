@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\Response;
 use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
+use App\Modules\Api\Models\BmdonationcampaignModel;
 
 class Home extends BaseController
 {
@@ -66,10 +67,14 @@ class Home extends BaseController
                 'parent' => 0,
             ],
         ];
+
+        // get data of donation campaigns
+        $donation_campaigns = (new BmdonationcampaignModel())->asArray()->findAll();
         
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['masjid_socials'] = $masjid_socials;
+        $data['donation_campaigns'] = $donation_campaigns;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['widgets'] = service('widgets');        
