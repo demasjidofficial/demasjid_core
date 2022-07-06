@@ -118,18 +118,18 @@
                         <!-- Progress Bar -->
                         <div class="single-skill mb-15">
                             <div class="bar-progress">
-                                <div id="bar1" class="barfiller">
+                                <div id="bar<?php echo $item["id"]?>" class="barfiller">
                                     <div class="tipWrap">
-                                        <span class="tip"></span>
+                                        <span class="tip" style="left:0 !important"></span>
                                     </div>
-                                    <span class="fill" data-percentage="70"></span>
+                                    <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"]*100, 0, '.', '')) ?>" ></span>
                                 </div>
                             </div>
                         </div>
                         <!-- / progress -->
                         <div class="prices d-flex justify-content-between">
-                            <p>Terkumpul:<span> <br /><?php echo $item["campaign_collected"]?></span></p>
-                            <p>Kebutuhan:<span> <br /><?php echo $item["campaign_tonase"]?></span></p>
+                            <p>Terkumpul:<span> <br /><?php echo local_currency($item["campaign_collected"]) ?></span></p>
+                            <p>Kebutuhan:<span> <br /><?php echo local_currency($item["campaign_tonase"]) ?></span></p>
                         </div>
                     </div>
                     <div class="btn-donation-wrapper" style="text-align:center;">

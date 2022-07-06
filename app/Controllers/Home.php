@@ -21,6 +21,7 @@ class Home extends BaseController
 
     public function index()
     {
+        helper(['form','number','app']);
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
