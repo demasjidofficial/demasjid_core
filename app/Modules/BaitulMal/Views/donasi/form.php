@@ -28,6 +28,33 @@
 
             <fieldset>
                 <div class="row mb-3">
+                    <?= form_label(lang('crud.id_donatur'),'',['for' => 'id_donatur', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_dropdown('id_donatur',$donaturItems ,old('id_donatur', $data->id_donatur ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_donatur')."' ") ?>
+                        <?php if (has_error('id_donatur')) { ?>
+                        <p class="text-danger"><?php echo error('id_donatur'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.id_pembayaran'),'',['for' => 'id_pembayaran', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_dropdown('id_pembayaran',$paymentMethodItems ,old('id_pembayaran', $data->id_pembayaran ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_pembayaran')."' ") ?>
+                        <?php if (has_error('id_pembayaran')) { ?>
+                        <p class="text-danger"><?php echo error('id_pembayaran'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.id_program'),'',['for' => 'id_program', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_dropdown('id_program',$programItems ,old('id_program', $data->id_program ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_program')."' ") ?>
+                        <?php if (has_error('id_program')) { ?>
+                        <p class="text-danger"><?php echo error('id_program'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <?= form_label(lang('crud.dana_in'),'',['for' => 'dana_in', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('dana_in', old('dana_in', $data->dana_in ?? ''), "class='form-control int' required placeholder='".lang('crud.dana_in')."' ") ?>

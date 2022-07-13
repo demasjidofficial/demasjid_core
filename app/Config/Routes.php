@@ -72,6 +72,7 @@ static function ($routes) {
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
     $routes->resource('bmdonationcampaigns');
+    $routes->resource('donaturs');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');
