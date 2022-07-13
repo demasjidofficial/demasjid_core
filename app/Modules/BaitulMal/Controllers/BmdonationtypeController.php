@@ -46,8 +46,7 @@ class BmdonationtypeController extends AdminCrudController
                 'name' => lang('crud.name'),
                 'description' => lang('crud.description'),
                 'uom_id' => lang('crud.uom_id'),
-                'state' => lang('crud.state'),
-                'created_by' => lang('crud.created_by')
+                'state' => lang('crud.state')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

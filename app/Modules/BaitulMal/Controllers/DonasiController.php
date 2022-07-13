@@ -9,14 +9,14 @@ use App\Modules\BaitulMal\Models\DonasiFilter;
 
 class DonasiController extends AdminCrudController
 {
-    // protected $baseController = __CLASS__;
-    // protected $viewPrefix = 'App\Modules\BaitulMal\Views\donasi\\';
-    // protected $baseRoute = 'admin/baitulmal/donasi';
-    // protected $langModel = 'donasi';
-    // protected $modelName = 'App\Modules\Api\Models\DonasiModel';
+    protected $baseController = __CLASS__;
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\donasi\\';
+    protected $baseRoute = 'admin/baitulmal/donasis';
+    protected $langModel = 'donasi';
+    protected $modelName = 'App\Modules\Api\Models\DonasiModel';
     public function index(){
-        // return parent::index();
-        return $this->render('App\Modules\BaitulMal\Views\_submodules\donasis',[]);
+        return parent::index();
+        //return $this->render('App\Modules\BaitulMal\Views\donasis\donasis',[]);
     }
 
     public function edit($id = null){
@@ -44,13 +44,14 @@ class DonasiController extends AdminCrudController
         $model = model(DonasiFilter::class);
         return [
             'headers' => [
-                'id_donatur' => lang('crud.id_donatur'),
-                'id_pembayaran' => lang('crud.id_pembayaran'),
-                'id_program' => lang('crud.id_program'),
-                'dana_in' => lang('crud.dana_in'),
-                'tgl_transaksi' => lang('crud.tgl_transaksi'),
-                'bukti_pembayaran' => lang('crud.bukti_pembayaran'),
-                'created_by' => lang('crud.created_by')
+                'no' => lang('crud.no'),
+                'donatur' => lang('crud.id_donatur'),
+                'no_hp' => lang('crud.no_hp'),
+                'donasi' => lang('crud.donation'),
+                'program' => lang('crud.program'),
+                'payment' => lang('crud.payment'),
+                'date' => lang('crud.date'),
+                'action' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -73,19 +74,8 @@ class DonasiController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['donatur_typeItems'] = Arr::pluck(model('App\Modules\Api\Models\DonaturTypeModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
-    $dataEdit['pembayaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PembayaranModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
-    $dataEdit['programItems'] = Arr::pluck(model('App\Modules\Api\Models\ProgramModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+
+        $dataEdit['donaturItems'] = ['' => 'Pilih Donatur'];
         return $dataEdit;
-    }
-
-    private function setupWidgets()
-    {
-        $widgets = service('widgets');
-
-        $widgets->createWidget(Stats::class, 'schedule');
-        $widgets->widget('schedule')
-            ->createCollection('schedule')
-        ;
     }
 }

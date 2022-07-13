@@ -122,7 +122,7 @@ class Module extends BaseModule
         ]);
         $donasisItem = new MenuItem([
             'title'           => lang('crud.donasis'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\DonasiController::index'),
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationcampaignController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'baitulmal.qurbans.list',
         ]);
