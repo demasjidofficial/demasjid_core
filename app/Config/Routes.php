@@ -39,6 +39,8 @@ $routes->get('login', '\App\Controllers\Auth\LoginController::loginView');
 $routes->get('login/magic-link', '\App\Controllers\Auth\MagicLinkController::loginView', ['as' => 'magic-link']);
 $routes->post('login/magic-link', '\App\Controllers\Auth\MagicLinkController::loginAction');
 $routes->get('login/verify-magic-link', '\App\Controllers\Auth\MagicLinkController::verify', ['as' => 'verify-magic-link']);
+
+$routes->get('{locale}/checkoutdonation/(:segment)', '\App\Controllers\CheckoutDonation::index/$1');
 service('auth')->routes($routes, ['except' => ['login', 'register']]);
 
 // We get a performance increase by specifying the default
