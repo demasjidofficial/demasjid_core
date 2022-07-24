@@ -43,7 +43,7 @@ class DonaturTypeController extends AdminCrudController
         $model = model(DonaturTypeFilter::class);
         return [
             'headers' => [
-                'type' => lang('crud.type')
+                'name' => lang('crud.name')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

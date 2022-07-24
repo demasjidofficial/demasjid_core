@@ -3,30 +3,18 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
+use App\Modules\Api\Models\PaymentCategoryModel;
+use App\Modules\BaitulMal\Models\PaymentCategoryFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\MasterBankModel;
-use App\Modules\BaitulMal\Models\MasterBankFilter;
-use App\Traits\UploadedFile;
 
-class MasterBankController extends AdminCrudController
+class PaymentCategoryController extends AdminCrudController
 {
-    use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\BaitulMal\Views\master_bank\\';
-    protected $baseRoute = 'admin/baitulmal/masterbank';
-    protected $langModel = 'master_bank';
-    protected $modelName = 'App\Modules\Api\Models\MasterBankModel';
-    private $imageFolder = 'images';
-    
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\payment_category\\';
+    protected $baseRoute = 'admin/baitulmal/paymentcategory';
+    protected $langModel = 'payment_category';
+    protected $modelName = 'App\Modules\Api\Models\PaymentCategoryModel';
     public function index(){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
-            }
-        }
         return parent::index();
     }
 
@@ -35,14 +23,6 @@ class MasterBankController extends AdminCrudController
     }
 
     public function update($id = null){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
-            }
-        }
         return parent::update($id);
     }
 
@@ -51,17 +31,7 @@ class MasterBankController extends AdminCrudController
     }
 
     public function create(){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
-            }
-        }
         return parent::create();
-
-        
     }
 
     public function delete($id = null){
@@ -70,11 +40,10 @@ class MasterBankController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(MasterBankFilter::class);
+        $model = model(PaymentCategoryFilter::class);
         return [
             'headers' => [
-                'logo' => lang('crud.logo'),
-                'name' => lang('crud.bank'),
+                                    'name' => lang('crud.name'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -88,7 +57,7 @@ class MasterBankController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new MasterBankModel();
+        $model = new PaymentCategoryModel();
 
         if(!empty($id)){
             $data = $model->find($id);

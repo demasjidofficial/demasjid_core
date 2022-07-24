@@ -28,29 +28,29 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_donatur'),'',['for' => 'id_donatur', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.campaign_id'),'',['for' => 'campaign_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_donatur',$donaturItems ,old('id_donatur', $data->id_donatur ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_donatur')."' ") ?>
-                        <?php if (has_error('id_donatur')) { ?>
-                        <p class="text-danger"><?php echo error('id_donatur'); ?></p>
+                        <?= form_dropdown('campaign_id',$campaignItems ,old('campaign_id', $data->campaign_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.campaign_id')."' ") ?>
+                        <?php if (has_error('campaign_id')) { ?>
+                        <p class="text-danger"><?php echo error('campaign_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_pembayaran'),'',['for' => 'id_pembayaran', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.donatur_id'),'',['for' => 'donatur_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_pembayaran',$paymentMethodItems ,old('id_pembayaran', $data->id_pembayaran ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_pembayaran')."' ") ?>
-                        <?php if (has_error('id_pembayaran')) { ?>
-                        <p class="text-danger"><?php echo error('id_pembayaran'); ?></p>
+                        <?= form_dropdown('donatur_id',$donaturItems ,old('donatur_id', $data->donatur_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.donatur_id')."' ") ?>
+                        <?php if (has_error('donatur_id')) { ?>
+                        <p class="text-danger"><?php echo error('donatur_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_program'),'',['for' => 'id_program', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.paymentmethod_id'),'',['for' => 'paymentmethod_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_program',$programItems ,old('id_program', $data->id_program ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_program')."' ") ?>
-                        <?php if (has_error('id_program')) { ?>
-                        <p class="text-danger"><?php echo error('id_program'); ?></p>
+                        <?= form_dropdown('paymentmethod_id',$paymentMethodItems ,old('paymentmethod_id', $data->paymentmethod_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.paymentmethod_id')."' ") ?>
+                        <?php if (has_error('paymentmethod_id')) { ?>
+                        <p class="text-danger"><?php echo error('paymentmethod_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -64,20 +64,29 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.tgl_transaksi'),'',['for' => 'tgl_transaksi', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.date'),'',['for' => 'date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('tgl_transaksi', old('tgl_transaksi', $data->tgl_transaksi ?? ''), "class='form-control date' required placeholder='".lang('crud.tgl_transaksi')."' ") ?>
-                        <?php if (has_error('tgl_transaksi')) { ?>
-                        <p class="text-danger"><?php echo error('tgl_transaksi'); ?></p>
+                        <?= form_input('date', old('date', $data->date ?? ''), "class='form-control date' required placeholder='".lang('crud.date')."' ") ?>
+                        <?php if (has_error('date')) { ?>
+                        <p class="text-danger"><?php echo error('date'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.bukti_pembayaran'),'',['for' => 'bukti_pembayaran', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('bukti_pembayaran', old('bukti_pembayaran', $data->bukti_pembayaran ?? ''), "class='form-control blob' required placeholder='".lang('crud.bukti_pembayaran')."' ") ?>
-                        <?php if (has_error('bukti_pembayaran')) { ?>
-                        <p class="text-danger"><?php echo error('bukti_pembayaran'); ?></p>
+                        <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control blob' required placeholder='".lang('crud.path_image')."' ") ?>
+                        <?php if (has_error('path_image')) { ?>
+                        <p class="text-danger"><?php echo error('path_image'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control blob' required placeholder='".lang('crud.state')."' ") ?>
+                        <?php if (has_error('state')) { ?>
+                        <p class="text-danger"><?php echo error('state'); ?></p>
                         <?php } ?>
                     </div>
                 </div>

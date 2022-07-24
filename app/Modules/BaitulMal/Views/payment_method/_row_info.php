@@ -1,7 +1,7 @@
-<td><?php echo esc($item->id_bank) ?></a></td>
-<td><?php echo esc($item->no_rek) ?></a></td>
-<td><?php echo esc($item->nama_rek) ?></a></td>
-<td><?php echo esc($item->id_payment_category) ?></a></td>
+<td><?php echo esc($item->master_bank_id) ?></a></td>
+<td><?php echo esc($item->rek_no) ?></a></td>
+<td><?php echo esc($item->rek_name) ?></a></td>
+<td><?php echo esc($item->payment_category_id) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

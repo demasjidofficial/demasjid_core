@@ -1,9 +1,9 @@
-<td><?php echo esc($item->id_donatur) ?></a></td>
-<td><?php echo esc($item->id_pembayaran) ?></a></td>
-<td><?php echo esc($item->id_program) ?></a></td>
+<td><?php echo esc($item->donatur_id) ?></a></td>
+<td><?php echo esc($item->paymentmethod_id) ?></a></td>
+<td><?php echo esc($item->campaign_id) ?></a></td>
 <td><?php echo esc($item->dana_in) ?></a></td>
-<td><?php echo esc($item->tgl_transaksi) ?></a></td>
-<td><?php echo esc($item->bukti_pembayaran) ?></a></td>
+<td><?php echo esc($item->date) ?></a></td>
+<td><?php echo esc($item->path_image) ?></a></td>
 <td><?php echo esc($item->created_by) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->

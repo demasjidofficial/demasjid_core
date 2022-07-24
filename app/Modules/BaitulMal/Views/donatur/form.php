@@ -28,11 +28,20 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_donatur_type'),'',['for' => 'id_donatur_type', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.donatur_type_id'),'',['for' => 'donatur_type_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_donatur_type',$donaturTypeItems ,old('id_donatur_type', $data->id_donatur_type ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_donatur_type')."' ") ?>
-                        <?php if (has_error('id_donatur_type')) { ?>
-                        <p class="text-danger"><?php echo error('id_donatur_type'); ?></p>
+                        <?= form_dropdown('donatur_type_id',$donaturTypeItems ,old('donatur_type_id', $data->donatur_type_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.donatur_type_id')."' ") ?>
+                        <?php if (has_error('donatur_type_id')) { ?>
+                        <p class="text-danger"><?php echo error('donatur_type_id'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.name')."' ") ?>
+                        <?php if (has_error('name')) { ?>
+                        <p class="text-danger"><?php echo error('name'); ?></p>
                         <?php } ?>
                     </div>
                 </div>

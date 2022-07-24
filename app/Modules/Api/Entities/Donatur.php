@@ -28,8 +28,8 @@ class Donatur extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_donatur_type",
-	 *     title="id_donatur_type",
+	 *     description="donatur_type_id",
+	 *     title="donatur_type_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -37,7 +37,7 @@ class Donatur extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $id_donatur_type;
+	private $donatur_type_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="email",

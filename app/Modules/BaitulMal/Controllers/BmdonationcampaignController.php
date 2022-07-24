@@ -102,7 +102,8 @@ class BmdonationcampaignController extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
+            'dataStats' => $this->getDataStats($model->find()),
         ];
     }
 
@@ -126,5 +127,27 @@ class BmdonationcampaignController extends AdminCrudController
         $dataEdit['programItems'] = ['' => 'Pilih Program'] + Arr::pluck(model('App\Modules\Api\Models\ProgramModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['stateItems'] = BmdonationcampaignModel::listState();
         return $dataEdit;
+    }
+
+    protected function getDataStats($data) {
+        $totalDonation = 0;
+        $totalActiveCampaign = 0;
+        $countDonation = 0;
+        if ((isset($data) && count($data))) {
+            foreach ($data as $item) {
+                if($item->state !== BmdonationcampaignModel::END) {
+                    $totalActiveCampaign++;
+                }
+                $totalDonation = $totalDonation + $item->campaign_collected;
+                $countDonation = $countDonation + $item->donation_count;
+            }
+            return (object)[
+                'totalDonation' => $totalDonation,
+                'totalActiveCampaign' => $totalActiveCampaign,
+                'countDonation' => $countDonation,
+                'totalCampaign' => count($data),
+            ];
+        }
+       
     }
 }

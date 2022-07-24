@@ -2,14 +2,14 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.donatur_type') ?></a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.donatur_type') ?></h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.payment_category') ?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.payment_category') ?></h4>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
         <div class="alert danger">
-            This <?= lang('crud.donatur_type') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
-            <a href="#">Restore <?= lang('crud.donatur_type') ?>?</a>
+            This <?= lang('crud.payment_category') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
+            <a href="#">Restore <?= lang('crud.payment_category') ?>?</a>
         </div>
     <?php } ?>
 
@@ -30,7 +30,7 @@
                                 <div class="row mb-3">
                     <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control int' required placeholder='".lang('crud.name')."' ") ?>
+                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
                         <p class="text-danger"><?php echo error('name'); ?></p>
                         <?php } ?>
@@ -39,7 +39,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.donatur_type') ?></button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.payment_category') ?></button>
             </div>
 
         </form>

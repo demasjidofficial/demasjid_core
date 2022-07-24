@@ -9,6 +9,12 @@
             <div class="col-auto">
                 <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.payment_method') ?></a>
             </div>
+            <div class="col-auto">
+                <a href="<?= site_url('/admin/baitulmal/masterbank')?>" class="btn btn-warning"><i class="fas fa-plus"></i>  <?= lang('crud.master_bank') ?></a>
+            </div>
+            <div class="col-auto">
+                <a href="<?= site_url('/admin/baitulmal/paymentcategory')?>" class="btn btn-light"><i class="fas fa-plus"></i>  <?= lang('crud.payment_category') ?></a>
+            </div>
         </div>
     </x-page-head>
 

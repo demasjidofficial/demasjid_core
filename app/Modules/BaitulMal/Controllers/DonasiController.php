@@ -16,7 +16,6 @@ class DonasiController extends AdminCrudController
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
     public function index(){
         return parent::index();
-        //return $this->render('App\Modules\BaitulMal\Views\donasis\donasis',[]);
     }
 
     public function edit($id = null){
@@ -28,7 +27,9 @@ class DonasiController extends AdminCrudController
     }
 
     public function show($id = null){
-        return parent::show($id);
+        $view = $this->viewPrefix . ($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
+        $dataIndex = $this->getDataCampaign($id);
+        return $this->render($view , $dataIndex);
     }
 
     public function create(){
@@ -75,9 +76,33 @@ class DonasiController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
 
+        $dataEdit['campaignItems'] = ['' => 'Pilih Kampanye'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaignModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['donaturItems'] = ['' => 'Pilih Donatur'] + Arr::pluck(model('App\Modules\Api\Models\DonaturModel')->select(['id as key', 'no_hp as text'])->asArray()->findAll(), 'text', 'key');
-        $dataEdit['paymentMethodItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'no_rek as text'])->asArray()->findAll(), 'text', 'key');
-        $dataEdit['programItems'] = ['' => 'Pilih Program'] + Arr::pluck(model('App\Modules\Api\Models\ProgramModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['paymentMethodItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'rek_no as int'])->asArray()->findAll(), 'int', 'key');
         return $dataEdit;
+    }
+
+    protected function getDataCampaign($id)
+    {
+        $model = model(DonasiFilter::class);
+        $model->where('campaign_id', (int)$id);
+        return [
+            'headers' => [
+                'no' => lang('crud.no'),
+                'donatur' => lang('crud.id_donatur'),
+                'no_hp' => lang('crud.no_hp'),
+                'donasi' => lang('crud.donation'),
+                'program' => lang('crud.program'),
+                'payment' => lang('crud.payment'),
+                'date' => lang('crud.date'),
+                'action' => lang('crud.created_by')
+            ],
+            'controller' => $this->getBaseController(),
+            'viewPrefix' => $this->getViewPrefix(),
+			'baseRoute' => $this->getBaseRoute(),
+            'showSelectAll' => true,
+            'data' => $model->paginate(setting('App.perPage')),
+            'pager' => $model->pager
+        ];
     }
 }

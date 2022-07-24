@@ -14,7 +14,8 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/donasi', ['controller' => 'DonasiController']);
     $routes->resource('baitulmal/donatur', ['controller' => 'DonaturController']);
     $routes->resource('baitulmal/donaturtype', ['controller' => 'DonaturTypeController']);
-    $routes->resource('baitulmal/donationmethod', ['controller' => 'PaymentMethodController']);
+    $routes->resource('baitulmal/paymentmethod', ['controller' => 'PaymentMethodController']);
+    $routes->resource('baitulmal/paymentcategory', ['controller' => 'PaymentCategoryController']);
 
     /** ask to delete */
     $routes->resource('baitulmal/_oldCampaigns', ['controller' => 'CampaignsController']);

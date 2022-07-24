@@ -24,7 +24,7 @@
         <ul class="dropdown-menu">
             <li><a href="<?php echo $editUrl ?>" class="dropdown-item"><?php echo lang('Bonfire.edit') ?></a></li>
             <li><a class="dropdown-item">Add Info Update</a></li>
-            <li><a href="<?= site_url('/admin/baitulmal/donasis')?>" class="dropdown-item">Data Donasi</a></li>
+            <li><a href="<?= site_url('/admin/baitulmal/donasi/'.$item->id)?>" class="dropdown-item">Data Donasi</a></li>
             <li>
                 <button class="btn" hx-delete="<?php echo $deleteUrl ?>" hx-select="#htmx-alert" hx-swap="innerHTML" hx-indicator="#htmx-request-indicator">
                 <?php echo lang('Bonfire.delete') ?>

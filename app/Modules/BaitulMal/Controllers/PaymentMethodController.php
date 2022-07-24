@@ -11,7 +11,7 @@ class PaymentMethodController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\payment_method\\';
-    protected $baseRoute = 'admin/baitulmal/donationmethod';
+    protected $baseRoute = 'admin/baitulmal/paymentmethod';
     protected $langModel = 'payment_method';
     protected $modelName = 'App\Modules\Api\Models\PaymentMethodModel';
     public function index(){
@@ -43,11 +43,10 @@ class PaymentMethodController extends AdminCrudController
         $model = model(PaymentMethodFilter::class);
         return [
             'headers' => [
-                                    'id_bank' => lang('crud.id_bank'),
-                'no_rek' => lang('crud.no_rek'),
-                'nama_rek' => lang('crud.nama_rek'),
-                'id_payment_category' => lang('crud.id_payment_category'),
-                'created_by' => lang('crud.created_by')
+                'master_bank_id' => lang('crud.master_bank_id'),
+                'rek_no' => lang('crud.rek_no'),
+                'rek_name' => lang('crud.rek_name'),
+                'payment_category_id' => lang('crud.payment_category_id'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -70,8 +69,8 @@ class PaymentMethodController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['bankItems'] = ['' => 'Pilih Bank'] + Arr::pluck(model('App\Modules\Api\Models\MasterBankModel')->select(['id as key','bank as text'])->asArray()->findAll(), 'text', 'key');
-    $dataEdit['payment_categoryItems'] = ['' => 'Pilih Categori'] + Arr::pluck(model('App\Modules\Api\Models\MasterBankModel')->select(['id as key','bank as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['bankItems'] = ['' => 'Pilih Bank'] + Arr::pluck(model('App\Modules\Api\Models\MasterBankModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['payment_categoryItems'] = ['' => 'Pilih Categori'] + Arr::pluck(model('App\Modules\Api\Models\PaymentCategoryModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

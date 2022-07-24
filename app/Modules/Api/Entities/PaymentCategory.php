@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class PaymentMethod
+* Class PaymentCategory
 * @OA\Schema(
-*     title="PaymentMethod",
-*     description="PaymentMethod"
+*     title="PaymentCategory",
+*     description="PaymentCategory"
 * )
 *
 * @OA\Tag(
-*     name="PaymentMethod",
-*     description="Everything about your PaymentMethod" 
+*     name="PaymentCategory",
+*     description="Everything about your PaymentCategory" 
 * )
 */ 
-class PaymentMethod extends BaseEntity
+class PaymentCategory extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -28,52 +28,16 @@ class PaymentMethod extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_bank",
-	 *     title="id_bank",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $id_bank;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="no_rek",
-	 *     title="no_rek",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=20,
-	 * )
-	 *		 
-	 */
-	private $no_rek;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="nama_rek",
-	 *     title="nama_rek",
+	 *     description="name",
+	 *     title="name",
 	 *     type="string",
 	 * 	   format="-",	 
-	 * 	   nullable=true,
+	 * 	   nullable=false,
 	 * 	   maxLength=50,
 	 * )
 	 *		 
 	 */
-	private $nama_rek;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="payment_category_id",
-	 *     title="payment_category_id",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $payment_category_id;
+	private $name;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -112,16 +76,16 @@ class PaymentMethod extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="PaymentMethod",
- *     description="PaymentMethod object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/PaymentMethod"),
+ *     request="PaymentCategory",
+ *     description="PaymentCategory object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/PaymentCategory"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/PaymentMethod")
+ *         @OA\Schema(ref="#/components/schemas/PaymentCategory")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/PaymentMethod")
+ *         @OA\Schema(ref="#/components/schemas/PaymentCategory")
  *     )
  * )
  */

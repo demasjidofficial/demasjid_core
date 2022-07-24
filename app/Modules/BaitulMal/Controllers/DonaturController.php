@@ -43,7 +43,8 @@ class DonaturController extends AdminCrudController
         $model = model(DonaturFilter::class);
         return [
             'headers' => [
-                                    'id_donatur_type' => lang('crud.id_donatur_type'),
+                'donatur_type_id' => lang('crud.donatur_type_id'),
+                'name' => lang('crud.name'),
                 'email' => lang('crud.email'),
                 'no_hp' => lang('crud.no_hp'),
                 'alamat' => lang('crud.alamat')
@@ -69,7 +70,7 @@ class DonaturController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['donaturTypeItems'] = Arr::pluck(model('App\Modules\Api\Models\DonaturTypeModel')->select(['id as key','type as int'])->asArray()->findAll(), 'int', 'key');
+            $dataEdit['donaturTypeItems'] = Arr::pluck(model('App\Modules\Api\Models\DonaturTypeModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

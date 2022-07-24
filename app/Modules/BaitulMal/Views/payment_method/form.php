@@ -28,38 +28,38 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_bank'),'',['for' => 'id_bank', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.master_bank_id'),'',['for' => 'master_bank_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_bank',$bankItems ,old('id_bank', $data->id_bank ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_bank')."' ") ?>
-                        <?php if (has_error('id_bank')) { ?>
-                        <p class="text-danger"><?php echo error('id_bank'); ?></p>
+                        <?= form_dropdown('master_bank_id',$bankItems ,old('master_bank_id', $data->master_bank_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.master_bank_id')."' ") ?>
+                        <?php if (has_error('master_bank_id')) { ?>
+                        <p class="text-danger"><?php echo error('master_bank_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.no_rek'),'',['for' => 'no_rek', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.rek_no'),'',['for' => 'rek_no', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('no_rek', old('no_rek', $data->no_rek ?? ''), "class='form-control int'  placeholder='".lang('crud.no_rek')."' ") ?>
-                        <?php if (has_error('no_rek')) { ?>
-                        <p class="text-danger"><?php echo error('no_rek'); ?></p>
+                        <?= form_input('rek_no', old('rek_no', $data->rek_no ?? ''), "class='form-control int'  placeholder='".lang('crud.rek_no')."' ") ?>
+                        <?php if (has_error('rek_no')) { ?>
+                        <p class="text-danger"><?php echo error('rek_no'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.nama_rek'),'',['for' => 'nama_rek', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.rek_name'),'',['for' => 'rek_name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('nama_rek', old('nama_rek', $data->nama_rek ?? ''), "class='form-control varchar'  placeholder='".lang('crud.nama_rek')."' ") ?>
-                        <?php if (has_error('nama_rek')) { ?>
-                        <p class="text-danger"><?php echo error('nama_rek'); ?></p>
+                        <?= form_input('rek_name', old('rek_name', $data->rek_name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.rek_name')."' ") ?>
+                        <?php if (has_error('rek_name')) { ?>
+                        <p class="text-danger"><?php echo error('rek_name'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_payment_category'),'',['for' => 'id_payment_category', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.payment_category_id'),'',['for' => 'payment_category_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_payment_category',$payment_categoryItems ,old('id_payment_category', $data->id_payment_category ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_payment_category')."' ") ?>
-                        <?php if (has_error('id_payment_category')) { ?>
-                        <p class="text-danger"><?php echo error('id_payment_category'); ?></p>
+                        <?= form_dropdown('payment_category_id',$payment_categoryItems ,old('payment_category_id', $data->payment_category_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.payment_category_id')."' ") ?>
+                        <?php if (has_error('payment_category_id')) { ?>
+                        <p class="text-danger"><?php echo error('payment_category_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
