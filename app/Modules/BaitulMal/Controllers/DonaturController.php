@@ -3,30 +3,18 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
+use App\Modules\Api\Models\DonaturModel;
+use App\Modules\BaitulMal\Models\DonaturFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\MasterBankModel;
-use App\Modules\BaitulMal\Models\MasterBankFilter;
-use App\Traits\UploadedFile;
 
-class MasterBankController extends AdminCrudController
+class DonaturController extends AdminCrudController
 {
-    use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\BaitulMal\Views\master_bank\\';
-    protected $baseRoute = 'admin/baitulmal/masterbank';
-    protected $langModel = 'master_bank';
-    protected $modelName = 'App\Modules\Api\Models\MasterBankModel';
-    private $imageFolder = 'images';
-    
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\donatur\\';
+    protected $baseRoute = 'admin/baitulmal/donatur';
+    protected $langModel = 'donatur';
+    protected $modelName = 'App\Modules\Api\Models\DonaturModel';
     public function index(){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
-            }
-        }
         return parent::index();
     }
 
@@ -35,14 +23,6 @@ class MasterBankController extends AdminCrudController
     }
 
     public function update($id = null){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
-            }
-        }
         return parent::update($id);
     }
 
@@ -51,17 +31,7 @@ class MasterBankController extends AdminCrudController
     }
 
     public function create(){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
-            }
-        }
         return parent::create();
-
-        
     }
 
     public function delete($id = null){
@@ -70,11 +40,14 @@ class MasterBankController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(MasterBankFilter::class);
+        $model = model(DonaturFilter::class);
         return [
             'headers' => [
-                'logo' => lang('crud.logo'),
-                'name' => lang('crud.bank'),
+                'donatur_type_id' => lang('crud.donatur_type_id'),
+                'name' => lang('crud.name'),
+                'email' => lang('crud.email'),
+                'no_hp' => lang('crud.no_hp'),
+                'alamat' => lang('crud.alamat')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -88,7 +61,7 @@ class MasterBankController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new MasterBankModel();
+        $model = new DonaturModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -97,7 +70,7 @@ class MasterBankController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+            $dataEdit['donaturTypeItems'] = Arr::pluck(model('App\Modules\Api\Models\DonaturTypeModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

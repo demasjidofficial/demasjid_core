@@ -15,16 +15,16 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="small-box bg-info">
                         <div class="inner">
                         <!-- <h3>&nbsp;</h3> -->
                         <h4><?= lang('app.total_donation')?></h4>
-                            <h3>
-                                <?php  
-                                    echo "Rp 00.000.000";
-                                ?>
-                            </h3>
+                            <h4>
+                                <b>
+                                    <?php echo $dataStats->totalDonation ?>
+                                </b>
+                            </h4>
 
                             <p>
                                 Total donasi yang berhasil dikumpukan
@@ -38,17 +38,17 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h4><?= lang('app.donation_amount')?></h4>
-                            <h3>00 Donasi
+                            <h4><b><?php echo $dataStats->countDonation ?> Donasi</b>
                                 <?php if (isset($data) && count($data)) : ?>
                                 <?php endif ?>
-                            </h3>
+                            </h4>
 
                             <p>
-                                Terkumpul 00 dari 00 Donasi
+                                Terkumpul <?php echo $dataStats->countDonation ?> dari <?php echo $dataStats->totalCampaign ?> Kampanye
                             </p>
                             
                             <?php if (isset($data->logo)) { ?>
@@ -66,11 +66,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="small-box bg-warning">
                         <div class="inner">
                         <h4><?= lang('app.active_campaigns')?></h4>
-                            <h3><?php echo (count($data))?></h3>
+                            <h4><b><?php echo $dataStats->totalActiveCampaign ?></b></h4>
                             <p>
                                 Campaigns yang sedang active
                             </p>
@@ -90,19 +90,22 @@
                 <div class="col">
                     <div class="d-flex justify-content-end">
                         <div class="p-2">
-                            <a class="btn btn-success" href="<?php echo route_to($baseRoute.'/new'); ?>" role="button">
+                            <a class="btn btn-sm btn-success" href="<?php echo route_to($baseRoute.'/new'); ?>" role="button">
                                 <i class="fas fa-plus"></i> <?= lang('crud.add_new') ?>
+                            </a>
+                            <a class="btn btn-sm btn-light" href="<?= site_url('/admin/baitulmal/donationcampaigncategory')?>" role="button">
+                                <i class="fas fa-info"></i> <?= lang('crud.category') ?>
                             </a>
                             <!-- <button type="button" id="btnModal" class="btn btn-success" data-bs-toggle="modal" data-target="#addcampaigns_modal">
                                 <i class="fas fa-plus"></i> add new campaign
                             </button> -->
                         </div>
-                        <div class="p-2">
+                        <!-- <div class="p-2">
                             <form class="d-flex" role="search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

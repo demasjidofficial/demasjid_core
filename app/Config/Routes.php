@@ -72,6 +72,8 @@ static function ($routes) {
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
     $routes->resource('bmdonationcampaigns');
+    $routes->resource('donaturs');
+    $routes->resource('donasis');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');
@@ -79,6 +81,9 @@ static function ($routes) {
     //$routes->resource('sliders');
     //$routes->resource('socials');
 });
+
+// Donation View
+$routes->get('{locale}/campaign/(:segment)', 'CampaignsPageController::CampaignView/$1');
 
 
 /*

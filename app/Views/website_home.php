@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="btn-donation-wrapper" style="text-align:center;">
-                        <button class="btn btn-donation">Donasi Sekarang</button>
+                        <a href='<?= site_url('/id/campaign/'.$item["id"])?>' class="btn btn-donation">Donasi Sekarang</a>
                     </div>
                 </div>
             </div>

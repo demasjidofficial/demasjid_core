@@ -28,20 +28,20 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?php echo form_label(lang('crud.logo'), '', ['for' => 'logo', 'class' => 'col-form-label col-sm-2']); ?>
+                    <?php echo form_label(lang('crud.path_logo'), '', ['for' => 'path_logo', 'class' => 'col-form-label col-sm-2']); ?>
                     <div class="col-sm-10">
-                        <?php if (isset($data->logo)) { ?>
+                        <?php if (isset($data->path_logo)) { ?>
                         <div class="justify-content-center photo-wrapper">
-                            <img src="<?php echo site_url($data->logo); ?>" alt="" class="img-thumbnail" style="height:150px">
+                            <img src="<?php echo site_url($data->path_logo); ?>" alt="" class="img-thumbnail" style="height:150px">
                         </div>
                         <?php } ?>
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <?php echo form_upload('image', old('image', $data->logo ?? ''), "class='custom-file-input'  placeholder='".lang('crud.logo')."' accept='image/*' "); ?>
-                                    <!-- <label class="custom-file-label">Pilih gambar logo</label> -->
-                                    <?php if (has_error('logo')) { ?>
-                                        p class="text-danger"><?php echo error('logo'); ?></p>
+                                    <?php echo form_upload('image', old('image', $data->path_logo ?? ''), "class='custom-file-input'  placeholder='".lang('crud.path_logo')."' accept='image/*' "); ?>
+                                    <!-- <label class="custom-file-label">Pilih gambar path_logo</label> -->
+                                    <?php if (has_error('path_logo')) { ?>
+                                        p class="text-danger"><?php echo error('path_logo'); ?></p>
                                     <?php } ?>
                                     <?= form_label(lang('crud.path_logo'),'',['for' => 'path_logo', 'class' => 'custom-file-label']) ?>
                                 </div>
@@ -55,11 +55,11 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.bank'),'',['for' => 'bank', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('bank', old('bank', $data->bank ?? ''), "class='form-control varchar'  placeholder='".lang('crud.bank')."' ") ?>
-                        <?php if (has_error('bank')) { ?>
-                        <p class="text-danger"><?php echo error('bank'); ?></p>
+                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.name')."' ") ?>
+                        <?php if (has_error('name')) { ?>
+                        <p class="text-danger"><?php echo error('name'); ?></p>
                         <?php } ?>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateMasterEwallet extends Migration
+class CreateDonaturType extends Migration
 {
     public function up()
     {
@@ -14,18 +14,11 @@ class CreateMasterEwallet extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
-            'logo' => [
+            ], 
+            'name' => [
                 'type'       => 'varchar',
-                'constraint' => 255,
-                'null'       => true,
-                'after'      => 'last_name',
-            ],     
-            'nama_ewallet' => [
-                'type' => 'varchar',
-                'constraint' => 100,
-                'null' => true
-            ],   
+                'constraint' => 128,
+            ],      
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -42,12 +35,12 @@ class CreateMasterEwallet extends Migration
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('master_ewallet', true);
+        $this->forge->addPrimaryKey('id');  
+        $this->forge->createTable('donatur_type', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('master_ewallet', true);
+        $this->forge->dropTable('donatur_type', true);
     }
 }

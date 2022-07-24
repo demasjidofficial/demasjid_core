@@ -15,10 +15,9 @@ class CreatePaymentCategory extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'category' => [
+            'name' => [
                 'type' => 'varchar',
                 'constraint' => 50,
-                'null' => true
             ],        
             'created_at' => [
                 'type' => 'datetime',

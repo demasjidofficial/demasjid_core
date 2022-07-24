@@ -1,10 +1,4 @@
-<td><?php echo esc($item->donatur_id) ?></a></td>
-<td><?php echo esc($item->paymentmethod_id) ?></a></td>
-<td><?php echo esc($item->campaign_id) ?></a></td>
-<td><?php echo esc($item->dana_in) ?></a></td>
-<td><?php echo esc($item->date) ?></a></td>
-<td><?php echo esc($item->path_image) ?></a></td>
-<td><?php echo esc($item->created_by) ?></a></td>
+<td><?php echo esc($item->name) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
