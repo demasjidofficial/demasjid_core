@@ -250,6 +250,13 @@ return [
 	'campaign_collected' => 'Terkumpul',
 	'program_id' => 'Program',
 	'donasis' => 'Donasi',
-	'campaigns' => 'Kampanye'
+	'campaigns' => 'Kampanye',
+
+
+	'news' => 'Berita',
+	'board_news' => 'Papan Berita',
+	'board_device' => 'Device',
+	'board_newsbg' => 'Background Slide',
+	'board_newsruntext' => 'Run Text',
  ];
 
