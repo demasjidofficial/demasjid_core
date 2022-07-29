@@ -4,16 +4,16 @@ namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\WilayahModel;
-use App\Modules\Masjid\Models\WilayahFilter;
+use App\Modules\Api\Models\DonaturcategoryModel;
+use App\Modules\Masjid\Models\DonaturcategoryFilter;
 
-class WilayahController extends AdminCrudController
+class DonaturcategoryController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\wilayah\\';
-    protected $baseRoute = 'admin/masjid/wilayah';
-    protected $langModel = 'wilayah';
-    protected $modelName = 'App\Modules\Api\Models\WilayahModel';
+    protected $viewPrefix = 'App\Modules\Masjid\Views\donaturcategory\\';
+    protected $baseRoute = 'admin/masjid/donaturcategory';
+    protected $langModel = 'donaturcategory';
+    protected $modelName = 'App\Modules\Api\Models\DonaturcategoryModel';
     public function index(){
         return parent::index();
     }
@@ -40,12 +40,15 @@ class WilayahController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(WilayahFilter::class);
+        $model = model(DonaturcategoryFilter::class);
         return [
             'headers' => [
-                                    'kode' => 'kode',
-                'nama' => 'nama',
-                'level' => 'level'
+                                    'name' => 'name',
+                'label' => 'label',
+                'path_image' => 'path_image',
+                'description' => 'description',
+                'created_by' => 'created_by',
+                'updated_by' => 'updated_by'
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -59,7 +62,7 @@ class WilayahController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new WilayahModel();
+        $model = new DonaturcategoryModel();
 
         if(!empty($id)){
             $data = $model->find($id);

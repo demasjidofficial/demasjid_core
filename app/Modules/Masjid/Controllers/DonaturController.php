@@ -4,16 +4,16 @@ namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\WilayahModel;
-use App\Modules\Masjid\Models\WilayahFilter;
+use App\Modules\Api\Models\DonaturModel;
+use App\Modules\Masjid\Models\DonaturFilter;
 
-class WilayahController extends AdminCrudController
+class DonaturController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\wilayah\\';
-    protected $baseRoute = 'admin/masjid/wilayah';
-    protected $langModel = 'wilayah';
-    protected $modelName = 'App\Modules\Api\Models\WilayahModel';
+    protected $viewPrefix = 'App\Modules\Masjid\Views\donatur\\';
+    protected $baseRoute = 'admin/masjid/donatur';
+    protected $langModel = 'donatur';
+    protected $modelName = 'App\Modules\Api\Models\DonaturModel';
     public function index(){
         return parent::index();
     }
@@ -40,12 +40,13 @@ class WilayahController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(WilayahFilter::class);
+        $model = model(DonaturFilter::class);
         return [
             'headers' => [
-                                    'kode' => 'kode',
-                'nama' => 'nama',
-                'level' => 'level'
+                                    'name' => 'name',
+                'id_kategori' => 'id_kategori',
+                'created_by' => 'created_by',
+                'updated_by' => 'updated_by'
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -59,7 +60,7 @@ class WilayahController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new WilayahModel();
+        $model = new DonaturModel();
 
         if(!empty($id)){
             $data = $model->find($id);

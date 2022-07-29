@@ -4,10 +4,10 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2>wilayah</h2>
+                <h2>donaturcategory</h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  wilayah</a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  donaturcategory</a>
             </div>
         </div>
     </x-page-head>
@@ -15,8 +15,8 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <!-- List wilayahs -->
-                <div class="col table-responsive" id="wilayah-list">
+                <!-- List donaturcategorys -->
+                <div class="col table-responsive" id="donaturcategory-list">
                     <?php echo $this->include($viewPrefix.'\_table'); ?>
                     <?php echo $pager->links() ?>
                 </div>

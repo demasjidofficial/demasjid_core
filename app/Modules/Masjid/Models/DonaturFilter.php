@@ -2,10 +2,10 @@
 
 namespace App\Modules\Masjid\Models;
 
-use App\Modules\Api\Models\WilayahModel;
+use App\Modules\Api\Models\DonaturModel;
 use Bonfire\Traits\Filterable;
 
-class WilayahFilter extends WilayahModel
+class DonaturFilter extends DonaturModel
 {
     use Filterable;
 

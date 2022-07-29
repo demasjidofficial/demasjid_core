@@ -1,17 +1,17 @@
 <?php namespace App\Modules\Api\Controllers;
  
 use asligresik\easyapi\Controllers\BaseResourceController;
-class Wilayahs extends BaseResourceController
+class Donaturcategories extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\WilayahModel';  
+    protected $modelName = 'App\Modules\Api\Models\DonaturcategoryModel';  
 
      /**
      * @OA\Get(
-     *     path="/wilayahs",
-     *     tags={"Wilayah"},
-     *     summary="Find list Wilayah",
-     *     description="Returns list of Wilayah",
-     *     operationId="getWilayah",  
+     *     path="/donaturcategories",
+     *     tags={"Donaturcategory"},
+     *     summary="Find list Donaturcategory",
+     *     description="Returns list of Donaturcategory",
+     *     operationId="getDonaturcategory",  
      *     @OA\Parameter(
      *         name="search",
      *         in="query",
@@ -48,17 +48,17 @@ class Wilayahs extends BaseResourceController
      *         response=200,
      *         description="successful operation",     
      *         @OA\JsonContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Wilayah")),
+     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Donaturcategory")),
      *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
      *         ),
      *         @OA\XmlContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Wilayah")),
-     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/Wilayah")),
+     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Donaturcategory")),
+     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/Donaturcategory")),
      *         ),           
      *     ),     
      *     @OA\Response(
      *         response=404,
-     *         description="Wilayah not found"
+     *         description="Donaturcategory not found"
      *     ),
      *     security={
      *         {"bearer_auth": {}}
@@ -69,15 +69,15 @@ class Wilayahs extends BaseResourceController
 
     /**
      * @OA\Get(
-     *     path="/wilayahs/{id}",
-     *     tags={"Wilayah"},
-     *     summary="Find Wilayah by ID",
-     *     description="Returns a single Wilayah",
-     *     operationId="getWilayahById",
+     *     path="/donaturcategories/{id}",
+     *     tags={"Donaturcategory"},
+     *     summary="Find Donaturcategory by ID",
+     *     description="Returns a single Donaturcategory",
+     *     operationId="getDonaturcategoryById",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="ID of Wilayah to return",
+     *         description="ID of Donaturcategory to return",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
@@ -87,8 +87,8 @@ class Wilayahs extends BaseResourceController
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
-     *         @OA\JsonContent(ref="#/components/schemas/Wilayah"),
-     *         @OA\XmlContent(ref="#/components/schemas/Wilayah"),
+     *         @OA\JsonContent(ref="#/components/schemas/Donaturcategory"),
+     *         @OA\XmlContent(ref="#/components/schemas/Donaturcategory"),
      *     ),
      *     @OA\Response(
      *         response=400,
@@ -96,7 +96,7 @@ class Wilayahs extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="Wilayah not found"
+     *         description="Donaturcategory not found"
      *     ),
      *     security={
      *         {"bearer_auth": {}}
@@ -107,15 +107,15 @@ class Wilayahs extends BaseResourceController
 
     /**
      * @OA\Post(
-     *     path="/wilayahs",
-     *     tags={"Wilayah"},
-     *     summary="Add a new Wilayah to the store",
-     *     operationId="addWilayah",
+     *     path="/donaturcategories",
+     *     tags={"Donaturcategory"},
+     *     summary="Add a new Donaturcategory to the store",
+     *     operationId="addDonaturcategory",
      *     @OA\Response(
      *         response=201,
-     *         description="Created Wilayah",
-     *         @OA\JsonContent(ref="#/components/schemas/Wilayah"),
-     *         @OA\XmlContent(ref="#/components/schemas/Wilayah"),
+     *         description="Created Donaturcategory",
+     *         @OA\JsonContent(ref="#/components/schemas/Donaturcategory"),
+     *         @OA\XmlContent(ref="#/components/schemas/Donaturcategory"),
      *     ),
      *     @OA\Response(
      *         response=405,
@@ -124,20 +124,20 @@ class Wilayahs extends BaseResourceController
      *     security={
      *         {"bearer_auth": {}}
      *     },     
-     *     requestBody={"$ref": "#/components/requestBodies/Wilayah"}
+     *     requestBody={"$ref": "#/components/requestBodies/Donaturcategory"}
      * )
      */
 
     /**
      * @OA\Put(
-     *     path="/wilayahs/{id}",
-     *     tags={"Wilayah"},
-     *     summary="Update an existing Wilayah",
-     *     operationId="updateWilayah",
+     *     path="/donaturcategories/{id}",
+     *     tags={"Donaturcategory"},
+     *     summary="Update an existing Donaturcategory",
+     *     operationId="updateDonaturcategory",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="Wilayah id to update",
+     *         description="Donaturcategory id to update",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
@@ -150,7 +150,7 @@ class Wilayahs extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="Wilayah not found"
+     *         description="Donaturcategory not found"
      *     ),
      *     @OA\Response(
      *         response=405,
@@ -159,20 +159,20 @@ class Wilayahs extends BaseResourceController
      *     security={
      *         {"bearer_auth": {}}
      *     },     
-     *     requestBody={"$ref": "#/components/requestBodies/Wilayah"}
+     *     requestBody={"$ref": "#/components/requestBodies/Donaturcategory"}
      * )
      */
 
     /**
      * @OA\Delete(
-     *     path="/wilayahs/{id}",
-     *     tags={"Wilayah"},
-     *     summary="Deletes a Wilayah",
-     *     operationId="deleteWilayah",     
+     *     path="/donaturcategories/{id}",
+     *     tags={"Donaturcategory"},
+     *     summary="Deletes a Donaturcategory",
+     *     operationId="deleteDonaturcategory",     
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="Wilayah id to delete",
+     *         description="Donaturcategory id to delete",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",

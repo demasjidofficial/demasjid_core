@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#00FFFF ;">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
       <img src="images/app-logo.svg" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
