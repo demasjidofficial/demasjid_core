@@ -109,6 +109,11 @@
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/main.js', 'js') ?>
 
+    <!-- carousel -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
     <script type="text/javascript">
         $(function(){
             $('#select-lang').on('change', function(){
@@ -163,6 +168,8 @@
         const result = subtractMinutes(10);
         console.log(result);
 
+        // =================
+
         var todaydate = new Date();
         var countDownTime = new Date('Jul 27, 2022 15:10:00').getTime();
         var x = setInterval(function(){
@@ -175,19 +182,24 @@
 
             document.getElementById("countDownText").innerHTML = "Dhuhur -"+hours+" : "+minutes+".  <small>"+seconds+"</small>";
 
-            if (now == now) {
-                clearInterval(x)
-                console.log("Waktu Sholat Dhuhur");
-            } else {
-                console.log("Selesai");
-            }
-
-            // if (distance < 0) {
-            //     clearInterval(x);
-            //     document.getElementById("countDownText").innerHTML = "selesai"
+            // if (now == now) {
+            //     clearInterval(x)
+            //     console.log("Waktu Sholat Dhuhur");
+            // } else {
+            //     clearInterval(x)
+            //     console.log("Selesai");
             // }
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countDownText").innerHTML = "selesai"
+            }
         },1000)
 
+        
+
+        bbata = Math.round(Date.parse(ddata) / 1000);
+        console.log(bbata);
 
 
     </script>

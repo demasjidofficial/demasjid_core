@@ -1,6 +1,8 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('main'); ?>
+
+<!-- header -->
 <section class="header fixed-top">
     <div class="card text-center textcard">
         <div class="card-header">
@@ -14,9 +16,7 @@
                     <h3 class="text-mail"><?= lang('app.email')?>: <?= $masjid_profile['email'];?></h3>
                 </div>
                 <div class="col col-text mt-5">
-                    <!-- <div class="row"> -->
                     <h2 id="clock" class="clock-text"></h2>
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -31,8 +31,8 @@
 
 </section>
 
+<!-- slideshow -->
 <section class="content-slideshow">
-    <!-- <div class="container"> -->
     <div class="container-fluid" id="slideshow">
         <?php foreach($board_news_bg as $bg){ ?>
             <div>
@@ -40,9 +40,9 @@
             </div>
         <?php } ?>
     </div>
-    <!-- </div> -->
 </section>
 
+<!-- card jadwal sholat -->
 <section class="footer fixed-bottom mb-5">
     <div class="text-footer">
         <div class="row m-5">
@@ -60,23 +60,38 @@
                     </div>
                 </div>
             <?php } ?>
+            <?php 
+                $date_pray = new Date();
+                $time_pray = date($rawatib_schedule['pray_time']);
+                $date_today = $date_pray.' '.$time_pray;
+            ?>
         </div>
 </section>
 
+<!-- running text -->
 <section class="runtext">
-    <div class="text-running fixed-bottom">
+    <!-- <div class="text-running fixed-bottom">
     <div class="card-body card-text-runinfo">
         <div class="promo-carousel" id="grouploop-1">   
             <div class="item-wrap ml-5 mr-5">
-                <?php foreach ($board_news_runtext as $text) { ?>  
                 <div class="row">
-                    <marquee scrollamount="<?= $text['duration'] ?>"> 
-                        <h3 class="text-runinfo"><?= $text['Text'] ?></h3>
+                < ?php foreach ($board_news_runtext as $text) { ?>
+                    <marquee scrollamount="< ?= $text['duration'] ?>"> 
+                        <h3 class="text-runinfo">< ?= $text['Text'] ?></h3>
                     </marquee>
+                < ?php } ?> 
                 </div> 
-                <?php } ?> 
             </div>
         </div>
+    </div>
+    </div> -->
+    <div class="text-running fixed-bottom">
+    <div class="marquee">
+        <ul class="marquee-content">
+            <?php foreach ($board_news_runtext as $text) { ?>
+            <li><?= $text['Text'] ?></li>
+            <?php } ?> 
+        </ul>
     </div>
     </div>
 </section>
@@ -167,7 +182,7 @@
 
     
     /* =====text berjalan */
-    marquee{
+    /* marquee{
         direction: 'left';
         height: 25px;
     }
@@ -179,7 +194,35 @@
         display: inline;
         color: white;
         font-weight: bold;
+    } */
+    .marquee {
+        width: 100%;
+        height: 40px;
+        background-color: black;
+        color: white;
+        overflow: hidden;
     }
+    .marquee-content {
+        list-style: none;
+        height: 100%;
+        display: flex;
+        animation:  scrolling 50s linear infinite;
+    }
+    @keyframes scrolling{
+        0% { transform: translateX(80vw);}
+        100% { transform: translateX(-180vw);}
+    }
+    .marquee-content li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 3px solid teal; */
+        width: 100%;
+        flex-shrink: 0;
+        font-size: 2rem;
+        white-space: nowrap;
+    }
+
 
     /* =====slide image */
     #slideshow {
@@ -198,7 +241,12 @@
         object-fit: fill;
         background-size: contain;
     }
-   
+    section .content-slideshow {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
 
 </style>
 <?php $this->endSection(); ?>
