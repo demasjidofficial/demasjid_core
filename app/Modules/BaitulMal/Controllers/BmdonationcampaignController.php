@@ -61,8 +61,13 @@ class BmdonationcampaignController extends AdminCrudController
     }  
 
     public function create(){
-        $uploadedImage = $this->uploadFile('image');
-        $this->model->set('path_image', $uploadedImage);
+        $image = $this->request->getFile('image');
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploadedImage = $this->uploadFile('image');
+                $this->model->set('path_image', $uploadedImage);
+            }
+        }
 
         $data = $this->request->getPost();
         $data['campaign_tonase'] = (float)(str_replace(',','',$data['campaign_tonase']));
@@ -122,7 +127,7 @@ class BmdonationcampaignController extends AdminCrudController
             $data->campaign_daterange =  $start_date[2] . '/' . $start_date[1] .'/'. (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2)); 
             $dataEdit['data'] = $data;
         }
-        $dataEdit['donationcampaigncategoryItems'] = ['' => 'Pilih Kategori'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaigncategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        // $dataEdit['donationcampaigncategoryItems'] = ['' => 'Pilih Kategori'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaigncategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['programItems'] = ['' => 'Pilih Program'] + Arr::pluck(model('App\Modules\Api\Models\ProgramModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['stateItems'] = BmdonationcampaignModel::listState();
@@ -141,13 +146,14 @@ class BmdonationcampaignController extends AdminCrudController
                 $totalDonation = $totalDonation + $item->campaign_collected;
                 $countDonation = $countDonation + $item->donation_count;
             }
-            return (object)[
-                'totalDonation' => $totalDonation,
-                'totalActiveCampaign' => $totalActiveCampaign,
-                'countDonation' => $countDonation,
-                'totalCampaign' => count($data),
-            ];
         }
+
+        return (object)[
+            'totalDonation' => $totalDonation,
+            'totalActiveCampaign' => $totalActiveCampaign,
+            'countDonation' => $countDonation,
+            'totalCampaign' => count($data),
+        ];
        
     }
 }

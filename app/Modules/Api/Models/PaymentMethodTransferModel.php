@@ -1,6 +1,6 @@
 <?php namespace App\Modules\Api\Models;
 
-class PaymentMethodModel extends BaseModel
+class PaymentMethodTransferModel extends BaseModel
 {
     protected $table = 'payment_method';
     protected $returnType = 'App\Modules\Api\Entities\PaymentMethod';
@@ -23,5 +23,14 @@ class PaymentMethodModel extends BaseModel
 		'payment_category_id' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required'
-    ];  
+    ];   
+
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'master_bank.name as master_bank_name', 'master_bank.path_logo as master_bank_path_logo'];        
+        $this->join('master_bank', 'master_bank.id = '.$this->table.'.master_payment_id');
+        $this->where('payment_category_id', 1);
+		return parent::findAll($limit, $offset);
+    }
+
 }

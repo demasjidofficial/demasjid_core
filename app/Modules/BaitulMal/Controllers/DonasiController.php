@@ -6,12 +6,14 @@ use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
 use App\Modules\Api\Models\DonasiModel;
 use App\Modules\BaitulMal\Models\DonasiFilter;
+use App\Modules\BaitulMal\Models\MasterBankFilter;
+use App\Modules\BaitulMal\Models\MasterPaymentgatewayFilter;
 
 class DonasiController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donasi\\';
-    protected $baseRoute = 'admin/baitulmal/donasi';
+    protected $baseRoute = 'admin/baitulmal/donation';
     protected $langModel = 'donasi';
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
     public function index(){
@@ -36,6 +38,21 @@ class DonasiController extends AdminCrudController
         return parent::create();
     }
 
+    public function insertDonation(){
+        $data = $this->request->getPost();
+        if (! $this->model->insert($data)) {            
+            return json_encode([
+                'state' => false,
+                'error' => $this->model->errors()
+            ]);
+        }
+        $this->writeLog();
+        return json_encode([
+            'state' => true,
+            'id' => $this->model->insertID()
+        ]);
+    }
+
     public function delete($id = null){
         return parent::delete($id);
     }
@@ -45,21 +62,23 @@ class DonasiController extends AdminCrudController
         $model = model(DonasiFilter::class);
         return [
             'headers' => [
-                'no' => lang('crud.no'),
-                'donatur' => lang('crud.id_donatur'),
+                'donatur' => lang('crud.donatur'),
                 'no_hp' => lang('crud.no_hp'),
                 'donasi' => lang('crud.donation'),
                 'program' => lang('crud.program'),
                 'payment' => lang('crud.payment'),
+                'followup' => '',
                 'date' => lang('crud.date'),
-                'action' => lang('crud.created_by')
+                'action' => lang('crud.action')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
+            'dataStats' => $this->getDataStats($model->find()),
+            'campaignName' => 'All'
         ];
     }
 
@@ -86,23 +105,45 @@ class DonasiController extends AdminCrudController
     {
         $model = model(DonasiFilter::class);
         $model->where('campaign_id', (int)$id);
+        $uri = current_url(true);
+
+        $model_master_bank = model(MasterBankFilter::class)->asArray()->findAll();
+        $model_master_paygat = model(MasterPaymentgatewayFilter::class)->asArray()->findAll();
+
         return [
             'headers' => [
-                'no' => lang('crud.no'),
-                'donatur' => lang('crud.id_donatur'),
+                'donatur' => lang('crud.donatur'),
                 'no_hp' => lang('crud.no_hp'),
                 'donasi' => lang('crud.donation'),
                 'program' => lang('crud.program'),
                 'payment' => lang('crud.payment'),
+                'followup' => '',
                 'date' => lang('crud.date'),
-                'action' => lang('crud.created_by')
+                'action' => lang('crud.action')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
+            'dataStats' => $this->getDataStats($model->find()),
+            'campaignName' => urldecode($uri->getSegment(5)),
+            'master_bank' => $model_master_bank,
+            'master_paygat' => $model_master_paygat
         ];
     }
+
+    protected function getDataStats($data) {
+        $totalDonation = 0;
+        $totalActiveCampaign = 0;
+        $countDonation = 0;
+        return (object)[
+            'totalDonation' => $totalDonation,
+            'totalActiveCampaign' => $totalActiveCampaign,
+            'countDonation' => $countDonation,
+            'totalCampaign' => count($data),
+        ];
+    }
+       
 }

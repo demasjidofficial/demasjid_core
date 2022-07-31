@@ -1,0 +1,11 @@
+.fl-tabnav ul li {
+    width: 25%;
+    text-align: center;
+    background: #818181;
+}
+
+.fl-tabnav ul li a {
+    color: white;
+    padding: 1rem;
+    margin: 5px;
+}

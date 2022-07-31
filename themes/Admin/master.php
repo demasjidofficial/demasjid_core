@@ -18,6 +18,7 @@
     
     <!-- Theme style -->
     <?= asset_link('admin/theme-adminlte/adminlte-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/custom.css', 'css') ?>
     <!-- overlayScrollbars -->
     <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css', 'css') ?>
         

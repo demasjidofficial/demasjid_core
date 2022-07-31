@@ -15,7 +15,7 @@ class CreatePaymentMethod extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],            
-            'master_bank_id' => [
+            'master_payment_id' => [
                 'type'           => 'int',
                 'constraint'     => 11,
                 'unsigned'       => true,
@@ -51,8 +51,7 @@ class CreatePaymentMethod extends Migration
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('master_bank_id', 'master_bank', 'id');    
+        $this->forge->addPrimaryKey('id');  
         $this->forge->addForeignKey('payment_category_id', 'payment_category', 'id');    
         $this->forge->createTable('payment_method', true);
     }

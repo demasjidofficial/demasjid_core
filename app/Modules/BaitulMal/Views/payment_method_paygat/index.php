@@ -7,13 +7,10 @@
                 <h2><?= lang('crud.payment_method') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.payment_method') ?></a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.payment_method_paygat') ?></a>
             </div>
             <div class="col-auto">
-                <a href="<?= site_url('/admin/baitulmal/masterbank')?>" class="btn btn-warning"><i class="fas fa-plus"></i>  <?= lang('crud.master_bank') ?></a>
-            </div>
-            <div class="col-auto">
-                <a href="<?= site_url('/admin/baitulmal/paymentcategory')?>" class="btn btn-light"><i class="fas fa-plus"></i>  <?= lang('crud.payment_category') ?></a>
+                <a href="<?= site_url('/admin/baitulmal/masterpaymentgateway')?>" class="btn btn-warning"><i class="fas fa-plus"></i>  <?= lang('crud.paymentgateway') ?></a>
             </div>
         </div>
     </x-page-head>
@@ -22,10 +19,10 @@
        <div class="col-md-12 fl-tabnav">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#transfer">Transfer</a>
+                <a class="nav-link" href="<?= site_url('/admin/baitulmal/paymentmethod_transfer')?>">Transfer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#paymentgateway">Payment Gateway</a>
+                <a class="nav-link active" aria-current="page"  href="<?= site_url('/admin/baitulmal/paymentmethod_paygat')?>">Payment Gateway</a>
             </li>
         </ul>
        </div>

@@ -3,15 +3,15 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\PaymentMethodModel;
-use App\Modules\BaitulMal\Models\PaymentMethodFilter;
+use App\Modules\Api\Models\PaymentMethodPaygatModel;
+use App\Modules\BaitulMal\Models\PaymentMethodPaygatFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
-class PaymentMethodController extends AdminCrudController
+class PaymentMethodPaygatController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\BaitulMal\Views\payment_method\\';
-    protected $baseRoute = 'admin/baitulmal/paymentmethod';
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\payment_method_paygat\\';
+    protected $baseRoute = 'admin/baitulmal/paymentmethod_paygat';
     protected $langModel = 'payment_method';
     protected $modelName = 'App\Modules\Api\Models\PaymentMethodModel';
     public function index(){
@@ -31,6 +31,9 @@ class PaymentMethodController extends AdminCrudController
     }
 
     public function create(){
+        /** Auto fill for transfer */
+        $this->model->set('payment_category_id', 2);
+
         return parent::create();
     }
 
@@ -38,25 +41,16 @@ class PaymentMethodController extends AdminCrudController
         return parent::delete($id);
     }
 
-    public function updateActived()
-    {      
-        $model = model(PaymentMethodFilter::class);
-        $id = $this->request->getPost('id');
-        $data = [
-            'isActived' => 0,
-        ];
-        $model->update([$id], $data);
-    }
-    
     protected function getDataIndex()
     {
-        $model = model(PaymentMethodFilter::class);
+        $model = model(PaymentMethodPaygatFilter::class);
         return [
             'headers' => [
-                'master_payment_id' => lang('crud.master_payment_id'),
+                'payment_category_id' => '',
+                'master_payment_id' => lang('crud.paymentgateway'),
                 'rek_no' => lang('crud.rek_no'),
                 'rek_name' => lang('crud.rek_name'),
-                'payment_category_id' => lang('crud.payment_category_id'),
+                'isActived' => lang('crud.state')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -70,8 +64,8 @@ class PaymentMethodController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new PaymentMethodModel();
-
+        $model = new PaymentMethodPaygatModel();
+        // return var_dump($dataEdit);
         if(!empty($id)){
             $data = $model->find($id);
             if (null === $data) {
@@ -79,8 +73,7 @@ class PaymentMethodController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['bankItems'] = ['' => 'Pilih Bank'] + Arr::pluck(model('App\Modules\Api\Models\MasterBankModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
-            $dataEdit['payment_categoryItems'] = ['' => 'Pilih Categori'] + Arr::pluck(model('App\Modules\Api\Models\PaymentCategoryModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['bankItems'] = ['' => 'Pilih Payment Gateway'] + Arr::pluck(model('App\Modules\Api\Models\MasterPaymentgatewayModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

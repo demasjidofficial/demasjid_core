@@ -28,9 +28,9 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.master_payment_id'),'',['for' => 'master_payment_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.bank'),'',['for' => 'master_payment_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('master_payment_id',$bankItems ,old('master_payment_id', $data->master_payment_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.master_payment_id')."' ") ?>
+                        <?= form_dropdown('master_payment_id',$bankItems ,old('master_payment_id', $data->master_payment_id ?? ''), "class='form-control select2' required ") ?>
                         <?php if (has_error('master_payment_id')) { ?>
                         <p class="text-danger"><?php echo error('master_payment_id'); ?></p>
                         <?php } ?>
@@ -51,15 +51,6 @@
                         <?= form_input('rek_name', old('rek_name', $data->rek_name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.rek_name')."' ") ?>
                         <?php if (has_error('rek_name')) { ?>
                         <p class="text-danger"><?php echo error('rek_name'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.payment_category_id'),'',['for' => 'payment_category_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_dropdown('payment_category_id',$payment_categoryItems ,old('payment_category_id', $data->payment_category_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.payment_category_id')."' ") ?>
-                        <?php if (has_error('payment_category_id')) { ?>
-                        <p class="text-danger"><?php echo error('payment_category_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>

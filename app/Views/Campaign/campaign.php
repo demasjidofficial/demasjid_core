@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="btn-donation-wrapper" style="text-align:center;">
-                        <button class="btn btn-donation">Donasi Sekarang</button>
+                        <a class="btn btn-donation" href='<?= site_url('/id/checkout/'.$donation_campaigns["id"])?>'>Donasi Sekarang</a>
                     </div>
                 </div>
             </div>

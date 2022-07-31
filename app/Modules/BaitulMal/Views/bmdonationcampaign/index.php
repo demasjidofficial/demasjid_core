@@ -93,9 +93,6 @@
                             <a class="btn btn-sm btn-success" href="<?php echo route_to($baseRoute.'/new'); ?>" role="button">
                                 <i class="fas fa-plus"></i> <?= lang('crud.add_new') ?>
                             </a>
-                            <a class="btn btn-sm btn-light" href="<?= site_url('/admin/baitulmal/donationcampaigncategory')?>" role="button">
-                                <i class="fas fa-info"></i> <?= lang('crud.category') ?>
-                            </a>
                             <!-- <button type="button" id="btnModal" class="btn btn-success" data-bs-toggle="modal" data-target="#addcampaigns_modal">
                                 <i class="fas fa-plus"></i> add new campaign
                             </button> -->

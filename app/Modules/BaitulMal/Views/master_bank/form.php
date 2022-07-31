@@ -30,16 +30,13 @@
                 <div class="row mb-3">
                     <?php echo form_label(lang('crud.path_logo'), '', ['for' => 'path_logo', 'class' => 'col-form-label col-sm-2']); ?>
                     <div class="col-sm-10">
-                        <?php if (isset($data->path_logo)) { ?>
                         <div class="justify-content-center photo-wrapper">
-                            <img src="<?php echo site_url($data->path_logo); ?>" alt="" class="img-thumbnail" style="height:150px">
+                            <img id="bank_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_logo) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" style="height:150px">
                         </div>
-                        <?php } ?>
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <?php echo form_upload('image', old('image', $data->path_logo ?? ''), "class='custom-file-input'  placeholder='".lang('crud.path_logo')."' accept='image/*' "); ?>
-                                    <!-- <label class="custom-file-label">Pilih gambar path_logo</label> -->
+                                    <?php echo form_upload('image', old('image', $data->path_logo ?? ''), "class='custom-file-input' id='bank_imginput' placeholder='".lang('crud.path_logo')."' accept='image/*' "); ?>
                                     <?php if (has_error('path_logo')) { ?>
                                         p class="text-danger"><?php echo error('path_logo'); ?></p>
                                     <?php } ?>
@@ -104,6 +101,19 @@
         _topParent.remove();
         updateTotal(_elmOther.find('span[role=button]'));
     }
+
+    function imagePreview(fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (event) {
+                $('#bank_imgpreview').attr('src', event.target.result);
+            };
+            fileReader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+    $('#bank_imginput').change(function () {
+        imagePreview(this);
+    });
 
 </script>
 <?php $this->endSection(); ?>

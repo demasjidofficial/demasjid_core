@@ -1,4 +1,4 @@
-<td><?php echo esc($item->master_bank_id) ?></a></td>
+<td><?php echo esc($item->master_payment_id) ?></a></td>
 <td><?php echo esc($item->rek_no) ?></a></td>
 <td><?php echo esc($item->rek_name) ?></a></td>
 <td><?php echo esc($item->payment_category_id) ?></a></td>

@@ -28,31 +28,22 @@
 
             <fieldset>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-8 pr-5">
+                        <div class="row mb-3">
+                            <?= form_label(lang('crud.program_id'),'',['for' => 'program_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_dropdown('program_id', $programItems, old('program_id', $data->program_id ?? ''), "class='form-control select2bs4' required") ?>
+                                <?php if (has_error('program_id')) { ?>
+                                <p class="text-danger"><?php echo error('program_id'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                                 <?php if (has_error('name')) { ?>
                                 <p class="text-danger"><?php echo error('name'); ?></p>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <?= form_label(lang('crud.label'),'',['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
-                            <div class="col-sm-10">
-                                <?= form_input('label', old('label', $data->label ?? ''), "class='form-control varchar' required placeholder='".lang('crud.label')."' ") ?>
-                                <?php if (has_error('label')) { ?>
-                                <p class="text-danger"><?php echo error('label'); ?></p>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
-                            <div class="col-sm-10">
-                                <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar'  placeholder='".lang('crud.description')."' ") ?>
-                                <?php if (has_error('description')) { ?>
-                                <p class="text-danger"><?php echo error('description'); ?></p>
                                 <?php } ?>
                             </div>
                         </div>
@@ -75,15 +66,6 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label(lang('crud.campaigncategory_id'),'',['for' => 'campaigncategory_id', 'class' => 'col-form-label col-sm-2']) ?>
-                            <div class="col-sm-10">
-                                <?= form_dropdown('campaigncategory_id', $donationcampaigncategoryItems, old('campaigncategory_id', $data->campaigncategory_id ?? ''), "class='form-control select2bs4' required") ?>
-                                <?php if (has_error('campaigncategory_id')) { ?>
-                                <p class="text-danger"><?php echo error('campaigncategory_id'); ?></p>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
                             <?= form_label(lang('crud.donationtype_id'),'',['for' => 'donationtype_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_dropdown('donationtype_id', $donationtypeItems, old('donationtype_id', $data->donationtype_id ?? ''), "class='form-control select2bs4' required") ?>
@@ -93,11 +75,11 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label(lang('crud.program_id'),'',['for' => 'program_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_dropdown('program_id', $programItems, old('program_id', $data->program_id ?? ''), "class='form-control select2bs4' required") ?>
-                                <?php if (has_error('program_id')) { ?>
-                                <p class="text-danger"><?php echo error('program_id'); ?></p>
+                                <?= form_textarea('description', old('description', $data->description ?? ''), "class='form-control varchar'  placeholder='".lang('crud.description')."' required ") ?>
+                                <?php if (has_error('description')) { ?>
+                                <p class="text-danger"><?php echo error('description'); ?></p>
                                 <?php } ?>
                             </div>
                         </div>
@@ -111,20 +93,17 @@
                             </div>
                         </div>
                     </div> 
-                    <div class="col-6">
-                        <div class="row mb-3">
-                            <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
-                            
-                            <div class="col-md-10">
-                                <?php if(isset($data->path_image)): ?>
+                    <div class="col-4">
+                        <div class="row mb-3"> 
+                            <div class="col-md-12">
+ 
                                 <div class="justify-content-center photo-wrapper">           
-                                    <img src="<?= site_url($data->path_image) ?>" alt="" class="img-thumbnail" style="height:150px">
+                                    <img id="campaign_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" >
                                 </div>
-                                <?php endif ?>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <?= form_upload('image', old('image', $data->path_image ?? ''), "class='custom-file-input'  placeholder='".lang('crud.path_image')."' accept='image/*' ".(!isset($data->path_logo) ? 'required' : '')) ?>
+                                            <?= form_upload('image', old('image', $data->path_image ?? ''), "class='custom-file-input' id='campaign_imginput' placeholder='".lang('crud.path_image')."' accept='image/*' ".(!isset($data->path_image) ? 'required' : '')) ?>
                                             <label class="custom-file-label">Pilih gambar kampanye</label>
                                         </div>
                                         <div class="input-group-append clickable">
@@ -178,6 +157,23 @@
             'rightAlign': false,
             'digits': '0', 
             'allowMinus': 'false',               
+        });
+
+        function imagePreview(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    $('#campaign_imgpreview').attr('src', event.target.result);
+                };
+                fileReader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+        $('#campaign_imginput').change(function () {
+            imagePreview(this);
+        });
+        
+        $('select[name="program_id"]').change(function () {
+            $('input[name="name"]').val(parseInt(this.value) ? $('select[name="program_id"] option:selected').text() : '');
         });
     });
 
