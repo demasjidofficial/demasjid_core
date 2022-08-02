@@ -1,5 +1,5 @@
-<td><img src="<?php echo site_url($item->logo) ?>" alt="" class="img-thumbnail" style="height:50px"></a></td>
-<td><?php echo esc($item->nama_paymentgateway) ?></a></td>
+<td><img width="100px" src="/<?php echo ($item->path_logo) ? esc($item->path_logo) : 'uploads/images/blank.jpg' ?>"></a></td>
+<td><?php echo esc($item->name) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
