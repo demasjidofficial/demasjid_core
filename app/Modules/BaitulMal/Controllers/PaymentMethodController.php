@@ -37,16 +37,6 @@ class PaymentMethodController extends AdminCrudController
     public function delete($id = null){
         return parent::delete($id);
     }
-
-    public function updateActived()
-    {      
-        $model = model(PaymentMethodFilter::class);
-        $id = $this->request->getPost('id');
-        $data = [
-            'isActived' => 0,
-        ];
-        $model->update([$id], $data);
-    }
     
     protected function getDataIndex()
     {

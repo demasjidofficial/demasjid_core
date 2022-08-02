@@ -8,12 +8,12 @@
 </td>
 <td><?php echo esc($item->campaign_name) ?></a></td>
 <td class="text-center">
-    <div class="custom-control custom-switch">
-        <input onChange="updateState(<?php echo $item->id; ?>)" type="checkbox" class="custom-control-input" value="<?php echo $item->id; ?>" <?php echo ($item->state == 'Waiting') ? '' : 'checked'; ?> >
-        <label class="custom-control-label" for="<?php echo $item->id; ?>"><?php echo esc($item->state) ?></label>
+<div class="custom-control custom-switch">
+        <input type="checkbox" data-toggle="confirmation" class="custom-control-input" data-campaign="<?php echo $item->campaign_id; ?>" data-state="<?php echo $item->state; ?>" data-danain="<?php echo $item->dana_in; ?>"  id="<?php echo $item->id; ?>" <?php echo ((int)$item->state) ? 'checked' : ''; ?> >
+        <label class="custom-control-label" for="<?php echo $item->id; ?>"><?php echo ((int)$item->state)? "Received" : "Waiting" ?></label>
     </div>
 </td>
-<td><span><i class="fa fa-whatsapp" aria-hidden="true" href="'http://wa.me/<?php echo esc($item->no_hp) ?>"></i></span></a></td>
+<td></td>
 <td><?php echo esc($item->date) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->

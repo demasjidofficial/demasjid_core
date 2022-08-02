@@ -1,6 +1,7 @@
 <?php namespace App\Modules\Api\Controllers;
  
 use asligresik\easyapi\Controllers\BaseResourceController;
+
 class Donasis extends BaseResourceController
 {
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';  
@@ -192,4 +193,69 @@ class Donasis extends BaseResourceController
      *     },
      * )
      */
+
+    public function insertDonation(){
+        $data = $this->request->getPost();
+        if (! $this->model->insert($data)) {            
+            return json_encode([
+                'state' => false,
+                'error' => $this->model->errors()
+            ]);
+        }
+        $this->writeLog();
+        return json_encode([
+            'state' => true,
+            'id' => $this->model->insertID()
+        ]);
+    }
+
+    public function updateState()
+    {        
+        $id = $this->request->getPost('id');
+        $state = $this->request->getPost('state');
+        $campaign_id = $this->request->getPost('campaign_id');
+        $dana_in = $this->request->getPost('dana_in');
+
+
+        // update Bmdonationcampaign campaign_collected
+        $campaignModel = model('App\Modules\Api\Models\BmdonationcampaignModel', false);
+        $campaign = $campaignModel->find($campaign_id);
+        $campaign_collected = ($state == 1) ? ((float)$campaign->campaign_collected + (float)$dana_in) : max(((float)$campaign->campaign_collected - (float)$dana_in), 0);
+        $donation_count = ($state == 1) ? ((int)$campaign->donation_count+1) : max(((float)$campaign->donation_count-1), 0);
+
+        if ($campaignModel->update($campaign_id, [
+            'campaign_collected' => $campaign_collected,
+            'donation_count' => $donation_count
+        ])) {
+            // update donasi_state
+            $update_donation = $this->updated($this, [
+                'id'=> $id,
+                'state' => (int)$state,
+                'campaign_collected' => $campaign_collected,
+                'donation_count' => $donation_count
+            ]);
+
+            if($update_donation['state']) {
+                return $this->respond($update_donation['data'], 200, 'data updated');
+            }
+            else $this->fail($update_donation['data']);
+
+        }
+        else $this->fail(false);
+    }
+
+    private function updated($_this, $data) 
+    {		
+		if (!$_this->model->save($data)) {
+			return [
+                "state" => false,
+                "data" => $_this->model->errors() 
+            ];
+		}
+        $_this->writeLog();
+        return [
+            "state" => true,
+            "data" => $data 
+        ];
+    }
 } 

@@ -41,7 +41,7 @@ class DonasiModel extends BaseModel
     {
         $this->join('bmdonationcampaign', 'bmdonationcampaign.id = '.$this->table.'.campaign_id');
 		$this->join('payment_method', 'payment_method.id = '.$this->table.'.paymentmethod_id');
-		$this->select(''.$this->table.'.dana_in, '.$this->table.'.date, '.$this->table.'.state, '.$this->table.'.name, '.$this->table.'.email, '.$this->table.'.no_hp, '.$this->table.'.paymentmethod_id, bmdonationcampaign.name as campaign_name, payment_method.payment_category_id as payment_category, payment_method.rek_name as payment_rek_name');
+		$this->select(''.$this->table.'.id,'.$this->table.'.dana_in, '.$this->table.'.date, '.$this->table.'.campaign_id, '.$this->table.'.paymentmethod_id, '.$this->table.'.state, '.$this->table.'.name, '.$this->table.'.email, '.$this->table.'.no_hp, '.$this->table.'.paymentmethod_id, bmdonationcampaign.name as campaign_name, payment_method.payment_category_id as payment_category, payment_method.rek_name as payment_rek_name');
 		return parent::findAll($limit, $offset);
     }
 }

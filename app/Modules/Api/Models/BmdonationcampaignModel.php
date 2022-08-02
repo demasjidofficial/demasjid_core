@@ -18,13 +18,15 @@ class BmdonationcampaignModel extends BaseModel
 		'campaignstart_date',
 		'campaignend_date',
 		'campaign_tonase',
+		'campaign_collected',
 		'campaigncategory_id',
 		'donationtype_id',
 		'program_id',
 		'state',
 		'created_at',
 		'updated_at',
-		'created_by'
+		'created_by',
+		'donation_count'
     ];
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[bmdonationcampaign.id,id,{id}]',
