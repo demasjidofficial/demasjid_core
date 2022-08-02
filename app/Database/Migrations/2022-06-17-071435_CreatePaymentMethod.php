@@ -21,8 +21,8 @@ class CreatePaymentMethod extends Migration
                 'unsigned'       => true,
             ],
             'rek_no' => [
-                'type' => 'int',
-                'constraint' => 20,
+                'type' => 'varchar',
+                'constraint' => 30,
                 'null' => true
             ],
             'rek_name' => [

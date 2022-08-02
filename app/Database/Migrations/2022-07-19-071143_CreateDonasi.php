@@ -36,6 +36,7 @@ class CreateDonasi extends Migration
             'dana_in' => [
                 'type'       => 'int',
                 'constraint' => 13,
+                'unsigned'   => true,
             ],
             'date' => [
                 'type'       => 'date'

@@ -13,6 +13,7 @@ class AddDonationCountCampaign extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'default' => 0,
+                'unsigned'   => true,
             ],            
         ]);
     }
