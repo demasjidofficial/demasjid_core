@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateMasterBank extends Migration
+class CreateMasterPaymentgateway extends Migration
 {
     public function up()
     {
@@ -14,16 +14,17 @@ class CreateMasterBank extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],
-            'logo' => [
-                'type' => 'blob',
-                'null' => true
-            ],
-            'bank' => [
+            ],            
+            'path_logo' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'null'       => true,
+            ],    
+            'name' => [
                 'type' => 'varchar',
-                'constraint' => 50,
+                'constraint' => 100,
                 'null' => true
-            ],        
+            ],   
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -40,12 +41,12 @@ class CreateMasterBank extends Migration
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');    
-        $this->forge->createTable('master_bank', true);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('master_paymentgateway', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('master_bank', true);
+        $this->forge->dropTable('master_paymentgateway', true);
     }
 }

@@ -11,6 +11,14 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/masterbank', ['controller' => 'MasterBankController']);
     $routes->resource('baitulmal/masterpaymentgateway', ['controller' => 'MasterPaymentgatewayController']);
     $routes->resource('baitulmal/masterewallet', ['controller' => 'MasterEwalletController']);
+    $routes->resource('baitulmal/donation', ['controller' => 'DonasiController']);
+    $routes->resource('baitulmal/donatur', ['controller' => 'DonaturController']);
+    $routes->resource('baitulmal/donaturtype', ['controller' => 'DonaturTypeController']);
+    $routes->resource('baitulmal/paymentmethod', ['controller' => 'PaymentMethodController']);
+    $routes->resource('baitulmal/paymentcategory', ['controller' => 'PaymentCategoryController']);
+    $routes->resource('baitulmal/paymentmethod_paygat', ['controller' => 'PaymentMethodPaygatController']);
+    $routes->resource('baitulmal/paymentmethod_transfer', ['controller' => 'PaymentMethodTransferController']);
+
     /** ask to delete */
     $routes->resource('baitulmal/_oldCampaigns', ['controller' => 'CampaignsController']);
     
@@ -23,9 +31,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/wakafs', ['controller' => '_WakafsController']);
     $routes->resource('baitulmal/qurbans', ['controller' => '_QurbansController']);
     $routes->resource('baitulmal/configs', ['controller' => '_ConfigsController']);
-    $routes->resource('baitulmal/donasis', ['controller' => 'DonasiController']);
     $routes->resource('baitulmal/campaigns', ['controller' => '_CampaignsController']);
     $routes->resource('baitulmal/masterBaitulMals', ['controller' => 'MasterController']);
-    
 
 });
