@@ -3,7 +3,8 @@
     <tr>
         <?php if (isset($showSelectAll)) : ?>
             <th style="width: 3em">
-                <input type="checkbox" class="form-check" id="select-all">
+                NO
+                <!-- <input type="checkbox" class="form-check" id="select-all"> -->
             </th>
         <?php endif ?>
     <?php foreach ($headers as $column => $title) : ?>

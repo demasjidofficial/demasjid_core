@@ -18,6 +18,7 @@
     
     <!-- Theme style -->
     <?= asset_link('admin/theme-adminlte/adminlte-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/custom.css', 'css') ?>
     <!-- overlayScrollbars -->
     <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css', 'css') ?>
         
@@ -96,6 +97,8 @@
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js', 'js') ?>
+
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
 <!-- AdminLTE for demo purposes --

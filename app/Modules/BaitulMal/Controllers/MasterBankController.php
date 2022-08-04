@@ -24,7 +24,7 @@ class MasterBankController extends AdminCrudController
         if (!empty($image)) {
             if ($image->getSize() > 0) {
                 $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
+                $this->model->set('path_logo', $uploaded);
             }
         }
         return parent::index();
@@ -40,7 +40,7 @@ class MasterBankController extends AdminCrudController
         if (!empty($image)) {
             if ($image->getSize() > 0) {
                 $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
+                $this->model->set('path_logo', $uploaded);
             }
         }
         return parent::update($id);
@@ -56,12 +56,11 @@ class MasterBankController extends AdminCrudController
         if (!empty($image)) {
             if ($image->getSize() > 0) {
                 $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
+                $this->model->set('path_logo', $uploaded);
             }
         }
-        return parent::create();
 
-        
+        return parent::create();
     }
 
     public function delete($id = null){
@@ -74,8 +73,7 @@ class MasterBankController extends AdminCrudController
         return [
             'headers' => [
                 'logo' => lang('crud.logo'),
-                'bank' => lang('crud.bank'),
-                // 'created_by' => lang('crud.created_by')
+                'name' => lang('crud.bank'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
