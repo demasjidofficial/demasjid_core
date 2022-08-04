@@ -25,7 +25,7 @@
 
     <?= $this->renderSection('styles') ?>
 </head>
-<body>
+<body onload="clock()">
 
     <!-- ? Preloader Start -->
     <div id="preloader-active">
@@ -42,127 +42,7 @@
 
     <header>
         <!-- Header Start -->
-        <div class="header-area">
-            <div class="main-header ">
-                <div class="header-top d-none d-lg-block">
-                    <div class="container-fluid">
-                        <div class="col-xl-12">
-                            <div class="row d-flex justify-content-between align-items-center">
-                                <div class="header-info-left d-flex">
-                                    <ul>     
-                                        <li><?= lang('app.phone')?>: +62 851 6136 4811</li>
-                                        <li><?= lang('app.email')?>: masjidalfurqonsby@demasjid.com</li>
-                                    </ul>
-                                    <div class="header-social">    
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="header-info-right d-flex align-items-center">
-                                    <div class="select-this">
-                                        <form action="#">
-                                            <div class="select-itms">
-                                                <select name="select" id="select-lang">
-                                                    <option value="/id"><?= lang('app.indonesia')?></option>
-                                                    <option value="/sa"><?= lang('app.arab')?></option>
-                                                    <option value="/en"><?= lang('app.english')?></option>
-                                                </select>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <ul class="contact-now">    
-                                    <li>
-                                        <?php if (auth()->loggedIn()) : ?>
-                                        <a href="/logout" ><?= strtoupper(lang('app.logout'))?></a>
-                                        <?php else : ?>
-                                        <a href="/login"><?= strtoupper(lang('app.login'))?></a>
-                                        <?php endif ?>
-                                    </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-bottom  header-sticky">
-                    <div class="container-fluid">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10">
-                                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
-                                    <!-- Main-menu -->
-                                    <div class="main-menu d-none d-lg-block">
-                                        <nav>
-                                            <ul id="navigation">                                                                                          
-                                                <li><a href="/"><?= lang('app.home')?></a></li>
-                                                <li><a href="#"><?= lang('app.about')?></a>
-                                                    <ul class="submenu">
-                                                        <li><a href="#"><?= lang('app.vision_mission')?></a></li>
-                                                        <li><a href="#"><?= lang('app.structure')?></a></li>
-                                                        <li><a href="#"><?= lang('app.commitee')?></a></li>
-                                                        <li><a href="#"><?= lang('app.erector')?></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#"><?= lang('app.services')?></a>
-                                                    <ul class="submenu">
-                                                        <li><a href="#"><?= lang('app.zakat')?></a></li>
-                                                        <li><a href="#"><?= lang('app.infaqshodaqoh')?></a></li>
-                                                        <li><a href="#"><?= lang('app.wakaf')?></a></li>
-                                                        <li><a href="#"><?= lang('app.qurban')?></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#"><?= lang('app.program')?></a>
-                                                    <ul class="submenu">
-                                                        <li><a href="#"><?= lang('app.kajian')?></a></li>
-                                                        <li><a href="#"><?= lang('app.pesantren')?></a></li>
-                                                        <li><a href="#"><?= lang('app.tpq')?></a></li>
-                                                        <!--
-                                                        <li><a href="#">< ?= lang('app.construction')?></a></li>
-                                                        -->
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#"><?= lang('app.muamalah')?></a>
-                                                    <ul class="submenu">
-                                                        <li><a href="#"><?= lang('app.room')?></a></li>
-                                                        <li><a href="#"><?= lang('app.net')?></a></li>
-                                                        <li><a href="#"><?= lang('app.share')?></a></li>
-                                                        <li><a href="#"><?= lang('app.life')?></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#"><?= lang('app.reports')?></a>
-                                                    <ul class="submenu">
-                                                        <li><a href="#"><?= lang('app.finance_reports')?></a></li>
-                                                        <li><a href="#"><?= lang('app.construction_reports')?></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#kontak"><?= lang('app.contact')?></a></li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    <!-- Header-btn -->
-                                    <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#" class="btn header-btn"><?= lang('app.donation')?></a>
-                                    </div>
-                                </div>
-                            </div> 
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?= $this->renderSection('header')?>
         <!-- Header End -->
     </header>
     <!-- header end -->
@@ -176,112 +56,13 @@
     </main>
 
     <footer>
-        <div class="footer-wrapper section-bg2" data-background="/assets/app/theme-charityworks/img/gallery/footer_bg.png">
-            <!-- Footer Top-->
-            <div class="footer-area footer-padding" id="kontak">
-                <div class="container">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="single-footer-caption mb-30">
-                                <div class="footer-tittle">
-                                    <div class="footer-logo mb-20">
-                                        <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4><?= lang('app.contact_info')?></h4>
-                                    <ul>
-                                        <li>
-                                            <p><?= lang('app.alamat')?> :<br/>Jl. Teuku Imam Bonjol 99 Surabaya 60299</p>
-                                        </li>
-                                        <li><a href="#"><?= lang('app.phone')?> : <br/>+62 851 6136 4811</a></li>
-                                        <li><a href="#"><?= lang('app.email')?> : <br/>masjidalfurqonsby@demasjid.com</a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4><?= lang('app.important_link')?></h4>
-                                    <ul>
-                                        <li><a href="#"><?= lang('app.article')?></a></li>
-                                        <li><a href="#"><?= lang('app.agenda')?></a></li>
-                                        <li><a href="#">Camp</a></li>
-                                        <li><a href="#">Care</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Kebijakan Privasi</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4><?= lang('app.buletin')?> DeMasjid</h4>
-                                    <div class="footer-pera footer-pera2">
-                                    <p><?= lang('app.buletin_desc')?></p>
-                                </div>
-                                <!-- Form -->
-                                <div class="footer-form" >
-                                    <div id="mc_embed_signup">
-                                        <form target="_blank" action=""
-                                        method="get" class="subscribe_form relative mail_part">
-                                            <input type="email" name="email" id="newsletter-form-email" placeholder="<?= lang('app.email_address')?>"
-                                            class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = ' Email Address '">
-                                            <div class="form-icon">
-                                                <button type="submit" name="submit" id="newsletter-submit"
-                                                class="email_icon newsletter-submit button-contactForm"><img src="/assets/app/theme-charityworks/img/gallery/form.png" alt=""></button>
-                                            </div>
-                                            <div class="mt-10 info"></div>
-                                        </form>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- footer-bottom -->
-            <div class="footer-bottom-area">
-                <div class="container">
-                    <div class="footer-border">
-                        <div class="row d-flex justify-content-between align-items-center">
-                            <div class="col-xl-8 col-lg-8 ">
-                                <div class="footer-copy-right">
-                                    <p>
-                                    <?= lang('app.copyright')?> &copy;<script>document.write(new Date().getFullYear());</script>. <?= lang('app.developedby')?> <a href="<?= prep_url('https://demasjid.com') ?>" target="_blank">Demasjid Team</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3">
-                                <div class="footer-social f-right">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?= $this->renderSection('footer')?>
     </footer>
 
     <!-- Scroll Up -->
-    <div id="back-top" >
+    <!-- <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-    </div>
+    </div> -->
 
     <!-- JS here -->
 
@@ -328,6 +109,11 @@
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/main.js', 'js') ?>
 
+    <!-- carousel -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
     <script type="text/javascript">
         $(function(){
             $('#select-lang').on('change', function(){
@@ -338,6 +124,84 @@
                 return false;
             })
         })
+
+        // show time
+        function clock() {
+            var clockDiv = document.querySelector("#clock");
+            
+            return setInterval(() => {
+                let date = new Date();
+                let tick = date.toLocaleTimeString();
+                // let time = date.getHours()+" : "+date.getMinutes()+" : "+date.getSeconds();
+
+                clockDiv.textContent = tick;
+            }, 500);
+        }
+
+        // show date
+        const months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+
+        const d = new Date();
+        let month = months[d.getMonth()];
+        let day = days[d.getDay()];
+        document.getElementById("date").innerHTML = (day+", "+d.getDate()+" "+month+" "+d.getFullYear());
+
+
+        // show countdown    
+        $('.card-sholat').each(function(){
+            var prayTitle = $(this).find('h3.card-title').text();
+            var prayTime = $(this).find('p.card-text').text()
+            console.log("Waktu "+prayTitle+" Pukul "+prayTime);
+        })
+
+        function subtractMinutes(numOfMinutes, date = new Date()) {
+            const now = new Date(date.getTime());
+
+            // now.setHours(now.getHours() + numOfHours);
+            now.setMinutes(now.getMinutes() + numOfMinutes);
+
+            return now;
+            
+        }      
+        
+        const result = subtractMinutes(10);
+        console.log(result);
+
+        // =================
+
+        var todaydate = new Date();
+        var countDownTime = new Date('Jul 27, 2022 15:10:00').getTime();
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance = countDownTime - now;
+            // var days = Math.floor(distance/ (1000*60*60*24));
+            var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+            var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+            var seconds = Math.floor((distance % (1000*60)) / 1000);
+
+            document.getElementById("countDownText").innerHTML = "Dhuhur -"+hours+" : "+minutes+".  <small>"+seconds+"</small>";
+
+            // if (now == now) {
+            //     clearInterval(x)
+            //     console.log("Waktu Sholat Dhuhur");
+            // } else {
+            //     clearInterval(x)
+            //     console.log("Selesai");
+            // }
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countDownText").innerHTML = "selesai"
+            }
+        },1000)
+
+        
+
+        bbata = Math.round(Date.parse(ddata) / 1000);
+        console.log(bbata);
+
+
     </script>
     <?= $this->renderSection('scripts') ?>
 </body>

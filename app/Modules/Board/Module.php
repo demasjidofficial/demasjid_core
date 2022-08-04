@@ -22,7 +22,7 @@ class Module extends BaseModule
         // Content Menu for sidebar
         $boardnewsItem = new MenuItem([
             'title'           => lang('app.board_news'),
-            'url'             => url_to('App\Modules\Board\Controllers\BoardnewsController::index'),
+            'url'             => url_to('App\Modules\Board\Controllers\_BoardNewsController::index'),
             'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
             //'permission'      => 'baitulmal.donationtype.list',
         ]);
@@ -44,11 +44,18 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
+        $boardkonfigurasiItem = new MenuItem([
+            'title'           => lang('app.board_konfigurasi'),
+            'url'             => url_to('App\Modules\Board\Controllers\BoardDeviceController::index'),
+            'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
+            //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
+        ]);
 
         $sidebar->menu('sidebar')->collection('board')
                 ->addItem($boardnewsItem)
                 ->addItem($boardtempItem)
                 ->addItem($boarddonationItem)
-                ->addItem($boardlivebroadcastItem);
+                ->addItem($boardlivebroadcastItem)
+                ->addItem($boardkonfigurasiItem);
     }
 }
