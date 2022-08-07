@@ -46,6 +46,9 @@ class DonasiController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(DonasiFilter::class);
+        $model_master_bank = model(MasterBankFilter::class)->asArray()->findAll();
+        $model_master_paygat = model(MasterPaymentgatewayFilter::class)->asArray()->findAll();
+
         return [
             'headers' => [
                 'donatur' => lang('crud.donatur'),
@@ -63,8 +66,10 @@ class DonasiController extends AdminCrudController
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
-            'dataStats' => $this->getDataStats($model->find(), []),
-            'campaignName' => 'All'
+            'dataStats' => $this->getDataStats($model->find(), null),
+            'campaignName' => 'All',
+            'master_bank' => $model_master_bank,
+            'master_paygat' => $model_master_paygat
         ];
     }
 
@@ -83,7 +88,8 @@ class DonasiController extends AdminCrudController
 
         $dataEdit['campaignItems'] = ['' => 'Pilih Kampanye'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaignModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['donaturItems'] = ['' => 'Pilih Donatur'] + Arr::pluck(model('App\Modules\Api\Models\DonaturModel')->select(['id as key', 'no_hp as text'])->asArray()->findAll(), 'text', 'key');
-        $dataEdit['paymentMethodItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'rek_no as int'])->asArray()->findAll(), 'int', 'key');
+        $dataEdit['paymentMethodRekNoItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'rek_no as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['paymentMethodRekNameItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'rek_name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 
@@ -97,6 +103,8 @@ class DonasiController extends AdminCrudController
         $model_master_paygat = model(MasterPaymentgatewayFilter::class)->asArray()->findAll();
         $campaign = model(BmdonationcampaignFilter::class)->asArray()->find($id);
         
+        $data = $model->paginate(setting('App.perPage'));
+
         return [
             'headers' => [
                 'donatur' => lang('crud.donatur'),
@@ -112,9 +120,9 @@ class DonasiController extends AdminCrudController
             'viewPrefix' => $this->getViewPrefix(),
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
-            'data' => $model->paginate(setting('App.perPage')),
+            'data' => $data,
             'pager' => $model->pager,
-            'dataStats' => $this->getDataStats($model->find(), [$campaign]),
+            'dataStats' => $this->getDataStats($data, $campaign),
             'campaignName' => urldecode($uri->getSegment(5)),
             'master_bank' => $model_master_bank,
             'master_paygat' => $model_master_paygat
@@ -127,27 +135,16 @@ class DonasiController extends AdminCrudController
         $countDonation = 0;
 
         if (isset($campaign)) {
-            if (count($campaign) == 1) {
-                $totalDonation = $campaign[0]['campaign_collected'];
-                $countDonation = $campaign[0]['donation_count'];
-                $totalActiveCampaign = 1;
-            }
+            $totalDonation = $campaign['campaign_collected'];
+            $countDonation = $campaign['donation_count'];
+            $totalActiveCampaign = ($campaign['state'] == model('App\Modules\Api\Models\BmdonationcampaignModel')::END) ? 0 : 1;
         }
-
-        // if(isset($campaign) && count($campaign)){
-        //     foreach ($campaign as $cp) {
-
-        //     }
-        // }
-        // else {
-        //     $totalDonation = 
-        // }
-
+        
         return (object)[
             'totalDonation' => $totalDonation,
             'totalActiveCampaign' => $totalActiveCampaign,
             'countDonation' => $countDonation,
-            'totalCampaign' => count($donasi),
+            'totalInDonation' => count($donasi),
         ];
     }
        

@@ -95,7 +95,7 @@
 
 <!-- Our Cases Start -->
 <?php if (isset($donation_campaigns) && count($donation_campaigns)) : ?>
-<div class="our-cases-area section-padding24">
+<div class="our-cases-area section-padding24" id="donasi">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">

@@ -117,7 +117,7 @@
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#" class="btn header-btn"><?= lang('app.donation')?></a>
+                                        <a href="#donasi" class="btn header-btn"><?= lang('app.donation')?></a>
                                     </div>
                                 </div>
                             </div> 

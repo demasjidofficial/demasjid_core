@@ -32,7 +32,7 @@ class PaymentMethodTransferController extends AdminCrudController
 
     public function create(){
         /** Auto fill for transfer */
-        $this->model->set('payment_category_id', 1);
+        $this->model->set('payment_category_id', (new PaymentMethodTransferModel())->transfer());
 
         return parent::create();
     }
