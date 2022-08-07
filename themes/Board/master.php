@@ -42,7 +42,7 @@
     </style>
 </head>
 
-<body onload="clock()">
+<body onload="clock(), forecerFullscreen()">
 
     <!-- ? Preloader Start -->
     <div id="preloader-active">
@@ -209,6 +209,12 @@
         //     }
         // }, 1000);
 
+        function forecerFullscreen() {
+            top.resizeTo(window.screen.availWidth, window.screen.availHeight);
+            top.moveTo(0, 0);
+
+            setTimeout(forecerFullscreen(),10);
+        }
     </script>
     <?= $this->renderSection('scripts') ?>
 </body>

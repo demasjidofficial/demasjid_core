@@ -51,21 +51,19 @@
         <div class="row m-5 ml-5">
             <?php foreach ($rawatib_schedule as $sholat) {
                 $no = $sholat['id'];
-                $warna1 = "#CA4E79";
-                $warna2 = "#395B64";
 
-                if ($no % 2 == 0) {
-                    $bgcolor = "background-color: " . $warna1 . ";";
-                } else {
-                    $bgcolor = "background-color: " . $warna2 . ";";
-                }
+                // if ($no == 1) {
+                //     $bgcolor = "background-color: " . $warna1 . ";";
+                // } else {
+                //     $bgcolor = "background-color: " . $warna2 . ";";
+                // }
             ?>
 
                 <div class="col">
-                    <div class="card  w-40 card-pray-bg" style="<?= $bgcolor ?>">
+                    <div class="card  w-40 card-pray-bg bg-color<?= $no?>">
                         <div class="card-body text-center card-sholat" id="jadwal" id-pray-time="<?= $sholat['id'] ?>">
                             <h3 class="card-title">
-                                <?= $sholat['name'] ?>
+                                <?= ucfirst($sholat['name']) ?>
                             </h3>
                             <p class="card-text">
                                 <?= date('H:i', strtotime($sholat['pray_time'])) ?>
@@ -147,6 +145,16 @@
         document.getElementById("countDownText").innerHTML = "selesai";
         hide();
     }
+
+    $(document).ready(function(){
+	    function forecerFullscreen(){
+            top.resizeTO(window.screen.availWidth, window.screen.availHeight);
+            top.moveTo(0,0);
+
+            setTimeout("forecerFullscreen()", 500);
+        }
+    });
+
 </script>
 <?php $this->endSection(); ?>
 
@@ -200,12 +208,28 @@
         color: white;
         font-weight: bold;
     }
-
     .card-pray-bg {
         /* background-color: rgb(47, 142, 168); */
         border-radius: 10px;
         opacity: .8;
+        padding: 10%;
     }
+    .bg-color1{
+        background-color: #CA4E79;
+    }
+    .bg-color2{
+        background-color: #395B64;
+    }
+    .bg-color3{
+        background-color: #A66CFF;
+    }
+    .bg-color4{
+        background-color: #5BB318;
+    }
+    .bg-color5{
+        background-color: #FEB139;
+    }
+
 
 
     /* run text */

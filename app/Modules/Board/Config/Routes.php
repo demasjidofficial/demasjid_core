@@ -13,9 +13,11 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Board\Controllers'], st
     $routes->resource('board/newsbg', ['controller' => 'BoardNewsBgController']);
     $routes->resource('board/newsrunningtext', ['controller' => 'BoardNewsRuntextController']);
 
-    $routes->resource('board/configs/', ['controller' => 'BoardNewsRuntextController']);
+    $routes->resource('configs/device', ['controller' => 'BoardDeviceController']);
+    // $routes->resource('board/configs/device', ['controller' => 'BoardDeviceController']);
 
 
 });
 
 $routes->get('board/news_viewtv', '\App\Modules\Board\Controllers\BoardnewsTVController::index');
+
