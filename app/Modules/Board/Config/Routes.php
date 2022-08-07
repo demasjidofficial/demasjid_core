@@ -7,11 +7,13 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Board\Controllers'], st
     $routes->resource('board/temperature', ['controller' => 'BoardtemperatureController']);
     $routes->resource('board/donation', ['controller' => 'BoarddonationController']);
     $routes->resource('board/livebroadcast', ['controller' => 'BoardlivebroadcastController']);
-    $routes->resource('board/konfigurasi', ['controller' => 'BoardDeviceController']);
+    $routes->resource('board/configs', ['controller' => '_BoardConfigsController']);
 
 
     $routes->resource('board/newsbg', ['controller' => 'BoardNewsBgController']);
     $routes->resource('board/newsrunningtext', ['controller' => 'BoardNewsRuntextController']);
+
+    $routes->resource('board/configs/', ['controller' => 'BoardNewsRuntextController']);
 
 
 });

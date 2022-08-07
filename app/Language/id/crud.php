@@ -268,8 +268,9 @@ return [
 
 	'news' => 'Berita',
 	'board_news' => 'Papan Berita',
-	'board_device' => 'Device',
+	'device' => 'Perangkat',
 	'board_newsbg' => 'Background Slide',
 	'board_newsruntext' => 'Run Text',
+	'display' => 'Tampilan',
  ];
 

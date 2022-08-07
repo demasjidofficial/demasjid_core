@@ -46,7 +46,7 @@ class Module extends BaseModule
         ]);
         $boardkonfigurasiItem = new MenuItem([
             'title'           => lang('app.board_konfigurasi'),
-            'url'             => url_to('App\Modules\Board\Controllers\BoardDeviceController::index'),
+            'url'             => url_to('App\Modules\Board\Controllers\_BoardConfigsController::index'),
             'fontAwesomeIcon' => 'fas fa-bullhorn nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);

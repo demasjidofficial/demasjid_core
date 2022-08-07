@@ -1,30 +1,47 @@
 <!doctype html>
-<html lang="en"><head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-	<title>Masjid Al Furqon Surabaya | <?= config('App')->siteName ?? 'Demasjid' ?></title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Masjid Al Furqon Surabaya | <?= config('App')->siteName ?? 'Demasjid' ?></title>
 
     <link rel='icon' href='assets/app/theme-charityworks/img/logo/dmsjdfav_alfurqonsby.png' />
+    <!-- carousel -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
 
     <!-- CSS here -->
-	<?= asset_link('app/theme-charityworks/css/bootstrap.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/owl-carousel.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/slicknav.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/bootstrap.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/owl-carousel.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/slicknav.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/flaticon.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/progressbar_barfiller.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/gijgo.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/animate.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/animated-headline.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/magnific-popup.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/fontawesome-all.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/themify-icons.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/slick.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/nice-select.css', 'css') ?>
-	<?= asset_link('app/theme-charityworks/css/style.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/magnific-popup.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/fontawesome-all.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/themify-icons.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/slick.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/nice-select.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/style.css', 'css') ?>
 
     <?= $this->renderSection('styles') ?>
+    <style>
+        body,
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+
 <body onload="clock()">
 
     <!-- ? Preloader Start -->
@@ -42,7 +59,7 @@
 
     <header>
         <!-- Header Start -->
-        <?= $this->renderSection('header')?>
+        <?= $this->renderSection('header') ?>
         <!-- Header End -->
     </header>
     <!-- header end -->
@@ -56,7 +73,7 @@
     </main>
 
     <footer>
-        <?= $this->renderSection('footer')?>
+        <?= $this->renderSection('footer') ?>
     </footer>
 
     <!-- Scroll Up -->
@@ -91,7 +108,7 @@
     <?= asset_link('app/theme-charityworks/js/jquery-sticky.js', 'js') ?>
     <!-- Progress -->
     <?= asset_link('app/theme-charityworks/js/jquery-barfiller.js', 'js') ?>
-    
+
     <!-- counter , waypoint,Hover Direction -->
     <?= asset_link('app/theme-charityworks/js/jquery-counterup.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/waypoints.js', 'js') ?>
@@ -104,21 +121,17 @@
     <?= asset_link('app/theme-charityworks/js/jquery-validate.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/mail-script.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/jquery-ajaxchimp.js', 'js') ?>
-    
-    <!-- Jquery Plugins, main Jquery -->	
+
+    <!-- Jquery Plugins, main Jquery -->
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/main.js', 'js') ?>
 
-    <!-- carousel -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
     <script type="text/javascript">
-        $(function(){
-            $('#select-lang').on('change', function(){
+        $(function() {
+            $('#select-lang').on('change', function() {
                 var lang = $(this).val();
-                if(lang){
+                if (lang) {
                     window.location = lang;
                 }
                 return false;
@@ -128,7 +141,7 @@
         // show time
         function clock() {
             var clockDiv = document.querySelector("#clock");
-            
+
             return setInterval(() => {
                 let date = new Date();
                 let tick = date.toLocaleTimeString();
@@ -139,20 +152,20 @@
         }
 
         // show date
-        const months = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
         const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
 
         const d = new Date();
         let month = months[d.getMonth()];
         let day = days[d.getDay()];
-        document.getElementById("date").innerHTML = (day+", "+d.getDate()+" "+month+" "+d.getFullYear());
+        document.getElementById("date").innerHTML = (day + ", " + d.getDate() + " " + month + " " + d.getFullYear());
 
 
         // show countdown    
-        $('.card-sholat').each(function(){
+        $('.card-sholat').each(function() {
             var prayTitle = $(this).find('h3.card-title').text();
             var prayTime = $(this).find('p.card-text').text()
-            console.log("Waktu "+prayTitle+" Pukul "+prayTime);
+            console.log("Waktu " + prayTitle + " Pukul " + prayTime);
         })
 
         function subtractMinutes(numOfMinutes, date = new Date()) {
@@ -162,47 +175,42 @@
             now.setMinutes(now.getMinutes() + numOfMinutes);
 
             return now;
-            
-        }      
-        
+
+        }
+
         const result = subtractMinutes(10);
         console.log(result);
 
         // =================
 
-        var todaydate = new Date();
-        var countDownTime = new Date('Jul 27, 2022 15:10:00').getTime();
-        var x = setInterval(function(){
-            var now = new Date().getTime();
-            var distance = countDownTime - now;
-            // var days = Math.floor(distance/ (1000*60*60*24));
-            var hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-            var minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-            var seconds = Math.floor((distance % (1000*60)) / 1000);
+        // var todaydate = new Date();
+        // var countDownTime = new Date('Jul 27, 2022 15:10:00').getTime();
+        // var x = setInterval(function() {
+        //     var now = new Date().getTime();
+        //     var distance = countDownTime - now;
+        //     // var days = Math.floor(distance/ (1000*60*60*24));
+        //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("countDownText").innerHTML = "Dhuhur -"+hours+" : "+minutes+".  <small>"+seconds+"</small>";
+        //     document.getElementById("countDownText").innerHTML = "Dhuhur -" + hours + " : " + minutes + ".  <small>" + seconds + "</small>";
 
-            // if (now == now) {
-            //     clearInterval(x)
-            //     console.log("Waktu Sholat Dhuhur");
-            // } else {
-            //     clearInterval(x)
-            //     console.log("Selesai");
-            // }
+        //     // if (now == now) {
+        //     //     clearInterval(x)
+        //     //     console.log("Waktu Sholat Dhuhur");
+        //     // } else {
+        //     //     clearInterval(x)
+        //     //     console.log("Selesai");
+        //     // }
 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countDownText").innerHTML = "selesai"
-            }
-        },1000)
-
-        
-
-        bbata = Math.round(Date.parse(ddata) / 1000);
-        console.log(bbata);
-
+        //     if (distance < 0) {
+        //         clearInterval(x);
+        //         document.getElementById("countDownText").innerHTML = "selesai"
+        //     }
+        // }, 1000);
 
     </script>
     <?= $this->renderSection('scripts') ?>
 </body>
+
 </html>
