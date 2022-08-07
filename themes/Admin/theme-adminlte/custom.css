@@ -9,3 +9,15 @@
     padding: 1rem;
     margin: 5px;
 }
+
+.admin-donasi-list img {
+    width: 50px;
+}
+
+.admin-donasi-list p {
+    font-size: 10px;
+}
+
+.custom-switch {
+    padding-left: 0px;
+}

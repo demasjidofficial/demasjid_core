@@ -3,9 +3,9 @@
 <td><?php echo esc($item->rek_no) ?></a></td>
 <td><?php echo esc($item->rek_name) ?></a></td>
 <td class="text-center">
-    <div class="custom-control custom-switch">
-        <input onChange="updateState(<?php echo $item->id; ?>, <?php echo $item->isActived; ?>)" type="checkbox" class="custom-control-input" value="<?php echo $item->isActived; ?>" id="<?php echo $item->id; ?>" <?php echo ($item->isActived) ? 'checked' : ''; ?> >
-        <label class="custom-control-label" for="<?php echo $item->id; ?>"></label>
+<div class="custom-control custom-switch">
+        <input type="checkbox" data-toggle="confirmation" class="custom-control-input" data-isActived="<?php echo $item->isActived; ?>" id="<?php echo $item->id; ?>" <?php echo ((int)$item->isActived) ? 'checked' : ''; ?> >
+        <label class="custom-control-label" for="<?php echo $item->id; ?>"><?php echo ((int)$item->isActived)? "Active" : "No Active" ?></label>
     </div>
 </td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">

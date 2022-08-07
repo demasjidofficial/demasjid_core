@@ -32,4 +32,5 @@ return [
     'save'             => 'Simpan',
     'new'              => 'Baru',
     'register'         => 'Daftar',
+    'detail'           => 'Detail',
 ];
