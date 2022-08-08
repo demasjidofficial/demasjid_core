@@ -1,0 +1,10 @@
+vendor/lonnieezell/codigniter-shield/src/Authentication/Actions/EmailActivator.php
+
+// Send the email
+        helper('email');
+        $email = emailer();
+        $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
+            ->setTo($user->email)
+            ->setSubject(lang('Auth.emailActivateSubject'))
+            ->setMessage(view(setting('Auth.views')['action_email_activate_email'], ['code' => $code]))
+            ->send();

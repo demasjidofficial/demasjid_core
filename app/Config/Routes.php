@@ -28,6 +28,10 @@ $routes->setAutoRoute(false);
  * Route Definitions
  * --------------------------------------------------------------------
  */
+$routes->setPrioritize();
+$routes->addRedirect('/', '/id');
+$routes->get('{locale}', 'Home::index', ['priority' => 1]); 
+$routes->get('{locale}/(:segment)', 'Home::index/$1', ['priority' => 1]); 
 
 // Auth routes
 $routes->get('register', '\App\Controllers\Auth\RegisterController::registerView');
@@ -39,25 +43,55 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
 $routes->get('/activation', 'Activation::index');
 $routes->get('/qrcode', 'Activation::qrcode');
 $routes->post('/activation', 'Activation::create');
 $routes->get('/swagger', 'Swagger::index');
-$routes->post('api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
-$routes->post('api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
-$routes->get('api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
-$routes->post('api/members', '\App\Modules\Api\Controllers\Members::create');
-$routes->group('api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], static function ($routes) {
+$routes->post('/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
+$routes->post('/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
+$routes->get('/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
+$routes->get('/api/donaturcategories', '\App\Modules\Api\Controllers\Donaturcategories::index');
+$routes->get('/api/jadwalFundraisings', '\App\Modules\Api\Controllers\JadwalFundraisings::index');
+$routes->get('/api/targetFundraisings', '\App\Modules\Api\Controllers\TargetFundraisings::index');
+$routes->get('/api/timFundraisings', '\App\Modules\Api\Controllers\TimFundraisings::index');
+
+$routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
+$routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], 
+static function ($routes) {
     $routes->resource('users');
     $routes->resource('jabatans');
     $routes->resource('pengurus');
     $routes->resource('wilayahs',['except' => ['index']]);
     $routes->resource('members',['except' => ['create']]);
+    $routes->resource('entities');
+    $routes->resource('balances');
+    $routes->resource('profiles');
+    $routes->resource('pengurus');
+    $routes->resource('programs');
+    $routes->resource('kelas');
+    $routes->resource('uom');
+    $routes->resource('chartOfAccounts');
+    $routes->resource('programCosts');
+    $routes->resource('rawatibSchedules');
+    $routes->resource('nonRawatibSchedules');    
+    $routes->resource('bmdonationcampaigncategories');
+    $routes->resource('bmdonationcampaigns');
+    $routes->resource('donaturTypes');
+ 
+    // $routes->resource('donaturcategories');
+    // $routes->resource('targetFundraisings');
+    // $routes->resource('jadwalFundraisings');
+    // $routes->resource('timFundraisings');
+    //$routes->resource('menus');
+    //$routes->resource('pages');
+    //$routes->resource('posts');
+    //$routes->resource('sections');
+    //$routes->resource('sliders');
+    //$routes->resource('socials');
 });
-$routes->get('/ind', '\App\Modules\Website\Controllers\IndController::index');
-$routes->get('/ara', '\App\Modules\Website\Controllers\AraController::index');
-$routes->get('/eng', '\App\Modules\Website\Controllers\EngController::index');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

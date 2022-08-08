@@ -52,7 +52,7 @@ class Bonfire
 
         if ($this->inAdmin) {
             $this->setupMenus();
-            $this->setupWidgets();
+            // $this->setupWidgets();
         }
 
         $this->discoverCoreModules();
@@ -112,7 +112,7 @@ class Bonfire
             ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
-            ->setFontAwesomeIcon('nav-icon fas fa-palette');
+            ->setFontAwesomeIcon('nav-icon fas fa-palette no-need');        
         $menus->menu('sidebar')
             ->createCollection('settings', 'Pengaturan')
             ->setFontAwesomeIcon('nav-icon fas fa-cog')
@@ -147,11 +147,11 @@ class Bonfire
 
         $widgets->createWidget(Stats::class, 'stats');
         $widgets->widget('stats')
-            ->createCollection('stats');
+                ->createCollection('stats');
 
         $widgets->createWidget(Charts::class, 'charts');
         $widgets->widget('charts')
-            ->createCollection('charts');
+                ->createCollection('charts');
     }
 
     /**
@@ -203,20 +203,18 @@ class Bonfire
         }
     }
 
-    private function getAppModules()
-    {
+    private function getAppModules(){
         $modules = [];
-        $map     = directory_map(APPPATH . 'Modules', 1);
+        $map = directory_map(APPPATH . 'Modules', 1);
 
-        foreach ($map as $row) {
-            if (substr($row, -1) !== DIRECTORY_SEPARATOR) {
-                continue;
+            foreach ($map as $row) {
+                if (substr($row, -1) !== DIRECTORY_SEPARATOR) {
+                    continue;
+                }
+
+                $name                                 = trim($row, DIRECTORY_SEPARATOR);
+                $modules["App\\Modules\\{$name}"] = APPPATH . "Modules/{$name}";
             }
-
-            $name                             = trim($row, DIRECTORY_SEPARATOR);
-            $modules["App\\Modules\\{$name}"] = APPPATH . "Modules/{$name}";
-        }
-
         return $modules;
     }
 }

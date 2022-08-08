@@ -5,7 +5,7 @@
 <td class="d-flex justify-content-end">
     <!-- Action Menu -->
     <div class="dropdown">
-        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-toggle="dropdown" aria-expanded="false"></button>
         <ul class="dropdown-menu">
             <li><a href="<?= $user->adminLink() ?>" class="dropdown-item"><?= lang('Bonfire.edit') ?></a></li>
             <li><hr class="dropdown-divider"></li>

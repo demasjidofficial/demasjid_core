@@ -1,30 +1,3 @@
-<!--header class="navbar navbar-light flex-md-nowrap p-0 shadow-sm d-flex">
-    <button class="navbar-toggler d-sm-none collapsed mx-2 border-none" type="button"
-        @click="open = ! open"
-    >
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    < !-- Search Form --
-    <form action="< ?= route_to('search') ?>" method="post" class="flex-grow-1">
-        < ?= csrf_field() ?>
-
-        <input class="form-control form-control bg-light w-100" type="text" name="search_term" placeholder="Search" aria-label="Search"
-            value="< ?= old('search_term', $searchTerm ?? '') ?>">
-    </form>
-
-    < !-- User Menu --
-    <div class="dropdown text-end mx-4">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            < ?= auth()->user()->renderAvatar(32) ?>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser1" style="">
-            <li><a class="dropdown-item" href="/< ?= ADMIN_AREA ?>/users/< ?= auth()->id() ?>">My Account</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="< ?= route_to('logout') ?>">Sign out</a></li>
-        </ul>
-    </div>
-</header-->
 
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-blue navbar-light">
@@ -67,7 +40,7 @@
         </div>
       </li>
 
-      <!-- Messages Dropdown Menu -->
+      <!-- Messages Dropdown Menu --
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
@@ -75,9 +48,9 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            < !-- Message Start --
             <div class="media">
-              <img src="assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 mr-3 img-circle">
+              <img src="/assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Usman
@@ -87,13 +60,13 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+            < !-- Message End --
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            < !-- Message Start --
             <div class="media">
-              <img src="assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
+              <img src="/assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Ahmad
@@ -103,13 +76,13 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+            < !-- Message End --
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            < !-- Message Start --
             <div class="media">
-              <img src="assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
+              <img src="/assets/admin/images/users/user-1.jpg" alt="" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Khalid
@@ -119,12 +92,13 @@
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
-            <!-- Message End -->
+            < !-- Message End --
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
-      </li>
+      </li-->
+      
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">

@@ -27,10 +27,10 @@ class Module extends BaseModule
         // Settings menu for sidebar
         $sidebar = service('menus');
         $item    = new MenuItem([
-            'title'           => 'Guides',
+            'title'           => 'Panduan',
             'namedRoute'      => 'guides',
-            'fontAwesomeIcon' => 'fas fa-book',
-            'permission'      => 'guides.view',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            //'permission'      => 'guides.view',
         ]);
         $sidebar->menu('sidebar')->collection('tools')->addItem($item);
     }

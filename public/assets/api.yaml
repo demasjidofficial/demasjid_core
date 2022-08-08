@@ -74,6 +74,162 @@ paths:
               schema: {  }
         '400':
           description: 'Invalid username/password supplied'
+  /donaturTypes:
+    get:
+      tags:
+        - DonaturType
+      summary: 'Find list DonaturType'
+      description: 'Returns list of DonaturType'
+      operationId: getDonaturType
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturType' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturType' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/DonaturType' } }
+                type: object
+        '404':
+          description: 'DonaturType not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - DonaturType
+      summary: 'Add a new DonaturType to the store'
+      operationId: addDonaturType
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturType'
+      responses:
+        '201':
+          description: 'Created DonaturType'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donaturTypes/{id}':
+    get:
+      tags:
+        - DonaturType
+      summary: 'Find DonaturType by ID'
+      description: 'Returns a single DonaturType'
+      operationId: getDonaturTypeById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of DonaturType to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'DonaturType not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - DonaturType
+      summary: 'Update an existing DonaturType'
+      operationId: updateDonaturType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturType id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturType'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'DonaturType not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - DonaturType
+      summary: 'Deletes a DonaturType'
+      operationId: deleteDonaturType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturType id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /donaturcategories:
     get:
       tags:
@@ -530,6 +686,162 @@ paths:
           name: id
           in: path
           description: 'Jabatan id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /jadwalFundraisings:
+    get:
+      tags:
+        - JadwalFundraising
+      summary: 'Find list JadwalFundraising'
+      description: 'Returns list of JadwalFundraising'
+      operationId: getJadwalFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/JadwalFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/JadwalFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/JadwalFundraising' } }
+                type: object
+        '404':
+          description: 'JadwalFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - JadwalFundraising
+      summary: 'Add a new JadwalFundraising to the store'
+      operationId: addJadwalFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/JadwalFundraising'
+      responses:
+        '201':
+          description: 'Created JadwalFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/jadwalFundraisings/{id}':
+    get:
+      tags:
+        - JadwalFundraising
+      summary: 'Find JadwalFundraising by ID'
+      description: 'Returns a single JadwalFundraising'
+      operationId: getJadwalFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of JadwalFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'JadwalFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - JadwalFundraising
+      summary: 'Update an existing JadwalFundraising'
+      operationId: updateJadwalFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'JadwalFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/JadwalFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'JadwalFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - JadwalFundraising
+      summary: 'Deletes a JadwalFundraising'
+      operationId: deleteJadwalFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'JadwalFundraising id to delete'
           required: true
           schema:
             type: integer
@@ -1634,6 +1946,318 @@ paths:
       security:
         -
           bearer_auth: []
+  /targetFundraisings:
+    get:
+      tags:
+        - TargetFundraising
+      summary: 'Find list TargetFundraising'
+      description: 'Returns list of TargetFundraising'
+      operationId: getTargetFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+                type: object
+        '404':
+          description: 'TargetFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TargetFundraising
+      summary: 'Add a new TargetFundraising to the store'
+      operationId: addTargetFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/TargetFundraising'
+      responses:
+        '201':
+          description: 'Created TargetFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/targetFundraisings/{id}':
+    get:
+      tags:
+        - TargetFundraising
+      summary: 'Find TargetFundraising by ID'
+      description: 'Returns a single TargetFundraising'
+      operationId: getTargetFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TargetFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TargetFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TargetFundraising
+      summary: 'Update an existing TargetFundraising'
+      operationId: updateTargetFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TargetFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TargetFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TargetFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TargetFundraising
+      summary: 'Deletes a TargetFundraising'
+      operationId: deleteTargetFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TargetFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /timFundraisings:
+    get:
+      tags:
+        - TimFundraising
+      summary: 'Find list TimFundraising'
+      description: 'Returns list of TimFundraising'
+      operationId: getTimFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TimFundraising' } }
+                type: object
+        '404':
+          description: 'TimFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TimFundraising
+      summary: 'Add a new TimFundraising to the store'
+      operationId: addTimFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/TimFundraising'
+      responses:
+        '201':
+          description: 'Created TimFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/timFundraisings/{id}':
+    get:
+      tags:
+        - TimFundraising
+      summary: 'Find TimFundraising by ID'
+      description: 'Returns a single TimFundraising'
+      operationId: getTimFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TimFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TimFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TimFundraising
+      summary: 'Update an existing TimFundraising'
+      operationId: updateTimFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TimFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TimFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TimFundraising
+      summary: 'Deletes a TimFundraising'
+      operationId: deleteTimFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /users:
     get:
       tags:
@@ -1948,6 +2572,721 @@ paths:
           bearer_auth: []
 components:
   schemas:
+    AccountBalance:
+      title: AccountBalance
+      description: AccountBalance
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        account:
+          nullable: false
+          title: account
+          description: account
+          type: string
+          format: '-'
+          maxLength: 50
+        entity_id:
+          nullable: false
+          title: entity_id
+          description: entity_id
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Bab:
+      title: Bab
+      description: Bab
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        pelajaran_id:
+          nullable: false
+          title: pelajaran_id
+          description: pelajaran_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        sequence:
+          nullable: true
+          title: sequence
+          description: sequence
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Balance:
+      title: Balance
+      description: Balance
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        account_balance_id:
+          nullable: false
+          title: account_balance_id
+          description: account_balance_id
+          type: integer
+          format: '-'
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+          maxLength: 200
+        type:
+          nullable: false
+          title: type
+          description: type
+          type: string
+        amount:
+          nullable: false
+          title: amount
+          description: amount
+          type: integer
+          format: '-'
+        transaction_date:
+          nullable: false
+          title: transaction_date
+          description: transaction_date
+          type: string
+          format: date
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Bmdonationcampaign:
+      title: Bmdonationcampaign
+      description: Bmdonationcampaign
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        label:
+          nullable: false
+          title: label
+          description: label
+          type: string
+          format: '-'
+          maxLength: 255
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: true
+          title: description
+          description: description
+          type: string
+          format: '-'
+          maxLength: 255
+        campaignstart_date:
+          nullable: false
+          title: campaignstart_date
+          description: campaignstart_date
+          type: string
+          format: date
+        campaignend_date:
+          nullable: false
+          title: campaignend_date
+          description: campaignend_date
+          type: string
+          format: date
+        campaign_tonase:
+          nullable: true
+          title: campaign_tonase
+          description: campaign_tonase
+          type: number
+          format: float
+          maxLength: 10
+        campaigncategory_id:
+          nullable: true
+          title: campaigncategory_id
+          description: campaigncategory_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        donationtype_id:
+          nullable: true
+          title: donationtype_id
+          description: donationtype_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        state:
+          nullable: true
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Bmdonationcampaigncategory:
+      title: Bmdonationcampaigncategory
+      description: Bmdonationcampaigncategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 128
+        label:
+          nullable: false
+          title: label
+          description: label
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Bmdonationtype:
+      title: Bmdonationtype
+      description: Bmdonationtype
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: true
+          title: description
+          description: description
+          type: string
+          format: '-'
+          maxLength: 255
+        uom_id:
+          nullable: true
+          title: uom_id
+          description: uom_id
+          type: integer
+          format: '-'
+        state:
+          nullable: true
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Bminfaqshodaqoh:
+      title: Bminfaqshodaqoh
+      description: Bminfaqshodaqoh
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 128
+        label:
+          nullable: false
+          title: label
+          description: label
+          type: string
+          format: '-'
+          maxLength: 255
+        needed_funds:
+          nullable: true
+          title: needed_funds
+          description: needed_funds
+          type: number
+          format: float
+          maxLength: 10
+        collected_funds:
+          nullable: true
+          title: collected_funds
+          description: collected_funds
+          type: number
+          format: float
+          maxLength: 10
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        program_id:
+          nullable: true
+          title: program_id
+          description: program_id
+          type: integer
+          format: '-'
+        category_id:
+          nullable: true
+          title: category_id
+          description: category_id
+          type: integer
+          format: '-'
+        donationtype_id:
+          nullable: true
+          title: donationtype_id
+          description: donationtype_id
+          type: integer
+          format: '-'
+        state:
+          nullable: true
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Bminfaqshodaqohcategory:
+      title: Bminfaqshodaqohcategory
+      description: Bminfaqshodaqohcategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 128
+        label:
+          nullable: false
+          title: label
+          description: label
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Campaigns:
+      title: Campaigns
+      description: Campaigns
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_program:
+          nullable: false
+          title: id_program
+          description: id_program
+          type: integer
+          format: '-'
+          maxLength: 11
+        status:
+          nullable: true
+          title: status
+          description: status
+          type: string
+          format: '-'
+          maxLength: 10
+        is_active:
+          nullable: true
+          title: is_active
+          description: is_active
+          type: string
+          format: '-'
+          maxLength: 5
+        is_delete:
+          nullable: true
+          title: is_delete
+          description: is_delete
+          type: string
+          format: '-'
+          maxLength: 5
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        create_date:
+          nullable: false
+          title: create_date
+          description: create_date
+          type: string
+          format: date
+        modified_by:
+          nullable: true
+          title: modified_by
+          description: modified_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        modified_date:
+          nullable: false
+          title: modified_date
+          description: modified_date
+          type: string
+          format: date
+      type: object
+    ChartOfAccount:
+      title: ChartOfAccount
+      description: ChartOfAccount
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        code:
+          nullable: true
+          title: code
+          description: code
+          type: string
+          format: '-'
+          maxLength: 10
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        group_account:
+          nullable: false
+          title: group_account
+          description: group_account
+          type: string
+          format: '-'
+          maxLength: 60
+        entity_id:
+          nullable: false
+          title: entity_id
+          description: entity_id
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Donasi:
+      title: Donasi
+      description: Donasi
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_donatur:
+          nullable: false
+          title: id_donatur
+          description: id_donatur
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_pembayaran:
+          nullable: false
+          title: id_pembayaran
+          description: id_pembayaran
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_program:
+          nullable: false
+          title: id_program
+          description: id_program
+          type: integer
+          format: '-'
+          maxLength: 11
+        dana_in:
+          nullable: false
+          title: dana_in
+          description: dana_in
+          type: integer
+          format: '-'
+          maxLength: 2
+        tgl_transaksi:
+          nullable: false
+          title: tgl_transaksi
+          description: tgl_transaksi
+          type: string
+          format: date
+        bukti_pembayaran:
+          nullable: false
+          title: bukti_pembayaran
+          description: bukti_pembayaran
+          type: string
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     Donatur:
       title: Donatur
       description: Donatur
@@ -1996,6 +3335,44 @@ components:
           nullable: true
           title: updated_by
           description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    DonaturType:
+      title: DonaturType
+      description: DonaturType
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        type:
+          nullable: false
+          title: type
+          description: type
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
           type: integer
           format: '-'
           maxLength: 11
@@ -2065,6 +3442,119 @@ components:
           format: '-'
           maxLength: 11
       type: object
+    Entity:
+      title: Entity
+      description: Entity
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        type:
+          nullable: false
+          title: type
+          description: type
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Imam:
+      title: Imam
+      description: Imam
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        contact:
+          nullable: true
+          title: contact
+          description: contact
+          type: string
+          format: '-'
+          maxLength: 60
+        address:
+          nullable: true
+          title: address
+          description: address
+          type: string
+          format: '-'
+          maxLength: 100
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        is_permanent:
+          nullable: false
+          title: is_permanent
+          description: is_permanent
+          type: integer
+          format: '-'
+          maxLength: 1
+        is_khotib:
+          nullable: false
+          title: is_khotib
+          description: is_khotib
+          type: integer
+          format: '-'
+          maxLength: 1
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
     Jabatan:
       title: Jabatan
       description: Jabatan
@@ -2101,6 +3591,452 @@ components:
           description: updated_at
           type: string
           format: date
+      type: object
+    JadwalFundraising:
+      title: JadwalFundraising
+      description: JadwalFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        jadwal_durasi:
+          nullable: false
+          title: jadwal_durasi
+          description: jadwal_durasi
+          type: string
+          format: '-'
+          maxLength: 128
+        jadwal_mulai:
+          nullable: false
+          title: jadwal_mulai
+          description: jadwal_mulai
+          type: string
+          format: date
+        jadwal_akhir:
+          nullable: false
+          title: jadwal_akhir
+          description: jadwal_akhir
+          type: string
+          format: date
+        target_dana:
+          nullable: false
+          title: target_dana
+          description: target_dana
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    KategoriPelajaran:
+      title: KategoriPelajaran
+      description: KategoriPelajaran
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+          maxLength: 255
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Kelas:
+      title: Kelas
+      description: Kelas
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+          maxLength: 255
+        level:
+          nullable: false
+          title: level
+          description: level
+          type: string
+          format: '-'
+          maxLength: 255
+        capacity:
+          nullable: true
+          title: capacity
+          description: capacity
+          type: integer
+          format: '-'
+          maxLength: 11
+        duration:
+          nullable: true
+          title: duration
+          description: duration
+          type: integer
+          format: '-'
+          maxLength: 11
+        uom_id:
+          nullable: false
+          title: uom_id
+          description: uom_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        entity_id:
+          nullable: false
+          title: entity_id
+          description: entity_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Languages:
+      title: Languages
+      description: Languages
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        code:
+          nullable: false
+          title: code
+          description: code
+          type: string
+          format: '-'
+          maxLength: 255
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        path_icon:
+          nullable: true
+          title: path_icon
+          description: path_icon
+          type: string
+          format: '-'
+          maxLength: 255
+        state:
+          nullable: true
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    MasterBank:
+      title: MasterBank
+      description: MasterBank
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        logo:
+          nullable: true
+          title: logo
+          description: logo
+          type: string
+          format: '-'
+        bank:
+          nullable: true
+          title: bank
+          description: bank
+          type: string
+          format: '-'
+          maxLength: 50
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    MasterEwallet:
+      title: MasterEwallet
+      description: MasterEwallet
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        logo:
+          nullable: true
+          title: logo
+          description: logo
+          type: string
+          format: '-'
+          maxLength: 255
+        nama_ewallet:
+          nullable: true
+          title: nama_ewallet
+          description: nama_ewallet
+          type: string
+          format: '-'
+          maxLength: 100
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    MasterPaymentgateway:
+      title: MasterPaymentgateway
+      description: MasterPaymentgateway
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        logo:
+          nullable: true
+          title: logo
+          description: logo
+          type: string
+          format: '-'
+          maxLength: 255
+        nama_paymentgateway:
+          nullable: true
+          title: nama_paymentgateway
+          description: nama_paymentgateway
+          type: string
+          format: '-'
+          maxLength: 100
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Materi:
+      title: Materi
+      description: Materi
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        bab_id:
+          nullable: false
+          title: bab_id
+          description: bab_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        duration:
+          nullable: true
+          title: duration
+          description: duration
+          type: integer
+          format: '-'
+          maxLength: 11
+        uom_id:
+          nullable: false
+          title: uom_id
+          description: uom_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        sequence:
+          nullable: true
+          title: sequence
+          description: sequence
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     Member:
       title: Member
@@ -2187,6 +4123,398 @@ components:
           type: string
           format: date
       type: object
+    NonRawatibSchedule:
+      title: NonRawatibSchedule
+      description: NonRawatibSchedule
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        type_sholat:
+          nullable: false
+          title: type_sholat
+          description: type_sholat
+          type: string
+          format: '-'
+          maxLength: 15
+        name:
+          nullable: true
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        pray_date:
+          nullable: false
+          title: pray_date
+          description: pray_date
+          type: string
+          format: date
+        imam_id:
+          nullable: false
+          title: imam_id
+          description: imam_id
+          type: integer
+          format: '-'
+        khotib_id:
+          nullable: true
+          title: khotib_id
+          description: khotib_id
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    NonRawatibScheduleClone:
+      title: NonRawatibScheduleClone
+      description: NonRawatibScheduleClone
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        type_sholat:
+          nullable: false
+          title: type_sholat
+          description: type_sholat
+          type: string
+          format: '-'
+          maxLength: 15
+        name:
+          nullable: true
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        pray_date:
+          nullable: false
+          title: pray_date
+          description: pray_date
+          type: string
+          format: date
+        imam_id:
+          nullable: false
+          title: imam_id
+          description: imam_id
+          type: integer
+          format: '-'
+        khotib_id:
+          nullable: true
+          title: khotib_id
+          description: khotib_id
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    Pelajaran:
+      title: Pelajaran
+      description: Pelajaran
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        class_id:
+          nullable: false
+          title: class_id
+          description: class_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        category_id:
+          nullable: false
+          title: category_id
+          description: category_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        duration:
+          nullable: true
+          title: duration
+          description: duration
+          type: integer
+          format: '-'
+          maxLength: 11
+        uom_id:
+          nullable: false
+          title: uom_id
+          description: uom_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        sequence:
+          nullable: true
+          title: sequence
+          description: sequence
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Pendaftaran:
+      title: Pendaftaran
+      description: Pendaftaran
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        class_id:
+          nullable: false
+          title: class_id
+          description: class_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        state:
+          nullable: false
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 60
+        nis:
+          nullable: true
+          title: nis
+          description: nis
+          type: integer
+          format: '-'
+          maxLength: 11
+        nick_name:
+          nullable: false
+          title: nick_name
+          description: nick_name
+          type: string
+          format: '-'
+          maxLength: 60
+        birth_date:
+          nullable: false
+          title: birth_date
+          description: birth_date
+          type: string
+          format: date
+        birth_place:
+          nullable: true
+          title: birth_place
+          description: birth_place
+          type: string
+          format: '-'
+          maxLength: 15
+        gender:
+          nullable: false
+          title: gender
+          description: gender
+          type: string
+          format: '-'
+          maxLength: 20
+        provinsi_id:
+          nullable: true
+          title: provinsi_id
+          description: provinsi_id
+          type: string
+          format: '-'
+          maxLength: 15
+        kota_id:
+          nullable: true
+          title: kota_id
+          description: kota_id
+          type: string
+          format: '-'
+          maxLength: 15
+        kecamatan_id:
+          nullable: true
+          title: kecamatan_id
+          description: kecamatan_id
+          type: string
+          format: '-'
+          maxLength: 15
+        desa_id:
+          nullable: true
+          title: desa_id
+          description: desa_id
+          type: string
+          format: '-'
+          maxLength: 15
+        address:
+          nullable: true
+          title: address
+          description: address
+          type: string
+          format: '-'
+          maxLength: 100
+        school_origin:
+          nullable: true
+          title: school_origin
+          description: school_origin
+          type: string
+          format: '-'
+          maxLength: 100
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        father_name:
+          nullable: false
+          title: father_name
+          description: father_name
+          type: string
+          format: '-'
+          maxLength: 60
+        father_job:
+          nullable: false
+          title: father_job
+          description: father_job
+          type: string
+          format: '-'
+          maxLength: 60
+        father_tlpn:
+          nullable: true
+          title: father_tlpn
+          description: father_tlpn
+          type: string
+          format: '-'
+          maxLength: 15
+        father_email:
+          nullable: true
+          title: father_email
+          description: father_email
+          type: string
+          format: '-'
+          maxLength: 35
+        mother_name:
+          nullable: false
+          title: mother_name
+          description: mother_name
+          type: string
+          format: '-'
+          maxLength: 60
+        mother_job:
+          nullable: false
+          title: mother_job
+          description: mother_job
+          type: string
+          format: '-'
+          maxLength: 60
+        mother_tlpn:
+          nullable: true
+          title: mother_tlpn
+          description: mother_tlpn
+          type: string
+          format: '-'
+          maxLength: 15
+        mother_email:
+          nullable: true
+          title: mother_email
+          description: mother_email
+          type: string
+          format: '-'
+          maxLength: 35
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     Pengurus:
       title: Pengurus
       description: Pengurus
@@ -2204,13 +4532,6 @@ components:
           type: string
           format: '-'
           maxLength: 255
-        contact:
-          nullable: false
-          title: contact
-          description: contact
-          type: string
-          format: '-'
-          maxLength: 255
         description:
           nullable: false
           title: description
@@ -2223,18 +4544,345 @@ components:
           description: jabatan_id
           type: integer
           format: '-'
+        address:
+          nullable: true
+          title: address
+          description: address
+          type: string
+          format: '-'
+          maxLength: 100
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        telephone:
+          nullable: true
+          title: telephone
+          description: telephone
+          type: string
+          format: '-'
+          maxLength: 15
+        email:
+          nullable: true
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 35
         created_at:
           nullable: false
           title: created_at
           description: created_at
           type: string
           format: date
-        '':
+        updated_at:
           nullable: false
           title: updated_at
           description: updated_at
           type: string
           format: date
+        provinsi_id:
+          nullable: true
+          title: provinsi_id
+          description: provinsi_id
+          type: string
+          format: '-'
+          maxLength: 15
+        kota_id:
+          nullable: true
+          title: kota_id
+          description: kota_id
+          type: string
+          format: '-'
+          maxLength: 15
+        kecamatan_id:
+          nullable: true
+          title: kecamatan_id
+          description: kecamatan_id
+          type: string
+          format: '-'
+          maxLength: 15
+        desa_id:
+          nullable: true
+          title: desa_id
+          description: desa_id
+          type: string
+          format: '-'
+          maxLength: 15
+        entity_id:
+          nullable: true
+          title: entity_id
+          description: entity_id
+          type: integer
+          format: '-'
+      type: object
+    Profile:
+      title: Profile
+      description: Profile
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        wilayah_id:
+          nullable: false
+          title: wilayah_id
+          description: wilayah_id
+          type: string
+          format: '-'
+          maxLength: 15
+        code:
+          nullable: true
+          title: code
+          description: code
+          type: string
+          format: '-'
+          maxLength: 18
+        address:
+          nullable: false
+          title: address
+          description: address
+          type: string
+          format: '-'
+          maxLength: 255
+        path_logo:
+          nullable: true
+          title: path_logo
+          description: path_logo
+          type: string
+          format: '-'
+          maxLength: 255
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        entity_id:
+          nullable: false
+          title: entity_id
+          description: entity_id
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+      type: object
+    Program:
+      title: Program
+      description: Program
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        start_date:
+          nullable: false
+          title: start_date
+          description: start_date
+          type: string
+          format: date
+        end_date:
+          nullable: false
+          title: end_date
+          description: end_date
+          type: string
+          format: date
+        state:
+          nullable: false
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
+    ProgramCategory:
+      title: ProgramCategory
+      description: ProgramCategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+      type: object
+    ProgramCost:
+      title: ProgramCost
+      description: ProgramCost
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        program_id:
+          nullable: false
+          title: program_id
+          description: program_id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 150
+        cost_estimate:
+          nullable: false
+          title: cost_estimate
+          description: cost_estimate
+          type: integer
+          format: '-'
+        cost_actual:
+          nullable: true
+          title: cost_actual
+          description: cost_actual
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+      type: object
+    RawatibSchedule:
+      title: RawatibSchedule
+      description: RawatibSchedule
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 15
+        pray_time:
+          nullable: false
+          title: pray_time
+          description: pray_time
+          type: string
+          format: '-'
+        is_automatic:
+          nullable: false
+          title: is_automatic
+          description: is_automatic
+          type: integer
+          format: '-'
+          maxLength: 1
+        imam_id:
+          nullable: false
+          title: imam_id
+          description: imam_id
+          type: integer
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
       type: object
     Sitemenus:
       title: Sitemenus
@@ -2556,6 +5204,80 @@ components:
           type: integer
           format: '-'
       type: object
+    Sitesliders:
+      title: Sitesliders
+      description: Sitesliders
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        content:
+          nullable: false
+          title: content
+          description: content
+          type: string
+          format: '-'
+        sequence:
+          nullable: true
+          title: sequence
+          description: sequence
+          type: integer
+          format: '-'
+        sitepage_id:
+          nullable: true
+          title: sitepage_id
+          description: sitepage_id
+          type: integer
+          format: '-'
+        language_id:
+          nullable: true
+          title: language_id
+          description: language_id
+          type: integer
+          format: '-'
+        state:
+          nullable: true
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+      type: object
     Sitesocials:
       title: Sitesocials
       description: Sitesocials
@@ -2612,6 +5334,248 @@ components:
           description: created_by
           type: integer
           format: '-'
+      type: object
+    TargetFundraising:
+      title: TargetFundraising
+      description: TargetFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        campaign:
+          nullable: false
+          title: campaign
+          description: campaign
+          type: string
+          format: '-'
+          maxLength: 128
+        donatur:
+          nullable: false
+          title: donatur
+          description: donatur
+          type: string
+          format: '-'
+          maxLength: 128
+        target_nominal:
+          nullable: false
+          title: target_nominal
+          description: target_nominal
+          type: string
+          format: '-'
+          maxLength: 128
+        tipe_donasi:
+          nullable: false
+          title: tipe_donasi
+          description: tipe_donasi
+          type: string
+          format: '-'
+          maxLength: 128
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    TimFundraising:
+      title: TimFundraising
+      description: TimFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_target:
+          nullable: false
+          title: id_target
+          description: id_target
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_jadwal:
+          nullable: false
+          title: id_jadwal
+          description: id_jadwal
+          type: integer
+          format: '-'
+          maxLength: 11
+        supervisior:
+          nullable: false
+          title: supervisior
+          description: supervisior
+          type: string
+          format: '-'
+          maxLength: 248
+        staff:
+          nullable: false
+          title: staff
+          description: staff
+          type: string
+          format: '-'
+          maxLength: 248
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Uom:
+      title: Uom
+      description: Uom
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        code:
+          nullable: true
+          title: code
+          description: code
+          type: string
+          format: '-'
+          maxLength: 255
+        type:
+          nullable: true
+          title: type
+          description: type
+          type: string
+          format: '-'
+          maxLength: 255
+        ratio:
+          nullable: true
+          title: ratio
+          description: ratio
+          type: number
+          format: float
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        uomcategory_id:
+          nullable: true
+          title: uomcategory_id
+          description: uomcategory_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    UomCategory:
+      title: UomCategory
+      description: UomCategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: true
+          title: description
+          description: description
+          type: string
+          format: '-'
+          maxLength: 255
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     Users:
       title: Users
@@ -2730,6 +5694,138 @@ components:
           maxLength: 50
       type: object
   requestBodies:
+    AccountBalance:
+      description: 'AccountBalance object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/AccountBalance'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/AccountBalance'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AccountBalance'
+    Bab:
+      description: 'Bab object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Bab'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Bab'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bab'
+    Balance:
+      description: 'Balance object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Balance'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Balance'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Balance'
+    Bmdonationcampaign:
+      description: 'Bmdonationcampaign object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Bmdonationcampaign'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Bmdonationcampaign'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bmdonationcampaign'
+    Bmdonationcampaigncategory:
+      description: 'Bmdonationcampaigncategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Bmdonationcampaigncategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Bmdonationcampaigncategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bmdonationcampaigncategory'
+    Bmdonationtype:
+      description: 'Bmdonationtype object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Bmdonationtype'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Bmdonationtype'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bmdonationtype'
+    Bminfaqshodaqoh:
+      description: 'Bminfaqshodaqoh object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Bminfaqshodaqoh'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Bminfaqshodaqoh'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bminfaqshodaqoh'
+    Bminfaqshodaqohcategory:
+      description: 'Bminfaqshodaqohcategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+    Campaigns:
+      description: 'Campaigns object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Campaigns'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Campaigns'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Campaigns'
+    ChartOfAccount:
+      description: 'ChartOfAccount object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/ChartOfAccount'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ChartOfAccount'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ChartOfAccount'
+    Donasi:
+      description: 'Donasi object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Donasi'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Donasi'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Donasi'
     Donatur:
       description: 'Donatur object that needs to be added'
       content:
@@ -2742,6 +5838,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donatur'
+    DonaturType:
+      description: 'DonaturType object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/DonaturType'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/DonaturType'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DonaturType'
     Donaturcategory:
       description: 'Donaturcategory object that needs to be added'
       content:
@@ -2754,6 +5862,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donaturcategory'
+    Entity:
+      description: 'Entity object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Entity'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Entity'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Entity'
+    Imam:
+      description: 'Imam object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Imam'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Imam'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Imam'
     Jabatan:
       description: 'Jabatan object that needs to be added'
       content:
@@ -2766,6 +5898,102 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Jabatan'
+    JadwalFundraising:
+      description: 'JadwalFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/JadwalFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/JadwalFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JadwalFundraising'
+    KategoriPelajaran:
+      description: 'KategoriPelajaran object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/KategoriPelajaran'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/KategoriPelajaran'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/KategoriPelajaran'
+    Kelas:
+      description: 'Kelas object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Kelas'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Kelas'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Kelas'
+    Languages:
+      description: 'Languages object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Languages'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Languages'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Languages'
+    MasterBank:
+      description: 'MasterBank object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/MasterBank'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/MasterBank'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MasterBank'
+    MasterEwallet:
+      description: 'MasterEwallet object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/MasterEwallet'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/MasterEwallet'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MasterEwallet'
+    MasterPaymentgateway:
+      description: 'MasterPaymentgateway object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/MasterPaymentgateway'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/MasterPaymentgateway'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MasterPaymentgateway'
+    Materi:
+      description: 'Materi object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Materi'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Materi'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Materi'
     Member:
       description: 'Member object that needs to be added'
       content:
@@ -2778,6 +6006,54 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Member'
+    NonRawatibSchedule:
+      description: 'NonRawatibSchedule object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/NonRawatibSchedule'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/NonRawatibSchedule'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NonRawatibSchedule'
+    NonRawatibScheduleClone:
+      description: 'NonRawatibScheduleClone object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/NonRawatibScheduleClone'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/NonRawatibScheduleClone'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NonRawatibScheduleClone'
+    Pelajaran:
+      description: 'Pelajaran object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Pelajaran'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Pelajaran'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Pelajaran'
+    Pendaftaran:
+      description: 'Pendaftaran object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Pendaftaran'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Pendaftaran'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Pendaftaran'
     Pengurus:
       description: 'Pengurus object that needs to be added'
       content:
@@ -2790,6 +6066,66 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Pengurus'
+    Profile:
+      description: 'Profile object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Profile'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Profile'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Profile'
+    Program:
+      description: 'Program object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Program'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Program'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Program'
+    ProgramCategory:
+      description: 'ProgramCategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/ProgramCategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ProgramCategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProgramCategory'
+    ProgramCost:
+      description: 'ProgramCost object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/ProgramCost'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/ProgramCost'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProgramCost'
+    RawatibSchedule:
+      description: 'RawatibSchedule object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RawatibSchedule'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/RawatibSchedule'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RawatibSchedule'
     Sitemenus:
       description: 'Sitemenus object that needs to be added'
       content:
@@ -2838,6 +6174,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Sitesections'
+    Sitesliders:
+      description: 'Sitesliders object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Sitesliders'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Sitesliders'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sitesliders'
     Sitesocials:
       description: 'Sitesocials object that needs to be added'
       content:
@@ -2850,6 +6198,54 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Sitesocials'
+    TargetFundraising:
+      description: 'TargetFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TargetFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TargetFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TargetFundraising'
+    TimFundraising:
+      description: 'TimFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TimFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TimFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TimFundraising'
+    Uom:
+      description: 'Uom object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Uom'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Uom'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Uom'
+    UomCategory:
+      description: 'UomCategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/UomCategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/UomCategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UomCategory'
     Users:
       description: 'Users object that needs to be added'
       content:
@@ -2884,20 +6280,113 @@ components:
       scheme: bearer
 tags:
   -
+    name: AccountBalance
+    description: 'Everything about your AccountBalance'
+  -
+    name: Bab
+    description: 'Everything about your Bab'
+  -
+    name: Balance
+    description: 'Everything about your Balance'
+  -
+    name: Bmdonationcampaign
+    description: 'Everything about your Bmdonationcampaign'
+  -
+    name: Bmdonationcampaigncategory
+    description: 'Everything about your Bmdonationcampaigncategory'
+  -
+    name: Bmdonationtype
+    description: 'Everything about your Bmdonationtype'
+  -
+    name: Bminfaqshodaqoh
+    description: 'Everything about your Bminfaqshodaqoh'
+  -
+    name: Bminfaqshodaqohcategory
+    description: 'Everything about your Bminfaqshodaqohcategory'
+  -
+    name: Campaigns
+    description: 'Everything about your Campaigns'
+  -
+    name: ChartOfAccount
+    description: 'Everything about your ChartOfAccount'
+  -
+    name: Donasi
+    description: 'Everything about your Donasi'
+  -
     name: Donatur
     description: 'Everything about your Donatur'
+  -
+    name: DonaturType
+    description: 'Everything about your DonaturType'
   -
     name: Donaturcategory
     description: 'Everything about your Donaturcategory'
   -
+    name: Entity
+    description: 'Everything about your Entity'
+  -
+    name: Imam
+    description: 'Everything about your Imam'
+  -
     name: Jabatan
     description: 'Everything about your Jabatan'
+  -
+    name: JadwalFundraising
+    description: 'Everything about your JadwalFundraising'
+  -
+    name: KategoriPelajaran
+    description: 'Everything about your KategoriPelajaran'
+  -
+    name: Kelas
+    description: 'Everything about your Kelas'
+  -
+    name: Languages
+    description: 'Everything about your Languages'
+  -
+    name: MasterBank
+    description: 'Everything about your MasterBank'
+  -
+    name: MasterEwallet
+    description: 'Everything about your MasterEwallet'
+  -
+    name: MasterPaymentgateway
+    description: 'Everything about your MasterPaymentgateway'
+  -
+    name: Materi
+    description: 'Everything about your Materi'
   -
     name: Member
     description: 'Everything about your Member'
   -
+    name: NonRawatibSchedule
+    description: 'Everything about your NonRawatibSchedule'
+  -
+    name: NonRawatibScheduleClone
+    description: 'Everything about your NonRawatibScheduleClone'
+  -
+    name: Pelajaran
+    description: 'Everything about your Pelajaran'
+  -
+    name: Pendaftaran
+    description: 'Everything about your Pendaftaran'
+  -
     name: Pengurus
     description: 'Everything about your Pengurus'
+  -
+    name: Profile
+    description: 'Everything about your Profile'
+  -
+    name: Program
+    description: 'Everything about your Program'
+  -
+    name: ProgramCategory
+    description: 'Everything about your ProgramCategory'
+  -
+    name: ProgramCost
+    description: 'Everything about your ProgramCost'
+  -
+    name: RawatibSchedule
+    description: 'Everything about your RawatibSchedule'
   -
     name: Sitemenus
     description: 'Everything about your Sitemenus'
@@ -2911,8 +6400,23 @@ tags:
     name: Sitesections
     description: 'Everything about your Sitesections'
   -
+    name: Sitesliders
+    description: 'Everything about your Sitesliders'
+  -
     name: Sitesocials
     description: 'Everything about your Sitesocials'
+  -
+    name: TargetFundraising
+    description: 'Everything about your TargetFundraising'
+  -
+    name: TimFundraising
+    description: 'Everything about your TimFundraising'
+  -
+    name: Uom
+    description: 'Everything about your Uom'
+  -
+    name: UomCategory
+    description: 'Everything about your UomCategory'
   -
     name: Users
     description: 'Everything about your Users'

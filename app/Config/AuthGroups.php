@@ -44,6 +44,14 @@ class AuthGroups extends ShieldGroups
             'title'       => 'Beta User',
             'description' => 'Has access to beta-level features.',
         ],
+        'supervisior' => [
+            'title'       => 'Supervisor',
+            'description' => 'Has access to beta-level features.',
+        ],
+        'staf' => [
+            'title'       => 'Staff',
+            'description' => 'Has access to beta-level features.',
+        ],
     ];
 
     /**
@@ -59,6 +67,7 @@ class AuthGroups extends ShieldGroups
         'admin.access'        => 'Can access the sites admin area',
         'admin.settings'      => 'Can access the main site settings',
         'groups.settings'     => 'Can edit existing user groups',
+        'groups.edit'         => 'Can edit existing user groups',
         'users.list'          => 'Can view a list of users in the system',
         'users.manage-admins' => 'Can manage other admins',
         'users.view'          => 'Can view user details',
@@ -74,7 +83,7 @@ class AuthGroups extends ShieldGroups
         'widgets.settings'    => 'Can view the settings for site Widgets',
         'consent.settings'    => 'Can view the settings for the Consent module',
         'recycler.view'       => 'Can view the Recycler area',
-
+        
         /** module masjid */        
         'masjid.member.list' => 'Can view list member',
         'masjid.member.create' => 'Can create member',
@@ -86,6 +95,11 @@ class AuthGroups extends ShieldGroups
         'masjid.pengurus.edit' => 'Can edit pengurus',
         'masjid.pengurus.delete' => 'Can edit pengurus',
 
+        'masjid.profile.list' => 'Can view list profile',
+        'masjid.profile.create' => 'Can create profile',
+        'masjid.profile.edit' => 'Can edit profile',
+        'masjid.profile.delete' => 'Can edit profile',
+
         'masjid.jabatan.list' => 'Can view list jabatan',
         'masjid.jabatan.create' => 'Can create jabatan',
         'masjid.jabatan.edit' => 'Can edit jabatan',
@@ -95,6 +109,13 @@ class AuthGroups extends ShieldGroups
         'masjid.wilayah.create' => 'Can create wilayah',
         'masjid.wilayah.edit' => 'Can edit wilayah',
         'masjid.wilayah.delete' => 'Can edit wilayah',
+
+        'masjid.entity.list' => 'Can view list jabatan',
+
+        'masjid.balance.list' => 'Can view list account balance',
+        'masjid.account_balance.list' => 'Can view list account balance',
+        
+        'masjid.program.list' => 'Can view list program',
         
         /** module website */        
         'website.menus.list' => 'Can view list menus on website',
@@ -117,10 +138,58 @@ class AuthGroups extends ShieldGroups
         'website.sections.edit' => 'Can edit sections part on website',
         'website.sections.delete' => 'Can edit sections part on website',
 
+        'website.sliders.list' => 'Can view list sliders on website',
+        'website.sliders.create' => 'Can create sliders on website',
+        'website.sliders.edit' => 'Can edit sliders on website',
+        'website.sliders.delete' => 'Can edit sliders on website',
+
         'website.socials.list' => 'Can view list socials on website',
         'website.socials.create' => 'Can create socials on website',
         'website.socials.edit' => 'Can edit socials on website',
         'website.socials.delete' => 'Can edit socials on website',
+
+        /** pesantren */
+        'pesantren.balance.list' => 'Can view list account balance',
+        'pesantren.account_balance.list' => 'Can view list account balance',
+
+        'pesantren.profile.list' => 'Can view list profile',
+        'pesantren.profile.create' => 'Can create profile',
+        'pesantren.profile.edit' => 'Can edit profile',
+        'pesantren.profile.delete' => 'Can edit profile',
+
+        /** tpq */
+        'tpq.balance.list' => 'Can view list account balance',
+        'tpq.account_balance.list' => 'Can view list account balance',  
+
+        'tpq.profile.list' => 'Can view list profile',
+        'tpq.profile.create' => 'Can create profile',
+        'tpq.profile.edit' => 'Can edit profile',
+        'tpq.profile.delete' => 'Can edit profile', 
+        
+        
+         /** baitulmal */
+
+         'baitulmal.katDonatur.list' => 'Can view list donatur category',
+         'baitulmal.katDonatur.create' => 'Can create donatur category',
+         'baitulmal.katDonatur.edit' => 'Can edit donatur category',
+         'baitulmal.katDonatur.delete' => 'Can delete donatur category',
+         
+         'baitulmal.timfundraising.list' => 'Can view list tim fundraising',
+         'baitulmal.timfundraising.create' => 'Can create tim fundraising',
+         'baitulmal.timfundraising.edit' => 'Can edit tim fundraising',
+         'baitulmal.timfundraising.delete' => 'Can delete tim fundraising',
+
+         'baitulmal.jadwalfundraising.list' => 'Can view list jadwal fundraising',
+         'baitulmal.jadwalfundraising.create' => 'Can create jadwal fundraising',
+         'baitulmal.jadwalfundraising.edit' => 'Can edit jadwal fundraising',
+         'baitulmal.jadwalfundraising.delete' => 'Can delete jadwal fundraising',
+
+         'baitulmal.targetfundraising.list' => 'Can view list target fundraising',
+         'baitulmal.targetfundraising.create' => 'Can create targetfundraising',
+         'baitulmal.targetfundraising.edit' => 'Can edit targetfundraising',
+         'baitulmal.targetfundraising.delete' => 'Can delete targetfundraising',
+
+
     ];
 
     /**
@@ -140,6 +209,9 @@ class AuthGroups extends ShieldGroups
             'consent.*',
             'recycler.*',
             'masjid.*',
+            'website.*',
+            'pesantren.*',
+            'tpq.*'        
         ],
         'admin' => [
             'admin.access',

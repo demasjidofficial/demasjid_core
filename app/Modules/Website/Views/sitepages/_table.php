@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover table-sm">
     <?php echo $this->include('_table_head') ?>
     <tbody>
     <?php if (isset($data) && count($data)) : ?>

@@ -15,3 +15,46 @@
 .paddinglr0{padding-left:0;padding-right:0;}
 .paddingtb0{padding-top:0;padding-bottom:0;}
 .clickable{cursor:pointer;}
+.tr-td-middle td{vertical-align:middle !important;}
+.btn-3-dots:hover{color:darkcyan;}
+.table-sm thead tr th,
+.table-sm tbody tr td{vertical-align:middle !important;}
+.nav-treeview .nav-item{text-indent: 8px;}
+
+/*
+ * --------------------------------------------------------------------------
+ * RESOURCE FILTERS
+ * --------------------------------------------------------------------------
+ */
+.filters {
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+.filters h2 {
+    font-size: 0.86rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+.filters ul {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--bf-light-grey);
+    margin-bottom: 1.38rem;
+    min-width: 11rem;
+}
+.filters ul:last-child {
+    border-bottom: none;
+}
+.filters li {
+    font-size: 1rem;
+}
+.filters li .form-check-label {
+    color: var(--bf-black);
+    font-weight: 300;
+}
+
+.btn-3-dots:after {
+    content: '\2026';
+    border: none !important;
+    font-size: 32px;
+    margin-top: 5px;
+    line-height: 0;
+}
