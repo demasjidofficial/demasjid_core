@@ -266,7 +266,7 @@
 <?php $this->endSection(); ?>
 
 
-<?= $this->section('styles') ?>
+<?php $this->section('styles') ?>
 <?= asset_link('admin/theme-adminlte/plugins/select2/css/select2.min.css', 'css') ?>
 <?= asset_link('admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css', 'css') ?>
 <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>

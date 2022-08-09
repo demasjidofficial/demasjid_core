@@ -35,6 +35,7 @@ return [
 	'back' => 'Kembali',
 	'pages' => 'Halaman',
 	'add_new' => 'Tambah Baru',
+	'save' => 'simpan',
 	
 	'pengurus' => 'Pengurus',
 	'provinsi_id' => 'Provinsi',
@@ -129,6 +130,8 @@ return [
 
 	'kas' => 'Kas',
 	'bank' => 'Bank',
+	'ewallet' => 'e-Wallet',
+	'payment_gateway' => 'Payment Gateway',
 
 	'choose' => 'Pilih',
 	'zone' => 'Wilayah',
@@ -167,6 +170,9 @@ return [
 
 	'administration' => 'Administrasi',
 	'masters' => 'Master',
+	'master_bank' => 'Master Bank',
+	'master_ewallet' => 'Master e-Wallet',
+	'master_paymentgateway' => 'Master Payment Gateway',
 
 	'bab_id' => 'Bab',
 	'materi' => 'Materi',	
@@ -211,6 +217,10 @@ return [
 	'qurbans' => 'Qurban',
 	'infaq_category' => 'Kategori Infak',
 	'infaq' => 'Infak/Sedekah',
+	'campaigns' => 'Donasi',
+	'campaign' => 'Kampanye',
+	'campaign_category' => 'kategori Kampanye',
+
 	'donation_type' => 'Tipe Donasi',
 	'donation_method' => 'Metode Donasi',
 	'muadzin' => 'Muadzin',
@@ -227,6 +237,47 @@ return [
 	'sholat_jumat' => 'Sholat Jumat',
 	'sholat_tarawih' => 'Sholat Tarawih',
 	'sholat_ied' => 'Sholat Hari Raya',
-	'sholat_gerhana' => 'Sholat Gerhana'
+	'sholat_gerhana' => 'Sholat Gerhana',
+
+	'bmdonationcampaigncategory' => 'kategori Kampanye',
+	'bmdonationcampaign' => 'Kampanye',
+	'campaign_daterange' => 'Durasi',
+	'campaignstart_date' => 'Mulai',
+	'campaignend_date' => 'Akhir',
+	'campaigncategory_id'=> 'Kategori',
+	'donationtype_id' => 'Tipe Donasi',
+	'campaign_tonase' => 'Target',
+	'campaign_collected' => 'Terkumpul',
+	'program_id' => 'Program',
+	'donasis' => 'Donasi',
+	'campaigns' => 'Kampanye',
+
+	'payment_method' => 'Metode Pembayaran',
+	'payment_category' => 'Kategori Pembayaran',
+	'payment_method_transfer' => 'Metode Pembayaran Transfer',
+	'payment_method_paygat' => 'Metode Pembayaran Payment Gateway',
+	'rek_no' => 'No Rekening',
+	'rek_name' => 'Nama Rekening',
+	'paymentgateway' => 'Payment Gateway',
+	'donatur' => 'Donatur',
+	'no_hp' => 'No. Hp',
+	'donation' => 'Donasi',
+	'program' => 'Program',
+	'payment' => 'Pembayaran',
+	'action' => 'Aksi',
+
+	'news' => 'Berita',
+	'board_news' => 'Papan Berita',
+	'device' => 'Perangkat',
+	'board_newsbg' => 'Background Slide',
+	'board_newsruntext' => 'Run Text',
+	'display' => 'Tampilan',
+
+	'donasi' => 'Donasi',
+	'campaign_id' => 'Kampanye',
+	'paymentmethod_rek_no' => 'No Rekening',
+	'paymentmethod_rek_name' => 'Nama Rekening',
+	'dana_in' => 'Jumlah'
+
  ];
 

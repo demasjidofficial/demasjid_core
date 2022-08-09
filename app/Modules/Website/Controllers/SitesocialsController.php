@@ -5,16 +5,28 @@ namespace App\Modules\Website\Controllers;
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Website\Models\SitesocialsFilter;
+use App\Traits\UploadedFile;
 use IlluminateAgnostic\Arr\Support\Arr;
 
 class SitesocialsController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesocials\\';
     protected $baseRoute = 'admin/website/socials';
     protected $langModel = 'sitesocials';
     protected $modelName = 'App\Modules\Api\Models\SitesocialsModel';
+    private $imageFolder = 'images';
+    
     public function index(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_icon', $uploaded);
+            }
+        }
         return parent::index();
     }
 
@@ -23,6 +35,14 @@ class SitesocialsController extends AdminCrudController
     }
 
     public function update($id = null){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_icon', $uploaded);
+            }
+        }
         return parent::update($id);
     }
 
@@ -31,6 +51,15 @@ class SitesocialsController extends AdminCrudController
     }
 
     public function create(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_icon', $uploaded);
+            }
+        }
+
         return parent::create();
     }
 
@@ -43,11 +72,10 @@ class SitesocialsController extends AdminCrudController
         $model = model(SitesocialsFilter::class);
         return [
             'headers' => [
+                'path_icon' => lang('crud.path_icon'),
                 'name' => lang('crud.name'),
                 'link' => lang('crud.link'),
-                'path_icon' => lang('crud.path_icon'),
-                'state' => lang('crud.state'),
-                'created_by' => lang('crud.created_by')
+                'state' => lang('crud.state')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

@@ -22,6 +22,7 @@
 	<?= asset_link('app/theme-charityworks/css/slick.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/nice-select.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/style.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/custom.css', 'css') ?>
 
     <?= $this->renderSection('styles') ?>
 </head>

@@ -29,9 +29,39 @@ Aplikasi untuk manajemen masjid
 - dalam folder contoh telah ada folder almuhajirin, copy file env menjadi .env dan sesuaikan dengan settingan aplikasi anda
 - setting virtual host yang mengarah ke folder almuhajirin, didalam juga sudah ada contoh sederhana konfigurasi vhost untuk nginx
 
+## Setting file .env untuk generate folder domain
+
+- domain.template.source = '/data/docker/codeigniter4/demasjid/domains-example/';
+- domain.template.destination = '/data/docker/codeigniter4/demasjid/domains/';
+
 ## Postman link
 
 - [Postman Collection](https://www.getpostman.com/collections/3b1f23682fbf40fd101f)
+
+## Pengembangan fitur baru:
+
+- Update source terbaru branch develope dari repo utama
+
+  - git pull origin develope
+
+- Membuat struktur table untuk menyimpan data
+
+  - php spark make:migration NamaFileMigration
+  - edit manual deskripsi table tersebut sesuai kebutuhan
+
+- Generate CRUD untuk operasi di sisi admin
+
+  - php spark make:crud nama_table --namespace App/Modules/Masjid
+  - daftarkan fitur baru ke route (app/Modules/{namaModule}/Config/Routes.php)
+  - custom sesuai kebutuhan
+
+- Menambahkan menu
+
+  - Untuk menu utama bisa ditambahkan di bonfire/Bonfire.php
+  - Untuk menu didalam module bisa ditambahkan di app/Modules/{namaModule}/Module.php
+
+- Setting default hak akses
+  - Bisa dicek di app/Config/AuthGroups.php
 
 ## Server Requirements
 

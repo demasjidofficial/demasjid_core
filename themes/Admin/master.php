@@ -15,22 +15,13 @@
     <?= asset_link('admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css', 'css') ?>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <?= asset_link('admin/theme-adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4-min.css', 'css') ?>
-    <!-- iCheck -->
-    <?= asset_link('admin/theme-adminlte/plugins/icheck-bootstrap/icheck-bootstrap-min.css', 'css') ?>
-    <!-- JQVMap -->
-    <?= asset_link('admin/theme-adminlte/plugins/jqvmap/jqvmap-min.css', 'css') ?>
+    
     <!-- Theme style -->
     <?= asset_link('admin/theme-adminlte/adminlte-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/custom.css', 'css') ?>
     <!-- overlayScrollbars -->
     <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css', 'css') ?>
-    <!-- Daterange picker -->
-    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
-    <!-- summernote -->
-    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
-    <!-- flags -->
-    <?= asset_link('admin/theme-adminlte/plugins/flag-icon-css/css/flag-icon-min.css', 'css') ?>
+        
     <?= asset_link('admin/css/admin-demasjid.css', 'css') ?>
     <!--    
     < ?= asset_link('admin/css/admin.css', 'css') ?>
@@ -72,26 +63,7 @@
   
     
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="padding: 5px 0;">
-      <!-- Content Header (Page header) --
-      <div class="content-header">
-        <div class="container-fluid">
-          < !--
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">< ?= $pageName ?? '[page_name]';?></h1>
-            </div>< !-- /.col --
-            <div class="col-sm-6">
-              < !--ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                <li class="breadcrumb-item active">Dasbor</li>
-              </ol--
-            </div>< !-- /.col --
-          </div>< !-- /.row 
-          --
-        </div>< !-- /.container-fluid --
-      </div>
-      < !-- /.content-header -->
+    <div class="content-wrapper" style="padding: 5px 0;">      
 
       <!-- Main content -->
       <section class="content">
@@ -116,32 +88,17 @@
 
 <!-- jQuery -->
 <?= asset_link('admin/theme-adminlte/plugins/jquery/jquery-min.js', 'js') ?>
-<!-- jQuery UI 1.11.4 -->
-<?= asset_link('admin/theme-adminlte/plugins/jquery-ui/jquery-ui-min.js', 'js') ?>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+
 <!-- Bootstrap 4 -->
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js', 'js') ?>
-<!-- Sparkline -->
-<?= asset_link('admin/theme-adminlte/plugins/sparklines/sparkline.js', 'js') ?>
-<!-- JQVMap -->
-<?= asset_link('admin/theme-adminlte/plugins/jqvmap/jquery-vmap-min.js', 'js') ?>
-<?= asset_link('admin/theme-adminlte/plugins/jqvmap/maps/jquery-vmap-usa.js', 'js') ?>
-<!-- jQuery Knob Chart -->
-<?= asset_link('admin/theme-adminlte/plugins/jquery-knob/jquery-knob-min.js', 'js') ?>
-<!-- daterangepicker -->
+<!-- Moment -->
 <?= asset_link('admin/theme-adminlte/plugins/moment/moment-min.js', 'js') ?>
-<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
-<!-- Tempusdominus Bootstrap 4 -->
-<?= asset_link('admin/theme-adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js', 'js') ?>
-<!-- Summernote -->
-<?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
 <!-- overlayScrollbars -->
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js', 'js') ?>
+
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
 <!-- AdminLTE for demo purposes --

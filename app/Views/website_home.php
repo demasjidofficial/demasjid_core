@@ -65,7 +65,7 @@
                     <!-- Section Tittle -->
                     <div class="section-tittle mb-35">
                         <span>Sekilas tentang kami</span>
-                        <h2>Masjid Al Furqon Surabaya</h2>
+                        <h2><?= $masjid_profile['name'] ?? '' ?></h2>
                     </div>
                     <p>Sebuah masjid di timur kota Surabaya dengan luas lahan 1.500 m2 dan luas bangunan 1.100 m2 di
                         tengah pemukiman padat penduduk dari berbagai macam etnis. Oleh karena itu, harapan kami ingin
@@ -94,108 +94,61 @@
 <!-- About Law End-->
 
 <!-- Our Cases Start -->
-<div class="our-cases-area section-padding24">
+<?php if (isset($donation_campaigns) && count($donation_campaigns)) : ?>
+<div class="our-cases-area section-padding24" id="donasi">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
                 <!-- Section Tittle -->
                 <div class="section-tittle text-center mb-80">
                     <span><br />Mari kita lihat bersama</span>
-                    <h2>Jangkau mereka dengan apa yang kita mampu berikan.</h2>
+                    <h2>Jangkau mereka dengan apa yang kita mampu berikan ya.</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-cases mb-40">
-                    <div class="cases-img">
-                        <img src="/assets/app/theme-charityworks/img/gallery/santri-dhuafa.jpeg" alt="">
-                    </div>
-                    <div class="cases-caption">
-                        <h3><a href="#">Beasiswa 10.000 santri nusantara 2019</a></h3>
-                        <!-- Progress Bar -->
-                        <div class="single-skill mb-15">
-                            <div class="bar-progress">
-                                <div id="bar1" class="barfiller">
-                                    <div class="tipWrap">
-                                        <span class="tip"></span>
+        <?php $counter = 0; ?>
+        <?php foreach ($donation_campaigns as $item) : ?>
+            <?php if ($counter < 6) { ?>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-cases mb-40">
+                        <div class="cases-img">
+                            <img src="<?php echo $item["path_image"]?>" alt="">
+                        </div>
+                        <div class="cases-caption">
+                            <h3><a href="#"><?php echo $item["name"]?></a></h3>
+                            <!-- Progress Bar -->
+                            <div class="single-skill mb-15">
+                                <div class="bar-progress">
+                                    <div id="bar<?php echo $item["id"]?>" class="barfiller">
+                                        <div class="tipWrap">
+                                            <span class="tip" style="left:0 !important"></span>
+                                        </div>
+                                        <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"]*100, 0, '.', '')) ?>" ></span>
                                     </div>
-                                    <span class="fill" data-percentage="70"></span>
                                 </div>
                             </div>
-                        </div>
-                        <!-- / progress -->
-                        <div class="prices d-flex justify-content-between">
-                            <p>Terkumpul:<span> <br />Rp 200.000.000</span></p>
-                            <p>Kebutuhan:<span> <br />Rp 350.000.000</span></p>
-                        </div>
-                    </div>
-                    <div class="btn-donation-wrapper" style="text-align:center;">
-                        <button class="btn btn-donation">Donasi Sekarang</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-cases mb-40">
-                    <div class="cases-img">
-                        <img src="/assets/app/theme-charityworks/img/gallery/ifthar.jpeg" alt="">
-                    </div>
-                    <div class="cases-caption">
-                        <h3><a href="#">Penyediaan ifthar Romadhon 1444H</a></h3>
-                        <!-- Progress Bar -->
-                        <div class="single-skill mb-15">
-                            <div class="bar-progress">
-                                <div id="bar2" class="barfiller">
-                                    <div class="tipWrap">
-                                        <span class="tip"></span>
-                                    </div>
-                                    <span class="fill" data-percentage="25"></span>
-                                </div>
+                            <!-- / progress -->
+                            <div class="prices d-flex justify-content-between">
+                                <p>Terkumpul:<span> <br /><?php echo local_currency($item["campaign_collected"]) ?></span></p>
+                                <p>Kebutuhan:<span> <br /><?php echo local_currency($item["campaign_tonase"]) ?></span></p>
                             </div>
                         </div>
-                        <!-- / progress -->
-                        <div class="prices d-flex justify-content-between">
-                            <p>Terkumpul:<span> <br />Rp 20.000.000</span></p>
-                            <p>Kebutuhan:<span> <br />Rp 135.000.000</span></p>
+                        <div class="btn-donation-wrapper" style="text-align:center;">
+                            <a href='<?= site_url('/id/campaign/'.$item["id"])?>' class="btn btn-donation">Donasi Sekarang</a>
                         </div>
-                    </div>
-                    <div class="btn-donation-wrapper" style="text-align:center;">
-                        <button class="btn btn-donation">Donasi Sekarang</button>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-cases mb-40">
-                    <div class="cases-img">
-                        <img src="/assets/app/theme-charityworks/img/gallery/butuhsaranaairbersih.jpeg" alt="">
-                    </div>
-                    <div class="cases-caption">
-                        <h3><a href="#">Pembangunan sarana air bersih layak pakai & konsumsi</a></h3>
-                        <!-- Progress Bar -->
-                        <div class="single-skill mb-15">
-                            <div class="bar-progress">
-                                <div id="bar3" class="barfiller">
-                                    <div class="tipWrap">
-                                        <span class="tip"></span>
-                                    </div>
-                                    <span class="fill" data-percentage="50"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- / progress -->
-                        <div class="prices d-flex justify-content-between">
-                            <p>Terkumpul:<span> <br />Rp 225.000.000</span></p>
-                            <p>Kebutuhan:<span> <br />Rp 550.000.000</span></p>
-                        </div>
-                    </div>
-                    <div class="btn-donation-wrapper" style="text-align:center;">
-                        <button class="btn btn-donation">Donasi Sekarang</button>
-                    </div>
-                </div>
-            </div>
+
+            <?php 
+                } 
+                $counter++; 
+            ?>
+        <?php endforeach ?>
         </div>
     </div>
 </div>
+<?php endif ?>
 <!-- Our Cases End -->
 
 <!--? Blog Area Start -->

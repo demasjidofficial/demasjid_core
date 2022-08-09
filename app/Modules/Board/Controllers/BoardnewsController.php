@@ -3,23 +3,21 @@
 namespace App\Modules\Board\Controllers;
 
 use App\Controllers\AdminCrudController;
-//use App\Modules\Api\Models\BmdonationtypeModel;
-//use App\Modules\BaitulMal\Models\BmdonationtypeFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
+use App\Modules\Api\Models\BoardNewsModel;
+use App\Modules\Board\Models\BoardNewsFilter;
 
-class BoardnewsController extends AdminCrudController
+class BoardNewsController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Board\Views\boardnews\\';
-    protected $baseRoute = 'admin/board/news';
-    protected $langModel = 'boardnews';
-    //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
-    
+    protected $viewPrefix = 'App\Modules\Board\Views\board_news\\';
+    protected $baseRoute = 'admin/board/boardnews';
+    protected $langModel = 'board_news';
+    protected $modelName = 'App\Modules\Api\Models\BoardNewsModel';
     public function index(){
         return parent::index();
     }
 
-    /*
     public function edit($id = null){
         return parent::edit($id);
     }
@@ -39,19 +37,16 @@ class BoardnewsController extends AdminCrudController
     public function delete($id = null){
         return parent::delete($id);
     }
-    */
 
-    /*
     protected function getDataIndex()
     {
-        $model = model(BmdonationtypeFilter::class);
+        $model = model(BoardNewsFilter::class);
         return [
             'headers' => [
-                'name' => lang('crud.name'),
-                'description' => lang('crud.description'),
-                'uom_id' => lang('crud.uom_id'),
-                'state' => lang('crud.state'),
-                'created_by' => lang('crud.created_by')
+                'board_newsbg_id' => lang('crud.board_newsbg'),
+                'board_newsruntext_id' => lang('crud.board_newsruntext'),
+                'rawatib_schedule_id' => lang('crud.rawatib_schedule_id'),
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -65,7 +60,7 @@ class BoardnewsController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new BotWaModel();
+        $model = new BoardNewsModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -74,8 +69,9 @@ class BoardnewsController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+            $dataEdit['board_newsbgItems'] = Arr::pluck(model('App\Modules\Api\Models\BoardNewsbgModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+    $dataEdit['board_newsruntextItems'] = Arr::pluck(model('App\Modules\Api\Models\BoardNewsruntextModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+    $dataEdit['rawatib_scheduleItems'] = Arr::pluck(model('App\Modules\Api\Models\RawatibScheduleModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
-    */
 }

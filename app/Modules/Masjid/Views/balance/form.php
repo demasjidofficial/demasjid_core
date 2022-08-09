@@ -104,6 +104,10 @@
 
 <?php $this->endSection(); ?>
 
+<?php $this->section('styles') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?php $this->endSection(); ?>
+
 <?php $this->section('scripts') ?>
     <!-- bs-custom-file-input -->    
     <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>

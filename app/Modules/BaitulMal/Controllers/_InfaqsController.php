@@ -39,7 +39,7 @@ class _InfaqsController extends AdminCrudController
     public function delete($id = null){
         return parent::delete($id);
     }
-    */
+    
 
     /*
     protected function getDataIndex()

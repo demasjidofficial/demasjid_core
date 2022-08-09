@@ -25,6 +25,19 @@ if (!function_exists('extractWilayah')) {
     }
 }
 
+if (!function_exists('descWilayah')) {
+    function descWilayah($kode, $wilayahMap)
+    {
+        $result = [];
+        $tmp =  extractWilayah($kode);
+        foreach($tmp as $k => $v){
+            $result[] = $k.' : '.$wilayahMap[$kode]['nama'];
+        }
+        return '<div>'.implode('</div><div>',$result).'</div>';
+    }
+}
+
+
 if (!function_exists('convertStateProgram')) {
     function convertStateProgram($state)
     {
@@ -48,5 +61,15 @@ if (! function_exists('local_currency')) {
             'currency' => $currency,
             'fraction' => $fraction,
         ]);
+    }
+}
+
+if (! function_exists('local_date')) {
+    function local_date(string $date)
+    {
+        $months= array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November' ,'Desember');
+
+        $ar = explode('-', substr($date, 0, 10));
+        return $ar[2].' ' . $months[(int)$ar[1]].' ' . $ar[0];
     }
 }

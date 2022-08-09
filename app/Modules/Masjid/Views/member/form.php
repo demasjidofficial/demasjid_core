@@ -64,11 +64,47 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <?= form_label(lang('crud.kota_id'), '', ['for' => 'kota', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('', old('kota', $data->kota?? ''), "class='form-control varchar' readonly") ?>
+                        <?php if (has_error('kota')) { ?>
+                        <p class="text-danger"><?= error('kota'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.kecamatan_id'), '', ['for' => 'kecamatan', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('', old('kecamatan', $data->kecamatan?? ''), "class='form-control varchar' readonly") ?>
+                        <?php if (has_error('kecamatan')) { ?>
+                        <p class="text-danger"><?= error('kecamatan'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.desa_id'), '', ['for' => 'desa', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('', old('desa', $data->desa?? ''), "class='form-control varchar' readonly") ?>
+                        <?php if (has_error('desa')) { ?>
+                        <p class="text-danger"><?= error('desa'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>                
+                <div class="row mb-3">
                     <?= form_label(lang('crud.address'), '', ['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('address', old('address', $data->address ?? ''), "class='form-control varchar' rows=3 required") ?>
                         <?php if (has_error('address')) { ?>
                         <p class="text-danger"><?= error('address'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.email'), '', ['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('email', old('email', $data->email ?? ''), "class='form-control varchar' rows=3 required") ?>
+                        <?php if (has_error('email')) { ?>
+                        <p class="text-danger"><?= error('email'); ?></p>
                         <?php } ?>
                     </div>
                 </div>

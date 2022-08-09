@@ -4,6 +4,8 @@ namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\MemberModel;
+use App\Modules\Api\Models\WilayahModel;
+use App\Modules\Masjid\Libraries\Generator;
 use App\Modules\Masjid\Models\MemberFilter;
 
 class MemberController extends AdminCrudController
@@ -23,7 +25,7 @@ class MemberController extends AdminCrudController
     }
 
     public function edit($id = null)
-    {
+    {        
         return parent::edit($id);
     }
 
@@ -43,6 +45,7 @@ class MemberController extends AdminCrudController
         }
 
         $isActivation = $this->isActivation($id);
+        
         $data = $this->request->getPost();
         $updateData = array_filter($data);
 
@@ -125,11 +128,14 @@ class MemberController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(MemberFilter::class);
-
+        $dataModel = $model->paginate(setting('App.perPage'));        
         return [
             'headers' => [
                 'name' => lang('crud.name'),
                 'wilayah_id' => lang('crud.wilayah_id'),
+                'kota' => 'Kota',
+                'kecamatan' => 'Kecamatan',
+                'desa' => 'Desa',
                 'code' => lang('crud.code'),
                 'address' => lang('crud.address'),
                 'email' => lang('crud.email'),
@@ -143,7 +149,8 @@ class MemberController extends AdminCrudController
             'viewPrefix' => $this->getViewPrefix(),
             'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
-            'data' => $model->paginate(setting('App.perPage')),
+            'wilayahMap' => $this->getWilayah($dataModel),
+            'data' => $dataModel,            
             'pager' => $model->pager,
         ];
     }
@@ -158,7 +165,13 @@ class MemberController extends AdminCrudController
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
-            $dataEdit['data'] = $data;
+            $wilayah = collect((new WilayahModel())->extractWilayah($data->wilayah_id)->asArray()->findAll())->keyBy('kode');
+            $extractWilayah = extractWilayah($data->wilayah_id);
+            $data->desa = $wilayah[$extractWilayah['desa']]['nama'] ?? '';
+            $data->kota = $wilayah[$extractWilayah['kota/kabupaten']]['nama'] ?? '';
+            $data->kecamatan = $wilayah[$extractWilayah['kecamatan']]['nama'] ?? '';
+            $dataEdit['data'] = $data;            
+
         }
         $dataEdit['state'] = array_combine(MemberModel::$state, MemberModel::$state);
 
@@ -193,7 +206,7 @@ class MemberController extends AdminCrudController
     }
 
     private function isActivation($id)
-    {
+    {        
         $newState = $this->request->getPost('state');        
         $data = $this->model->find($id);
         if ($data->state == MemberModel::$defaultState) {
@@ -209,16 +222,18 @@ class MemberController extends AdminCrudController
     {        
         $data = $this->model->find($id);
         // $data->email = 'ahmad.afandi85@gmail.com';
+        $this->generateDomainFolder($data);
+        $this->copyAssetImage($data);
         helper('email');
         $email = emailer(['SMTPCrypto' => setting('Email.SMTPCrypto')]);
         $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
             ->setTo($data->email)
             ->setSubject(lang('crud.activation_user').' Demasjid')
             ->setMessage(view($this->getViewPrefix().'email_activation', ['data' => $data]));        
-        if($email->send()){
-            $this->writeLog('Email berhasil dikirim '.$data->email);
+        if($email->send()){            
+            log_message('critical','Email berhasil dikirim '.$data->email);
         }else{
-            $this->writeLog('Email gagal dikirim '.$email->printDebugger());
+            log_message('critical','Email gagal dikirim '.$email->printDebugger());
         }
     }
 
@@ -226,5 +241,41 @@ class MemberController extends AdminCrudController
         $data = $this->model->find($id);
         $password = service('passwords')->hash($data->password);
         shell_exec("init_db {$id} {$password}");
+    }
+
+    private function generateDomainFolder($data){
+        $domainName = $data->domain;
+        $domainFolder = $data->code;
+        helper('filesystem');        
+        $original = env('domain.template.source').'template';
+        $target = env('domain.template.destination').$domainFolder;
+        try {
+            directory_mirror($original, $target, false);
+            $envPathFile = $target.DIRECTORY_SEPARATOR.'.env';
+            $hostPathFile = $target.DIRECTORY_SEPARATOR.$domainFolder.'.conf';            
+            $generator = new Generator($envPathFile, $hostPathFile, $domainName, $domainFolder);
+            $generator->env();
+            $generator->config();
+            $password = service('passwords')->hash($data->code);
+            $generator->database($data->id, $password);
+        } catch (\Throwable $th) {
+             log_message('critical','Failed generate domain folder '.$th->getMessage());
+        }        
+    }    
+
+    private function getWilayah($dataModel){
+        $listwilayah = [];
+        foreach($dataModel as $d){
+            $listwilayah = array_merge($listwilayah, array_values(extractWilayah($d->wilayah_id)));
+        }
+        $wilayah = collect((new WilayahModel())->whereIn('kode',array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
+        return $wilayah;
+    }
+
+    private function copyAssetImage($data){
+        $domainFolder = $data->code;
+        $target = env('domain.template.destination').$domainFolder;
+        copy($data->path_logo, $target.DIRECTORY_SEPARATOR.$data->path_logo);
+        copy($data->path_image, $target.DIRECTORY_SEPARATOR.$data->path_image);
     }
 }

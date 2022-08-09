@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class BmdonationtypeModel extends BaseModel
 {
     protected $table = 'bmdonationtype';
@@ -24,7 +22,6 @@ class BmdonationtypeModel extends BaseModel
 		'uom_id' => 'numeric',
 		'state' => 'max_length[20]',
 		'created_at' => 'valid_date|required',
-		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric'
+		'updated_at' => 'valid_date|required'
     ];   
 }

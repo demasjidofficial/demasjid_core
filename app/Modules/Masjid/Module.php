@@ -145,6 +145,7 @@ class Module extends BaseModule
             ->addItem($profilesItem)
             ->addItem($programsItem)
             ->addItem($mastersItem)
-            ->addItem($schedulesItem);
+            ->addItem($schedulesItem)
+            ;
     }
 }
