@@ -18,8 +18,8 @@
                         <!-- <h3>&nbsp;</h3> -->
                         <h4><?= lang('app.total_donation')?></h4>
                             <h4>
-                                <b>
-                                    <?php echo $dataStats->totalDonation ?>
+                                <b id="totalDonation">
+                                    <?php echo local_currency($dataStats->totalDonation) ?>
                                 </b>
                             </h4>
 
@@ -39,13 +39,13 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h4><?= lang('app.donation_amount')?></h4>
-                            <h4><b><?php echo $dataStats->countDonation ?> Donasi</b>
+                            <h4><b id="countDonation"><?php echo $dataStats->countDonation ?> Donasi</b>
                                 <?php if (isset($data) && count($data)) : ?>
                                 <?php endif ?>
                             </h4>
 
                             <p>
-                                Terkumpul <?php echo $dataStats->countDonation ?> dari <?php echo $dataStats->totalCampaign ?> Kampanye
+                                Terverifikasi dari <?php echo $dataStats->totalCampaign ?> donasi
                             </p>
                             
                             <?php if (isset($data->logo)) { ?>
@@ -69,7 +69,7 @@
                         <h4><?= lang('app.active_campaigns')?></h4>
                             <h4><b><?php echo $dataStats->totalActiveCampaign ?></b></h4>
                             <p>
-                                Campaigns yang sedang active
+                                Campaigns
                             </p>
                         </div>
                         <div class="icon">
@@ -98,6 +98,39 @@
 
 <?php $this->section('scripts'); ?>
 <script>
+    $('[data-toggle=confirmation]').confirmation({
+        onConfirm: function(){
+            let _this = $(this);
+            let id = _this.attr('id');
+            let state = (_this.attr('data-state') == 0) ? 1 : 0;
+            let dana_in = _this.attr('data-danain');
+            let campaign_id = _this.attr('data-campaign');
+            let url = "<?php echo base_url()?>" + "/api/update_donasi_state/";
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: { id, state, dana_in, campaign_id },
+                success: function(res) {
+                    _this.siblings().html((res.state == 1) ? "Received" : "Waiting");
+                    $('#countDonation').html(res.donation_count);
+                    $('#totalDonation').html((res.campaign_collected).toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        })
+                        .replace('IDR', 'Rp ')
+                        .replace('.00', '')
+                        .replace(',', '.')
+
+                    );
+                    return console.log(res);
+                },
+                error : function(res) {
+                    console.log('error');
+                    return alert('Error');
+                }
+            });   
+        }
+    }); 
 
 </script>
 <?php $this->endSection(); ?>

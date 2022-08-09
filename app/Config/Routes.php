@@ -82,8 +82,9 @@ static function ($routes) {
     //$routes->resource('socials');
 });
 
-$routes->post('/api/update_paymentmethod_activation', '\App\Modules\BaitulMal\Controllers\PaymentMethodController::updateActived');
-$routes->post('/api/senddonation', '\App\Modules\BaitulMal\Controllers\DonasiController::insertDonation');
+$routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
+$routes->post('/api/update_donasi_state', '\App\Modules\Api\Controllers\Donasis::updateState');
+$routes->post('/api/senddonation', '\App\Modules\Api\Controllers\Donasis::insertDonation');
 
 // Donation View
 $routes->get('{locale}/campaign/(:segment)', 'CampaignsPageController::CampaignView/$1');

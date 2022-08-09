@@ -8,6 +8,7 @@ use App\Modules\Api\Models\DonasiModel;
 use App\Modules\BaitulMal\Models\DonasiFilter;
 use App\Modules\BaitulMal\Models\MasterBankFilter;
 use App\Modules\BaitulMal\Models\MasterPaymentgatewayFilter;
+use App\Modules\BaitulMal\Models\BmdonationcampaignFilter;
 
 class DonasiController extends AdminCrudController
 {
@@ -38,21 +39,6 @@ class DonasiController extends AdminCrudController
         return parent::create();
     }
 
-    public function insertDonation(){
-        $data = $this->request->getPost();
-        if (! $this->model->insert($data)) {            
-            return json_encode([
-                'state' => false,
-                'error' => $this->model->errors()
-            ]);
-        }
-        $this->writeLog();
-        return json_encode([
-            'state' => true,
-            'id' => $this->model->insertID()
-        ]);
-    }
-
     public function delete($id = null){
         return parent::delete($id);
     }
@@ -77,7 +63,7 @@ class DonasiController extends AdminCrudController
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
-            'dataStats' => $this->getDataStats($model->find()),
+            'dataStats' => $this->getDataStats($model->find(), []),
             'campaignName' => 'All'
         ];
     }
@@ -109,7 +95,8 @@ class DonasiController extends AdminCrudController
 
         $model_master_bank = model(MasterBankFilter::class)->asArray()->findAll();
         $model_master_paygat = model(MasterPaymentgatewayFilter::class)->asArray()->findAll();
-
+        $campaign = model(BmdonationcampaignFilter::class)->asArray()->find($id);
+        
         return [
             'headers' => [
                 'donatur' => lang('crud.donatur'),
@@ -127,22 +114,40 @@ class DonasiController extends AdminCrudController
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
-            'dataStats' => $this->getDataStats($model->find()),
+            'dataStats' => $this->getDataStats($model->find(), [$campaign]),
             'campaignName' => urldecode($uri->getSegment(5)),
             'master_bank' => $model_master_bank,
             'master_paygat' => $model_master_paygat
         ];
     }
 
-    protected function getDataStats($data) {
+    protected function getDataStats($donasi, $campaign) {
         $totalDonation = 0;
         $totalActiveCampaign = 0;
         $countDonation = 0;
+
+        if (isset($campaign)) {
+            if (count($campaign) == 1) {
+                $totalDonation = $campaign[0]['campaign_collected'];
+                $countDonation = $campaign[0]['donation_count'];
+                $totalActiveCampaign = 1;
+            }
+        }
+
+        // if(isset($campaign) && count($campaign)){
+        //     foreach ($campaign as $cp) {
+
+        //     }
+        // }
+        // else {
+        //     $totalDonation = 
+        // }
+
         return (object)[
             'totalDonation' => $totalDonation,
             'totalActiveCampaign' => $totalActiveCampaign,
             'countDonation' => $countDonation,
-            'totalCampaign' => count($data),
+            'totalCampaign' => count($donasi),
         ];
     }
        

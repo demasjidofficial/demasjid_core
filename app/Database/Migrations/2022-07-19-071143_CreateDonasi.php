@@ -36,6 +36,7 @@ class CreateDonasi extends Migration
             'dana_in' => [
                 'type'       => 'int',
                 'constraint' => 13,
+                'unsigned'   => true,
             ],
             'date' => [
                 'type'       => 'date'
@@ -46,9 +47,9 @@ class CreateDonasi extends Migration
                 'null'       => true,
             ],
             'state' => [
-                'type'       => 'varchar',
-                'constraint' => 20,
-                'default'    => 'Waiting',
+                'type'       => 'int',
+                'constraint' => 2,
+                'default'    => 0,
                 'null'       => true,
             ],          
             'created_at' => [

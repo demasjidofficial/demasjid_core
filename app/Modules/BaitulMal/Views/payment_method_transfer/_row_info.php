@@ -4,7 +4,7 @@
 <td><?php echo esc($item->rek_name) ?></a></td>
 <td class="text-center">
     <div class="custom-control custom-switch">
-        <input onChange="updateState(<?php echo $item->id; ?>, <?php echo $item->isActived; ?>)" type="checkbox" class="custom-control-input" value="<?php echo $item->isActived; ?>" id="<?php echo $item->id; ?>" <?php echo ($item->isActived) ? 'checked' : ''; ?> disabled >
+        <input onChange="updateState(<?php echo $item->id; ?>, <?php echo $item->isActived; ?>)" type="checkbox" class="custom-control-input" value="<?php echo $item->isActived; ?>" id="<?php echo $item->id; ?>" <?php echo ($item->isActived) ? 'checked' : ''; ?> >
         <label class="custom-control-label" for="<?php echo $item->id; ?>"></label>
     </div>
 </td>
@@ -23,27 +23,3 @@
         </ul>
     </div>
 </td>
-
-<script type="text/javascript">
-    function updateState(id, value) {
-        let url = "<?php echo base_url()?>" + "/api/update_paymentmethod_activation/";
-        console.log(url);
-        $.ajax({
-            url: url,
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                'id': id,
-                'value' : value
-            },
-            success: function(data) {
-                console.log('succress');
-                console.log(data);
-            },
-            error : function(data) {
-                console.log('error');
-                console.log(data);
-            }
-        });   
-    }
-</script>

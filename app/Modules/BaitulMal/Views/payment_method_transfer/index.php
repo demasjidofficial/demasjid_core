@@ -42,7 +42,29 @@
 <?php $this->endSection(); ?>
 
 <?php $this->section('scripts'); ?>
-<script>
+
+<script type="text/javascript">
+    function updateState(id, value) {
+        let url = "<?php echo base_url()?>" + "/api/update_paymentmethod_activation/";
+        console.log(url);
+        // $.ajax({
+        //     url: url,
+        //     type: 'POST',
+        //     dataType: 'json',
+        //     data: {
+        //         'id': id,
+        //         'value' : value
+        //     },
+        //     success: function(data) {
+        //         console.log('succress');
+        //         console.log(data);
+        //     },
+        //     error : function(data) {
+        //         console.log('error');
+        //         console.log(data);
+        //     }
+        // });   
+    }
 
 </script>
 <?php $this->endSection(); ?>
