@@ -31,7 +31,22 @@ class TargetFundraisingController extends AdminCrudController
     }
 
     public function create(){
-        return parent::create();
+        $data = $this->request->getPost();
+       
+        $datarange = explode(' - ', $data['jadwal_durasi']);
+        $start_date = explode('/', $datarange[0]);
+        $end_date = explode('/', $datarange[1]);
+        $data['target_nominal'] = (float)(str_replace(',','',$data['target_nominal']));
+        $data['jadwal_akhir'] = date("Y-m-d", strtotime(($end_date[2].'-'.$end_date[1].'-'.$end_date[0])));
+        $data['jadwal_mulai'] = date("Y-m-d", strtotime(($start_date[2].'-'.$start_date[1].'-'.$start_date[0])));
+    
+
+        if (! $this->model->insert($data)) {            
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -46,8 +61,9 @@ class TargetFundraisingController extends AdminCrudController
                                     'campaign' => lang('crud.campaign'),
                 'donatur' => lang('crud.donatur'),
                 'target_nominal' => lang('crud.target_nominal'),
-                'tipe_donasi' => lang('crud.tipe_donasi')
-               
+                'tipe_donasi' => lang('crud.tipe_donasi'),
+                'jadwal_mulai' => lang('crud.durasi'),
+  
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -68,13 +84,15 @@ class TargetFundraisingController extends AdminCrudController
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
-            $data->jadwal_mulai = $data->start_date.' - '.$data->end_date;
+            $start_date = explode('-', $data->jadwal_mulai);
+            $end_date = explode('-', $data->jadwal_akhir);
+            $data->jadwal_durasi =  $start_date[2] . '/' . $start_date[1] .'/'. (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2)); 
             $dataEdit['data'] = $data;
         }
-       
         $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['donationcampaign'] = ['' => 'Pilih Kampanye'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaignModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['tipedonatur'] = ['' => 'Pilih Kategori Donatur'] + Arr::pluck(model('App\Modules\Api\Models\DonaturCategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
-      
         return $dataEdit;
     }
+
 }

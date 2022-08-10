@@ -43,9 +43,7 @@ class DonaturcategoryController extends AdminCrudController
         $model = model(DonaturcategoryFilter::class);
         return [
             'headers' => [
-                                    'name' => lang('crud.name'),
-                'created_by' => lang('crud.created_by'),
-                'updated_by' => lang('crud.updated_by')
+                                    'name' => lang('crud.name')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

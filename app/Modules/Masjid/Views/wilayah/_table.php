@@ -4,7 +4,7 @@
 =======
 <table class="table table-hover table-sm">
     <?= $this->include('_table_head') ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
     <tbody>
     <?php if (isset($data) && count($data)) : ?>
         <?php foreach ($data as $item) : ?>

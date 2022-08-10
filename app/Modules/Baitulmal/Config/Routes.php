@@ -24,7 +24,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     
     $routes->resource('baitulmal/zakats', ['controller' => '_ZakatsController']);
     $routes->resource('baitulmal/infaqs', ['controller' => '_InfaqsController']);
-    $routes->resource('baitulmal/frundaising', ['controller' => '_FundraisingController']);
+    $routes->resource('baitulmal/fundraising', ['controller' => '_FundraisingController']);
     $routes->resource('baitulmal/shodaqohs', ['controller' => '_ShodaqohsController']);
     $routes->resource('baitulmal/wakafs', ['controller' => '_WakafsController']);
     $routes->resource('baitulmal/qurbans', ['controller' => '_QurbansController']);

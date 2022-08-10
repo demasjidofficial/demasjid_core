@@ -88,7 +88,7 @@
     <!-- Footer -->
     <?= $this->include('_footer') ?>
     <!-- /Footer -->
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
 
   </div><!--/.wrapper-->
 
@@ -112,7 +112,7 @@
 <!-- Summernote -->
 <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
 =======
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
 <!-- overlayScrollbars -->
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
@@ -155,7 +155,7 @@
 =======
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
 <!-- AdminLTE for demo purposes --
 <script src="/assets/admin/theme-adminlte/adminlte-demo.js"></script>
 < !-- AdminLTE dashboard demo (This is only for demo purposes) --

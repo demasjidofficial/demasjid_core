@@ -30,7 +30,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.campaign'), '', ['for' => 'campaign', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('campaign', old('campaign', $data->campaign ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.campaign') . "' ") ?>
+                    <?= form_dropdown('campaign', $donationcampaign, old('campaign', $data->campaign ?? ''), "class='form-control select2bs4' required") ?>
                     <?php if (has_error('campaign')) { ?>
                         <p class="text-danger"><?php echo error('campaign'); ?></p>
                     <?php } ?>
@@ -45,7 +45,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="row mb-3">
+            <!-- <div class="row mb-3">
                 <?= form_label(lang('crud.target_nominal'), '', ['for' => 'target_nominal', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('target_nominal', old('target_nominal', $data->target_nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.target_nominal') . "' ") ?>
@@ -54,8 +54,10 @@
                     <?php } ?>
                 </div>
             </div>
+
+
             <div class="row mb-3">
-                <?= form_label(lang('crud.tipe_donasi'), '', ['for' => 'tipe_donasi', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.tipe_donasi'), '', ['for' => 'tipe_donasi', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_dropdown('tipe_donasi', $donationtypeItems, old('tipe_donasi', $data->tipe_donasi ?? ''), "class='form-control select2bs4' required") ?>
                     <?php if (has_error('tipe_donasi')) { ?>
@@ -63,6 +65,15 @@
                     <?php } ?>
                 </div>
             </div>
+            <div class="row mb-3">
+                <?= form_label(lang('crud.jadwal_durasi'), '', ['for' => 'jadwal_durasi', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('jadwal_durasi', old('jadwal_durasi', $data->jadwal_durasi ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.jadwal_durasi') . "' ") ?>
+                    <?php if (has_error('jadwal_durasi')) { ?>
+                        <p class="text-danger"><?php echo error('jadwal_durasi'); ?></p>
+                    <?php } ?>
+                </div>
+            </div> -->
 
         </fieldset>
 
@@ -74,4 +85,36 @@
 
 </x-admin-box>
 
+
+
+
+<?php $this->endSection(); ?>
+<?php $this->section('styles') ?>
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?php $this->endSection(); ?>
+<?php $this->section('scripts'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<!-- bs-custom-file-input -->
+<?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
+<script type="text/javascript">
+    $(function() {
+        $('input[name=jadwal_durasi]').daterangepicker({
+            "locale": {
+                "format": 'DD/MM/YY'
+            }
+        });
+
+
+        bsCustomFileInput.init();
+        $('input[name=target_nominal]').inputmask({
+            'alias': 'currency',
+            'rightAlign': false,
+            'digits': '0',
+            'allowMinus': 'false',
+        });
+
+    });
+</script>
 <?php $this->endSection(); ?>

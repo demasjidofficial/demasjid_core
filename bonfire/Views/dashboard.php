@@ -1,17 +1,17 @@
 <?php $this->extend('master') ?>
 
 <?php $this->section('styles') ?>
-<<<<<<< HEAD
+
 <?= asset_link('admin/css/widgets.css', 'css'); ?>
-=======
+
   <?= asset_link('admin/theme-adminlte/plugins/chart-js/Chart.css', 'css'); ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+
 <?php $this->endSection() ?>
 
 
 <?php $this->section('main') ?>
 
-<<<<<<< HEAD
+
 <div class="input-group col-lg-6 col-12">
 	<div class="input-group-prepend">
 		<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -30,7 +30,7 @@
 	'charts'  => $widgets->widget('charts')->items(),
 	'manager' => $manager,
 ]) ?>
-=======
+
 <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
@@ -426,7 +426,7 @@
       </div><!--/. container-fluid -->
     </section>
 
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+
 <?php $this->endSection() ?>
 
 
@@ -443,7 +443,7 @@
   $(function () {
   'use strict'
 
-<<<<<<< HEAD
+
 		<?php foreach ($elem->items() as $index => $widget) : ?>
 
 			<?php
@@ -461,7 +461,7 @@
 	<?php endforeach; ?>
 </script>
 <?php $this->endSection() ?>
-=======
+
   var ticksStyle = {
     fontColor: '#495057',
     fontStyle: 'bold'
@@ -606,4 +606,3 @@
 
 
 <?php $this->endSection() ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1

@@ -30,10 +30,10 @@ class TargetFundraising extends BaseEntity
 	 * @OA\Property(		 		 		 
 	 *     description="campaign",
 	 *     title="campaign",
-	 *     type="string",
+	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
-	 * 	   maxLength=128,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
@@ -74,6 +74,28 @@ class TargetFundraising extends BaseEntity
 	 *		 
 	 */
 	private $tipe_donasi;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="jadwal_mulai",
+	 *     title="jadwal_mulai",
+	 *     type="string",
+	 * 	   format="date",	 
+	 * 	   nullable=true,
+	 * )
+	 *		 
+	 */
+	private $jadwal_mulai;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="jadwal_akhir",
+	 *     title="jadwal_akhir",
+	 *     type="string",
+	 * 	   format="date",	 
+	 * 	   nullable=true,
+	 * )
+	 *		 
+	 */
+	private $jadwal_akhir;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",

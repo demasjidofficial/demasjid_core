@@ -22,7 +22,7 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p>kategori donatur</p>
+                    <p><?= lang('crud.donaturcategory') ?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-users"></i>
@@ -36,7 +36,7 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p>Tim Fundraising</p>
+                    <p> <?= lang('crud.tim_fundraising') ?></p>
                     </div>
                     <div class="icon">
                     <i class="fas fa-users"></i>
@@ -46,7 +46,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <div class="small-box bg-success">
                     <div class="inner">
                     <h3>&nbsp;</h3>
@@ -59,7 +59,7 @@
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-3">
                 <div class="small-box bg-danger">
                     <div class="inner">

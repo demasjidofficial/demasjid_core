@@ -8,7 +8,7 @@
 =======
         <a href="<?= $backUrl ?>" class="back">&larr; <?= lang('crud.back')?></a>
         <h4><?= isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.zone')?></h4>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -25,7 +25,7 @@
         <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 =======
         <form action="<?= $actionUrl; ?>" method="post" enctype="multipart/form-data">
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
 
             <?php echo csrf_field(); ?>
 
@@ -41,7 +41,7 @@
 =======
                 <div class="row mb-3">
                     <?= form_label(lang('crud.code'), '', ['for' => 'kode', 'class' => 'col-form-label col-sm-2']) ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
                     <div class="col-sm-10">
                         <?= form_input('kode', old('kode', $data->kode ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('kode')) { ?>
@@ -54,7 +54,7 @@
                     <?= form_label('nama','',['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
 =======
                     <?= form_label(lang('crud.name'), '', ['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
                     <div class="col-sm-10">
                         <?= form_input('nama', old('nama', $data->nama ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('nama')) { ?>
@@ -71,7 +71,7 @@
                     <?= form_label(lang('crud.zone_level'), '', ['for' => 'level', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('level', $zoneLevelItems, old('level', $data->level ?? ''), "class='form-control add-begin-option' data-label='".lang('crud.zone_level')."' required placeholder='".lang('crud.zone_level')."' ") ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
                         <?php if (has_error('level')) { ?>
                         <p class="text-danger"><?php echo error('level'); ?></p>
                         <?php } ?>

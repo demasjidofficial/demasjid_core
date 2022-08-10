@@ -16,8 +16,9 @@ class CreateTargetFundraising extends Migration
                 'auto_increment' => true,
             ],
             'campaign' => [
-                'type'       => 'varchar',
-                'constraint' => 128,
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => true,
             ],
             'donatur' => [
                 'type'       => 'varchar',
@@ -30,6 +31,15 @@ class CreateTargetFundraising extends Migration
             'tipe_donasi' => [
                 'type'       => 'varchar',
                 'constraint' => 128,
+            ],
+
+            'jadwal_mulai' => [
+                'type'       => 'datetime',
+                'null'       => false,
+            ],
+            'jadwal_akhir' => [
+                'type'       => 'datetime',
+                'null'       => false,
             ],
 
           

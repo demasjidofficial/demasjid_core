@@ -250,6 +250,20 @@ return [
 	'campaign_collected' => 'Terkumpul',
 	'program_id' => 'Program',
 	'donasis' => 'Donasi',
-	'campaigns' => 'Kampanye'
+	'campaigns' => 'Kampanye',
+	'donaturcategory'=>'Kategori Donatur',
+	'updated_by'=>'Diperbarui Oleh',
+	'tim_fundraising'=>'Tim Fundraising',
+	'id_target'=>'Target Fundraising',
+	'id_jadwal'=>'Jadwal Fundraising',
+	'supervisior'=>'Supervisior',
+	'staff'=>'Staff',
+	'target_fundraising'=>'Target Fundraising',
+	'donatur'=>'Tipe Donatur',
+	'target_nominal'=>'Target Nominal',
+	'tipe_donasi'=>'Tipe Donasi',
+	'jadwal_mulai'=>'Jadwal Mulai',
+	'jadwal_akhir'=>'Jadwal Akhir',
+	'durasi'=>'durasi'
  ];
 

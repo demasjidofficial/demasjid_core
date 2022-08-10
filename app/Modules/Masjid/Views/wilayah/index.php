@@ -12,7 +12,7 @@
                 <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  wilayah</a>
 =======
                 <a href="<?= route_to($baseRoute . '/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new')?></a>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
             </div>
         </div>
     </x-page-head>
@@ -32,7 +32,7 @@
                 <!-- Filters -->
                 <div class="col-auto" x-show="filtered" x-transition.duration.240ms>
                     <?= view_cell('Bonfire\Libraries\Cells\Filters::renderList', 'model=WilayahFilter target=#wilayah-list') ?>
->>>>>>> 7e39c6ab64ab10ca84a3fa1a1d3b249e4dc83fc1
+>>>>>>> 
                 </div>
             </div>
         </div>

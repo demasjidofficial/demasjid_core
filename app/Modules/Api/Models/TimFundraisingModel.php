@@ -26,5 +26,13 @@ class TimFundraisingModel extends BaseModel
 		'updated_at' => 'valid_date|required'
 		// 'created_by' => 'numeric|max_length[11]',
 		// 'updated_by' => 'numeric|max_length[11]'
-    ];   
+    ]; 
+	
+	// public function findAll(int $limit = 0, int $offset = 0)
+    // {
+    //     $this->selectColumn = [$this->table.'.*','donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
+    //     $this->join('bmdonationtype', 'bmdonationtype.id = '.$this->table.'.tipe_donasi');
+	// 	$this->join('donaturcategory', 'donaturcategory.id = '.$this->table.'.donatur', 'left');
+    //     return parent::findAll($limit, $offset);
+    // }
 }

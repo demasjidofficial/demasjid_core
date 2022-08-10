@@ -46,7 +46,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <div class="small-box bg-success">
                     <div class="inner">
                     <h3>&nbsp;</h3>
@@ -59,7 +59,7 @@
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div><!--/.row -->
         
     </div>
