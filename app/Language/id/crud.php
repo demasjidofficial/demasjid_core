@@ -263,6 +263,11 @@ return [
 	'donation' => 'Donasi',
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
-	'action' => 'Aksi'
+	'action' => 'Aksi',
+	
+	'room' => 'Room',
+	'konfirmruangan' => 'Konfirmasi Ruangan',
+	'coment' => 'Komentar',
+	'rekaplaporan' => 'Rekap Laporan'
  ];
 

@@ -30,8 +30,8 @@ $routes->setAutoRoute(false);
  */
 $routes->setPrioritize();
 $routes->addRedirect('/', '/id');
-$routes->get('{locale}', 'Home::index', ['priority' => 1]); 
-$routes->get('{locale}/(:segment)', 'Home::index/$1', ['priority' => 1]); 
+$routes->get('{locale}', 'Home::index', ['priority' => 1]);
+$routes->get('{locale}/(:segment)', 'Home::index/$1', ['priority' => 1]);
 
 // Auth routes
 $routes->get('register', '\App\Controllers\Auth\RegisterController::registerView');
@@ -52,35 +52,39 @@ $routes->post('/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginControl
 $routes->post('/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
 $routes->get('/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
 $routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
-$routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], 
-static function ($routes) {
-    $routes->resource('users');
-    $routes->resource('jabatans');
-    $routes->resource('pengurus');
-    $routes->resource('wilayahs',['except' => ['index']]);
-    $routes->resource('members',['except' => ['create']]);
-    $routes->resource('entities');
-    $routes->resource('balances');
-    $routes->resource('profiles');
-    $routes->resource('pengurus');
-    $routes->resource('programs');
-    $routes->resource('kelas');
-    $routes->resource('uom');
-    $routes->resource('chartOfAccounts');
-    $routes->resource('programCosts');
-    $routes->resource('rawatibSchedules');
-    $routes->resource('nonRawatibSchedules');    
-    $routes->resource('bmdonationcampaigncategories');
-    $routes->resource('bmdonationcampaigns');
-    $routes->resource('donaturs');
-    $routes->resource('donasis');
-    //$routes->resource('menus');
-    //$routes->resource('pages');
-    //$routes->resource('posts');
-    //$routes->resource('sections');
-    //$routes->resource('sliders');
-    //$routes->resource('socials');
-});
+$routes->group(
+    '/api',
+    ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'],
+    static function ($routes) {
+        $routes->resource('users');
+        $routes->resource('jabatans');
+        $routes->resource('pengurus');
+        $routes->resource('wilayahs', ['except' => ['index']]);
+        $routes->resource('members', ['except' => ['create']]);
+        $routes->resource('entities');
+        $routes->resource('balances');
+        $routes->resource('profiles');
+        $routes->resource('pengurus');
+        $routes->resource('programs');
+        $routes->resource('kelas');
+        $routes->resource('uom');
+        $routes->resource('chartOfAccounts');
+        $routes->resource('programCosts');
+        $routes->resource('rawatibSchedules');
+        $routes->resource('nonRawatibSchedules');
+        $routes->resource('bmdonationcampaigncategories');
+        $routes->resource('bmdonationcampaigns');
+        $routes->resource('donaturs');
+        $routes->resource('donasis');
+        $routes->resource('dataruangans');
+        //$routes->resource('menus');
+        //$routes->resource('pages');
+        //$routes->resource('posts');
+        //$routes->resource('sections');
+        //$routes->resource('sliders');
+        //$routes->resource('socials');
+    }
+);
 
 $routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
 $routes->post('/api/update_donasi_state', '\App\Modules\Api\Controllers\Donasis::updateState');
