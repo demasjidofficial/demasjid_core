@@ -1,7 +1,6 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('main'); ?>
-
 <!-- header -->
 <section class="header fixed-top">
     <div class="card text-center textcard">
@@ -23,8 +22,22 @@
     </div>
     <div class="countdown mt-5 text-center">
         <div class="row">
+            <?php
+                $now = strtotime(date('Y/m/D'));
+                $time = date('H:i:s',strtotime(time()));
+                $awal  = strtotime($now . $time);
+                $akhir = strtotime('2022-08-12 11:07:33');
+                $diff  = $akhir - $awal;
+
+                $jam   = floor($diff / (60 * 60));
+                $menit = $diff - ($jam * (60 * 60));
+                $detik = $diff % 60;
+            ?>
             <div class="col">
-                <h2 id="countDownText" class="text-countdown">Dhuhur -05:00</h2>
+                <h2 id="timer" class="text-countdown">
+                    <!-- < ?= 'Waktu tinggal: ' . $jam .  ' jam, ' . floor($menit / 60) . ' menit, ' . $detik . ' detik'; ?> -->
+                </h2>
+                <span id="time1"></span>
             </div>
         </div>
     </div>
@@ -52,16 +65,13 @@
             <?php foreach ($rawatib_schedule as $sholat) {
                 $no = $sholat['id'];
 
-                // if ($no == 1) {
-                //     $bgcolor = "background-color: " . $warna1 . ";";
-                // } else {
-                //     $bgcolor = "background-color: " . $warna2 . ";";
-                // }
+                // $time = date('H:i', strtotime($sholat['pray_time']));
+                $time = $sholat['pray_time'];
             ?>
 
                 <div class="col">
-                    <div class="card  w-40 card-pray-bg bg-color<?= $no?>">
-                        <div class="card-body text-center card-sholat" id="jadwal" id-pray-time="<?= $sholat['id'] ?>">
+                    <div class="card  w-40 card-pray-bg bg-color<?= $no ?>">
+                        <div class="card-body text-center card-sholat" id="<?= $no ?>">
                             <h3 class="card-title">
                                 <?= ucfirst($sholat['name']) ?>
                             </h3>
@@ -111,7 +121,7 @@
         $('#slideshow > div:first')
             .fadeOut(3000)
             .next()
-            .fadeIn(3000)
+            .fadeIn(2000)
             .end()
             .appendTo('#slideshow');
         $('ul li').removeClass('active');
@@ -124,37 +134,29 @@
     }
 
 
-    var praytime = "00:10";
-    var interval = setInterval(function() {
-        var timer = praytime.split(':');
-        //by parsing integer, I avoid all extra string processing
-        var minutes = parseInt(timer[0], 10);
-        var seconds = parseInt(timer[1], 10);
-        --seconds;
-        minutes = (seconds < 0) ? --minutes : minutes;
-        if (minutes < 0) clearInterval(interval);
-        seconds = (seconds < 0) ? 59 : seconds;
-        seconds = (seconds < 10) ? '0' + seconds : seconds;
-        //minutes = (minutes < 10) ?  minutes : minutes;
-        $('.text-countdown').html(minutes + ':' + seconds);
-        praytime = minutes + ':' + seconds;
-    }, 1000);
+    // var praytime = < ?= $time ?>;
+    // var praytime = new date('Y m d < ?= $time ?>');
+    // var nowtime = new date('Y m d H:i:s');
+    // if (nowtime == nowtime) {
+    // console.log("waktunya sholat");
+    // }
 
-    if (praytime < 0) {
-        clearInterval(x);
-        document.getElementById("countDownText").innerHTML = "selesai";
-        hide();
-    }
+    // var sholat;
 
-    $(document).ready(function(){
-	    function forecerFullscreen(){
-            top.resizeTO(window.screen.availWidth, window.screen.availHeight);
-            top.moveTo(0,0);
+    // if (sholat = document.getElementById(2)) {
 
-            setTimeout("forecerFullscreen()", 500);
-        }
-    });
+    //     setInterval(myTimer, 1000);
 
+    //     function myTimer() {
+    //         const date = new Date();
+    //         document.getElementById("timer").innerHTML = date.toLocaleTimeString();
+    //     }
+
+    //     // document.getElementById("timer").innerHTML = "Waktunya Sholat dhuhur";
+    // }
+
+    // ===========================countdown=================================
+    
 </script>
 <?php $this->endSection(); ?>
 
@@ -208,25 +210,31 @@
         color: white;
         font-weight: bold;
     }
+
     .card-pray-bg {
         /* background-color: rgb(47, 142, 168); */
         border-radius: 10px;
         opacity: .8;
         padding: 10%;
     }
-    .bg-color1{
+
+    .bg-color1 {
         background-color: #CA4E79;
     }
-    .bg-color2{
+
+    .bg-color2 {
         background-color: #395B64;
     }
-    .bg-color3{
+
+    .bg-color3 {
         background-color: #A66CFF;
     }
-    .bg-color4{
+
+    .bg-color4 {
         background-color: #5BB318;
     }
-    .bg-color5{
+
+    .bg-color5 {
         background-color: #FEB139;
     }
 
