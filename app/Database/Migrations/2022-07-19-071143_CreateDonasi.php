@@ -8,8 +8,6 @@ class CreateDonasi extends Migration
 {
     public function up()
     {
-        $this->db->disableForeignKeyChecks();
-
         $this->forge->addField([
             'id' => [
                 'type'           => 'int',
@@ -17,31 +15,43 @@ class CreateDonasi extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],            
-            'id_donatur' => [
+            'donatur_id' => [
                 'type'           => 'int',
                 'constraint'     => 11,
                 'unsigned'       => true,
+                'null'           => true,
             ],
-            'id_pembayaran' => [
-                'type'           => 'int',
-                'constraint'     => 11,
-                'unsigned'       => true,
+            'paymentmethod_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
             ],
-            'id_program' => [
-                'type'           => 'int',
-                'constraint'     => 11,
-                'unsigned'       => true,
-            ],            
+            'campaign_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true, 
+                'null'       => true,   
+            ],        
             'dana_in' => [
                 'type'       => 'int',
-                'constraint' => 2,
+                'constraint' => 13,
+                'unsigned'   => true,
             ],
-            'tgl_transaksi' => [
+            'date' => [
                 'type'       => 'date'
             ], 
-            'bukti_pembayaran' => [
-                'type'       => 'blob',
-            ],             
+            'path_image' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'null'       => true,
+            ],
+            'state' => [
+                'type'       => 'int',
+                'constraint' => 2,
+                'default'    => 0,
+                'null'       => true,
+            ],          
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -59,12 +69,10 @@ class CreateDonasi extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('id_donatur', 'donatur_type', 'id');     
-        $this->forge->addForeignKey('id_pembayaran', 'pembayaran', 'id');     
-        $this->forge->addForeignKey('id_program', 'program', 'id');     
+        $this->forge->addForeignKey('donatur_id', 'donatur', 'id');     
+        $this->forge->addForeignKey('paymentmethod_id', 'payment_method', 'id');     
+        $this->forge->addForeignKey('campaign_id', 'bmdonationcampaign', 'id');     
         $this->forge->createTable('donasi', true);
-
-        $this->db->enableForeignKeyChecks();
     }
 
     public function down()

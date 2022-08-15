@@ -58,7 +58,7 @@ class MasterPaymentgatewayController extends AdminCrudController
         if (!empty($image)) {
             if ($image->getSize() > 0) {
                 $uploaded = $this->uploadFile('image');
-                $this->model->set('logo', $uploaded);
+                $this->model->set('path_logo', $uploaded);
             }
         }
 
@@ -74,8 +74,8 @@ class MasterPaymentgatewayController extends AdminCrudController
         $model = model(MasterPaymentgatewayFilter::class);
         return [
             'headers' => [
-                'logo' => lang('crud.logo'),
-                'nama_paymentgateway' => lang('crud.payment_gateway'),
+                'path_logo' => lang('crud.logo'),
+                'name' => lang('crud.payment_gateway'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),

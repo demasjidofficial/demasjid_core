@@ -259,5 +259,18 @@ return [
 	'board_newsbg' => 'Background Slide',
 	'board_newsruntext' => 'Run Text',
 	'display' => 'Tampilan',
+	'payment_method' => 'Metode Pembayaran',
+	'payment_category' => 'Kategori Pembayaran',
+	'payment_method_transfer' => 'Metode Pembayaran Transfer',
+	'payment_method_paygat' => 'Metode Pembayaran Payment Gateway',
+	'rek_no' => 'No Rekening',
+	'rek_name' => 'Nama Rekening',
+	'paymentgateway' => 'Payment Gateway',
+	'donatur' => 'Donatur',
+	'no_hp' => 'No. Hp',
+	'donation' => 'Donasi',
+	'program' => 'Program',
+	'payment' => 'Pembayaran',
+	'action' => 'Aksi'
  ];
 

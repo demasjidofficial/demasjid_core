@@ -1322,6 +1322,7 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
   /boardDevices:
     get:
       tags:
@@ -1946,6 +1947,8 @@ paths:
       security:
         -
           bearer_auth: []
+=======
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /campaigns:
     get:
       tags:
@@ -2414,6 +2417,321 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
+=======
+  /donaturTypes:
+    get:
+      tags:
+        - DonaturType
+      summary: 'Find list DonaturType'
+      description: 'Returns list of DonaturType'
+      operationId: getDonaturType
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturType' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturType' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/DonaturType' } }
+                type: object
+        '404':
+          description: 'DonaturType not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - DonaturType
+      summary: 'Add a new DonaturType to the store'
+      operationId: addDonaturType
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturType'
+      responses:
+        '201':
+          description: 'Created DonaturType'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donaturTypes/{id}':
+    get:
+      tags:
+        - DonaturType
+      summary: 'Find DonaturType by ID'
+      description: 'Returns a single DonaturType'
+      operationId: getDonaturTypeById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of DonaturType to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturType'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'DonaturType not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - DonaturType
+      summary: 'Update an existing DonaturType'
+      operationId: updateDonaturType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturType id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturType'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'DonaturType not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - DonaturType
+      summary: 'Deletes a DonaturType'
+      operationId: deleteDonaturType
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturType id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /donaturs:
+    get:
+      tags:
+        - Donatur
+      summary: 'Find list Donatur'
+      description: 'Returns list of Donatur'
+      operationId: getDonatur
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Donatur' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Donatur' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Donatur' } }
+                type: object
+        '404':
+          description: 'Donatur not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Donatur
+      summary: 'Add a new Donatur to the store'
+      operationId: addDonatur
+      requestBody:
+        $ref: '#/components/requestBodies/Donatur'
+      responses:
+        '201':
+          description: 'Created Donatur'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donatur'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Donatur'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donaturs/{id}':
+    get:
+      tags:
+        - Donatur
+      summary: 'Find Donatur by ID'
+      description: 'Returns a single Donatur'
+      operationId: getDonaturById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Donatur to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donatur'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Donatur'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Donatur not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Donatur
+      summary: 'Update an existing Donatur'
+      operationId: updateDonatur
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Donatur id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Donatur'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Donatur not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Donatur
+      summary: 'Deletes a Donatur'
+      operationId: deleteDonatur
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Donatur id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /entities:
     get:
       tags:
@@ -4286,6 +4604,321 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
+=======
+  /paymentCategories:
+    get:
+      tags:
+        - PaymentCategory
+      summary: 'Find list PaymentCategory'
+      description: 'Returns list of PaymentCategory'
+      operationId: getPaymentCategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentCategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentCategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/PaymentCategory' } }
+                type: object
+        '404':
+          description: 'PaymentCategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - PaymentCategory
+      summary: 'Add a new PaymentCategory to the store'
+      operationId: addPaymentCategory
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentCategory'
+      responses:
+        '201':
+          description: 'Created PaymentCategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/paymentCategories/{id}':
+    get:
+      tags:
+        - PaymentCategory
+      summary: 'Find PaymentCategory by ID'
+      description: 'Returns a single PaymentCategory'
+      operationId: getPaymentCategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of PaymentCategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'PaymentCategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - PaymentCategory
+      summary: 'Update an existing PaymentCategory'
+      operationId: updatePaymentCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentCategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentCategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'PaymentCategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - PaymentCategory
+      summary: 'Deletes a PaymentCategory'
+      operationId: deletePaymentCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentCategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /paymentMethods:
+    get:
+      tags:
+        - PaymentMethod
+      summary: 'Find list PaymentMethod'
+      description: 'Returns list of PaymentMethod'
+      operationId: getPaymentMethod
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentMethod' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentMethod' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/PaymentMethod' } }
+                type: object
+        '404':
+          description: 'PaymentMethod not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - PaymentMethod
+      summary: 'Add a new PaymentMethod to the store'
+      operationId: addPaymentMethod
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentMethod'
+      responses:
+        '201':
+          description: 'Created PaymentMethod'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/paymentMethods/{id}':
+    get:
+      tags:
+        - PaymentMethod
+      summary: 'Find PaymentMethod by ID'
+      description: 'Returns a single PaymentMethod'
+      operationId: getPaymentMethodById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of PaymentMethod to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'PaymentMethod not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - PaymentMethod
+      summary: 'Update an existing PaymentMethod'
+      operationId: updatePaymentMethod
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentMethod id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentMethod'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'PaymentMethod not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - PaymentMethod
+      summary: 'Deletes a PaymentMethod'
+      operationId: deletePaymentMethod
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentMethod id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /pelajarans:
     get:
       tags:
@@ -7603,6 +8236,7 @@ components:
           type: integer
           format: '-'
       type: object
+<<<<<<< HEAD
     BoardDevice:
       title: BoardDevice
       description: BoardDevice
@@ -7783,6 +8417,8 @@ components:
           format: '-'
           maxLength: 11
       type: object
+=======
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
     Campaigns:
       title: Campaigns
       description: Campaigns
@@ -7968,6 +8604,105 @@ components:
           description: bukti_pembayaran
           type: string
           format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+<<<<<<< HEAD
+=======
+    Donatur:
+      title: Donatur
+      description: Donatur
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        donatur_type_id:
+          nullable: false
+          title: donatur_type_id
+          description: donatur_type_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        email:
+          nullable: true
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 50
+        no_hp:
+          nullable: true
+          title: no_hp
+          description: no_hp
+          type: string
+          format: '-'
+          maxLength: 50
+        alamat:
+          nullable: true
+          title: alamat
+          description: alamat
+          type: string
+          format: '-'
+          maxLength: 100
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    DonaturType:
+      title: DonaturType
+      description: DonaturType
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        type:
+          nullable: false
+          title: type
+          description: type
+          type: integer
+          format: '-'
+          maxLength: 11
         created_at:
           nullable: false
           title: created_at
@@ -8727,6 +9462,104 @@ components:
           type: integer
           format: '-'
       type: object
+    PaymentCategory:
+      title: PaymentCategory
+      description: PaymentCategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    PaymentMethod:
+      title: PaymentMethod
+      description: PaymentMethod
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_bank:
+          nullable: false
+          title: id_bank
+          description: id_bank
+          type: integer
+          format: '-'
+          maxLength: 11
+        no_rek:
+          nullable: true
+          title: no_rek
+          description: no_rek
+          type: integer
+          format: '-'
+          maxLength: 20
+        nama_rek:
+          nullable: true
+          title: nama_rek
+          description: nama_rek
+          type: string
+          format: '-'
+          maxLength: 50
+        payment_category_id:
+          nullable: false
+          title: payment_category_id
+          description: payment_category_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
     Pelajaran:
       title: Pelajaran
       description: Pelajaran
@@ -10223,6 +11056,32 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donasi'
+<<<<<<< HEAD
+=======
+    Donatur:
+      description: 'Donatur object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Donatur'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Donatur'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Donatur'
+    DonaturType:
+      description: 'DonaturType object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/DonaturType'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/DonaturType'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DonaturType'
     Entity:
       description: 'Entity object that needs to be added'
       content:
@@ -10379,6 +11238,32 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NonRawatibScheduleClone'
+<<<<<<< HEAD
+=======
+    PaymentCategory:
+      description: 'PaymentCategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PaymentCategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/PaymentCategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaymentCategory'
+    PaymentMethod:
+      description: 'PaymentMethod object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PaymentMethod'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/PaymentMethod'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaymentMethod'
     Pelajaran:
       description: 'Pelajaran object that needs to be added'
       content:
@@ -10650,6 +11535,12 @@ tags:
     name: Donasi
     description: 'Everything about your Donasi'
   -
+    name: Donatur
+    description: 'Everything about your Donatur'
+  -
+    name: DonaturType
+    description: 'Everything about your DonaturType'
+  -
     name: Entity
     description: 'Everything about your Entity'
   -
@@ -10688,6 +11579,12 @@ tags:
   -
     name: NonRawatibScheduleClone
     description: 'Everything about your NonRawatibScheduleClone'
+  -
+    name: PaymentCategory
+    description: 'Everything about your PaymentCategory'
+  -
+    name: PaymentMethod
+    description: 'Everything about your PaymentMethod'
   -
     name: Pelajaran
     description: 'Everything about your Pelajaran'

@@ -28,20 +28,19 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.logo'),'',['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.path_logo'),'',['for' => 'path_logo', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?php if (isset($data->logo)) { ?>
                         <div class="justify-content-center photo-wrapper">
-                            <img src="<?php echo site_url($data->logo); ?>" alt="" class="img-thumbnail" style="height:150px">
+                            <img id="paymentgate_imgpreview" src="<?= (isset($data->path_logo)) ? site_url($data->path_logo) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" style="height:150px">
                         </div>
-                        <?php } ?>
+
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <?php echo form_upload('image', old('image', $data->logo ?? ''), "class='custom-file-input'  placeholder='".lang('crud.logo')."' accept='image/*' "); ?>
+                                    <?php echo form_upload('image', old('image', $data->path_logo ?? ''), "class='custom-file-input'  id='paymentgate_imginput' accept='image/*' "); ?>
                                     <!-- <label class="custom-file-label">Pilih gambar logo</label> -->
-                                    <?php if (has_error('logo')) { ?>
-                                        p class="text-danger"><?php echo error('logo'); ?></p>
+                                    <?php if (has_error('path_logo')) { ?>
+                                        p class="text-danger"><?php echo error('path_logo'); ?></p>
                                     <?php } ?>
                                     <?= form_label(lang('crud.path_logo'),'',['for' => 'path_logo', 'class' => 'custom-file-label']) ?>
                                 </div>
@@ -55,11 +54,11 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.payment_gateway'),'',['for' => 'nama_paymentgateway', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('nama_paymentgateway', old('nama_paymentgateway', $data->nama_paymentgateway ?? ''), "class='form-control varchar'  placeholder='".lang('crud.payment_gateway')."' ") ?>
-                        <?php if (has_error('nama_paymentgateway')) { ?>
-                        <p class="text-danger"><?php echo error('nama_paymentgateway'); ?></p>
+                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.payment_gateway')."' ") ?>
+                        <?php if (has_error('name')) { ?>
+                        <p class="text-danger"><?php echo error('name'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
@@ -104,6 +103,20 @@
         _topParent.remove();
         updateTotal(_elmOther.find('span[role=button]'));
     }
+
+
+    function imagePreview(fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (event) {
+                $('#paymentgate_imgpreview').attr('src', event.target.result);
+            };
+            fileReader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+    $('#paymentgate_imginput').change(function () {
+        imagePreview(this);
+    });
 
 </script>
 <?php $this->endSection(); ?>
