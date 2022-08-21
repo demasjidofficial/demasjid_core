@@ -475,7 +475,7 @@ CodeMirror.defineMode("sql", function(config, parserConfig) {
 
 /*
   How Properties of Mime Types are used by SQL Mode
-  =================================================
+  
 
   keywords:
     A list of keywords you want to be highlighted.

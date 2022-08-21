@@ -45,10 +45,18 @@ class Module extends BaseModule
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
 
+
         // $sidebar->menu('sidebar')->collection('board')
         //         ->addItem($boardnewsItem)
         //         ->addItem($boardtempItem)
         //         ->addItem($boarddonationItem)
         //         ->addItem($boardlivebroadcastItem);
+
+        $sidebar->menu('sidebar')->collection('board')
+                ->addItem($boardnewsItem)
+                ->addItem($boardtempItem)
+                ->addItem($boarddonationItem)
+                ->addItem($boardlivebroadcastItem);
+
     }
 }

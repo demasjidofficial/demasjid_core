@@ -93,6 +93,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-2 col-sm-3">
                 <div class="small-box bg-danger">
                     <div class="inner">
@@ -107,6 +108,8 @@
                         </a>
                     </div>
                 </div>
+
+
             </div>
         </div><!--/.row -->
     </div>

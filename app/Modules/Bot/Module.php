@@ -39,9 +39,16 @@ class Module extends BaseModule
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
 
+
         // $sidebar->menu('sidebar')->collection('bot')
         //         ->addItem($botWhatsappItem)
         //         ->addItem($botTelegramItem)
         //         ->addItem($botEmailItem);
+
+        $sidebar->menu('sidebar')->collection('bot')
+                ->addItem($botWhatsappItem)
+                ->addItem($botTelegramItem)
+                ->addItem($botEmailItem);
+
     }
 }

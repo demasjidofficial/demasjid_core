@@ -8,7 +8,10 @@ class CreateDonatur extends Migration
 {
     public function up()
     {
+
         $this->db->disableForeignKeyChecks();
+
+
 
         $this->forge->addField([
             'id' => [
@@ -17,11 +20,24 @@ class CreateDonatur extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],            
+
             'id_donatur_type' => [
                 'type'           => 'int',
                 'constraint'     => 11,
                 'unsigned'       => true,
             ],
+
+            'donatur_type_id' => [
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => true,
+                'null'           => true,
+            ],
+            'name' => [
+                'type'       => 'varchar',
+                'constraint' => 128,
+            ],      
+
             'email' => [
                 'type' => 'varchar',
                 'constraint' => 50,
@@ -54,10 +70,15 @@ class CreateDonatur extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
+
         $this->forge->addForeignKey('id_donatur_type', 'donatur', 'id');    
         $this->forge->createTable('donatur', true);
 
         $this->db->disableForeignKeyChecks();
+
+        $this->forge->addForeignKey('donatur_type_id', 'donatur_type', 'id');    
+        $this->forge->createTable('donatur', true);
+
     }
 
     public function down()

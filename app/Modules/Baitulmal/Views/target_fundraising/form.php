@@ -37,6 +37,15 @@
                 </div>
             </div>
             <div class="row mb-3">
+                            <?= form_label(lang('crud.campaign_name'),'',['for' => 'campaign_name', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('campaign_name', old('campaign_name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.campaign_name')."' ") ?>
+                                <?php if (has_error('campaign_name')) { ?>
+                                <p class="text-danger"><?php echo error('campaign_name'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+            <div class="row mb-3">
                 <?= form_label(lang('crud.donatur'), '', ['for' => 'donatur', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_dropdown('donatur', $tipedonatur, old('donatur', $data->donatur ?? ''), "class='form-control select2bs4' required") ?>
@@ -113,6 +122,10 @@
             'rightAlign': false,
             'digits': '0',
             'allowMinus': 'false',
+        });
+
+        $('select[name="campaign"]').change(function () {
+            $('input[name="campaign_name"]').val(parseInt(this.value) ? $('select[name="campaign"] option:selected').text() : '');
         });
 
     });

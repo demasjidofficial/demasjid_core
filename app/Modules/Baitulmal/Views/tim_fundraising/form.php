@@ -37,33 +37,94 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.id_jadwal'), '', ['for' => 'id_jadwal', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_dropdown('id_jadwal', $jadwalItems, old('id_jadwal', $data->id_jadwal ?? ''), "class='form-control select2bs4' required") ?>
-                    <?php if (has_error('id_jadwal')) { ?>
-                        <p class="text-danger"><?php echo error('id_jadwal'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
                 <?= form_label(lang('crud.supervisior'), '', ['for' => 'supervisior', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('supervisior', old('supervisior', $data->supervisior ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.supervisior') . "' ") ?>
+                    <?= form_dropdown('supervisior', $supervisorItems, old('supervisior', $data->supervisior ?? ''), "class='form-control select2bs4' required") ?>
                     <?php if (has_error('supervisior')) { ?>
                         <p class="text-danger"><?php echo error('supervisior'); ?></p>
                     <?php } ?>
                 </div>
             </div>
+
+
+
             <div class="row mb-3">
-                <?= form_label(lang('crud.staff'), '', ['for' => 'staff', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('staff', old('staff', $data->staff ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.staff') . "' ") ?>
+                <?php echo form_label(lang('crud.staff'), '', ['for' => 'staff', 'class' => 'col-form-label col-sm-2']); ?>
+                <div class="col-sm-10 block_detail_program">
+                    <?php if (isset($timStaff) && !empty($timStaff)) { ?>
+                        <?php foreach ($timStaff as $index => $detail) { ?>
+                            <div class="input-group mb-2">
+                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
+
+
+                             
+
+                                <div class="input-group-append">
+                                    <?php if (!$index) {
+                                        echo '<span class="input-group-text" role="button" onclick="addRow(this)">
+                                        <i class="fas fa-plus"></i>
+                                    </span>';
+                                    } else {
+                                        echo '<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                        <i class="fas fa-minus"></i>
+                                    </span>';
+                                    }
+                                    ?>
+
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php } else { ?>
+                        <div class="input-group mb-2">
+                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
+
+                            <div class="input-group-append">
+                                <span class="input-group-text" role="button" onclick="addRow(this)">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <div class="input-group mb-2">
+
+                    </div>
+                    <?php echo form_hidden('staff', $data->staff ?? 0); ?>
+
                     <?php if (has_error('staff')) { ?>
                         <p class="text-danger"><?php echo error('staff'); ?></p>
                     <?php } ?>
                 </div>
             </div>
-   
+
+            <!-- <div class="row mb-3">
+                <?php echo form_label(lang('crud.staff'), '', ['for' => 'staff', 'class' => 'col-form-label col-sm-2']); ?>
+                <div class="col-sm-10 block_detail_program">
+                    <?php if (isset($timStaff) && !empty($timStaff)) { ?>
+                        <?php foreach ($timStaff as $index => $detail) { ?>
+                            <div class="input-group mb-2">
+                               
+                                <?= form_dropdown('timstaff[id_user][]', $staffItems, old('timstaff[id_user]', $data->staff ?? ''), "class='form-control duallistbox' multiple='multiple' required") ?>
+                        
+                            </div>
+                        <?php } ?>
+                    <?php } else { ?>
+                        <div class="input-group mb-2">
+                        <?= form_dropdown('timstaff[id_user][]', $staffItems, old('timstaff[id_user]', $data->staff ?? ''), "class='form-control duallistbox' multiple='multiple' required") ?>
+                        
+                        </div>
+                    <?php } ?>
+                    <div class="input-group mb-2">
+
+                    </div>
+                    <?php echo form_hidden('staff', $data->staff ?? 0); ?>
+
+                    <?php if (has_error('staff')) { ?>
+                        <p class="text-danger"><?php echo error('staff'); ?></p>
+                    <?php } ?>
+                </div>
+            </div> -->
+
+
         </fieldset>
 
         <div class="text-end py-3">
@@ -74,4 +135,66 @@
 
 </x-admin-box>
 
+<?php $this->endSection(); ?>
+<?php $this->section('styles') ?>
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?php $this->endSection(); ?>
+
+<?php $this->section('scripts'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
+<script type="text/javascript">
+    $('.duallistbox').bootstrapDualListbox()
+    $(function() {
+        $('input[name=period]').daterangepicker({
+            "autoApply": true,
+            "locale": {
+                "format": 'YYYY-MM-DD'
+            }
+        });
+
+        $('.numeric').inputmask({
+            'alias': 'currency',
+            'rightAlign': false,
+            'digits': '0',
+            'allowMinus': 'false',
+        })
+    });
+
+    function addRow(elm) {
+        const _topParent = $(elm).closest('.input-group');
+        const _clone = _topParent.clone();
+        _clone.find('dropdown').val('');
+        _clone.find('input').val('');
+        _clone.find('.numeric').inputmask({
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
+        })
+        _clone.find('span.input-group-text')
+            .replaceWith(`<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                <i class="fas fa-minus"></i>
+                            </span>`);
+        _clone.insertBefore(_topParent.siblings('.input-group:last'));
+    }
+
+    function removeRow(elm) {
+        const _topParent = $(elm).closest('.input-group')
+        const _elmOther = _topParent.prev()
+        _topParent.remove();
+        updateTotal(_elmOther.find('span[role=button]'));
+    }
+
+    function updateTotal(elm) {
+        const _form = $(elm).closest('form')
+        let _result = 0
+
+        _form.find('dropdown[name=staff]').val(_result)
+
+
+    }
+</script>
 <?php $this->endSection(); ?>

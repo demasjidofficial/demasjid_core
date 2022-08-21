@@ -1,7 +1,10 @@
-<<<<<<< HEAD
+
+
 <table class="table table-hover">
     <?php echo $this->include('_table_head') ?>
-=======
+
+
+
 <table class="table table-hover table-sm">
     <?= $this->include('_table_head') ?>
 >>>>>>> 

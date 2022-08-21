@@ -251,6 +251,7 @@ return [
 	'program_id' => 'Program',
 	'donasis' => 'Donasi',
 	'campaigns' => 'Kampanye',
+
 	'donaturcategory'=>'Kategori Donatur',
 	'updated_by'=>'Diperbarui Oleh',
 	'tim_fundraising'=>'Tim Fundraising',
@@ -259,11 +260,27 @@ return [
 	'supervisior'=>'Supervisior',
 	'staff'=>'Staff',
 	'target_fundraising'=>'Target Fundraising',
+	'target_fundraising_add'=>'Tambah Target Fundraising',
 	'donatur'=>'Tipe Donatur',
 	'target_nominal'=>'Target Nominal',
 	'tipe_donasi'=>'Tipe Donasi',
 	'jadwal_mulai'=>'Jadwal Mulai',
 	'jadwal_akhir'=>'Jadwal Akhir',
-	'durasi'=>'durasi'
+	'durasi'=>'durasi',
+	'payment_method' => 'Metode Pembayaran',
+	'payment_category' => 'Kategori Pembayaran',
+	'payment_method_transfer' => 'Metode Pembayaran Transfer',
+	'payment_method_paygat' => 'Metode Pembayaran Payment Gateway',
+	'rek_no' => 'No Rekening',
+	'rek_name' => 'Nama Rekening',
+	'paymentgateway' => 'Payment Gateway',
+	'donatur' => 'Donatur',
+	'no_hp' => 'No. Hp',
+	'donation' => 'Donasi',
+	'program' => 'Program',
+	'payment' => 'Pembayaran',
+	'action' => 'Aksi',
+	'campaign_name' => 'Nama Target'
+
  ];
 

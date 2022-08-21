@@ -8,11 +8,15 @@
                 <h4><?= lang('crud.zone')?></h4>
             </div>
             <div class="col-auto">
-<<<<<<< HEAD
+
+
                 <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  wilayah</a>
-=======
+
                 <a href="<?= route_to($baseRoute . '/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new')?></a>
 >>>>>>> 
+
+                <a href="<?= route_to($baseRoute . '/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new')?></a>
+
             </div>
         </div>
     </x-page-head>
@@ -22,10 +26,13 @@
             <div class="row">
                 <!-- List wilayahs -->
                 <div class="col table-responsive" id="wilayah-list">
-<<<<<<< HEAD
+
+
                     <?php echo $this->include($viewPrefix.'\_table'); ?>
                     <?php echo $pager->links() ?>
-=======
+
+
+
                     <?= $this->include($viewPrefix . '\_table'); ?>                    
                 </div>
 

@@ -51,10 +51,13 @@ $routes->get('/swagger', 'Swagger::index');
 $routes->post('/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
 $routes->post('/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
 $routes->get('/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
+
 $routes->get('/api/donaturcategories', '\App\Modules\Api\Controllers\Donaturcategories::index');
 $routes->get('/api/jadwalFundraisings', '\App\Modules\Api\Controllers\JadwalFundraisings::index');
 $routes->get('/api/targetFundraisings', '\App\Modules\Api\Controllers\TargetFundraisings::index');
 $routes->get('/api/timFundraisings', '\App\Modules\Api\Controllers\TimFundraisings::index');
+
+
 
 $routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
 $routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], 
@@ -77,12 +80,17 @@ static function ($routes) {
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
     $routes->resource('bmdonationcampaigns');
+
     $routes->resource('donaturTypes');
  
     // $routes->resource('donaturcategories');
     // $routes->resource('targetFundraisings');
     // $routes->resource('jadwalFundraisings');
     // $routes->resource('timFundraisings');
+
+    $routes->resource('donaturs');
+    $routes->resource('donasis');
+
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');
@@ -90,6 +98,18 @@ static function ($routes) {
     //$routes->resource('sliders');
     //$routes->resource('socials');
 });
+
+
+
+$routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
+$routes->post('/api/update_donasi_state', '\App\Modules\Api\Controllers\Donasis::updateState');
+$routes->post('/api/senddonation', '\App\Modules\Api\Controllers\Donasis::insertDonation');
+
+// Donation View
+$routes->get('{locale}/campaign/(:segment)', 'CampaignsPageController::CampaignView/$1');
+$routes->get('{locale}/checkout/(:segment)', 'CheckoutController::CheckoutView/$1');
+$routes->get('{locale}/instructionofpayment/(:segment)', 'InformatonofpaymentController::InformationView/$1/$2');
+
 
 
 /*

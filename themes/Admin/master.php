@@ -18,6 +18,7 @@
     
     <!-- Theme style -->
     <?= asset_link('admin/theme-adminlte/adminlte-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/custom.css', 'css') ?>
     <!-- overlayScrollbars -->
     <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css', 'css') ?>
         
@@ -74,7 +75,8 @@
     </div>
     <!-- /.content-wrapper -->
 
-<<<<<<< HEAD
+
+
     <!-- Main content -->
     <section class="content" >
       <div class="container-fluid" >
@@ -84,11 +86,16 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-=======
+
     <!-- Footer -->
     <?= $this->include('_footer') ?>
     <!-- /Footer -->
 >>>>>>> 
+
+    <!-- Footer -->
+    <?= $this->include('_footer') ?>
+    <!-- /Footer -->
+
 
   </div><!--/.wrapper-->
 
@@ -104,20 +111,24 @@
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js', 'js') ?>
 <!-- Moment -->
 <?= asset_link('admin/theme-adminlte/plugins/moment/moment-min.js', 'js') ?>
-<<<<<<< HEAD
+
+
 <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
 
 <!-- Tempusdominus Bootstrap 4 -->
 <?= asset_link('admin/theme-adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js', 'js') ?>
 <!-- Summernote -->
 <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
-=======
+
 >>>>>>> 
+
+
 <!-- overlayScrollbars -->
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
-<<<<<<< HEAD
+
+
 
 
 
@@ -152,10 +163,16 @@
     )
 </script>
 
-=======
+
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
 >>>>>>> 
+
+<?= asset_link('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js', 'js') ?>
+
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.7.0"></script>
+
 <!-- AdminLTE for demo purposes --
 <script src="/assets/admin/theme-adminlte/adminlte-demo.js"></script>
 < !-- AdminLTE dashboard demo (This is only for demo purposes) --

@@ -14,6 +14,162 @@ servers:
     url: /api
     description: 'OpenApi host'
 paths:
+  /accountBalances:
+    get:
+      tags:
+        - AccountBalance
+      summary: 'Find list AccountBalance'
+      description: 'Returns list of AccountBalance'
+      operationId: getAccountBalance
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/AccountBalance' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/AccountBalance' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/AccountBalance' } }
+                type: object
+        '404':
+          description: 'AccountBalance not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - AccountBalance
+      summary: 'Add a new AccountBalance to the store'
+      operationId: addAccountBalance
+      requestBody:
+        $ref: '#/components/requestBodies/AccountBalance'
+      responses:
+        '201':
+          description: 'Created AccountBalance'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountBalance'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AccountBalance'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/accountBalances/{id}':
+    get:
+      tags:
+        - AccountBalance
+      summary: 'Find AccountBalance by ID'
+      description: 'Returns a single AccountBalance'
+      operationId: getAccountBalanceById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of AccountBalance to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountBalance'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AccountBalance'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'AccountBalance not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - AccountBalance
+      summary: 'Update an existing AccountBalance'
+      operationId: updateAccountBalance
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'AccountBalance id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/AccountBalance'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'AccountBalance not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - AccountBalance
+      summary: 'Deletes a AccountBalance'
+      operationId: deleteAccountBalance
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'AccountBalance id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /auth/login:
     post:
       tags:
@@ -74,6 +230,1566 @@ paths:
               schema: {  }
         '400':
           description: 'Invalid username/password supplied'
+  /babs:
+    get:
+      tags:
+        - Bab
+      summary: 'Find list Bab'
+      description: 'Returns list of Bab'
+      operationId: getBab
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bab' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bab' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Bab' } }
+                type: object
+        '404':
+          description: 'Bab not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Bab
+      summary: 'Add a new Bab to the store'
+      operationId: addBab
+      requestBody:
+        $ref: '#/components/requestBodies/Bab'
+      responses:
+        '201':
+          description: 'Created Bab'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bab'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bab'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/babs/{id}':
+    get:
+      tags:
+        - Bab
+      summary: 'Find Bab by ID'
+      description: 'Returns a single Bab'
+      operationId: getBabById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Bab to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bab'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bab'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Bab not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Bab
+      summary: 'Update an existing Bab'
+      operationId: updateBab
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bab id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Bab'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Bab not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Bab
+      summary: 'Deletes a Bab'
+      operationId: deleteBab
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bab id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /balances:
+    get:
+      tags:
+        - Balance
+      summary: 'Find list Balance'
+      description: 'Returns list of Balance'
+      operationId: getBalance
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Balance' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Balance' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Balance' } }
+                type: object
+        '404':
+          description: 'Balance not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Balance
+      summary: 'Add a new Balance to the store'
+      operationId: addBalance
+      requestBody:
+        $ref: '#/components/requestBodies/Balance'
+      responses:
+        '201':
+          description: 'Created Balance'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Balance'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/balances/{id}':
+    get:
+      tags:
+        - Balance
+      summary: 'Find Balance by ID'
+      description: 'Returns a single Balance'
+      operationId: getBalanceById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Balance to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Balance'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Balance not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Balance
+      summary: 'Update an existing Balance'
+      operationId: updateBalance
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Balance id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Balance'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Balance not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Balance
+      summary: 'Deletes a Balance'
+      operationId: deleteBalance
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Balance id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /bmdonationcampaigncategories:
+    get:
+      tags:
+        - Bmdonationcampaigncategory
+      summary: 'Find list Bmdonationcampaigncategory'
+      description: 'Returns list of Bmdonationcampaigncategory'
+      operationId: getBmdonationcampaigncategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bmdonationcampaigncategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bmdonationcampaigncategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Bmdonationcampaigncategory' } }
+                type: object
+        '404':
+          description: 'Bmdonationcampaigncategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Bmdonationcampaigncategory
+      summary: 'Add a new Bmdonationcampaigncategory to the store'
+      operationId: addBmdonationcampaigncategory
+      requestBody:
+        $ref: '#/components/requestBodies/Bmdonationcampaigncategory'
+      responses:
+        '201':
+          description: 'Created Bmdonationcampaigncategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaigncategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaigncategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/bmdonationcampaigncategories/{id}':
+    get:
+      tags:
+        - Bmdonationcampaigncategory
+      summary: 'Find Bmdonationcampaigncategory by ID'
+      description: 'Returns a single Bmdonationcampaigncategory'
+      operationId: getBmdonationcampaigncategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Bmdonationcampaigncategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaigncategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaigncategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Bmdonationcampaigncategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Bmdonationcampaigncategory
+      summary: 'Update an existing Bmdonationcampaigncategory'
+      operationId: updateBmdonationcampaigncategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bmdonationcampaigncategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Bmdonationcampaigncategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Bmdonationcampaigncategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Bmdonationcampaigncategory
+      summary: 'Deletes a Bmdonationcampaigncategory'
+      operationId: deleteBmdonationcampaigncategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bmdonationcampaigncategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /bmdonationcampaigns:
+    get:
+      tags:
+        - Bmdonationcampaign
+      summary: 'Find list Bmdonationcampaign'
+      description: 'Returns list of Bmdonationcampaign'
+      operationId: getBmdonationcampaign
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bmdonationcampaign' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bmdonationcampaign' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Bmdonationcampaign' } }
+                type: object
+        '404':
+          description: 'Bmdonationcampaign not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Bmdonationcampaign
+      summary: 'Add a new Bmdonationcampaign to the store'
+      operationId: addBmdonationcampaign
+      requestBody:
+        $ref: '#/components/requestBodies/Bmdonationcampaign'
+      responses:
+        '201':
+          description: 'Created Bmdonationcampaign'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaign'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaign'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/bmdonationcampaigns/{id}':
+    get:
+      tags:
+        - Bmdonationcampaign
+      summary: 'Find Bmdonationcampaign by ID'
+      description: 'Returns a single Bmdonationcampaign'
+      operationId: getBmdonationcampaignById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Bmdonationcampaign to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaign'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bmdonationcampaign'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Bmdonationcampaign not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Bmdonationcampaign
+      summary: 'Update an existing Bmdonationcampaign'
+      operationId: updateBmdonationcampaign
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bmdonationcampaign id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Bmdonationcampaign'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Bmdonationcampaign not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Bmdonationcampaign
+      summary: 'Deletes a Bmdonationcampaign'
+      operationId: deleteBmdonationcampaign
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bmdonationcampaign id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /bmdonationtypes:
+    get:
+      tags:
+        - Bmdonationtype
+      summary: 'Find list Bmdonationtype'
+      description: 'Returns list of Bmdonationtype'
+      operationId: getBmdonationtype
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bmdonationtype' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bmdonationtype' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Bmdonationtype' } }
+                type: object
+        '404':
+          description: 'Bmdonationtype not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Bmdonationtype
+      summary: 'Add a new Bmdonationtype to the store'
+      operationId: addBmdonationtype
+      requestBody:
+        $ref: '#/components/requestBodies/Bmdonationtype'
+      responses:
+        '201':
+          description: 'Created Bmdonationtype'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bmdonationtype'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bmdonationtype'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/bmdonationtypes/{id}':
+    get:
+      tags:
+        - Bmdonationtype
+      summary: 'Find Bmdonationtype by ID'
+      description: 'Returns a single Bmdonationtype'
+      operationId: getBmdonationtypeById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Bmdonationtype to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bmdonationtype'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bmdonationtype'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Bmdonationtype not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Bmdonationtype
+      summary: 'Update an existing Bmdonationtype'
+      operationId: updateBmdonationtype
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bmdonationtype id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Bmdonationtype'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Bmdonationtype not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Bmdonationtype
+      summary: 'Deletes a Bmdonationtype'
+      operationId: deleteBmdonationtype
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bmdonationtype id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /bminfaqshodaqohcategories:
+    get:
+      tags:
+        - Bminfaqshodaqohcategory
+      summary: 'Find list Bminfaqshodaqohcategory'
+      description: 'Returns list of Bminfaqshodaqohcategory'
+      operationId: getBminfaqshodaqohcategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bminfaqshodaqohcategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bminfaqshodaqohcategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Bminfaqshodaqohcategory' } }
+                type: object
+        '404':
+          description: 'Bminfaqshodaqohcategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Bminfaqshodaqohcategory
+      summary: 'Add a new Bminfaqshodaqohcategory to the store'
+      operationId: addBminfaqshodaqohcategory
+      requestBody:
+        $ref: '#/components/requestBodies/Bminfaqshodaqohcategory'
+      responses:
+        '201':
+          description: 'Created Bminfaqshodaqohcategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/bminfaqshodaqohcategories/{id}':
+    get:
+      tags:
+        - Bminfaqshodaqohcategory
+      summary: 'Find Bminfaqshodaqohcategory by ID'
+      description: 'Returns a single Bminfaqshodaqohcategory'
+      operationId: getBminfaqshodaqohcategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Bminfaqshodaqohcategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqohcategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Bminfaqshodaqohcategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Bminfaqshodaqohcategory
+      summary: 'Update an existing Bminfaqshodaqohcategory'
+      operationId: updateBminfaqshodaqohcategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bminfaqshodaqohcategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Bminfaqshodaqohcategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Bminfaqshodaqohcategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Bminfaqshodaqohcategory
+      summary: 'Deletes a Bminfaqshodaqohcategory'
+      operationId: deleteBminfaqshodaqohcategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bminfaqshodaqohcategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /bminfaqshodaqohs:
+    get:
+      tags:
+        - Bminfaqshodaqoh
+      summary: 'Find list Bminfaqshodaqoh'
+      description: 'Returns list of Bminfaqshodaqoh'
+      operationId: getBminfaqshodaqoh
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bminfaqshodaqoh' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Bminfaqshodaqoh' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Bminfaqshodaqoh' } }
+                type: object
+        '404':
+          description: 'Bminfaqshodaqoh not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Bminfaqshodaqoh
+      summary: 'Add a new Bminfaqshodaqoh to the store'
+      operationId: addBminfaqshodaqoh
+      requestBody:
+        $ref: '#/components/requestBodies/Bminfaqshodaqoh'
+      responses:
+        '201':
+          description: 'Created Bminfaqshodaqoh'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqoh'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqoh'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/bminfaqshodaqohs/{id}':
+    get:
+      tags:
+        - Bminfaqshodaqoh
+      summary: 'Find Bminfaqshodaqoh by ID'
+      description: 'Returns a single Bminfaqshodaqoh'
+      operationId: getBminfaqshodaqohById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Bminfaqshodaqoh to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqoh'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Bminfaqshodaqoh'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Bminfaqshodaqoh not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Bminfaqshodaqoh
+      summary: 'Update an existing Bminfaqshodaqoh'
+      operationId: updateBminfaqshodaqoh
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bminfaqshodaqoh id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Bminfaqshodaqoh'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Bminfaqshodaqoh not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Bminfaqshodaqoh
+      summary: 'Deletes a Bminfaqshodaqoh'
+      operationId: deleteBminfaqshodaqoh
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Bminfaqshodaqoh id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /campaigns:
+    get:
+      tags:
+        - Campaigns
+      summary: 'Find list Campaigns'
+      description: 'Returns list of Campaigns'
+      operationId: getCampaigns
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Campaigns' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Campaigns' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Campaigns' } }
+                type: object
+        '404':
+          description: 'Campaigns not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Campaigns
+      summary: 'Add a new Campaigns to the store'
+      operationId: addCampaigns
+      requestBody:
+        $ref: '#/components/requestBodies/Campaigns'
+      responses:
+        '201':
+          description: 'Created Campaigns'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaigns'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Campaigns'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/campaigns/{id}':
+    get:
+      tags:
+        - Campaigns
+      summary: 'Find Campaigns by ID'
+      description: 'Returns a single Campaigns'
+      operationId: getCampaignsById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Campaigns to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaigns'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Campaigns'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Campaigns not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Campaigns
+      summary: 'Update an existing Campaigns'
+      operationId: updateCampaigns
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Campaigns id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Campaigns'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Campaigns not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Campaigns
+      summary: 'Deletes a Campaigns'
+      operationId: deleteCampaigns
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Campaigns id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /chartOfAccounts:
+    get:
+      tags:
+        - ChartOfAccount
+      summary: 'Find list ChartOfAccount'
+      description: 'Returns list of ChartOfAccount'
+      operationId: getChartOfAccount
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ChartOfAccount' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ChartOfAccount' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/ChartOfAccount' } }
+                type: object
+        '404':
+          description: 'ChartOfAccount not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - ChartOfAccount
+      summary: 'Add a new ChartOfAccount to the store'
+      operationId: addChartOfAccount
+      requestBody:
+        $ref: '#/components/requestBodies/ChartOfAccount'
+      responses:
+        '201':
+          description: 'Created ChartOfAccount'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartOfAccount'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ChartOfAccount'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/chartOfAccounts/{id}':
+    get:
+      tags:
+        - ChartOfAccount
+      summary: 'Find ChartOfAccount by ID'
+      description: 'Returns a single ChartOfAccount'
+      operationId: getChartOfAccountById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of ChartOfAccount to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartOfAccount'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ChartOfAccount'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'ChartOfAccount not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - ChartOfAccount
+      summary: 'Update an existing ChartOfAccount'
+      operationId: updateChartOfAccount
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ChartOfAccount id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/ChartOfAccount'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'ChartOfAccount not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - ChartOfAccount
+      summary: 'Deletes a ChartOfAccount'
+      operationId: deleteChartOfAccount
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ChartOfAccount id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /donasis:
+    get:
+      tags:
+        - Donasi
+      summary: 'Find list Donasi'
+      description: 'Returns list of Donasi'
+      operationId: getDonasi
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Donasi' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Donasi' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Donasi' } }
+                type: object
+        '404':
+          description: 'Donasi not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Donasi
+      summary: 'Add a new Donasi to the store'
+      operationId: addDonasi
+      requestBody:
+        $ref: '#/components/requestBodies/Donasi'
+      responses:
+        '201':
+          description: 'Created Donasi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donasi'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Donasi'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donasis/{id}':
+    get:
+      tags:
+        - Donasi
+      summary: 'Find Donasi by ID'
+      description: 'Returns a single Donasi'
+      operationId: getDonasiById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Donasi to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donasi'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Donasi'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Donasi not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Donasi
+      summary: 'Update an existing Donasi'
+      operationId: updateDonasi
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Donasi id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Donasi'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Donasi not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Donasi
+      summary: 'Deletes a Donasi'
+      operationId: deleteDonasi
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Donasi id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /donaturTypes:
     get:
       tags:
@@ -542,6 +2258,318 @@ paths:
       security:
         -
           bearer_auth: []
+  /entities:
+    get:
+      tags:
+        - Entity
+      summary: 'Find list Entity'
+      description: 'Returns list of Entity'
+      operationId: getEntity
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Entity' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Entity' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Entity' } }
+                type: object
+        '404':
+          description: 'Entity not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Entity
+      summary: 'Add a new Entity to the store'
+      operationId: addEntity
+      requestBody:
+        $ref: '#/components/requestBodies/Entity'
+      responses:
+        '201':
+          description: 'Created Entity'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Entity'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/entities/{id}':
+    get:
+      tags:
+        - Entity
+      summary: 'Find Entity by ID'
+      description: 'Returns a single Entity'
+      operationId: getEntityById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Entity to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Entity'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Entity not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Entity
+      summary: 'Update an existing Entity'
+      operationId: updateEntity
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Entity id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Entity'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Entity not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Entity
+      summary: 'Deletes a Entity'
+      operationId: deleteEntity
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Entity id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /imams:
+    get:
+      tags:
+        - Imam
+      summary: 'Find list Imam'
+      description: 'Returns list of Imam'
+      operationId: getImam
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Imam' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Imam' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Imam' } }
+                type: object
+        '404':
+          description: 'Imam not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Imam
+      summary: 'Add a new Imam to the store'
+      operationId: addImam
+      requestBody:
+        $ref: '#/components/requestBodies/Imam'
+      responses:
+        '201':
+          description: 'Created Imam'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Imam'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Imam'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/imams/{id}':
+    get:
+      tags:
+        - Imam
+      summary: 'Find Imam by ID'
+      description: 'Returns a single Imam'
+      operationId: getImamById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Imam to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Imam'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Imam'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Imam not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Imam
+      summary: 'Update an existing Imam'
+      operationId: updateImam
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Imam id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Imam'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Imam not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Imam
+      summary: 'Deletes a Imam'
+      operationId: deleteImam
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Imam id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /jabatans:
     get:
       tags:
@@ -854,6 +2882,1098 @@ paths:
       security:
         -
           bearer_auth: []
+  /kategoriPelajarans:
+    get:
+      tags:
+        - KategoriPelajaran
+      summary: 'Find list KategoriPelajaran'
+      description: 'Returns list of KategoriPelajaran'
+      operationId: getKategoriPelajaran
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/KategoriPelajaran' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/KategoriPelajaran' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/KategoriPelajaran' } }
+                type: object
+        '404':
+          description: 'KategoriPelajaran not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - KategoriPelajaran
+      summary: 'Add a new KategoriPelajaran to the store'
+      operationId: addKategoriPelajaran
+      requestBody:
+        $ref: '#/components/requestBodies/KategoriPelajaran'
+      responses:
+        '201':
+          description: 'Created KategoriPelajaran'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KategoriPelajaran'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/KategoriPelajaran'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/kategoriPelajarans/{id}':
+    get:
+      tags:
+        - KategoriPelajaran
+      summary: 'Find KategoriPelajaran by ID'
+      description: 'Returns a single KategoriPelajaran'
+      operationId: getKategoriPelajaranById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of KategoriPelajaran to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KategoriPelajaran'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/KategoriPelajaran'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'KategoriPelajaran not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - KategoriPelajaran
+      summary: 'Update an existing KategoriPelajaran'
+      operationId: updateKategoriPelajaran
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'KategoriPelajaran id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/KategoriPelajaran'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'KategoriPelajaran not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - KategoriPelajaran
+      summary: 'Deletes a KategoriPelajaran'
+      operationId: deleteKategoriPelajaran
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'KategoriPelajaran id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /kelas:
+    get:
+      tags:
+        - Kelas
+      summary: 'Find list Kelas'
+      description: 'Returns list of Kelas'
+      operationId: getKelas
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Kelas' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Kelas' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Kelas' } }
+                type: object
+        '404':
+          description: 'Kelas not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Kelas
+      summary: 'Add a new Kelas to the store'
+      operationId: addKelas
+      requestBody:
+        $ref: '#/components/requestBodies/Kelas'
+      responses:
+        '201':
+          description: 'Created Kelas'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kelas'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Kelas'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/kelas/{id}':
+    get:
+      tags:
+        - Kelas
+      summary: 'Find Kelas by ID'
+      description: 'Returns a single Kelas'
+      operationId: getKelasById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Kelas to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kelas'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Kelas'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Kelas not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Kelas
+      summary: 'Update an existing Kelas'
+      operationId: updateKelas
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Kelas id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Kelas'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Kelas not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Kelas
+      summary: 'Deletes a Kelas'
+      operationId: deleteKelas
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Kelas id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /languages:
+    get:
+      tags:
+        - Languages
+      summary: 'Find list Languages'
+      description: 'Returns list of Languages'
+      operationId: getLanguages
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Languages' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Languages' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Languages' } }
+                type: object
+        '404':
+          description: 'Languages not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Languages
+      summary: 'Add a new Languages to the store'
+      operationId: addLanguages
+      requestBody:
+        $ref: '#/components/requestBodies/Languages'
+      responses:
+        '201':
+          description: 'Created Languages'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Languages'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Languages'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/languages/{id}':
+    get:
+      tags:
+        - Languages
+      summary: 'Find Languages by ID'
+      description: 'Returns a single Languages'
+      operationId: getLanguagesById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Languages to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Languages'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Languages'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Languages not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Languages
+      summary: 'Update an existing Languages'
+      operationId: updateLanguages
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Languages id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Languages'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Languages not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Languages
+      summary: 'Deletes a Languages'
+      operationId: deleteLanguages
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Languages id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /masterBanks:
+    get:
+      tags:
+        - MasterBank
+      summary: 'Find list MasterBank'
+      description: 'Returns list of MasterBank'
+      operationId: getMasterBank
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/MasterBank' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/MasterBank' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/MasterBank' } }
+                type: object
+        '404':
+          description: 'MasterBank not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - MasterBank
+      summary: 'Add a new MasterBank to the store'
+      operationId: addMasterBank
+      requestBody:
+        $ref: '#/components/requestBodies/MasterBank'
+      responses:
+        '201':
+          description: 'Created MasterBank'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterBank'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MasterBank'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/masterBanks/{id}':
+    get:
+      tags:
+        - MasterBank
+      summary: 'Find MasterBank by ID'
+      description: 'Returns a single MasterBank'
+      operationId: getMasterBankById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of MasterBank to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterBank'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MasterBank'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'MasterBank not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - MasterBank
+      summary: 'Update an existing MasterBank'
+      operationId: updateMasterBank
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'MasterBank id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/MasterBank'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'MasterBank not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - MasterBank
+      summary: 'Deletes a MasterBank'
+      operationId: deleteMasterBank
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'MasterBank id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /masterEwallets:
+    get:
+      tags:
+        - MasterEwallet
+      summary: 'Find list MasterEwallet'
+      description: 'Returns list of MasterEwallet'
+      operationId: getMasterEwallet
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/MasterEwallet' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/MasterEwallet' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/MasterEwallet' } }
+                type: object
+        '404':
+          description: 'MasterEwallet not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - MasterEwallet
+      summary: 'Add a new MasterEwallet to the store'
+      operationId: addMasterEwallet
+      requestBody:
+        $ref: '#/components/requestBodies/MasterEwallet'
+      responses:
+        '201':
+          description: 'Created MasterEwallet'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterEwallet'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MasterEwallet'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/masterEwallets/{id}':
+    get:
+      tags:
+        - MasterEwallet
+      summary: 'Find MasterEwallet by ID'
+      description: 'Returns a single MasterEwallet'
+      operationId: getMasterEwalletById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of MasterEwallet to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterEwallet'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MasterEwallet'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'MasterEwallet not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - MasterEwallet
+      summary: 'Update an existing MasterEwallet'
+      operationId: updateMasterEwallet
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'MasterEwallet id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/MasterEwallet'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'MasterEwallet not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - MasterEwallet
+      summary: 'Deletes a MasterEwallet'
+      operationId: deleteMasterEwallet
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'MasterEwallet id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /masterPaymentgateways:
+    get:
+      tags:
+        - MasterPaymentgateway
+      summary: 'Find list MasterPaymentgateway'
+      description: 'Returns list of MasterPaymentgateway'
+      operationId: getMasterPaymentgateway
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/MasterPaymentgateway' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/MasterPaymentgateway' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/MasterPaymentgateway' } }
+                type: object
+        '404':
+          description: 'MasterPaymentgateway not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - MasterPaymentgateway
+      summary: 'Add a new MasterPaymentgateway to the store'
+      operationId: addMasterPaymentgateway
+      requestBody:
+        $ref: '#/components/requestBodies/MasterPaymentgateway'
+      responses:
+        '201':
+          description: 'Created MasterPaymentgateway'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterPaymentgateway'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MasterPaymentgateway'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/masterPaymentgateways/{id}':
+    get:
+      tags:
+        - MasterPaymentgateway
+      summary: 'Find MasterPaymentgateway by ID'
+      description: 'Returns a single MasterPaymentgateway'
+      operationId: getMasterPaymentgatewayById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of MasterPaymentgateway to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MasterPaymentgateway'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/MasterPaymentgateway'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'MasterPaymentgateway not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - MasterPaymentgateway
+      summary: 'Update an existing MasterPaymentgateway'
+      operationId: updateMasterPaymentgateway
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'MasterPaymentgateway id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/MasterPaymentgateway'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'MasterPaymentgateway not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - MasterPaymentgateway
+      summary: 'Deletes a MasterPaymentgateway'
+      operationId: deleteMasterPaymentgateway
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'MasterPaymentgateway id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /materis:
+    get:
+      tags:
+        - Materi
+      summary: 'Find list Materi'
+      description: 'Returns list of Materi'
+      operationId: getMateri
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Materi' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Materi' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Materi' } }
+                type: object
+        '404':
+          description: 'Materi not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Materi
+      summary: 'Add a new Materi to the store'
+      operationId: addMateri
+      requestBody:
+        $ref: '#/components/requestBodies/Materi'
+      responses:
+        '201':
+          description: 'Created Materi'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Materi'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Materi'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/materis/{id}':
+    get:
+      tags:
+        - Materi
+      summary: 'Find Materi by ID'
+      description: 'Returns a single Materi'
+      operationId: getMateriById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Materi to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Materi'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Materi'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Materi not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Materi
+      summary: 'Update an existing Materi'
+      operationId: updateMateri
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Materi id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Materi'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Materi not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Materi
+      summary: 'Deletes a Materi'
+      operationId: deleteMateri
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Materi id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /members:
     get:
       tags:
@@ -1010,6 +4130,786 @@ paths:
       security:
         -
           bearer_auth: []
+  /nonRawatibSchedules:
+    get:
+      tags:
+        - NonRawatibSchedule
+      summary: 'Find list NonRawatibSchedule'
+      description: 'Returns list of NonRawatibSchedule'
+      operationId: getNonRawatibSchedule
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/NonRawatibSchedule' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/NonRawatibSchedule' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/NonRawatibSchedule' } }
+                type: object
+        '404':
+          description: 'NonRawatibSchedule not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - NonRawatibSchedule
+      summary: 'Add a new NonRawatibSchedule to the store'
+      operationId: addNonRawatibSchedule
+      requestBody:
+        $ref: '#/components/requestBodies/NonRawatibSchedule'
+      responses:
+        '201':
+          description: 'Created NonRawatibSchedule'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonRawatibSchedule'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NonRawatibSchedule'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/nonRawatibSchedules/{id}':
+    get:
+      tags:
+        - NonRawatibSchedule
+      summary: 'Find NonRawatibSchedule by ID'
+      description: 'Returns a single NonRawatibSchedule'
+      operationId: getNonRawatibScheduleById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of NonRawatibSchedule to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonRawatibSchedule'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NonRawatibSchedule'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'NonRawatibSchedule not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - NonRawatibSchedule
+      summary: 'Update an existing NonRawatibSchedule'
+      operationId: updateNonRawatibSchedule
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'NonRawatibSchedule id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/NonRawatibSchedule'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'NonRawatibSchedule not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - NonRawatibSchedule
+      summary: 'Deletes a NonRawatibSchedule'
+      operationId: deleteNonRawatibSchedule
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'NonRawatibSchedule id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /paymentCategories:
+    get:
+      tags:
+        - PaymentCategory
+      summary: 'Find list PaymentCategory'
+      description: 'Returns list of PaymentCategory'
+      operationId: getPaymentCategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentCategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentCategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/PaymentCategory' } }
+                type: object
+        '404':
+          description: 'PaymentCategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - PaymentCategory
+      summary: 'Add a new PaymentCategory to the store'
+      operationId: addPaymentCategory
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentCategory'
+      responses:
+        '201':
+          description: 'Created PaymentCategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/paymentCategories/{id}':
+    get:
+      tags:
+        - PaymentCategory
+      summary: 'Find PaymentCategory by ID'
+      description: 'Returns a single PaymentCategory'
+      operationId: getPaymentCategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of PaymentCategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentCategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'PaymentCategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - PaymentCategory
+      summary: 'Update an existing PaymentCategory'
+      operationId: updatePaymentCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentCategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentCategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'PaymentCategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - PaymentCategory
+      summary: 'Deletes a PaymentCategory'
+      operationId: deletePaymentCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentCategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /paymentMethods:
+    get:
+      tags:
+        - PaymentMethod
+      summary: 'Find list PaymentMethod'
+      description: 'Returns list of PaymentMethod'
+      operationId: getPaymentMethod
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentMethod' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/PaymentMethod' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/PaymentMethod' } }
+                type: object
+        '404':
+          description: 'PaymentMethod not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - PaymentMethod
+      summary: 'Add a new PaymentMethod to the store'
+      operationId: addPaymentMethod
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentMethod'
+      responses:
+        '201':
+          description: 'Created PaymentMethod'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/paymentMethods/{id}':
+    get:
+      tags:
+        - PaymentMethod
+      summary: 'Find PaymentMethod by ID'
+      description: 'Returns a single PaymentMethod'
+      operationId: getPaymentMethodById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of PaymentMethod to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PaymentMethod'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'PaymentMethod not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - PaymentMethod
+      summary: 'Update an existing PaymentMethod'
+      operationId: updatePaymentMethod
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentMethod id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/PaymentMethod'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'PaymentMethod not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - PaymentMethod
+      summary: 'Deletes a PaymentMethod'
+      operationId: deletePaymentMethod
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'PaymentMethod id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /pelajarans:
+    get:
+      tags:
+        - Pelajaran
+      summary: 'Find list Pelajaran'
+      description: 'Returns list of Pelajaran'
+      operationId: getPelajaran
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Pelajaran' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Pelajaran' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Pelajaran' } }
+                type: object
+        '404':
+          description: 'Pelajaran not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Pelajaran
+      summary: 'Add a new Pelajaran to the store'
+      operationId: addPelajaran
+      requestBody:
+        $ref: '#/components/requestBodies/Pelajaran'
+      responses:
+        '201':
+          description: 'Created Pelajaran'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pelajaran'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pelajaran'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/pelajarans/{id}':
+    get:
+      tags:
+        - Pelajaran
+      summary: 'Find Pelajaran by ID'
+      description: 'Returns a single Pelajaran'
+      operationId: getPelajaranById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Pelajaran to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pelajaran'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pelajaran'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Pelajaran not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Pelajaran
+      summary: 'Update an existing Pelajaran'
+      operationId: updatePelajaran
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Pelajaran id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Pelajaran'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pelajaran not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Pelajaran
+      summary: 'Deletes a Pelajaran'
+      operationId: deletePelajaran
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Pelajaran id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /pendaftarans:
+    get:
+      tags:
+        - Pendaftaran
+      summary: 'Find list Pendaftaran'
+      description: 'Returns list of Pendaftaran'
+      operationId: getPendaftaran
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Pendaftaran' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Pendaftaran' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Pendaftaran' } }
+                type: object
+        '404':
+          description: 'Pendaftaran not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Pendaftaran
+      summary: 'Add a new Pendaftaran to the store'
+      operationId: addPendaftaran
+      requestBody:
+        $ref: '#/components/requestBodies/Pendaftaran'
+      responses:
+        '201':
+          description: 'Created Pendaftaran'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pendaftaran'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pendaftaran'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/pendaftarans/{id}':
+    get:
+      tags:
+        - Pendaftaran
+      summary: 'Find Pendaftaran by ID'
+      description: 'Returns a single Pendaftaran'
+      operationId: getPendaftaranById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Pendaftaran to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pendaftaran'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pendaftaran'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Pendaftaran not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Pendaftaran
+      summary: 'Update an existing Pendaftaran'
+      operationId: updatePendaftaran
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Pendaftaran id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Pendaftaran'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pendaftaran not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Pendaftaran
+      summary: 'Deletes a Pendaftaran'
+      operationId: deletePendaftaran
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Pendaftaran id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /pengurus:
     get:
       tags:
@@ -1154,6 +5054,786 @@ paths:
           name: id
           in: path
           description: 'Pengurus id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /profiles:
+    get:
+      tags:
+        - Profile
+      summary: 'Find list Profile'
+      description: 'Returns list of Profile'
+      operationId: getProfile
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Profile' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Profile' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Profile' } }
+                type: object
+        '404':
+          description: 'Profile not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Profile
+      summary: 'Add a new Profile to the store'
+      operationId: addProfile
+      requestBody:
+        $ref: '#/components/requestBodies/Profile'
+      responses:
+        '201':
+          description: 'Created Profile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/profiles/{id}':
+    get:
+      tags:
+        - Profile
+      summary: 'Find Profile by ID'
+      description: 'Returns a single Profile'
+      operationId: getProfileById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Profile to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Profile not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Profile
+      summary: 'Update an existing Profile'
+      operationId: updateProfile
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Profile id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Profile'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Profile not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Profile
+      summary: 'Deletes a Profile'
+      operationId: deleteProfile
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Profile id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /programCategories:
+    get:
+      tags:
+        - ProgramCategory
+      summary: 'Find list ProgramCategory'
+      description: 'Returns list of ProgramCategory'
+      operationId: getProgramCategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ProgramCategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ProgramCategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/ProgramCategory' } }
+                type: object
+        '404':
+          description: 'ProgramCategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - ProgramCategory
+      summary: 'Add a new ProgramCategory to the store'
+      operationId: addProgramCategory
+      requestBody:
+        $ref: '#/components/requestBodies/ProgramCategory'
+      responses:
+        '201':
+          description: 'Created ProgramCategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgramCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProgramCategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/programCategories/{id}':
+    get:
+      tags:
+        - ProgramCategory
+      summary: 'Find ProgramCategory by ID'
+      description: 'Returns a single ProgramCategory'
+      operationId: getProgramCategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of ProgramCategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgramCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProgramCategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'ProgramCategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - ProgramCategory
+      summary: 'Update an existing ProgramCategory'
+      operationId: updateProgramCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ProgramCategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/ProgramCategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'ProgramCategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - ProgramCategory
+      summary: 'Deletes a ProgramCategory'
+      operationId: deleteProgramCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ProgramCategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /programCosts:
+    get:
+      tags:
+        - ProgramCost
+      summary: 'Find list ProgramCost'
+      description: 'Returns list of ProgramCost'
+      operationId: getProgramCost
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ProgramCost' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/ProgramCost' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/ProgramCost' } }
+                type: object
+        '404':
+          description: 'ProgramCost not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - ProgramCost
+      summary: 'Add a new ProgramCost to the store'
+      operationId: addProgramCost
+      requestBody:
+        $ref: '#/components/requestBodies/ProgramCost'
+      responses:
+        '201':
+          description: 'Created ProgramCost'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgramCost'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProgramCost'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/programCosts/{id}':
+    get:
+      tags:
+        - ProgramCost
+      summary: 'Find ProgramCost by ID'
+      description: 'Returns a single ProgramCost'
+      operationId: getProgramCostById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of ProgramCost to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgramCost'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProgramCost'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'ProgramCost not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - ProgramCost
+      summary: 'Update an existing ProgramCost'
+      operationId: updateProgramCost
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ProgramCost id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/ProgramCost'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'ProgramCost not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - ProgramCost
+      summary: 'Deletes a ProgramCost'
+      operationId: deleteProgramCost
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ProgramCost id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /programs:
+    get:
+      tags:
+        - Program
+      summary: 'Find list Program'
+      description: 'Returns list of Program'
+      operationId: getProgram
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Program' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Program' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Program' } }
+                type: object
+        '404':
+          description: 'Program not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Program
+      summary: 'Add a new Program to the store'
+      operationId: addProgram
+      requestBody:
+        $ref: '#/components/requestBodies/Program'
+      responses:
+        '201':
+          description: 'Created Program'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/programs/{id}':
+    get:
+      tags:
+        - Program
+      summary: 'Find Program by ID'
+      description: 'Returns a single Program'
+      operationId: getProgramById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Program to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Program not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Program
+      summary: 'Update an existing Program'
+      operationId: updateProgram
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Program id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Program'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Program not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Program
+      summary: 'Deletes a Program'
+      operationId: deleteProgram
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Program id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /rawatibSchedules:
+    get:
+      tags:
+        - RawatibSchedule
+      summary: 'Find list RawatibSchedule'
+      description: 'Returns list of RawatibSchedule'
+      operationId: getRawatibSchedule
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/RawatibSchedule' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/RawatibSchedule' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/RawatibSchedule' } }
+                type: object
+        '404':
+          description: 'RawatibSchedule not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - RawatibSchedule
+      summary: 'Add a new RawatibSchedule to the store'
+      operationId: addRawatibSchedule
+      requestBody:
+        $ref: '#/components/requestBodies/RawatibSchedule'
+      responses:
+        '201':
+          description: 'Created RawatibSchedule'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawatibSchedule'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RawatibSchedule'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/rawatibSchedules/{id}':
+    get:
+      tags:
+        - RawatibSchedule
+      summary: 'Find RawatibSchedule by ID'
+      description: 'Returns a single RawatibSchedule'
+      operationId: getRawatibScheduleById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of RawatibSchedule to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawatibSchedule'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RawatibSchedule'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'RawatibSchedule not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - RawatibSchedule
+      summary: 'Update an existing RawatibSchedule'
+      operationId: updateRawatibSchedule
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'RawatibSchedule id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/RawatibSchedule'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'RawatibSchedule not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - RawatibSchedule
+      summary: 'Deletes a RawatibSchedule'
+      operationId: deleteRawatibSchedule
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'RawatibSchedule id to delete'
           required: true
           schema:
             type: integer
@@ -1790,6 +6470,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /sitesliders:
+    get:
+      tags:
+        - Sitesliders
+      summary: 'Find list Sitesliders'
+      description: 'Returns list of Sitesliders'
+      operationId: getSitesliders
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitesliders' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitesliders' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Sitesliders' } }
+                type: object
+        '404':
+          description: 'Sitesliders not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Sitesliders
+      summary: 'Add a new Sitesliders to the store'
+      operationId: addSitesliders
+      requestBody:
+        $ref: '#/components/requestBodies/Sitesliders'
+      responses:
+        '201':
+          description: 'Created Sitesliders'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitesliders'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitesliders'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/sitesliders/{id}':
+    get:
+      tags:
+        - Sitesliders
+      summary: 'Find Sitesliders by ID'
+      description: 'Returns a single Sitesliders'
+      operationId: getSiteslidersById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Sitesliders to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitesliders'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitesliders'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Sitesliders not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Sitesliders
+      summary: 'Update an existing Sitesliders'
+      operationId: updateSitesliders
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitesliders id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Sitesliders'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Sitesliders not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Sitesliders
+      summary: 'Deletes a Sitesliders'
+      operationId: deleteSitesliders
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitesliders id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /sitesocials:
     get:
       tags:
@@ -2246,6 +7082,630 @@ paths:
           name: id
           in: path
           description: 'TimFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /timStaffs:
+    get:
+      tags:
+        - TimStaff
+      summary: 'Find list TimStaff'
+      description: 'Returns list of TimStaff'
+      operationId: getTimStaff
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimStaff' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimStaff' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TimStaff' } }
+                type: object
+        '404':
+          description: 'TimStaff not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TimStaff
+      summary: 'Add a new TimStaff to the store'
+      operationId: addTimStaff
+      requestBody:
+        $ref: '#/components/requestBodies/TimStaff'
+      responses:
+        '201':
+          description: 'Created TimStaff'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/timStaffs/{id}':
+    get:
+      tags:
+        - TimStaff
+      summary: 'Find TimStaff by ID'
+      description: 'Returns a single TimStaff'
+      operationId: getTimStaffById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TimStaff to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TimStaff not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TimStaff
+      summary: 'Update an existing TimStaff'
+      operationId: updateTimStaff
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimStaff id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TimStaff'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TimStaff not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TimStaff
+      summary: 'Deletes a TimStaff'
+      operationId: deleteTimStaff
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimStaff id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /tugasTims:
+    get:
+      tags:
+        - TugasTim
+      summary: 'Find list TugasTim'
+      description: 'Returns list of TugasTim'
+      operationId: getTugasTim
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TugasTim' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TugasTim' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TugasTim' } }
+                type: object
+        '404':
+          description: 'TugasTim not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TugasTim
+      summary: 'Add a new TugasTim to the store'
+      operationId: addTugasTim
+      requestBody:
+        $ref: '#/components/requestBodies/TugasTim'
+      responses:
+        '201':
+          description: 'Created TugasTim'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/tugasTims/{id}':
+    get:
+      tags:
+        - TugasTim
+      summary: 'Find TugasTim by ID'
+      description: 'Returns a single TugasTim'
+      operationId: getTugasTimById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TugasTim to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TugasTim not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TugasTim
+      summary: 'Update an existing TugasTim'
+      operationId: updateTugasTim
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TugasTim id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TugasTim'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TugasTim not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TugasTim
+      summary: 'Deletes a TugasTim'
+      operationId: deleteTugasTim
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TugasTim id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /uomCategories:
+    get:
+      tags:
+        - UomCategory
+      summary: 'Find list UomCategory'
+      description: 'Returns list of UomCategory'
+      operationId: getUomCategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/UomCategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/UomCategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/UomCategory' } }
+                type: object
+        '404':
+          description: 'UomCategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - UomCategory
+      summary: 'Add a new UomCategory to the store'
+      operationId: addUomCategory
+      requestBody:
+        $ref: '#/components/requestBodies/UomCategory'
+      responses:
+        '201':
+          description: 'Created UomCategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UomCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UomCategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/uomCategories/{id}':
+    get:
+      tags:
+        - UomCategory
+      summary: 'Find UomCategory by ID'
+      description: 'Returns a single UomCategory'
+      operationId: getUomCategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of UomCategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UomCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UomCategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'UomCategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - UomCategory
+      summary: 'Update an existing UomCategory'
+      operationId: updateUomCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'UomCategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/UomCategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'UomCategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - UomCategory
+      summary: 'Deletes a UomCategory'
+      operationId: deleteUomCategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'UomCategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /uoms:
+    get:
+      tags:
+        - Uom
+      summary: 'Find list Uom'
+      description: 'Returns list of Uom'
+      operationId: getUom
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Uom' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Uom' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Uom' } }
+                type: object
+        '404':
+          description: 'Uom not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Uom
+      summary: 'Add a new Uom to the store'
+      operationId: addUom
+      requestBody:
+        $ref: '#/components/requestBodies/Uom'
+      responses:
+        '201':
+          description: 'Created Uom'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Uom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Uom'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/uoms/{id}':
+    get:
+      tags:
+        - Uom
+      summary: 'Find Uom by ID'
+      description: 'Returns a single Uom'
+      operationId: getUomById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Uom to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Uom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Uom'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Uom not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Uom
+      summary: 'Update an existing Uom'
+      operationId: updateUom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Uom id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Uom'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Uom not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Uom
+      summary: 'Deletes a Uom'
+      operationId: deleteUom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Uom id to delete'
           required: true
           schema:
             type: integer
@@ -3312,6 +8772,27 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+        email:
+          nullable: true
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 50
+        no_hp:
+          nullable: true
+          title: no_hp
+          description: no_hp
+          type: string
+          format: '-'
+          maxLength: 50
+        alamat:
+          nullable: true
+          title: alamat
+          description: alamat
+          type: string
+          format: '-'
+          maxLength: 100
         created_at:
           nullable: false
           title: created_at
@@ -4244,6 +9725,103 @@ components:
           description: created_by
           type: integer
           format: '-'
+      type: object
+    PaymentCategory:
+      title: PaymentCategory
+      description: PaymentCategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 50
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    PaymentMethod:
+      title: PaymentMethod
+      description: PaymentMethod
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_bank:
+          nullable: false
+          title: id_bank
+          description: id_bank
+          type: integer
+          format: '-'
+          maxLength: 11
+        no_rek:
+          nullable: true
+          title: no_rek
+          description: no_rek
+          type: integer
+          format: '-'
+          maxLength: 20
+        nama_rek:
+          nullable: true
+          title: nama_rek
+          description: nama_rek
+          type: string
+          format: '-'
+          maxLength: 50
+        payment_category_id:
+          nullable: false
+          title: payment_category_id
+          description: payment_category_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     Pelajaran:
       title: Pelajaran
@@ -5350,9 +10928,9 @@ components:
           nullable: false
           title: campaign
           description: campaign
-          type: string
+          type: integer
           format: '-'
-          maxLength: 128
+          maxLength: 11
         donatur:
           nullable: false
           title: donatur
@@ -5374,6 +10952,18 @@ components:
           type: string
           format: '-'
           maxLength: 128
+        jadwal_mulai:
+          nullable: true
+          title: jadwal_mulai
+          description: jadwal_mulai
+          type: string
+          format: date
+        jadwal_akhir:
+          nullable: true
+          title: jadwal_akhir
+          description: jadwal_akhir
+          type: string
+          format: date
         created_at:
           nullable: false
           title: created_at
@@ -5440,6 +11030,130 @@ components:
           type: string
           format: '-'
           maxLength: 248
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    TimStaff:
+      title: TimStaff
+      description: TimStaff
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_tim:
+          nullable: false
+          title: id_tim
+          description: id_tim
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_user:
+          nullable: false
+          title: id_user
+          description: id_user
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        tugas_tim:
+          nullable: true
+          title: tugas_tim
+          description: tugas_tim
+          type: string
+          format: '-'
+        target_nominal_tim:
+          nullable: true
+          title: target_nominal_tim
+          description: target_nominal_tim
+          type: string
+          format: '-'
+          maxLength: 100
+      type: object
+    TugasTim:
+      title: TugasTim
+      description: TugasTim
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_staff:
+          nullable: false
+          title: id_staff
+          description: id_staff
+          type: integer
+          format: '-'
+          maxLength: 11
+        tugas:
+          nullable: false
+          title: tugas
+          description: tugas
+          type: string
+          format: '-'
+          maxLength: 255
+        nominal:
+          nullable: false
+          title: nominal
+          description: nominal
+          type: integer
+          format: '-'
+          maxLength: 11
         created_at:
           nullable: false
           title: created_at
@@ -6030,6 +11744,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NonRawatibScheduleClone'
+    PaymentCategory:
+      description: 'PaymentCategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PaymentCategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/PaymentCategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaymentCategory'
+    PaymentMethod:
+      description: 'PaymentMethod object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PaymentMethod'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/PaymentMethod'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PaymentMethod'
     Pelajaran:
       description: 'Pelajaran object that needs to be added'
       content:
@@ -6222,6 +11960,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/TimFundraising'
+    TimStaff:
+      description: 'TimStaff object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TimStaff'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TimStaff'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TimStaff'
+    TugasTim:
+      description: 'TugasTim object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TugasTim'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TugasTim'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TugasTim'
     Uom:
       description: 'Uom object that needs to be added'
       content:
@@ -6364,6 +12126,12 @@ tags:
     name: NonRawatibScheduleClone
     description: 'Everything about your NonRawatibScheduleClone'
   -
+    name: PaymentCategory
+    description: 'Everything about your PaymentCategory'
+  -
+    name: PaymentMethod
+    description: 'Everything about your PaymentMethod'
+  -
     name: Pelajaran
     description: 'Everything about your Pelajaran'
   -
@@ -6411,6 +12179,12 @@ tags:
   -
     name: TimFundraising
     description: 'Everything about your TimFundraising'
+  -
+    name: TimStaff
+    description: 'Everything about your TimStaff'
+  -
+    name: TugasTim
+    description: 'Everything about your TugasTim'
   -
     name: Uom
     description: 'Everything about your Uom'

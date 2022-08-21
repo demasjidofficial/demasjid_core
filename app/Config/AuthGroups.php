@@ -48,7 +48,7 @@ class AuthGroups extends ShieldGroups
             'title'       => 'Supervisor',
             'description' => 'Has access to beta-level features.',
         ],
-        'staf' => [
+        'staff' => [
             'title'       => 'Staff',
             'description' => 'Has access to beta-level features.',
         ],
@@ -164,6 +164,7 @@ class AuthGroups extends ShieldGroups
         'tpq.profile.list' => 'Can view list profile',
         'tpq.profile.create' => 'Can create profile',
         'tpq.profile.edit' => 'Can edit profile',
+
         'tpq.profile.delete' => 'Can edit profile', 
         
         
@@ -189,6 +190,9 @@ class AuthGroups extends ShieldGroups
          'baitulmal.targetfundraising.edit' => 'Can edit targetfundraising',
          'baitulmal.targetfundraising.delete' => 'Can delete targetfundraising',
 
+
+
+        'tpq.profile.delete' => 'Can edit profile',      
 
     ];
 

@@ -42,6 +42,7 @@ class Module extends BaseModule
             'permission'      => 'masjid.profil.list',
         ]);
         $pengurusItem = new MenuItem([
+
             'title'           => 'Pengurus',
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
             // 'url'             => url_to('App\Modules\Masjid\Controllers\PengurusController::index'),
@@ -72,6 +73,24 @@ class Module extends BaseModule
         $jabatanItem = new MenuItem([
             'title'           => lang('crud.job_position'),
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
+
+            'title'           => lang('crud.pengurus'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\PengurusController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.pengurus.list',
+        ]);
+
+        $profileItem = new MenuItem([
+            'title'           => lang('crud.profile'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProfileController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.pengurus.list',
+        ]);
+
+        $jabatanItem = new MenuItem([
+            'title'           => lang('crud.job_position'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
+
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.jabatan.list',
         ]);
@@ -157,9 +176,37 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.masters.list',
         ]);
+
         $sidebar->menu('sidebar')->collection('masjid')->addItem($jabatanItem)->addItem($pengurusItem)
         ->addItem($memberItem)->addItem($wilayahItem)->addItem($masterItem)->addItem($ringkasanItem)
         ->addItem($profilItem)->addItem($jadwalSholatItem)->addItem($programItem)
         ->addItem($kasItem);
+
+        $schedulesItem = new MenuItem([
+            'title'           => lang('crud.schedules'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.schedules.list',
+        ]);        
+        
+        $sidebar->menu('sidebar')->collection('masjid')
+            //->addItem($jabatanItem)
+            //->addItem($pengurusItem)
+            //->addItem($profileItem)
+            //->addItem($memberItem)
+            //->addItem($wilayahItem)
+            //->addItem($entityItem)
+            //->addItem($accountBalanceItem)
+            //->addItem($programCategoryItem)
+            //->addItem($programItem)
+            //->addItem($chartOfAccoutItem)
+            //->addItem($balanceItem)
+            ->addItem($financesItem)
+            ->addItem($profilesItem)
+            ->addItem($programsItem)
+            ->addItem($mastersItem)
+            ->addItem($schedulesItem)
+            ;
+
     }
 }

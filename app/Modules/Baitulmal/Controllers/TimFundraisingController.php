@@ -3,8 +3,10 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
+use App\Modules\Api\Entities\TimStaff;
 use IlluminateAgnostic\Arr\Support\Arr;
 use App\Modules\Api\Models\TimFundraisingModel;
+use App\Modules\Api\Models\TimStaffModel;
 use App\Modules\BaitulMal\Models\TimFundraisingFilter;
 
 class TimFundraisingController extends AdminCrudController
@@ -14,8 +16,8 @@ class TimFundraisingController extends AdminCrudController
     protected $baseRoute = 'admin/baitulmal/timfundraising';
     protected $langModel = 'tim_fundraising';
     protected $modelName = 'App\Modules\Api\Models\TimFundraisingModel';
-    public function index(){
-        return parent::index();
+    public function index($id = null){
+        return parent::index($id);
     }
 
     public function edit($id = null){
@@ -41,12 +43,16 @@ class TimFundraisingController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(TimFundraisingFilter::class);
+     
         return [
             'headers' => [
                                     'id_target' => lang('crud.id_target'),
-                'id_jadwal' => lang('crud.id_jadwal'),
-                'supervisior' => lang('crud.supervisior'),
+        
+           
+              
+                'jadwal_mulai' => lang('crud.durasi'),
                 'staff' => lang('crud.staff'),
+
        
             ],
             'controller' => $this->getBaseController(),
@@ -69,11 +75,29 @@ class TimFundraisingController extends AdminCrudController
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
+            $dataEdit['timStaff'] = (new TimStaffModel())->where('id_tim', $id)->findAll();
         }
-        $dataEdit['targetItems'] = ['' => 'Pilih Target'] + Arr::pluck(model('App\Modules\Api\Models\TargetFundraisingListModel')->select(['id as key', 'campaign as text'])->asArray()->findAll(), 'text', 'key');
-        $dataEdit['jadwalItems'] = ['' => 'Pilih Jadwal'] + Arr::pluck(model('App\Modules\Api\Models\JadwalFundraisingModel')->select(['id as key', 'jadwal_durasi as text'])->asArray()->findAll(), 'text', 'key');
-      
+        $dataEdit['targetItems'] = ['' => 'Pilih Target'] + Arr::pluck(model('App\Modules\Api\Models\TargetFundraisingListModel')->select(['id as key', 'campaign_name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['supervisorItems'] = ['' => 'Pilih Supervisior'] + Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
         
+        return $dataEdit;
+    }
+
+    protected function getDataTim($id = null)
+    {
+        $dataEdit = parent::getDataEdit($id);
+        $model = new TimFundraisingModel();
+
+        if(!empty($id)){
+            $data = $model->find($id);
+            if (null === $data) {
+                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
+            }
+            $dataEdit['data'] = $data;
+            $dataEdit['timStaff'] = (new TimStaffModel())->where('id_tim', $id)->findAll();
+        }
+       
         return $dataEdit;
     }
 }
