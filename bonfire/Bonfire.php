@@ -113,10 +113,7 @@ class Bonfire
             ->createCollection('tpq', 'TPQ')
             ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
             ->setCollapsible();
-        $menus->menu('sidebar')
-            ->createCollection('baitulmal', 'Baitul Mal')
-            ->setFontAwesomeIcon('nav-icon fas fa-calculator')
-            ->setCollapsible();        
+       
 
         $menus->menu('sidebar')
             ->createCollection('website', 'Website')
