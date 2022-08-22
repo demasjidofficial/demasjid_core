@@ -4,16 +4,20 @@ namespace App\Modules\Board\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\BoardNewsModel;
-use App\Modules\Board\Models\BoardNewsFilter;
+use App\Modules\Api\Models\BoardNewsBgModel;
+use App\Modules\Board\Models\BoardNewsBgFilter;
+use App\Traits\UploadedFile;
 
-class BoardNewsController extends AdminCrudController
+class BoardNewsBgController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Board\Views\board_news\\';
-    protected $baseRoute = 'admin/board/boardnews';
-    protected $langModel = 'board_news';
-    protected $modelName = 'App\Modules\Api\Models\BoardNewsModel';
+    protected $viewPrefix = 'App\Modules\Board\Views\board_news_bg\\';
+    protected $baseRoute = 'admin/board/boardnewsbg';
+    protected $langModel = 'board_news_bg';
+    protected $modelName = 'App\Modules\Api\Models\BoardNewsBgModel';
+    private $imageFolder = 'images';
+    
     public function index(){
         return parent::index();
     }
@@ -23,6 +27,7 @@ class BoardNewsController extends AdminCrudController
     }
 
     public function update($id = null){
+        
         return parent::update($id);
     }
 
@@ -31,6 +36,9 @@ class BoardNewsController extends AdminCrudController
     }
 
     public function create(){
+        $uploadedImage = $this->uploadFile('image');
+        $this->model->set('path_image', $uploadedImage);
+
         return parent::create();
     }
 
@@ -40,12 +48,11 @@ class BoardNewsController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(BoardNewsFilter::class);
+        $model = model(BoardNewsBgFilter::class);
         return [
             'headers' => [
-                'board_newsbg_id' => lang('crud.board_newsbg'),
-                'board_newsruntext_id' => lang('crud.board_newsruntext'),
-                'rawatib_schedule_id' => lang('crud.rawatib_schedule_id'),
+                'path_image' => lang('crud.path_image'),
+                'duration' => lang('crud.duration'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
@@ -60,7 +67,7 @@ class BoardNewsController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new BoardNewsModel();
+        $model = new BoardNewsBgModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -69,9 +76,7 @@ class BoardNewsController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['board_newsbgItems'] = Arr::pluck(model('App\Modules\Api\Models\BoardNewsbgModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
-    $dataEdit['board_newsruntextItems'] = Arr::pluck(model('App\Modules\Api\Models\BoardNewsruntextModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
-    $dataEdit['rawatib_scheduleItems'] = Arr::pluck(model('App\Modules\Api\Models\RawatibScheduleModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+        
         return $dataEdit;
     }
 }

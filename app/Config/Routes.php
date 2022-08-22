@@ -80,14 +80,6 @@ static function ($routes) {
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
     $routes->resource('bmdonationcampaigns');
-
-    $routes->resource('donaturTypes');
- 
-    // $routes->resource('donaturcategories');
-    // $routes->resource('targetFundraisings');
-    // $routes->resource('jadwalFundraisings');
-    // $routes->resource('timFundraisings');
-
     $routes->resource('donaturs');
     $routes->resource('donasis');
 
