@@ -147,6 +147,7 @@ class Bonfire
             ->createCollection('tools', 'Alat')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
+<<<<<<< HEAD
 
         $menus->menu('sidebar')
             ->createCollection('umum', 'Umum')
@@ -162,6 +163,9 @@ class Bonfire
 
 
 
+=======
+        
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');
     }
