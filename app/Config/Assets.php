@@ -25,7 +25,7 @@ class Assets extends OriginalAssets
      * non-cached page load. This should probably only be used on small-medium
      * sites.
      */
-    public $bustingType = 'file';
+    public $bustingType = 'version';
 
     /**
      * --------------------------------------------------------------------------
@@ -55,5 +55,6 @@ class Assets extends OriginalAssets
         'admin' => ROOTPATH . 'themes/Admin',        
         'auth'  => ROOTPATH . 'themes/Auth',
         'other' => ROOTPATH . 'vendor',
+        'adminlte' => ROOTPATH . 'themes/adminlte',
     ];
 }

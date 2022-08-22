@@ -21,29 +21,131 @@ class Module extends BaseModule
 
         // Content Menu for sidebar
         $pengurusItem = new MenuItem([
-            'title'           => 'Pengurus',
+            'title'           => lang('crud.pengurus'),
             'url'             => url_to('App\Modules\Masjid\Controllers\PengurusController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'masjid.pengurus.list',
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.pengurus.list',
         ]);
+
+        $profileItem = new MenuItem([
+            'title'           => lang('crud.profile'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProfileController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.pengurus.list',
+        ]);
+
         $jabatanItem = new MenuItem([
-            'title'           => 'Jabatan',
+            'title'           => lang('crud.job_position'),
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'masjid.jabatan.list',
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.jabatan.list',
         ]);
         $memberItem = new MenuItem([
-            'title'           => 'Member',
+            'title'           => lang('crud.member'),
             'url'             => url_to('App\Modules\Masjid\Controllers\MemberController::index'),
-            'fontAwesomeIcon' => 'fas fa-users',
-            'permission'      => 'masjid.member.list',
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.member.list',
         ]);
         $wilayahItem = new MenuItem([
-            'title'           => 'Wilayah',
+            'title'           => lang('crud.zone'),
             'url'             => url_to('App\Modules\Masjid\Controllers\WilayahController::index'),
-            'fontAwesomeIcon' => 'fas fa-maps',
-            'permission'      => 'masjid.wilayah.list',
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.wilayah.list',
         ]);
-        $sidebar->menu('sidebar')->collection('masjid')->addItem($jabatanItem)->addItem($pengurusItem)->addItem($memberItem)->addItem($wilayahItem);
+
+        $entityItem = new MenuItem([
+            'title'           => lang('crud.entity_id'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\EntityController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.entity.list',
+        ]);
+
+        $accountBalanceItem = new MenuItem([
+            'title'           => lang('crud.account_balance'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\AccountBalanceController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.account_balance.list',
+        ]);
+
+        $chartOfAccoutItem = new MenuItem([
+            'title'           => lang('crud.chart_of_account'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ChartOfAccountController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.account_balance.list',
+        ]);
+
+        $balanceItem = new MenuItem([
+            'title'           => lang('crud.balance'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\BalanceController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.balance.list',
+        ]);
+
+        $programCategoryItem = new MenuItem([
+            'title'           => lang('crud.program_category'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramCategoryController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.program.list',
+        ]);
+
+        $programItem = new MenuItem([
+            'title'           => lang('crud.program'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.program.list',
+        ]);
+
+        /**
+         * SUB MODULE
+         */
+        $financesItem = new MenuItem([
+            'title'           => lang('crud.finances'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_FinancesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.finances.list',
+        ]);
+        $profilesItem = new MenuItem([
+            'title'           => lang('crud.profiles'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_ProfilesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.profiles.list',
+        ]);
+        $programsItem = new MenuItem([
+            'title'           => lang('crud.programs'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_ProgramsController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.programs.list',
+        ]);
+        $mastersItem = new MenuItem([
+            'title'           => lang('crud.masters'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\_MastersController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.masters.list',
+        ]);
+        $schedulesItem = new MenuItem([
+            'title'           => lang('crud.schedules'),
+            'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            //'permission'      => 'masjid.schedules.list',
+        ]);        
+        
+        $sidebar->menu('sidebar')->collection('masjid')
+            //->addItem($jabatanItem)
+            //->addItem($pengurusItem)
+            //->addItem($profileItem)
+            //->addItem($memberItem)
+            //->addItem($wilayahItem)
+            //->addItem($entityItem)
+            //->addItem($accountBalanceItem)
+            //->addItem($programCategoryItem)
+            //->addItem($programItem)
+            //->addItem($chartOfAccoutItem)
+            //->addItem($balanceItem)
+            ->addItem($financesItem)
+            ->addItem($profilesItem)
+            ->addItem($programsItem)
+            ->addItem($mastersItem)
+            ->addItem($schedulesItem)
+            ;
     }
 }

@@ -31,6 +31,8 @@ class LoginController extends ShieldLogin
      */
     public function getLoginRedirect($user)
     {
+        $locale = $this->request->getLocale();
+
         $url = config('Auth')->redirects['login'];
 
         return strpos($url, 'http') === 0

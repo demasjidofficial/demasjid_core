@@ -96,6 +96,6 @@ class Services extends BaseService
             return static::getSharedInstance('widgets');
         }
 
-        return new \Bonfire\Libraries\Widgets\Manager();
+        return new \App\Libraries\Widgets\Manager();
     }
 }

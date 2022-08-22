@@ -28,7 +28,7 @@
   <div class="login-logo">
     <a href="<?= ADMIN_AREA ?>">
         <!--b>< ?= setting('App.siteName') ?? 'Demasjid' ?></b>Panel-->
-        <img src="assets/auth/img/demasjid-logo2.png" style="width:65%" />
+        <img src="/assets/auth/img/demasjid-logo2.png" style="width:65%" />
     </a>
   </div>
   <!-- /.login-logo -->

@@ -43,6 +43,7 @@ class Activation extends BaseController
         $this->model->set('path_image', $this->getPathImage());
         $codeUnique = $this->model->getCodeUnique($wilayahId);
         $this->model->set('code', $codeUnique);
+        $this->model->set('state', MemberModel::$defaultState);
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
@@ -139,4 +140,29 @@ class Activation extends BaseController
             $this->setPathImage($uploaded);
         }
     }
+
+    public function newUser()
+    {
+        helper('form');        
+        return $this->render('activation/newuser');
+    }
+
+    public function createNewUser()
+    {
+        $this->model = model($this->modelName);
+        $data = $this->request->getPost();
+        $wilayahId = $this->request->getPost('wilayah_id');
+        $this->uploadLogo();
+        $this->uploadImage();
+        $this->model->set('path_logo', $this->getPathLogo());
+        $this->model->set('path_image', $this->getPathImage());
+        $codeUnique = $this->model->getCodeUnique($wilayahId);
+        $this->model->set('code', $codeUnique);
+        if (!$this->model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        
+        return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique]));
+    }
+
 }
