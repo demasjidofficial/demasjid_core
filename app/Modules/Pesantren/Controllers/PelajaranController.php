@@ -49,7 +49,7 @@ class PelajaranController extends AdminCrudController
                 'duration' => lang('crud.duration'),
                 'uom_id' => lang('crud.uom_id'),
                 'sequence' => lang('crud.sequence'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

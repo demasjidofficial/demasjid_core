@@ -52,7 +52,7 @@ class KelasController extends AdminCrudController
                 'duration' => lang('crud.duration'),
                 'uom_id' => lang('crud.uom'),
                 'entity_id' => lang('crud.entity'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

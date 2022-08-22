@@ -45,7 +45,7 @@ class KategoriPelajaranController extends AdminCrudController
             'headers' => [
                                     'name' => lang('crud.name'),
                 'description' => lang('crud.description'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
