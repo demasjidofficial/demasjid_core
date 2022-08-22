@@ -144,25 +144,7 @@ class Bonfire
             ->createCollection('tools', 'Alat')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
-<<<<<<< HEAD
 
-        $menus->menu('sidebar')
-            ->createCollection('umum', 'Umum')
-            ->setFontAwesomeIcon('nav-icon fas fa-angle-double-right');
-        $menus->menu('sidebar')
-            ->createCollection('users', 'Pengguna')
-            ->setFontAwesomeIcon('nav-icon fas fa-users');
-        $menus->menu('sidebar')
-            ->createCollection('modul', 'Modul')
-            ->setFontAwesomeIcon('nav-icon fas fa-book');
-
-
-
-
-
-=======
-        
->>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');
     }
