@@ -24,6 +24,10 @@ class CreateTargetFundraising extends Migration
                 'type'       => 'varchar',
                 'constraint' => 128,
             ],
+            'campaign_name' => [
+                'type'       => 'varchar',
+                'constraint' => 128,
+            ],
             'target_nominal' => [
                 'type'       => 'varchar',
                 'constraint' => 128, 
@@ -42,7 +46,7 @@ class CreateTargetFundraising extends Migration
                 'null'       => false,
             ],
 
-          
+            
             'created_at' => [
                 'type'       => 'datetime',
                 'null'       => false,

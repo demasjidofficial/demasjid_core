@@ -18,7 +18,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/paymentcategory', ['controller' => 'PaymentCategoryController']);
     $routes->resource('baitulmal/paymentmethod_paygat', ['controller' => 'PaymentMethodPaygatController']);
     $routes->resource('baitulmal/paymentmethod_transfer', ['controller' => 'PaymentMethodTransferController']);
-
+    $routes->resource('baitulmal/donaturcategory', ['controller' => 'DonaturcategoryController']);
     $routes->resource('baitulmal/targetfundraising', ['controller' => 'TargetFundraisingController']);
     $routes->resource('baitulmal/jadwalfundraising', ['controller' => 'JadwalFundraisingController']);
     $routes->resource('baitulmal/timfundraising', ['controller' => 'TimFundraisingController']);

@@ -274,13 +274,17 @@ return [
 	'rek_no' => 'No Rekening',
 	'rek_name' => 'Nama Rekening',
 	'paymentgateway' => 'Payment Gateway',
-	'donatur' => 'Donatur',
+	'donatur' => 'Tipe Donatur',
 	'no_hp' => 'No. Hp',
 	'donation' => 'Donasi',
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
 	'action' => 'Aksi',
-	'campaign_name' => 'Nama Target'
+	'campaign_name' => 'Nama Kampanye',
+	'jadwal_durasi'=>'Durasi Target',
+	'kembali'=>'Kembali',
+	'save'=>'Simpan',
+	'target'=>'Target Donatur'
 
  ];
 
