@@ -50,9 +50,11 @@
     <div class="container-fluid slide-img" id="slideshow">
         <?php foreach ($board_news_bg as $bg) { ?>
             <div>
-                <li><img src="/<?= esc($bg['path_image']) ?>" duration="<?= esc($bg['duration']) ?>" alt="imgslide"></li>
+                <li><img src="/<?= esc($bg['path_image']) ?>" <?= $duration = $bg['duration']; ?>  alt="imgslide"></li>
             </div>
-        <?php } ?>
+        <?php } 
+
+        ?>
     </div>
     <!-- </div> -->
 </section>
@@ -127,7 +129,7 @@
         $('ul li').removeClass('active');
         $('ul li:eq(' + index + ')').addClass('active');
         index = index < maxindex - 1 ? index + 1 : 0;
-    }, 5000);
+    }, <?= $duration ?>);
 
     for (var i = 0; i < maxindex; i++) {
         $('ul').append('<li class="' + (i == 0 ? 'active' : '') + '"></li>');

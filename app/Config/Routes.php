@@ -76,6 +76,8 @@ static function ($routes) {
     $routes->resource('boardNewsRuntexts');
     $routes->resource('donaturs');
     $routes->resource('donasis');
+    $routes->resource('pstrEducationlevels');
+    $routes->resource('pstrKelas');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

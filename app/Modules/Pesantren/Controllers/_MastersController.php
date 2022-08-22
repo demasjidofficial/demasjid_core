@@ -3,88 +3,72 @@
 namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
-//use App\Modules\Api\Models\MastersModel;
-//use App\Modules\Pesantren\Models\MastersFilter;
-//use IlluminateAgnostic\Arr\Support\Arr;
+use App\Libraries\Widgets\Stats\Stats;
+use App\Libraries\Widgets\Stats\StatsItem;
 
 class _MastersController extends AdminCrudController
 {
-    //protected $baseController = __CLASS__;
-    //protected $viewPrefix = 'App\Modules\Pesantren\Views\submodules\\';
-    //protected $baseRoute = 'admin/masjid/';
-    //protected $langModel = 'accounting';
-    //protected $modelName = 'App\Modules\Api\Models\MastersModel';
-    public function index(){
-        //return parent::index();
-        return $this->render('App\Modules\Pesantren\Views\_submodules\masters',[]);
-    }
-
-    /*
-    public function edit($id = null){
-        return parent::edit($id);
-    }
-
-    public function update($id = null){
-        return parent::update($id);
-    }
-
-    public function show($id = null){
-        return parent::show($id);
-    }
-
-    public function create(){
-        return parent::create();
-    }
-
-    public function delete($id = null){
-        return parent::delete($id);
-    }
-    */
-
-    /*
-    protected function getDataIndex()
+    
+    public function index()
     {
-        
-        $model = model(MastersFilter::class);
-        $model->masjid();
-        $model->orderBy('transaction_date');
-        return [
-            'headers' => [                
-                'transaction_date' => lang('crud.transaction_date'),
-                'description' => lang('crud.description'),
-                'debit' => lang('crud.debit'),
-                'credit' => lang('crud.credit'),                
-                'saldo'  => lang('crud.saldo'),
-                'chart_of_account_id' => lang('crud.chart_of_account'),
-                'account_balance_id' => lang('crud.account'),
-            ],
-            'controller' => $this->getBaseController(),
-            'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
-            'showSelectAll' => true,
-            'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
-        ];
-        
+        $this->setupWidgets();
+        $this->setWidgetSubMenu();
+        $widgets = service('widgets');
+        echo $this->render('App\Modules\Pesantren\Views\_submodules\masters', [
+            'widgets' => $widgets,
+        ]);
     }
 
-    protected function getDataEdit($id = null)
+    private function setupWidgets()
     {
-        /*
-        $dataEdit = parent::getDataEdit($id);
-        $model = new MastersModel();
+        $widgets = service('widgets');
 
-        if(!empty($id)){
-            $data = $model->find($id);
-            if (null === $data) {
-                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
-            }
-            $dataEdit['data'] = $data;
-        }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountMastersModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
-            $dataEdit['chart_of_accountItems'] = Arr::pluck(model('App\Modules\Api\Models\ChartOfAccountModel')->select(['id as key','name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
-        return $dataEdit;
-        
+        $widgets->createWidget(Stats::class, 'schedule');
+        $widgets->widget('schedule')
+            ->createCollection('schedule')
+        ;
     }
-    */
+
+    private function setWidgetSubMenu()
+    {
+        $widgets = service('widgets');
+        $kelasItem = new StatsItem([
+            'bgColor' => 'bg-success',
+            'bgIcon' => 'bg-info',
+            'title' => lang('crud.class'),            
+            'url'     => ADMIN_AREA . '/pesantren/pstrkelas',
+            'faIcon' => 'fas fa-graduation-cap',
+        ]);
+
+        $educationLevelItem = new StatsItem([
+            'bgColor' => 'bg-warning',
+            'bgIcon' => 'bg-info',
+            'title' => lang('crud.level'),            
+            'url'     => ADMIN_AREA . '/pesantren/pstreducationlevel',
+            'faIcon' => 'fas fa-graduation-cap',
+        ]);
+
+        $siswaItem = new StatsItem([
+            'bgColor' => 'bg-primary',
+            'bgIcon' => 'bg-primary',
+            'title' => lang('crud.student'),            
+            'url'     => ADMIN_AREA . '/baitulmal/masterpaymentgateway',
+            'faIcon' => 'fas fa-users',
+        ]);
+
+        $guruItem = new StatsItem([
+            'bgColor' => 'bg-danger',
+            'bgIcon' => 'bg-danger',
+            'title' => lang('crud.teacher'),            
+            'url'     => ADMIN_AREA . '/baitulmal/masterpaymentgateway',
+            'faIcon' => 'fas fa-users',
+        ]);
+        
+        $widgets->widget('schedule')->collection('schedule')
+            ->addItem($kelasItem)
+            ->addItem($educationLevelItem)
+            ->addItem($siswaItem)
+            ->addItem($guruItem)
+        ;
+    }
 }

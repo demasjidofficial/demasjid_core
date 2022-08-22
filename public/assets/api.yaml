@@ -1322,7 +1322,6 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
   /boardDevices:
     get:
       tags:
@@ -1947,8 +1946,6 @@ paths:
       security:
         -
           bearer_auth: []
-=======
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /campaigns:
     get:
       tags:
@@ -2417,8 +2414,6 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
-=======
   /donaturTypes:
     get:
       tags:
@@ -2731,7 +2726,6 @@ paths:
       security:
         -
           bearer_auth: []
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /entities:
     get:
       tags:
@@ -4604,8 +4598,6 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
-=======
   /paymentCategories:
     get:
       tags:
@@ -4918,7 +4910,6 @@ paths:
       security:
         -
           bearer_auth: []
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /pelajarans:
     get:
       tags:
@@ -8236,7 +8227,6 @@ components:
           type: integer
           format: '-'
       type: object
-<<<<<<< HEAD
     BoardDevice:
       title: BoardDevice
       description: BoardDevice
@@ -8418,7 +8408,6 @@ components:
           maxLength: 11
       type: object
 =======
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
     Campaigns:
       title: Campaigns
       description: Campaigns
@@ -8624,8 +8613,6 @@ components:
           format: '-'
           maxLength: 11
       type: object
-<<<<<<< HEAD
-=======
     Donatur:
       title: Donatur
       description: Donatur
@@ -9559,7 +9546,6 @@ components:
           format: '-'
           maxLength: 11
       type: object
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
     Pelajaran:
       title: Pelajaran
       description: Pelajaran
@@ -11056,8 +11042,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donasi'
-<<<<<<< HEAD
-=======
     Donatur:
       description: 'Donatur object that needs to be added'
       content:
@@ -11238,8 +11222,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NonRawatibScheduleClone'
-<<<<<<< HEAD
-=======
     PaymentCategory:
       description: 'PaymentCategory object that needs to be added'
       content:
