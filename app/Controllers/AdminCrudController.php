@@ -128,7 +128,7 @@ class AdminCrudController extends AdminController
      */
     public function edit($id = null)
     {
-        return $this->render($this->viewPrefix . 'form', $this->getDataTim($id));
+        return $this->render($this->viewPrefix . 'form', $this->getDataEdit($id));
     }
 
     /**
