@@ -62,16 +62,7 @@ class AdminCrudController extends AdminController
         return $this->render($view, $dataIndex);
     }
 
-    public function tim($id=null)
-    {
-        # code...
-        // $view = $this->viewPrefix . ($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
-        // $dataIndex = $this->getDataTim($id);
-        // $this->writeLog();
-        // return $this->render($view, $dataIndex);
-        return $this->render($this->viewPrefix . 'form', $this->getDataTim($id));
-    }
-
+   
     /**
      * Return the properties of a resource object
      *
@@ -128,7 +119,7 @@ class AdminCrudController extends AdminController
      */
     public function edit($id = null)
     {
-        return $this->render($this->viewPrefix . 'form', $this->getDataTim($id));
+        return $this->render($this->viewPrefix . 'form', $this->getDataEdit($id));
     }
 
     /**
@@ -206,13 +197,6 @@ class AdminCrudController extends AdminController
         return [];
     }
 
-    protected function getDataTim($id=null)
-    {
-        return [
-            'actionUrl' => $id ? url_to($this->getBaseController(), $id) : url_to($this->getBaseController()),
-            'backUrl'   => url_to($this->getBaseController()),
-        ];
-    }
 
     protected function getDataEdit($id = null)
     {
