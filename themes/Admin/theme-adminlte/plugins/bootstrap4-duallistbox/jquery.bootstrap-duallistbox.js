@@ -413,7 +413,7 @@
         '     <button type="button" class="btn moveall"></button>' +
         '     <button type="button" class="btn move"></button>' +
         '   </div>' +
-        '   <select multiple="multiple"></select>' +
+        '   <select class="form-control" multiple="multiple"></select>' +
         ' </div>' +
         ' <div class="box2 col-md-6">' +
         '   <label></label>' +
@@ -426,7 +426,7 @@
         '     <button type="button" class="btn remove"></button>' +
         '     <button type="button" class="btn removeall"></button>' +
         '   </div>' +
-        '   <select multiple="multiple"></select>' +
+        '  <select class="form-control"  multiple="multiple"></select>' +
         ' </div>' +
         '</div>')
         .insertBefore(this.element);

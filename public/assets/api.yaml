@@ -2575,6 +2575,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /donaturcategories:
+    get:
+      tags:
+        - Donaturcategory
+      summary: 'Find list Donaturcategory'
+      description: 'Returns list of Donaturcategory'
+      operationId: getDonaturcategory
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Donaturcategory' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Donaturcategory' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Donaturcategory' } }
+                type: object
+        '404':
+          description: 'Donaturcategory not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Donaturcategory
+      summary: 'Add a new Donaturcategory to the store'
+      operationId: addDonaturcategory
+      requestBody:
+        $ref: '#/components/requestBodies/Donaturcategory'
+      responses:
+        '201':
+          description: 'Created Donaturcategory'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donaturcategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Donaturcategory'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donaturcategories/{id}':
+    get:
+      tags:
+        - Donaturcategory
+      summary: 'Find Donaturcategory by ID'
+      description: 'Returns a single Donaturcategory'
+      operationId: getDonaturcategoryById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Donaturcategory to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Donaturcategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Donaturcategory'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Donaturcategory not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Donaturcategory
+      summary: 'Update an existing Donaturcategory'
+      operationId: updateDonaturcategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Donaturcategory id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Donaturcategory'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Donaturcategory not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Donaturcategory
+      summary: 'Deletes a Donaturcategory'
+      operationId: deleteDonaturcategory
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Donaturcategory id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /donaturs:
     get:
       tags:
@@ -3188,6 +3344,162 @@ paths:
           name: id
           in: path
           description: 'Jabatan id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /jadwalFundraisings:
+    get:
+      tags:
+        - JadwalFundraising
+      summary: 'Find list JadwalFundraising'
+      description: 'Returns list of JadwalFundraising'
+      operationId: getJadwalFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/JadwalFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/JadwalFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/JadwalFundraising' } }
+                type: object
+        '404':
+          description: 'JadwalFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - JadwalFundraising
+      summary: 'Add a new JadwalFundraising to the store'
+      operationId: addJadwalFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/JadwalFundraising'
+      responses:
+        '201':
+          description: 'Created JadwalFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/jadwalFundraisings/{id}':
+    get:
+      tags:
+        - JadwalFundraising
+      summary: 'Find JadwalFundraising by ID'
+      description: 'Returns a single JadwalFundraising'
+      operationId: getJadwalFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of JadwalFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/JadwalFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'JadwalFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - JadwalFundraising
+      summary: 'Update an existing JadwalFundraising'
+      operationId: updateJadwalFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'JadwalFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/JadwalFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'JadwalFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - JadwalFundraising
+      summary: 'Deletes a JadwalFundraising'
+      operationId: deleteJadwalFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'JadwalFundraising id to delete'
           required: true
           schema:
             type: integer
@@ -7103,6 +7415,630 @@ paths:
       security:
         -
           bearer_auth: []
+  /targetFundraisings:
+    get:
+      tags:
+        - TargetFundraising
+      summary: 'Find list TargetFundraising'
+      description: 'Returns list of TargetFundraising'
+      operationId: getTargetFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+                type: object
+        '404':
+          description: 'TargetFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TargetFundraising
+      summary: 'Add a new TargetFundraising to the store'
+      operationId: addTargetFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/TargetFundraising'
+      responses:
+        '201':
+          description: 'Created TargetFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/targetFundraisings/{id}':
+    get:
+      tags:
+        - TargetFundraising
+      summary: 'Find TargetFundraising by ID'
+      description: 'Returns a single TargetFundraising'
+      operationId: getTargetFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TargetFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TargetFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TargetFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TargetFundraising
+      summary: 'Update an existing TargetFundraising'
+      operationId: updateTargetFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TargetFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TargetFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TargetFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TargetFundraising
+      summary: 'Deletes a TargetFundraising'
+      operationId: deleteTargetFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TargetFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /timFundraisings:
+    get:
+      tags:
+        - TimFundraising
+      summary: 'Find list TimFundraising'
+      description: 'Returns list of TimFundraising'
+      operationId: getTimFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TimFundraising' } }
+                type: object
+        '404':
+          description: 'TimFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TimFundraising
+      summary: 'Add a new TimFundraising to the store'
+      operationId: addTimFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/TimFundraising'
+      responses:
+        '201':
+          description: 'Created TimFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/timFundraisings/{id}':
+    get:
+      tags:
+        - TimFundraising
+      summary: 'Find TimFundraising by ID'
+      description: 'Returns a single TimFundraising'
+      operationId: getTimFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TimFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TimFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TimFundraising
+      summary: 'Update an existing TimFundraising'
+      operationId: updateTimFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TimFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TimFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TimFundraising
+      summary: 'Deletes a TimFundraising'
+      operationId: deleteTimFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /timStaffs:
+    get:
+      tags:
+        - TimStaff
+      summary: 'Find list TimStaff'
+      description: 'Returns list of TimStaff'
+      operationId: getTimStaff
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimStaff' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TimStaff' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TimStaff' } }
+                type: object
+        '404':
+          description: 'TimStaff not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TimStaff
+      summary: 'Add a new TimStaff to the store'
+      operationId: addTimStaff
+      requestBody:
+        $ref: '#/components/requestBodies/TimStaff'
+      responses:
+        '201':
+          description: 'Created TimStaff'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/timStaffs/{id}':
+    get:
+      tags:
+        - TimStaff
+      summary: 'Find TimStaff by ID'
+      description: 'Returns a single TimStaff'
+      operationId: getTimStaffById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TimStaff to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TimStaff'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TimStaff not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TimStaff
+      summary: 'Update an existing TimStaff'
+      operationId: updateTimStaff
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimStaff id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TimStaff'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TimStaff not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TimStaff
+      summary: 'Deletes a TimStaff'
+      operationId: deleteTimStaff
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TimStaff id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /tugasTims:
+    get:
+      tags:
+        - TugasTim
+      summary: 'Find list TugasTim'
+      description: 'Returns list of TugasTim'
+      operationId: getTugasTim
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TugasTim' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TugasTim' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TugasTim' } }
+                type: object
+        '404':
+          description: 'TugasTim not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TugasTim
+      summary: 'Add a new TugasTim to the store'
+      operationId: addTugasTim
+      requestBody:
+        $ref: '#/components/requestBodies/TugasTim'
+      responses:
+        '201':
+          description: 'Created TugasTim'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/tugasTims/{id}':
+    get:
+      tags:
+        - TugasTim
+      summary: 'Find TugasTim by ID'
+      description: 'Returns a single TugasTim'
+      operationId: getTugasTimById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TugasTim to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TugasTim'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TugasTim not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TugasTim
+      summary: 'Update an existing TugasTim'
+      operationId: updateTugasTim
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TugasTim id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TugasTim'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TugasTim not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TugasTim
+      summary: 'Deletes a TugasTim'
+      operationId: deleteTugasTim
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TugasTim id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /uomCategories:
     get:
       tags:
@@ -7646,21 +8582,22 @@ paths:
       security:
         -
           bearer_auth: []
-  '/wilayahs/{kode}':
+  '/wilayahs/{id}':
     get:
       tags:
         - Wilayah
-      summary: 'Find Wilayah by kode'
+      summary: 'Find Wilayah by ID'
       description: 'Returns a single Wilayah'
       operationId: getWilayahById
       parameters:
         -
-          name: kode
+          name: id
           in: path
-          description: 'Kode of Wilayah to return'
+          description: 'ID of Wilayah to return'
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
       responses:
         '200':
           description: 'successful operation'
@@ -7672,7 +8609,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Wilayah'
         '400':
-          description: 'Invalid Kode wilayah'
+          description: 'Invalid ID supplier'
         '404':
           description: 'Wilayah not found'
       security:
@@ -7685,17 +8622,18 @@ paths:
       operationId: updateWilayah
       parameters:
         -
-          name: kode
+          name: id
           in: path
-          description: 'Wilayah kode to update'
+          description: 'Wilayah id to update'
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
       requestBody:
         $ref: '#/components/requestBodies/Wilayah'
       responses:
         '400':
-          description: 'Invalid Kode supplied'
+          description: 'Invalid ID supplied'
         '404':
           description: 'Wilayah not found'
         '405':
@@ -7710,12 +8648,13 @@ paths:
       operationId: deleteWilayah
       parameters:
         -
-          name: kode
+          name: id
           in: path
-          description: 'Wilayah kode to delete'
+          description: 'Wilayah id to delete'
           required: true
           schema:
-            type: string
+            type: integer
+            format: int64
       responses:
         '400':
           description: 'Invalid ID supplied'
@@ -8637,10 +9576,17 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        donatur_type_id:
+        name:
           nullable: false
-          title: donatur_type_id
-          description: donatur_type_id
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 128
+        id_kategori:
+          nullable: false
+          title: id_kategori
+          description: id_kategori
           type: integer
           format: '-'
           maxLength: 11
@@ -8684,6 +9630,13 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     DonaturType:
       title: DonaturType
@@ -8719,6 +9672,71 @@ components:
           nullable: true
           title: created_by
           description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Donaturcategory:
+      title: Donaturcategory
+      description: Donaturcategory
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 128
+        label:
+          nullable: false
+          title: label
+          description: label
+          type: string
+          format: '-'
+          maxLength: 255
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        description:
+          nullable: false
+          title: description
+          description: description
+          type: string
+          format: '-'
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
           type: integer
           format: '-'
           maxLength: 11
@@ -8872,6 +9890,70 @@ components:
           description: updated_at
           type: string
           format: date
+      type: object
+    JadwalFundraising:
+      title: JadwalFundraising
+      description: JadwalFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        jadwal_durasi:
+          nullable: false
+          title: jadwal_durasi
+          description: jadwal_durasi
+          type: string
+          format: '-'
+          maxLength: 128
+        jadwal_mulai:
+          nullable: false
+          title: jadwal_mulai
+          description: jadwal_mulai
+          type: string
+          format: date
+        jadwal_akhir:
+          nullable: false
+          title: jadwal_akhir
+          description: jadwal_akhir
+          type: string
+          format: date
+        target_dana:
+          nullable: false
+          title: target_dana
+          description: target_dana
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     KategoriPelajaran:
       title: KategoriPelajaran
@@ -10650,6 +11732,274 @@ components:
           type: integer
           format: '-'
       type: object
+    TargetFundraising:
+      title: TargetFundraising
+      description: TargetFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        campaign:
+          nullable: false
+          title: campaign
+          description: campaign
+          type: integer
+          format: '-'
+          maxLength: 11
+        donatur:
+          nullable: false
+          title: donatur
+          description: donatur
+          type: string
+          format: '-'
+          maxLength: 128
+        target_nominal:
+          nullable: false
+          title: target_nominal
+          description: target_nominal
+          type: string
+          format: '-'
+          maxLength: 128
+        tipe_donasi:
+          nullable: false
+          title: tipe_donasi
+          description: tipe_donasi
+          type: string
+          format: '-'
+          maxLength: 128
+        jadwal_mulai:
+          nullable: true
+          title: jadwal_mulai
+          description: jadwal_mulai
+          type: string
+          format: date
+        jadwal_akhir:
+          nullable: true
+          title: jadwal_akhir
+          description: jadwal_akhir
+          type: string
+          format: date
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    TimFundraising:
+      title: TimFundraising
+      description: TimFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_target:
+          nullable: false
+          title: id_target
+          description: id_target
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_jadwal:
+          nullable: false
+          title: id_jadwal
+          description: id_jadwal
+          type: integer
+          format: '-'
+          maxLength: 11
+        supervisior:
+          nullable: false
+          title: supervisior
+          description: supervisior
+          type: string
+          format: '-'
+          maxLength: 248
+        staff:
+          nullable: false
+          title: staff
+          description: staff
+          type: string
+          format: '-'
+          maxLength: 248
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    TimStaff:
+      title: TimStaff
+      description: TimStaff
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_tim:
+          nullable: false
+          title: id_tim
+          description: id_tim
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_user:
+          nullable: false
+          title: id_user
+          description: id_user
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        tugas_tim:
+          nullable: true
+          title: tugas_tim
+          description: tugas_tim
+          type: string
+          format: '-'
+        target_nominal_tim:
+          nullable: true
+          title: target_nominal_tim
+          description: target_nominal_tim
+          type: string
+          format: '-'
+          maxLength: 100
+      type: object
+    TugasTim:
+      title: TugasTim
+      description: TugasTim
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        id_staff:
+          nullable: false
+          title: id_staff
+          description: id_staff
+          type: integer
+          format: '-'
+          maxLength: 11
+        tugas:
+          nullable: false
+          title: tugas
+          description: tugas
+          type: string
+          format: '-'
+          maxLength: 255
+        nominal:
+          nullable: false
+          title: nominal
+          description: nominal
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     Uom:
       title: Uom
       description: Uom
@@ -10874,6 +12224,7 @@ components:
           description: level
           type: string
           format: '-'
+          maxLength: 50
       type: object
   requestBodies:
     AccountBalance:
@@ -11082,6 +12433,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/DonaturType'
+    Donaturcategory:
+      description: 'Donaturcategory object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Donaturcategory'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Donaturcategory'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Donaturcategory'
     Entity:
       description: 'Entity object that needs to be added'
       content:
@@ -11118,6 +12481,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Jabatan'
+    JadwalFundraising:
+      description: 'JadwalFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/JadwalFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/JadwalFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JadwalFundraising'
     KategoriPelajaran:
       description: 'KategoriPelajaran object that needs to be added'
       content:
@@ -11432,6 +12807,54 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Sitesocials'
+    TargetFundraising:
+      description: 'TargetFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TargetFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TargetFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TargetFundraising'
+    TimFundraising:
+      description: 'TimFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TimFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TimFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TimFundraising'
+    TimStaff:
+      description: 'TimStaff object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TimStaff'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TimStaff'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TimStaff'
+    TugasTim:
+      description: 'TugasTim object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TugasTim'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TugasTim'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TugasTim'
     Uom:
       description: 'Uom object that needs to be added'
       content:
@@ -11541,6 +12964,9 @@ tags:
     name: DonaturType
     description: 'Everything about your DonaturType'
   -
+    name: Donaturcategory
+    description: 'Everything about your Donaturcategory'
+  -
     name: Entity
     description: 'Everything about your Entity'
   -
@@ -11549,6 +12975,9 @@ tags:
   -
     name: Jabatan
     description: 'Everything about your Jabatan'
+  -
+    name: JadwalFundraising
+    description: 'Everything about your JadwalFundraising'
   -
     name: KategoriPelajaran
     description: 'Everything about your KategoriPelajaran'
@@ -11627,6 +13056,18 @@ tags:
   -
     name: Sitesocials
     description: 'Everything about your Sitesocials'
+  -
+    name: TargetFundraising
+    description: 'Everything about your TargetFundraising'
+  -
+    name: TimFundraising
+    description: 'Everything about your TimFundraising'
+  -
+    name: TimStaff
+    description: 'Everything about your TimStaff'
+  -
+    name: TugasTim
+    description: 'Everything about your TugasTim'
   -
     name: Uom
     description: 'Everything about your Uom'

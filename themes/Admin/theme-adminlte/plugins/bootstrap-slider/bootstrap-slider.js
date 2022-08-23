@@ -1,11 +1,11 @@
-/*! =======================================================
+/*! ======
                       VERSION  11.0.2              
-========================================================= */
+= */
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-/*! =========================================================
+/*! =
  * bootstrap-slider.js
  *
  * Maintainers:
@@ -16,7 +16,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  *			- Twitter: @Rovolutionary
  *			- Github:  rovolution
  *
- * =========================================================
+ * =
  *
  * bootstrap-slider is released under the MIT License
  * Copyright (c) 2019 Kyle Kemp, Rohit Kalkur, and contributors
@@ -42,7 +42,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  *
- * ========================================================= */
+ * = */
 
 /**
  * Bridget makes jQuery widgets

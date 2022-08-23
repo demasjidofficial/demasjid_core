@@ -93,6 +93,23 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="col-2 col-sm-3">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>&nbsp;</h3>
+                        <p><?= lang('crud.donatur_type')?></p>
+                        </div>
+                        <div class="icon">
+                        <i class="fas fa-users"></i>
+                        </div>
+                        <a href="<?= site_url('/admin/masjid/tipedonatur')?>" class="small-box-footer">
+                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+
             </div>
         </div><!--/.row -->
     </div>

@@ -11,11 +11,11 @@ class UserAdmin extends Seeder
     public function run()
     {
         $users     = model(UserModel::class);
-        $firstName = 'super';
-        $lastName  = 'admin';
-        $username  = 'superadmin';
-        $email     = 'admin@admin.com';
-        $password  = 'admin@admin.com';
+        $firstName = 'Mochamad';
+        $lastName  = 'Alzam';
+        $username  = 'alzam';
+        $email     = 'alzam@admin.com';
+        $password  = 'alzam@admin.com';
         $user      = new User([
             'first_name' => $firstName,
             'last_name'  => $lastName,
@@ -29,6 +29,6 @@ class UserAdmin extends Seeder
             'password' => $password,
         ]);
 
-        $user->addGroup('superadmin');
+        $user->addGroup('staff');
     }
 }
