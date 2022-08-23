@@ -126,6 +126,13 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'baitulmal.qurbans.list',
         ]);
+
+        $fundraisingItem = new MenuItem([
+            'title'           => 'Fundraising',
+            'url'             => url_to('App\Modules\BaitulMal\Controllers\_FundraisingController::index'),
+            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
+            ////'permission'        => 'baitulmal.configs.list',
+        ]);
         $campaignsItem = new MenuItem([
             'title'           => lang('crud.campaigns'),
             'url'             => url_to('App\Modules\BaitulMal\Controllers\CampaignsController::index'),
@@ -158,7 +165,7 @@ class Module extends BaseModule
                 ->addItem($zakatsItem)
                 ->addItem($infaqsItem)
                 ->addItem($masterBaitulMalsItem)
-                //->addItem($shodaqohsItem)
+                ->addItem($fundraisingItem)
                 ->addItem($wakafsItem)
                 ->addItem($qurbansItem)
                 ->addItem($configsItem);

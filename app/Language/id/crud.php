@@ -271,6 +271,12 @@ return [
 	'donation' => 'Donasi',
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
-	'action' => 'Aksi'
+	'action' => 'Aksi',
+	'campaign_name' => 'Nama Kampanye',
+	'jadwal_durasi'=>'Durasi Target',
+	'kembali'=>'Kembali',
+	'save'=>'Simpan',
+	'target'=>'Target Donatur'
+
  ];
 
