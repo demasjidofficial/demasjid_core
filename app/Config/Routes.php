@@ -88,6 +88,8 @@ static function ($routes) {
     // $routes->resource('jadwalFundraisings');
     // $routes->resource('timFundraisings');
 
+    $routes->resource('boardNewsBgs');
+    $routes->resource('boardNewsRuntexts');
     $routes->resource('donaturs');
     $routes->resource('donasis');
 

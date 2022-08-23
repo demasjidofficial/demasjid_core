@@ -101,6 +101,7 @@ return [
 	'board_temperature' => 'Temperatur',
 	'board_donation' => 'Donasi',
 	'board_livebroadcast' => 'Siaran Langsung',
+	'board_konfigurasi' => 'Konfigurasi',
 
 	'helpus_grow' => 'Beri Feedback',
 	'dashboard' => 'Dasbor',	
