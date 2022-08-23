@@ -75,9 +75,27 @@
     </div>
     <!-- /.content-wrapper -->
 
+
+
+    <!-- Main content -->
+    <section class="content" >
+      <div class="container-fluid" >
+        <?= $this->renderSection('main') ?>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
     <!-- Footer -->
     <?= $this->include('_footer') ?>
     <!-- /Footer -->
+>>>>>>> 
+
+    <!-- Footer -->
+    <?= $this->include('_footer') ?>
+    <!-- /Footer -->
+
 
   </div><!--/.wrapper-->
 
@@ -93,14 +111,68 @@
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js', 'js') ?>
 <!-- Moment -->
 <?= asset_link('admin/theme-adminlte/plugins/moment/moment-min.js', 'js') ?>
+
+
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
+
+<!-- Tempusdominus Bootstrap 4 -->
+<?= asset_link('admin/theme-adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js', 'js') ?>
+<!-- Summernote -->
+<?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
+
+>>>>>>> 
+
+
 <!-- overlayScrollbars -->
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
+
+
+
+
+
+<script>
+   //Date range picker
+   $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+</script>
+
+
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.7.0"></script>
+>>>>>>> 
+
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js', 'js') ?>
 
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+
 <!-- AdminLTE for demo purposes --
 <script src="/assets/admin/theme-adminlte/adminlte-demo.js"></script>
 < !-- AdminLTE dashboard demo (This is only for demo purposes) --
