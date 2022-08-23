@@ -98,6 +98,7 @@ class Bonfire
             ->createCollection('baitulmal', 'Baitul Mal')
             ->setFontAwesomeIcon('nav-icon fas fa-calculator')
             ->setCollapsible();        
+
         $menus->menu('sidebar')
             ->createCollection('website', 'Website')
             ->setFontAwesomeIcon('nav-icon fas fa-globe')
@@ -121,7 +122,17 @@ class Bonfire
             ->createCollection('tools', 'Alat')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
-        
+
+        $menus->menu('sidebar')
+            ->createCollection('umum', 'Umum')
+            ->setFontAwesomeIcon('nav-icon fas fa-angle-double-right');
+        $menus->menu('sidebar')
+            ->createCollection('users', 'Pengguna')
+            ->setFontAwesomeIcon('nav-icon fas fa-users');
+        $menus->menu('sidebar')
+            ->createCollection('modul', 'Modul')
+            ->setFontAwesomeIcon('nav-icon fas fa-book');
+
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');
     }

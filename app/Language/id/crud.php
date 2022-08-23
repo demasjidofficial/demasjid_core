@@ -252,13 +252,13 @@ return [
 	'donasis' => 'Donasi',
 	'campaigns' => 'Kampanye',
 
+
 	'news' => 'Berita',
 	'board_news' => 'Papan Berita',
 	'device' => 'Perangkat',
 	'board_newsbg' => 'Background Slide',
 	'board_newsruntext' => 'Run Text',
 	'display' => 'Tampilan',
-
 	'payment_method' => 'Metode Pembayaran',
 	'payment_category' => 'Kategori Pembayaran',
 	'payment_method_transfer' => 'Metode Pembayaran Transfer',
@@ -271,21 +271,11 @@ return [
 	'donation' => 'Donasi',
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
-
 	'action' => 'Aksi',
-
-	'news' => 'Berita',
-	'board_news' => 'Papan Berita',
-	'device' => 'Perangkat',
-	'board_newsbg' => 'Background Slide',
-	'board_newsruntext' => 'Run Text',
-	'display' => 'Tampilan',
-
-	'donasi' => 'Donasi',
-	'campaign_id' => 'Kampanye',
-	'paymentmethod_rek_no' => 'No Rekening',
-	'paymentmethod_rek_name' => 'Nama Rekening',
-	'dana_in' => 'Jumlah'
+	'campaign_name' => 'Nama Kampanye',
+	'jadwal_durasi'=>'Durasi Target',
+	'kembali'=>'Kembali',
+	'save'=>'Simpan',
+	'target'=>'Target Donatur'
 
  ];
-
