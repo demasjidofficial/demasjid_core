@@ -88,12 +88,14 @@ static function ($routes) {
 $routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
 $routes->post('/api/update_donasi_state', '\App\Modules\Api\Controllers\Donasis::updateState');
 $routes->post('/api/senddonation', '\App\Modules\Api\Controllers\Donasis::insertDonation');
+$routes->post('/api/confirmdonation', '\App\Modules\Api\Controllers\Donasis::insertConfirmation');
+$routes->get('/api/donation/(:segment)', '\App\Modules\Api\Controllers\Donasis::getDonation/$1');
 
 // Donation View
 $routes->get('{locale}/campaign/(:segment)', 'CampaignsPageController::CampaignView/$1');
 $routes->get('{locale}/checkout/(:segment)', 'CheckoutController::CheckoutView/$1');
 $routes->get('{locale}/instructionofpayment/(:segment)', 'InformatonofpaymentController::InformationView/$1/$2');
-
+$routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationController::ConfirmView');
 
 /*
  * --------------------------------------------------------------------

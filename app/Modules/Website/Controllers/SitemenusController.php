@@ -56,7 +56,9 @@ class SitemenusController extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
+            'languagesItems' => $this->getLanguagesItems(),
+            'statesItems' => $this->getStatesItems(),
         ];
     }
 
@@ -73,23 +75,29 @@ class SitemenusController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
 
-        $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
-
+        $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->where('parent', 0)->asArray()->findAllExcludeJoin(), 'text', 'key');
         //$dataEdit['languagesItems'] = Arr::pluck(model('App\Modules\Api\Models\LanguagesModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['languagesItems'] = $this->getLanguagesItems();
+        $dataEdit['statesItems'] = $this->getStatesItems();
+        
+        return $dataEdit;
+    }
 
-        $dataEdit['languagesItems'] = [
+    public function getLanguagesItems() {
+        return ([
             //NULL => 'Pilih bahasa',
-            2 => 'Indonesia',
-            3 => 'Arabic',
-            4 => 'English',
-        ];
+            1 => 'Indonesia',
+            2 => 'Arabic',
+            3 => 'English',
+        ]);
+    }
 
-        $dataEdit['statesItems'] = [
+
+    public function getStatesItems() {
+        return  ([
             //NULL => 'Pilih status',
             'draft' => 'Draft',
             'release' => 'Rilis',
-        ];
-        
-        return $dataEdit;
+        ]);
     }
 }

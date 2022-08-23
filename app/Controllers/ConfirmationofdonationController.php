@@ -10,7 +10,7 @@ use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\SitemenusModel;
 
 
-class CampaignsPageController extends BaseController
+class ConfirmationofdonationController extends BaseController
 {
     /**
      * Displays the initial page that visitors
@@ -20,7 +20,7 @@ class CampaignsPageController extends BaseController
      */
 
 
-    public function CampaignView()
+    public function ConfirmView()
     {
         helper(['form','number','app']);
         $this->setupWidgets();
@@ -70,27 +70,21 @@ class CampaignsPageController extends BaseController
         //     ],
         // ];
 
-        // get data of menus // default indonesia = 1
-        $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
+         // get data of menus // default indonesia = 1
+         $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
 
-
-        $uri = current_url(true);
-        $campaign_id = (int)$uri->getSegment(3);
-
-        // get data of donation campaigns
-        $donation_campaigns = model('App\Modules\Api\Models\BmdonationcampaignModel', false)->asArray()->find($campaign_id);
-        $donation_list = model('App\Modules\Api\Models\DonasiModel', false)->where(['campaign_id' => $campaign_id, 'state' => 1])->orderBy('updated_at', 'DESC')->find();
 
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['masjid_socials'] = $masjid_socials;
-        $data['donation_campaigns'] = $donation_campaigns;
-        $data['donation_list'] = $donation_list;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
-        $data['widgets'] = service('widgets');        
+        $data['widgets'] = service('widgets');   
+        
+        $no_inv = current_url(true)->getQuery();
+        $data['no_inv'] = (isset($no_inv)) ? substr($no_inv, 0 , -1) : $no_inv;
         // render view
-        return $this->render('\App\Views\Campaign\campaign', $data);
+        return $this->render('\App\Views\Campaign\confirm', $data);
     }
 
     private function setupWidgets()
@@ -188,8 +182,8 @@ class CampaignsPageController extends BaseController
             ->addItem($zakatItem)
             ->addItem($infaqItem)
             ->addItem($wakafItem);
-    }
-    
+    } 
+
     private function constructMenu($list) {
         $nav = [];
         foreach ($list as $menu) {

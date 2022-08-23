@@ -1,10 +1,14 @@
 <?php namespace App\Modules\Api\Controllers;
  
 use asligresik\easyapi\Controllers\BaseResourceController;
+use App\Traits\UploadedFile;
 
 class Donasis extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\DonasiModel';  
+    use UploadedFile;
+    protected $modelName = 'App\Modules\Api\Models\DonasiModel'; 
+    private $pathImage;
+    private $imageFolder = 'images'; 
 
      /**
      * @OA\Get(
@@ -194,8 +198,66 @@ class Donasis extends BaseResourceController
      * )
      */
 
+    public function getDonation($id = null) {
+        if (isset($id)) {
+            $data = $this->model->findById($id);
+            if(isset($data)) {
+                return $this->respond($data, 200, 'data updated');
+            }
+            else return json_encode([
+                'state' => false,
+                'error' => $this->model->errors()
+            ]);
+            
+        }
+        return json_encode([
+            'state' => false,
+            'error' => 'id is not correctly'
+        ]);
+    }
+
+    public function insertConfirmation(){
+        $INFO_SUCCESS = 'SUKSES KONFIRMASI';
+        $INFO_INVALID_SYSTEM = 'INVALID SYSTEM';
+        $INFO_INVALID_PICTURE = 'GAMBAR Invalid';
+        $INFO_INVALID_NO_INV = 'NO INVOICE Invalid';
+
+        $no_inv = $this->request->getPost('no_inv');
+        $data = $this->model->where('no_inv', $no_inv)->find();
+        
+        if (isset($data) && count($data)) {
+            $image = $this->request->getFile('image');
+
+            if (!empty($image)) {
+                if ($image->getSize() > 0) {
+                    $uploaded = $this->uploadFile('image');
+
+                    $update_donation = $this->updated($this, [
+                        'id' => $data[0]->id,
+                        'path_image' => $uploaded,
+                        // State to confirm = 2
+                        'state' => 2
+                    ]);
+
+                    if($update_donation['state']) {
+                        return redirect()->back()->with('success', $INFO_SUCCESS);   
+                    }
+                    return redirect()->back()->with('error', $INFO_INVALID_SYSTEM);      
+                }
+                return redirect()->back()->with('error', $INFO_INVALID_PICTURE);      
+            }
+        }  
+        return redirect()->back()->with('error', $INFO_INVALID_NO_INV);      
+    }
+    
+
     public function insertDonation(){
         $data = $this->request->getPost();
+        $seq = $this->model->where('date', $data['date'])->countAllResults();
+        $no_inv = 'INV'.str_replace('-','', substr($data['date'],2)).str_pad($seq+1, 3, '0', STR_PAD_LEFT);
+        
+        $data['no_inv'] = $no_inv;
+
         if (! $this->model->insert($data)) {            
             return json_encode([
                 'state' => false,
@@ -205,6 +267,7 @@ class Donasis extends BaseResourceController
         $this->writeLog();
         return json_encode([
             'state' => true,
+            'data' => $data,
             'id' => $this->model->insertID()
         ]);
     }
@@ -215,7 +278,6 @@ class Donasis extends BaseResourceController
         $state = $this->request->getPost('state');
         $campaign_id = $this->request->getPost('campaign_id');
         $dana_in = $this->request->getPost('dana_in');
-
 
         // update Bmdonationcampaign campaign_collected
         $campaignModel = model('App\Modules\Api\Models\BmdonationcampaignModel', false);
@@ -258,4 +320,26 @@ class Donasis extends BaseResourceController
             "data" => $data 
         ];
     }
+
+    /**
+     * Get the value of pathImage
+     */
+    public function getPathImage()
+    {
+        return $this->pathImage;
+    }
+
+    /**
+     * Set the value of pathImage
+     *
+     * @param mixed $pathImage
+     *
+     * @return self
+     */
+    public function setPathImage($pathImage)
+    {
+        $this->pathImage = $pathImage;
+
+        return $this;
+    }  
 } 

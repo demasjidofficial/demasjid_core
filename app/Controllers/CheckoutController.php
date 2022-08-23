@@ -9,6 +9,7 @@ use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\BmdonationcampaignModel;
 use App\Modules\Api\Models\PaymentMethodModel;
+use App\Modules\Api\Models\SitemenusModel;
 
 class CheckoutController extends BaseController
 {
@@ -58,20 +59,24 @@ class CheckoutController extends BaseController
         ];
         
         // get data of navigation menu
-        $nav_menu = [
-            [
-                'id' => 1,
-                'name' => 'home',
-                'label' => 'Beranda',
-                'parent' => 0,
-            ],
-            [
-                'id' => 2,
-                'name' => 'about',
-                'label' => 'Tentang',
-                'parent' => 0,
-            ],
-        ];
+        // $nav_menu = [
+        //     [
+        //         'id' => 1,
+        //         'name' => 'home',
+        //         'label' => 'Beranda',
+        //         'parent' => 0,
+        //     ],
+        //     [
+        //         'id' => 2,
+        //         'name' => 'about',
+        //         'label' => 'Tentang',
+        //         'parent' => 0,
+        //     ],
+        // ];
+
+        // get data of menus // default indonesia = 1
+        $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
+
 
         $uri = current_url(true);
 
@@ -190,5 +195,21 @@ class CheckoutController extends BaseController
             ->addItem($zakatItem)
             ->addItem($infaqItem)
             ->addItem($wakafItem);
+    }
+
+    private function constructMenu($list) {
+        $nav = [];
+        foreach ($list as $menu) {
+            if ($menu['parent'] == 0) {
+                $menu['sub_menu'] = [];
+                foreach($list as $sub_menu) {
+                    if($sub_menu['parent'] == $menu['id']) {
+                        array_push($menu['sub_menu'], $sub_menu);
+                    }
+                }
+                array_push($nav, $menu);
+            }
+        }
+        return $nav;
     }
 }

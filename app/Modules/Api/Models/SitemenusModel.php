@@ -30,8 +30,20 @@ class SitemenusModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
+        $this->selectColumn = [$this->table.'.*', 't2.name as parent_name'];
+        // $this->join('users', 'users.id = '.$this->table.'.created_by') 'users.first_name', 'users.last_name',;
+		$this->join($this->table.' t2', 't2.id = '.$this->table.'.parent', 'left');
+
+        return parent::findAll($limit, $offset);
+    }
+
+	public function findAllRelease(int $language_id = 2, int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 't2.name as parent_name'];
+        $this->where($this->table.'.state', 'release');
+		$this->where($this->table.'.language_id', $language_id);
+		$this->orderBy('parent', 'ASC');
+		$this->join($this->table.' t2', 't2.id = '.$this->table.'.parent', 'left');
 
         return parent::findAll($limit, $offset);
     }
