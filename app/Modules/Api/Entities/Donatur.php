@@ -28,30 +28,6 @@ class Donatur extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-
-	 *     description="name",
-	 *     title="name",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=128,
-	 * )
-	 *		 
-	 */
-	private $name;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="id_kategori",
-	 *     title="id_kategori",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $id_kategori;
-
 	 *     description="donatur_type_id",
 	 *     title="donatur_type_id",
 	 *     type="integer",
@@ -98,7 +74,6 @@ class Donatur extends BaseEntity
 	 *		 
 	 */
 	private $alamat;
-
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -132,23 +107,7 @@ class Donatur extends BaseEntity
 	 * )
 	 *		 
 	 */
-
-	private $created_by;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="updated_by",
-	 *     title="updated_by",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $updated_by; 
-
 	private $created_by; 
-
 }
 /**
  *

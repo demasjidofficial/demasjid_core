@@ -15,7 +15,18 @@ class WilayahFilter extends WilayahModel
      *
      * @var array
      */
-    protected $filters = [];
+    protected $filters = [
+        'level' => [
+            'title'   => 'Level',
+            'options' => ['Provinsi' => 'Provinsi', 'Kota/Kabupaten' => 'Kota/Kabupaten', 'Kecamatan' => 'Kecamatan', 'Desa' => 'Desa']
+        ],
+        'nama' => [
+            'title'   => 'Nama'            
+        ],
+        'kode' => [
+            'title'   => 'Kode'            
+        ],
+    ];
 
     /**
      * Provides filtering functionality.
@@ -24,8 +35,22 @@ class WilayahFilter extends WilayahModel
      *
      * @return UserFilter
      */
-    public function filter(array $params = null)
+    public function filter(?array $params = null)
     {
-        return [];
+        $this->select('wilayah.*');
+
+        if (isset($params['level']) && count($params['level'])) {
+            $this->whereIn('wilayah.level', $params['level']);
+        }
+
+        if (isset($params['nama']) && !empty($params['nama'])) {
+            $this->like('wilayah.nama',$params['nama'] ,'both');
+        }
+
+        if (isset($params['kode']) && !empty($params['kode'])) {
+            $this->like('wilayah.kode',$params['kode'] ,'after');
+        }
+        
+        return $this;
     }
 }

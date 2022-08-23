@@ -71,7 +71,7 @@ sidePanelDrop.addEventListener('click', (e) => {
 
 
 
-/* ====== Mobile search  */
+/* ====== Mobile search ======= */
 const searchMobileTrigger = document.querySelector('.search-mobile-trigger');
 const searchBox = document.querySelector('.app-search-box');
 
