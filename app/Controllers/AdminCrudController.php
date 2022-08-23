@@ -63,7 +63,6 @@ class AdminCrudController extends AdminController
     }
 
 
-
     /**
      * Return the properties of a resource object
      *
@@ -198,7 +197,7 @@ class AdminCrudController extends AdminController
         return [];
     }
 
-  
+    
 
     protected function getDataEdit($id = null)
     {

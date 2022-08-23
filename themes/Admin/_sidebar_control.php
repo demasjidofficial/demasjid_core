@@ -1,5 +1,5 @@
 <!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark" style="#00FFFF">
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->

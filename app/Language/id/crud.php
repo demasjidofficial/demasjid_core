@@ -266,7 +266,7 @@ return [
 	'rek_no' => 'No Rekening',
 	'rek_name' => 'Nama Rekening',
 	'paymentgateway' => 'Payment Gateway',
-	'donatur' => 'Tipe Donatur',
+	'donatur' => 'Donatur',
 	'no_hp' => 'No. Hp',
 	'donation' => 'Donasi',
 	'program' => 'Program',
@@ -276,11 +276,7 @@ return [
 	'jadwal_durasi'=>'Durasi Target',
 	'kembali'=>'Kembali',
 	'save'=>'Simpan',
-	'target'=>'Target Donatur',
-	'donaturcategory'=>'Kategori Donatur',
-	'tipe_donasi'=>'Tipe Donasi',
-	'target_nominal'=>'Target Nominal',
-	'target_donatur'=>'Target Donatur'
+	'target'=>'Target Donatur'
 
  ];
 

@@ -18,7 +18,11 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/paymentcategory', ['controller' => 'PaymentCategoryController']);
     $routes->resource('baitulmal/paymentmethod_paygat', ['controller' => 'PaymentMethodPaygatController']);
     $routes->resource('baitulmal/paymentmethod_transfer', ['controller' => 'PaymentMethodTransferController']);
-
+    $routes->resource('baitulmal/donaturcategory', ['controller' => 'DonaturcategoryController']);
+    $routes->resource('baitulmal/targetfundraising', ['controller' => 'TargetFundraisingController']);
+    $routes->resource('baitulmal/jadwalfundraising', ['controller' => 'JadwalFundraisingController']);
+    $routes->resource('baitulmal/timfundraising', ['controller' => 'TimFundraisingController']);
+    $routes->resource('baitulmal/timstaff', ['controller' => 'TimStaffController']);
     /** ask to delete */
     $routes->resource('baitulmal/_oldCampaigns', ['controller' => 'CampaignsController']);
     
@@ -33,5 +37,6 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/configs', ['controller' => '_ConfigsController']);
     $routes->resource('baitulmal/campaigns', ['controller' => '_CampaignsController']);
     $routes->resource('baitulmal/masterBaitulMals', ['controller' => 'MasterController']);
+    $routes->resource('baitulmal/frundaising', ['controller' => '_FundraisingController']);
 
 });
