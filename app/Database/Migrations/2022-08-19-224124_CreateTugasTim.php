@@ -16,7 +16,7 @@ class CreateTugasTim extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'id_staff' => [
+            'staff_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'null'       => false,
