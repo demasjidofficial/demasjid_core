@@ -291,7 +291,10 @@ return [
 	'jadwal_durasi'=>'Durasi Target',
 	'kembali'=>'Kembali',
 	'save'=>'Simpan',
-	'target'=>'Target Donatur'
+	'target'=>'Target Donatur',
+	'target_id'=>'Nama Target Donatur',
+	'kode_tim'=>'Kode Tim',
+	'nama_tim'=>'Nama Tim'
 
  ];
 
