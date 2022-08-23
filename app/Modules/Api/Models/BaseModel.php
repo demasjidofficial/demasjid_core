@@ -16,9 +16,6 @@ class BaseModel extends ModelsBaseModel
                 $data['data']['created_by'] = auth()->user()->id;
             }
 
-            
-
-
         }
 
         return $data;
