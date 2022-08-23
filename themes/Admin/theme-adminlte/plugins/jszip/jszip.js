@@ -4581,8 +4581,8 @@ var ZStream      = require('./zlib/zstream');
 
 var toString = Object.prototype.toString;
 
-/* Public constants ==*/
-/* =====*/
+/* Public constants ==========================================================*/
+/* ===========================================================================*/
 
 var Z_NO_FLUSH      = 0;
 var Z_FINISH        = 4;
@@ -4597,7 +4597,7 @@ var Z_DEFAULT_STRATEGY    = 0;
 
 var Z_DEFLATED  = 8;
 
-/* =====*/
+/* ===========================================================================*/
 
 
 /**
@@ -5894,8 +5894,8 @@ var adler32 = require('./adler32');
 var crc32   = require('./crc32');
 var msg     = require('./messages');
 
-/* Public constants ==*/
-/* =====*/
+/* Public constants ==========================================================*/
+/* ===========================================================================*/
 
 
 /* Allowed flush values; see deflate() and inflate() below for details */
@@ -5945,7 +5945,7 @@ var Z_UNKNOWN             = 2;
 /* The deflate compression method */
 var Z_DEFLATED  = 8;
 
-/*======*/
+/*============================================================================*/
 
 
 var MAX_MEM_LEVEL = 9;
@@ -6003,7 +6003,7 @@ function rank(f) {
 function zero(buf) { var len = buf.length; while (--len >= 0) { buf[len] = 0; } }
 
 
-/* ===
+/* =========================================================================
  * Flush as much pending output as possible. All deflate() output goes
  * through this function so some applications may wish to modify it
  * to avoid allocating a large strm->output buffer and copying into it.
@@ -6043,7 +6043,7 @@ function put_byte(s, b) {
 }
 
 
-/* ===
+/* =========================================================================
  * Put a short in the pending buffer. The 16-bit value is put in MSB order.
  * IN assertion: the stream state is correct and there is enough room in
  * pending_buf.
@@ -6056,7 +6056,7 @@ function putShortMSB(s, b) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Read a new buffer from the current input stream, update the adler32
  * and total number of bytes read.  All deflate() input goes through
  * this function so some applications may wish to modify it to avoid
@@ -6088,7 +6088,7 @@ function read_buf(strm, buf, start, size) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Set match_start to the longest match starting at the given string and
  * return its length. Matches shorter or equal to prev_length are discarded,
  * in which case the result is equal to prev_length and match_start is
@@ -6200,7 +6200,7 @@ function longest_match(s, cur_match) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Fill the window when the lookahead becomes insufficient.
  * Updates strstart and lookahead.
  *
@@ -6357,7 +6357,7 @@ function fill_window(s) {
 //    "not enough room for search");
 }
 
-/* =====
+/* ===========================================================================
  * Copy without compression as much as possible from the input stream, return
  * the current block state.
  * This function does not insert new strings in the dictionary since
@@ -6457,7 +6457,7 @@ function deflate_stored(s, flush) {
   return BS_NEED_MORE;
 }
 
-/* =====
+/* ===========================================================================
  * Compress as much as possible from the input stream, return the current
  * block state.
  * This function does not perform lazy evaluation of matches and inserts
@@ -6587,7 +6587,7 @@ function deflate_fast(s, flush) {
   return BS_BLOCK_DONE;
 }
 
-/* =====
+/* ===========================================================================
  * Same as above, but achieves better compression. We use a lazy
  * evaluation for matches: a match is finally adopted only if there is
  * no better match at the next window position.
@@ -6749,7 +6749,7 @@ function deflate_slow(s, flush) {
 }
 
 
-/* =====
+/* ===========================================================================
  * For Z_RLE, simply look for runs of bytes, generate matches only of distance
  * one.  Do not maintain a hash table.  (It will be regenerated if this run of
  * deflate switches away from Z_RLE.)
@@ -6845,7 +6845,7 @@ function deflate_rle(s, flush) {
   return BS_BLOCK_DONE;
 }
 
-/* =====
+/* ===========================================================================
  * For Z_HUFFMAN_ONLY, do not look for matches.  Do not maintain a hash table.
  * (It will be regenerated if this run of deflate switches away from Huffman.)
  */
@@ -6932,7 +6932,7 @@ configuration_table = [
 ];
 
 
-/* =====
+/* ===========================================================================
  * Initialize the "longest match" routines for a new zlib stream
  */
 function lm_init(s) {
@@ -7635,7 +7635,7 @@ function deflateEnd(strm) {
 }
 
 
-/* ===
+/* =========================================================================
  * Initializes the compression dictionary from the given byte
  * sequence without producing any compressed output.
  */
@@ -8181,8 +8181,8 @@ var CODES = 0;
 var LENS = 1;
 var DISTS = 2;
 
-/* Public constants ==*/
-/* =====*/
+/* Public constants ==========================================================*/
+/* ===========================================================================*/
 
 
 /* Allowed flush values; see deflate() and inflate() below for details */
@@ -8212,8 +8212,8 @@ var Z_BUF_ERROR     = -5;
 var Z_DEFLATED  = 8;
 
 
-/* STATES =====*/
-/* =====*/
+/* STATES ====================================================================*/
+/* ===========================================================================*/
 
 
 var    HEAD = 1;       /* i: waiting for magic header */
@@ -8249,7 +8249,7 @@ var    BAD = 30;       /* got a data error -- remain here until reset */
 var    MEM = 31;       /* got an inflate() memory error -- remain here until reset */
 var    SYNC = 32;      /* looking for synchronization bytes to restart inflate() */
 
-/* =====*/
+/* ===========================================================================*/
 
 
 
@@ -10110,8 +10110,8 @@ module.exports = {
 
 var utils = require('../utils/common');
 
-/* Public constants ==*/
-/* =====*/
+/* Public constants ==========================================================*/
+/* ===========================================================================*/
 
 
 //var Z_FILTERED          = 1;
@@ -10126,7 +10126,7 @@ var Z_TEXT                = 1;
 //var Z_ASCII             = 1; // = Z_TEXT
 var Z_UNKNOWN             = 2;
 
-/*======*/
+/*============================================================================*/
 
 
 function zero(buf) { var len = buf.length; while (--len >= 0) { buf[len] = 0; } }
@@ -10143,7 +10143,7 @@ var MAX_MATCH    = 258;
 /* The minimum and maximum match lengths */
 
 // From deflate.h
-/* =====
+/* ===========================================================================
  * Internal compression state.
  */
 
@@ -10172,7 +10172,7 @@ var Buf_size      = 16;
 /* size of bit buffer in bi_buf */
 
 
-/* =====
+/* ===========================================================================
  * Constants
  */
 
@@ -10209,7 +10209,7 @@ var bl_order =
  * probability, to avoid transmitting the lengths for unused bit length codes.
  */
 
-/* =====
+/* ===========================================================================
  * Local data. These are initialized only once.
  */
 
@@ -10283,7 +10283,7 @@ function d_code(dist) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Output a short LSB first on the stream.
  * IN assertion: there is enough room in pendingBuf.
  */
@@ -10295,7 +10295,7 @@ function put_short(s, w) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Send a value on a given number of bits.
  * IN assertion: length <= 16 and value fits in length bits.
  */
@@ -10317,7 +10317,7 @@ function send_code(s, c, tree) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Reverse the first len bits of a code, using straightforward code (a faster
  * method would use a table)
  * IN assertion: 1 <= len <= 15
@@ -10333,7 +10333,7 @@ function bi_reverse(code, len) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Flush the bit buffer, keeping at most 7 bits in it.
  */
 function bi_flush(s) {
@@ -10350,7 +10350,7 @@ function bi_flush(s) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Compute the optimal bit lengths for a tree and update the total bit length
  * for the current block.
  * IN assertion: the fields freq and dad are set, heap[heap_max] and
@@ -10449,7 +10449,7 @@ function gen_bitlen(s, desc)
 }
 
 
-/* =====
+/* ===========================================================================
  * Generate the codes for a given tree and bit counts (which need not be
  * optimal).
  * IN assertion: the array bl_count contains the bit length statistics for
@@ -10492,7 +10492,7 @@ function gen_codes(tree, max_code, bl_count)
 }
 
 
-/* =====
+/* ===========================================================================
  * Initialize the various 'constant' tables.
  */
 function tr_static_init() {
@@ -10596,7 +10596,7 @@ function tr_static_init() {
 }
 
 
-/* =====
+/* ===========================================================================
  * Initialize a new block.
  */
 function init_block(s) {
@@ -10613,7 +10613,7 @@ function init_block(s) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Flush the bit buffer and align the output on a byte boundary
  */
 function bi_windup(s)
@@ -10628,7 +10628,7 @@ function bi_windup(s)
   s.bi_valid = 0;
 }
 
-/* =====
+/* ===========================================================================
  * Copy a stored block, storing first the length and its
  * one's complement if requested.
  */
@@ -10651,7 +10651,7 @@ function copy_block(s, buf, len, header)
   s.pending += len;
 }
 
-/* =====
+/* ===========================================================================
  * Compares to subtrees, using the tree depth as tie breaker when
  * the subtrees have equal frequency. This minimizes the worst case length.
  */
@@ -10662,7 +10662,7 @@ function smaller(tree, n, m, depth) {
          (tree[_n2]/*.Freq*/ === tree[_m2]/*.Freq*/ && depth[n] <= depth[m]));
 }
 
-/* =====
+/* ===========================================================================
  * Restore the heap property by moving down the tree starting at node k,
  * exchanging a node with the smallest of its two sons if necessary, stopping
  * when the heap property is re-established (each father smaller than its
@@ -10698,7 +10698,7 @@ function pqdownheap(s, tree, k)
 // inlined manually
 // var SMALLEST = 1;
 
-/* =====
+/* ===========================================================================
  * Send the block data compressed using the given Huffman trees
  */
 function compress_block(s, ltree, dtree)
@@ -10753,7 +10753,7 @@ function compress_block(s, ltree, dtree)
 }
 
 
-/* =====
+/* ===========================================================================
  * Construct one Huffman tree and assigns the code bit strings and lengths.
  * Update the total bit length for the current block.
  * IN assertion: the field freq is set for all tree elements.
@@ -10853,7 +10853,7 @@ function build_tree(s, desc)
 }
 
 
-/* =====
+/* ===========================================================================
  * Scan a literal or distance tree to determine the frequencies of the codes
  * in the bit length tree.
  */
@@ -10919,7 +10919,7 @@ function scan_tree(s, tree, max_code)
 }
 
 
-/* =====
+/* ===========================================================================
  * Send a literal or distance tree in compressed form, using the codes in
  * bl_tree.
  */
@@ -10990,7 +10990,7 @@ function send_tree(s, tree, max_code)
 }
 
 
-/* =====
+/* ===========================================================================
  * Construct the Huffman tree for the bit lengths and return the index in
  * bl_order of the last bit length code to send.
  */
@@ -11025,7 +11025,7 @@ function build_bl_tree(s) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Send the header for a block using dynamic Huffman trees: the counts, the
  * lengths of the bit length codes, the literal tree and the distance tree.
  * IN assertion: lcodes >= 257, dcodes >= 1, blcodes >= 4.
@@ -11057,7 +11057,7 @@ function send_all_trees(s, lcodes, dcodes, blcodes)
 }
 
 
-/* =====
+/* ===========================================================================
  * Check if the data type is TEXT or BINARY, using the following algorithm:
  * - TEXT if the two conditions below are satisfied:
  *    a) There are no non-portable control characters belonging to the
@@ -11105,7 +11105,7 @@ function detect_data_type(s) {
 
 var static_init_done = false;
 
-/* =====
+/* ===========================================================================
  * Initialize the tree data structures for a new zlib stream.
  */
 function _tr_init(s)
@@ -11128,7 +11128,7 @@ function _tr_init(s)
 }
 
 
-/* =====
+/* ===========================================================================
  * Send a stored block
  */
 function _tr_stored_block(s, buf, stored_len, last)
@@ -11142,7 +11142,7 @@ function _tr_stored_block(s, buf, stored_len, last)
 }
 
 
-/* =====
+/* ===========================================================================
  * Send one empty static block to give enough lookahead for inflate.
  * This takes 10 bits, of which 7 may remain in the bit buffer.
  */
@@ -11153,7 +11153,7 @@ function _tr_align(s) {
 }
 
 
-/* =====
+/* ===========================================================================
  * Determine the best encoding for the current block: dynamic trees, static
  * trees or store, and output the encoded block to the zip file.
  */
@@ -11240,7 +11240,7 @@ function _tr_flush_block(s, buf, stored_len, last)
   //       s->compressed_len-7*last));
 }
 
-/* =====
+/* ===========================================================================
  * Save the match info and tally the frequency counts. Return true if
  * the current block must be flushed.
  */
