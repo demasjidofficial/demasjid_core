@@ -16,13 +16,13 @@ class CreateTimStaff extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'id_tim' => [
+            'tim_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'null'       => false,
             ],
 
-            'id_user' => [
+            'user_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'null'       => false,
