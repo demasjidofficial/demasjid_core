@@ -28,11 +28,11 @@
 
         <fieldset>
             <div class="row mb-3">
-                <?= form_label(lang('crud.id_target'), '', ['for' => 'id_target', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.target_id'), '', ['for' => 'target_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_dropdown('id_target', $targetItems, old('id_target', $data->id_target ?? ''), "class='form-control select2bs4' required") ?>
-                    <?php if (has_error('id_target')) { ?>
-                        <p class="text-danger"><?php echo error('id_target'); ?></p>
+                    <?= form_dropdown('target_id', $targetItems, old('target_id', $data->target_id ?? ''), "class='form-control select2bs4' required") ?>
+                    <?php if (has_error('target_id')) { ?>
+                        <p class="text-danger"><?php echo error('target_id'); ?></p>
                     <?php } ?>
                 </div>
             </div>
@@ -46,6 +46,14 @@
                 </div>
             </div>
 
+            <?php
+
+            $karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+            $shuffle  = substr(str_shuffle($karakter), 0, 5);
+
+
+            ?>
+
 
 
             <div class="row mb-3">
@@ -57,7 +65,7 @@
                                 <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
 
 
-                             
+
 
                                 <div class="input-group-append">
                                     <?php if (!$index) {
