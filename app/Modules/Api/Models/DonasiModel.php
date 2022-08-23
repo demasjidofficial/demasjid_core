@@ -46,7 +46,6 @@ class DonasiModel extends BaseModel
 		'state',
 		'created_at',
 		'updated_at',
-		'created_by',
 		'name',
 		'email',
 		'no_hp',

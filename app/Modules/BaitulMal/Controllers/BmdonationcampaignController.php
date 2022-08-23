@@ -152,7 +152,7 @@ class BmdonationcampaignController extends AdminCrudController
             'totalDonation' => $totalDonation,
             'totalActiveCampaign' => $totalActiveCampaign,
             'countDonation' => $countDonation,
-            'totalCampaign' => count($data),
+            'totalInDonation' => model('App\Modules\Api\Models\DonasiModel')->countAll(),
         ];
        
     }

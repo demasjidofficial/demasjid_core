@@ -62,7 +62,12 @@ class Module extends BaseModule
                 ->addItem($boardnewsItem)
                 ->addItem($boardtempItem)
                 ->addItem($boarddonationItem)
+
                 ->addItem($boardlivebroadcastItem)
-                ->addItem($boardkonfigurasiItem);
+                ->addItem($boardkonfigurasiItem)
+
+                ->addItem($boardlivebroadcastItem);
+
+
     }
 }

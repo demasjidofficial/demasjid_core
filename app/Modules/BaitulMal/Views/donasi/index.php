@@ -30,9 +30,9 @@
                         <div class="icon">
                             <i class="fas fa-calculator"></i>
                         </div>
-                        <a href="<?= site_url('/admin/baitulmal/donationcampaigncategory')?>" class="small-box-footer">
-                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- <a href="<= site_url('/admin/baitulmal/donationcampaigncategory')?>" class="small-box-footer">
+                            <= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a> -->
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -45,7 +45,7 @@
                             </h4>
 
                             <p>
-                                Terverifikasi dari <?php echo $dataStats->totalCampaign ?> donasi
+                                Terverifikasi dari <?php echo $dataStats->totalInDonation ?> donasi
                             </p>
                             
                             <?php if (isset($data->logo)) { ?>
@@ -58,9 +58,9 @@
                         <div class="icon">
                             <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <a href="<?= site_url('/admin/baitulmal/donationcampaign')?>" class="small-box-footer">
-                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- <a href="<= site_url('/admin/baitulmal/donationcampaign')?>" class="small-box-footer">
+                            <= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a> -->
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -69,15 +69,15 @@
                         <h4><?= lang('app.active_campaigns')?></h4>
                             <h4><b><?php echo $dataStats->totalActiveCampaign ?></b></h4>
                             <p>
-                                Campaigns
+                                Kampanye
                             </p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-bullhorn"></i>
                         </div>
-                        <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="small-box-footer">
-                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- <a href="<php echo route_to($baseRoute.'/new'); ?>" class="small-box-footer">
+                            <= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a> -->
                     </div>
                 </div>
             </div><!--/.row -->
@@ -131,6 +131,11 @@
             });   
         }
     }); 
+
+    function sendChatTo(text) {
+        let url = "https://wa.me/62" + text;
+        window.open(url, '_blank').focus();
+    }
 
 </script>
 <?php $this->endSection(); ?>

@@ -1,0 +1,117 @@
+
+.section-padding60 {
+    padding-top: 60px;
+    padding-bottom: 0;
+}
+
+.cases-img img {
+    width: 100%;
+}
+
+.borrad-10 {
+    border-radius: 10px;
+}
+
+.campaign-detail ul.nav {
+    /* background: #B8F1B0; */
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.campaign-detail ul.nav li a {
+    color: black;
+}
+
+.campaign-timeline ul li,
+.donation-list ul li {
+    list-style: circle;
+}
+
+.donation-list ul li span {
+    font-weight: 600;
+}
+
+.btn-lg {
+    width: 155px;
+}
+
+.btn-pd2010 {
+    padding: 20px 10px;
+}
+
+.h-45 {
+    height: 45px;
+    font-size: 1.5rem;
+}
+
+.checkout-info {
+    padding: 20px 15px;
+    background: #BBFCC9;
+}
+
+.bg-bluesky {
+    background: #8BADEF;
+}
+
+.bg-bluesky h5{
+    color: white;
+    font-weight: bold;
+}
+
+.paymentlist ul li img {
+    width: 55px;
+}
+
+.paymentlist ul li span {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.paymentlist ul li {
+    padding: 10px 10px;
+}
+
+.paymentlist ul li:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.paymentlist .paymentheader {
+    border-bottom: 1px solid #dbd4d4;
+    padding: 5px;
+    text-align: center;
+}
+
+.info-detail {
+    background: #BBFCC9;
+    padding: 30px 15px;
+    border-radius: 15px;
+}
+
+.info-method {
+    padding: 20px 10px;
+}
+
+.info-box {
+    border: 1px solid #c9c8c8;
+    margin: 10px 30px;
+    padding: 15px 15px;
+    border-radius: 15px;
+    background: #EDFAFF;
+    justify-content: center;
+}
+
+.info-box div {
+    margin: 0px 15px;
+}
+
+.info-box div img {
+    width: 65px;
+}
+
+.copy-icon {
+    right: 53px;
+    position: absolute;
+    bottom: 20px;
+    font-size: 12px;
+    color:rgb(147 144 144);
+}

@@ -63,3 +63,13 @@ if (! function_exists('local_currency')) {
         ]);
     }
 }
+
+if (! function_exists('local_date')) {
+    function local_date(string $date)
+    {
+        $months= array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November' ,'Desember');
+
+        $ar = explode('-', substr($date, 0, 10));
+        return $ar[2].' ' . $months[(int)$ar[1]].' ' . $ar[0];
+    }
+}

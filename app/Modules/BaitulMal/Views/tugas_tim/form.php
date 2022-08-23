@@ -84,11 +84,19 @@
 
 
                                 <div class="row mb-3">
+<<<<<<< HEAD
                     <?= form_label(lang('crud.staff_id'),'',['for' => 'staff_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('staff_id', old('staff_id', $data->staff_id ?? ''), "class='form-control int' required placeholder='".lang('crud.staff_id')."' ") ?>
                         <?php if (has_error('staff_id')) { ?>
                         <p class="text-danger"><?php echo error('staff_id'); ?></p>
+=======
+                    <?= form_label(lang('crud.id_staff'),'',['for' => 'id_staff', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_input('id_staff', old('id_staff', $data->id_staff ?? ''), "class='form-control int' required placeholder='".lang('crud.id_staff')."' ") ?>
+                        <?php if (has_error('id_staff')) { ?>
+                        <p class="text-danger"><?php echo error('id_staff'); ?></p>
+>>>>>>> 195ac79f209ca9eeb5ae45220f0e93e2122709d4
                         <?php } ?>
                     </div>
                 </div>
@@ -101,6 +109,7 @@
                         <?php } ?>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="row mb-3">
                     <?= form_label(lang('crud.nominal'),'',['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
@@ -110,6 +119,9 @@
                         <?php } ?>
                     </div>
                 </div>
+=======
+           
+>>>>>>> 195ac79f209ca9eeb5ae45220f0e93e2122709d4
                 <div class="row mb-3">
                     <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
