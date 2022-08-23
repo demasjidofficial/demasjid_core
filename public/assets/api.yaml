@@ -1322,6 +1322,10 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
   /boardDevices:
     get:
       tags:
@@ -1946,6 +1950,11 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
   /campaigns:
     get:
       tags:
@@ -2414,6 +2423,11 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
   /donaturTypes:
     get:
       tags:
@@ -2726,6 +2740,7 @@ paths:
       security:
         -
           bearer_auth: []
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /entities:
     get:
       tags:
@@ -4598,6 +4613,11 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
   /paymentCategories:
     get:
       tags:
@@ -4910,6 +4930,7 @@ paths:
       security:
         -
           bearer_auth: []
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
   /pelajarans:
     get:
       tags:
@@ -8227,6 +8248,10 @@ components:
           type: integer
           format: '-'
       type: object
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     BoardDevice:
       title: BoardDevice
       description: BoardDevice
@@ -8407,6 +8432,11 @@ components:
           format: '-'
           maxLength: 11
       type: object
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     Campaigns:
       title: Campaigns
       description: Campaigns
@@ -8612,6 +8642,11 @@ components:
           format: '-'
           maxLength: 11
       type: object
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     Donatur:
       title: Donatur
       description: Donatur
@@ -9545,6 +9580,10 @@ components:
           format: '-'
           maxLength: 11
       type: object
+<<<<<<< HEAD
+=======
+>>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     Pelajaran:
       title: Pelajaran
       description: Pelajaran
@@ -11041,6 +11080,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donasi'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     Donatur:
       description: 'Donatur object that needs to be added'
       content:
@@ -11221,6 +11265,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/NonRawatibScheduleClone'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     PaymentCategory:
       description: 'PaymentCategory object that needs to be added'
       content:

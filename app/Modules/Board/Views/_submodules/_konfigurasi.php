@@ -27,7 +27,7 @@
                     <div class="icon">
                     <i class="fas fa-tv"></i>
                     </div>
-                    <a href="<?= site_url('/admin/board/newsbg')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/configs/device')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

@@ -33,16 +33,21 @@
         html {
             height: 100%;
             overflow: hidden;
+            background-color: white;
         }
 
         html {
             font-size: 62.5%;
             box-sizing: border-box;
         }
+
+        #btnfullscree {
+            display: none;
+        }
     </style>
 </head>
 
-<body onload="clock()">
+<body onload="clock()" id="fullscreen" onclick="maxWindow()">
 
     <!-- ? Preloader Start -->
     <div id="preloader-active">
@@ -126,6 +131,9 @@
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/main.js', 'js') ?>
 
+    <!-- Countdown time -->
+    <script src="https://cdn.jsdelivr.net/npm/timezz/dist/timezz.min.js"></script>
+
 
     <script type="text/javascript">
         $(function() {
@@ -162,11 +170,25 @@
 
 
         // show countdown    
-        $('.card-sholat').each(function() {
-            var prayTitle = $(this).find('h3.card-title').text();
-            var prayTime = $(this).find('p.card-text').text()
-            console.log("Waktu " + prayTitle + " Pukul " + prayTime);
-        })
+        
+        // $('.card-sholat').each(function() {
+        //     var prayTitle = $(this).find('h3.card-title').text();
+        //     var prayTime = $(this).find('p.card-text').text()
+        //     console.log("Waktu " + prayTitle + " Pukul " + prayTime);
+        //     var now = new Date();
+        //     var timeNow = now.toLocaleTimeString();
+        //     var timeout = 60 * 5;
+        //     var display1 = document.getElementById('timer');
+
+        //     if (prayTime == 'prayTime') {
+
+        //         console.log(display1.textContent = "Memasuki Waktu Sholat " + prayTitle+' '+prayTime);
+        //         setTimeout(display1.textContent = "",10000);
+
+                
+        //     }
+        // })
+        
 
         function subtractMinutes(numOfMinutes, date = new Date()) {
             const now = new Date(date.getTime());
@@ -209,6 +231,54 @@
         //     }
         // }, 1000);
 
+        //fullscreen mode
+        // var elem = document.getElementById("fullscreen");
+        // function openFullscreen() {
+        //     if (elem.requestFullscreen) {
+        //         elem.requestFullscreen();
+        //     } else if (elem.webkitRequestFullscreen) {
+        //         /* Safari */
+        //         elem.webkitRequestFullscreen();
+        //     } else if (elem.msRequestFullscreen) {
+        //         /* IE11 */
+        //         elem.msRequestFullscreen();
+        //     }
+
+        // }
+
+        // setTimeout(openFullscreen,3000);
+        // $(window).load(function() {
+        //     // $('#btnfullscreen').delay(3000).click(openFullscreen());
+        //     setTimeout(openFullscreen,3000);
+        //     alert("fullscreen");
+        // });
+
+
+        //fulscreen with enter
+        window.addEventListener("load", startup, false);
+
+        function startup() {
+            const view = document.getElementById("fullscreen");
+
+            // On pressing ENTER call toggleFullScreen method
+            document.addEventListener("keypress", function(e) {
+                if (e.key === 'Enter') {
+                    toggleFullScreen(view);
+                }
+            }, false);
+        }
+
+        function toggleFullScreen(view) {
+            if (!document.fullscreenElement) {
+                // If the document is not in full screen mode
+                view.requestFullscreen();
+            } else {
+                // Otherwise exit the full screen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
     </script>
     <?= $this->renderSection('scripts') ?>
 </body>

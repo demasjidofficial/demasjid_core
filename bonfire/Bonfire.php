@@ -121,7 +121,7 @@ class Bonfire
             ->createCollection('tools', 'Alat')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
-
+        
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');
     }
