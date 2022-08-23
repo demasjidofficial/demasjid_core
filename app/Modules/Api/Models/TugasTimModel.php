@@ -13,7 +13,7 @@ class TugasTimModel extends BaseModel
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
     protected $allowedFields = [
-        'id_staff',
+        'staff_id',
 		'tugas',
 		'nominal',
 		'created_at',
@@ -23,7 +23,7 @@ class TugasTimModel extends BaseModel
     ];
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[tugas_tim.id,id,{id}]',
-		'id_staff' => 'numeric|max_length[11]|required',
+		'staff_id' => 'numeric|max_length[11]|required',
 		'tugas' => 'max_length[255]|required',
 		'nominal' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',

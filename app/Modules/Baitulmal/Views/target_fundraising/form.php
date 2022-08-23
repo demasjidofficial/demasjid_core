@@ -47,9 +47,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.campaign_name'), '', ['for' => 'campaign_name', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.target_donatur'), '', ['for' => 'campaign_name', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('campaign_name', old('campaign_name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.campaign_name') . "' ") ?>
+                    <?= form_input('campaign_name', old('campaign_name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.target_donatur') . "' ") ?>
                     <?php if (has_error('campaign_name')) { ?>
                         <p class="text-danger"><?php echo error('campaign_name'); ?></p>
                     <?php } ?>

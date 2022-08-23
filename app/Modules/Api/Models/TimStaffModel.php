@@ -9,8 +9,8 @@ class TimStaffModel extends BaseModel
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
     protected $allowedFields = [
-        'id_tim',
-		'id_user',
+        'tim_id',
+		'user_id',
 		'created_at',
 		'updated_at',
 		'created_by',

@@ -31,7 +31,7 @@ class TargetFundraisingModel extends BaseModel
     ];
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*','target_fundraising.id as target_fundraising_id','target_fundraising.campaign_name as nama_kampanye','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
+        $this->selectColumn = [$this->table.'.*','target_fundraising.campaign_name as campaign_name','target_fundraising.id as target_fundraising_id','target_fundraising.campaign_name as nama_kampanye','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
 		
 		$this->join('bmdonationcampaign', 'bmdonationcampaign.id = '.$this->table.'.campaign');
 		$this->join('donaturcategory', 'donaturcategory.id = '.$this->table.'.donatur', 'left');
