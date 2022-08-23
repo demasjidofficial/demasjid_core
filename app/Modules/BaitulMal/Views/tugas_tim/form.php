@@ -101,15 +101,7 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.nominal'),'',['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control int' required placeholder='".lang('crud.nominal')."' ") ?>
-                        <?php if (has_error('nominal')) { ?>
-                        <p class="text-danger"><?php echo error('nominal'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
+           
                 <div class="row mb-3">
                     <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">

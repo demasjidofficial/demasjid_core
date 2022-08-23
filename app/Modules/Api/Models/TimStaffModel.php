@@ -30,9 +30,9 @@ class TimStaffModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
     {
         $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','target_fundraising.campaign_name as tim'];        
-        $this->join('users', 'users.id = '.$this->table.'.id_user');
-		$this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.id_tim');
-		$this->join('target_fundraising', 'target_fundraising.id = tim_fundraising.id_target');
+        $this->join('users', 'users.id = '.$this->table.'.user_id');
+		$this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.tim_id');
+		$this->join('target_fundraising', 'target_fundraising.id = tim_fundraising.target_id');
 
         return parent::findAll($limit, $offset);
     }

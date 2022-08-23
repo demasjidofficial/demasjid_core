@@ -15,7 +15,7 @@
         <button class="btn btn-default btn-sm dropdown-toggle " type="button"  data-toggle="dropdown" aria-expanded="false">Pilihan</button>
         <ul class="dropdown-menu">
         <li><a href="<?php echo $editUrl ?>" class="dropdown-item"><?php echo lang('Bonfire.edit') ?></a></li>
-            <li><a href="timstaff/<?php echo $item->id ?>/edit" class="dropdown-item"><?php echo lang('Bonfire.datatim') ?></a></li>
+           
             <li><hr class="dropdown-divider"></li>
             <li>
                 <button class="btn" hx-delete="<?php echo $deleteUrl ?>" hx-select="#htmx-alert" hx-swap="innerHTML" hx-indicator="#htmx-request-indicator">

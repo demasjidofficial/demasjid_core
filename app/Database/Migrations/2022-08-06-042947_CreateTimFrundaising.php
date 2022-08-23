@@ -16,6 +16,18 @@ class CreateTimFrundaising extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'kode_tim' => [
+                'type'       => 'varchar',
+                'constraint' => 5,
+                'null'       => false,
+            ],
+            
+            'nama_tim' => [
+                'type'       => 'varchar',
+                'constraint' => 248,
+                'null'       => false,
+            ],
+            
             'id_target' => [
                 'type'       => 'int',
                 'constraint' => 11,

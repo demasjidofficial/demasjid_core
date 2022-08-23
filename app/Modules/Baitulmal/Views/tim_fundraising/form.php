@@ -54,6 +54,26 @@
 
             ?>
 
+            <div class="row mb-3">
+                <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? ''), "class='form-control int' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
+                    <?php if (has_error('kode_tim')) { ?>
+                        <p class="text-danger"><?php echo error('kode_tim'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'nama_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('nama_tim', old('nama_tim', $data->nama_tim ?? ''), "class='form-control int' required placeholder='" . lang('crud.nama_tim') . "' ") ?>
+                    <?php if (has_error('nama_tim')) { ?>
+                        <p class="text-danger"><?php echo error('nama_tim'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
 
 
             <div class="row mb-3">

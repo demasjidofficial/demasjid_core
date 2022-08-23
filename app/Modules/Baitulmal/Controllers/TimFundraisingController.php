@@ -46,7 +46,7 @@ class TimFundraisingController extends AdminCrudController
      
         return [
             'headers' => [
-                                    'id_target' => lang('crud.id_target'),
+                                    'target_id' => lang('crud.target_id'),
         
            
               
