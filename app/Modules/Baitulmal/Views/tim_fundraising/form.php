@@ -46,13 +46,8 @@
                 </div>
             </div>
 
-            <?php
-
-            $karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
-            $shuffle  = substr(str_shuffle($karakter), 0, 5);
 
 
-            ?>
 
             <div class="row mb-3">
                 <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
@@ -105,11 +100,8 @@
                         <?php } ?>
                     <?php } else { ?>
                         <div class="input-group mb-2">
-<<<<<<< HEAD
+
                             <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
-=======
-                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
->>>>>>> 195ac79f209ca9eeb5ae45220f0e93e2122709d4
 
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
@@ -178,7 +170,8 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
-<<<<<<< HEAD
+
+
     function makeid(length) {
         var result = '';
         var characters = '0123456789';
@@ -192,9 +185,8 @@
 
     console.log(makeid(5));
     $('input[name="kode_tim"]').val(makeid(5));
-    $('input[name="kode_tim"]').attr('readonly','readonly');
-=======
->>>>>>> 195ac79f209ca9eeb5ae45220f0e93e2122709d4
+    $('input[name="kode_tim"]').attr('readonly', 'readonly'); 
+    
     $('.duallistbox').bootstrapDualListbox()
     $(function() {
         $('input[name=period]').daterangepicker({

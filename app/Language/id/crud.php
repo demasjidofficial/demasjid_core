@@ -298,7 +298,5 @@ return [
 	'nama_tim'=>'Nama Tim',
 
 
-	'target'=>'Target Donatur'
-
 
  ];

@@ -52,12 +52,7 @@ class TimFundraisingController extends AdminCrudController
                 'jadwal_mulai' => lang('crud.durasi'),
                 'staff' => lang('crud.staff'),
 
-                                    'target_id' => lang('crud.target_id'),
-        
-           
-              
-                'jadwal_mulai' => lang('crud.durasi'),
-                'staff' => lang('crud.staff'),
+                                   
 
 
        

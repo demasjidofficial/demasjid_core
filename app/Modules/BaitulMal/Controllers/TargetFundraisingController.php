@@ -105,7 +105,7 @@ class TargetFundraisingController extends AdminCrudController
             }
             $start_date = explode('-', $data->jadwal_mulai);
             $end_date = explode('-', $data->jadwal_akhir);
-            $data->campaign_daterange =  $start_date[2] . '/' . $start_date[1] . '/' . (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2));
+            $data->jadwal_durasi =  $start_date[2] . '/' . $start_date[1] . '/' . (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2));
             $dataEdit['data'] = $data;
         }
         $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
