@@ -31,8 +31,8 @@ class TargetFundraisingController extends AdminCrudController
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
-        $data['jadwal_mulai'] = date("Y-m-d", strtotime(($end_date[2] . '-' . $end_date[1] . '-' . $end_date[0])));
-        $data['jadwal_akhir'] = date("Y-m-d", strtotime(($start_date[2] . '-' . $start_date[1] . '-' . $start_date[0])));
+        $data['jadwal_akhir'] = date("Y-m-d", strtotime(($end_date[2] . '-' . $end_date[1] . '-' . $end_date[0])));
+        $data['jadwal_mulai'] = date("Y-m-d", strtotime(($start_date[2] . '-' . $start_date[1] . '-' . $start_date[0])));
         unset($data['jadwal_durasi']);
 
         if (!$this->model->insert($data)) {
@@ -55,8 +55,8 @@ class TargetFundraisingController extends AdminCrudController
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
-        $data['jadwal_mulai'] = date("Y-m-d", strtotime(($end_date[2] . '-' . $end_date[1] . '-' . $end_date[0])));
-        $data['jadwal_akhir'] = date("Y-m-d", strtotime(($start_date[2] . '-' . $start_date[1] . '-' . $start_date[0])));
+        $data['jadwal_akhir'] = date("Y-m-d", strtotime(($end_date[2] . '-' . $end_date[1] . '-' . $end_date[0])));
+        $data['jadwal_mulai'] = date("Y-m-d", strtotime(($start_date[2] . '-' . $start_date[1] . '-' . $start_date[0])));
         unset($data['jadwal_durasi']);
 
         if (!$this->model->insert($data)) {

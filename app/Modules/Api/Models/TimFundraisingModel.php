@@ -94,7 +94,7 @@ class TimFundraisingModel extends BaseModel
 			foreach($timStaff['id_user'] as $key => $user ){
                 $detail = [
 					'tim_id' => $id,
-					'id_user' => $user
+					'user_id' => $user
 				];
                 
                 (new TimStaffModel())->insert($detail);				

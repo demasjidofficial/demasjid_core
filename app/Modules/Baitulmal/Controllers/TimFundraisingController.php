@@ -46,13 +46,10 @@ class TimFundraisingController extends AdminCrudController
      
         return [
             'headers' => [
-                                    'target_id' => lang('crud.target_id'),
-        
-           
-              
+                'id_target' => lang('crud.id_target'),
+                'campaign' => lang('crud.target'),
                 'jadwal_mulai' => lang('crud.durasi'),
                 'staff' => lang('crud.staff'),
-
        
             ],
             'controller' => $this->getBaseController(),
@@ -75,7 +72,7 @@ class TimFundraisingController extends AdminCrudController
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
-            $dataEdit['timStaff'] = (new TimStaffModel())->where('id_tim', $id)->findAll();
+            $dataEdit['timStaff'] = (new TimStaffModel())->where('tim_id', $id)->findAll();
         }
         $dataEdit['targetItems'] = ['' => 'Pilih Target'] + Arr::pluck(model('App\Modules\Api\Models\TargetFundraisingListModel')->select(['id as key', 'campaign_name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['supervisorItems'] = ['' => 'Pilih Supervisior'] + Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
@@ -95,7 +92,7 @@ class TimFundraisingController extends AdminCrudController
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
-            $dataEdit['timStaff'] = (new TimStaffModel())->where('id_tim', $id)->findAll();
+            $dataEdit['timStaff'] = (new TimStaffModel())->where('tim_id', $id)->findAll();
         }
        
         return $dataEdit;

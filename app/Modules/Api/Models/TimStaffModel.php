@@ -18,7 +18,7 @@ class TimStaffModel extends BaseModel
     ];
     protected $validationRules = [
         // 'id' => 'numeric|max_length[11]|required|is_unique[tim_staff.id,id,{id}]',
-		// 'id_tim' => 'numeric|max_length[11]|required',
+		// 'tim_id' => 'numeric|max_length[11]|required',
 		// 'id_user' => 'numeric|max_length[11]|required',
 		// 'created_at' => 'valid_date|required',
 		// 'updated_at' => 'valid_date|required',

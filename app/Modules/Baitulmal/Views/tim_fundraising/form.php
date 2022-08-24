@@ -82,7 +82,7 @@
                     <?php if (isset($timStaff) && !empty($timStaff)) { ?>
                         <?php foreach ($timStaff as $index => $detail) { ?>
                             <div class="input-group mb-2">
-                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
+                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
 
 
 
@@ -104,7 +104,7 @@
                         <?php } ?>
                     <?php } else { ?>
                         <div class="input-group mb-2">
-                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
+                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
 
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
@@ -173,6 +173,20 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
+    function makeid(length) {
+        var result = '';
+        var characters = '0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
+    }
+
+    console.log(makeid(5));
+    $('input[name="kode_tim"]').val(makeid(5));
+    $('input[name="kode_tim"]').attr('readonly','readonly');
     $('.duallistbox').bootstrapDualListbox()
     $(function() {
         $('input[name=period]').daterangepicker({
