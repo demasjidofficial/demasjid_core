@@ -1322,6 +1322,7 @@ paths:
       security:
         -
           bearer_auth: []
+<<<<<<< HEAD
   /boardDevices:
     get:
       tags:
@@ -1946,6 +1947,8 @@ paths:
       security:
         -
           bearer_auth: []
+=======
+>>>>>>> 195ac79f209ca9eeb5ae45220f0e93e2122709d4
   /campaigns:
     get:
       tags:
