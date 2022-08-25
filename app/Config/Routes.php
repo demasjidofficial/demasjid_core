@@ -64,7 +64,6 @@ static function ($routes) {
     $routes->resource('profiles');
     $routes->resource('pengurus');
     $routes->resource('programs');
-    $routes->resource('kelas');
     $routes->resource('uom');
     $routes->resource('chartOfAccounts');
     $routes->resource('programCosts');
@@ -76,6 +75,11 @@ static function ($routes) {
     $routes->resource('boardNewsRuntexts');
     $routes->resource('donaturs');
     $routes->resource('donasis');
+    $routes->resource('kategoriPelajarans');
+    $routes->resource('pelajarans');
+    $routes->resource('kelas');
+    $routes->resource('gurus');
+    $routes->resource('pendaftarans');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

@@ -1,5 +1,6 @@
 <?php namespace App\Modules\Api\Models;
 
+use asligresik\easyapi\Models\BaseModel;
 
 class KelasModel extends BaseModel
 {
@@ -7,7 +8,6 @@ class KelasModel extends BaseModel
     protected $returnType = 'App\Modules\Api\Entities\Kelas';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
-		protected $beforeInsert = ['createdBy'];
     protected $allowedFields = [
         'name',
 		'description',
@@ -31,14 +31,6 @@ class KelasModel extends BaseModel
 		'entity_id' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		'created_by' => 'numeric|max_length[11]'
     ];   
-		public function findAll(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'uom.name as name_uom'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
-        $this->join('uom', 'uom.id = '.$this->table.'.uom_id');
-        return parent::findAll($limit, $offset);
-    }    
-
 }

@@ -52,7 +52,7 @@ class _MastersController extends AdminCrudController
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-danger',
             'title' => lang('crud.teacher'),            
-            'url'     => ADMIN_AREA . '/pesantren/pengurus',
+            'url'     => ADMIN_AREA . '/pesantren/guru',
             'faIcon' => 'fas fa-users',
         ]);
 
@@ -79,6 +79,7 @@ class _MastersController extends AdminCrudController
             'url'     => ADMIN_AREA . '/baitulmal/masterpaymentgateway',
             'faIcon' => 'fas fa-users',
         ]);
+
         
         $widgets->widget('schedule')->collection('schedule')
             ->addItem($kelasItem)

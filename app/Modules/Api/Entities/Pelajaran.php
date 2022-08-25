@@ -28,8 +28,8 @@ class Pelajaran extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="class_id",
-	 *     title="class_id",
+	 *     description="kelas_id",
+	 *     title="kelas_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -37,7 +37,7 @@ class Pelajaran extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $class_id;
+	private $kelas_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="name",
@@ -109,36 +109,6 @@ class Pelajaran extends BaseEntity
 	 *		 
 	 */
 	private $created_at;
-	protected $datamap = [
-		'created_name' => 'full_name',
-		'uom_name' => 'uom_name',
-		'kelas_name' => 'kelas_name',
-		'kategori_pelajaran_name' => 'kategori_pelajaran_name',
-	];
-
-	public function getFullName()
-	{
-
-		return $this->first_name . ' ' . $this->last_name;
-	}
-	
-	public function getUomName()
-	{
-
-		return $this->name_uom;
-	}
-	
-	public function getKelasName()
-	{
-
-		return $this->kelas_name;
-	}
-	
-	public function getKategoriPelajaranName()
-	{
-
-		return $this->name_kategori_pelajaran;
-	}
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="updated_at",

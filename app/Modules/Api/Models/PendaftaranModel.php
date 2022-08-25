@@ -1,21 +1,15 @@
-<?php
+<?php namespace App\Modules\Api\Models;
 
-namespace App\Modules\Api\Models;
+use asligresik\easyapi\Models\BaseModel;
 
 class PendaftaranModel extends BaseModel
 {
-
-	const WAIT = 'menunggu';
-	const ACCEPT = 'diterima';
-	const CANCEL = 'batal';
-	const REJECT = 'tidak diterima';
-	protected $table = 'pendaftaran';
-	protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
-	protected $primaryKey = 'id';
-	protected $beforeInsert = ['createdBy'];
-	protected $useTimestamps = true;
-	protected $allowedFields = [
-		'class_id',
+    protected $table = 'pendaftaran';
+    protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
+    protected $primaryKey = 'id';
+    protected $useTimestamps = true;  
+    protected $allowedFields = [
+        'class_id',
 		'state',
 		'name',
 		'nis',
@@ -42,9 +36,9 @@ class PendaftaranModel extends BaseModel
 		'created_at',
 		'updated_at',
 		'created_by'
-	];
-	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
+    ];
+    protected $validationRules = [
+        'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
 		'class_id' => 'numeric|max_length[11]|required',
 		'state' => 'max_length[20]|required',
 		'name' => 'max_length[60]|required',
@@ -71,25 +65,6 @@ class PendaftaranModel extends BaseModel
 		'path_image' => 'max_length[255]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
-	];
-
-	public static function listState()
-	{
-
-		return [
-			self::WAIT => lang('crud.menunggu'),
-			self::ACCEPT => lang('crud.diterima'),
-			self::REJECT => lang('crud.tidak_diterima'),
-			self::CANCEL => lang('crud.batal'),
-		];
-	}
-	public function findAll(int $limit = 0, int $offset = 0)
-	{
-		$this->selectColumn = [$this->table . '.*', 'users.first_name', 'users.last_name',  'kelas.name as name_kelas'];
-		$this->join('users', 'users.id = ' . $this->table . '.created_by','left');
-		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
-
-		return parent::findAll($limit, $offset);
-	}
+		'created_by' => 'numeric|max_length[11]'
+    ];   
 }

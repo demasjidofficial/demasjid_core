@@ -21,6 +21,7 @@ class Pengurus extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
@@ -55,6 +56,7 @@ class Pengurus extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
@@ -184,6 +186,7 @@ class Pengurus extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */

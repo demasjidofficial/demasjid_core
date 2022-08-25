@@ -99,7 +99,7 @@
                                                 </li>
                                                 <li><a href="#"><?= lang('app.muamalah')?></a>
                                                     <ul class="submenu">
-                                                        <li><a href="#"><?= lang('app.room')?></a></li>
+                                                        <li><a href="<?= route_to('')?>"><?= lang('app.room')?></a></li>
                                                         <li><a href="#"><?= lang('app.net')?></a></li>
                                                         <li><a href="#"><?= lang('app.share')?></a></li>
                                                         <li><a href="#"><?= lang('app.life')?></a></li>

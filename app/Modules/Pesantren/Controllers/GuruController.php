@@ -1,19 +1,23 @@
 <?php
 
-namespace App\Modules\Masjid\Controllers;
+namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\RawatibScheduleModel;
-use App\Modules\Masjid\Models\RawatibScheduleFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
+use App\Modules\Api\Models\GuruModel;
+use App\Modules\Pesantren\Models\GuruFilter;
+use App\Traits\UploadedFile;
 
-class RawatibScheduleController extends AdminCrudController
+class GuruController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\schedule\rawatib_schedule\\';
-    protected $baseRoute = 'admin/masjid/rawatibschedule';
-    protected $langModel = 'rawatib_schedule';
-    protected $modelName = 'App\Modules\Api\Models\RawatibScheduleModel';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\guru\\';
+    protected $baseRoute = 'admin/pesantren/guru';
+    protected $langModel = 'guru';
+    protected $modelName = 'App\Modules\Api\Models\GuruModel';
+    private $imageFolder = 'images';
+
     public function index()
     {
         return parent::index();
@@ -36,6 +40,9 @@ class RawatibScheduleController extends AdminCrudController
 
     public function create()
     {
+        $uploadedImage = $this->uploadFile('image');
+        $this->model->set('path_image', $uploadedImage);
+
         return parent::create();
     }
 
@@ -46,13 +53,15 @@ class RawatibScheduleController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(RawatibScheduleFilter::class);
+        $model = model(GuruFilter::class);
         return [
             'headers' => [
+                'path_image' => lang('crud.path_image'),
                 'name' => lang('crud.name'),
-                'pray_time' => lang('crud.pray_time'),
-                'is_automatic' => lang('crud.is_automatic'),
-                'imam_id' => lang('crud.imam_id')
+                'nip' => lang('crud.nip'),
+                'jns_kelamin' => lang('crud.gender'),
+                'pelajaran_id' => lang('crud.pelajaran_id'),
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -66,7 +75,7 @@ class RawatibScheduleController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new RawatibScheduleModel();
+        $model = new GuruModel();
 
         if (!empty($id)) {
             $data = $model->find($id);
@@ -75,8 +84,7 @@ class RawatibScheduleController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['imamItems'] = Arr::pluck(model('App\Modules\Api\Models\ImamModel')->select(['id as key', 'name as text'])->permanent()->asArray()->findAll(), 'text', 'key');
-        $dataEdit['sholatItems'] = $model->getListSholat();
+        $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

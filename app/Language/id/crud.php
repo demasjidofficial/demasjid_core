@@ -200,7 +200,9 @@ return [
 
 	'student' => 'Siswa',
 	'teacher' => 'Guru',
+	'master_teacher' => 'Master Guru',
 	'absences' => 'Absensi',
+	'nip' => 'NIP',
 
 	'registration_open' => 'Buka Pendaftaran',
 	'registration' => 'Pendaftaran',

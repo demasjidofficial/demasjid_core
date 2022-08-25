@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateKategoriPelajaran extends Migration
+class CreateMasterKelas extends Migration
 {
     public function up()
     {
@@ -23,7 +23,28 @@ class CreateKategoriPelajaran extends Migration
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],
-            
+            'level' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'capacity' => [
+                'type'       => 'int',
+                'null'       => true,
+            ],
+            'duration' => [
+                'type'       => 'int',
+                'null'       => true,
+            ],
+            'uom_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
+            'entity_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -41,11 +62,13 @@ class CreateKategoriPelajaran extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('name');
-        $this->forge->createTable('kategori_pelajaran', true);
+        $this->forge->addForeignKey('uom_id', 'uom', 'id');
+        $this->forge->addForeignKey('entity_id', 'entity', 'id');
+        $this->forge->createTable('kelas', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('kategori_pelajaran', true);
+        $this->forge->dropTable('kelas', true);
     }
 }

@@ -346,22 +346,6 @@ class Pendaftaran extends BaseEntity
 	 *		 
 	 */
 	private $created_by; 
-	protected $datamap = [
-		'created_name' => 'full_name',
-		'kelas_name' => 'kelas_name',
-	];
-
-	public function getFullName()
-	{
-
-		return $this->first_name . ' ' . $this->last_name;
-	}
-	
-	public function getKelasName()
-	{
-
-		return $this->name_kelas;
-	}
 }
 /**
  *

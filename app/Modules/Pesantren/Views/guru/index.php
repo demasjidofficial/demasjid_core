@@ -4,10 +4,10 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.kelas') ?></h2>
+                <h2><?= lang('crud.master_teacher') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.kelas') ?></a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
             </div>
         </div>
     </x-page-head>
@@ -15,8 +15,8 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <!-- List kelass -->
-                <div class="col table-responsive" id="kelas-list">
+                <!-- List gurus -->
+                <div class="col table-responsive" id="guru-list">
                     <?php echo $this->include($viewPrefix.'\_table'); ?>
                     <?php echo $pager->links() ?>
                 </div>

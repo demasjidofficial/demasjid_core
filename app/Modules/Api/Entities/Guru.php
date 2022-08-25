@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class KategoriPelajaran
+* Class Guru
 * @OA\Schema(
-*     title="KategoriPelajaran",
-*     description="KategoriPelajaran"
+*     title="Guru",
+*     description="Guru"
 * )
 *
 * @OA\Tag(
-*     name="KategoriPelajaran",
-*     description="Everything about your KategoriPelajaran" 
+*     name="Guru",
+*     description="Everything about your Guru" 
 * )
 */ 
-class KategoriPelajaran extends BaseEntity
+class Guru extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -28,20 +28,20 @@ class KategoriPelajaran extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="name",
-	 *     title="name",
+	 *     description="path_image",
+	 *     title="path_image",
 	 *     type="string",
 	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=60,
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
-	private $name;
+	private $path_image;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="description",
-	 *     title="description",
+	 *     description="name",
+	 *     title="name",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -49,7 +49,43 @@ class KategoriPelajaran extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $description;
+	private $name;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="nip",
+	 *     title="nip",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $nip;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="jns_kelamin",
+	 *     title="jns_kelamin",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=1,
+	 * )
+	 *		 
+	 */
+	private $jns_kelamin;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="pelajaran_id",
+	 *     title="pelajaran_id",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=11,
+	 * )
+	 *		 
+	 */
+	private $pelajaran_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -88,16 +124,16 @@ class KategoriPelajaran extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="KategoriPelajaran",
- *     description="KategoriPelajaran object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/KategoriPelajaran"),
+ *     request="Guru",
+ *     description="Guru object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Guru"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/KategoriPelajaran")
+ *         @OA\Schema(ref="#/components/schemas/Guru")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/KategoriPelajaran")
+ *         @OA\Schema(ref="#/components/schemas/Guru")
  *     )
  * )
  */

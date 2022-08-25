@@ -4,10 +4,11 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateKelas extends Migration
+class CreatePelajaran extends Migration
 {
     public function up()
     {
+        
         $this->forge->addField([
             'id' => [
                 'type'           => 'int',
@@ -15,21 +16,20 @@ class CreateKelas extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'kelas_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            'description' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-            ],
-            'level' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-            ],
-            'capacity' => [
+            
+            'category_id' => [
                 'type'       => 'int',
-                'null'       => true,
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'duration' => [
                 'type'       => 'int',
@@ -40,10 +40,9 @@ class CreateKelas extends Migration
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
-            'entity_id' => [
+            'sequence' => [
                 'type'       => 'int',
-                'constraint' => 11,
-                'unsigned'   => true,
+                'null'       => true,
             ],
             'created_at' => [
                 'type' => 'datetime',
@@ -63,12 +62,14 @@ class CreateKelas extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('name');
         $this->forge->addForeignKey('uom_id', 'uom', 'id');
-        $this->forge->addForeignKey('entity_id', 'entity', 'id');
-        $this->forge->createTable('kelas', true);
+        $this->forge->addForeignKey('category_id', 'kategori_pelajaran', 'id');
+        $this->forge->addForeignKey('kelas_id', 'kelas', 'id');
+        $this->forge->createTable('pelajaran', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('kelas', true);
+        //
+        $this->forge->dropTable('pelajaran', true);
     }
 }

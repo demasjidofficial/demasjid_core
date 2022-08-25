@@ -1,8 +1,8 @@
-<td><?php echo esc($item->kelas_name) ?></a></td>
+<td><?php echo esc($item->class_id) ?></a></td>
 <td><?php echo esc($item->state) ?></a></td>
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->nis) ?></a></td>
-<!-- <td><?php echo esc($item->nick_name) ?></a></td>
+<td><?php echo esc($item->nick_name) ?></a></td>
 <td><?php echo esc($item->birth_date) ?></a></td>
 <td><?php echo esc($item->birth_place) ?></a></td>
 <td><?php echo esc($item->gender) ?></a></td>
@@ -21,12 +21,12 @@
 <td><?php echo esc($item->mother_job) ?></a></td>
 <td><?php echo esc($item->mother_tlpn) ?></a></td>
 <td><?php echo esc($item->mother_email) ?></a></td>
-<td><?php echo esc($item->path_image) ?></a></td> -->
-<td><?php echo esc($item->created_name) ?></a></td>
+<td><?php echo esc($item->path_image) ?></a></td>
+<td><?php echo esc($item->created_by) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
-        <button class="btn btn-sm dropdown-toggle btn-3-dots" type="button"  data-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-toggle="dropdown" aria-expanded="false"></button>
         <ul class="dropdown-menu">
             <li><a href="<?php echo $editUrl ?>" class="dropdown-item"><?php echo lang('Bonfire.edit') ?></a></li>
             <li><hr class="dropdown-divider"></li>
