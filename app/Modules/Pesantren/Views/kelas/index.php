@@ -4,10 +4,10 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.kelas') ?></h2>
+                <h2><?= lang('crud.class') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.kelas') ?></a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
             </div>
         </div>
     </x-page-head>

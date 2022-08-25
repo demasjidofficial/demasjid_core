@@ -8,7 +8,7 @@ use App\Libraries\Widgets\Stats\StatsItem;
 
 class _MastersController extends AdminCrudController
 {
-    
+
     public function index()
     {
         $this->setupWidgets();
@@ -25,8 +25,7 @@ class _MastersController extends AdminCrudController
 
         $widgets->createWidget(Stats::class, 'schedule');
         $widgets->widget('schedule')
-            ->createCollection('schedule')
-        ;
+            ->createCollection('schedule');
     }
 
     private function setWidgetSubMenu()
@@ -35,7 +34,7 @@ class _MastersController extends AdminCrudController
         $kelasItem = new StatsItem([
             'bgColor' => 'bg-success',
             'bgIcon' => 'bg-info',
-            'title' => lang('crud.class'),            
+            'title' => lang('crud.class'),
             'url'     => ADMIN_AREA . '/pesantren/kelas',
             'faIcon' => 'fas fa-graduation-cap',
         ]);
@@ -43,7 +42,7 @@ class _MastersController extends AdminCrudController
         $pendaftaranItem = new StatsItem([
             'bgColor' => 'bg-warning',
             'bgIcon' => 'bg-info',
-            'title' => lang('crud.pendaftaran'),            
+            'title' => lang('crud.pendaftaran'),
             'url'     => ADMIN_AREA . '/pesantren/pendaftaran',
             'faIcon' => 'fas fa-graduation-cap',
         ]);
@@ -51,7 +50,7 @@ class _MastersController extends AdminCrudController
         $guruItem = new StatsItem([
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-danger',
-            'title' => lang('crud.teacher'),            
+            'title' => lang('crud.teacher'),
             'url'     => ADMIN_AREA . '/pesantren/guru',
             'faIcon' => 'fas fa-users',
         ]);
@@ -59,7 +58,7 @@ class _MastersController extends AdminCrudController
         $kategoriPelajaranItem = new StatsItem([
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-danger',
-            'title' => lang('crud.kategori_pelajaran'),            
+            'title' => lang('crud.kategori_pelajaran'),
             'url'     => ADMIN_AREA . '/pesantren/kategoripelajaran',
             'faIcon' => 'fas fa-users',
         ]);
@@ -67,7 +66,7 @@ class _MastersController extends AdminCrudController
         $pelajaranItem = new StatsItem([
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-danger',
-            'title' => lang('crud.pelajaran'),            
+            'title' => lang('crud.pelajaran'),
             'url'     => ADMIN_AREA . '/pesantren/pelajaran',
             'faIcon' => 'fas fa-users',
         ]);
@@ -75,19 +74,28 @@ class _MastersController extends AdminCrudController
         $siswaItem = new StatsItem([
             'bgColor' => 'bg-primary',
             'bgIcon' => 'bg-primary',
-            'title' => lang('crud.student'),            
+            'title' => lang('crud.student'),
             'url'     => ADMIN_AREA . '/baitulmal/masterpaymentgateway',
             'faIcon' => 'fas fa-users',
         ]);
 
-        
+        $levelItem = new StatsItem([
+            'bgColor' => 'bg-primary',
+            'bgIcon' => 'bg-primary',
+            'title' => lang('crud.level'),
+            'url'     => ADMIN_AREA . '/pesantren/tingkatpendidikan',
+            'faIcon' => 'fas fa-users',
+        ]);
+
+
         $widgets->widget('schedule')->collection('schedule')
+            ->addItem($levelItem)
             ->addItem($kelasItem)
-            ->addItem($pendaftaranItem)
-            ->addItem($siswaItem)
-            ->addItem($guruItem)
             ->addItem($kategoriPelajaranItem)
             ->addItem($pelajaranItem)
-        ;
+            ->addItem($siswaItem)
+            ->addItem($guruItem)
+            ->addItem($pendaftaranItem);
+            
     }
 }

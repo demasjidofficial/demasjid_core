@@ -8,8 +8,8 @@
 
 <?php if (isset($data) && null !== $data->deleted_at) { ?>
     <div class="alert danger">
-        This <?= lang('crud.kategori_pelajaran') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
-        <a href="#">Restore <?= lang('crud.kategori_pelajaran') ?>?</a>
+        This <?= lang('crud.tingkat_pendidikan') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
+        <a href="#">Restore <?= lang('crud.tingkat_pendidikan') ?>?</a>
     </div>
 <?php } ?>
 
@@ -33,15 +33,6 @@
                     <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.name') . "' ") ?>
                     <?php if (has_error('name')) { ?>
                         <p class="text-danger"><?php echo error('name'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.description') . "' ") ?>
-                    <?php if (has_error('description')) { ?>
-                        <p class="text-danger"><?php echo error('description'); ?></p>
                     <?php } ?>
                 </div>
             </div>

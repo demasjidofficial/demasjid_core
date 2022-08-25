@@ -7250,6 +7250,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /tingkatPendidikans:
+    get:
+      tags:
+        - TingkatPendidikan
+      summary: 'Find list TingkatPendidikan'
+      description: 'Returns list of TingkatPendidikan'
+      operationId: getTingkatPendidikan
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TingkatPendidikan' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/TingkatPendidikan' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TingkatPendidikan' } }
+                type: object
+        '404':
+          description: 'TingkatPendidikan not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - TingkatPendidikan
+      summary: 'Add a new TingkatPendidikan to the store'
+      operationId: addTingkatPendidikan
+      requestBody:
+        $ref: '#/components/requestBodies/TingkatPendidikan'
+      responses:
+        '201':
+          description: 'Created TingkatPendidikan'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/tingkatPendidikans/{id}':
+    get:
+      tags:
+        - TingkatPendidikan
+      summary: 'Find TingkatPendidikan by ID'
+      description: 'Returns a single TingkatPendidikan'
+      operationId: getTingkatPendidikanById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of TingkatPendidikan to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TingkatPendidikan not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - TingkatPendidikan
+      summary: 'Update an existing TingkatPendidikan'
+      operationId: updateTingkatPendidikan
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TingkatPendidikan id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/TingkatPendidikan'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'TingkatPendidikan not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - TingkatPendidikan
+      summary: 'Deletes a TingkatPendidikan'
+      operationId: deleteTingkatPendidikan
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'TingkatPendidikan id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /uomCategories:
     get:
       tags:
@@ -9151,13 +9307,13 @@ components:
           type: string
           format: '-'
           maxLength: 255
-        level:
+        level_id:
           nullable: false
-          title: level
-          description: level
-          type: string
+          title: level_id
+          description: level_id
+          type: integer
           format: '-'
-          maxLength: 255
+          maxLength: 11
         capacity:
           nullable: true
           title: capacity
@@ -10943,6 +11099,44 @@ components:
           type: integer
           format: '-'
       type: object
+    TingkatPendidikan:
+      title: TingkatPendidikan
+      description: TingkatPendidikan
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 25
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     Uom:
       title: Uom
       description: Uom
@@ -11757,6 +11951,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Sitesocials'
+    TingkatPendidikan:
+      description: 'TingkatPendidikan object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TingkatPendidikan'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TingkatPendidikan'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TingkatPendidikan'
     Uom:
       description: 'Uom object that needs to be added'
       content:
@@ -11961,6 +12167,9 @@ tags:
   -
     name: Sitesocials
     description: 'Everything about your Sitesocials'
+  -
+    name: TingkatPendidikan
+    description: 'Everything about your TingkatPendidikan'
   -
     name: Uom
     description: 'Everything about your Uom'

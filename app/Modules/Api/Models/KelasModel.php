@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class KelasModel extends BaseModel
 {
     protected $table = 'kelas';
@@ -11,7 +9,7 @@ class KelasModel extends BaseModel
     protected $allowedFields = [
         'name',
 		'description',
-		'level',
+		'level_id',
 		'capacity',
 		'duration',
 		'uom_id',
@@ -24,13 +22,13 @@ class KelasModel extends BaseModel
         'id' => 'numeric|max_length[11]|required|is_unique[kelas.id,id,{id}]',
 		'name' => 'max_length[60]|required',
 		'description' => 'max_length[255]|required',
-		'level' => 'max_length[255]|required',
+		'level_id' => 'numeric|max_length[11]|required',
 		'capacity' => 'numeric|max_length[11]',
 		'duration' => 'numeric|max_length[11]',
 		'uom_id' => 'numeric|max_length[11]|required',
 		'entity_id' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]'
+		// 'created_by' => 'numeric|max_length[11]'
     ];   
 }

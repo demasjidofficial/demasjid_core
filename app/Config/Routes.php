@@ -80,6 +80,7 @@ static function ($routes) {
     $routes->resource('kelas');
     $routes->resource('gurus');
     $routes->resource('pendaftarans');
+    $routes->resource('tingkatPendidikans');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

@@ -4,16 +4,16 @@ namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\KategoriPelajaranModel;
-use App\Modules\Pesantren\Models\KategoriPelajaranFilter;
+use App\Modules\Api\Models\TingkatPendidikanModel;
+use App\Modules\Pesantren\Models\TingkatPendidikanFilter;
 
-class KategoriPelajaranController extends AdminCrudController
+class TingkatPendidikanController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Pesantren\Views\kategori_pelajaran\\';
-    protected $baseRoute = 'admin/pesantren/kategoripelajaran';
-    protected $langModel = 'kategori_pelajaran';
-    protected $modelName = 'App\Modules\Api\Models\KategoriPelajaranModel';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\tingkat_pendidikan\\';
+    protected $baseRoute = 'admin/pesantren/tingkatpendidikan';
+    protected $langModel = 'tingkat_pendidikan';
+    protected $modelName = 'App\Modules\Api\Models\TingkatPendidikanModel';
     public function index()
     {
         return parent::index();
@@ -46,11 +46,10 @@ class KategoriPelajaranController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(KategoriPelajaranFilter::class);
+        $model = model(TingkatPendidikanFilter::class);
         return [
             'headers' => [
                 'name' => lang('crud.name'),
-                'description' => lang('crud.description'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
@@ -65,7 +64,7 @@ class KategoriPelajaranController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new KategoriPelajaranModel();
+        $model = new TingkatPendidikanModel();
 
         if (!empty($id)) {
             $data = $model->find($id);

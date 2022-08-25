@@ -4,7 +4,7 @@
     <x-page-head>
         <div class="row">
             <div class="col">
-                <h2><?= lang('crud.pendaftaran') ?></h2>
+                <h2><?= lang('crud.level') ?></h2>
             </div>
             <div class="col-auto">
                 <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
@@ -15,8 +15,8 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <!-- List pendaftarans -->
-                <div class="col table-responsive" id="pendaftaran-list">
+                <!-- List tingkat_pendidikans -->
+                <div class="col table-responsive" id="tingkat_pendidikan-list">
                     <?php echo $this->include($viewPrefix.'\_table'); ?>
                     <?php echo $pager->links() ?>
                 </div>

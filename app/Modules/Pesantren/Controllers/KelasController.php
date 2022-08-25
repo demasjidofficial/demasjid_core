@@ -51,12 +51,12 @@ class KelasController extends AdminCrudController
             'headers' => [
                 'name' => lang('crud.name'),
                 'description' => lang('crud.description'),
-                'level' => lang('crud.level'),
+                'level_id' => lang('crud.level_id'),
                 'capacity' => lang('crud.capacity'),
                 'duration' => lang('crud.duration'),
                 'uom_id' => lang('crud.uom_id'),
                 'entity_id' => lang('crud.entity_id'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -79,6 +79,7 @@ class KelasController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+        $dataEdit['tingkat_pendidikanItems'] = Arr::pluck(model('App\Modules\Api\Models\TingkatPendidikanModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['uomItems'] = Arr::pluck(model('App\Modules\Api\Models\UomModel')->select(['uom.id as key', 'uom.name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;

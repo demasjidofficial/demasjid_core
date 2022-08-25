@@ -67,7 +67,7 @@ class PendaftaranController extends AdminCrudController
                 'mother_tlpn' => lang('crud.mother_tlpn'),
                 'mother_email' => lang('crud.mother_email'),
                 'path_image' => lang('crud.path_image'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),

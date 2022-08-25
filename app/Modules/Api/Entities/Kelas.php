@@ -52,16 +52,16 @@ class Kelas extends BaseEntity
 	private $description;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="level",
-	 *     title="level",
-	 *     type="string",
+	 *     description="level_id",
+	 *     title="level_id",
+	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
-	 * 	   maxLength=255,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
-	private $level;
+	private $level_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="capacity",

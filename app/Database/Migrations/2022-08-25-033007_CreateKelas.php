@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateMasterKelas extends Migration
+class CreateKelas extends Migration
 {
     public function up()
     {
@@ -23,9 +23,10 @@ class CreateMasterKelas extends Migration
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],
-            'level' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
+            'level_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'capacity' => [
                 'type'       => 'int',
@@ -64,6 +65,7 @@ class CreateMasterKelas extends Migration
         $this->forge->addUniqueKey('name');
         $this->forge->addForeignKey('uom_id', 'uom', 'id');
         $this->forge->addForeignKey('entity_id', 'entity', 'id');
+        $this->forge->addForeignKey('level_id', 'tingkat_pendidikan', 'id');
         $this->forge->createTable('kelas', true);
     }
 
