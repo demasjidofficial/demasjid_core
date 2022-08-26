@@ -90,12 +90,6 @@
     <!-- Footer -->
     <?= $this->include('_footer') ?>
     <!-- /Footer -->
->>>>>>> 
-
-    <!-- Footer -->
-    <?= $this->include('_footer') ?>
-    <!-- /Footer -->
-
 
   </div><!--/.wrapper-->
 
@@ -120,7 +114,6 @@
 <!-- Summernote -->
 <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
 
->>>>>>> 
 
 
 <!-- overlayScrollbars -->

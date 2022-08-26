@@ -83,10 +83,10 @@ static function ($routes) {
 
     $routes->resource('donaturTypes');
  
-    // $routes->resource('donaturcategories');
-    // $routes->resource('targetFundraisings');
-    // $routes->resource('jadwalFundraisings');
-    // $routes->resource('timFundraisings');
+    $routes->resource('donaturcategories',['except' => ['index']]);
+    $routes->resource('targetFundraisings');
+    $routes->resource('jadwalFundraisings');
+    $routes->resource('timFundraisings');
 
     $routes->resource('boardNewsBgs');
     $routes->resource('boardNewsRuntexts');

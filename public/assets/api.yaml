@@ -1322,7 +1322,6 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
   /boardDevices:
     get:
       tags:
@@ -1947,8 +1946,6 @@ paths:
       security:
         -
           bearer_auth: []
-=======
->>>>>>> 195ac79f209ca9eeb5ae45220f0e93e2122709d4
   /campaigns:
     get:
       tags:
@@ -2105,12 +2102,7 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
   /chartOfAccounts:
-=======
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
-  /entities:
->>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     get:
       tags:
         - ChartOfAccount
@@ -3982,13 +3974,7 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
   /masterBanks:
-=======
-<<<<<<< HEAD
-=======
-  /paymentCategories:
->>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     get:
       tags:
         - MasterBank
@@ -4300,12 +4286,7 @@ paths:
       security:
         -
           bearer_auth: []
-<<<<<<< HEAD
   /masterPaymentgateways:
-=======
->>>>>>> 5d778045929e951712d1eed2b3e26cc84efdc72f
-  /pelajarans:
->>>>>>> 9d022dbeb37c0f2d5a73bab06b2a7e96d6bea595
     get:
       tags:
         - MasterPaymentgateway
