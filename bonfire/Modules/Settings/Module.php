@@ -29,7 +29,7 @@ class Module extends BaseModule
         $item    = new MenuItem([
             'title'           => 'General',
             'namedRoute'      => 'general-settings',
-            'fontAwesomeIcon' => 'fas fa-cog',
+            'fontAwesomeIcon' => 'fas fa-cog nav-icon',
             'permission'      => 'admin.settings',
         ]);
         $sidebar->menu('sidebar')->collection('settings')->addItem($item);

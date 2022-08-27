@@ -11,7 +11,7 @@ class SitepostsController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\siteposts\\';
-    protected $baseRoute = 'admin/website/siteposts';
+    protected $baseRoute = 'admin/website/posts';
     protected $langModel = 'siteposts';
     protected $modelName = 'App\Modules\Api\Models\SitepostsModel';
     public function index(){
@@ -43,7 +43,7 @@ class SitepostsController extends AdminCrudController
         $model = model(SitepostsFilter::class);
         return [
             'headers' => [
-                                    'title' => 'title',
+                'title' => 'title',
                 'subtitle' => 'subtitle',
                 'path_image' => 'path_image',
                 'content' => 'content',

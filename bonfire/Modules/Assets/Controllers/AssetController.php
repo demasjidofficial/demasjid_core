@@ -45,19 +45,17 @@ class AssetController extends Controller
         $filename     = array_pop($segments);
         $origFilename = $filename;
         $filename     = explode('.', $filename);
-
+        
         // Must be at least a name and extension
         if (count($filename) < 2) {
             $this->response->setStatusCode(404);
 
             return;
         }
-
+        
         // If we have a fingerprint...
-        $filename = count($filename) === 3
-            ? $filename[0] . '.' . $filename[2]
-            : $origFilename;
-
+        $filename = $this->getRealPath($origFilename);
+        
         $folder = config('Assets')->folders[array_shift($segments)];
         $path   = $folder . '/' . implode('/', $segments) . '/' . $filename;
 
@@ -68,5 +66,37 @@ class AssetController extends Controller
         }
 
         return $this->response->download($origFilename, file_get_contents($path), true);
+    }
+
+    private function getRealPath($origFilename){
+        $config   = config('Assets');
+        $ext = explode('.', $origFilename);
+        $type = end($ext);
+
+        if (!in_array($type, ['js', 'css'])) {
+            return $origFilename;
+        }
+        // VERSION cache-busting
+        $fingerprint = '';
+        if ($config->bustingType === 'version') {
+            switch (ENVIRONMENT) {
+                case 'testing':
+                case 'development':
+                    $fingerprint = time();
+                    break;
+
+                default:
+                    $fingerprint = $config->versions[$type];
+            }
+        }
+        // FILE cache-busting
+        if ($config->bustingType === 'file') {
+            $fingerprint = time();
+        }
+
+        if($fingerprint){        
+            $origFilename = substr($origFilename, 0, strlen($origFilename) - (strlen($fingerprint) + strlen($type) + 1)).$type;            
+        }
+        return $origFilename;
     }
 }

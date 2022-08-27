@@ -52,7 +52,7 @@ class Bonfire
 
         if ($this->inAdmin) {
             $this->setupMenus();
-            $this->setupWidgets();
+            // $this->setupWidgets();
         }
 
         $this->discoverCoreModules();
@@ -84,15 +84,36 @@ class Bonfire
         $menus->createMenu('sidebar');
         $menus->menu('sidebar')
             ->createCollection('masjid', 'Masjid')
-            ->setFontAwesomeIcon('nav-icon fas fa-home')
+            ->setFontAwesomeIcon('nav-icon fas fa-building')
             ->setCollapsible();
-            $menus->menu('sidebar')
+        $menus->menu('sidebar')
+            ->createCollection('pesantren', 'Pesantren')
+            ->setFontAwesomeIcon('nav-icon fas fa-university')
+            ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('tpq', 'TPQ')
+            ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
+            ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('baitulmal', 'Baitul Mal')
+            ->setFontAwesomeIcon('nav-icon fas fa-calculator')
+            ->setCollapsible();        
+
+        $menus->menu('sidebar')
             ->createCollection('website', 'Website')
             ->setFontAwesomeIcon('nav-icon fas fa-globe')
             ->setCollapsible();
         $menus->menu('sidebar')
+            ->createCollection('board', 'Board')
+            ->setFontAwesomeIcon('nav-icon fas fa-tv')
+            ->setCollapsible();
+        $menus->menu('sidebar')
+            ->createCollection('bot', 'Bot')
+            ->setFontAwesomeIcon('nav-icon fas fa-microchip')
+            ->setCollapsible();
+        $menus->menu('sidebar')
             ->createCollection('content', 'Konten')
-            ->setFontAwesomeIcon('nav-icon fas fa-palette');
+            ->setFontAwesomeIcon('nav-icon fas fa-palette no-need');        
         $menus->menu('sidebar')
             ->createCollection('settings', 'Pengaturan')
             ->setFontAwesomeIcon('nav-icon fas fa-cog')
@@ -101,8 +122,16 @@ class Bonfire
             ->createCollection('tools', 'Alat')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
-	
-        
+
+        $menus->menu('sidebar')
+            ->createCollection('umum', 'Umum')
+            ->setFontAwesomeIcon('nav-icon fas fa-angle-double-right');
+        $menus->menu('sidebar')
+            ->createCollection('users', 'Pengguna')
+            ->setFontAwesomeIcon('nav-icon fas fa-users');
+        $menus->menu('sidebar')
+            ->createCollection('modul', 'Modul')
+            ->setFontAwesomeIcon('nav-icon fas fa-book');
 
         // Top "icon" menu for notifications, account, etc.
         $menus->createMenu('iconbar');
@@ -118,11 +147,11 @@ class Bonfire
 
         $widgets->createWidget(Stats::class, 'stats');
         $widgets->widget('stats')
-            ->createCollection('stats');
+                ->createCollection('stats');
 
         $widgets->createWidget(Charts::class, 'charts');
         $widgets->widget('charts')
-            ->createCollection('charts');
+                ->createCollection('charts');
     }
 
     /**
@@ -174,20 +203,18 @@ class Bonfire
         }
     }
 
-    private function getAppModules()
-    {
+    private function getAppModules(){
         $modules = [];
-        $map     = directory_map(APPPATH . 'Modules', 1);
+        $map = directory_map(APPPATH . 'Modules', 1);
 
-        foreach ($map as $row) {
-            if (substr($row, -1) !== DIRECTORY_SEPARATOR) {
-                continue;
+            foreach ($map as $row) {
+                if (substr($row, -1) !== DIRECTORY_SEPARATOR) {
+                    continue;
+                }
+
+                $name                                 = trim($row, DIRECTORY_SEPARATOR);
+                $modules["App\\Modules\\{$name}"] = APPPATH . "Modules/{$name}";
             }
-
-            $name                             = trim($row, DIRECTORY_SEPARATOR);
-            $modules["App\\Modules\\{$name}"] = APPPATH . "Modules/{$name}";
-        }
-
         return $modules;
     }
 }

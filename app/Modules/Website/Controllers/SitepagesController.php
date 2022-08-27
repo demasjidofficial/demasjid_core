@@ -11,7 +11,7 @@ class SitepagesController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitepages\\';
-    protected $baseRoute = 'admin/website/sitepages';
+    protected $baseRoute = 'admin/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
     public function index(){
@@ -43,17 +43,16 @@ class SitepagesController extends AdminCrudController
         $model = model(SitepagesFilter::class);
         return [
             'headers' => [
-                                    'title' => 'title',
-                'subtitle' => 'subtitle',
-                'path_image' => 'path_image',
-                'content' => 'content',
-                'permalink' => 'permalink',
-                'meta_title' => 'meta_title',
-                'meta_desc' => 'meta_desc',
-                'sitemenu_id' => 'sitemenu_id',
-                'language_id' => 'language_id',
-                'state' => 'state',
-                'created_by' => 'created_by'
+                'path_image' => lang('crud.image'),
+                'title' => lang('crud.title'),
+                //'subtitle' => lang('crud.subtitle'),
+                //'content' => lang('crud.content'),
+                //'permalink' => lang('crud.permalink'),
+                //'meta_title' => lang('crud.meta_title'),
+                //'meta_desc' => lang('crud.meta_desc'),
+                'sitemenu_id' => lang('crud.menu'),
+                'language_id' => lang('crud.language'),
+                'state' => lang('crud.state'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -76,7 +75,10 @@ class SitepagesController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+        //$menuItems = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['menu.id as key','menu.name as text'])->website()->asArray()->findAllExcludeJoin(), 'text', 'key');
+
+        $dataEdit['menuItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+
         return $dataEdit;
     }
 }

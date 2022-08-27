@@ -11,12 +11,15 @@ class MemberModel extends BaseModel
     protected $primaryKey    = 'id';
     protected $useTimestamps = true;
     public static $state = ['Draft', 'Submit', 'Approve', 'Reject', 'Void'];
+    public static $defaultState = 'Submit';
+    public static $finalState = 'Approve';
     protected $allowedFields = [
         'name',
         'wilayah_id',
         'code',
         'address',
         'email',
+        'domain',
         'telephone',
         'path_logo',
         'path_image',

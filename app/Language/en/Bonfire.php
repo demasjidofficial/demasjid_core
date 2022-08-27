@@ -29,7 +29,7 @@ return [
     'lastModified'     => 'Last Modified',
     'fileSize'         => 'File Size',
 
-    'save' => 'Simpan',
-    'new'  => 'Baru',
-    'register'         => 'Registrasi',
+    'save'             => 'Save',
+    'new'              => 'New',
+    'register'         => 'Register',
 ];

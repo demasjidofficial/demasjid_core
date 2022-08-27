@@ -31,8 +31,14 @@ class CreateLanguages extends Migration
             'state' => [
                 'type'       => 'varchar',
                 'constraint' => 20,
-                'default'    => 'Active',
+                'default'    => 'active',
                 'null'       => true,
+            ],
+            'is_default' => [
+                'type'       => 'int',
+                'constraint' => 1,
+                'unsigned'   => true,
+                'null'       => true,   
             ],
             'created_at' => [
                 'type'       => 'datetime',

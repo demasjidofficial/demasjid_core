@@ -25,7 +25,7 @@ $this->section('main') ?>
             <?php
             foreach ($logContent as $key => $log): ?>
                 <tr <?php if (array_key_exists('extra', $log)) : ?> style="cursor:pointer"
-                    data-bs-toggle="collapse" data-bs-target="#stack<?= $key ?>" aria-controls="stack<?= $key ?>" aria-expanded="false"
+                    data-toggle="collapse" data-bs-target="#stack<?= $key ?>" aria-controls="stack<?= $key ?>" aria-expanded="false"
                     <?php endif ?>
                 >
                     <td class="text-<?= $log['class']; ?>">

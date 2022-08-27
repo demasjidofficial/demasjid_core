@@ -52,7 +52,7 @@ class Menu
     {
         $collection = new MenuCollection();
         $collection->setName($name)
-            ->setTitle($title);
+                   ->setTitle($title);
 
         $this->items[] = $collection;
 

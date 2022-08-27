@@ -49,6 +49,35 @@ if (! defined('asset')) {
         }
 
         // VERSION cache-busting
+        $fingerprint = fingerprint($location, $type);
+
+        $filename = str_replace($ext, '.' . $fingerprint . $ext, $filename);
+
+        // Stitch the location back together
+        $segments[] = $filename;
+        $location   = implode('/', $segments);
+        $url        = "/assets/{$location}";
+
+        return base_url($url);
+    }
+}
+
+if (! defined('fingerprint')) {
+    function fingerprint(string $location, string $type): string
+    {
+        $config   = config('Assets');
+        $location = trim($location, ' /');
+
+        // Add a cache-busting fingerprint to the filename
+        $segments = explode('/', $location);
+        $filename = array_pop($segments);
+        $ext      = substr($filename, strrpos($filename, '.'));
+
+        if (empty($filename) || empty($ext) || $filename === $ext || empty($segments)) {
+            throw new \RuntimeException('You must provide a valid filename and extension to the asset() helper.');
+        }
+
+        // VERSION cache-busting
         $fingerprint = '';
         if ($config->bustingType === 'version') {
             switch (ENVIRONMENT) {
@@ -77,13 +106,6 @@ if (! defined('asset')) {
             }
         }
 
-        $filename = str_replace($ext, '.' . $fingerprint . $ext, $filename);
-
-        // Stitch the location back together
-        $segments[] = $filename;
-        $location   = implode('/', $segments);
-        $url        = "/assets/{$location}";
-
-        return base_url($url);
+        return $fingerprint;
     }
 }

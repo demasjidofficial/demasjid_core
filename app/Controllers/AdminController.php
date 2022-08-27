@@ -22,4 +22,12 @@ class AdminController extends BaseController
 
         parent::initController($request, $response, $logger);
     }
+
+    protected function writeLog()
+    {
+        if (ENVIRONMENT !== 'production') {
+            $query = $this->db->getLastQuery();
+            log_message('critical', (string) $query);
+        }
+    }
 }

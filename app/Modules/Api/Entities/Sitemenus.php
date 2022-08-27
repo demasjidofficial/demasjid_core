@@ -116,6 +116,15 @@ class Sitemenus extends BaseEntity
 	 *		 
 	 */
 	private $created_by; 
+
+	protected $datamap = [
+        'created_name' => 'full_name',
+    ];
+
+	public function getFullName(){
+
+        return $this->first_name.' '.$this->last_name;
+	}
 }
 /**
  *
