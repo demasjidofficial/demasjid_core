@@ -47,9 +47,12 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.target_donatur'), '', ['for' => 'campaign_name', 'class' => 'col-form-label col-sm-2']) ?>
+
+               
+                <?= form_label(lang('crud.target_id'), '', ['for' => 'campaign_name', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('campaign_name', old('campaign_name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.target_donatur') . "' ") ?>
+                    <?= form_input('campaign_name', old('campaign_name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.target_id') . "' ") ?>
+
                     <?php if (has_error('campaign_name')) { ?>
                         <p class="text-danger"><?php echo error('campaign_name'); ?></p>
                     <?php } ?>
@@ -127,7 +130,11 @@
         });
 
         $('select[name="campaign"]').change(function() {
+
+            $('input[name="campaign_name"]').val(parseInt(this.value) ? $('select[name="campaign_name"] option:selected').text() : '');
+
             $('input[name="campaign_name"]').val(parseInt(this.value) ? $('select[name="campaign"] option:selected').text() : '');
+
         });
 
     });

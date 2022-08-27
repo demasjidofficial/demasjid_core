@@ -1,6 +1,10 @@
 <?php namespace App\Modules\Api\Models;
 
+
+use asligresik\easyapi\Models\BaseModel;
+
 use CodeIgniter\Database\BaseBuilder;
+
 
 class DonasiModel extends BaseModel
 {
@@ -9,6 +13,30 @@ class DonasiModel extends BaseModel
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
     protected $allowedFields = [
+
+        'id_donatur',
+		'id_pembayaran',
+		'id_program',
+		'dana_in',
+		'tgl_transaksi',
+		'bukti_pembayaran',
+		'created_at',
+		'updated_at',
+		'created_by'
+    ];
+    protected $validationRules = [
+        'id' => 'numeric|max_length[11]|required|is_unique[donasi.id,id,{id}]',
+		'id_donatur' => 'numeric|max_length[11]|required',
+		'id_pembayaran' => 'numeric|max_length[11]|required',
+		'id_program' => 'numeric|max_length[11]|required',
+		'dana_in' => 'numeric|max_length[2]|required',
+		'tgl_transaksi' => 'valid_date|required',
+		'bukti_pembayaran' => 'required',
+		'created_at' => 'valid_date|required',
+		'updated_at' => 'valid_date|required',
+		'created_by' => 'numeric|max_length[11]'
+    ];   
+
         'donatur_id',
 		'paymentmethod_id',
 		'campaign_id',
@@ -43,4 +71,5 @@ class DonasiModel extends BaseModel
 		$this->select(''.$this->table.'.id,'.$this->table.'.dana_in, '.$this->table.'.date, '.$this->table.'.campaign_id, '.$this->table.'.paymentmethod_id, '.$this->table.'.state, '.$this->table.'.name, '.$this->table.'.email, '.$this->table.'.no_hp, '.$this->table.'.paymentmethod_id, bmdonationcampaign.name as campaign_name, payment_method.payment_category_id as payment_category, payment_method.rek_name as payment_rek_name');
 		return parent::findAll($limit, $offset);
     }
+
 }
