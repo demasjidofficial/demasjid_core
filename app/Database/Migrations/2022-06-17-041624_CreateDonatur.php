@@ -9,8 +9,6 @@ class CreateDonatur extends Migration
     public function up()
     {
 
-        $this->db->disableForeignKeyChecks();
-
 
 
         $this->forge->addField([
@@ -71,10 +69,7 @@ class CreateDonatur extends Migration
 
         $this->forge->addPrimaryKey('id');
 
-        $this->forge->addForeignKey('id_donatur_type', 'donatur', 'id');    
-        $this->forge->createTable('donatur', true);
-
-        $this->db->disableForeignKeyChecks();
+       
 
         $this->forge->addForeignKey('donatur_type_id', 'donatur_type', 'id');    
         $this->forge->createTable('donatur', true);
