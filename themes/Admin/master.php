@@ -159,7 +159,6 @@
 
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
->>>>>>> 
 
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js', 'js') ?>
 
