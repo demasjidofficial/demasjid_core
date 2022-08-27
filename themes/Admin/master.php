@@ -23,25 +23,12 @@
     <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css', 'css') ?>
         
     <?= asset_link('admin/css/admin-demasjid.css', 'css') ?>
+    <?= asset_link('admin/css/icomoon/style.css', 'css') ?>
     <!--    
     < ?= asset_link('admin/css/admin.css', 'css') ?>
     < ?= asset_link('other/components/font-awesome/css/all.css', 'css') ?>
     -->
     <style>
-      .tf-v1-sidetab-button-text {
-          font-size: 14px !important;
-          margin-left: 1px !important;
-      }
-      .tf-v1-sidetab-button {
-          left: -40px !important;
-          max-width: 390px !important;
-          height: 40px !important;
-          padding: 0 14px !important;
-          /*border-radius: 8px 8px 0 0;*/
-    }
-    .tf-v1-sidetab-button-icon {
-        margin-right: 0px !important;
-    }
     </style>
     <?= $this->renderSection('styles') ?>
 </head>
@@ -49,9 +36,9 @@
   <div class="wrapper">
 
     <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
+    <!--<div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="/assets/admin/images/spinner.gif" alt="" height="60" width="60">
-    </div>
+    </div>-->
 
     <!-- Header -->
     <?= $this->include('_header') ?>
@@ -65,8 +52,15 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="padding: 5px 0;">      
 
+
+    
       <!-- Main content -->
-      <section class="content">
+      <section class="content demasjid_relative">
+        <!-- Feedback Form -->
+        <div data-tf-sidetab="lWWECIkd" data-tf-width="420" data-tf-height="450" data-tf-custom-icon="https://images.typeform.com/images/dcB899G2zqGn" data-tf-button-color="#026451" data-tf-button-text="<?= lang('app.helpus_grow')?>" data-tf-iframe-props="title=Feedback Form" data-tf-medium="snippet" style="">
+      </div>
+        <script src="//embed.typeform.com/next/embed.js"></script>
+        <!--/Feedback Form -->
         <div class="container-fluid">
           <?= $this->renderSection('main') ?>
         </div><!-- /.container-fluid -->
@@ -75,28 +69,11 @@
     </div>
     <!-- /.content-wrapper -->
 
-
-
-    <!-- Main content -->
-    <section class="content" >
-      <div class="container-fluid" >
-        <?= $this->renderSection('main') ?>
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
     <!-- Footer -->
     <?= $this->include('_footer') ?>
     <!-- /Footer -->
 
   </div><!--/.wrapper-->
-
-  <!-- Feedback Form -->
-  <div data-tf-sidetab="lWWECIkd" data-tf-width="420" data-tf-height="450" data-tf-custom-icon="https://images.typeform.com/images/dcB899G2zqGn" data-tf-button-color="#026451" data-tf-button-text="<?= lang('app.helpus_grow')?>" data-tf-iframe-props="title=Feedback Form" data-tf-medium="snippet" style="all:unset;"></div>
-  <script src="//embed.typeform.com/next/embed.js"></script>
-  <!--/Feedback Form -->
 
 <!-- jQuery -->
 <?= asset_link('admin/theme-adminlte/plugins/jquery/jquery-min.js', 'js') ?>
@@ -105,66 +82,14 @@
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js', 'js') ?>
 <!-- Moment -->
 <?= asset_link('admin/theme-adminlte/plugins/moment/moment-min.js', 'js') ?>
-
-
-<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
-
-<!-- Tempusdominus Bootstrap 4 -->
-<?= asset_link('admin/theme-adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js', 'js') ?>
-<!-- Summernote -->
-<?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
-
-
-
 <!-- overlayScrollbars -->
 <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js', 'js') ?>
 <!-- AdminLTE App -->
 <?= asset_link('admin/theme-adminlte/adminlte.js', 'js') ?>
-
-
-
-
-
-<script>
-   //Date range picker
-   $('#reservation').daterangepicker()
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      locale: {
-        format: 'MM/DD/YYYY hh:mm A'
-      }
-    })
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-      {
-        ranges   : {
-          'Today'       : [moment(), moment()],
-          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        startDate: moment().subtract(29, 'days'),
-        endDate  : moment()
-      },
-      function (start, end) {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-      }
-    )
-</script>
-
-
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script src="https://unpkg.com/htmx.org@1.7.0"></script>
-
 <?= asset_link('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js', 'js') ?>
 
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
-
 <!-- AdminLTE for demo purposes --
 <script src="/assets/admin/theme-adminlte/adminlte-demo.js"></script>
 < !-- AdminLTE dashboard demo (This is only for demo purposes) --

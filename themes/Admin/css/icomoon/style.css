@@ -1,0 +1,293 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?93r60p');
+  src:  url('fonts/icomoon.eot?93r60p#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?93r60p') format('truetype'),
+    url('fonts/icomoon.woff?93r60p') format('woff'),
+    url('fonts/icomoon.svg?93r60p#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon_flag_ID .path1:before {
+  content: "\e93e";
+  color: rgb(255, 255, 255);
+}
+.icon-icon_flag_ID .path2:before {
+  content: "\e93f";
+  margin-left: -1.7138671875em;
+  color: rgb(241, 240, 248);
+}
+.icon-icon_flag_ID .path3:before {
+  content: "\e940";
+  margin-left: -1.7138671875em;
+  color: rgb(225, 34, 55);
+}
+.icon-icon_chat:before {
+  content: "\e941";
+  color: #636061;
+}
+.icon-icon_umum:before {
+  content: "\e93d";
+  color: #636061;
+}
+.icon-icon_modul:before {
+  content: "\e93a";
+  color: #636061;
+}
+.icon-icon_content:before {
+  content: "\e93b";
+  color: #636061;
+}
+.icon-icon_muamalah:before {
+  content: "\e93c";
+  color: #636061;
+}
+.icon-icon_add:before {
+  content: "\e900";
+  color: #636061;
+}
+.icon-icon_add_image:before {
+  content: "\e901";
+  color: #636061;
+}
+.icon-icon_Al_Quran:before {
+  content: "\e902";
+  color: #636061;
+}
+.icon-icon_arrow_down:before {
+  content: "\e903";
+  color: #636061;
+}
+.icon-icon_arrow_up:before {
+  content: "\e904";
+  color: #636061;
+}
+.icon-icon_back:before {
+  content: "\e905";
+  color: #636061;
+}
+.icon-icon_bank:before {
+  content: "\e906";
+  color: #636061;
+}
+.icon-icon_board:before {
+  content: "\e907";
+  color: #636061;
+}
+.icon-icon_chart:before {
+  content: "\e908";
+  color: #636061;
+}
+.icon-icon_check:before {
+  content: "\e909";
+  color: #636061;
+}
+.icon-icon_checkbox:before {
+  content: "\e90a";
+  color: #636061;
+}
+.icon-icon_close:before {
+  content: "\e90b";
+  color: #636061;
+}
+.icon-icon_date:before {
+  content: "\e90c";
+  color: #636061;
+}
+.icon-icon_date_finish:before {
+  content: "\e90d";
+  color: #636061;
+}
+.icon-icon_desktop:before {
+  content: "\e90e";
+  color: #636061;
+}
+.icon-icon_donatur:before {
+  content: "\e90f";
+  color: #636061;
+}
+.icon-icon_down:before {
+  content: "\e910";
+  color: #636061;
+}
+.icon-icon_edit:before {
+  content: "\e911";
+  color: #636061;
+}
+.icon-icon_external_link:before {
+  content: "\e912";
+  color: #636061;
+}
+.icon-icon_eye:before {
+  content: "\e913";
+  color: #636061;
+}
+.icon-icon_feedback:before {
+  content: "\e914";
+  color: #636061;
+}
+.icon-icon_filter:before {
+  content: "\e915";
+  color: #636061;
+}
+.icon-icon_hand_donation:before {
+  content: "\e916";
+  color: #636061;
+}
+.icon-icon_home:before {
+  content: "\e917";
+  color: #636061;
+}
+.icon-icon_infaq:before {
+  content: "\e918";
+  color: #636061;
+}
+.icon-icon_info:before {
+  content: "\e919";
+  color: #636061;
+}
+.icon-icon_institusi:before {
+  content: "\e91a";
+  color: #636061;
+}
+.icon-icon_iot:before {
+  content: "\e91b";
+  color: #636061;
+}
+.icon-icon_log_out:before {
+  content: "\e91c";
+  color: #636061;
+}
+.icon-icon_mapping:before {
+  content: "\e91d";
+  color: #636061;
+}
+.icon-icon_menu:before {
+  content: "\e91e";
+  color: #636061;
+}
+.icon-icon_menu-1:before {
+  content: "\e91f";
+  color: #636061;
+}
+.icon-icon_minimize:before {
+  content: "\e920";
+  color: #636061;
+}
+.icon-icon_more:before {
+  content: "\e921";
+  color: #636061;
+}
+.icon-icon_mosque:before {
+  content: "\e922";
+  color: #636061;
+}
+.icon-icon_notif:before {
+  content: "\e923";
+  color: #636061;
+}
+.icon-icon_organisasi:before {
+  content: "\e924";
+  color: #636061;
+}
+.icon-icon_pause:before {
+  content: "\e925";
+  color: #636061;
+}
+.icon-icon_perorangan:before {
+  content: "\e926";
+  color: #636061;
+}
+.icon-icon_perusahaan:before {
+  content: "\e927";
+  color: #636061;
+}
+.icon-icon_pesantren:before {
+  content: "\e928";
+  color: #636061;
+}
+.icon-icon_plane:before {
+  content: "\e929";
+  color: #636061;
+}
+.icon-icon_play:before {
+  content: "\e92a";
+  color: #636061;
+}
+.icon-icon_qurban:before {
+  content: "\e92b";
+  color: #636061;
+}
+.icon-icon_radio:before {
+  content: "\e92c";
+  color: #636061;
+}
+.icon-icon_rupiah:before {
+  content: "\e92d";
+  color: #636061;
+}
+.icon-icon_save:before {
+  content: "\e92e";
+  color: #636061;
+}
+.icon-icon_save_fundraising:before {
+  content: "\e92f";
+  color: #636061;
+}
+.icon-icon_search:before {
+  content: "\e930";
+  color: #636061;
+}
+.icon-icon_setting:before {
+  content: "\e931";
+  color: #636061;
+}
+.icon-icon_task:before {
+  content: "\e932";
+  color: #636061;
+}
+.icon-icon_tool:before {
+  content: "\e933";
+  color: #636061;
+}
+.icon-icon_up:before {
+  content: "\e934";
+  color: #636061;
+}
+.icon-icon_upload:before {
+  content: "\e935";
+  color: #636061;
+}
+.icon-icon_user:before {
+  content: "\e936";
+  color: #636061;
+}
+.icon-icon_wakaf:before {
+  content: "\e937";
+  color: #636061;
+}
+.icon-icon_website:before {
+  content: "\e938";
+  color: #636061;
+}
+.icon-icon_zakat:before {
+  content: "\e939";
+  color: #636061;
+}
