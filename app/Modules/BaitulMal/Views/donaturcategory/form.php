@@ -2,8 +2,7 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.donaturcategory') ?></a>
-        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.donaturcategory') ?></h4>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; Ubah Kategori</a>
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>
@@ -17,6 +16,7 @@
     <x-admin-box>
 
 
+    <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.donaturcategory') ?></h4>
         <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
             <?php echo csrf_field(); ?>
@@ -49,7 +49,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.donaturcategory') ?></button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> SIMPAN</button>
             </div>
 
         </form>
