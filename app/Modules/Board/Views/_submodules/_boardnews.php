@@ -27,7 +27,7 @@
                     <div class="icon">
                     <i class="fas fa-tv"></i>
                     </div>
-                    <a href="<?= site_url('/admin/board/newsbg')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/board/boardnewsbg')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="icon">
                     <i class="fas fa-comment"></i>
                     </div>
-                    <a href="<?= site_url('/admin/board/newsrunningtext')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/board/boardnewsruntext')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
