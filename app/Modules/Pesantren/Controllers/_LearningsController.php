@@ -1,90 +1,110 @@
 <?php
 
-namespace App\Modules\Pesantren\Controllers;
-
-use App\Controllers\AdminCrudController;
-//use App\Modules\Api\Models\ProgramsModel;
-//use App\Modules\Pesantren\Models\ProgramsFilter;
-//use IlluminateAgnostic\Arr\Support\Arr;
-
-class _LearningsController extends AdminCrudController
-{
-    //protected $baseController = __CLASS__;
-    //protected $viewPrefix = 'App\Modules\Pesantren\Views\submodules\\';
-    //protected $baseRoute = 'admin/masjid/';
-    //protected $langModel = 'accounting';
-    //protected $modelName = 'App\Modules\Api\Models\ProgramsModel';
-    public function index(){
-        //return parent::index();
-        return $this->render('App\Modules\Pesantren\Views\_submodules\learnings',[]);
-    }
-
-    /*
-    public function edit($id = null){
-        return parent::edit($id);
-    }
-
-    public function update($id = null){
-        return parent::update($id);
-    }
-
-    public function show($id = null){
-        return parent::show($id);
-    }
-
-    public function create(){
-        return parent::create();
-    }
-
-    public function delete($id = null){
-        return parent::delete($id);
-    }
-    */
-
-    /*
-    protected function getDataIndex()
+    namespace App\Modules\Pesantren\Controllers;
+    
+    use App\Controllers\AdminCrudController;
+    use App\Libraries\Widgets\Stats\Stats;
+    use App\Libraries\Widgets\Stats\StatsItem;
+    
+    class _LearningsController extends AdminCrudController
     {
-        
-        $model = model(ProgramsFilter::class);
-        $model->masjid();
-        $model->orderBy('transaction_date');
-        return [
-            'headers' => [                
-                'transaction_date' => lang('crud.transaction_date'),
-                'description' => lang('crud.description'),
-                'debit' => lang('crud.debit'),
-                'credit' => lang('crud.credit'),                
-                'saldo'  => lang('crud.saldo'),
-                'chart_of_account_id' => lang('crud.chart_of_account'),
-                'account_balance_id' => lang('crud.account'),
-            ],
-            'controller' => $this->getBaseController(),
-            'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
-            'showSelectAll' => true,
-            'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
-        ];
-        
-    }
-
-    protected function getDataEdit($id = null)
-    {
-        /*
-        $dataEdit = parent::getDataEdit($id);
-        $model = new ProgramsModel();
-
-        if(!empty($id)){
-            $data = $model->find($id);
-            if (null === $data) {
-                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
-            }
-            $dataEdit['data'] = $data;
+    
+        public function index()
+        {
+            $this->setupWidgets();
+            $this->setWidgetSubMenu();
+            $widgets = service('widgets');
+            echo $this->render('App\Modules\Pesantren\Views\_submodules\learnings', [
+                'widgets' => $widgets,
+            ]);
         }
-            $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountProgramsModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
-            $dataEdit['chart_of_accountItems'] = Arr::pluck(model('App\Modules\Api\Models\ChartOfAccountModel')->select(['id as key','name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
-        return $dataEdit;
-        
+    
+        private function setupWidgets()
+        {
+            $widgets = service('widgets');
+    
+            $widgets->createWidget(Stats::class, 'schedule');
+            $widgets->widget('schedule')
+                ->createCollection('schedule');
+        }
+    
+        private function setWidgetSubMenu()
+        {
+            $widgets = service('widgets');
+            $kategoriPelajaranItem = new StatsItem([
+                'bgColor' => 'bg-success',
+                'bgIcon' => 'bg-info',
+                'title' => lang('crud.kategori_pelajaran'),
+                'url'     => ADMIN_AREA . '/pesantren/kategoripelajaran',
+                'faIcon' => 'fas fa-graduation-cap',
+            ]);
+    
+            $pelajaranItem = new StatsItem([
+                'bgColor' => 'bg-warning',
+                'bgIcon' => 'bg-info',
+                'title' => lang('crud.pelajaran'),
+                'url'     => ADMIN_AREA . '/pesantren/pelajaran',
+                'faIcon' => 'fas fa-graduation-cap',
+            ]);
+    
+            $babItem = new StatsItem([
+                'bgColor' => 'bg-danger',
+                'bgIcon' => 'bg-danger',
+                'title' => lang('crud.bab'),
+                'url'     => ADMIN_AREA . '/pesantren/bab',
+                'faIcon' => 'fas fa-users',
+            ]);
+    
+            $materiItem = new StatsItem([
+                'bgColor' => 'bg-primary',
+                'bgIcon' => 'bg-primary',
+                'title' => lang('crud.materi'),
+                'url'     => ADMIN_AREA . '/pesantren/materi',
+                'faIcon' => 'fas fa-users',
+            ]);
+    
+            $absencesItem = new StatsItem([
+                'bgColor' => 'bg-primary',
+                'bgIcon' => 'bg-primary',
+                'title' => lang('crud.absences'),
+                'url'     => ADMIN_AREA . '/pesantren/absences',
+                'faIcon' => 'fas fa-users',
+            ]);
+            
+            $registrationOpenItem = new StatsItem([
+                'bgColor' => 'bg-primary',
+                'bgIcon' => 'bg-primary',
+                'title' => lang('crud.registration_open'),
+                'url'     => ADMIN_AREA . '/pesantren/bukapendaftaran',
+                'faIcon' => 'fas fa-users',
+            ]);
+
+            $registrationItem = new StatsItem([
+                'bgColor' => 'bg-primary',
+                'bgIcon' => 'bg-primary',
+                'title' => lang('crud.registration'),
+                'url'     => ADMIN_AREA . '/pesantren/pendaftaran',
+                'faIcon' => 'fas fa-users',
+            ]);
+
+            $registrationAdmissionItem = new StatsItem([
+                'bgColor' => 'bg-primary',
+                'bgIcon' => 'bg-primary',
+                'title' => lang('crud.registration_admission'),
+                'url'     => ADMIN_AREA . '/pesantren/penerimaanpendaftaran',
+                'faIcon' => 'fas fa-users',
+            ]);
+    
+            $widgets->widget('schedule')->collection('schedule')
+                ->addItem($kategoriPelajaranItem)
+                ->addItem($pelajaranItem)
+                ->addItem($babItem)
+                ->addItem($materiItem)
+                ->addItem($absencesItem)
+                ->addItem($registrationOpenItem)
+                ->addItem($registrationItem)
+                ->addItem($registrationAdmissionItem);
+                
+        }
     }
-    */
-}
+    
