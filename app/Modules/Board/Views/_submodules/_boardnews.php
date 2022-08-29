@@ -46,6 +46,20 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p><?= lang('app.visit_site')?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-link nav-icon"></i>
+                    </div>
+                    <a href="<?= site_url('/board/news_viewtv')?>" target="_blank" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
         </div><!--/.row -->
         
     </div>
