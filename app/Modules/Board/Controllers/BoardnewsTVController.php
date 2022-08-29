@@ -18,7 +18,7 @@ class BoardnewsTVController extends BaseController
         $sholat = (new RawatibScheduleModel())->asArray()->find();
         $run_text = (new BoardNewsRuntextModel())->asArray()->find();
         $bgboard = (new BoardNewsBgModel())->asArray()->find();
-
+        
         $data['masjid_profile'] = $profile;
         $data['rawatib_schedule'] = $sholat;
         $data['board_news_runtext'] = $run_text;
