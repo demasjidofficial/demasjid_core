@@ -295,8 +295,5 @@ return [
 	'target'=>'Target Donatur',
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
-	'nama_tim'=>'Nama Tim',
-
-	
-
+	'nama_tim'=>'Nama Tim'
  ];
