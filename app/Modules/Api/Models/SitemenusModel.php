@@ -37,14 +37,14 @@ class SitemenusModel extends BaseModel
         return parent::findAll($limit, $offset);
     }
 
-	public function findAllRelease(int $language_id = 2, int $limit = 0, int $offset = 0)
+	public function findAllRelease(int $language_id = 1, int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 't2.name as parent_name'];
-        $this->where($this->table.'.state', 'release');
-		$this->where($this->table.'.language_id', $language_id);
+        $this->selectColumn = [$this->table.'.*', 't2.name as parent_name', 'sitepages.permalink'];
+        $this->where(array($this->table.'.state' => 'release', $this->table.'.language_id'=> $language_id));
 		$this->orderBy('parent', 'ASC');
 		$this->join($this->table.' t2', 't2.id = '.$this->table.'.parent', 'left');
-
-        return parent::findAll($limit, $offset);
+		$this->join('sitepages', $this->table.'.id = sitepages.sitemenu_id AND  sitepages.state = "release"', 'left');
+        $this->orderBy('created_at', 'ASC');
+		return parent::findAll($limit, $offset);
     }
 }

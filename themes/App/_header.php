@@ -58,8 +58,8 @@
                         <div class="row align-items-center">
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
+                                <div class="logo header-logo">
+                                    <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo']) ?>" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -71,7 +71,7 @@
                                                 <?php foreach($nav_menu as $menu) :   
                                                     if($menu['parent'] == 0) { ?>  
                                                         <li>
-                                                            <a href="/">
+                                                            <a href="/id/<?php echo $menu['permalink']?> ">
                                                                 <?php echo $menu['label'] ?>
                                                             </a>
                                                             <?php if(count($menu['sub_menu'])) {
@@ -80,7 +80,7 @@
                                                                     <?php foreach($menu['sub_menu'] as $sbmenu) :  
                                                                         if ($sbmenu['parent'] == $menu['id']) { ?>
                                                                         <li>
-                                                                            <a href="/">
+                                                                            <a href="/id/<?php echo $sbmenu['permalink']?> ">
                                                                                 <?php echo $sbmenu['label'] ?>
                                                                             </a>
                                                                         </li>

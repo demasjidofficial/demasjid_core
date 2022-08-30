@@ -6,6 +6,11 @@ use App\Traits\UploadedFile;
 class Donasis extends BaseResourceController
 {
     use UploadedFile;
+    const INFO_SUCCESS = 'SUKSES KONFIRMASI';
+    const INFO_INVALID_SYSTEM = 'INVALID SYSTEM';
+    const INFO_INVALID_PICTURE = 'GAMBAR Invalid';
+    const INFO_INVALID_NO_INV = 'NO INVOICE Invalid';
+
     protected $modelName = 'App\Modules\Api\Models\DonasiModel'; 
     private $pathImage;
     private $imageFolder = 'images'; 
@@ -217,11 +222,6 @@ class Donasis extends BaseResourceController
     }
 
     public function insertConfirmation(){
-        $INFO_SUCCESS = 'SUKSES KONFIRMASI';
-        $INFO_INVALID_SYSTEM = 'INVALID SYSTEM';
-        $INFO_INVALID_PICTURE = 'GAMBAR Invalid';
-        $INFO_INVALID_NO_INV = 'NO INVOICE Invalid';
-
         $no_inv = $this->request->getPost('no_inv');
         $data = $this->model->where('no_inv', $no_inv)->find();
         
@@ -240,14 +240,14 @@ class Donasis extends BaseResourceController
                     ]);
 
                     if($update_donation['state']) {
-                        return redirect()->back()->with('success', $INFO_SUCCESS);   
+                        return redirect()->back()->with('success', self::INFO_SUCCESS);   
                     }
-                    return redirect()->back()->with('error', $INFO_INVALID_SYSTEM);      
+                    return redirect()->back()->with('error', self::INFO_INVALID_SYSTEM);      
                 }
-                return redirect()->back()->with('error', $INFO_INVALID_PICTURE);      
+                return redirect()->back()->with('error', self::INFO_INVALID_PICTURE);      
             }
         }  
-        return redirect()->back()->with('error', $INFO_INVALID_NO_INV);      
+        return redirect()->back()->with('error', self::INFO_INVALID_NO_INV);      
     }
     
 

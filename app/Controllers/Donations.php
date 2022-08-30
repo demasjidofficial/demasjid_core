@@ -8,9 +8,9 @@ use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\SitemenusModel;
+use App\Modules\Api\Models\BmdonationcampaignModel;
 
-
-class ConfirmationofdonationController extends BaseController
+class Donations extends BaseController
 {
     /**
      * Displays the initial page that visitors
@@ -20,7 +20,7 @@ class ConfirmationofdonationController extends BaseController
      */
 
 
-    public function ConfirmView()
+    public function index()
     {
         helper(['form','number','app']);
         $this->setupWidgets();
@@ -54,21 +54,22 @@ class ConfirmationofdonationController extends BaseController
             ],
         ];
 
-         // get data of menus // default indonesia = 1
-         $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
+        // get data of menus // default indonesia = 1
+        $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
 
-
+        // get data of donation campaigns
+        $donation_campaigns = (new BmdonationcampaignModel())->asArray()->findAll();
+        
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['masjid_socials'] = $masjid_socials;
+        $data['donation_campaigns'] = $donation_campaigns;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
-        $data['widgets'] = service('widgets');   
+        $data['widgets'] = service('widgets');        
         
-        $no_inv = current_url(true)->getQuery();
-        $data['no_inv'] = (isset($no_inv)) ? substr($no_inv, 0 , -1) : $no_inv;
         // render view
-        return $this->render('\App\Views\Campaign\confirm', $data);
+        return $this->render('\App\Views\Campaign\donation', $data);
     }
 
     private function setupWidgets()
@@ -167,4 +168,73 @@ class ConfirmationofdonationController extends BaseController
             ->addItem($infaqItem)
             ->addItem($wakafItem);
     }
+
+    /**
+     * Method for Pages Feature
+     */
+    public function p()
+    {
+        $permalink = $this->request->getGet('pl');
+        $content = '';
+
+        if (str_contains($permalink, 'donasi')) {
+            //return $this->donasi();
+        }    
+        
+        $data['pl'] = $permalink;
+        $data['content'] = $content;
+
+        return $this->render('App\Modules\Website\Views\page', $data);
+    }
+
+    /**
+     * Method for Posts/Blogs Feature
+     */
+    private function b()
+    {
+        $permalink = $this->request->getGet('pl');
+        return $permalink;
+    }
+
+    private function ws()
+    {
+        return 'ws';
+    }
+
+    /*
+    public function donasi($data = null)
+    {
+        return $this->render('App\Modules\Website\Views\donasi', $data);
+
+        //return 'donasi';
+    }
+    
+    public function pesantren()
+    {
+        $request = $this->request->getGet('req');
+        $data = [];
+
+        if ($request == 'pendaftaran') {
+            return $this->render('App\Modules\Pesantren\Views\website\pendaftaran', $data);
+        }
+        if ($request == 'pengumuman') {
+            return $this->render('App\Modules\Pesantren\Views\website\pengumuman', $data);
+        }
+        return null;
+    }
+
+    public function tpq($data = null)
+    {
+        $request = $this->request->getGet('req');
+        $data = [];
+
+        if ($request == 'pendaftaran') {
+            return $this->render('App\Modules\TPQ\Views\website\pendaftaran', $data);
+        }
+        if ($request == 'pengumuman') {
+            return $this->render('App\Modules\TPQ\Views\website\pengumuman', $data);
+        }
+        return null;
+    }
+    */
 }

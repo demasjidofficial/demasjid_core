@@ -1,14 +1,16 @@
 <table class="table table-hover table-sm">
     <?php echo $this->include('_table_head') ?>
     <tbody>
-    <?php if (isset($data) && count($data)) : ?>
-        <?php $counter = 0; ?>
-        <?php foreach ($data as $item) : ?>
+    <?php if (isset($data) && count($data)) : 
+        $counter = 0;
+        ?>
+        <?php foreach ($data as $item) : 
+            $item->language = $languagesItems[$item->language_id];
+            ?>
             <tr>
                 <td>
                     <?php 
                         echo ++$counter;
-                        $item->language = $languagesItems[$item->language_id];
                     ?>
                     <!-- <input type="checkbox" name="selects[]" class="form-check"> -->
                 </td>

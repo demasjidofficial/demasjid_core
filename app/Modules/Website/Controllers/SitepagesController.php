@@ -14,6 +14,8 @@ class SitepagesController extends AdminCrudController
     protected $baseRoute = 'admin/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
+    protected $LANGUAGE_LISTS = [ '', 'Indonesia', 'Arab', 'English' ];
+    
     public function index(){
         return parent::index();
     }
@@ -31,7 +33,15 @@ class SitepagesController extends AdminCrudController
     }
 
     public function create(){
-        return parent::create();
+        $data = $this->request->getPost();
+        // default to language_id = 1 / indonesia
+        $data['language_id'] = 1;
+
+        if (! $this->model->insert($data)) {            
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -43,13 +53,9 @@ class SitepagesController extends AdminCrudController
         $model = model(SitepagesFilter::class);
         return [
             'headers' => [
-                'path_image' => lang('crud.image'),
                 'title' => lang('crud.title'),
                 //'subtitle' => lang('crud.subtitle'),
-                //'content' => lang('crud.content'),
-                //'permalink' => lang('crud.permalink'),
-                //'meta_title' => lang('crud.meta_title'),
-                //'meta_desc' => lang('crud.meta_desc'),
+                'permalink' => lang('crud.permalink'),
                 'sitemenu_id' => lang('crud.menu'),
                 'language_id' => lang('crud.language'),
                 'state' => lang('crud.state'),
@@ -59,7 +65,8 @@ class SitepagesController extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
+            'language_lists' => $this->LANGUAGE_LISTS,
         ];
     }
 
@@ -75,8 +82,6 @@ class SitepagesController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        //$menuItems = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['menu.id as key','menu.name as text'])->website()->asArray()->findAllExcludeJoin(), 'text', 'key');
-
         $dataEdit['menuItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
 
         return $dataEdit;

@@ -125,3 +125,14 @@
     font-size: 12px;
     color:rgb(147 144 144);
 }
+
+
+.header-logo img,
+.footer-logo img {
+    max-height: 60px;
+}
+
+.btn-donation-readmore {
+    background: #b9b9b9;
+    padding: 27px 120px;
+}
