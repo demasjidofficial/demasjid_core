@@ -268,6 +268,9 @@ return [
 	'campaign_id' => 'Kampanye',
 	'paymentmethod_rek_no' => 'No Rekening',
 	'paymentmethod_rek_name' => 'Nama Rekening',
-	'dana_in' => 'Jumlah'
+	'dana_in' => 'Jumlah',
+
+	'draft' => 'draft',
+	'release' => 'release'
  ];
 

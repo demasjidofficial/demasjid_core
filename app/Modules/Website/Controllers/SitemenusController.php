@@ -45,7 +45,7 @@ class SitemenusController extends AdminCrudController
         return [
             'headers' => [
                 'name' => lang('crud.name'),
-                'label' => lang('crud.label'),
+                // 'label' => lang('crud.label'),
                 'parent' => lang('crud.parent'),
                 'language_id' => lang('crud.language'),
                 'state' => lang('crud.state'),

@@ -19,7 +19,7 @@ class SitemenusModel extends BaseModel
     protected $validationRules = [
         'id' => 'numeric|required|is_unique[sitemenus.id,id,{id}]',
 		'name' => 'max_length[128]|required',
-		'label' => 'max_length[255]|required',
+		// 'label' => 'max_length[255]|required',
 		// 'parent' => 'numeric',
 		// 'language_id' => 'numeric',
 		'state' => 'max_length[20]',

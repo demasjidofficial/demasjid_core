@@ -3,7 +3,7 @@
         <div>
             <?php echo esc($item->no_inv)?>
         </div>
-        <p><?php echo esc($item->name) ?></p>
+        <p class="name"><?php echo esc($item->name) ?></p>
     </div>
 </td>
 <td><a style="cursor:pointer" onClick="sendChatTo(<?php echo esc($item->no_hp) ?>)"><i class='fab fa-whatsapp'></i> <?php echo esc($item->no_hp) ?></a></td>
