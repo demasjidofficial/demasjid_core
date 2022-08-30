@@ -89,8 +89,7 @@ static function ($routes) {
     //$routes->resource('sliders');
     //$routes->resource('socials');
 });
-
-// Jquery Ajax Call untuk admin view (security issued)
+// Jquery Ajax Call untuk admin view
 $routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
 $routes->post('/api/update_donasi_state', '\App\Modules\Api\Controllers\Donasis::updateState');
 $routes->get('/api/donation/(:segment)', '\App\Modules\Api\Controllers\Donasis::getDonation/$1');
