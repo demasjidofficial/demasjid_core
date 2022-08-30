@@ -6,15 +6,16 @@
     <div class="card text-center textcard">
         <div class="card-header">
             <div class="row text-center">
-                <div class="col col-text mt-5">
-                    <h2 id="date" class="date-text"></h2>
+                <div class="col col-sm-1 text-center">
+                    <img width="120px" src="/<?= esc($masjid_profile['path_image']) ?>">
                 </div>
-                <div class="col-sm-6 col-md-7">
+                <div class="col text-left">
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
-                    <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?></h3>
-                    <h3 class="text-mail"><?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
+                    <h3 class="text-address"><?= lang('app.alamat') ?>: <?= $masjid_profile['address']; ?></h3>
+                    <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
                 </div>
-                <div class="col col-text mt-5">
+                <div class="col col-sm-4 text-center">
+                    <h2 id="date" class="date-text"></h2>
                     <h2 id="clock" class="clock-text"></h2>
                 </div>
             </div>
@@ -23,15 +24,15 @@
     <div class="countdown mt-5 text-center">
         <div class="row">
             <?php
-                $now = strtotime(date('Y/m/D'));
-                $time = date('H:i:s',strtotime(time()));
-                $awal  = strtotime($now . $time);
-                $akhir = strtotime('2022-08-12 11:07:33');
-                $diff  = $akhir - $awal;
+            $now = strtotime(date('Y/m/D'));
+            $time = date('H:i:s', strtotime(time()));
+            $awal  = strtotime($now . $time);
+            $akhir = strtotime('2022-08-12 11:07:33');
+            $diff  = $akhir - $awal;
 
-                $jam   = floor($diff / (60 * 60));
-                $menit = $diff - ($jam * (60 * 60));
-                $detik = $diff % 60;
+            $jam   = floor($diff / (60 * 60));
+            $menit = $diff - ($jam * (60 * 60));
+            $detik = $diff % 60;
             ?>
             <div class="col">
                 <h2 id="timer" class="text-countdown">
@@ -156,7 +157,6 @@
     // }
 
     // ===========================countdown=================================
-    
 </script>
 <?php $this->endSection(); ?>
 
@@ -186,6 +186,17 @@
     .date-text {
         font-weight: bold;
         font-size: 25px;
+    }
+
+    .text-center{
+        text-align: center;
+        margin: auto;
+        padding: auto;
+        
+    }
+
+    .text-left{
+        margin-left: 20px;
     }
 
 
