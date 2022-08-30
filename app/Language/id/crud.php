@@ -251,6 +251,29 @@ return [
 	'program_id' => 'Program',
 	'donasis' => 'Donasi',
 	'campaigns' => 'Kampanye',
+
+	'donaturcategory'=>'Kategori Donatur',
+	'updated_by'=>'Diperbarui Oleh',
+	'tim_fundraising'=>'Tim Fundraising',
+	'id_target'=>'Target Fundraising',
+	'id_jadwal'=>'Jadwal Fundraising',
+	'supervisior'=>'Supervisior',
+	'staff'=>'Staff',
+	'target_fundraising'=>'Target Fundraising',
+	'target_fundraising_add'=>'Tambah Target Fundraising',
+	'donatur'=>'Tipe Donatur',
+	'target_nominal'=>'Target Nominal',
+	'tipe_donasi'=>'Tipe Donasi',
+	'jadwal_mulai'=>'Jadwal Mulai',
+	'jadwal_akhir'=>'Jadwal Akhir',
+	'durasi'=>'durasi',
+
+	'news' => 'Berita',
+	'board_news' => 'Papan Berita',
+	'device' => 'Perangkat',
+	'board_newsbg' => 'Background Slide',
+	'board_newsruntext' => 'Run Text',
+	'display' => 'Tampilan',
 	'payment_method' => 'Metode Pembayaran',
 	'payment_category' => 'Kategori Pembayaran',
 	'payment_method_transfer' => 'Metode Pembayaran Transfer',
@@ -258,12 +281,22 @@ return [
 	'rek_no' => 'No Rekening',
 	'rek_name' => 'Nama Rekening',
 	'paymentgateway' => 'Payment Gateway',
-	'donatur' => 'Donatur',
+	'donatur' => 'Tipe Donatur',
 	'no_hp' => 'No. Hp',
 	'donation' => 'Donasi',
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
 	'action' => 'Aksi',
+	'campaign_name' => 'Nama Kampanye',
+	'jadwal_durasi'=>'Durasi Target',
+	'kembali'=>'Kembali',
+	'save'=>'Simpan',
+
+	'target'=>'Target Donatur',
+	'target_id'=>'Nama Target Donatur',
+	'kode_tim'=>'Kode Tim',
+	'nama_tim'=>'Nama Tim',
+
 	'donasi' => 'Donasi',
 	'campaign_id' => 'Kampanye',
 	'paymentmethod_rek_no' => 'No Rekening',
@@ -272,5 +305,5 @@ return [
 
 	'draft' => 'draft',
 	'release' => 'release'
- ];
 
+ ];
