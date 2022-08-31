@@ -1,7 +1,7 @@
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->description) ?></a></td>
 <td><?php echo esc($item->level_name) ?></a></td>
-<td><?php echo esc($item->capacity) ?></a></td>
+<td><?php echo esc($item->capacity) ?> anak</a></td>
 <td><?php echo esc($item->duration) ?></a></td>
 <td><?php echo esc($item->uom_id) ?></a></td>
 <td><?php echo esc($item->entity_id) ?></a></td>

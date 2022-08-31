@@ -29,5 +29,14 @@ class PelajaranModel extends BaseModel
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
-    ];   
+    ];  
+	
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'kelas.name as kelas_name', 'kategori_pelajaran.name as category_name', 'uom.name as uom_name'];        
+        $this->join('kelas', 'kelas.id = '.$this->table.'.kelas_id');
+        $this->join('kategori_pelajaran', 'kategori_pelajaran.id = '.$this->table.'.category_id');
+        $this->join('uom', 'uom.id = '.$this->table.'.uom_id');
+        return parent::findAll($limit, $offset);
+    }
 }

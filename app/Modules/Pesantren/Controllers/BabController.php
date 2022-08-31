@@ -14,27 +14,33 @@ class BabController extends AdminCrudController
     protected $baseRoute = 'admin/pesantren/bab';
     protected $langModel = 'bab';
     protected $modelName = 'App\Modules\Api\Models\BabModel';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -43,14 +49,14 @@ class BabController extends AdminCrudController
         $model = model(BabFilter::class);
         return [
             'headers' => [
-                                    'pelajaran_id' => lang('crud.pelajaran_id'),
+                'pelajaran_id' => lang('crud.pelajaran_id'),
                 'name' => lang('crud.name'),
                 'sequence' => lang('crud.sequence'),
                 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -62,14 +68,14 @@ class BabController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new BabModel();
 
-        if(!empty($id)){
+        if (!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['pelajaran.id as key','pelajaran.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['pelajaran.id as key', 'pelajaran.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

@@ -78,7 +78,7 @@ class PelajaranController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['kategori_pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\KategoriPelajaranModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['uomItems'] = Arr::pluck(model('App\Modules\Api\Models\UomModel')->select(['uom.id as key', 'uom.name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
