@@ -41,7 +41,7 @@ class BmdonationcampaignController extends AdminCrudController
         $datarange = explode(' - ', $data['campaign_daterange']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
-        $data['campaign_tonase'] = (float)(str_replace(',','',$data['campaign_tonase']));
+        $data['campaign_tonase'] = (float)(str_replace('.','',$data['campaign_tonase']));
         $data['campaignend_date'] = date("Y-m-d", strtotime(($end_date[2].'-'.$end_date[1].'-'.$end_date[0])));
         $data['campaignstart_date'] = date("Y-m-d", strtotime(($start_date[2].'-'.$start_date[1].'-'.$start_date[0])));
         unset($data['campaign_daterange']);

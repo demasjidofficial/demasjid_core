@@ -156,7 +156,8 @@
             'alias': 'currency',
             'rightAlign': false,
             'digits': '0', 
-            'allowMinus': 'false',               
+            'allowMinus': 'false',   
+            'groupSeparator': '.',            
         });
 
         function imagePreview(fileInput) {

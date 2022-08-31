@@ -12,7 +12,7 @@ class AddIsProtectedSitesmenus extends Migration
             'isProtected' => [
                 'type'       => 'int',
                 'constraint' => 1,
-                'default' => 1
+                'default' => 0
             ],      
         ]);
     }

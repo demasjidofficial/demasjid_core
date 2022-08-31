@@ -4,13 +4,6 @@
     <?php if (isset($data) && count($data)) : ?>
         <?php $counter = 0; ?>
         <?php foreach ($data as $item) : 
-                if($item->payment_category = 1) {
-                    foreach ( $master_bank as $element ) {
-                        if ( $item->paymentmethod_id == $element['id'] ) {
-                            $item->path_logo = $element['path_logo'];
-                        }
-                    }
-                }
             ?>
             <tr>
                 <td>

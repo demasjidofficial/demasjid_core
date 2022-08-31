@@ -145,7 +145,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="<?php echo $item["path_image"]?>" alt="">
+                            <img src="<?php echo site_url($item["path_image"]) ?>" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#"><?php echo $item["name"]?></a></h3>
@@ -178,6 +178,13 @@
             ?>
 
         <?php endforeach ?>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mt-45 mb-100">
+                <div class="btn-donation-wrapper" style="text-align:center;">
+                    <a href='<?= site_url('/id/donations/')?>' target="_blank" class="btn btn-donation-readmore">Read More</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

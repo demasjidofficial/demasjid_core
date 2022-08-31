@@ -102,6 +102,7 @@
     <?= asset_link('app/theme-charityworks/js/jquery-validate.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/mail-script.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/jquery-ajaxchimp.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-inputmask-min.js', 'js') ?>
     
     <!-- Jquery Plugins, main Jquery -->	
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>

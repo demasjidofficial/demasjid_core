@@ -88,4 +88,20 @@ class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
     }
+
+    public function constructMenu($list) {
+        $nav = [];
+        foreach ($list as $menu) {
+            if ($menu['parent'] == 0) {
+                $menu['sub_menu'] = [];
+                foreach($list as $sub_menu) {
+                    if($sub_menu['parent'] == $menu['id']) {
+                        array_push($menu['sub_menu'], $sub_menu);
+                    }
+                }
+                array_push($nav, $menu);
+            }
+        }
+        return $nav;
+    }
 }

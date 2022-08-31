@@ -52,6 +52,18 @@ if (!function_exists('convertStateProgram')) {
     }
 }
 
+if (!function_exists('convertStateWebsite')) {
+    function convertStateWebsite($state)
+    {
+        $validState = [
+            'draft' => '<span class="badge badge-info">'.lang('crud.draft').'</span>',
+            'release' => '<span class="badge badge-success">'.lang('crud.release').'</span>'
+        ];    
+
+        return $validState[$state] ?? $state;
+    }
+}
+
 if (! function_exists('local_currency')) {
     function local_currency(float $num, ?string $currency = 'IDR', ?string $locale = null, int $fraction = 0): string
     {
