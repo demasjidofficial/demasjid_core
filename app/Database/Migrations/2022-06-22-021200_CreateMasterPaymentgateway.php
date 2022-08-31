@@ -15,12 +15,13 @@ class CreateMasterPaymentgateway extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],            
-            'path_logo' => [
+            'logo' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
-            ],    
-            'name' => [
+                'after'      => 'last_name',
+            ],     
+            'nama_paymentgateway' => [
                 'type' => 'varchar',
                 'constraint' => 100,
                 'null' => true

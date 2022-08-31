@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateMasterBank extends Migration
+class CreateBoardNewsRunText extends Migration
 {
     public function up()
     {
@@ -15,23 +15,23 @@ class CreateMasterBank extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'path_logo' => [
+            'Text' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
             ],
-            'name' => [
-                'type' => 'varchar',
-                'constraint' => 50,
-                'null' => true
-            ],        
+            'duration' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'null'       => true,
+            ],
             'created_at' => [
-                'type' => 'datetime',
-                'null' => false,
+                'type'       => 'datetime',
+                'null'       => false,
             ],
             'updated_at' => [
-                'type' => 'datetime',
-                'null' => false,
+                'type'       => 'datetime',
+                'null'       => false,
             ],
             'created_by' => [
                 'type'       => 'int',
@@ -40,13 +40,12 @@ class CreateMasterBank extends Migration
                 'null'       => true,   
             ],
         ]);
-
-        $this->forge->addPrimaryKey('id');    
-        $this->forge->createTable('master_bank', true);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('board_news_runtext', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('master_bank', true);
+        $this->forge->dropTable('board_news_runtext', true);
     }
 }

@@ -51,6 +51,14 @@ $routes->get('/swagger', 'Swagger::index');
 $routes->post('/api/auth/login', '\App\Modules\Api\Controllers\Auth\LoginController::action');
 $routes->post('/api/auth/register', '\App\Modules\Api\Controllers\Auth\RegisterController::action');
 $routes->get('/api/wilayahs', '\App\Modules\Api\Controllers\Wilayahs::index');
+
+$routes->get('/api/donaturcategories', '\App\Modules\Api\Controllers\Donaturcategories::index');
+$routes->get('/api/jadwalFundraisings', '\App\Modules\Api\Controllers\JadwalFundraisings::index');
+$routes->get('/api/targetFundraisings', '\App\Modules\Api\Controllers\TargetFundraisings::index');
+$routes->get('/api/timFundraisings', '\App\Modules\Api\Controllers\TimFundraisings::index');
+
+
+
 $routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
 
 // Donasi tanpa login untuk site view
@@ -77,6 +85,16 @@ static function ($routes) {
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
     $routes->resource('bmdonationcampaigns');
+
+    $routes->resource('donaturTypes');
+ 
+    $routes->resource('donaturcategories',['except' => ['index']]);
+    $routes->resource('targetFundraisings');
+    $routes->resource('jadwalFundraisings');
+    $routes->resource('timFundraisings');
+
+    $routes->resource('boardNewsBgs');
+    $routes->resource('boardNewsRuntexts');
     $routes->resource('donaturs');
     $routes->resource('donasis');
     $routes->resource('PaymentMethods');
@@ -102,6 +120,7 @@ $routes->get('{locale}/checkout/(:segment)', 'CheckoutController::CheckoutView/$
 $routes->get('{locale}/instructionofpayment/(:segment)', 'InformatonofpaymentController::InformationView/$1/$2');
 $routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationController::ConfirmView');
 $routes->get('{locale}/donations', 'Donations::index');
+
 
 /*
  * --------------------------------------------------------------------

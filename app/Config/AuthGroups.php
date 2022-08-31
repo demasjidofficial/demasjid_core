@@ -44,6 +44,14 @@ class AuthGroups extends ShieldGroups
             'title'       => 'Beta User',
             'description' => 'Has access to beta-level features.',
         ],
+        'supervisior' => [
+            'title'       => 'Supervisor',
+            'description' => 'Has access to beta-level features.',
+        ],
+        'staff' => [
+            'title'       => 'Staff',
+            'description' => 'Has access to beta-level features.',
+        ],
     ];
 
     /**
@@ -156,7 +164,36 @@ class AuthGroups extends ShieldGroups
         'tpq.profile.list' => 'Can view list profile',
         'tpq.profile.create' => 'Can create profile',
         'tpq.profile.edit' => 'Can edit profile',
+
+        'tpq.profile.delete' => 'Can edit profile', 
+        
+        
+         /** baitulmal */
+
+         'baitulmal.katDonatur.list' => 'Can view list donatur category',
+         'baitulmal.katDonatur.create' => 'Can create donatur category',
+         'baitulmal.katDonatur.edit' => 'Can edit donatur category',
+         'baitulmal.katDonatur.delete' => 'Can delete donatur category',
+         
+         'baitulmal.timfundraising.list' => 'Can view list tim fundraising',
+         'baitulmal.timfundraising.create' => 'Can create tim fundraising',
+         'baitulmal.timfundraising.edit' => 'Can edit tim fundraising',
+         'baitulmal.timfundraising.delete' => 'Can delete tim fundraising',
+
+         'baitulmal.jadwalfundraising.list' => 'Can view list jadwal fundraising',
+         'baitulmal.jadwalfundraising.create' => 'Can create jadwal fundraising',
+         'baitulmal.jadwalfundraising.edit' => 'Can edit jadwal fundraising',
+         'baitulmal.jadwalfundraising.delete' => 'Can delete jadwal fundraising',
+
+         'baitulmal.targetfundraising.list' => 'Can view list target fundraising',
+         'baitulmal.targetfundraising.create' => 'Can create targetfundraising',
+         'baitulmal.targetfundraising.edit' => 'Can edit targetfundraising',
+         'baitulmal.targetfundraising.delete' => 'Can delete targetfundraising',
+
+
+
         'tpq.profile.delete' => 'Can edit profile',      
+
     ];
 
     /**
