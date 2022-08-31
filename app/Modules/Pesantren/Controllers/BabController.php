@@ -52,7 +52,7 @@ class BabController extends AdminCrudController
                 'pelajaran_id' => lang('crud.pelajaran_id'),
                 'name' => lang('crud.name'),
                 'sequence' => lang('crud.sequence'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -75,7 +75,7 @@ class BabController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['pelajaran.id as key', 'pelajaran.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['pelajaran.id as key', 'pelajaran.name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

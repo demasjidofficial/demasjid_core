@@ -2,14 +2,12 @@
 
 namespace App\Modules\Api\Models;
 
-
 class BabModel extends BaseModel
 {
   protected $table = 'bab';
   protected $returnType = 'App\Modules\Api\Entities\Bab';
   protected $primaryKey = 'id';
   protected $useTimestamps = true;
-  protected $beforeInsert = ['createdBy'];
   protected $allowedFields = [
     'pelajaran_id',
     'name',
@@ -27,10 +25,10 @@ class BabModel extends BaseModel
     'updated_at' => 'valid_date|required',
     // 'created_by' => 'numeric|max_length[11]'
   ];
+
   public function findAll(int $limit = 0, int $offset = 0)
   {
-    $this->selectColumn = [$this->table . '.*', 'users.first_name', 'users.last_name', 'pelajaran.name as name_pelajaran'];
-    $this->join('users', 'users.id = ' . $this->table . '.created_by');
+    $this->selectColumn = [$this->table . '.*', 'pelajaran.name as name_pelajaran'];
     $this->join('pelajaran', 'pelajaran.id = ' . $this->table . '.pelajaran_id');
 
     return parent::findAll($limit, $offset);
