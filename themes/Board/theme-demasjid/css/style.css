@@ -5166,7 +5166,7 @@ hr {
 }
 
 /* Start Blog Area css
-============================================================================================ */
+= */
 /* line 141, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .latest-blog-area .area-heading {
   margin-bottom: 70px;
@@ -5393,9 +5393,9 @@ hr {
 }
 
 /* End Blog Area css
-============================================================================================ */
+= */
 /* Latest Blog Area css
-============================================================================================ */
+= */
 /* line 360, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .l_blog_item .l_blog_text .date {
   margin-top: 24px;
@@ -5426,9 +5426,9 @@ hr {
 }
 
 /* End Latest Blog Area css
-============================================================================================ */
+= */
 /* Causes Area css
-============================================================================================ */
+= */
 /* line 399, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .causes_slider .owl-dots {
   text-align: center;
@@ -5529,8 +5529,8 @@ hr {
 }
 
 /* End Causes Area css
-============================================================================================ */
-/*================= latest_blog_area css =============*/
+= */
+/*=== latest_blog_area css ======*/
 /* line 510, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .latest_blog_area {
   background: #f9f9ff;
@@ -5591,7 +5591,7 @@ hr {
   margin-left: 2px;
 }
 
-/*========= blog_categorie_area css ===========*/
+/*== blog_categorie_area css ====*/
 /* line 574, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .blog_categorie_area {
   padding-top: 30px;
@@ -5672,7 +5672,7 @@ hr {
   background: rgba(222, 99, 32, 0.85);
 }
 
-/*============ blog_left_sidebar css ==============*/
+/*===== blog_left_sidebar css */
 /* line 661, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .blog_item {
   margin-bottom: 50px;
@@ -6076,7 +6076,7 @@ hr {
   margin-right: 0;
 }
 
-/*============ Start Blog Single Styles  =============*/
+/*===== Start Blog Single Styles  ======*/
 /* line 1188, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_blog_page.scss */
 .single-post-area .blog_details {
   box-shadow: none;
@@ -6576,8 +6576,8 @@ hr {
   color: #777;
 }
 
-/*============ End Blog Single Styles  =============*/
-/*=================== contact banner start ====================*/
+/*===== End Blog Single Styles  ======*/
+/*===== contact banner start ======*/
 /* line 3, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_contact.scss */
 .dropdown .dropdown-menu {
   -webkit-transition: all 0.3s;
@@ -6621,8 +6621,8 @@ hr {
   color: #8a8a8a;
 }
 
-/*=================== contact banner end ====================*/
-/*=================== contact form start ====================*/
+/*===== contact banner end ======*/
+/*===== contact form start ======*/
 /* line 45, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_contact.scss */
 .contact-title {
   font-size: 27px;
@@ -6668,9 +6668,9 @@ hr {
   height: 100% !important;
 }
 
-/*=================== contact form end ====================*/
+/*===== contact form end ======*/
 /* Contact Success and error Area css
-============================================================================================ */
+= */
 /* line 97, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_contact.scss */
 .modal-message .modal-dialog {
   position: absolute;

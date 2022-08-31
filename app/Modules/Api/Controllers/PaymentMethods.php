@@ -196,6 +196,7 @@ class PaymentMethods extends BaseResourceController
     public function updateActived()
     {      
         $id = $this->request->getPost('id');
+        $this->model->set('isActived', (int)$this->request->getPost('isActived'));
         return parent::update($id);
     }
 } 

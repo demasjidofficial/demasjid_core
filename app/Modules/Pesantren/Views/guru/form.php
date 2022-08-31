@@ -76,19 +76,12 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.gender'), '', ['for' => 'jns_kelamin', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <form>
-                        <select id="ddlViewBy">
-                            <option value="1">test1</option>
-                            <option value="2" selected="selected">test2</option>
-                            <option value="3">test3</option>
-                        </select>
-                    </form>
-                    <!-- < ?= form_input('jns_kelamin', old('jns_kelamin', $data->jns_kelamin ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
-                    < ?php if (has_error('jns_kelamin')) { ?>
+                    <?= form_dropdown('jns_kelamin', old('jns_kelamin', $genderItems, $data->jns_kelamin ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
+                    <?php if (has_error('jns_kelamin')) { ?>
                         <p class="text-danger">
-                            < ?php echo error('jns_kelamin'); ?>
+                            <?php echo error('jns_kelamin'); ?>
                         </p>
-                    < ?php } ?> -->
+                    <?php } ?>
 
                 </div>
             </div>

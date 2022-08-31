@@ -84,6 +84,7 @@ class GuruController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+        $dataEdit['genderItems'] = GuruModel::listState();
         $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }

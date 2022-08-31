@@ -21,8 +21,8 @@
                         <!-- <h3>&nbsp;</h3> -->
                         <h4><?= lang('app.total_donation')?></h4>
                             <h4>
-                                <b>
-                                    <?php echo $dataStats->totalDonation ?>
+                                <b id="totalDonation">
+                                    <?php echo local_currency($dataStats->totalDonation) ?>
                                 </b>
                             </h4>
 
@@ -33,22 +33,22 @@
                         <div class="icon">
                             <i class="fas fa-calculator"></i>
                         </div>
-                        <a href="<?= site_url('/admin/baitulmal/donationcampaigncategory')?>" class="small-box-footer">
-                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- <a href="<= site_url('/admin/baitulmal/donationcampaigncategory')?>" class="small-box-footer">
+                            <= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a> -->
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h4><?= lang('app.donation_amount')?></h4>
-                            <h4><b><?php echo $dataStats->countDonation ?> Donasi</b>
+                            <h4><b id="countDonation"><?php echo $dataStats->countDonation ?> Donasi</b>
                                 <?php if (isset($data) && count($data)) : ?>
                                 <?php endif ?>
                             </h4>
 
                             <p>
-                                Terkumpul <?php echo $dataStats->countDonation ?> dari <?php echo $dataStats->totalCampaign ?> Kampanye
+                                Terverifikasi dari <?php echo $dataStats->totalInDonation ?> donasi
                             </p>
                             
                             <?php if (isset($data->logo)) { ?>
@@ -61,26 +61,26 @@
                         <div class="icon">
                             <i class="fas fa-hand-holding-usd"></i>
                         </div>
-                        <a href="<?= site_url('/admin/baitulmal/donationcampaign')?>" class="small-box-footer">
-                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- <a href="<= site_url('/admin/baitulmal/donationcampaign')?>" class="small-box-footer">
+                            <= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a> -->
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="small-box bg-warning">
                         <div class="inner">
                         <h4><?= lang('app.active_campaigns')?></h4>
-                            <h4><b><?php echo $dataStats->totalActiveCampaign ?></b></h4>
+                        <h4><b><?php echo $dataStats->totalActiveCampaign ?></b></h4>
                             <p>
-                                Campaigns yang sedang active
+                                Kampanye
                             </p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-bullhorn"></i>
                         </div>
-                        <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="small-box-footer">
-                            <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                        </a>
+                        <!-- <a href="<php echo route_to($baseRoute.'/new'); ?>" class="small-box-footer">
+                            <= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                        </a> -->
                     </div>
                 </div>
             </div><!--/.row -->

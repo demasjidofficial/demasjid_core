@@ -9,7 +9,7 @@
                             <div class="single-footer-caption mb-30">
                                 <div class="footer-tittle">
                                     <div class="footer-logo mb-20">
-                                        <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo2_footer.png" alt=""></a>
+                                        <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo']) ?>" alt=""></a>
                                     </div>
                                 </div>
                             </div>

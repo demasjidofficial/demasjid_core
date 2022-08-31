@@ -3,99 +3,196 @@
 <?= $this->section('main') ?>
 
 <!--? About Law Start-->
-<section class="about-low-area">
+<section class="about-low-area section-padding60">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-10">
-                <div class="single-cases mb-40">
+        <div class="row mb-100">
+            <div class="col-lg-6 col-md-12 mb-40">
+                <div class="single-cases pr-5 pl-5">
                     <div class="cases-img">
-                        <img style="width:80%" src="/<?php echo $donation_campaigns["path_image"]?>" alt="">
+                        <img src="/<?php echo $donation_campaigns["path_image"]?>" alt="">
                     </div>
+                </div>
+                <div class="text-center checkout-info">
+                    <p><i class="fa fa-map-pin" aria-hidden="true"></i> <?php echo $masjid_profile['name']?>, <?php echo ($masjid_profile['address']) ?></p>
+                    <p>Anda akan berdonasi pada program : </p>
+                    <h1><?php echo $donation_campaigns["name"]?></h1>    
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        Donasi Terbaik Anda :
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <button type="button" name="nominal_helper" value=10000 class="btn btn-primary">Rp. 10 Rb</button>
-                        <button type="button" name="nominal_helper" value=100000 class="btn btn-primary">Rp. 100 Rb</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" name="nominal_helper" value=20000 class="btn btn-primary">Rp. 20 Rb</button>
-                        <button type="button" name="nominal_helper" value=0 class="btn btn-primary">Nominal Lainnya</button>
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" name="nominal_helper" value=50000 class="btn btn-primary">Rp. 50 Rb</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="md-12" style="width:100%">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="dana_in" id="nomimal" placeholder="Masukkan nominal">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="paymentmethod_id" id="metoda" placeholder="Metoda Pembayaran">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Nama Lengkap">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="no_hp" id="no_telp" placeholder="No Wa / Handphone">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="textarea" class="form-control" name="pesan" id="pesan" placeholder="Tuliskan Pesan    ">
-                                </div>
-
-                            <div class="text-end py-3">
-                                <button type="submit" id="submitbtn" value=<?php echo $donation_campaigns["id"] ?> class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.donasi') ?></button>
+                        <div class="row">
+                            <div class="col-md-12 mb-15">
+                                <button type="button" name="nominal_helper" value=10000 class="btn btn-primary borrad-10 btn-lg btn-pd2010 mr-15">Rp. 10 Rb</button>
+                                <button type="button" name="nominal_helper" value=20000 class="btn btn-primary borrad-10 btn-lg btn-pd2010 mr-15">Rp. 20 Rb</button>
+                                <button type="button" name="nominal_helper" value=50000 class="btn btn-primary borrad-10 btn-lg btn-pd2010 mr-15">Rp. 50 Rb</button>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-15">
+                                <button type="button" name="nominal_helper" value=100000 class="btn btn-primary borrad-10 btn-lg btn-pd2010 mr-15">Rp. 100 Rb</button>
+                                <button type="button" name="nominal_helper" value=0 class="btn btn-primary borrad-10 btn-lg btn-pd2010 mr-15">Nominal Lainnya</button>
+                            </div>
+                        </div>
                     </div>
-                
+                </div>
+                <div class="row section-padding24  mb-100 ">
+                    <div class="col-md-12">
+                        <form class="row g-3 needs-validation" role="form" id="contact-form" >
+                            <div class="col-md-12 mb-3">
+                                <label for="dana_in" class="form-label d-none">dana_in</label>
+                                <input type="text" class="form-control h-45" name="dana_in" id="dana_in" placeholder="Masukkan nominal" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="paymentmethod_id" class="form-label d-none">paymentmethod_id</label>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button data-toggle="modal" data-target="#paymentMethodList" class="btn btn-checkout-metod w-100">Metoda Pembayaran</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control h-45" name="paymentmethod_id" id="paymentmethod_id" disabled required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="name" class="form-label d-none">Nama</label>
+                                <input type="text" class="form-control h-45" name="name" id="name" placeholder="Nama" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="no_hp" class="form-label d-none">No Hp</label>
+                                <input type="text" class="form-control h-45" name="no_hp" id="no_hp" placeholder="No Hp" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="email" class="form-label d-none">email</label>
+                                <input type="email" class="form-control h-45" name="email" id="email" placeholder="email">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="pesan" class="form-label d-none">pesan</label>
+                                <input type="textarea" class="form-control h-45" name="pesan" id="pesan" placeholder="pesan">
+                            </div>
+                            <div class="col-md-12 mt-30">
+                                <div class="btn-donation-wrapper" style="text-align:center;">
+                                    <button type="submit" id="submitbtn" value=<?php echo $donation_campaigns["id"] ?>  class="btn btn-donation borrad-10">Donasi Sekarang</button>
+                                </div>
+                            </div>
+                        </form>                
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="paymentMethodList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-bluesky">
+        <h5 class="modal-title" id="exampleModalLongTitle">METODA PEMBAYARAN</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body paymentlist">
+        <?php 
+            if (isset($paymentListBank) && count($paymentListBank)) {
+            ?>
+                <h5 class="paymentheader">Transfer Bank (Verifikasi Manual 1x24jam)</h5>
+                <ul>
+                    <?php
+                        foreach ($paymentListBank as $bank) {
+                        ?>
+                             <li name="paymentList" data-id=<?php echo $bank['id']?>>
+                                <img src="<?php echo site_url().$bank['path_logo'] ?>">
+                                <span><?php echo $bank['name']?> : <?php echo $bank['rek_name']?></span>
+                            </li>
+
+                        <?php
+                        }
+                    ?>
+                </ul>
+            <?php
+            }
+
+            if (isset($paymentListPayGat) && count($paymentListPayGat)) {
+            ?>
+                <h5 class="paymentheader">Payment Gateway</h5>
+                <ul>
+                    <?php
+                        foreach ($paymentListPayGat as $paygat) {
+                        ?>
+                             <li name="paymentList" data-id=<?php echo $paygat['id']?>>
+                                <img src="<?php echo site_url().$paygat['path_logo'] ?>">
+                                <span><?php echo $paygat['name']?> : <?php echo $paygat['rek_name']?></span>
+                            </li>
+
+                        <?php
+                        }
+                    ?>
+                </ul>
+            <?php
+            }
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
+
 <?= $this->endSection() ?>
 
 <?php $this->section('scripts'); ?>
 
 <script type="text/javascript">
     $(function () {  
+        $('input[name=dana_in]').inputmask({
+            'groupSeparator': '.',
+            'alias': 'currency',
+            'rightAlign': false,
+            'digits': '0', 
+            'allowMinus': 'false',   
+            'removeMaskOnSubmit': true            
+        });
+
         $('button[name=nominal_helper]').click(function() {
             $('input[name=dana_in]').val($(this).val());
         });
 
+        $('li[name=paymentList]').click(function(){
+            $('input[name=paymentmethod_id]')
+            .data('id', $(this).data('id'))
+            .val($(this).find('span').html());
+            $('#paymentMethodList').modal('hide');
+        });
+
         $('#submitbtn').click(function(){
-            let url = "<?php echo base_url()?>" + "/api/senddonation",
-                dana_in = parseInt($('input[name=dana_in]').val()) + Math.floor(Math.random() * 500),
-                paymentmethod_id = $('input[name=paymentmethod_id]').val(),
+            let form = $("#contact-form")            
+            if (form[0].checkValidity() !== false) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                let url = "<?php echo base_url()?>" + "/api/senddonation",
+                dana_in = parseInt($('input[name=dana_in]').val().replace('.', '')) + Math.floor(Math.random() * 500),
+                paymentmethod_id = $('input[name=paymentmethod_id]').data('id'),    
                 name = $('input[name=name]').val(),
                 no_hp = $('input[name=no_hp]').val(),
                 email = $('input[name=email]').val(),
                 campaign_id = $(this).val(),
                 pesan = $('input[name=pesan]').val();
 
+                if (!paymentmethod_id) {
+                    return alert('Error in choose Payment Gateway');
+                }
 
-            if (dana_in && name && name && no_hp && email) {
                 $.ajax({
                     url: url,
                     type: 'POST',
                     data: {
-                        'dana_in': dana_in,
-                        'paymentmethod_id' : paymentmethod_id,
-                        'name' : name,
-                        'no_hp' : no_hp,
-                        'email' : email,
-                        'pesan' : pesan,
-                        'campaign_id' : campaign_id,
+                        dana_in,
+                        paymentmethod_id,
+                        name,
+                        no_hp,
+                        email,
+                        pesan,
+                        campaign_id,
                         'date' : new Date().toISOString().slice(0, 10)
                     },
                     success: function(res) {
@@ -106,14 +203,8 @@
                         return console.log(res);
                     }
                 });   
-            }
-            else {
-                return alert('Silahkan isi form seluruhnya');
-            }
-
-
-            
-        })
+            }            
+        });
     });
 </script>
 

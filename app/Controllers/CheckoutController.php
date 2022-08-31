@@ -8,6 +8,8 @@ use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\BmdonationcampaignModel;
+use App\Modules\Api\Models\PaymentMethodModel;
+use App\Modules\Api\Models\SitemenusModel;
 
 class CheckoutController extends BaseController
 {
@@ -21,6 +23,9 @@ class CheckoutController extends BaseController
 
     public function CheckoutView()
     {
+        $CATEGORY_BANK = 1;
+        $CATEGORY_PAYMENT_GATEWAY = 2;
+
         helper(['form','number','app']);
         $this->setupWidgets();
         $this->setWidgetCounter();
@@ -52,27 +57,17 @@ class CheckoutController extends BaseController
                 'path_icon' => '',
             ],
         ];
-        
-        // get data of navigation menu
-        $nav_menu = [
-            [
-                'id' => 1,
-                'name' => 'home',
-                'label' => 'Beranda',
-                'parent' => 0,
-            ],
-            [
-                'id' => 2,
-                'name' => 'about',
-                'label' => 'Tentang',
-                'parent' => 0,
-            ],
-        ];
+
+        // get data of menus // default indonesia = 1
+        $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
+
 
         $uri = current_url(true);
 
         // get data of donation campaigns
         $donation_campaigns = (new BmdonationcampaignModel())->asArray()->find((int)$uri->getSegment(3));
+        $paymentListBank = (new PaymentMethodModel())->select('payment_method.id, payment_method.rek_no, payment_method.rek_name, master_bank.path_logo, master_bank.name')->where(['payment_category_id'=> $CATEGORY_BANK, 'isActived'=> 1])->join('master_bank', 'master_bank.id = payment_method.master_payment_id')->asArray()->find();
+        $paymentListPayGat = (new PaymentMethodModel())->select('payment_method.id, payment_method.rek_no, payment_method.rek_name, master_paymentgateway.path_logo, master_paymentgateway.name')->where(['payment_category_id'=> $CATEGORY_PAYMENT_GATEWAY, 'isActived'=> 1])->join('master_paymentgateway', 'master_paymentgateway.id = payment_method.master_payment_id')->asArray()->find();
 
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
@@ -81,7 +76,10 @@ class CheckoutController extends BaseController
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['widgets'] = service('widgets');  
-        $data['actionUrl'] = site_url('/admin/baitulmal/donation/');    
+        $data['actionUrl'] = site_url('/admin/baitulmal/donation/');   
+        $data['paymentListBank'] = $paymentListBank;
+        $data['paymentListPayGat'] = $paymentListPayGat;
+
         // render view
         return $this->render('\App\Views\Campaign\checkout', $data);
     }

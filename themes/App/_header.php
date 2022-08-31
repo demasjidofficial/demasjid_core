@@ -58,8 +58,8 @@
                         <div class="row align-items-center">
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href="#"><img src="/assets/app/theme-charityworks/img/logo/logo.png" alt=""></a>
+                                <div class="logo header-logo">
+                                    <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo']) ?>" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -112,12 +112,35 @@
                                                     </ul>
                                                 </li>
                                                 <li><a href="#kontak"><?= lang('app.contact')?></a></li>                                                
+                                            <ul id="navigation">                                                                                        
+                                                <?php foreach($nav_menu as $menu) :   
+                                                    if($menu['parent'] == 0) { ?>  
+                                                        <li>
+                                                            <a href="/id/<?php echo $menu['permalink']?> ">
+                                                                <?php echo $menu['label'] ?>
+                                                            </a>
+                                                            <?php if(count($menu['sub_menu'])) {
+                                                                 ?> 
+                                                                 <ul class="submenu">
+                                                                    <?php foreach($menu['sub_menu'] as $sbmenu) :  
+                                                                        if ($sbmenu['parent'] == $menu['id']) { ?>
+                                                                        <li>
+                                                                            <a href="/id/<?php echo $sbmenu['permalink']?> ">
+                                                                                <?php echo $sbmenu['label'] ?>
+                                                                            </a>
+                                                                        </li>
+                                                                    <?php } endforeach;?>  
+                                                                 </ul>
+                                                                 <?php
+                                                            }?>
+                                                        </li>
+                                                <?php } endforeach;?>                                           
                                             </ul>
                                         </nav>
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#" class="btn header-btn"><?= lang('app.donation')?></a>
+                                        <a href="#donasi" class="btn header-btn"><?= lang('app.donation')?></a>
                                     </div>
                                 </div>
                             </div> 

@@ -2,6 +2,8 @@
 
 class GuruModel extends BaseModel
 {
+	const MALE = 'L';
+    const FEMALE = 'P';
     protected $table = 'guru';
     protected $returnType = 'App\Modules\Api\Entities\Guru';
     protected $primaryKey = 'id';
@@ -34,4 +36,12 @@ class GuruModel extends BaseModel
         $this->join('pelajaran', 'pelajaran.id = '.$this->table.'.pelajaran_id');
         return parent::findAll($limit, $offset);
     }  
+
+	public static function listState(){
+
+        return [
+			self::MALE => lang('crud.male'),
+			self::FEMALE => lang('crud.female'),
+		];
+	}
 }

@@ -51,7 +51,7 @@ class KelasController extends AdminCrudController
             'headers' => [
                 'name' => lang('crud.name'),
                 'description' => lang('crud.description'),
-                'level_id' => lang('crud.level_id'),
+                'level_id' => lang('crud.level'),
                 'capacity' => lang('crud.capacity'),
                 'duration' => lang('crud.duration'),
                 'uom_id' => lang('crud.uom_id'),

@@ -31,4 +31,11 @@ class KelasModel extends BaseModel
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
     ];   
+
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'tingkat_pendidikan.name as level_name'];        
+        $this->join('tingkat_pendidikan', 'tingkat_pendidikan.id = '.$this->table.'.level_id');
+        return parent::findAll($limit, $offset);
+    }  
 }
