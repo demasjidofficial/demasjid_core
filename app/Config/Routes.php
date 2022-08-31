@@ -101,6 +101,7 @@ static function ($routes) {
     $routes->resource('kelas');
     $routes->resource('gurus');
     $routes->resource('babs');
+    $routes->resource('materis');
     $routes->resource('pendaftarans');
     $routes->resource('tingkatPendidikans');
     $routes->resource('PaymentMethods');

@@ -1,13 +1,11 @@
 <?php namespace App\Modules\Api\Models;
 
-
 class MateriModel extends BaseModel
 {
     protected $table = 'materi';
     protected $returnType = 'App\Modules\Api\Entities\Materi';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
-    protected $beforeInsert = ['createdBy'];
     protected $allowedFields = [
         'bab_id',
 		'name',
@@ -29,13 +27,13 @@ class MateriModel extends BaseModel
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
     ];   
-		public function findAll(int $limit = 0, int $offset = 0)
+
+    public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'uom.name as name_uom', 'bab.name as name_bab'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
+        $this->selectColumn = [$this->table.'.*', 'uom.name as name_uom', 'bab.name as name_bab'];
         $this->join('uom', 'uom.id = '.$this->table.'.uom_id');
         $this->join('bab', 'bab.id = '.$this->table.'.bab_id');
 
         return parent::findAll($limit, $offset);
-    }   
+    } 
 }

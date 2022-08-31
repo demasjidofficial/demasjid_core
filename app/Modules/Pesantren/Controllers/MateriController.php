@@ -54,7 +54,7 @@ class MateriController extends AdminCrudController
                 'duration' => lang('crud.duration'),
                 'uom_id' => lang('crud.uom_id'),
                 'sequence' => lang('crud.sequence'),
-                'created_by' => lang('crud.created_by')
+                // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -77,8 +77,8 @@ class MateriController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['babItems'] = Arr::pluck(model('App\Modules\Api\Models\BabModel')->select(['bab.id as key', 'bab.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
-        $dataEdit['uomItems'] = Arr::pluck(model('App\Modules\Api\Models\UomModel')->select(['uom.id as key', 'uom.name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['babItems'] = Arr::pluck(model('App\Modules\Api\Models\BabModel')->select(['bab.id as key', 'bab.name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['uomItems'] = Arr::pluck(model('App\Modules\Api\Models\UomModel')->select(['uom.id as key', 'uom.name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }
