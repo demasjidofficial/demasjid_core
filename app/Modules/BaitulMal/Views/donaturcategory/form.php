@@ -2,7 +2,9 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <a href="<?php echo $backUrl ?>" class="back">&larr; Ubah Kategori</a>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.donaturcategory') ?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.donaturcategory') ?></h4>
+        <!--<a href="<?php echo $backUrl ?>" class="back">&larr; Ubah Kategori</a>-->
     </x-page-head>
 
     <?php if (isset($data) && null !== $data->deleted_at) { ?>

@@ -286,14 +286,14 @@ button[hx-delete]:before{
     font-weight: 100;
     margin-right: 8px;
 }
-
-a[href$="edit"]{/*
+/*
+a[href$="edit"]{
     font-family: 'Nunito Sans';
 font-style: normal;
 font-weight: 600;
 font-size: 12px;
-line-height: 14px;*/
-}
+line-height: 14px;
+}*/
 
 a[href$="edit"]:before{
     content: "\e911";
@@ -907,8 +907,8 @@ table .dropdown-menu.show li i{
     margin-right: 8px;vertical-align: middle;
 }
 
-table .dropdown-menu.show li i:before{
-}
+/*table .dropdown-menu.show li i:before{
+}*/
 
 table .dropdown-menu.show .dropdown-item{
     padding: 12px;
@@ -918,10 +918,6 @@ table .dropdown-menu.show .dropdown-item{
 table .dropdown-menu.show .btn{
     padding: 8px;
     border-radius: 8px;
-    -webkit-border-radius:;
-    -moz-border-radius:;
-    -ms-border-radius:;
-    -o-border-radius:;
 }
 
 table .dropdown-menu.show .dropdown-divider{
@@ -1122,8 +1118,8 @@ color: #636061
     box-shadow: 0px 4px 28px 0px #1D625514 !important;
     border-color: #F1F1F100 !important;
 }
-
-.de_dashboard{}
+/*
+.de_dashboard{}*/
 
 .card-header .fa-wrench:before{
     content: '\e915';

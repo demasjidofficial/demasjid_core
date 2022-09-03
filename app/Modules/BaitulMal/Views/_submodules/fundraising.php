@@ -50,13 +50,13 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p>Overview</p>
+                    <p> <?= lang('crud.tim_fundraising') ?></p><!--<p>Overview</p>-->
                     </div>
                     <div class="icon">
                     <i class="icon-icon_zakat"></i>
                     </div>
                     <a href="" class="small-box-footer">
-                        Lihat detil <i class="fas fa-arrow-circle-right"></i>
+                    <?= lang('app.more_info')?><!--Lihat detil --><i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
