@@ -296,4 +296,13 @@ return [
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
 	'nama_tim'=>'Nama Tim',
+
+	'donasi' => 'Donasi',
+	'campaign_id' => 'Kampanye',
+	'paymentmethod_rek_no' => 'No Rekening',
+	'paymentmethod_rek_name' => 'Nama Rekening',
+	'dana_in' => 'Jumlah',
+
+	'draft' => 'draft',
+	'release' => 'release',
 ];
