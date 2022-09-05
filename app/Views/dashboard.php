@@ -7,7 +7,7 @@
 
 <?php $this->section('main') ?>
 
-<section class="content">
+<section class="content de_dashboard">
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">

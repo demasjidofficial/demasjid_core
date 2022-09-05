@@ -1,0 +1,26 @@
+@media only screen and (max-width: 767px){
+    .main-footer{
+        padding: 16px 12px;
+    }
+
+    .de_menu>.row>.col-md-3>.small-box>.icon{
+        display: block;
+    }
+
+    .de_menu>.row>.col-md-3{
+        flex: 0 0 50%;
+    }
+
+    .de_menu>.row>.col-md-3>.small-box>div>p{
+        padding-top: 12px !important;
+    }
+
+    .de_menu>.row>.col-md-3{
+        padding-right: 4px !important;
+        padding-left: 4px !important;
+    }
+
+    .de_menu>.row>.col-md-3>.small-box{
+        margin-bottom: 8px;
+    }
+}
