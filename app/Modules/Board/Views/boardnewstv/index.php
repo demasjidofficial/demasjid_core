@@ -14,7 +14,7 @@
                     <h3 class="text-address"><?= lang('app.alamat') ?>: <?= $masjid_profile['address']; ?></h3>
                     <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
                 </div>
-                <div class="col col-sm-4 text-center">
+                <div class="col col-sm-4 text-right">
                     <h2 id="date" class="date-text"></h2>
                     <h2 id="clock" class="clock-text"></h2>
                 </div>
@@ -122,7 +122,7 @@
         $('#slideshow > div:first')
             .fadeOut(3000)
             .next()
-            .fadeIn(2000)
+            .fadeIn(3000)
             .end()
             .appendTo('#slideshow');
         $('ul li').removeClass('active');
@@ -197,6 +197,12 @@
 
     .text-left{
         margin-left: 20px;
+    }
+
+    .text-right{
+        text-align: right;
+        margin: auto;
+        padding: auto;
     }
 
 
@@ -278,7 +284,7 @@
     }
 
     .marquee-content li {
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
         width: 100%;
