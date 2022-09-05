@@ -15,6 +15,7 @@ class BaseModel extends ModelsBaseModel
             if (!isset($data['data']['created_by'])) {
                 $data['data']['created_by'] = auth()->user()->id;
             }
+
         }
 
         return $data;

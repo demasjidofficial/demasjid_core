@@ -62,6 +62,7 @@ class AdminCrudController extends AdminController
         return $this->render($view, $dataIndex);
     }
 
+
     /**
      * Return the properties of a resource object
      *
@@ -195,6 +196,8 @@ class AdminCrudController extends AdminController
     {
         return [];
     }
+
+    
 
     protected function getDataEdit($id = null)
     {

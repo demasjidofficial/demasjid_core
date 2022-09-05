@@ -1,11 +1,42 @@
 <?php $this->extend('master') ?>
 
 <?php $this->section('styles') ?>
+
+
+<?= asset_link('admin/css/widgets.css', 'css'); ?>
+
   <?= asset_link('admin/theme-adminlte/plugins/chart-js/Chart.css', 'css'); ?>
+
+
+  <?= asset_link('admin/theme-adminlte/plugins/chart-js/Chart.css', 'css'); ?>
+
 <?php $this->endSection() ?>
 
 
 <?php $this->section('main') ?>
+
+
+
+<div class="input-group col-lg-6 col-12">
+	<div class="input-group-prepend">
+		<span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+	</div>
+	<input type="text" class="form-control float-right" id="reservation">&nbsp
+	<button type="button" class="btn btn-primary btn-sm">Terapkan</button>&nbsp
+	<button type="button" class="btn btn-success btn-sm">Export</button>&nbsp
+</div>
+
+
+<?= view('Bonfire\Views\Widgets\_stats', [
+	'stats'   => $widgets->widget('stats')->items(),
+	'manager' => $manager,
+]) ?>
+<?= view('Bonfire\Views\Widgets\_charts', [
+	'charts'  => $widgets->widget('charts')->items(),
+	'manager' => $manager,
+]) ?>
+
+
 
 <section class="content">
       <div class="container-fluid">
@@ -402,6 +433,10 @@
       </div><!--/. container-fluid -->
     </section>
 
+
+
+
+
 <?php $this->endSection() ?>
 
 
@@ -417,6 +452,26 @@
 <script>
   $(function () {
   'use strict'
+
+
+
+		<?php foreach ($elem->items() as $index => $widget) : ?>
+
+			<?php
+			$_widgets = array_values(
+				array_filter($manager, static fn ($k) => $k['widget'] === 'Charts', ARRAY_FILTER_USE_BOTH)
+			);
+
+			?>
+			<?php if (setting('Stats.' . $_widgets[$index]['widget'] . '_' . $index)) : ?>
+				<?= $widget->getScript(); ?>
+			<?php endif ?>
+
+		<?php endforeach; ?>
+
+	<?php endforeach; ?>
+</script>
+<?php $this->endSection() ?>
 
   var ticksStyle = {
     fontColor: '#495057',
@@ -491,6 +546,82 @@
       }
     }
   })
+
+
+  var ticksStyle = {
+    fontColor: '#495057',
+    fontStyle: 'bold'
+  }
+
+  var mode = 'index'
+  var intersect = true
+
+  var $salesChart = $('#sales-chart')
+  // eslint-disable-next-line no-unused-vars
+  var salesChart = new Chart($salesChart, {
+    type: 'bar',
+    data: {
+      labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+      datasets: [
+        {
+          backgroundColor: '#007bff',
+          borderColor: '#007bff',
+          data: [1000, 2000, 3000, 2500, 2700, 2500, 3000]
+        },
+        {
+          backgroundColor: '#ced4da',
+          borderColor: '#ced4da',
+          data: [700, 1700, 2700, 2000, 1800, 1500, 2000]
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        mode: mode,
+        intersect: intersect
+      },
+      hover: {
+        mode: mode,
+        intersect: intersect
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display: true,
+            lineWidth: '4px',
+            color: 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks: $.extend({
+            beginAtZero: true,
+
+            // Include a dollar sign in the ticks
+            callback: function (value) {
+              if (value >= 1000) {
+                value /= 1000
+                value += 'k'
+              }
+
+              return '$' + value
+            }
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false
+          },
+          ticks: ticksStyle
+        }]
+      }
+    }
+  })
+
 
   var $visitorsChart = $('#visitors-chart')
   // eslint-disable-next-line no-unused-vars

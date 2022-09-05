@@ -32,7 +32,7 @@ class PaymentMethodPaygatController extends AdminCrudController
 
     public function create(){
         /** Auto fill for transfer */
-        $this->model->set('payment_category_id', 2);
+        $this->model->set('payment_category_id', (new PaymentMethodPaygatModel())->paymentGateway());
 
         return parent::create();
     }
@@ -65,7 +65,7 @@ class PaymentMethodPaygatController extends AdminCrudController
     {
         $dataEdit = parent::getDataEdit($id);
         $model = new PaymentMethodPaygatModel();
-        // return var_dump($dataEdit);
+
         if(!empty($id)){
             $data = $model->find($id);
             if (null === $data) {

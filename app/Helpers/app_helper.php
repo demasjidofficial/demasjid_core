@@ -52,6 +52,18 @@ if (!function_exists('convertStateProgram')) {
     }
 }
 
+if (!function_exists('convertStateWebsite')) {
+    function convertStateWebsite($state)
+    {
+        $validState = [
+            'draft' => '<span class="badge badge-info">'.lang('crud.draft').'</span>',
+            'release' => '<span class="badge badge-success">'.lang('crud.release').'</span>'
+        ];    
+
+        return $validState[$state] ?? $state;
+    }
+}
+
 if (! function_exists('local_currency')) {
     function local_currency(float $num, ?string $currency = 'IDR', ?string $locale = null, int $fraction = 0): string
     {
@@ -61,5 +73,15 @@ if (! function_exists('local_currency')) {
             'currency' => $currency,
             'fraction' => $fraction,
         ]);
+    }
+}
+
+if (! function_exists('local_date')) {
+    function local_date(string $date)
+    {
+        $months= array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November' ,'Desember');
+
+        $ar = explode('-', substr($date, 0, 10));
+        return $ar[2].' ' . $months[(int)$ar[1]].' ' . $ar[0];
     }
 }

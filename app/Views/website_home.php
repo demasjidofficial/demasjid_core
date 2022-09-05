@@ -95,7 +95,7 @@
 
 <!-- Our Cases Start -->
 <?php if (isset($donation_campaigns) && count($donation_campaigns)) : ?>
-<div class="our-cases-area section-padding24">
+<div class="our-cases-area section-padding24" id="donasi">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
@@ -107,13 +107,45 @@
             </div>
         </div>
         <div class="row">
+
+        <?php foreach ($donation_campaigns as $item) : ?>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-cases mb-40">
+                    <div class="cases-img">
+                        <img src="<?php echo $item["path_image"]?>" alt="">
+                    </div>
+                    <div class="cases-caption">
+                        <h3><a href="#"><?php echo $item["name"]?></a></h3>
+                        <!-- Progress Bar -->
+                        <div class="single-skill mb-15">
+                            <div class="bar-progress">
+                                <div id="bar<?php echo $item["id"]?>" class="barfiller">
+                                    <div class="tipWrap">
+                                        <span class="tip" style="left:0 !important"></span>
+                                    </div>
+                                    <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"]*100, 0, '.', '')) ?>" ></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / progress -->
+                        <div class="prices d-flex justify-content-between">
+                            <p>Terkumpul:<span> <br /><?php echo local_currency($item["campaign_collected"]) ?></span></p>
+                            <p>Kebutuhan:<span> <br /><?php echo local_currency($item["campaign_tonase"]) ?></span></p>
+                        </div>
+                    </div>
+                    <div class="btn-donation-wrapper" style="text-align:center;">
+                        <button class="btn btn-donation">Donasi Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
         <?php $counter = 0; ?>
         <?php foreach ($donation_campaigns as $item) : ?>
             <?php if ($counter < 6) { ?>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="<?php echo $item["path_image"]?>" alt="">
+                            <img src="<?php echo site_url($item["path_image"]) ?>" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#"><?php echo $item["name"]?></a></h3>
@@ -144,7 +176,15 @@
                 } 
                 $counter++; 
             ?>
+
         <?php endforeach ?>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mt-45 mb-100">
+                <div class="btn-donation-wrapper" style="text-align:center;">
+                    <a href='<?= site_url('/id/donations/')?>' target="_blank" class="btn btn-donation-readmore">Read More</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

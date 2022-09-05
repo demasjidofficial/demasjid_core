@@ -9,3 +9,19 @@
     padding: 1rem;
     margin: 5px;
 }
+
+.admin-donasi-list img {
+    width: 50px;
+}
+
+.admin-donasi-list p {
+    font-size: 10px;
+}
+
+.admin-donasi-list p.name {
+    font-size: 1rem;
+}
+
+.custom-switch {
+    padding-left: 0px;
+}

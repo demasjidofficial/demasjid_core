@@ -15,12 +15,14 @@ class CreateMasterBank extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+
             'path_logo' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
             ],
             'name' => [
+
                 'type' => 'varchar',
                 'constraint' => 50,
                 'null' => true
