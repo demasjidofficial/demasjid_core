@@ -25,3 +25,7 @@
 .custom-switch {
     padding-left: 0px;
 }
+
+.tf-v1-sidetab {
+    display: none;
+}

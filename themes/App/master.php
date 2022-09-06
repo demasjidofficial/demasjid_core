@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title><?= $masjid_profile['name'] ?? '' ?>| <?= config('App')->siteName ?? 'Demasjid' ?></title>
-
+    <?php echo $meta ?>
     <link rel='icon' href='<?= $masjid_profile['path_logo'] ?? '' ?>' />
 
     <!-- CSS here -->

@@ -23,10 +23,6 @@ class BmDonationCampaignSeeder extends Seeder
                 'donationtype_id'=>'1',
                 'program_id'=>'2',
                 'state'=>'Belum Mulai',
-          
-
-
-
             ]
 
         ];

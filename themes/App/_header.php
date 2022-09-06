@@ -95,7 +95,7 @@
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#donasi" class="btn header-btn"><?= lang('app.donation')?></a>
+                                        <a href="<?php echo $nav_header_donation ?? site_url().'id/donations' ?>" class="btn header-btn"><?= lang('app.donation')?></a>
                                     </div>
                                 </div>
                             </div> 

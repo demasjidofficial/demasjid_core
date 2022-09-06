@@ -1,5 +1,12 @@
 <?php $this->extend('master'); ?>
 
+<?php $this->section('styles'); ?>
+    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/codemirror.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/theme/monokai.css', 'css') ?>
+<?= $this->endSection() ?>
+
 <?php $this->section('main'); ?>
     <x-page-head>
         <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
@@ -62,6 +69,16 @@
                         <?php } ?>
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <?= form_label(lang('crud.instr'),'',['for' => 'instr', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <?= form_textarea('instr', old('instr', $data->instr ?? ''), "rows='4' class='form-control text'") ?>
+                        
+                        <?php if (has_error('instr')) { ?>
+                        <p class="text-danger"><?php echo error('instr'); ?></p>
+                        <?php } ?>
+                    </div>
+                </div>
             </fieldset>
 
             <div class="text-end py-3">
@@ -76,14 +93,29 @@
 <?php $this->section('scripts'); ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/codemirror/codemirror.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/css/css.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js', 'js') ?>
+
 <script type="text/javascript">
     $(function () {
         bsCustomFileInput.init();   
-            $('input:file').change(function() {
-                var i = $(this).prev('label').clone();
-                var file = $(this).get(0).files[0].name;
-                $(this).prev('label').text(file);
-            });
+        $('input:file').change(function() {
+            var i = $(this).prev('label').clone();
+            var file = $(this).get(0).files[0].name;
+            $(this).prev('label').text(file);
+        });
+
+        $('[name=instr]').summernote({
+            height: 450,   //set editable area's height
+            codemirror: { // codemirror options
+                theme: 'monokai'
+            }
+        });
     });
     
     function addRow(elm){

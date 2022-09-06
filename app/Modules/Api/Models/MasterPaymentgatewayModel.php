@@ -11,7 +11,8 @@ class MasterPaymentgatewayModel extends BaseModel
 		'name',
 		'created_at',
 		'updated_at',
-		'created_by'
+		'created_by',
+        'instr'
     ];
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[master_paymentgateway.id,id,{id}]',

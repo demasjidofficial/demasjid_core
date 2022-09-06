@@ -8,6 +8,7 @@ use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\SitemenusModel;
+use App\Modules\Api\Models\SitefooterModel;
 
 
 class ConfirmationofdonationController extends BaseController
@@ -26,11 +27,11 @@ class ConfirmationofdonationController extends BaseController
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
         $masjid_profile = $profile;
         
         // get data of masjid socials
-        $masjid_socials = (new SitesocialsModel())->asArray()->findAll();
+        $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
         
         // get data of activated languages
         $languages = [
@@ -57,13 +58,17 @@ class ConfirmationofdonationController extends BaseController
          // get data of menus // default indonesia = 1
          $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
 
-
+        // get data of footer
+        $footer = (new SitefooterModel())->asArray()->findAll();
+        
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['masjid_socials'] = $masjid_socials;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['widgets'] = service('widgets');   
+        $data['meta'] = meta_tag($masjid_profile["name"]); 
+        $data['footer'] = $footer; 
         
         $no_inv = current_url(true)->getQuery();
         $data['no_inv'] = (isset($no_inv)) ? substr($no_inv, 0 , -1) : $no_inv;

@@ -13,6 +13,7 @@ use App\Modules\Api\Models\PaymentMethodModel;
 use App\Modules\Api\Models\MasterBankModel;
 use App\Modules\Api\Models\MasterPaymentgatewayModel;
 use App\Modules\Api\Models\SitemenusModel;
+use App\Modules\Api\Models\SitefooterModel;
 
 
 class InformatonofpaymentController extends BaseController
@@ -31,11 +32,11 @@ class InformatonofpaymentController extends BaseController
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
         $masjid_profile = $profile;
         
         // get data of masjid socials
-        $masjid_socials = (new SitesocialsModel())->asArray()->findAll();
+        $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
         
         // get data of activated languages
         $languages = [
@@ -64,27 +65,23 @@ class InformatonofpaymentController extends BaseController
 
         $uri = current_url(true);
 
-        $donation = (new DonasiModel())->asArray()->find((int)$uri->getSegment(3));
-        $campaign = (new BmdonationcampaignModel())->asArray()->find((int)$donation['campaign_id']);
-        $payment = (new PaymentMethodModel())->asArray()->find((int)$donation['paymentmethod_id']);
-      
-        if ($payment['payment_category_id'] == 1) {
-            $data['payment_detail'] = (new MasterBankModel())->asArray()->find((int)$payment['master_payment_id']);
-        }
-        else {
-            $data['payment_detail'] = (new MasterPaymentgatewayModel())->asArray()->find((int)$payment['master_payment_id']);
-        }
+        $donation = (new DonasiModel())->asArray()->findById((int)$uri->getSegment(3));
+        if (!isset($donation)) return redirect()->to('/'); 
+        
+        // get data of footer
+        $footer = (new SitefooterModel())->asArray()->findAll();
         
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['masjid_socials'] = $masjid_socials;
         $data['donation'] = $donation;
-        $data['payment'] = $payment;
-        $data['campaign'] = $campaign;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
-        $data['widgets'] = service('widgets');  
-        $data['actionUrl'] = site_url('/admin/baitulmal/donation/');    
+        $data['widgets'] = service('widgets'); 
+        $data['meta'] = meta_tag($masjid_profile["name"]);  
+        $data['actionUrl'] = site_url('/admin/baitulmal/donation/');  
+        $data['footer'] = $footer; 
+          
         // render view
         return $this->render('\App\Views\Campaign\informationofpayment', $data);
     }

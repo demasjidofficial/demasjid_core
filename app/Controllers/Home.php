@@ -8,6 +8,7 @@ use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\SitemenusModel;
+use App\Modules\Api\Models\SitefooterModel;
 use App\Modules\Api\Models\BmdonationcampaignModel;
 
 class Home extends BaseController
@@ -22,26 +23,36 @@ class Home extends BaseController
 
     public function index($slug_page = null)
     {
+        helper(['form','number','app']);
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
+
         $isPage = false;
+        $page_data =   [
+            "meta_title" => 'De Masjid | ' .$profile['address'],
+            "meta_desc" => 'De Masjid | '. $profile['address'],
+            "path_image" => $profile['path_logo']
+        ];
+
         if (isset($slug_page)) {
             $page = model('App\Modules\Api\Models\SitepagesModel', false)->asArray()->findByslug($slug_page);
             if (isset($page) && count($page)) {
-                $data['page'] = $page[0];
+                $page_data = $page[0];
                 $isPage = true;
                 // load section of that page
                 $data['sections'] = model('App\Modules\Api\Models\SitesectionsModel', false)->asArray()->findAllByPagerelease($page[0]['id']);
+                // load slider of that page
+                $data['sliders'] = model('App\Modules\Api\Models\SiteslidersModel', false)->asArray()->findAllByPagerelease($page[0]['id']);
+                
             }
         }
 
-        helper(['form','number','app']);
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
-        $masjid_profile = $profile;
         
+        $masjid_profile = $profile;
         // get data of masjid socials
-        $masjid_socials = (new SitesocialsModel())->asArray()->findAll();
+        $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
         
         // get data of activated languages
         $languages = [
@@ -71,18 +82,28 @@ class Home extends BaseController
         // get data of donation campaigns
         $donation_campaigns = (new BmdonationcampaignModel())->asArray()->findAll();
         
+        // get data of footer
+        $footer = (new SitefooterModel())->asArray()->findAll();
+
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['masjid_socials'] = $masjid_socials;
         $data['donation_campaigns'] = $donation_campaigns;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
-        $data['widgets'] = service('widgets');        
+        $data['widgets'] = service('widgets'); 
+        $data['footer'] = $footer; 
+        $data['page'] = $page_data; 
+        $data['meta'] = meta_tag($masjid_profile["name"], $page_data);  
         
         // render view
         // jika page dan home
         if ($isPage) return $this->render('App\Modules\Website\Views\page', $data);
-        else return $this->render('website_home', $data);
+        else {
+            // to keep in home view but scroll to donation section
+            $data['nav_header_donation'] = '#donasi';
+            return $this->render('website_home', $data);
+        }
     }
 
     private function setupWidgets()

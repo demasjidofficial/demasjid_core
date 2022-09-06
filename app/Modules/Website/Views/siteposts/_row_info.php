@@ -1,14 +1,9 @@
 <td><?php echo esc($item->title) ?></a></td>
 <td><?php echo esc($item->subtitle) ?></a></td>
-<td><?php echo esc($item->path_image) ?></a></td>
-<td><?php echo esc($item->content) ?></a></td>
 <td><?php echo esc($item->permalink) ?></a></td>
-<td><?php echo esc($item->meta_title) ?></a></td>
-<td><?php echo esc($item->meta_desc) ?></a></td>
 <td><?php echo esc($item->labels) ?></a></td>
-<td><?php echo esc($item->language_id) ?></a></td>
-<td><?php echo esc($item->state) ?></a></td>
-<td><?php echo esc($item->created_name) ?></a></td>
+<td><?php echo esc($item->language_name) ?></a></td>
+<td><?php echo convertStateWebsite($item->state) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

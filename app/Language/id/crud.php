@@ -305,4 +305,11 @@ return [
 
 	'draft' => 'draft',
 	'release' => 'release',
+
+	'instr_atm' => 'Instruksi via ATM',
+	'instr_mbanking' => 'Instruksi via Mbanking',
+	'instr_ibanking' => 'Instruksi via Ibanking',
+	'instr' => 'Instruksi Pembayaran',
+
+	'sitefooter' => 'Footer'
 ];

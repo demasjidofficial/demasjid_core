@@ -10,6 +10,7 @@ use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\BmdonationcampaignModel;
 use App\Modules\Api\Models\PaymentMethodModel;
 use App\Modules\Api\Models\SitemenusModel;
+use App\Modules\Api\Models\SitefooterModel;
 
 class CheckoutController extends BaseController
 {
@@ -30,11 +31,11 @@ class CheckoutController extends BaseController
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
         $masjid_profile = $profile;
         
         // get data of masjid socials
-        $masjid_socials = (new SitesocialsModel())->asArray()->findAll();
+        $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
         
         // get data of activated languages
         $languages = [
@@ -66,8 +67,13 @@ class CheckoutController extends BaseController
 
         // get data of donation campaigns
         $donation_campaigns = (new BmdonationcampaignModel())->asArray()->find((int)$uri->getSegment(3));
+        if (!isset($donation_campaigns)) return redirect()->to('/');
+        
         $paymentListBank = (new PaymentMethodModel())->select('payment_method.id, payment_method.rek_no, payment_method.rek_name, master_bank.path_logo, master_bank.name')->where(['payment_category_id'=> $CATEGORY_BANK, 'isActived'=> 1])->join('master_bank', 'master_bank.id = payment_method.master_payment_id')->asArray()->find();
         $paymentListPayGat = (new PaymentMethodModel())->select('payment_method.id, payment_method.rek_no, payment_method.rek_name, master_paymentgateway.path_logo, master_paymentgateway.name')->where(['payment_category_id'=> $CATEGORY_PAYMENT_GATEWAY, 'isActived'=> 1])->join('master_paymentgateway', 'master_paymentgateway.id = payment_method.master_payment_id')->asArray()->find();
+
+        // get data of footer
+        $footer = (new SitefooterModel())->asArray()->findAll();
 
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
@@ -76,9 +82,15 @@ class CheckoutController extends BaseController
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['widgets'] = service('widgets');  
+        $data['meta'] = meta_tag($masjid_profile["name"], [
+            "meta_title" => $donation_campaigns['name'],
+            "meta_desc" => $donation_campaigns['description'],
+            "path_image" => $donation_campaigns["path_image"]
+        ]); 
         $data['actionUrl'] = site_url('/admin/baitulmal/donation/');   
         $data['paymentListBank'] = $paymentListBank;
         $data['paymentListPayGat'] = $paymentListPayGat;
+        $data['footer'] = $footer; 
 
         // render view
         return $this->render('\App\Views\Campaign\checkout', $data);

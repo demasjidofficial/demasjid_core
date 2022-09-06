@@ -8,6 +8,7 @@ use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\SitemenusModel;
+use App\Modules\Api\Models\SitefooterModel;
 
 
 class CampaignsPageController extends BaseController
@@ -26,11 +27,11 @@ class CampaignsPageController extends BaseController
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
         $masjid_profile = $profile;
         
         // get data of masjid socials
-        $masjid_socials = (new SitesocialsModel())->asArray()->findAll();
+        $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
         
         // get data of activated languages
         $languages = [
@@ -63,7 +64,12 @@ class CampaignsPageController extends BaseController
 
         // get data of donation campaigns
         $donation_campaigns = model('App\Modules\Api\Models\BmdonationcampaignModel', false)->asArray()->find($campaign_id);
+        if (!isset($donation_campaigns)) return redirect()->to('/'); 
+        
         $donation_list = model('App\Modules\Api\Models\DonasiModel', false)->where(['campaign_id' => $campaign_id, 'state' => 1])->orderBy('updated_at', 'DESC')->find();
+
+        // get data of footer
+        $footer = (new SitefooterModel())->asArray()->findAll();
 
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
@@ -72,7 +78,15 @@ class CampaignsPageController extends BaseController
         $data['donation_list'] = $donation_list;
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
-        $data['widgets'] = service('widgets');        
+        $data['widgets'] = service('widgets');   
+        $data['meta'] = meta_tag($masjid_profile["name"], 
+            [
+                "meta_title" => $donation_campaigns['name'],
+                "meta_desc" => $donation_campaigns['description'],
+                "path_image" => $donation_campaigns["path_image"]
+            ]
+        ); 
+        $data['footer'] = $footer;      
         // render view
         return $this->render('\App\Views\Campaign\campaign', $data);
     }
