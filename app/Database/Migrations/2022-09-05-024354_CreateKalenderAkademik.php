@@ -62,11 +62,7 @@ class CreateKalenderAkademik extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey('name');
-        $this->forge->addForeignKey('uom_id', 'uom', 'id');
-        $this->forge->addForeignKey('entity_id', 'entity', 'id');
-        $this->forge->addForeignKey('level_id', 'tingkat_pendidikan', 'id');
-        $this->forge->createTable('kelas', true);
+        $this->forge->createTable('kalender_akademik', true);
     }
 
     public function down()
