@@ -11,10 +11,12 @@
                 </div>
                 <div class="col text-left">
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
-                    <h3 class="text-address"><?= lang('app.alamat') ?>: <?= $masjid_profile['address']; ?></h3>
+                    <h3 class="text-address"><?= lang('app.alamat') ?>:
+                        <?= ucwords(strtolower('Desa '.$desa.' Kecamatan '.$kecamatan.' Kota/Kabupaten '.$kota.' Provinsi '.$provinsi)); ?>
+                    </h3>
                     <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
                 </div>
-                <div class="col col-sm-4 text-right">
+                <div class="col col-sm-3 text-right">
                     <h2 id="date" class="date-text"></h2>
                     <h2 id="clock" class="clock-text"></h2>
                 </div>
