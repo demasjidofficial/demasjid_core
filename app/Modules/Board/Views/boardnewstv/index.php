@@ -13,7 +13,7 @@
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
                     <h3 class="text-address">
                         <!-- < ?= lang('app.alamat') ?>: -->
-                        <?= ucwords(strtolower($desa.', '.$kecamatan.', '.$kota.', '.$provinsi)); ?>
+                        <?= ucwords(strtolower($desa . ', ' . $kecamatan . ', ' . $kota . ', ' . $provinsi)); ?>
                     </h3>
                     <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
                 </div>
@@ -95,13 +95,11 @@
 <!-- running text -->
 <section class="runtext">
     <div class="text-running fixed-bottom">
-        <div class="marquee">
-            <ul class="marquee-content">
-                <?php foreach ($board_news_runtext as $text) { ?>
-                    <li><?= $text['Text'] ?></li>
-                <?php } ?>
-            </ul>
-        </div>
+        <marquee scrollamount="5" loop="infinite" animation="linear" scrolldelay="85">
+            <?php foreach ($board_news_runtext as $text) { ?>
+                <?= '&emsp;&emsp;'.$text['Text'] ?>
+            <?php } ?>
+        </marquee>
     </div>
 </section>
 </div>
@@ -191,18 +189,18 @@
         font-size: 25px;
     }
 
-    .text-center{
+    .text-center {
         text-align: center;
         margin: auto;
         padding: auto;
-        
+
     }
 
-    .text-left{
+    .text-left {
         margin-left: 20px;
     }
 
-    .text-right{
+    .text-right {
         text-align: right;
         margin: auto;
         padding: auto;
@@ -261,39 +259,17 @@
 
 
     /* run text */
-    .marquee {
+    .text-running{
+        background-color: black;
+    }
+
+    marquee {
         width: 100%;
         height: 40px;
-        background-color: black;
         color: white;
         overflow: hidden;
-    }
-
-    .marquee-content {
-        list-style: none;
-        height: 100%;
-        display: flex;
-        animation: scrolling 50s linear infinite;
-    }
-
-    @keyframes scrolling {
-        0% {
-            transform: translateX(80vw);
-        }
-
-        100% {
-            transform: translateX(-180vw);
-        }
-    }
-
-    .marquee-content li {
-        display: block;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        flex-shrink: 0;
+        padding-top: 2px;
         font-size: 2rem;
-        white-space: nowrap;
     }
 
 
