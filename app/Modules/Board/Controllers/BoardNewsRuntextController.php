@@ -44,7 +44,7 @@ class BoardNewsRuntextController extends AdminCrudController
         return [
             'headers' => [
                 'Text' => lang('crud.board_newsruntext'),
-                'duration' => lang('crud.duration'),
+                // 'duration' => lang('crud.duration'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
