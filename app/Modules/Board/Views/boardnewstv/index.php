@@ -11,8 +11,9 @@
                 </div>
                 <div class="col text-left">
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
-                    <h3 class="text-address"><?= lang('app.alamat') ?>:
-                        <?= ucwords(strtolower('Desa '.$desa.' Kecamatan '.$kecamatan.' Kota/Kabupaten '.$kota.' Provinsi '.$provinsi)); ?>
+                    <h3 class="text-address">
+                        <!-- < ?= lang('app.alamat') ?>: -->
+                        <?= ucwords(strtolower($desa.', '.$kecamatan.', '.$kota.', '.$provinsi)); ?>
                     </h3>
                     <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
                 </div>
