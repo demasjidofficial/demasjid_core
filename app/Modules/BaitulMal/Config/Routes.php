@@ -3,6 +3,8 @@
 namespace App\Modules\Config;
 
 $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers'], static function ($routes) {
+
+    $routes->resource('baitulmal/overviewmanager', ['controller' => 'OverviewManagerController']);
     $routes->resource('baitulmal/donationtype', ['controller' => 'BmdonationtypeController']);
     $routes->resource('baitulmal/infaqshodaqoh', ['controller' => 'BminfaqshodaqohController']);
     $routes->resource('baitulmal/infaqshodaqohcategory', ['controller' => 'BminfaqshodaqohcategoryController']);
@@ -23,6 +25,8 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/jadwalfundraising', ['controller' => 'JadwalFundraisingController']);
     $routes->resource('baitulmal/timfundraising', ['controller' => 'TimFundraisingController']);
     $routes->resource('baitulmal/timstaff', ['controller' => 'TimStaffController']);
+    $routes->resource('baitulmal/tugasstaff', ['controller' => 'TugasTimController']);
+    $routes->resource('baitulmal/nominalstaff', ['controller' => 'Nominal_targetController']);
     /** ask to delete */
     $routes->resource('baitulmal/_oldCampaigns', ['controller' => 'CampaignsController']);
     

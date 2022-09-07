@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class TimStaff
+* Class NominalTarget
 * @OA\Schema(
-*     title="TimStaff",
-*     description="TimStaff"
+*     title="NominalTarget",
+*     description="NominalTarget"
 * )
 *
 * @OA\Tag(
-*     name="TimStaff",
-*     description="Everything about your TimStaff" 
+*     name="NominalTarget",
+*     description="Everything about your NominalTarget" 
 * )
 */ 
-class TimStaff extends BaseEntity
+class NominalTarget extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -28,8 +28,8 @@ class TimStaff extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="tim_id",
-	 *     title="tim_id",
+	 *     description="staff_id",
+	 *     title="staff_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -37,11 +37,11 @@ class TimStaff extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $tim_id;
+	private $staff_id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="user_id",
-	 *     title="user_id",
+	 *     description="terkumpul_nominal",
+	 *     title="terkumpul_nominal",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -49,14 +49,26 @@ class TimStaff extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $user_id;
+	private $terkumpul_nominal;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="target_nominal",
+	 *     title="target_nominal",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=11,
+	 * )
+	 *		 
+	 */
+	private $target_nominal;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
 	 *     title="created_at",
 	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
+	 * 	   format="-",	 
+	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
@@ -66,8 +78,8 @@ class TimStaff extends BaseEntity
 	 *     description="updated_at",
 	 *     title="updated_at",
 	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
+	 * 	   format="-",	 
+	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
@@ -76,10 +88,10 @@ class TimStaff extends BaseEntity
 	 * @OA\Property(		 		 		 
 	 *     description="created_by",
 	 *     title="created_by",
-	 *     type="integer",
+	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
-	 * 	   maxLength=11,
+	 * 	   maxLength=100,
 	 * )
 	 *		 
 	 */
@@ -88,10 +100,10 @@ class TimStaff extends BaseEntity
 	 * @OA\Property(		 		 		 
 	 *     description="updated_by",
 	 *     title="updated_by",
-	 *     type="integer",
+	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
-	 * 	   maxLength=11,
+	 * 	   maxLength=100,
 	 * )
 	 *		 
 	 */
@@ -100,16 +112,16 @@ class TimStaff extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="TimStaff",
- *     description="TimStaff object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/TimStaff"),
+ *     request="NominalTarget",
+ *     description="NominalTarget object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/NominalTarget"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/TimStaff")
+ *         @OA\Schema(ref="#/components/schemas/NominalTarget")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/TimStaff")
+ *         @OA\Schema(ref="#/components/schemas/NominalTarget")
  *     )
  * )
  */

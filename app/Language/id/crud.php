@@ -296,6 +296,10 @@ return [
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
 	'nama_tim'=>'Nama Tim',
+	'tugas_tim'=>'Tugas Staff Fundraising',
+	'add_tugas_tim'=>'Tambah Tugas Staff Fundraising',
+	'staff_nama'=>'Nama Staff',
+	'tugas'=>'Tugas'
 
 
 

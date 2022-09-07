@@ -74,6 +74,48 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p>Overview Manager</p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/baitulmal/overviewmanager')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p>Pembagian Tugas</p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/baitulmal/timstaff')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p>Penentuan Nominal</p>
+                    </div>
+                    <div class="icon">
+                    <i class="fas fa-file"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/baitulmal/nominalstaff')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
         </div><!--/.row -->
         
     </div>

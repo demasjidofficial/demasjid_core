@@ -37,29 +37,34 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
-                    <?php if (has_error('kode_tim')) { ?>
-                        <p class="text-danger"><?php echo error('kode_tim'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'nama_tim', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('nama_tim', old('nama_tim', $data->nama_tim ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nama_tim') . "' ") ?>
-                    <?php if (has_error('nama_tim')) { ?>
-                        <p class="text-danger"><?php echo error('nama_tim'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
                 <?= form_label(lang('crud.supervisior'), '', ['for' => 'supervisior', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_dropdown('supervisior', $supervisorItems, old('supervisior', $data->supervisior ?? ''), "class='form-control select2bs4' required") ?>
                     <?php if (has_error('supervisior')) { ?>
                         <p class="text-danger"><?php echo error('supervisior'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
+
+
+
+            <div class="row mb-3">
+                <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? ''), "class='form-control int' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
+                    <?php if (has_error('kode_tim')) { ?>
+                        <p class="text-danger"><?php echo error('kode_tim'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'nama_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('nama_tim', old('nama_tim', $data->nama_tim ?? ''), "class='form-control int' required placeholder='" . lang('crud.nama_tim') . "' ") ?>
+                    <?php if (has_error('nama_tim')) { ?>
+                        <p class="text-danger"><?php echo error('nama_tim'); ?></p>
                     <?php } ?>
                 </div>
             </div>
@@ -72,7 +77,8 @@
                     <?php if (isset($timStaff) && !empty($timStaff)) { ?>
                         <?php foreach ($timStaff as $index => $detail) { ?>
                             <div class="input-group mb-2">
-                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
+
+                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
 
 
 
@@ -94,7 +100,8 @@
                         <?php } ?>
                     <?php } else { ?>
                         <div class="input-group mb-2">
-                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
+
+                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
 
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
@@ -163,8 +170,8 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
-    
-console.log(makeid(5));
+
+
     function makeid(length) {
         var result = '';
         var characters = '0123456789';
@@ -175,9 +182,11 @@ console.log(makeid(5));
         }
         return result;
     }
-    
-    $('input[name="kode_tim"]').val(makeid(5));
 
+    console.log(makeid(5));
+    $('input[name="kode_tim"]').val(makeid(5));
+    $('input[name="kode_tim"]').attr('readonly', 'readonly'); 
+    
     $('.duallistbox').bootstrapDualListbox()
     $(function() {
         $('input[name=period]').daterangepicker({
