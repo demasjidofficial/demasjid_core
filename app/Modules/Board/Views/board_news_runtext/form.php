@@ -28,10 +28,10 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.Text'),'',['for' => 'Text', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.text'),'',['for' => 'text', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('Text', old('Text', $data->Text ?? ''), "class='form-control varchar'  placeholder='".lang('crud.board_newsruntext')."' ") ?>
-                        <?php if (has_error('Text')) { ?>
+                        <?= form_input('text', old('text', $data->Text ?? ''), "class='form-control varchar'  placeholder='".lang('crud.board_newsruntext')."' ") ?>
+                        <?php if (has_error('text')) { ?>
                         <p class="text-danger"><?php echo error('Text'); ?></p>
                         <?php } ?>
                     </div>

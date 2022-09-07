@@ -1,167 +1,9 @@
 <?php $this->extend('master'); ?>
 
-<?php $this->section('main'); ?>
-<!-- header -->
-<section class="header fixed-top">
-    <div class="card text-center textcard">
-        <div class="card-header">
-            <div class="row text-center">
-                <div class="col col-sm-1 text-center">
-                    <img width="120px" src="/<?= esc($masjid_profile['path_image']) ?>">
-                </div>
-                <div class="col text-left">
-                    <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
-                    <h3 class="text-address">
-                        <!-- < ?= lang('app.alamat') ?>: -->
-                        <?= ucwords(strtolower($desa . ', ' . $kecamatan . ', ' . $kota . ', ' . $provinsi)); ?>
-                    </h3>
-                    <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
-                </div>
-                <div class="col col-sm-3 text-right">
-                    <h2 id="date" class="date-text"></h2>
-                    <h2 id="clock" class="clock-text"></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="countdown mt-5 text-center">
-        <div class="row">
-            <?php
-            $now = strtotime(date('Y/m/D'));
-            $time = date('H:i:s', strtotime(time()));
-            $awal  = strtotime($now . $time);
-            $akhir = strtotime('2022-08-12 11:07:33');
-            $diff  = $akhir - $awal;
-
-            $jam   = floor($diff / (60 * 60));
-            $menit = $diff - ($jam * (60 * 60));
-            $detik = $diff % 60;
-            ?>
-            <div class="col">
-                <h2 id="timer" class="text-countdown">
-                    <!-- < ?= 'Waktu tinggal: ' . $jam .  ' jam, ' . floor($menit / 60) . ' menit, ' . $detik . ' detik'; ?> -->
-                </h2>
-                <span id="time1"></span>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<!-- slideshow -->
-<section class="content-slideshow">
-    <!-- <div class ="container-fluid slideshow"> -->
-    <div class="container-fluid slide-img" id="slideshow">
-        <?php foreach ($board_news_bg as $bg) { ?>
-            <div>
-                <li><img src="/<?= esc($bg['path_image']) ?>" duration="<?= esc($bg['duration']) ?>" alt="imgslide"></li>
-            </div>
-        <?php } ?>
-    </div>
-    <!-- </div> -->
-</section>
-
-
-<!-- card jadwal sholat -->
-<section class="footer fixed-bottom mb-5">
-    <div class="text-footer">
-        <div class="row m-5 ml-5">
-            <?php foreach ($rawatib_schedule as $sholat) {
-                $no = $sholat['id'];
-
-                // $time = date('H:i', strtotime($sholat['pray_time']));
-                $time = $sholat['pray_time'];
-            ?>
-
-                <div class="col">
-                    <div class="card  w-40 card-pray-bg bg-color<?= $no ?>">
-                        <div class="card-body text-center card-sholat" id="<?= $no ?>">
-                            <h3 class="card-title">
-                                <?= ucfirst($sholat['name']) ?>
-                            </h3>
-                            <p class="card-text">
-                                <?= date('H:i', strtotime($sholat['pray_time'])) ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            <?php $no++;
-            } ?>
-
-        </div>
-</section>
-
-<!-- running text -->
-<section class="runtext">
-    <div class="text-running fixed-bottom">
-        <marquee scrollamount="5" loop="infinite" animation="linear" scrolldelay="85">
-            <?php foreach ($board_news_runtext as $text) { ?>
-                <?= '&emsp;&emsp;'.$text['Text'] ?>
-            <?php } ?>
-        </marquee>
-    </div>
-</section>
-</div>
-
-<?php $this->endSection(); ?>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-<?php $this->section('scripts'); ?>
-<script>
-    // slideshow
-    $("#slideshow > div:gt(0)").hide();
-
-    var index = 1;
-    var maxindex = $('#slideshow > div').length;
-
-    setInterval(function() {
-        $('#slideshow > div:first')
-            .fadeOut(3000)
-            .next()
-            .fadeIn(3000)
-            .end()
-            .appendTo('#slideshow');
-        $('ul li').removeClass('active');
-        $('ul li:eq(' + index + ')').addClass('active');
-        index = index < maxindex - 1 ? index + 1 : 0;
-    }, 5000);
-
-    for (var i = 0; i < maxindex; i++) {
-        $('ul').append('<li class="' + (i == 0 ? 'active' : '') + '"></li>');
-    }
-
-
-    // var praytime = < ?= $time ?>;
-    // var praytime = new date('Y m d < ?= $time ?>');
-    // var nowtime = new date('Y m d H:i:s');
-    // if (nowtime == nowtime) {
-    // console.log("waktunya sholat");
-    // }
-
-    // var sholat;
-
-    // if (sholat = document.getElementById(2)) {
-
-    //     setInterval(myTimer, 1000);
-
-    //     function myTimer() {
-    //         const date = new Date();
-    //         document.getElementById("timer").innerHTML = date.toLocaleTimeString();
-    //     }
-
-    //     // document.getElementById("timer").innerHTML = "Waktunya Sholat dhuhur";
-    // }
-
-    // ===========================countdown=================================
-</script>
-<?php $this->endSection(); ?>
-
 <?php $this->section('styles'); ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="< ?= base_url('/themes/Board/plugins/coin-slider/coin-slider-styles.css') ?>" type="text/css" /> -->
+<?= asset_link('board/plugins/coin-slider/coin-slider-styles.css', 'css'); ?>
 <style>
     /* header */
     .textcard {
@@ -259,7 +101,7 @@
 
 
     /* run text */
-    .text-running{
+    .text-running {
         background-color: black;
     }
 
@@ -268,33 +110,154 @@
         height: 40px;
         color: white;
         overflow: hidden;
-        padding-top: 2px;
+        margin-top: 5px;
         font-size: 2rem;
     }
 
 
     /* slide image */
-    #slideshow {
+    /* #img-slide {
         margin: auto;
         position: relative;
         width: 100%;
         height: 100%;
         padding: 0;
         -webkit-backface-visibility: hidden;
+        background-size: cover;
+        background-attachment: fixed;
 
-    }
+    } */
 
-    #slideshow>div {
+    /* #slide-img>img {
         position: relative;
         display: block;
-    }
+    } */
 
-    #slideshow img {
+    /* #img-slide {
         display: block;
         width: 100%;
         height: 100%;
         background-size: cover;
         background-attachment: fixed;
+    } */
+    .content-slideshow{
+        background-size: cover;
+
     }
+
 </style>
+<?php $this->endSection(); ?>
+
+<?php $this->section('main'); ?>
+<!-- header -->
+<section class="header fixed-top">
+    <div class="card text-center textcard">
+        <div class="card-header">
+            <div class="row text-center">
+                <div class="col col-sm-1 text-center">
+                    <img width="120px" src="/<?= esc($masjid_profile['path_image']) ?>">
+                </div>
+                <div class="col text-left">
+                    <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
+                    <h3 class="text-address">
+                        <!-- < ?= lang('app.alamat') ?>: -->
+                        <?= ucwords(strtolower($desa . ', ' . $kecamatan . ', ' . $kota . ', ' . $provinsi)); ?>
+                    </h3>
+                    <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
+                </div>
+                <div class="col col-sm-3 text-right">
+                    <h2 id="date" class="date-text"></h2>
+                    <h2 id="clock" class="clock-text"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="countdown mt-5 text-center">
+        <div class="row">
+
+        </div>
+    </div>
+
+</section>
+
+<!-- slideshow -->
+<section class="content-slideshow">
+    <div class="content img-slide" id="coin-slider">
+        <?php foreach ($board_news_bg as $bg) { ?>
+            <a href="#">
+                <img class='img-slide' src='/<?= esc($bg['path_image']) ?>' data-duration='<?= esc($bg['duration']) ?>' />
+            </a>
+        <?php } ?>
+    </div>
+    <!-- <div id='coin-slider'>
+        <a href="#">
+            < ?php foreach ($board_news_bg as $bg) { ?>
+                <img src='/< ?= esc($bg['path_image']) ?>' data-duration='< ?= esc($bg['duration']) ?>'>
+            < ?php } ?>
+        </a>
+    </div> -->
+</section>
+
+
+<!-- card jadwal sholat -->
+<section class="footer fixed-bottom mb-5">
+    <div class="text-footer">
+        <div class="row m-5 ml-5">
+            <?php foreach ($rawatib_schedule as $sholat) {
+                $no = $sholat['id'];
+                $time = $sholat['pray_time'];
+            ?>
+
+                <div class="col">
+                    <div class="card  w-40 card-pray-bg bg-color<?= $no ?>">
+                        <div class="card-body text-center card-sholat" id="<?= $no ?>">
+                            <h3 class="card-title">
+                                <?= ucfirst($sholat['name']) ?>
+                            </h3>
+                            <p class="card-text">
+                                <?= date('H:i', strtotime($sholat['pray_time'])) ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php $no++;
+            } ?>
+
+        </div>
+</section>
+
+<!-- running text -->
+<section class="runtext">
+    <div class="text-running fixed-bottom">
+        <marquee scrollamount="5" loop="infinite" animation="linear" scrolldelay="85">
+            <?php foreach ($board_news_runtext as $text) { ?>
+                <?= '&emsp;&emsp;' . $text['text'] ?>
+            <?php } ?>
+        </marquee>
+    </div>
+</section>
+</div>
+
+<?php $this->endSection(); ?>
+
+
+
+<?php $this->section('scripts'); ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<?= asset_link('board/plugins/coin-slider/coin-slider.js', 'js'); ?>
+
+<script>
+    $(document).ready(function() {
+        $('#coin-slider').coinslider({
+            navigation: false,
+            effect: '',
+            width: 1800,
+            height: 2000,
+            delay: 5000
+        });
+    });
+</script>
 <?php $this->endSection(); ?>

@@ -43,7 +43,7 @@ class BoardNewsRuntextController extends AdminCrudController
         $model = model(BoardNewsRuntextFilter::class);
         return [
             'headers' => [
-                'Text' => lang('crud.board_newsruntext'),
+                'text' => lang('crud.board_newsruntext'),
                 // 'duration' => lang('crud.duration'),
                 // 'created_by' => lang('crud.created_by')
             ],

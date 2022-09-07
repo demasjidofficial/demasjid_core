@@ -15,7 +15,7 @@ class CreateBoardNewsRunText extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'Text' => [
+            'text' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,

@@ -7,7 +7,7 @@ class BoardNewsRuntextModel extends BaseModel
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
     protected $allowedFields = [
-        'Text',
+        'text',
 		'duration',
 		'created_at',
 		'updated_at',
@@ -15,7 +15,7 @@ class BoardNewsRuntextModel extends BaseModel
     ];
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[board_news_runtext.id,id,{id}]',
-		'Text' => 'max_length[255]',
+		'text' => 'max_length[255]',
 		// 'duration' => 'max_length[255]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
