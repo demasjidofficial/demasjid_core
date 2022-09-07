@@ -32,7 +32,7 @@ class Home extends BaseController
                 $data['sections'] = model('App\Modules\Api\Models\SitesectionsModel', false)->asArray()->findAllByPagerelease($page[0]['id']);
             }
         }
-
+        
         helper(['form','number','app']);
         $this->setupWidgets();
         $this->setWidgetCounter();
@@ -78,7 +78,7 @@ class Home extends BaseController
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['widgets'] = service('widgets');        
-        
+                
         // render view
         // jika page dan home
         if ($isPage) return $this->render('App\Modules\Website\Views\page', $data);
