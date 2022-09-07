@@ -2,8 +2,8 @@
 
 <?php $this->section('styles'); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<!-- <link rel="stylesheet" href="< ?= base_url('/themes/Board/plugins/coin-slider/coin-slider-styles.css') ?>" type="text/css" /> -->
-<?= asset_link('board/plugins/coin-slider/coin-slider-styles.css', 'css'); ?>
+<?= asset_link('board/plugins/responsive-slides/responsiveslides.css', 'css'); ?>
+
 <style>
     /* header */
     .textcard {
@@ -72,7 +72,6 @@
     }
 
     .card-pray-bg {
-        /* background-color: rgb(47, 142, 168); */
         border-radius: 10px;
         opacity: .8;
         padding: 10%;
@@ -114,37 +113,11 @@
         font-size: 2rem;
     }
 
-
-    /* slide image */
-    /* #img-slide {
-        margin: auto;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        -webkit-backface-visibility: hidden;
-        background-size: cover;
-        background-attachment: fixed;
-
-    } */
-
-    /* #slide-img>img {
-        position: relative;
-        display: block;
-    } */
-
-    /* #img-slide {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-attachment: fixed;
-    } */
-    .content-slideshow{
+    /* Slideshow */
+    .content-slideshow {
         background-size: cover;
 
     }
-
 </style>
 <?php $this->endSection(); ?>
 
@@ -160,7 +133,6 @@
                 <div class="col text-left">
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
                     <h3 class="text-address">
-                        <!-- < ?= lang('app.alamat') ?>: -->
                         <?= ucwords(strtolower($desa . ', ' . $kecamatan . ', ' . $kota . ', ' . $provinsi)); ?>
                     </h3>
                     <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
@@ -182,20 +154,11 @@
 
 <!-- slideshow -->
 <section class="content-slideshow">
-    <div class="content img-slide" id="coin-slider">
+    <ul class="rslides">
         <?php foreach ($board_news_bg as $bg) { ?>
-            <a href="#">
-                <img class='img-slide' src='/<?= esc($bg['path_image']) ?>' data-duration='<?= esc($bg['duration']) ?>' />
-            </a>
+            <li><img src="/<?= esc($bg['path_image']) ?>" data-duration="<?= esc($bg['duration']) ?>" alt=""></li>
         <?php } ?>
-    </div>
-    <!-- <div id='coin-slider'>
-        <a href="#">
-            < ?php foreach ($board_news_bg as $bg) { ?>
-                <img src='/< ?= esc($bg['path_image']) ?>' data-duration='< ?= esc($bg['duration']) ?>'>
-            < ?php } ?>
-        </a>
-    </div> -->
+    </ul>
 </section>
 
 
@@ -247,17 +210,11 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<?= asset_link('board/plugins/coin-slider/coin-slider.js', 'js'); ?>
+<?= asset_link('board/plugins/responsive-slides/responsiveslides.min.js', 'js'); ?>
 
 <script>
-    $(document).ready(function() {
-        $('#coin-slider').coinslider({
-            navigation: false,
-            effect: '',
-            width: 1800,
-            height: 2000,
-            delay: 5000
-        });
+    $(function() {
+        $(".rslides").responsiveSlides();
     });
 </script>
 <?php $this->endSection(); ?>
