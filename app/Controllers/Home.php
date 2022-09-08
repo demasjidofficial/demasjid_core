@@ -45,7 +45,6 @@ class Home extends BaseController
                 
             }
         }
-
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();

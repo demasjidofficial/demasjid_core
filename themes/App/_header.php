@@ -7,8 +7,8 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left d-flex">
                                     <ul>     
-                                        <li><?= lang('app.phone')?>: <?= $masjid_profile['telephone'];?></li>
-                                        <li><?= lang('app.email')?>: <?= $masjid_profile['email'];?></li>
+                                        <li><?= lang('app.phone')?>: <?= $masjid_profile['telephone'] ?? '-';?></li>
+                                        <li><?= lang('app.email')?>: <?= $masjid_profile['email'] ?? '-';?></li>
                                     </ul>
                                     <div class="header-social">    
                                         <ul>
@@ -59,7 +59,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo header-logo">
-                                    <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo']) ?>" alt=""></a>
+                                    <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo'] ?? '-') ?>" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">

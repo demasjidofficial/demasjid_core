@@ -120,12 +120,14 @@ class ProfileController extends AdminCrudController
         $dataEdit['kotaItems'] = ['' => 'Pilih kota/kabupaten'];
         $dataEdit['kecamatanItems'] = ['' => 'Pilih kecamatan'];
         $dataEdit['desaItems'] = ['' => 'Pilih desa'];
+        
 
         if (!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
+
             $wilayah = collect((new WilayahModel())->extractWilayah($data->desa_id)->asArray()->findAll())->keyBy('kode');
             $extractWilayah = extractWilayah($data->desa_id);
             $data->provinsi_id = $extractWilayah['provinsi'];

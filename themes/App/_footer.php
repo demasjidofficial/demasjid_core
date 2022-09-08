@@ -9,7 +9,7 @@
                             <div class="single-footer-caption mb-30">
                                 <div class="footer-tittle">
                                     <div class="footer-logo mb-20">
-                                        <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo']) ?>" alt=""></a>
+                                        <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo'] ?? '-') ?>" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -21,10 +21,10 @@
                                     <h4><?= lang('app.contact_info')?></h4>
                                     <ul>
                                         <li>
-                                            <p><?= lang('app.alamat')?> :<br/><?= $masjid_profile['address'];?> <br/><?= $masjid_profile['wilayah_nama']?></p>
+                                            <p><?= lang('app.alamat')?> :<br/><?= $masjid_profile['address'] ?? '-';?> <br/>[city_name] [postal_code]</p>
                                         </li>
-                                        <li><a href="#"><?= lang('app.phone')?> : <br/><?= $masjid_profile['telephone'];?></a></li>
-                                        <li><a href="#"><?= lang('app.email')?> : <br/><?= $masjid_profile['email'];?></a></li>
+                                        <li><a href="#"><?= lang('app.phone')?> : <br/><?= $masjid_profile['telephone'] ?? '-';?></a></li>
+                                        <li><a href="#"><?= lang('app.email')?> : <br/><?= $masjid_profile['email'] ?? '-';?></a></li>
                                     </ul>
                                 </div>
 

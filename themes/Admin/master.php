@@ -23,7 +23,9 @@
     <?= asset_link('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css', 'css') ?>
         
     <?= asset_link('admin/css/admin-demasjid.css', 'css') ?>
+    <?= asset_link('admin/css/admin-demasjid-max-width-767.css', 'css') ?>
     <?= asset_link('admin/css/icomoon/style.css', 'css') ?>
+    <?= asset_link('admin/js/admin-demasjid.js', 'js') ?>
     <!--    
     < ?= asset_link('admin/css/admin.css', 'css') ?>
     < ?= asset_link('other/components/font-awesome/css/all.css', 'css') ?>
@@ -53,14 +55,15 @@
     <div class="content-wrapper" style="padding: 5px 0;">      
 
 
-    
+
       <!-- Main content -->
       <section class="content demasjid_relative">
         <!-- Feedback Form -->
-        <div data-tf-sidetab="lWWECIkd" data-tf-width="420" data-tf-height="450" data-tf-custom-icon="https://images.typeform.com/images/dcB899G2zqGn" data-tf-button-color="#026451" data-tf-button-text="<?= lang('app.helpus_grow')?>" data-tf-iframe-props="title=Feedback Form" data-tf-medium="snippet" style="">
+        <div data-tf-sidetab="lWWECIkd" data-tf-custom-icon="https://images.typeform.com/images/dcB899G2zqGn" data-tf-button-color="#026451" data-tf-button-text="<?= lang('app.helpus_grow')?>" data-tf-iframe-props="title=Feedback Form" data-tf-medium="snippet" style="">
       </div>
         <script src="//embed.typeform.com/next/embed.js"></script>
-        <!--/Feedback Form -->
+        <!--/Feedback Form -->        
+        {alerts}    
         <div class="container-fluid">
           <?= $this->renderSection('main') ?>
         </div><!-- /.container-fluid -->

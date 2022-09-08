@@ -9,7 +9,7 @@
       <p class="login-box-msg">
           <h3 style="text-align:center;">Assalamualaikum<br/>Silakan login akun</h3>
       </p>
-
+      {alerts}
       <form action="<?= route_to('login') ?>" method="post">
         <?= csrf_field() ?> 
 

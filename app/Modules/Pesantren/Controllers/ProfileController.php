@@ -128,6 +128,7 @@ class ProfileController extends AdminCrudController
             $wilayah = collect((new WilayahModel())->extractWilayah($data->desa_id)->asArray()->findAll())->keyBy('kode');
             $extractWilayah = extractWilayah($data->desa_id);
             $data->provinsi_id = $extractWilayah['provinsi'];
+            $data->provinsi_id = $extractWilayah['provinsi'];
             $data->kota_id = $extractWilayah['kota/kabupaten'];
             $data->kecamatan_id = $extractWilayah['kecamatan'];
             $dataEdit['data'] = $data;

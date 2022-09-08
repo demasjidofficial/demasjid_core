@@ -4,54 +4,56 @@
 
 <?= $this->section('main') ?>
 
-<div class="container d-flex justify-content-center p-5">
-    <div class="card col-5 shadow-sm">
+<!--div class="container d-flex justify-content-center p-5"-->
+    <div class="card col-12 shadow-sm">
         <div class="card-body">
-            <h5 class="card-title mb-5"><?= lang('Auth.register') ?></h5>
+            <!--h5 class="card-title mb-5">< ?= lang('Auth.register') ?></h5-->
 
+            <p class="login-box-msg">
+                <h3 style="text-align:center;">Assalamualaikum<br/>Silakan registrasi akun</h3>
+            </p>
+            {alerts}
             <form action="<?= route_to('register') ?>" method="post">
                 <?= csrf_field() ?>
 
                 <!-- Email -->
-                <div class="mb-2">
-                    <input type="email" class="form-control" name="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required />
-                </div>
-
-                <!-- Username -->
-                <div class="mb-4">
-                    <input type="text" class="form-control" name="username" autocomplete="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>" required />
-                </div>
-
-                <div id="pass-suggestions"></div>
-
-                <div class="row mb-2">
-                    <!-- Password -->
-                    <div class="col">
-                        <input type="password" class="form-control" name="password" id="password" autocomplete="password"
-                               placeholder="<?= lang('Auth.password') ?>"
-                               onkeyup="checkStrength()" required
-                        />
-                    </div>
-                    <!-- Password Meter -->
-                    <div class="col-auto" style="margin-left: 0">
-                        <div id="pass-meter">
-                            <div class="segment segment-4"></div>
-                            <div class="segment segment-3"></div>
-                            <div class="segment segment-2"></div>
-                            <div class="segment segment-1"></div>
+                <div class="input-group mb-3">
+                <input type="email" class="form-control" name="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Password (Again) -->
-                <div class="row mb-5">
-                    <div class="col">
-                        <input type="password" class="form-control" name="pass_confirm" id="pass_confirm" autocomplete="pass_confirm"
-                               placeholder="<?= lang('Auth.passwordConfirm') ?>" required onkeyup="checkPasswordMatch()" />
+                <!-- Username -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="username" autocomplete="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>" required />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                        <span class="fas fa-user"></span>
+                        </div>
                     </div>
-                    <div class="col-auto pass-match-wrap">
-                        <div class="pass-match" id="pass-match" style="display:none"><span>&check;</span></div>
-                        <div class="pass-not-match" id="pass-not-match" style="display:none"><span>&times;</span></div>
+                </div>
+                <!-- Password -->
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password" id="password" autocomplete="password"
+                               placeholder="<?= lang('Auth.password') ?>"
+                               onkeyup="checkStrength()" required
+                        />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ReType Password -->
+                <div class="input-group mb-3">
+                <input type="password" class="form-control" name="pass_confirm" id="pass_confirm" autocomplete="pass_confirm"
+                               placeholder="<?= lang('Auth.passwordConfirm') ?>" required onkeyup="checkPasswordMatch()" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                        </div>
                     </div>
                 </div>
 
@@ -64,7 +66,7 @@
             </form>
         </div>
     </div>
-</div>
+<!--/div-->
 
 <?= $this->endSection() ?>
 
