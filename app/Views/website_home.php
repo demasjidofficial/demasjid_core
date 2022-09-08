@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-
+        <?php endforeach ?>    
         <?php $counter = 0; ?>
         <?php foreach ($donation_campaigns as $item) : ?>
             <?php if ($counter < 6) { ?>

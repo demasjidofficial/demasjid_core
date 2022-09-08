@@ -76,6 +76,8 @@ class LoginController extends ResourceController
 
         return $this->respondUpdated([
             'token' => $this->getTokenSecret($user),
+            'role' => $user->groupsList(),
+            'user' => ['name' => $user->name()]
         ], lang('Auth.loginSuccess'));
     }
 }
