@@ -95,11 +95,14 @@ if (! function_exists('meta_tag')) {
             ';
         
         if (isset($data['meta_desc'])) {
-            $meta .= '<meta name="description" content='. $data['meta_desc'] .'>';
+            $meta .= '<meta name="description" content="'. $data['meta_desc'] .'">';
+        }
+        else {
+            $meta .= '<meta name="description" content="'. $name . ' | '. ( config('App')->siteName ?? 'Demasjid') .'">';
         }
 
         if (isset($data['path_image'])) {
-            $meta .= '<meta property="og:image" content='. site_url() . $data['path_image'] .' />';
+            $meta .= '<meta property="og:image" content="'. site_url() . $data['path_image'] .'" />';
         }
 
         $meta_title = isset($data['meta_title']) ? ($data["meta_title"] . " - " ) : "";

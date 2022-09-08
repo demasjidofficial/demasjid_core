@@ -28,7 +28,7 @@
                                             <div class="select-itms">
                                                 <select name="select" id="select-lang">
                                                 <?php foreach($languages as $item) : ?>
-                                                    <option value="/<?= strtolower($item['code'])?>"><?= lang('app.'.$item['name'])?></option>
+                                                    <option value="/<?= strtolower($item['code'])?>"><?= lang('app.'.strtolower($item['name']))?></option>
                                                 <?php endforeach ?>
 
                                                 <!--

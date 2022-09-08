@@ -17,7 +17,6 @@ class SitepostsController extends AdminCrudController
     protected $langModel = 'siteposts';
     private $imageFolder = 'images';
     protected $modelName = 'App\Modules\Api\Models\SitepostsModel';
-    protected $LANGUAGE_LISTS = [ '', 'Indonesia', 'Arab', 'English' ];
 
     public function index(){
         $image = $this->request->getFile('image');
@@ -100,7 +99,6 @@ class SitepostsController extends AdminCrudController
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
-            'language_lists' => $this->LANGUAGE_LISTS,
         ];
     }
 

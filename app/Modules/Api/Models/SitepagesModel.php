@@ -40,8 +40,9 @@ class SitepagesModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'sitemenus.name as sitemenus_name', 'sitemenus.label as sitemenus_label'];
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'sitemenus.name as sitemenus_name', 'sitemenus.label as sitemenus_label', 'languages.name as  language_name'];
         $this->join('sitemenus', 'sitemenus.id = '.$this->table.'.sitemenu_id');
+		$this->join('languages', 'languages.id = '.$this->table.'.language_id');
 		$this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);

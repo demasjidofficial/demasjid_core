@@ -5,7 +5,6 @@
         $counter = 0; 
         ?>
         <?php foreach ($data as $item) : 
-            $item->language_name = $language_lists[$item->language_id];
             ?>
             <tr>
                 <td>

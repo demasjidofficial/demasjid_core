@@ -40,8 +40,9 @@ class SitepostsModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'languages.name as  language_name'];
+		$this->join('languages', 'languages.id = '.$this->table.'.language_id');
+		$this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);
     }   
