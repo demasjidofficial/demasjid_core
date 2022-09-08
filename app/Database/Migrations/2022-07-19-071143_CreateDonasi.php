@@ -51,6 +51,11 @@ class CreateDonasi extends Migration
                 'constraint' => 2,
                 'default'    => 0,
                 'null'       => true,
+            ],
+            'bukti_pembayaran' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'null'       => true,
             ],          
             'created_at' => [
                 'type' => 'datetime',

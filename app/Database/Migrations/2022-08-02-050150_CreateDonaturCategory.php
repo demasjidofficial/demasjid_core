@@ -55,7 +55,7 @@ class CreateDonaturCategory extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('donaturcategory');
+        $this->forge->createTable('donaturcategory', true);
     }
 
     public function down()

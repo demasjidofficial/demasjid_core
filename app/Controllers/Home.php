@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\Response;
 use App\Libraries\Widgets\Stats\Stats;
 use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\SitesocialsModel;
+use App\Modules\Api\Models\SitemenusModel;
 use App\Modules\Api\Models\BmdonationcampaignModel;
 
 class Home extends BaseController
@@ -19,8 +20,19 @@ class Home extends BaseController
      */
 
 
-    public function index()
+    public function index($slug_page = null)
     {
+        $isPage = false;
+        if (isset($slug_page)) {
+            $page = model('App\Modules\Api\Models\SitepagesModel', false)->asArray()->findByslug($slug_page);
+            if (isset($page) && count($page)) {
+                $data['page'] = $page[0];
+                $isPage = true;
+                // load section of that page
+                $data['sections'] = model('App\Modules\Api\Models\SitesectionsModel', false)->asArray()->findAllByPagerelease($page[0]['id']);
+            }
+        }
+        
         helper(['form','number','app']);
         $this->setupWidgets();
         $this->setWidgetCounter();
@@ -52,22 +64,9 @@ class Home extends BaseController
                 'path_icon' => '',
             ],
         ];
-        
-        // get data of navigation menu
-        $nav_menu = [
-            [
-                'id' => 1,
-                'name' => 'home',
-                'label' => 'Beranda',
-                'parent' => 0,
-            ],
-            [
-                'id' => 2,
-                'name' => 'about',
-                'label' => 'Tentang',
-                'parent' => 0,
-            ],
-        ];
+
+        // get data of menus // default indonesia = 1
+        $nav_menu = $this->constructMenu((new SitemenusModel())->asArray()->findAllRelease(1));
 
         // get data of donation campaigns
         $donation_campaigns = (new BmdonationcampaignModel())->asArray()->findAll();
@@ -79,8 +78,11 @@ class Home extends BaseController
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['widgets'] = service('widgets');        
+                
         // render view
-        return $this->render('website_home', $data);
+        // jika page dan home
+        if ($isPage) return $this->render('App\Modules\Website\Views\page', $data);
+        else return $this->render('website_home', $data);
     }
 
     private function setupWidgets()

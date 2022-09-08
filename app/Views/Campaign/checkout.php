@@ -45,7 +45,14 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="paymentmethod_id" class="form-label d-none">paymentmethod_id</label>
-                                <input type="text" data-toggle="modal" data-target="#paymentMethodList" class="form-control h-45" name="paymentmethod_id" id="paymentmethod_id" placeholder="Metoda Pembayaran" required>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button data-toggle="modal" data-target="#paymentMethodList" class="btn btn-checkout-metod w-100">Metoda Pembayaran</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control h-45" name="paymentmethod_id" id="paymentmethod_id" disabled required>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="name" class="form-label d-none">Nama</label>
@@ -57,7 +64,7 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="email" class="form-label d-none">email</label>
-                                <input type="email" class="form-control h-45" name="email" id="email" placeholder="email" required>
+                                <input type="email" class="form-control h-45" name="email" id="email" placeholder="email">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="pesan" class="form-label d-none">pesan</label>
@@ -136,6 +143,15 @@
 
 <script type="text/javascript">
     $(function () {  
+        $('input[name=dana_in]').inputmask({
+            'groupSeparator': '.',
+            'alias': 'currency',
+            'rightAlign': false,
+            'digits': '0', 
+            'allowMinus': 'false',   
+            'removeMaskOnSubmit': true            
+        });
+
         $('button[name=nominal_helper]').click(function() {
             $('input[name=dana_in]').val($(this).val());
         });
@@ -154,7 +170,7 @@
                 event.stopPropagation();
 
                 let url = "<?php echo base_url()?>" + "/api/senddonation",
-                dana_in = parseInt($('input[name=dana_in]').val()) + Math.floor(Math.random() * 500),
+                dana_in = parseInt($('input[name=dana_in]').val().replace('.', '')) + Math.floor(Math.random() * 500),
                 paymentmethod_id = $('input[name=paymentmethod_id]').data('id'),    
                 name = $('input[name=name]').val(),
                 no_hp = $('input[name=no_hp]').val(),
@@ -187,7 +203,6 @@
                         return console.log(res);
                     }
                 });   
-
             }            
         });
     });

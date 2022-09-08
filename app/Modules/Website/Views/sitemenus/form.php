@@ -42,15 +42,6 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.label'),'',['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('label', old('label', $data->label ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('label')) { ?>
-                        <p class="text-danger"><?php echo error('label'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
                     <?= form_label(lang('crud.parent'),'',['for' => 'parent', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('parent',$sitemenusItems ,old('parent', $data->parent ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.parent')."' ") ?>

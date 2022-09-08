@@ -46,8 +46,6 @@ class DonasiController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(DonasiFilter::class);
-        $model_master_bank = model(MasterBankFilter::class)->asArray()->findAll();
-        $model_master_paygat = model(MasterPaymentgatewayFilter::class)->asArray()->findAll();
 
         return [
             'headers' => [
@@ -68,8 +66,6 @@ class DonasiController extends AdminCrudController
             'pager' => $model->pager,
             'dataStats' => $this->getDataStats($model->find(), null),
             'campaignName' => 'All',
-            'master_bank' => $model_master_bank,
-            'master_paygat' => $model_master_paygat
         ];
     }
 
@@ -99,8 +95,6 @@ class DonasiController extends AdminCrudController
         $model->where('campaign_id', (int)$id);
         $uri = current_url(true);
 
-        $model_master_bank = model(MasterBankFilter::class)->asArray()->findAll();
-        $model_master_paygat = model(MasterPaymentgatewayFilter::class)->asArray()->findAll();
         $campaign = model(BmdonationcampaignFilter::class)->asArray()->find($id);
         
         $data = $model->paginate(setting('App.perPage'));
@@ -124,8 +118,6 @@ class DonasiController extends AdminCrudController
             'pager' => $model->pager,
             'dataStats' => $this->getDataStats($data, $campaign),
             'campaignName' => urldecode($uri->getSegment(5)),
-            'master_bank' => $model_master_bank,
-            'master_paygat' => $model_master_paygat
         ];
     }
 

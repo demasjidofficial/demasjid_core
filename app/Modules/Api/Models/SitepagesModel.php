@@ -40,9 +40,22 @@ class SitepagesModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'sitemenus.name as sitemenus_name', 'sitemenus.label as sitemenus_label'];
+        $this->join('sitemenus', 'sitemenus.id = '.$this->table.'.sitemenu_id');
+		$this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);
-    }   
+    } 
+	
+	public function findByslug($permalink) {
+		$this->selectColumn = [$this->table . '.*'];
+		$this->where(array(
+			'permalink' => $permalink,
+			'state' => 'release'
+		));
+
+		return parent::find();
+		// $query = $this->get();
+		// return $query->getRowArray();
+	}
 }
