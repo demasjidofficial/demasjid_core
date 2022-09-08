@@ -3,6 +3,7 @@
 <?php $this->section('styles'); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <?= asset_link('board/plugins/responsive-slides/responsiveslides.css', 'css'); ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider-styles.css">
 
 <style>
     /* header */
@@ -154,11 +155,18 @@
 
 <!-- slideshow -->
 <section class="content-slideshow">
-    <ul class="rslides">
-        <?php foreach ($board_news_bg as $bg) { ?>
-            <li><img src="/<?= esc($bg['path_image']) ?>" data-duration="<?= esc($bg['duration']) ?>" alt=""></li>
-        <?php } ?>
-    </ul>
+    <!-- <ul class="rslides">
+        < ?php foreach ($board_news_bg as $bg) { ?>
+            <li><img src="/< ?= esc($bg['path_image']) ?>" data-duration="< ?= esc($bg['duration']) ?>" alt=""></li>
+        < ?php } ?>
+    </ul> -->
+    <div id='coin-slider'>
+        <a href="#">
+            <?php foreach ($board_news_bg as $bg) { ?>
+                <img src='/<?= esc($bg['path_image']) ?>' data-duration='<?= esc($bg['duration']) ?>'>
+            <?php } ?>
+        </a>
+    </div>
 </section>
 
 
@@ -210,11 +218,20 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<?= asset_link('board/plugins/responsive-slides/responsiveslides.min.js', 'js'); ?>
+<?= asset_link('board/plugins/responsive-slides/responsiveslides.js', 'js'); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider.min.js"></script>
 
 <script>
-    $(function() {
-        $(".rslides").responsiveSlides();
+    // $(function() {
+    //     $(".rslides").responsiveSlides();
+    // });
+    $(document).ready(function() {
+        $('#coin-slider').coinslider({
+            width: 2000,
+            height: 1500,
+            navigation: false,
+            delay: 5000
+        });
     });
 </script>
 <?php $this->endSection(); ?>
