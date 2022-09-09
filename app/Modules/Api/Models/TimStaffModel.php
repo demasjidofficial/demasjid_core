@@ -1,7 +1,7 @@
 <?php namespace App\Modules\Api\Models;
 
 use asligresik\easyapi\Models\BaseModel;
-
+use App\Modules\Api\Entities\TugasTim;
 class TimStaffModel extends BaseModel
 {
     protected $table = 'tim_staff';
@@ -34,4 +34,55 @@ class TimStaffModel extends BaseModel
 		
         return parent::findAll($limit, $offset);
     }
+    public function insert($data = null, bool $returnID = true)
+    {   
+		$this->db->transBegin();
+        $tugasTim = $data['tugasItems'];
+    
+        $newId = parent::insert($data, $returnID);
+		$this->insertDetail($newId, $tugasTim);
+
+		if ($this->db->transStatus() === false) {
+			$this->db->transRollback();
+
+            return false;
+		} else {
+			$this->db->transCommit();
+
+            return $newId;
+		}
+    }	
+
+	public function update($id = null, $data = null): bool
+    {   
+		$this->db->transBegin();
+        $tugasTim = $data['tugasItems'];                
+        $result = parent::update($id, $data);
+        $this->insertDetail($id, $tugasTim);
+		if ($this->db->transStatus() === false) {
+			$this->db->transRollback();
+
+            return false;
+		} else {
+			$this->db->transCommit();
+
+            return $result;
+		}
+    }
+
+	private function insertDetail($id, $tugasTim){
+		if(!empty($tugasTim)){
+
+            (new TugasTimModel())->where('staff_id', $id)->delete();
+			foreach($tugasTim['tugas'] as $key => $tugas ){
+                $detail = [
+					'staff_id' => $id,
+					'tugas' => $tugas
+
+				];
+                
+                (new TimStaffModel())->insert($detail);				
+			}
+		}
+	}
 }

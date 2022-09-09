@@ -107,7 +107,19 @@ class TugasTim extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $updated_by; 
+	private $updated_by;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="progres",
+	 *     title="progres",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $progres; 
 }
 /**
  *

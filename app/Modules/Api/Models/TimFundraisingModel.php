@@ -35,11 +35,7 @@ class TimFundraisingModel extends BaseModel
 		'nama_tim' => 'max_length[248]|required',
 		// 'staff' => 'max_length[248]|required'
 
-		'id_target' => 'numeric|max_length[11]|required',
-		// 'id_jadwal' => 'numeric|max_length[11]|required',
-		'supervisior' => 'max_length[248]|required',
-		'kode_tim' => 'max_length[248]|required',
-		'nama_tim' => 'max_length[248]|required'
+
 
 		// 'created_at' => 'valid_date|required',
 		// 'updated_at' => 'valid_date|required'
@@ -47,18 +43,11 @@ class TimFundraisingModel extends BaseModel
 		// 'updated_by' => 'numeric|max_length[11]'
     ]; 
 	
-	// public function findAll(int $limit = 0, int $offset = 0)
-    // {
-    //     $this->selectColumn = [$this->table.'.*','donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
-    //     $this->join('bmdonationtype', 'bmdonationtype.id = '.$this->table.'.tipe_donasi');
-	// 	$this->join('donaturcategory', 'donaturcategory.id = '.$this->table.'.donatur', 'left');
-    //     return parent::findAll($limit, $offset);
-    // }
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
 
-        $this->selectColumn = [$this->table.'.*','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir','users.username as supervisor','target_fundraising.id as target_fundraising_id','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
+        $this->selectColumn = [$this->table.'.status as status',$this->table.'.nama_tim as nama_tim',$this->table.'.id as id','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir','users.username as supervisor','target_fundraising.id as target_fundraising_id','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
 
 		
 		$this->join('target_fundraising', 'target_fundraising.id = '.$this->table.'.target_id');

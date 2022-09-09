@@ -50,30 +50,17 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p> <?= lang('crud.tim_fundraising') ?></p><!--<p>Overview</p>-->
+                    <p> <?= lang('crud.tugas_tim') ?></p>
                     </div>
                     <div class="icon">
                     <i class="icon-icon_zakat"></i>
                     </div>
-                    <a href="" class="small-box-footer">
+                    <a href="<?= site_url('/admin/baitulmal/timstaff')?>" class="small-box-footer">
                     <?= lang('app.more_info')?><!--Lihat detil --><i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
-            <!-- <div class="col-md-3">
-                <div class="small-box bg-success">
-                    <div class="inner">
-                    <h3>&nbsp;</h3>
-                    <p>Jadwal Fundraising</p>
-                    </div>
-                    <div class="icon">
-                    <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <a href="<?= site_url('/admin/baitulmal/jadwalfundraising')?>" class="small-box-footer">
-                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
-                    </a>
-                </div>
-            </div> -->
+          
             <div class="col-md-3">
                 <div class="small-box">
                     <div class="inner">
