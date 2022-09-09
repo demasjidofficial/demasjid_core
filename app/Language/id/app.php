@@ -116,4 +116,5 @@ return [
 	'socials' => 'Sosial Media',
 	'slides' => 'Slide',
 	'visit_site' => 'Tinjau Situs',
+	'footer' => 'Footer',
 ];

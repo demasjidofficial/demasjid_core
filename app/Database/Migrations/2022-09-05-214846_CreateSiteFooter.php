@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateMasterPaymentgateway extends Migration
+class CreateSiteFooter extends Migration
 {
     public function up()
     {
@@ -14,24 +14,33 @@ class CreateMasterPaymentgateway extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
-            'path_logo' => [
+            ],
+            'title' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
+            ],
+            'content' => [
+                'type'       => 'text',
+            ],
+            'language_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
                 'null'       => true,
-            ],     
-            'name' => [
-                'type' => 'varchar',
-                'constraint' => 100,
-                'null' => true
-            ],   
+            ],
+            'state' => [
+                'type'       => 'varchar',
+                'constraint' => 20,
+                'default'    => 'Draft',
+                'null'       => true,
+            ],
             'created_at' => [
-                'type' => 'datetime',
-                'null' => false,
+                'type'       => 'datetime',
+                'null'       => false,
             ],
             'updated_at' => [
-                'type' => 'datetime',
-                'null' => false,
+                'type'       => 'datetime',
+                'null'       => false,
             ],
             'created_by' => [
                 'type'       => 'int',
@@ -40,13 +49,12 @@ class CreateMasterPaymentgateway extends Migration
                 'null'       => true,   
             ],
         ]);
-
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('master_paymentgateway', true);
+        $this->forge->createTable('sitefooter', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('master_paymentgateway', true);
+        $this->forge->dropTable('sitefooter', true);
     }
 }

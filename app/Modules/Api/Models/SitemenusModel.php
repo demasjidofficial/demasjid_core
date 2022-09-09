@@ -30,9 +30,10 @@ class SitemenusModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 't2.name as parent_name'];
+        $this->selectColumn = [$this->table.'.*', 't2.name as parent_name', 'languages.name as  language_name'];
         // $this->join('users', 'users.id = '.$this->table.'.created_by') 'users.first_name', 'users.last_name',;
 		$this->join($this->table.' t2', 't2.id = '.$this->table.'.parent', 'left');
+		$this->join('languages', 'languages.id = '.$this->table.'.language_id');
 
         return parent::findAll($limit, $offset);
     }

@@ -1,6 +1,6 @@
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->parent_name) ?></a></td>
-<td><?php echo esc($item->language) ?></a></td>
+<td><?php echo esc($item->language_name) ?></a></td>
 <td><?php echo convertStateWebsite($item->state) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->

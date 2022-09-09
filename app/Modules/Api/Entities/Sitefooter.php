@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class Donatur
+* Class Sitefooter
 * @OA\Schema(
-*     title="Donatur",
-*     description="Donatur"
+*     title="Sitefooter",
+*     description="Sitefooter"
 * )
 *
 * @OA\Tag(
-*     name="Donatur",
-*     description="Everything about your Donatur" 
+*     name="Sitefooter",
+*     description="Everything about your Sitefooter" 
 * )
 */ 
-class Donatur extends BaseEntity
+class Sitefooter extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -28,77 +28,51 @@ class Donatur extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-
-	 *     description="name",
-	 *     title="name",
+	 *     description="title",
+	 *     title="title",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
-	 * 	   maxLength=128,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
-	private $name;
+	private $title;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_kategori",
-	 *     title="id_kategori",
-	 *     type="integer",
+	 *     description="content",
+	 *     title="content",
+	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
+	 * )
+	 *		 
+	 */
+	private $content;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="language_id",
+	 *     title="language_id",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
 	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
-	private $id_kategori;
-	/**
-	 *     description="donatur_type_id",
-	 *     title="donatur_type_id",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=11,
-	 * 
-	 *		 
-	 */
-	private $donatur_type_id;
+	private $language_id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="email",
-	 *     title="email",
+	 *     description="state",
+	 *     title="state",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
-	 * 	   maxLength=50,
+	 * 	   maxLength=20,
 	 * )
 	 *		 
 	 */
-	private $email;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="no_hp",
-	 *     title="no_hp",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=50,
-	 * )
-	 *		 
-	 */
-	private $no_hp;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="alamat",
-	 *     title="alamat",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=100,
-	 * )
-	 *		 
-	 */
-	private $alamat;
-
+	private $state;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -132,35 +106,21 @@ class Donatur extends BaseEntity
 	 * )
 	 *		 
 	 */
-
-	private $created_by;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="updated_by",
-	 *     title="updated_by",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $updated_by; 
-
+	private $created_by; 
 }
 /**
  *
  * @OA\RequestBody(
- *     request="Donatur",
- *     description="Donatur object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/Donatur"),
+ *     request="Sitefooter",
+ *     description="Sitefooter object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/Sitefooter"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/Donatur")
+ *         @OA\Schema(ref="#/components/schemas/Sitefooter")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/Donatur")
+ *         @OA\Schema(ref="#/components/schemas/Sitefooter")
  *     )
  * )
  */

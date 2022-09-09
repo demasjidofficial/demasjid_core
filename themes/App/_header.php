@@ -28,7 +28,7 @@
                                             <div class="select-itms">
                                                 <select name="select" id="select-lang">
                                                 <?php foreach($languages as $item) : ?>
-                                                    <option value="/<?= strtolower($item['code'])?>"><?= lang('app.'.$item['name'])?></option>
+                                                    <option value="/<?= strtolower($item['code'])?>"><?= lang('app.'.strtolower($item['name']))?></option>
                                                 <?php endforeach ?>
 
                                                 <!--
@@ -95,7 +95,7 @@
                                     </div>
                                     <!-- Header-btn -->
                                     <div class="header-right-btn d-none d-lg-block ml-20">
-                                        <a href="#donasi" class="btn header-btn"><?= lang('app.donation')?></a>
+                                        <a href="<?php echo $nav_header_donation ?? site_url().'id/donations' ?>" class="btn header-btn"><?= lang('app.donation')?></a>
                                     </div>
                                 </div>
                             </div> 
