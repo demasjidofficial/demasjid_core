@@ -296,8 +296,28 @@ return [
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
 	'nama_tim'=>'Nama Tim',
+<<<<<<< HEAD
 	'tugas_tim'=>'Tugas Tim',
 	'staff_nama'=>'Nama Staff',
 	'tim_staff'=>'Anggota Tim',
 	'tugas'=>'Detail Tugas',
 ];
+=======
+
+	'donasi' => 'Donasi',
+	'campaign_id' => 'Kampanye',
+	'paymentmethod_rek_no' => 'No Rekening',
+	'paymentmethod_rek_name' => 'Nama Rekening',
+	'dana_in' => 'Jumlah',
+
+	'draft' => 'draft',
+	'release' => 'release',
+
+	'instr_atm' => 'Instruksi via ATM',
+	'instr_mbanking' => 'Instruksi via Mbanking',
+	'instr_ibanking' => 'Instruksi via Ibanking',
+	'instr' => 'Instruksi Pembayaran',
+
+	'sitefooter' => 'Footer'
+];
+>>>>>>> fbecb6bce557e7bea7236a87304c0af4308c6d65

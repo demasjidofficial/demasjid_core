@@ -3,6 +3,6 @@
         <img src="<?= $user->avatarLink(120) ?>" alt="<?= $user->name() ?>">
     <?php else :?>
         <?= $idString ?>
-        <div class="de_user_role">Takmir</div>
+        <div class="de_user_role"><?= $user->groupsList() ?></div>
     <?php endif ?>
 </span>

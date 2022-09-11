@@ -39,7 +39,7 @@ class Auth extends ShieldAuth
      * `getRedirect()` methods to apply any logic you may need.
      */
     public $redirects = [
-        'register' => '/',
+        'register' => '/' . ADMIN_AREA,
         'login'    => '/' . ADMIN_AREA,
         'logout'   => 'login',
     ];

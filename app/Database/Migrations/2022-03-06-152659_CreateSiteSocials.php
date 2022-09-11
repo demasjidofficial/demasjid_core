@@ -31,7 +31,7 @@ class CreateSiteSocials extends Migration
             'state' => [
                 'type'       => 'varchar',
                 'constraint' => 20,
-                'default'    => 'Active',
+                'default'    => 'release',
                 'null'       => true,
             ],
             'created_at' => [

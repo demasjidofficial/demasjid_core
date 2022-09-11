@@ -27,6 +27,14 @@ class BoardNewsBgController extends AdminCrudController
     }
 
     public function update($id = null){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
         
         return parent::update($id);
     }
@@ -52,7 +60,7 @@ class BoardNewsBgController extends AdminCrudController
         return [
             'headers' => [
                 'path_image' => lang('crud.path_image'),
-                'duration' => lang('crud.duration'),
+                // 'duration' => lang('crud.duration'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
