@@ -25,8 +25,9 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/jadwalfundraising', ['controller' => 'JadwalFundraisingController']);
     $routes->resource('baitulmal/timfundraising', ['controller' => 'TimFundraisingController']);
     $routes->resource('baitulmal/timstaff', ['controller' => 'TimStaffController']);
-    $routes->resource('baitulmal/tugasstaff', ['controller' => 'TugasTimController']);
+    $routes->resource('baitulmal/tugastim', ['controller' => 'TugasTimController']);
     $routes->resource('baitulmal/nominalstaff', ['controller' => 'Nominal_targetController']);
+    $routes->resource('baitulmal/overview_manager', ['controller' => 'OverviewManagerController']);
     /** ask to delete */
     $routes->resource('baitulmal/_oldCampaigns', ['controller' => 'CampaignsController']);
     

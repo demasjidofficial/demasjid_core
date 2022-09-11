@@ -50,10 +50,7 @@ class TimFundraisingController extends AdminCrudController
                 'id_target' => lang('crud.id_target'),
                 'campaign' => lang('crud.target'),
                 'jadwal_mulai' => lang('crud.durasi'),
-                'staff' => lang('crud.staff'),
-
-                                   
-
+            
 
        
             ],

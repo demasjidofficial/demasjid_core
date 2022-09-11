@@ -18,7 +18,7 @@
 <x-admin-box>
 
 
-    <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
+    <form action="<?php echo base_url(); ?>app/modules/baitul_mal/timstaffcontroller/add_tugas" method="post" enctype="multipart/form-data">
 
         <?php echo csrf_field(); ?>
 
@@ -54,7 +54,7 @@
                         <?php foreach ($tugasItems as $index => $detail) { ?>
                             <div class="input-group mb-2">
                                 <?php echo form_input('tugasItems[tugas][]', old('tugasItems[tugas]', $detail->tugas ?? ''), "class='form-control mr-1' placeholder='deskripsi' required"); ?>
-
+                              
                                 <div class="input-group-append">
                                     <?php if (!$index) {
                                         echo '<span class="input-group-text" role="button" onclick="addRow(this)">
@@ -73,7 +73,7 @@
                     <?php } else { ?>
                         <div class="input-group mb-2">
                             <?php echo form_input('tugasItems[tugas][]', old('tugasItems[tugas]', $data->tugas ?? ''), "class='form-control mr-1' placeholder='tugas tim' required"); ?>
-
+                        
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
                                     <i class="fas fa-plus"></i>

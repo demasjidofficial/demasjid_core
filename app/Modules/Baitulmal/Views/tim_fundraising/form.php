@@ -79,7 +79,8 @@
                             <div class="input-group mb-2">
 
                                 <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
-
+                                <?php echo form_input('tim_staff[nominal_max][]', old('tim_staff[nominal_max]', $data->nominal_max ?? ''), "class='form-control numeric'  placeholder='jumlah' required"); ?>
+                        
 
 
 
@@ -102,6 +103,8 @@
                         <div class="input-group mb-2">
 
                             <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
+                            <?php echo form_input('tim_staff[nominal_max][]', old('tim_staff[nominal_max]', $data->nominal_max ?? ''), "class='form-control numeric'  placeholder='jumlah' required"); ?>
+                        
 
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">

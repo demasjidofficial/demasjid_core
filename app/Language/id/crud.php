@@ -296,13 +296,11 @@ return [
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
 	'nama_tim'=>'Nama Tim',
-<<<<<<< HEAD
 	'tugas_tim'=>'Tugas Tim',
 	'staff_nama'=>'Nama Staff',
 	'tim_staff'=>'Anggota Tim',
 	'tugas'=>'Detail Tugas',
-];
-=======
+
 
 	'donasi' => 'Donasi',
 	'campaign_id' => 'Kampanye',
@@ -318,6 +316,12 @@ return [
 	'instr_ibanking' => 'Instruksi via Ibanking',
 	'instr' => 'Instruksi Pembayaran',
 
-	'sitefooter' => 'Footer'
+	'sitefooter' => 'Footer',
+	'nominal_tugas'=>'Nominal didapat / Nominal maximal',
+	'progres'=>'Progress',
+	'add_tugas_tim'=>'Tambah Tugas Tim',
+	'nominal_dapat'=>'Nominal Dapat',
+	'nominal_target'=>'Nominal Target',
+	'progres'=>'Progres',
+	'overview_manager'=>'Overview Manager'
 ];
->>>>>>> fbecb6bce557e7bea7236a87304c0af4308c6d65

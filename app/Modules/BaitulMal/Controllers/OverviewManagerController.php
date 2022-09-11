@@ -176,7 +176,7 @@ class OverviewManagerController extends AdminController
     }
 
     protected function generateTimFund(){
-        $data = (new TimFundraisingModel())->asArray()->findWidget();
+        $data = (new TimFundraisingModel())->select(['kode_tim','nama_tim', 'campaign_name' ,'target_nominal','jadwal_mulai','jadwal_akhir'])->asArray()->findWidget();;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if(is_numeric($item)){

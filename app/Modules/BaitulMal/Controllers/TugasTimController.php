@@ -23,7 +23,17 @@ class TugasTimController extends AdminCrudController
     }
 
     public function update($id = null){
-        return parent::update($id);
+        $data = $this->request->getPost();
+        $data['nominal'] = (float)(str_replace(',', '', $data['nominal']));
+        $data['nominal_target'] = (float)(str_replace(',', '', $data['nominal_target']));
+      
+
+        if (!$this->model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function show($id = null){
@@ -31,7 +41,17 @@ class TugasTimController extends AdminCrudController
     }
 
     public function create(){
-        return parent::create();
+        $data = $this->request->getPost();
+        $data['nominal'] = (float)(str_replace(',', '', $data['nominal']));
+        $data['nominal_target'] = (float)(str_replace(',', '', $data['nominal_target']));
+      
+
+        if (!$this->model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -43,11 +63,12 @@ class TugasTimController extends AdminCrudController
         $model = model(TugasTimFilter::class);
         return [
             'headers' => [
-                                    'id_staff' => lang('crud.id_staff'),
-                'tugas' => lang('crud.tugas'),
-                'nominal' => lang('crud.nominal'),
-                'created_by' => lang('crud.created_by'),
-                'updated_by' => lang('crud.updated_by'),
+                                 
+                'tugas_nama' => lang('crud.tugas_tim'),
+                'tim_nama' => lang('crud.nama_tim'),
+                'staff' => lang('crud.staff_nama'),
+                'nominal' => lang('crud.nominal_tugas'),
+                
                 'progres' => lang('crud.progres')
             ],
             'controller' => $this->getBaseController(),
@@ -71,7 +92,9 @@ class TugasTimController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+        $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\TimStaffModel')->select(['tim_staff.id as key', 'users.first_name as text', 'tim_fundraising.nama_tim as nama_tim'])->asArray()->findAll(),'text', 'key');
+        $dataEdit['stateItems'] = TugasTimModel::listState();
         return $dataEdit;
     }
+    
 }

@@ -37,7 +37,7 @@ class TimStaffModel extends BaseModel
     public function insert($data = null, bool $returnID = true)
     {   
 		$this->db->transBegin();
-        $tugasTim = $data['tugasItems'];
+        $tugasTim = $data['tugas_tim'];
     
         $newId = parent::insert($data, $returnID);
 		$this->insertDetail($newId, $tugasTim);
@@ -56,7 +56,7 @@ class TimStaffModel extends BaseModel
 	public function update($id = null, $data = null): bool
     {   
 		$this->db->transBegin();
-        $tugasTim = $data['tugasItems'];                
+        $tugasTim = $data['tugas_tim'];                
         $result = parent::update($id, $data);
         $this->insertDetail($id, $tugasTim);
 		if ($this->db->transStatus() === false) {

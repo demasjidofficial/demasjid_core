@@ -1,9 +1,9 @@
-<td><?php echo esc($item->id_staff) ?></a></td>
 <td><?php echo esc($item->tugas) ?></a></td>
-<td><?php echo esc($item->nominal) ?></a></td>
-<td><?php echo esc($item->created_by) ?></a></td>
-<td><?php echo esc($item->updated_by) ?></a></td>
-<td><?php echo esc($item->progres) ?></a></td>
+<td><?php echo esc($item->nama_tim) ?></a></td>
+<td><?php echo esc($item->first_name)." ".esc($item->last_name) ?></a></td>
+<td><?php echo "Rp " . number_format(esc($item->nominal),2,',','.')." / Rp ". number_format(esc($item->nominal_target),2,',','.')  ?></a></td>
+<td><?php echo lang('crud.'.$item->progres) ?></a></td>
+
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

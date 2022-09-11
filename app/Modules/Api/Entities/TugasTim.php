@@ -28,8 +28,8 @@ class TugasTim extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_staff",
-	 *     title="id_staff",
+	 *     description="staff_id",
+	 *     title="staff_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -37,7 +37,7 @@ class TugasTim extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $id_staff;
+	private $staff_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="tugas",
@@ -119,7 +119,19 @@ class TugasTim extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $progres; 
+	private $progres;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="nominal_target",
+	 *     title="nominal_target",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=11,
+	 * )
+	 *		 
+	 */
+	private $nominal_target; 
 }
 /**
  *

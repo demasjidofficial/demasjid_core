@@ -55,7 +55,7 @@
                     <div class="icon">
                     <i class="icon-icon_zakat"></i>
                     </div>
-                    <a href="<?= site_url('/admin/baitulmal/timstaff')?>" class="small-box-footer">
+                    <a href="<?= site_url('/admin/baitulmal/tugastim')?>" class="small-box-footer">
                     <?= lang('app.more_info')?><!--Lihat detil --><i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="small-box">
                     <div class="inner">
                     <h3>&nbsp;</h3>
-                    <p>Target Fundraising</p>
+                    <p><?= lang('crud.target_fundraising') ?></p>
                     </div>
                     <div class="icon">
                     <i class="icon-icon_mapping"></i>
@@ -85,6 +85,20 @@
                     <i class="icon-icon_organisasi"></i>
                     </div>
                     <a href="<?= site_url('/admin/baitulmal/timfundraising')?>" class="small-box-footer">
+                        <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="small-box">
+                    <div class="inner">
+                    <h3>&nbsp;</h3>
+                    <p> <?= lang('crud.overview_manager') ?></p>
+                    </div>
+                    <div class="icon">
+                    <i class="icon-icon_organisasi"></i>
+                    </div>
+                    <a href="<?= site_url('/admin/baitulmal/overview_manager')?>" class="small-box-footer">
                         <?= lang('app.more_info')?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
