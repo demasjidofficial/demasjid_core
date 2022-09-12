@@ -1,6 +1,5 @@
 <?php $this->extend('master'); ?>
 
-<<<<<<< HEAD
 <?php $this->section('main'); ?>
 <!-- header -->
 <section class="header fixed-top">
@@ -97,7 +96,7 @@
         <div class="marquee">
             <ul class="marquee-content">
                 <?php foreach ($board_news_runtext as $text) { ?>
-                    <li><?= $text['Text'] ?></li>
+                    <li><?= $text['text'] ?></li>
                 <?php } ?>
             </ul>
         </div>
@@ -135,36 +134,10 @@
     for (var i = 0; i < maxindex; i++) {
         $('ul').append('<li class="' + (i == 0 ? 'active' : '') + '"></li>');
     }
-
-
-    // var praytime = < ?= $time ?>;
-    // var praytime = new date('Y m d < ?= $time ?>');
-    // var nowtime = new date('Y m d H:i:s');
-    // if (nowtime == nowtime) {
-    // console.log("waktunya sholat");
-    // }
-
-    // var sholat;
-
-    // if (sholat = document.getElementById(2)) {
-
-    //     setInterval(myTimer, 1000);
-
-    //     function myTimer() {
-    //         const date = new Date();
-    //         document.getElementById("timer").innerHTML = date.toLocaleTimeString();
-    //     }
-
-    //     // document.getElementById("timer").innerHTML = "Waktunya Sholat dhuhur";
-    // }
-
-    // ===========================countdown=================================
     
 </script>
 <?php $this->endSection(); ?>
 
-=======
->>>>>>> fbecb6bce557e7bea7236a87304c0af4308c6d65
 <?php $this->section('styles'); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <?= asset_link('board/plugins/responsive-slides/responsiveslides.css', 'css'); ?>
@@ -320,11 +293,6 @@
 
 <!-- slideshow -->
 <section class="content-slideshow">
-    <!-- <ul class="rslides">
-        < ?php foreach ($board_news_bg as $bg) { ?>
-            <li><img src="/< ?= esc($bg['path_image']) ?>" data-duration="< ?= esc($bg['duration']) ?>" alt=""></li>
-        < ?php } ?>
-    </ul> -->
     <div id='coin-slider'>
         <a href="#">
             <?php foreach ($board_news_bg as $bg) { ?>
@@ -387,9 +355,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider.min.js"></script>
 
 <script>
-    // $(function() {
-    //     $(".rslides").responsiveSlides();
-    // });
     $(document).ready(function() {
         $('#coin-slider').coinslider({
             width: 2000,
