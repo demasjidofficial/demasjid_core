@@ -115,9 +115,11 @@
     }
 
     /* Slideshow */
-    .content-slideshow {
-        background-size: cover;
-
+    .img-show {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
 </style>
 <?php $this->endSection(); ?>
@@ -155,18 +157,21 @@
 
 <!-- slideshow -->
 <section class="content-slideshow">
-    <!-- <ul class="rslides">
+    <!-- <ul class="coin-slider">
         < ?php foreach ($board_news_bg as $bg) { ?>
             <li><img src="/< ?= esc($bg['path_image']) ?>" data-duration="< ?= esc($bg['duration']) ?>" alt=""></li>
         < ?php } ?>
     </ul> -->
-    <div id='coin-slider'>
-        <a href="#">
-            <?php foreach ($board_news_bg as $bg) { ?>
-                <img src='/<?= esc($bg['path_image']) ?>' data-duration='<?= esc($bg['duration']) ?>'>
-            <?php } ?>
-        </a>
-    </div>
+    <!-- <div class="container img-show"> -->
+        <div id='coin-slider'>
+            <a href="#">
+                <?php foreach ($board_news_bg as $bg) { ?>
+                    <img src='/<?= esc($bg['path_image']) ?>' duration='<?= esc($bg['duration']) ?>'>
+                <?php } ?>
+            </a>
+        </div>
+    <!-- </div> -->
+
 </section>
 
 
@@ -228,9 +233,9 @@
     $(document).ready(function() {
         $('#coin-slider').coinslider({
             width: 2000,
-            height: 1500,
+            height: 1000,
             navigation: false,
-            delay: 5000
+            delay: $('img').attr('duration'),
         });
     });
 </script>
