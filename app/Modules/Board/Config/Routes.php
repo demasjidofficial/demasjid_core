@@ -10,11 +10,9 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Board\Controllers'], st
     $routes->resource('board/configs', ['controller' => '_BoardConfigsController']);
 
 
-    $routes->resource('board/newsbg', ['controller' => 'BoardNewsBgController']);
-    $routes->resource('board/newsrunningtext', ['controller' => 'BoardNewsRuntextController']);
-
+    $routes->resource('board/boardnewsbg', ['controller' => 'BoardNewsBgController']);
+    $routes->resource('board/boardnewsruntext', ['controller' => 'BoardNewsRuntextController']);
     $routes->resource('configs/device', ['controller' => 'BoardDeviceController']);
-    // $routes->resource('board/configs/device', ['controller' => 'BoardDeviceController']);
 
 
 });

@@ -56,6 +56,12 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'website.socials.list',
         ]);
+        $sitefooterItem = new MenuItem([
+            'title'           => lang('app.footer'),
+            'url'             => url_to('App\Modules\Website\Controllers\SitefooterController::index'),
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
+            // 'permission'      => 'website.socials.list',
+        ]);
         $visitsiteItem = new MenuItem([
             'title'           => lang('app.visit_site'),
             'url'             => site_url(),
@@ -69,6 +75,7 @@ class Module extends BaseModule
                                  ->addItem($sitesectionsItem)
                                  ->addItem($siteslidersItem)
                                  ->addItem($sitesocialsItem)
+                                 ->addItem($sitefooterItem)
                                  ->addItem($visitsiteItem);
     }
 }

@@ -116,6 +116,10 @@ return [
 	'socials' => 'Sosial Media',
 	'slides' => 'Slide',
 	'visit_site' => 'Tinjau Situs',
+<<<<<<< HEAD
 
 	'learnings' => 'Pembelajaran',
+=======
+	'footer' => 'Footer',
+>>>>>>> fbecb6bce557e7bea7236a87304c0af4308c6d65
 ];

@@ -51,14 +51,14 @@ class Donatur extends BaseEntity
 	 *		 
 	 */
 	private $id_kategori;
-
+	/**
 	 *     description="donatur_type_id",
 	 *     title="donatur_type_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
 	 * 	   maxLength=11,
-	 * )
+	 * 
 	 *		 
 	 */
 	private $donatur_type_id;
@@ -146,8 +146,6 @@ class Donatur extends BaseEntity
 	 *		 
 	 */
 	private $updated_by; 
-
-	private $created_by; 
 
 }
 /**

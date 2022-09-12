@@ -1,5 +1,6 @@
 <?php $this->extend('master'); ?>
 
+<<<<<<< HEAD
 <?php $this->section('main'); ?>
 <!-- header -->
 <section class="header fixed-top">
@@ -162,7 +163,13 @@
 </script>
 <?php $this->endSection(); ?>
 
+=======
+>>>>>>> fbecb6bce557e7bea7236a87304c0af4308c6d65
 <?php $this->section('styles'); ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<?= asset_link('board/plugins/responsive-slides/responsiveslides.css', 'css'); ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider-styles.css">
+
 <style>
     /* header */
     .textcard {
@@ -190,6 +197,23 @@
         font-size: 25px;
     }
 
+    .text-center {
+        text-align: center;
+        margin: auto;
+        padding: auto;
+
+    }
+
+    .text-left {
+        margin-left: 20px;
+    }
+
+    .text-right {
+        text-align: right;
+        margin: auto;
+        padding: auto;
+    }
+
 
     /* countdown */
     .text-countdown {
@@ -214,7 +238,6 @@
     }
 
     .card-pray-bg {
-        /* background-color: rgb(47, 142, 168); */
         border-radius: 10px;
         opacity: .8;
         padding: 10%;
@@ -243,64 +266,137 @@
 
 
     /* run text */
-    .marquee {
+    .text-running {
+        background-color: black;
+    }
+
+    marquee {
         width: 100%;
         height: 40px;
-        background-color: black;
         color: white;
         overflow: hidden;
-    }
-
-    .marquee-content {
-        list-style: none;
-        height: 100%;
-        display: flex;
-        animation: scrolling 50s linear infinite;
-    }
-
-    @keyframes scrolling {
-        0% {
-            transform: translateX(80vw);
-        }
-
-        100% {
-            transform: translateX(-180vw);
-        }
-    }
-
-    .marquee-content li {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        flex-shrink: 0;
+        margin-top: 5px;
         font-size: 2rem;
-        white-space: nowrap;
     }
 
-
-    /* slide image */
-    #slideshow {
-        margin: auto;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        -webkit-backface-visibility: hidden;
-
-    }
-
-    #slideshow>div {
-        position: relative;
-        display: block;
-    }
-
-    #slideshow img {
-        display: block;
-        width: 100%;
-        height: 100%;
+    /* Slideshow */
+    .content-slideshow {
         background-size: cover;
-        background-attachment: fixed;
+
     }
 </style>
+<?php $this->endSection(); ?>
+
+<?php $this->section('main'); ?>
+<!-- header -->
+<section class="header fixed-top">
+    <div class="card text-center textcard">
+        <div class="card-header">
+            <div class="row text-center">
+                <div class="col col-sm-1 text-center">
+                    <img width="120px" src="/<?= esc($masjid_profile['path_image']) ?>">
+                </div>
+                <div class="col text-left">
+                    <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
+                    <h3 class="text-address">
+                        <?= ucwords(strtolower($desa . ', ' . $kecamatan . ', ' . $kota . ', ' . $provinsi)); ?>
+                    </h3>
+                    <h3 class="text-phone"><?= lang('app.phone') ?>: <?= $masjid_profile['telephone']; ?> | <?= lang('app.email') ?>: <?= $masjid_profile['email']; ?></h3>
+                </div>
+                <div class="col col-sm-3 text-right">
+                    <h2 id="date" class="date-text"></h2>
+                    <h2 id="clock" class="clock-text"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="countdown mt-5 text-center">
+        <div class="row">
+
+        </div>
+    </div>
+
+</section>
+
+<!-- slideshow -->
+<section class="content-slideshow">
+    <!-- <ul class="rslides">
+        < ?php foreach ($board_news_bg as $bg) { ?>
+            <li><img src="/< ?= esc($bg['path_image']) ?>" data-duration="< ?= esc($bg['duration']) ?>" alt=""></li>
+        < ?php } ?>
+    </ul> -->
+    <div id='coin-slider'>
+        <a href="#">
+            <?php foreach ($board_news_bg as $bg) { ?>
+                <img src='/<?= esc($bg['path_image']) ?>' data-duration='<?= esc($bg['duration']) ?>'>
+            <?php } ?>
+        </a>
+    </div>
+</section>
+
+
+<!-- card jadwal sholat -->
+<section class="footer fixed-bottom mb-5">
+    <div class="text-footer">
+        <div class="row m-5 ml-5">
+            <?php foreach ($rawatib_schedule as $sholat) {
+                $no = $sholat['id'];
+                $time = $sholat['pray_time'];
+            ?>
+
+                <div class="col">
+                    <div class="card  w-40 card-pray-bg bg-color<?= $no ?>">
+                        <div class="card-body text-center card-sholat" id="<?= $no ?>">
+                            <h3 class="card-title">
+                                <?= ucfirst($sholat['name']) ?>
+                            </h3>
+                            <p class="card-text">
+                                <?= date('H:i', strtotime($sholat['pray_time'])) ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php $no++;
+            } ?>
+
+        </div>
+</section>
+
+<!-- running text -->
+<section class="runtext">
+    <div class="text-running fixed-bottom">
+        <marquee scrollamount="5" loop="infinite" animation="linear" scrolldelay="85">
+            <?php foreach ($board_news_runtext as $text) { ?>
+                <?= '&emsp;&emsp;' . $text['text'] ?>
+            <?php } ?>
+        </marquee>
+    </div>
+</section>
+</div>
+
+<?php $this->endSection(); ?>
+
+
+
+<?php $this->section('scripts'); ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<?= asset_link('board/plugins/responsive-slides/responsiveslides.js', 'js'); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider.min.js"></script>
+
+<script>
+    // $(function() {
+    //     $(".rslides").responsiveSlides();
+    // });
+    $(document).ready(function() {
+        $('#coin-slider').coinslider({
+            width: 2000,
+            height: 1500,
+            navigation: false,
+            delay: 5000
+        });
+    });
+</script>
 <?php $this->endSection(); ?>

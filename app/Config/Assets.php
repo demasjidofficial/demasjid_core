@@ -56,5 +56,6 @@ class Assets extends OriginalAssets
         'auth'  => ROOTPATH . 'themes/Auth',
         'other' => ROOTPATH . 'vendor',
         'adminlte' => ROOTPATH . 'themes/adminlte',
+        'board' => ROOTPATH . 'themes/Board'
     ];
 }

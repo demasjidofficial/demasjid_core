@@ -85,3 +85,30 @@ if (! function_exists('local_date')) {
         return $ar[2].' ' . $months[(int)$ar[1]].' ' . $ar[0];
     }
 }
+
+if (! function_exists('meta_tag')) {
+    function meta_tag($name, array $data = null)
+    {
+        $meta = '
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+            ';
+        
+        if (isset($data['meta_desc'])) {
+            $meta .= '<meta name="description" content="'. $data['meta_desc'] .'">';
+        }
+        else {
+            $meta .= '<meta name="description" content="'. $name . ' | '. ( config('App')->siteName ?? 'Demasjid') .'">';
+        }
+
+        if (isset($data['path_image'])) {
+            $meta .= '<meta property="og:image" content="'. site_url() . $data['path_image'] .'" />';
+        }
+
+        $meta_title = isset($data['meta_title']) ? ($data["meta_title"] . " - " ) : "";
+        $title = "<title>". $meta_title . $name . " | ". ( config('App')->siteName ?? 'Demasjid') ."</title>";
+        
+      
+        return $meta.$title;
+    }
+}
