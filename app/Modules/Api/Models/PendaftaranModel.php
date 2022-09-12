@@ -4,6 +4,11 @@ use asligresik\easyapi\Models\BaseModel;
 
 class PendaftaranModel extends BaseModel
 {
+	const MALE = 'L';
+    const FEMALE = 'P';
+    const REGISTER = 'Mendaftar';
+    const RECIEVED = 'Diterima';
+    const REJECTED = 'Ditolak';
     protected $table = 'pendaftaran';
     protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
     protected $primaryKey = 'id';
@@ -67,4 +72,21 @@ class PendaftaranModel extends BaseModel
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
     ];   
+
+	public static function listState(){
+
+        return [
+			self::MALE => lang('crud.male'),
+			self::FEMALE => lang('crud.female'),
+		];
+	}
+
+	public static function listStateRegister(){
+
+        return [
+			self::REGISTER => lang('crud.register'),
+			self::RECIEVED => lang('crud.recieved'),
+			self::REJECTED => lang('crud.rejected'),
+		];
+	}
 }

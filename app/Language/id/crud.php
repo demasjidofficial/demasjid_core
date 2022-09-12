@@ -31,6 +31,7 @@ return [
 	'menu' => 'Menu',
 	'language' => 'Bahasa',
 	'state' => 'Status',
+	'state_register' => 'Status Pendaftaran',
 
 	'back' => 'Kembali',
 	'pages' => 'Halaman',
@@ -180,6 +181,7 @@ return [
 	'siswa' => 'Siswa',
 	'pendaftaran' => 'Pendaftaran',
 	'nick_name' => 'Nama Panggilan',
+	'fullname' => 'Nama Lengkap',
 	'nis' => 'NIS',
 	'birth_place' => 'Tempat Lahir',
 	'birth_date' => 'Tanggal Lahir',
@@ -193,6 +195,11 @@ return [
 	'mother_job' => 'Pekerjaan Ibu',
 	'mother_tlpn' => 'Telepon Ibu',
 	'mother_email' => 'Email Ibu',
+	'biodata_diri' => 'Biodata Diri',
+	'data_pendidikan' => 'Data Pendidikan',
+	'data_orangtua' => 'Data OrangTua',
+	'father' => 'Ayah',
+	'mother' => 'Ibu',
 
 	'menunggu' => 'Menunggu',
 	'diterima' => 'Diterima',
@@ -207,6 +214,10 @@ return [
 	'registration_open' => 'Buka Pendaftaran',
 	'registration' => 'Pendaftaran',
 	'registration_admission' => 'Penerimaan Pendaftaran',
+
+	'register' => 'Mendaftar',
+	'recieved' => 'Diterima',
+	'rejected' => 'Ditolak',
 
 	'configs' => 'Konfigurasi',
 	'zakats' => 'Zakat',

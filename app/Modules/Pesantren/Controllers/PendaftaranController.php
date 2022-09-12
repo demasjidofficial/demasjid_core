@@ -6,14 +6,18 @@ use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
 use App\Modules\Api\Models\PendaftaranModel;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
+use App\Traits\UploadedFile;
 
 class PendaftaranController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\pendaftaran\\';
     protected $baseRoute = 'admin/pesantren/pendaftaran';
     protected $langModel = 'pendaftaran';
     protected $modelName = 'App\Modules\Api\Models\PendaftaranModel';
+    private $imageFolder = 'images';
+
     public function index()
     {
         return parent::index();
@@ -26,6 +30,15 @@ class PendaftaranController extends AdminCrudController
 
     public function update($id = null)
     {
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::update($id);
     }
 
@@ -36,6 +49,9 @@ class PendaftaranController extends AdminCrudController
 
     public function create()
     {
+        $uploadedImage = $this->uploadFile('image');
+        $this->model->set('path_image', $uploadedImage);
+
         return parent::create();
     }
 
@@ -96,6 +112,9 @@ class PendaftaranController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+
+        $dataEdit['genderItems'] = PendaftaranModel::listState();
+        $dataEdit['registerItems'] = PendaftaranModel::listStateRegister();
         $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }

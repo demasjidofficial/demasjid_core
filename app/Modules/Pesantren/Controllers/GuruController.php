@@ -30,6 +30,15 @@ class GuruController extends AdminCrudController
 
     public function update($id = null)
     {
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+        
         return parent::update($id);
     }
 
