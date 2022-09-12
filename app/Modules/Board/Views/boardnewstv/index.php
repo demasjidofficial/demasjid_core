@@ -157,12 +157,6 @@
 
 <!-- slideshow -->
 <section class="content-slideshow">
-    <!-- <ul class="coin-slider">
-        < ?php foreach ($board_news_bg as $bg) { ?>
-            <li><img src="/< ?= esc($bg['path_image']) ?>" data-duration="< ?= esc($bg['duration']) ?>" alt=""></li>
-        < ?php } ?>
-    </ul> -->
-    <!-- <div class="container img-show"> -->
         <div id='coin-slider'>
             <a href="#">
                 <?php foreach ($board_news_bg as $bg) { ?>
@@ -170,8 +164,6 @@
                 <?php } ?>
             </a>
         </div>
-    <!-- </div> -->
-
 </section>
 
 
@@ -227,9 +219,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider.min.js"></script>
 
 <script>
-    // $(function() {
-    //     $(".rslides").responsiveSlides();
-    // });
     $(document).ready(function() {
         $('#coin-slider').coinslider({
             width: 2000,
