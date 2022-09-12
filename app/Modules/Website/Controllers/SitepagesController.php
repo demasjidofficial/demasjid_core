@@ -6,17 +6,28 @@ use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\SitepagesModel;
 use App\Modules\Website\Models\SitepagesFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
+use App\Traits\UploadedFile;
 
 class SitepagesController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitepages\\';
     protected $baseRoute = 'admin/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
-    protected $LANGUAGE_LISTS = [ '', 'Indonesia', 'Arab', 'English' ];
+    private $imageFolder = 'images';
     
     public function index(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::index();
     }
 
@@ -25,6 +36,15 @@ class SitepagesController extends AdminCrudController
     }
 
     public function update($id = null){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::update($id);
     }
 
@@ -33,6 +53,15 @@ class SitepagesController extends AdminCrudController
     }
 
     public function create(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         $data = $this->request->getPost();
         // default to language_id = 1 / indonesia
         $data['language_id'] = 1;
@@ -66,7 +95,6 @@ class SitepagesController extends AdminCrudController
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
-            'language_lists' => $this->LANGUAGE_LISTS,
         ];
     }
 

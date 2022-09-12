@@ -25,13 +25,13 @@ class SitepostsModel extends BaseModel
         'id' => 'numeric|required|is_unique[siteposts.id,id,{id}]',
 		'title' => 'max_length[255]|required',
 		'subtitle' => 'max_length[255]|required',
-		'path_image' => 'max_length[255]',
+		// 'path_image' => 'max_length[255]',
 		'content' => 'required',
 		'permalink' => 'max_length[255]|required',
 		'meta_title' => 'max_length[255]|required',
 		'meta_desc' => 'required',
 		'labels' => 'required',
-		'language_id' => 'numeric',
+		// 'language_id' => 'numeric',
 		'state' => 'max_length[20]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
@@ -40,8 +40,9 @@ class SitepostsModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
+        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name', 'languages.name as  language_name'];
+		$this->join('languages', 'languages.id = '.$this->table.'.language_id');
+		$this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);
     }   

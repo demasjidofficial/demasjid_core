@@ -30,7 +30,6 @@
         <input type="hidden" name="_method" value="PUT" />
         <input type="hidden" name="id" value="<?php echo $data->id; ?>">
         <?php } ?>
-
         
         <div class="row">
             <div class="col-md-7">
@@ -64,21 +63,16 @@
         <div class="row">
             <div class="col-md-7">
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?php echo form_label(lang('crud.path_image'), '', ['for' => 'path_image', 'class' => 'col-form-label col-sm-2']); ?>
                     <div class="col-sm-10">
-
-                        <!--?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar' ") ?-->
-
-                        <?php if(isset($data->path_image)): ?>
-                        <div class="justify-content-center photo-wrapper">           
-                            <img src="<?= site_url($data->path_image) ?>" alt="" class="img-thumbnail" style="height:150px">
-                        </div>
-                        <?php endif ?>
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <?= form_upload('path_image', old('path_image', $data->path_image ?? ''), "class='custom-file-input'  placeholder='".lang('crud.path_image')."' accept='image/*' ") ?>
-                                    <label class="custom-file-label">Pilih gambar halaman</label>
+                                    <?php echo form_upload('image', old('image', $data->path_image ?? ''), "class='custom-file-input' id='page_imginput' placeholder='".lang('crud.path_image')."' accept='image/*' "); ?>
+                                    <?php if (has_error('path_image')) { ?>
+                                        <p class="text-danger"><?php echo error('path_image'); ?></p>
+                                    <?php } ?>
+                                    <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'custom-file-label']) ?>
                                 </div>
                                 <div class="input-group-append clickable">
                                     <span class="input-group-text">
@@ -87,9 +81,9 @@
                                 </div>
                             </div>
                         </div>
-                        <?php if (has_error('path_image')) { ?>
-                        <p class="text-danger"><?php echo error('path_image'); ?></p>
-                        <?php } ?>
+                        <div class="justify-content-center photo-wrapper">
+                            <img id="page_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" style="height:150px">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,6 +199,11 @@
     <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js', 'js') ?>
     <script type="text/javascript">
         $(function(){
+            $('input:file').change(function() {
+                let file = $(this).get(0).files[0].name;
+                $(this).next('label').text(file);
+            });
+
             $('[name=content]').summernote({
                 height: 450,   //set editable area's height
                 codemirror: { // codemirror options
@@ -215,6 +214,19 @@
                 var selected = $('input[name=title]').val()=='' ? 'selected="selected"' : '';
                 $(this).prepend('<option '+selected+'>Pilih '+$(this).attr('data-label')+'</option>');
             })
-        })
+        });
+
+        function imagePreview(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    $('#page_imgpreview').attr('src', event.target.result);
+                };
+                fileReader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+        $('#page_imginput').change(function () {
+            imagePreview(this);
+        });
     </script>
 <?= $this->endSection() ?>

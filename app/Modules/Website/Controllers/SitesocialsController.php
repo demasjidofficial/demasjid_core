@@ -43,7 +43,17 @@ class SitesocialsController extends AdminCrudController
                 $this->model->set('path_icon', $uploaded);
             }
         }
-        return parent::update($id);
+
+        $data = $this->request->getPost();
+        $data['path_icon'] = SitesocialsModel::getIconSosials($data['name']);
+
+        $updateData = array_filter($data);
+        if (! $this->model->update($id, $updateData)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function show($id = null){
@@ -60,7 +70,15 @@ class SitesocialsController extends AdminCrudController
             }
         }
 
-        return parent::create();
+        $data = $this->request->getPost();
+        $data['path_icon'] = SitesocialsModel::getIconSosials($data['name']);
+
+        if (! $this->model->insert($data)) {            
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -72,7 +90,7 @@ class SitesocialsController extends AdminCrudController
         $model = model(SitesocialsFilter::class);
         return [
             'headers' => [
-                'path_icon' => lang('crud.path_icon'),
+                // 'path_icon' => lang('crud.path_icon'),
                 'name' => lang('crud.name'),
                 'link' => lang('crud.link'),
                 'state' => lang('crud.state')
@@ -82,7 +100,7 @@ class SitesocialsController extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
         ];
     }
 
@@ -98,7 +116,18 @@ class SitesocialsController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+
+        $dataEdit['socialItems'] = SitesocialsModel::listSocials();
+        $dataEdit['statesItems'] = $this->getStatesItems();
         
         return $dataEdit;
+    }
+
+    public function getStatesItems() {
+        return  ([
+            //NULL => 'Pilih status',
+            'draft' => 'Draft',
+            'release' => 'Rilis',
+        ]);
     }
 }

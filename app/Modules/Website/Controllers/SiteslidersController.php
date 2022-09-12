@@ -6,15 +6,28 @@ use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\SiteslidersModel;
 use App\Modules\Website\Models\SiteslidersFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
+use App\Traits\UploadedFile;
 
 class SiteslidersController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesliders\\';
     protected $baseRoute = 'admin/website/sliders';
     protected $langModel = 'sitesliders';
     protected $modelName = 'App\Modules\Api\Models\SiteslidersModel';
+    private $imageFolder = 'images';
+
     public function index(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::index();
     }
 
@@ -23,6 +36,15 @@ class SiteslidersController extends AdminCrudController
     }
 
     public function update($id = null){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+        
         return parent::update($id);
     }
 
@@ -31,6 +53,15 @@ class SiteslidersController extends AdminCrudController
     }
 
     public function create(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::create();
     }
 
@@ -43,14 +74,11 @@ class SiteslidersController extends AdminCrudController
         $model = model(SiteslidersFilter::class);
         return [
             'headers' => [
-                                    'name' => 'name',
-                'path_image' => 'path_image',
-                'content' => 'content',
+                'name' => 'name',
+                'path_image' => 'image',
+                'sitepage_id' => 'page',
                 'sequence' => 'sequence',
-                'sitepage_id' => 'sitepage_id',
-                'language_id' => 'language_id',
                 'state' => 'state',
-                'created_by' => 'created_by'
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -73,6 +101,8 @@ class SiteslidersController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+
+        $dataEdit['pageItems'] = Arr::pluck(model('App\Modules\Api\Models\SitepagesModel')->select(['id as key','title as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
         
         return $dataEdit;
     }

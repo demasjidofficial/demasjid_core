@@ -9,7 +9,7 @@
             <div class="col-lg-6 col-md-10">
                 <div class="single-cases mb-40 pr-5 pl-5">
                     <div class="cases-img">
-                        <img src="/<?php echo $donation_campaigns["path_image"]?>" alt="">
+                        <img src="<?php echo site_url().$donation_campaigns["path_image"]?>" alt="">
                     </div>
                 </div>
             </div>
@@ -44,6 +44,16 @@
                         <div class="btn-donation-wrapper" style="text-align:center;">
                             <a class="btn btn-donation borrad-10" href='<?= site_url('/id/checkout/'.$donation_campaigns["id"])?>'>Donasi Sekarang</a>
                         </div>
+                    </div>
+                </div>
+                <div class="row mt-60">
+                    <div class="col-md-12 text-center">
+                        <span class="btn btn-primary" style="background-color: #3b5998;" onclick='Share.facebook("<?php echo site_url() ?>","<?php echo $donation_campaigns["name"]?>","<?php echo site_url().$donation_campaigns["path_image"]?>","<?php echo $donation_campaigns["description"] ?>")' role="button">
+                            <i class="fab fa-facebook-f"></i>
+                        </span>
+                        <span class="btn btn-primary" style="background-color: #55acee;" onclick='Share.twitter("<?php echo site_url() ?>","<?php echo $donation_campaigns["name"]?>")' role="button">
+                            <i class="fab fa-twitter"></i>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -124,3 +134,32 @@
 </section>
 
 <?= $this->endSection() ?>
+
+<?php $this->section('scripts'); ?>
+
+<script type="text/javascript">
+
+Share = {
+    facebook: function(purl, ptitle, pimg, text) {
+    url = 'http://www.facebook.com/sharer.php?s=100';
+    url += '&p[title]=' + encodeURIComponent(ptitle);
+    url += '&p[summary]=' + encodeURIComponent(text);
+    url += '&p[url]=' + encodeURIComponent(purl);
+    url += '&p[images][0]=' + encodeURIComponent(pimg);
+    Share.popup(url);
+},
+    twitter: function(purl, ptitle) {
+    url = 'http://twitter.com/share?';
+    url += 'text=' + encodeURIComponent(ptitle);
+    url += '&url=' + encodeURIComponent(purl);
+    url += '&counturl=' + encodeURIComponent(purl);
+    Share.popup(url);
+},
+    popup: function(url) {
+        window.open(url,'','toolbar=0,status=0,width=626, height=436');
+    }
+};
+
+</script>
+
+<?php $this->endSection(); ?>

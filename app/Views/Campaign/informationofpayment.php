@@ -10,7 +10,7 @@
                <h1>Terima Kasih</h1>
                <h1><?php echo $donation['name'] ?></h1>
                <p>Atas Donasi yang akan Anda berikan kepada program : </p>
-               <h1><?php echo $campaign['name'] ?></h1>
+               <h1><?php echo $donation['campaign_name'] ?></h1>
                <p>Semoga yang telah memberikan sebagian hartanya untuk meringankan beban saudara kita mendapat pahala yang setimpal </p>
                 <h1>Aamiin Allohuma Aamiin</h1>
             </div>
@@ -23,13 +23,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="info-box d-flex flex-row" onClick="copytoclipboard( <?php echo $payment['rek_no'] ?>)">
+                        <div class="info-box d-flex flex-row" onClick="copytoclipboard( <?php echo $donation['payment_rek_no'] ?>)">
                             <div>
-                                <img src="<?php echo site_url().$payment_detail['path_logo'] ?>">
+                                <img src="<?php echo site_url().($donation['bank_path_logo'] ??  $donation['paymentgateway_path_logo']) ?>">
                             </div>
                             <div>
-                                <h3><?php echo $payment['rek_no'] ?></h3>
-                                <p><?php echo $payment['rek_name'] ?></p>
+                                <h3><?php echo $donation['payment_rek_no'] ?></h3>
+                                <p><?php echo $donation['payment_rek_name'] ?></p>
                             </div>
                             <span class="copy-icon" data-toggle="tooltip" data-trigger="click" data-html="true" title="Copied" ><i class="fas fa-copy"></i> copy</span>
                         </div>
@@ -61,50 +61,62 @@
                 <div id="main">
                     <div class="container">
                         <div class="accordion" id="faq">
+
+                        <?php if (isset($donation["bank_instr_atm"]) && !empty($donation["bank_instr_atm"])) :  ?>
                             <div class="card">
                                 <div class="card-header" id="faqhead1">
-                                    <a href="#" class="btn btn-header-link w-100 bg-grey" data-toggle="collapse" data-target="#faq1"
+                                    <a href="#" class="btn btn-header-link w-100 bg-grey" data-toggle="collapse" data-target="#faq_bank_instr_atm"
                                     aria-expanded="true" aria-controls="faq1">Transfer via ATM</a>
                                 </div>
-
-                                <div id="faq1" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
+                                <div id="faq_bank_instr_atm" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
                                     <div class="card-body">
-                                        <ul>
-                                            <li>1. Masukkan Kartu Anda.</li>
-                                            <li>2. Pilih Bahasa.</li>
-                                            <li>3. Masukkan PIN ATM Anda.</li>
-                                            <li>4. Pilih "Menu Lainnya".</li>
-                                            <li>5. Pilih "Transfer".</li>
-                                            <li>6. Pilih Jenis rekening yang akan Anda gunakan (Contoh; "Dari Rekening Tabungan").</li>
-                                            <li>7. Pilih "Virtual Account Billing".</li>
-                                            <li>8. Masukkan nomor Virtual Account Anda (contoh: 8241002201150001).</li>
-                                            <li>9. Tagihan yang harus dibayarkan akan muncul pada layar konfirmasi.</li>
-                                            <li>10. Konfirmasi, apabila telah sesuai, lanjutkan transaksi.</li>
-                                            <li>11. Transaksi Anda telah selesai.</li>
-                                        </ul>
+                                       <?php echo $donation["bank_instr_atm"] ?>
                                     </div>
                                 </div>
                             </div>
+                        <?php endif; ?>
+                        <?php if (isset($donation["bank_instr_mbanking"]) && !empty($donation["bank_instr_mbanking"])) :  ?>
                             <div class="card">
-                                <div class="card-header" id="faqhead2">
-                                    <a href="#" class="btn btn-header-link collapsed w-100 bg-grey" data-toggle="collapse" data-target="#faq2"
-                                    aria-expanded="true" aria-controls="faq2"> Transfer melalui Mobile Banking</a>
+                                <div class="card-header" id="faqhead1">
+                                    <a href="#" class="btn btn-header-link w-100 bg-grey" data-toggle="collapse" data-target="#faq_bank_instr_mbanking"
+                                    aria-expanded="true" aria-controls="faq1">Transfer via Mbanking</a>
                                 </div>
 
-                                <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
+                                <div id="faq_bank_instr_mbanking" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
                                     <div class="card-body">
-                                        <ul>
-                                            <li>1. Akses Apliksi Mobile Banking dari handphone kemudian masukkan user ID dan password.</li>
-                                            <li>2. Pilih menu "Transfer".</li>
-                                            <li>3. Pilih menu "Virtual Account Billing" kemudian pilih rekening debet.</li>
-                                            <li>4. Masukkan nomor Virtual Account Anda (contoh: 8241002201150001) pada menu "input baru".</li>
-                                            <li>5. Tagihan yang harus dibayarkan akan muncul pada layar konfirmasi</li>
-                                            <li>6. Konfirmasi transaksi dan masukkan Password Transaksi.</li>
-                                            <li>7. Pembayaran Anda Telah Berhasil.</li>
-                                        </ul>
+                                       <?php echo $donation["bank_instr_mbanking"] ?>
                                     </div>
                                 </div>
                             </div>
+                        <?php endif; ?>
+                        <?php if (isset($donation["bank_instr_ibanking"]) && !empty($donation["bank_instr_ibanking"])) :  ?>
+                            <div class="card">
+                                <div class="card-header" id="faqhead1">
+                                    <a href="#" class="btn btn-header-link w-100 bg-grey" data-toggle="collapse" data-target="#faq_bank_instr_ibanking"
+                                    aria-expanded="true" aria-controls="faq1">Transfer via Ibanking</a>
+                                </div>
+
+                                <div id="faq_bank_instr_ibanking" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
+                                    <div class="card-body">
+                                       <?php echo $donation["bank_instr_ibanking"] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (isset($donation["paymentgateway_instr"]) && !empty($donation["paymentgateway_instr"])) :  ?>
+                            <div class="card">
+                                <div class="card-header" id="faqhead1">
+                                    <a href="#" class="btn btn-header-link w-100 bg-grey" data-toggle="collapse" data-target="#faq_paymentgateway_instr"
+                                    aria-expanded="true" aria-controls="faq1">Instruksi Payment Gateway</a>
+                                </div>
+
+                                <div id="faq_paymentgateway_instr" class="collapse" aria-labelledby="faqhead1" data-parent="#faq">
+                                    <div class="card-body">
+                                       <?php echo $donation["paymentgateway_instr"] ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         </div>
                     </div>
                 </div>

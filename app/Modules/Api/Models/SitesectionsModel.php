@@ -43,7 +43,8 @@ class SitesectionsModel extends BaseModel
         $this->selectColumn = [$this->table.'.*', 'sitepages.title as sitepages_title'];
 		$this->where(array($this->table.'.state' => 'release', $this->table.'.sitepage_id' => $page_id));
 		$this->join('sitepages', 'sitepages.id = '.$this->table.'.sitepage_id');
-	
+		$this->orderBy('sequence', 'asc');
+
         return parent::findAll($limit, $offset);
     }  
 }

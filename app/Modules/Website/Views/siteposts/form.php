@@ -1,5 +1,12 @@
 <?php $this->extend('master'); ?>
 
+<?php $this->section('styles'); ?>
+    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/codemirror.css', 'css') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/theme/monokai.css', 'css') ?>
+<?= $this->endSection() ?>
+
 <?php $this->section('main'); ?>
     <x-page-head>
         <a href="<?php echo $backUrl ?>" class="back">&larr; siteposts</a>
@@ -25,111 +32,147 @@
                 <input type="hidden" name="_method" value="PUT" />
                 <input type="hidden" name="id" value="<?php echo $data->id; ?>">
             <?php } ?>
+        
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="row mb-3">
+                        <?php echo form_label(lang('crud.path_image'), '', ['for' => 'path_image', 'class' => 'col-form-label col-sm-2']); ?>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <?php echo form_upload('image', old('image', $data->path_image ?? ''), "class='custom-file-input' id='post_imginput' placeholder='".lang('crud.path_image')."' accept='image/*' "); ?>
+                                        <?php if (has_error('path_image')) { ?>
+                                            <p class="text-danger"><?php echo error('path_image'); ?></p>
+                                        <?php } ?>
+                                        <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'custom-file-label']) ?>
+                                    </div>
+                                    <div class="input-group-append clickable">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-camera"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="justify-content-center photo-wrapper">
+                                <img id="post_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" style="height:150px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-5">
+                    <div class="row mb-3">
+                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <div class="col-sm-10">
+                        <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
 
-            <fieldset>
-                                <div class="row mb-3">
-                    <?= form_label('title','',['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('title', old('title', $data->title ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('title')) { ?>
-                        <p class="text-danger"><?php echo error('title'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('subtitle','',['for' => 'subtitle', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('subtitle', old('subtitle', $data->subtitle ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('subtitle')) { ?>
-                        <p class="text-danger"><?php echo error('subtitle'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('path_image','',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar' ") ?>
-                        <?php if (has_error('path_image')) { ?>
-                        <p class="text-danger"><?php echo error('path_image'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('content','',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>
-                        <?php if (has_error('content')) { ?>
-                        <p class="text-danger"><?php echo error('content'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('permalink','',['for' => 'permalink', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('permalink', old('permalink', $data->permalink ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('permalink')) { ?>
-                        <p class="text-danger"><?php echo error('permalink'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('meta_title','',['for' => 'meta_title', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('meta_title', old('meta_title', $data->meta_title ?? ''), "class='form-control varchar' required") ?>
-                        <?php if (has_error('meta_title')) { ?>
-                        <p class="text-danger"><?php echo error('meta_title'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('meta_desc','',['for' => 'meta_desc', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_textarea('meta_desc', old('meta_desc', $data->meta_desc ?? ''), "rows='4' class='form-control text' required") ?>
-                        <?php if (has_error('meta_desc')) { ?>
-                        <p class="text-danger"><?php echo error('meta_desc'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('labels','',['for' => 'labels', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_textarea('labels', old('labels', $data->labels ?? ''), "rows='4' class='form-control text' required") ?>
-                        <?php if (has_error('labels')) { ?>
-                        <p class="text-danger"><?php echo error('labels'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('language_id','',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('language_id')) { ?>
-                        <p class="text-danger"><?php echo error('language_id'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('state','',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?>
+                        <?= form_dropdown('state', ['draft' => lang('app.draft'), 'release' => lang('app.release')], old('state', $data->state ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.state')."' required") ?>
                         <?php if (has_error('state')) { ?>
                         <p class="text-danger"><?php echo error('state'); ?></p>
                         <?php } ?>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <?= form_label('created_by','',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int' ") ?>
-                        <?php if (has_error('created_by')) { ?>
-                        <p class="text-danger"><?php echo error('created_by'); ?></p>
-                        <?php } ?>
                     </div>
+                </div>      
+
+            </div><!--/.row -->
+
+            <!-- /.card -->
+            <div class="card card-primary card-outline">
+                
+                <div class="card-body">
+                    <ul class="nav nav-tabs" id="tab-head-wrapper" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab-head-<?= lang('crud.country_id')?>" data-toggle="pill" href="#tab-content-<?= lang('crud.country_id')?>" role="tab" aria-controls="form-page-<?= lang('crud.country_id')?>" aria-selected="true"><?= lang('crud.country_id')?></a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" id="tab-head-<= lang('crud.country_ar')?>" data-toggle="pill" href="#tab-content-<?= lang('crud.country_ar')?>" role="tab" aria-controls="form-page-<?= lang('crud.country_ar')?>" aria-selected="true"><?= lang('crud.country_ar')?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-head-<= lang('crud.country_en')?>" data-toggle="pill" href="#tab-content-<?= lang('crud.country_en')?>" role="tab" aria-controls="form-page-<?= lang('crud.country_en')?>" aria-selected="true"><?= lang('crud.country_en')?></a>
+                    </li> -->
+                    </ul>
+                    <div class="tab-content" id="tab-content-wrapper">
+                    <div class="tab-pane fade show active" id="tab-content-<?= lang('crud.country_id')?>" role="tabpanel" aria-labelledby="tab-head-<?= lang('crud.country_id')?>">
+                        <br/>
+                        <fieldset>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.title'),'',['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('title', old('title', $data->title ?? ''), "class='form-control varchar' placeholder='Masukkan teks Indonesia' required") ?>
+                                    <?php if (has_error('title')) { ?>
+                                    <p class="text-danger"><?php echo error('title'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.subtitle'),'',['for' => 'subtitle', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('subtitle', old('subtitle', $data->subtitle ?? ''), "class='form-control varchar' required") ?>
+                                    <?php if (has_error('subtitle')) { ?>
+                                    <p class="text-danger"><?php echo error('subtitle'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.labels'),'',['for' => 'labels', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('labels', old('labels', $data->labels ?? ''), "class='form-control varchar' placeholder='Masukkan teks Indonesia' required") ?>
+                                    <?php if (has_error('labels')) { ?>
+                                    <p class="text-danger"><?php echo error('labels'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.content'),'',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>
+                                    
+                                    <?php if (has_error('content')) { ?>
+                                    <p class="text-danger"><?php echo error('content'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.permalink'),'',['for' => 'permalink', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('permalink', old('permalink', $data->permalink ?? ''), "class='form-control varchar' required") ?>
+                                    <?php if (has_error('permalink')) { ?>
+                                    <p class="text-danger"><?php echo error('permalink'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.meta_title'),'',['for' => 'meta_title', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('meta_title', old('meta_title', $data->meta_title ?? ''), "class='form-control varchar' required") ?>
+                                    <?php if (has_error('meta_title')) { ?>
+                                    <p class="text-danger"><?php echo error('meta_title'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.meta_desc'),'',['for' => 'meta_desc', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_textarea('meta_desc', old('meta_desc', $data->meta_desc ?? ''), "rows='4' class='form-control text' required") ?>
+                                    <?php if (has_error('meta_desc')) { ?>
+                                    <p class="text-danger"><?php echo error('meta_desc'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    
+                    
+                    </div>
+                    
                 </div>
-            </fieldset>
+                <!-- /.card -->
+            </div>
+            <!-- /.card -->   
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> siteposts</button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('app.save')?></button>
             </div>
 
         </form>
@@ -137,3 +180,40 @@
     </x-admin-box>
 
 <?php $this->endSection(); ?>
+
+<?= $this->section('scripts') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/codemirror.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/css/css.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js', 'js') ?>
+    <?= asset_link('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js', 'js') ?>
+    <script type="text/javascript">
+        $(function(){
+            $('input:file').change(function() {
+                let file = $(this).get(0).files[0].name;
+                $(this).next('label').text(file);
+            });
+
+            $('[name=content]').summernote({
+                height: 450,   //set editable area's height
+                codemirror: { // codemirror options
+                    theme: 'monokai'
+                }
+            });
+        });
+
+        function imagePreview(fileInput) {
+            if (fileInput.files && fileInput.files[0]) {
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    $('#post_imgpreview').attr('src', event.target.result);
+                };
+                fileReader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+        $('#post_imginput').change(function () {
+            imagePreview(this);
+        });
+    </script>
+<?= $this->endSection() ?>
