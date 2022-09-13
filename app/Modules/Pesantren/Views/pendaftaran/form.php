@@ -345,7 +345,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.state_register'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_dropdown('state', old('state', $registerItems, $data->state ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.state_register') . "' ") ?>
+                                <?= form_dropdown('state', $registerItems, old('state', $data->state ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.state_register') . "' ") ?>
                                 <?php if (has_error('state')) { ?>
                                     <p class="text-danger"><?php echo error('state'); ?></p>
                                 <?php } ?>
@@ -380,6 +380,7 @@
 <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
