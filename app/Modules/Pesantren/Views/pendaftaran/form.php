@@ -1,7 +1,7 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('styles') ?>
-<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
 <?php $this->endSection(); ?>
 
 <?php $this->section('main'); ?>
@@ -99,7 +99,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.gender'), '', ['for' => 'gender', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-5">
-                                <?= form_dropdown('gender', old('gender', $genderItems, $data->gender ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.gender') . "' ") ?>
+                                <?= form_dropdown('gender', $genderItems, old('gender', $data->gender ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.gender') . "' ") ?>
                                 <?php if (has_error('gender')) { ?>
                                     <p class="text-danger"><?php echo error('gender'); ?></p>
                                 <?php } ?>
@@ -121,7 +121,7 @@
                                 <div class="row mb-3">
                                     <?= form_label(lang('crud.birth_date'), '', ['for' => 'birth_date', 'class' => 'col-form-label col-sm-2']) ?>
                                     <div class="col">
-                                        <?= form_input('birth_date', old('birth_date', $data->birth_date ?? ''), "class='form-control date' required placeholder='" . lang('crud.birth_date') . "' ") ?>
+                                        <?= form_input('birth_date', old('birth_date', $data->birth_date ?? ''), "class='form-control date' id='datepicker' required placeholder='" . lang('crud.birth_date') . "' ") ?>
                                         <?php if (has_error('birth_date')) { ?>
                                             <p class="text-danger"><?php echo error('birth_date'); ?></p>
                                         <?php } ?>
@@ -379,12 +379,13 @@
 <?php $this->section('scripts'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
-<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
-<?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
     $(function() {
+        $("#datepicker").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker('update', new Date());
 
         bsCustomFileInput.init();
         $('input:file').change(function() {
