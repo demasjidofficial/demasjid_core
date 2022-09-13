@@ -115,9 +115,11 @@
     }
 
     /* Slideshow */
-    .content-slideshow {
-        background-size: cover;
-
+    .img-show {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
 </style>
 <?php $this->endSection(); ?>
@@ -155,18 +157,13 @@
 
 <!-- slideshow -->
 <section class="content-slideshow">
-    <!-- <ul class="rslides">
-        < ?php foreach ($board_news_bg as $bg) { ?>
-            <li><img src="/< ?= esc($bg['path_image']) ?>" data-duration="< ?= esc($bg['duration']) ?>" alt=""></li>
-        < ?php } ?>
-    </ul> -->
-    <div id='coin-slider'>
-        <a href="#">
-            <?php foreach ($board_news_bg as $bg) { ?>
-                <img src='/<?= esc($bg['path_image']) ?>' data-duration='<?= esc($bg['duration']) ?>'>
-            <?php } ?>
-        </a>
-    </div>
+        <div id='coin-slider'>
+            <a href="#">
+                <?php foreach ($board_news_bg as $bg) { ?>
+                    <img src='/<?= esc($bg['path_image']) ?>' duration='<?= esc($bg['duration']) ?>'>
+                <?php } ?>
+            </a>
+        </div>
 </section>
 
 
@@ -222,15 +219,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider.min.js"></script>
 
 <script>
-    // $(function() {
-    //     $(".rslides").responsiveSlides();
-    // });
     $(document).ready(function() {
         $('#coin-slider').coinslider({
             width: 2000,
-            height: 1500,
+            height: 1000,
             navigation: false,
-            delay: 5000
+            delay: $('img').attr('duration'),
         });
     });
 </script>
