@@ -185,6 +185,7 @@ return [
 	'nis' => 'NIS',
 	'birth_place' => 'Tempat Lahir',
 	'birth_date' => 'Tanggal Lahir',
+	'tmpt_tgl_lahir' => 'Tempat, Tanggal Lahir',
 	'gender' => 'Jenis Kelamin',
 	'school_origin' => 'Sekolah Asal',
 	'father_name' => 'Nama Ayah',

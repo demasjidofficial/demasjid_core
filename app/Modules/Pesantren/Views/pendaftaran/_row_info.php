@@ -1,18 +1,23 @@
-<td><?php echo esc($item->class_id) ?></a></td>
-<td><?php echo esc($item->state) ?></a></td>
+<td><img width="100px" src="/<?php echo esc($item->path_image) ?>"></a></td>
 <td><?php echo esc($item->name) ?></a></td>
+<!-- <td>< ?php echo esc($item->nick_name) ?></a></td> -->
 <td><?php echo esc($item->nis) ?></a></td>
-<td><?php echo esc($item->nick_name) ?></a></td>
-<td><?php echo esc($item->birth_date) ?></a></td>
-<td><?php echo esc($item->birth_place) ?></a></td>
-<td><?php echo esc($item->gender) ?></a></td>
-<td><?php echo esc($item->provinsi_id) ?></a></td>
-<td><?php echo esc($item->kota_id) ?></a></td>
-<td><?php echo esc($item->kecamatan_id) ?></a></td>
-<td><?php echo esc($item->desa_id) ?></a></td>
-<td><?php echo esc($item->address) ?></a></td>
+<td><?php echo esc($item->class_id) ?></a></td>
 <td><?php echo esc($item->school_origin) ?></a></td>
-<td><?php echo esc($item->description) ?></a></td>
+<td><?php echo esc($item->gender) ?></a></td>
+<!-- <td>< ?php echo esc($item->birth_place) ?></a></td>
+<td>< ?php echo esc($item->birth_date) ?></a></td> -->
+
+<td><?php echo esc($item->birth_place).', '.esc($item->birth_date) ?></a></td>
+
+<!-- <td>< ?php echo esc($item->provinsi_id) ?></a></td>
+<td>< ?php echo esc($item->kota_id) ?></a></td>
+<td>< ?php echo esc($item->kecamatan_id) ?></a></td>
+<td>< ?php echo esc($item->desa_id) ?></a></td>
+<td>< ?php echo esc($item->address) ?></a></td> -->
+
+<td><?php echo esc($item->provinsi_id).', '.esc($item->kota_id).', '.esc($item->kecamatan_id).', '.esc($item->desa_id).', '.esc($item->address) ?></a></td>
+
 <td><?php echo esc($item->father_name) ?></a></td>
 <td><?php echo esc($item->father_job) ?></a></td>
 <td><?php echo esc($item->father_tlpn) ?></a></td>
@@ -21,7 +26,9 @@
 <td><?php echo esc($item->mother_job) ?></a></td>
 <td><?php echo esc($item->mother_tlpn) ?></a></td>
 <td><?php echo esc($item->mother_email) ?></a></td>
-<td><img width="100px" src="/<?php echo esc($item->path_image) ?>"></a></td>
+<td><?php echo esc($item->state) ?></a></td>
+<td><?php echo esc($item->description) ?></a></td>
+
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

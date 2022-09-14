@@ -1,7 +1,10 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('styles') ?>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" /> -->
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2/css/select2.min.css', 'css') ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css', 'css') ?>
 <?php $this->endSection(); ?>
 
 <?php $this->section('main'); ?>
@@ -121,7 +124,7 @@
                                 <div class="row mb-3">
                                     <?= form_label(lang('crud.birth_date'), '', ['for' => 'birth_date', 'class' => 'col-form-label col-sm-2']) ?>
                                     <div class="col">
-                                        <?= form_input('birth_date', old('birth_date', $data->birth_date ?? ''), "class='form-control date' id='datepicker' required placeholder='" . lang('crud.birth_date') . "' ") ?>
+                                        <?= form_input('birth_date', old('birth_date', $data->birth_date ?? ''), "class='form-control date' required placeholder='" . lang('crud.birth_date') . "' ") ?>
                                         <?php if (has_error('birth_date')) { ?>
                                             <p class="text-danger"><?php echo error('birth_date'); ?></p>
                                         <?php } ?>
@@ -132,7 +135,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.provinsi_id'), '', ['for' => 'provinsi_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('provinsi_id', old('provinsi_id', $data->provinsi_id ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.provinsi_id') . "' ") ?>
+                                <?= form_dropdown('provinsi_id', $provinsiItems, old('provinsi_id', $data->provinsi_id ?? ''), "class='form-control select2bs4 provinsi' required") ?>
                                 <?php if (has_error('provinsi_id')) { ?>
                                     <p class="text-danger"><?php echo error('provinsi_id'); ?></p>
                                 <?php } ?>
@@ -141,7 +144,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.kota_id'), '', ['for' => 'kota_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('kota_id', old('kota_id', $data->kota_id ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.kota_id') . "' ") ?>
+                                <?= form_dropdown('kota_id', $kotaItems, old('kota_id', $data->kota_id ?? ''), "class='form-control select2bs4 kota' data-level='kota/kabupaten' data-reference='select.provinsi' required") ?>
                                 <?php if (has_error('kota_id')) { ?>
                                     <p class="text-danger"><?php echo error('kota_id'); ?></p>
                                 <?php } ?>
@@ -150,7 +153,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.kecamatan_id'), '', ['for' => 'kecamatan_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('kecamatan_id', old('kecamatan_id', $data->kecamatan_id ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.kecamatan_id') . "' ") ?>
+                                <?= form_dropdown('kecamatan_id', $kecamatanItems, old('kecamatan_id', $data->kecamatan_id ?? ''), "class='form-control select2bs4 kecamatan' data-level='kecamatan' data-reference='select.kota' required") ?>
                                 <?php if (has_error('kecamatan_id')) { ?>
                                     <p class="text-danger"><?php echo error('kecamatan_id'); ?></p>
                                 <?php } ?>
@@ -159,7 +162,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.desa_id'), '', ['for' => 'desa_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('desa_id', old('desa_id', $data->desa_id ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.desa_id') . "' ") ?>
+                                <?= form_dropdown('desa_id', $desaItems, old('desa_id', $data->desa_id ?? ''), "class='form-control select2bs4 desa' data-level='desa' data-reference='select.kecamatan' required placeholder='" . lang('crud.desa_id') . "' ") ?>
                                 <?php if (has_error('desa_id')) { ?>
                                     <p class="text-danger"><?php echo error('desa_id'); ?></p>
                                 <?php } ?>
@@ -379,19 +382,74 @@
 <?php $this->section('scripts'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script> -->
 <script type="text/javascript">
     $(function() {
-        $("#datepicker").datepicker({
-            autoclose: true,
-            todayHighlight: true
-        }).datepicker('update', new Date());
+        // date_birth
+        // $("input[name=birth_date]").datepicker({
+        //     autoclose: true,
+        //     "autoApply": true,
+        //     todayHighlight: true,
+        // });
 
+        $('input[name=birth_date]').daterangepicker({
+            "autoApply": true,
+            "singleDatePicker": true,
+            "locale": {
+                "format": 'YYYY-MM-DD'
+            }
+        }); 
+
+        // input image/photo
         bsCustomFileInput.init();
         $('input:file').change(function() {
             var i = $(this).prev('label').clone();
             var file = $(this).get(0).files[0].name;
             $(this).prev('label').text(file);
+        });
+
+        // input data wilayah/alamat
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
+
+        $('select.provinsi').select2({
+            theme: 'bootstrap4'
+        });
+        $('select.kota, select.kecamatan, select.desa').select2({
+            theme: 'bootstrap4',
+            ajax: {
+                url: "<?= site_url('api/wilayahs') ?>",
+                type: "get",
+                delay: 250,
+                dataType: 'json',
+                data: function(params) {
+                    return {
+                        "search": {
+                            "level": $(this).data('level'),
+                            "kode": $($(this).data('reference')).val() + "%",
+                            "nama": "%" + params.term + "%"
+                        }, // search term
+                    };
+                },
+                processResults: function(response) {
+                    const temp = []
+                    $.each(response.data, function(i, d) {
+                        temp.push({
+                            'id': d.kode,
+                            'text': d.nama
+                        });
+                        console.log(d);
+                    });
+
+                    return {
+                        results: temp
+                    };
+                },
+                cache: true
+            }
         });
     });
 </script>

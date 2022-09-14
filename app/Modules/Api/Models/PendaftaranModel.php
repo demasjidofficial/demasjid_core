@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class PendaftaranModel extends BaseModel
 {
 	const MALE = 'L';

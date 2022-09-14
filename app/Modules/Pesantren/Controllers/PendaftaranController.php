@@ -5,6 +5,7 @@ namespace App\Modules\Pesantren\Controllers;
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
 use App\Modules\Api\Models\PendaftaranModel;
+use App\Modules\Api\Models\WilayahModel;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
 use App\Traits\UploadedFile;
 
@@ -39,6 +40,15 @@ class PendaftaranController extends AdminCrudController
             }
         }
 
+
+        // $data = $this->request->getPost();
+        // $updateData = array_filter($data);
+
+        // if (!$this->model->update($id, $updateData)) {
+        //     return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        // }
+        // $this->writeLog();
+
         return parent::update($id);
     }
 
@@ -51,6 +61,12 @@ class PendaftaranController extends AdminCrudController
     {
         $uploadedImage = $this->uploadFile('image');
         $this->model->set('path_image', $uploadedImage);
+       
+        // $data = $this->request->getPost();
+        // if (!$this->model->insert($data)) {
+        //     return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        // }
+        // $this->writeLog();
 
         return parent::create();
     }
@@ -65,21 +81,27 @@ class PendaftaranController extends AdminCrudController
         $model = model(PendaftaranFilter::class);
         return [
             'headers' => [
-                'class_id' => lang('crud.class_id'),
-                'state' => lang('crud.state'),
+                'path_image' => lang('crud.path_image'),
                 'name' => lang('crud.name'),
+                // 'nick_name' => lang('crud.nick_name'),
                 'nis' => lang('crud.nis'),
-                'nick_name' => lang('crud.nick_name'),
-                'birth_date' => lang('crud.birth_date'),
-                'birth_place' => lang('crud.birth_place'),
-                'gender' => lang('crud.gender'),
-                'provinsi_id' => lang('crud.provinsi_id'),
-                'kota_id' => lang('crud.kota_id'),
-                'kecamatan_id' => lang('crud.kecamatan_id'),
-                'desa_id' => lang('crud.desa_id'),
-                'address' => lang('crud.address'),
+                'class_id' => lang('crud.class_id'),
                 'school_origin' => lang('crud.school_origin'),
-                'description' => lang('crud.description'),
+                'gender' => lang('crud.gender'),
+
+                //tempat tanggal lahir
+                'birth_place' => lang('crud.tmpt_tgl_lahir'),
+                // 'birth_place' => lang('crud.birth_place'),
+                // 'birth_date' => lang('crud.birth_date'),
+
+                //alamat
+                'provinsi_id' => lang('crud.address'),
+                // 'provinsi_id' => lang('crud.provinsi_id'),
+                // 'kota_id' => lang('crud.kota_id'),
+                // 'kecamatan_id' => lang('crud.kecamatan_id'),
+                // 'desa_id' => lang('crud.desa_id'),
+                // 'address' => lang('crud.address'),
+
                 'father_name' => lang('crud.father_name'),
                 'father_job' => lang('crud.father_job'),
                 'father_tlpn' => lang('crud.father_tlpn'),
@@ -88,7 +110,8 @@ class PendaftaranController extends AdminCrudController
                 'mother_job' => lang('crud.mother_job'),
                 'mother_tlpn' => lang('crud.mother_tlpn'),
                 'mother_email' => lang('crud.mother_email'),
-                'path_image' => lang('crud.path_image'),
+                'state' => lang('crud.state'),
+                'description' => lang('crud.description'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
@@ -104,15 +127,28 @@ class PendaftaranController extends AdminCrudController
     {
         $dataEdit = parent::getDataEdit($id);
         $model = new PendaftaranModel();
-
+        $dataEdit['kotaItems'] = ['' => 'Pilih kota/kabupaten'];
+        $dataEdit['kecamatanItems'] = ['' => 'Pilih kecamatan'];
+        $dataEdit['desaItems'] = ['' => 'Pilih desa'];
+        
         if (!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
+            $wilayah = collect((new WilayahModel())->extractWilayah($data->desa_id)->asArray()->findAll())->keyBy('kode');
+            $extractWilayah = extractWilayah($data->desa_id);
+            $data->provinsi_id = $extractWilayah['provinsi'];
+            $data->provinsi_id = $extractWilayah['provinsi'];
+            $data->kota_id = $extractWilayah['kota/kabupaten'];
+            $data->kecamatan_id = $extractWilayah['kecamatan'];
             $dataEdit['data'] = $data;
+            $dataEdit['kotaItems'] += [$data->kota_id => $wilayah[$data->kota_id]['nama']];
+            $dataEdit['kecamatanItems'] += [$data->kecamatan_id => $wilayah[$data->kecamatan_id]['nama']];
+            $dataEdit['desaItems'] += [$data->desa_id => $wilayah[$data->desa_id]['nama']];
         }
 
+        $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
         $dataEdit['genderItems'] = PendaftaranModel::listState();
         $dataEdit['registerItems'] = PendaftaranModel::listStateRegister();
         $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
