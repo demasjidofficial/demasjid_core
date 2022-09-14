@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Ruangan;
+namespace App\Modules\Room;
 
 use App\Config\BaseModule;
 use Bonfire\Libraries\Menus\MenuItem;
@@ -21,28 +21,28 @@ class Module extends BaseModule
 
         $roomItem = new MenuItem([
             'title'           => lang('crud.room'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
+            'url'             => url_to('App\Modules\Room\Controllers\RoomController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $konfirmruanganItem = new MenuItem([
             'title'           => lang('crud.konfirmruangan'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
+            'url'             => url_to('App\Modules\Room\Controllers\RoomReservController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $comentItem = new MenuItem([
             'title'           => lang('crud.coment'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
+            'url'             => url_to('App\Modules\Room\Controllers\CommentRoomController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $rekaplaporanItem = new MenuItem([
             'title'           => lang('crud.rekaplaporan'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
+            'url'             => url_to('/'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);

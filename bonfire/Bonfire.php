@@ -122,7 +122,7 @@ class Bonfire
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
         $menus->menu('sidebar')
-            ->createCollection('room', 'Ruangan')
+            ->createCollection('room', 'Room')
             ->setFontAwesomeIcon('nav-icon fas fa-toolbox')
             ->setCollapsible();
 

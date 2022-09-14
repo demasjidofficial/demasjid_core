@@ -77,6 +77,9 @@ $routes->group(
         $routes->resource('donaturs');
         $routes->resource('donasis');
         $routes->resource('dataruangans');
+        $routes->resource('rooms');
+        $routes->resource('commentRooms');
+        $routes->resource('roomReservs');
         //$routes->resource('menus');
         //$routes->resource('pages');
         //$routes->resource('posts');
