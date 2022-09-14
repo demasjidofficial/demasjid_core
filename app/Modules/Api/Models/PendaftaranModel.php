@@ -4,9 +4,9 @@ class PendaftaranModel extends BaseModel
 {
 	const MALE = 'L';
     const FEMALE = 'P';
-    const REGISTER = 'Mendaftar';
-    const RECIEVED = 'Diterima';
-    const REJECTED = 'Ditolak';
+    const REGISTER = 'mendaftar';
+    const RECIEVED = 'diterima';
+    const REJECTED = 'ditolak';
     protected $table = 'pendaftaran';
     protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
     protected $primaryKey = 'id';
