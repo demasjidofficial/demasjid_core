@@ -253,9 +253,11 @@
     }
 
     /* Slideshow */
-    .content-slideshow {
-        background-size: cover;
-
+    .img-show {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
 </style>
 <?php $this->endSection(); ?>
@@ -300,6 +302,13 @@
             <?php } ?>
         </a>
     </div>
+        <div id='coin-slider'>
+            <a href="#">
+                <?php foreach ($board_news_bg as $bg) { ?>
+                    <img src='/<?= esc($bg['path_image']) ?>' duration='<?= esc($bg['duration']) ?>'>
+                <?php } ?>
+            </a>
+        </div>
 </section>
 
 
@@ -358,9 +367,9 @@
     $(document).ready(function() {
         $('#coin-slider').coinslider({
             width: 2000,
-            height: 1500,
+            height: 1000,
             navigation: false,
-            delay: 5000
+            delay: $('img').attr('duration'),
         });
     });
 </script>
