@@ -43,13 +43,12 @@ class SitesectionsController extends AdminCrudController
         $model = model(SitesectionsFilter::class);
         return [
             'headers' => [
-                                    'title' => 'title',
-                'subtitle' => 'subtitle',
-                'content' => 'content',
+                'title' => 'section',
+                // 'subtitle' => 'subtitle',
+                // 'content' => 'content',
+                'sitepage_id' => 'page',
                 'sequence' => 'sequence',
-                'sitepage_id' => 'sitepage_id',
                 'state' => 'state',
-                'created_by' => 'created_by'
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -72,6 +71,7 @@ class SitesectionsController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+        $dataEdit['pageItems'] = Arr::pluck(model('App\Modules\Api\Models\SitepagesModel')->select(['id as key','title as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
         
         return $dataEdit;
     }

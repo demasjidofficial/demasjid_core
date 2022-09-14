@@ -11,7 +11,10 @@ class MasterBankModel extends BaseModel
 		'name',
 		'created_at',
 		'updated_at',
-		'created_by'
+		'created_by',
+        'instr_atm',
+        'instr_mbanking',
+        'instr_ibanking'
     ];
     protected $validationRules = [
         'id' => 'numeric|max_length[11]|required|is_unique[master_bank.id,id,{id}]',

@@ -5,16 +5,28 @@ namespace App\Modules\Website\Controllers;
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Website\Models\SitesocialsFilter;
+use App\Traits\UploadedFile;
 use IlluminateAgnostic\Arr\Support\Arr;
 
 class SitesocialsController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesocials\\';
     protected $baseRoute = 'admin/website/socials';
     protected $langModel = 'sitesocials';
     protected $modelName = 'App\Modules\Api\Models\SitesocialsModel';
+    private $imageFolder = 'images';
+    
     public function index(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_icon', $uploaded);
+            }
+        }
         return parent::index();
     }
 
@@ -23,7 +35,25 @@ class SitesocialsController extends AdminCrudController
     }
 
     public function update($id = null){
-        return parent::update($id);
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_icon', $uploaded);
+            }
+        }
+
+        $data = $this->request->getPost();
+        $data['path_icon'] = SitesocialsModel::getIconSosials($data['name']);
+
+        $updateData = array_filter($data);
+        if (! $this->model->update($id, $updateData)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function show($id = null){
@@ -31,7 +61,24 @@ class SitesocialsController extends AdminCrudController
     }
 
     public function create(){
-        return parent::create();
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_icon', $uploaded);
+            }
+        }
+
+        $data = $this->request->getPost();
+        $data['path_icon'] = SitesocialsModel::getIconSosials($data['name']);
+
+        if (! $this->model->insert($data)) {            
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -43,18 +90,17 @@ class SitesocialsController extends AdminCrudController
         $model = model(SitesocialsFilter::class);
         return [
             'headers' => [
+                // 'path_icon' => lang('crud.path_icon'),
                 'name' => lang('crud.name'),
                 'link' => lang('crud.link'),
-                'path_icon' => lang('crud.path_icon'),
-                'state' => lang('crud.state'),
-                'created_by' => lang('crud.created_by')
+                'state' => lang('crud.state')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
         ];
     }
 
@@ -70,7 +116,18 @@ class SitesocialsController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+
+        $dataEdit['socialItems'] = SitesocialsModel::listSocials();
+        $dataEdit['statesItems'] = $this->getStatesItems();
         
         return $dataEdit;
+    }
+
+    public function getStatesItems() {
+        return  ([
+            //NULL => 'Pilih status',
+            'draft' => 'Draft',
+            'release' => 'Rilis',
+        ]);
     }
 }

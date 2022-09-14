@@ -6,15 +6,28 @@ use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\SitepagesModel;
 use App\Modules\Website\Models\SitepagesFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
+use App\Traits\UploadedFile;
 
 class SitepagesController extends AdminCrudController
 {
+    use UploadedFile;
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitepages\\';
     protected $baseRoute = 'admin/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
+    private $imageFolder = 'images';
+    
     public function index(){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::index();
     }
 
@@ -23,6 +36,15 @@ class SitepagesController extends AdminCrudController
     }
 
     public function update($id = null){
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
         return parent::update($id);
     }
 
@@ -31,7 +53,24 @@ class SitepagesController extends AdminCrudController
     }
 
     public function create(){
-        return parent::create();
+        $image = $this->request->getFile('image');
+
+        if (!empty($image)) {
+            if ($image->getSize() > 0) {
+                $uploaded = $this->uploadFile('image');
+                $this->model->set('path_image', $uploaded);
+            }
+        }
+
+        $data = $this->request->getPost();
+        // default to language_id = 1 / indonesia
+        $data['language_id'] = 1;
+
+        if (! $this->model->insert($data)) {            
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -43,13 +82,9 @@ class SitepagesController extends AdminCrudController
         $model = model(SitepagesFilter::class);
         return [
             'headers' => [
-                'path_image' => lang('crud.image'),
                 'title' => lang('crud.title'),
                 //'subtitle' => lang('crud.subtitle'),
-                //'content' => lang('crud.content'),
-                //'permalink' => lang('crud.permalink'),
-                //'meta_title' => lang('crud.meta_title'),
-                //'meta_desc' => lang('crud.meta_desc'),
+                'permalink' => lang('crud.permalink'),
                 'sitemenu_id' => lang('crud.menu'),
                 'language_id' => lang('crud.language'),
                 'state' => lang('crud.state'),
@@ -59,7 +94,7 @@ class SitepagesController extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
         ];
     }
 
@@ -75,9 +110,7 @@ class SitepagesController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        //$menuItems = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['menu.id as key','menu.name as text'])->website()->asArray()->findAllExcludeJoin(), 'text', 'key');
-
-        $dataEdit['menuItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['menuItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
 
         return $dataEdit;
     }

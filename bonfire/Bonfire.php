@@ -94,6 +94,7 @@ class Bonfire
             ->createCollection('tpq', 'TPQ')
             ->setFontAwesomeIcon('nav-icon fas fa-graduation-cap')
             ->setCollapsible();
+
         $menus->menu('sidebar')
             ->createCollection('baitulmal', 'Baitul Mal')
             ->setFontAwesomeIcon('nav-icon fas fa-calculator')
@@ -103,12 +104,23 @@ class Bonfire
             ->setFontAwesomeIcon('nav-icon fas fa-globe')
             ->setCollapsible();
         $menus->menu('sidebar')
+
+            ->createCollection('info', 'Info')
+            ->setFontAwesomeIcon('nav-icon fas fa-info')
+            ->setCollapsible();
+        $menus->menu('sidebar')
+
+            ->createCollection('info', 'Info')
+            ->setFontAwesomeIcon('nav-icon fas fa-info')
+            ->setCollapsible();
+        $menus->menu('sidebar')
             ->createCollection('board', 'Board')
             ->setFontAwesomeIcon('nav-icon fas fa-tv')
             ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('bot', 'Bot')
             ->setFontAwesomeIcon('nav-icon fas fa-microchip')
+
             ->setCollapsible();
         $menus->menu('sidebar')
             ->createCollection('content', 'Konten')

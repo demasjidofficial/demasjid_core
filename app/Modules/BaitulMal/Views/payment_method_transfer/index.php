@@ -44,27 +44,27 @@
 <?php $this->section('scripts'); ?>
 
 <script type="text/javascript">
-    function updateState(id, value) {
-        let url = "<?php echo base_url()?>" + "/api/update_paymentmethod_activation/";
-        console.log(url);
-        // $.ajax({
-        //     url: url,
-        //     type: 'POST',
-        //     dataType: 'json',
-        //     data: {
-        //         'id': id,
-        //         'value' : value
-        //     },
-        //     success: function(data) {
-        //         console.log('succress');
-        //         console.log(data);
-        //     },
-        //     error : function(data) {
-        //         console.log('error');
-        //         console.log(data);
-        //     }
-        // });   
-    }
+    $('[data-toggle=confirmation]').confirmation({
+        onConfirm: function(){
+            let _this = $(this);
+            let id = _this.attr('id');
+            let isActived = (_this.attr('data-isActived') == 0) ? 1 : 0;
+            let url = "<?php echo base_url()?>" + "/api/update_paymentmethod_activation/";
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: { id, isActived },
+                success: function(res) {
+                    _this.siblings().html((res.isActived == 1) ? "Active" : "No Active");
+                    return console.log(res);
+                },
+                error : function(res) {
+                    console.log('error');
+                    return alert('Error');
+                }
+            });   
+        }
+    }); 
 
 </script>
 <?php $this->endSection(); ?>

@@ -30,7 +30,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
+                        <?php echo form_dropdown('name', $socialItems, old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' "); ?>
                         <?php if (has_error('name')) { ?>
                         <p class="text-danger"><?php echo error('name'); ?></p>
                         <?php } ?>
@@ -46,34 +46,18 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.path_icon'),'',['for' => 'path_icon', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('path_icon', old('path_icon', $data->path_icon ?? ''), "class='form-control varchar' ") ?>
-                        <?php if (has_error('path_icon')) { ?>
-                        <p class="text-danger"><?php echo error('path_icon'); ?></p>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="row mb-3">
                     <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?>
+                        <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
+
+                        <!--?= form_dropdown('state', ['draft' => lang('app.draft'), 'release' => lang('app.release')], old('state', $data->state ?? ''), "class='form-control select2bs4 state' required") ?-->
+
+                        <?= form_dropdown('state', $statesItems, old('state', $data->state ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.state')."' required") ?>
                         <?php if (has_error('state')) { ?>
                         <p class="text-danger"><?php echo error('state'); ?></p>
                         <?php } ?>
                     </div>
-                </div>
-                <!--
-                <div class="row mb-3">
-                    < ?= form_label('created_by','',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        < ?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int' ") ?>
-                        < ?php if (has_error('created_by')) { ?>
-                        <p class="text-danger">< ?php echo error('created_by'); ?></p>
-                        < ?php } ?>
-                    </div>
-                </div>
-                -->
+                </div>         
             </fieldset>
 
             <div class="text-end py-3">
@@ -84,4 +68,23 @@
 
     </x-admin-box>
 
+<?php $this->endSection(); ?>
+
+<?php $this->section('scripts'); ?>
+
+<script type="text/javascript">
+    function imagePreview(fileInput) {
+        if (fileInput.files && fileInput.files[0]) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (event) {
+                $('#social_imgpreview').attr('src', event.target.result);
+            };
+            fileReader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+    $('#social_imginput').change(function () {
+        imagePreview(this);
+    });
+
+</script>
 <?php $this->endSection(); ?>

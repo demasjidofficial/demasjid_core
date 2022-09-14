@@ -32,17 +32,17 @@ class Module extends BaseModule
             'title'           => 'Users',
             'namedRoute'      => 'user-settings',
             'fontAwesomeIcon' => 'fas fa-user nav-icon',
-            //'permission'      => 'users.settings',
+            'permission'      => 'users.settings',
         ]);
         $sidebar->menu('sidebar')->collection('settings')->addItem($item);
 
         // Content Menu for sidebar
         $item = new MenuItem([
-            'title'           => 'Users',
+            'title'           => 'List Users',
             'namedRoute'      => 'user-list',
             'fontAwesomeIcon' => 'fas fa-users nav-icon',
-            //'permission'      => 'users.list',
+            // 'permission'      => 'users.list',
         ]);
-        $sidebar->menu('sidebar')->collection('content')->addItem($item);        
+        $sidebar->menu('sidebar')->collection('settings')->addItem($item);        
     }
 }

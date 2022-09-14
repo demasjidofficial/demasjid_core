@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title><?= $masjid_profile['name'] ?? '' ?>| <?= config('App')->siteName ?? 'Demasjid' ?></title>
-
+    <?php echo $meta ?>
     <link rel='icon' href='<?= $masjid_profile['path_logo'] ?? '' ?>' />
 
     <!-- CSS here -->
@@ -22,6 +18,7 @@
 	<?= asset_link('app/theme-charityworks/css/slick.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/nice-select.css', 'css') ?>
 	<?= asset_link('app/theme-charityworks/css/style.css', 'css') ?>
+    <?= asset_link('app/theme-charityworks/css/custom.css', 'css') ?>
 
     <?= $this->renderSection('styles') ?>
 </head>
@@ -101,6 +98,7 @@
     <?= asset_link('app/theme-charityworks/js/jquery-validate.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/mail-script.js', 'js') ?>
     <?= asset_link('app/theme-charityworks/js/jquery-ajaxchimp.js', 'js') ?>
+    <?= asset_link('app/theme-charityworks/js/jquery-inputmask-min.js', 'js') ?>
     
     <!-- Jquery Plugins, main Jquery -->	
     <?= asset_link('app/theme-charityworks/js/plugins.js', 'js') ?>

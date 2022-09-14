@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateMasterEwallet extends Migration
+class CreateMasterPaymentgateway extends Migration
 {
     public function up()
     {
@@ -42,11 +42,11 @@ class CreateMasterEwallet extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('master_ewallet', true);
+        $this->forge->createTable('master_paymentgateway', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('master_ewallet', true);
+        $this->forge->dropTable('master_paymentgateway', true);
     }
 }

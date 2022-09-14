@@ -1,55 +1,52 @@
-<?php
-
-namespace App\Modules\Api\Controllers;
-
+<?php namespace App\Modules\Api\Controllers;
+ 
 use asligresik\easyapi\Controllers\BaseResourceController;
-
 class Wilayahs extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\WilayahModel';
+    protected $modelName = 'App\Modules\Api\Models\WilayahModel';  
 
-    /**
+     /**
      * @OA\Get(
      *     path="/wilayahs",
      *     tags={"Wilayah"},
      *     summary="Find list Wilayah",
      *     description="Returns list of Wilayah",
-     *     operationId="getWilayah",
+     *     operationId="getWilayah",  
      *     @OA\Parameter(
      *         name="search",
      *         in="query",
-     *         description="search by column defined",
+     *         description="search by column defined",     
      *         @OA\Schema(
-     *             type="object"
+     *             type="object"              
      *         )
      *     ),
      *     @OA\Parameter(
      *         name="order",
      *         in="query",
-     *         description="order by column defined",
+     *         description="order by column defined",     
      *         @OA\Schema(
-     *             type="object"
+     *             type="object"              
      *         )
-     *     ),
+     *     ),    
      *     @OA\Parameter(
      *         name="page",
      *         in="query",
-     *         description="page to show",
+     *         description="page to show",     
      *         @OA\Schema(
-     *             type="int32"
+     *             type="int32"     
      *         )
      *     ),
      *     @OA\Parameter(
      *         name="limit",
      *         in="query",
-     *         description="count data display per page",
+     *         description="count data display per page",     
      *         @OA\Schema(
-     *             type="int32"
+     *             type="int32"     
      *         )
-     *     ),
+     *     ),   
      *     @OA\Response(
      *         response=200,
-     *         description="successful operation",
+     *         description="successful operation",     
      *         @OA\JsonContent(type="object",
      *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Wilayah")),
      *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
@@ -57,8 +54,8 @@ class Wilayahs extends BaseResourceController
      *         @OA\XmlContent(type="object",
      *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Wilayah")),
      *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/Wilayah")),
-     *         ),
-     *     ),
+     *         ),           
+     *     ),     
      *     @OA\Response(
      *         response=404,
      *         description="Wilayah not found"
@@ -67,22 +64,24 @@ class Wilayahs extends BaseResourceController
      *         {"bearer_auth": {}}
      *     }
      * )
+     *     
      */
 
     /**
      * @OA\Get(
-     *     path="/wilayahs/{kode}",
+     *     path="/wilayahs/{id}",
      *     tags={"Wilayah"},
-     *     summary="Find Wilayah by kode",
+     *     summary="Find Wilayah by ID",
      *     description="Returns a single Wilayah",
      *     operationId="getWilayahById",
      *     @OA\Parameter(
-     *         name="kode",
+     *         name="id",
      *         in="path",
-     *         description="Kode of Wilayah to return",
+     *         description="ID of Wilayah to return",
      *         required=true,
      *         @OA\Schema(
-     *             type="string"
+     *             type="integer",
+     *             format="int64"
      *         )
      *     ),
      *     @OA\Response(
@@ -93,7 +92,7 @@ class Wilayahs extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=400,
-     *         description="Invalid Kode wilayah"
+     *         description="Invalid ID supplier"
      *     ),
      *     @OA\Response(
      *         response=404,
@@ -103,6 +102,7 @@ class Wilayahs extends BaseResourceController
      *         {"bearer_auth": {}}
      *     }
      * )
+     *     
      */
 
     /**
@@ -123,29 +123,30 @@ class Wilayahs extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },
+     *     },     
      *     requestBody={"$ref": "#/components/requestBodies/Wilayah"}
      * )
      */
 
     /**
      * @OA\Put(
-     *     path="/wilayahs/{kode}",
+     *     path="/wilayahs/{id}",
      *     tags={"Wilayah"},
      *     summary="Update an existing Wilayah",
      *     operationId="updateWilayah",
      *     @OA\Parameter(
-     *         name="kode",
+     *         name="id",
      *         in="path",
-     *         description="Wilayah kode to update",
+     *         description="Wilayah id to update",
      *         required=true,
      *         @OA\Schema(
-     *             type="string"
+     *             type="integer",
+     *             format="int64"
      *         ),
      *     ),
      *     @OA\Response(
      *         response=400,
-     *         description="Invalid Kode supplied"
+     *         description="Invalid ID supplied"
      *     ),
      *     @OA\Response(
      *         response=404,
@@ -157,24 +158,25 @@ class Wilayahs extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },
+     *     },     
      *     requestBody={"$ref": "#/components/requestBodies/Wilayah"}
      * )
      */
 
     /**
      * @OA\Delete(
-     *     path="/wilayahs/{kode}",
+     *     path="/wilayahs/{id}",
      *     tags={"Wilayah"},
      *     summary="Deletes a Wilayah",
-     *     operationId="deleteWilayah",
+     *     operationId="deleteWilayah",     
      *     @OA\Parameter(
-     *         name="kode",
+     *         name="id",
      *         in="path",
-     *         description="Wilayah kode to delete",
+     *         description="Wilayah id to delete",
      *         required=true,
      *         @OA\Schema(
-     *             type="string"
+     *             type="integer",
+     *             format="int64"
      *         ),
      *     ),
      *     @OA\Response(
@@ -190,4 +192,4 @@ class Wilayahs extends BaseResourceController
      *     },
      * )
      */
-}
+} 

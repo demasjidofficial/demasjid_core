@@ -1,15 +1,12 @@
 <td><?php echo esc($item->name) ?></a></td>
-<td><?php echo esc($item->path_image) ?></a></td>
-<td><?php echo esc($item->content) ?></a></td>
+<td><img width="150px" src="/<?php echo ($item->path_image)? esc($item->path_image) : 'uploads/images/blank.jpg' ?>"></a></td>
+<td><?php echo esc($item->sitepages_title) ?></a></td>
 <td><?php echo esc($item->sequence) ?></a></td>
-<td><?php echo esc($item->sitepage_id) ?></a></td>
-<td><?php echo esc($item->language_id) ?></a></td>
-<td><?php echo esc($item->state) ?></a></td>
-<td><?php echo esc($item->created_name) ?></a></td>
+<td><?php echo convertStateWebsite($item->state) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
-        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-default btn-sm dropdown-toggle btn-3-dots" type="button"  data-toggle="dropdown" aria-expanded="false"></button>
         <ul class="dropdown-menu">
             <li><a href="<?php echo $editUrl ?>" class="dropdown-item"><?php echo lang('Bonfire.edit') ?></a></li>
             <li><hr class="dropdown-divider"></li>

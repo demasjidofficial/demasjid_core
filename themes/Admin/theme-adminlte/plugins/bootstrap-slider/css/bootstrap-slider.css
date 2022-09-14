@@ -1,7 +1,7 @@
-/*! =======================================================
+/*! ======
                       VERSION  11.0.2              
-========================================================= */
-/*! =========================================================
+= */
+/*! =
  * bootstrap-slider.js
  *
  * Maintainers:
@@ -12,7 +12,7 @@
  *			- Twitter: @Rovolutionary
  *			- Github:  rovolution
  *
- * =========================================================
+ * =
  *
  * bootstrap-slider is released under the MIT License
  * Copyright (c) 2019 Kyle Kemp, Rohit Kalkur, and contributors
@@ -38,7 +38,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  *
- * ========================================================= */
+ * = */
 .slider {
   display: inline-block;
   vertical-align: middle;

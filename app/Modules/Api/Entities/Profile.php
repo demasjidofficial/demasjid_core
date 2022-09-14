@@ -21,26 +21,15 @@ class Profile extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="name",
-	 *     title="name",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=255,
-	 * )
-	 *		 
-	 */
-	private $name;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="wilayah_id",
-	 *     title="wilayah_id",
+	 *     description="desa_id",
+	 *     title="desa_id",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -48,7 +37,7 @@ class Profile extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $wilayah_id;
+	private $desa_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="code",
@@ -73,6 +62,30 @@ class Profile extends BaseEntity
 	 *		 
 	 */
 	private $address;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="email",
+	 *     title="email",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=50,
+	 * )
+	 *		 
+	 */
+	private $email;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="telephone",
+	 *     title="telephone",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=15,
+	 * )
+	 *		 
+	 */
+	private $telephone;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="path_logo",
@@ -104,6 +117,7 @@ class Profile extends BaseEntity
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
+	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
@@ -129,7 +143,19 @@ class Profile extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $updated_at; 
+	private $updated_at;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="name",
+	 *     title="name",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $name; 
 }
 /**
  *
