@@ -1,4 +1,4 @@
-<td><img width="100px" src="/<?php echo ($item->path_logo) ? esc($item->path_logo) : 'uploads/images/blank.jpg' ?>"></a></td>
+<td><img width="100px" src="/<?php echo ($item->path_logo) ? esc($item->path_logo) : $blank_img ?>"></a></td>
 <td><?php echo esc($item->name) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->

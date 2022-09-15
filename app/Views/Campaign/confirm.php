@@ -24,7 +24,7 @@
                                     <label for="image" class="custom-file-label h-45">Gambar</label>                                
                                 </div>
                                 <div class="justify-content-center photo-wrapper">
-                                    <img id="path_image_prev" src="/uploads/images/blank.jpg" alt="" class="img-thumbnail" style="height:200px">
+                                    <img id="path_image_prev" src="<?php $blank_img ?>" alt="" class="img-thumbnail" style="height:200px">
                                 </div>
                             </div>
                             <div class="col-md-12 mt-30">

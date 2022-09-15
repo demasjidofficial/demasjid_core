@@ -45,10 +45,10 @@
                         <?php } ?>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.uom_id'),'',['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="row mb-3">  
+                    <?= form_label(lang('crud.uom_id'),'',['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
                     <div class="col-sm-10">
-                        <?= form_input('uom_id', old('uom_id', $data->uom_id ?? ''), "class='form-control int'  placeholder='".lang('crud.uom_id')."' ") ?>
+                        <?= form_dropdown('uom_id', $uomItems, old('uom_id', $data->uom_id ?? ''), "class='form-control select2bs4' required") ?>                                                                                                                                                                                                                                                                                                     
                         <?php if (has_error('uom_id')) { ?>
                         <p class="text-danger"><?php echo error('uom_id'); ?></p>
                         <?php } ?>
@@ -57,7 +57,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar'  placeholder='".lang('crud.state')."' ") ?>
+                        <?= form_dropdown('state', $stateItems, old('state', $data->state ?? ''), "class='form-control select2bs4' required") ?>                                                                                                                                                                                                                                                                                                     
                         <?php if (has_error('state')) { ?>
                         <p class="text-danger"><?php echo error('state'); ?></p>
                         <?php } ?>

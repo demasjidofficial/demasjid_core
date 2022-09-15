@@ -20,6 +20,7 @@ class AdminCrudController extends AdminController
     protected $baseController;
     protected $baseRoute;
     protected $langModel;
+    protected $BLANK_IMG = 'assets/admin/images/blank.jpg';
 
     /**
      * @var string|null The model that holding this resource's data
@@ -204,6 +205,7 @@ class AdminCrudController extends AdminController
         return [
             'actionUrl' => $id ? url_to($this->getBaseController(), $id) : url_to($this->getBaseController()),
             'backUrl'   => url_to($this->getBaseController()),
+            'blank_img' => site_url().$this->BLANK_IMG,
         ];
     }
 
