@@ -60,7 +60,7 @@ class BoardNewsBgController extends AdminCrudController
         return [
             'headers' => [
                 'path_image' => lang('crud.path_image'),
-                // 'duration' => lang('crud.duration'),
+                'duration' => lang('crud.duration'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
