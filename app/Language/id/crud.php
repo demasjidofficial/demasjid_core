@@ -78,6 +78,7 @@ return [
 	'schedules_lessontest' => 'Ujian Pelajaran',
 	'schedules_lessontestsemester' => 'Ujian Semester',
 	'learnings' => 'Pembelajaran',
+	'question_bank' => 'Bank Soal',
 
 	'sedang_berlangsung' => 'Sedang Berlangsung',
 	'berlangsung' => 'Sedang Berlangsung',

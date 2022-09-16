@@ -1,32 +1,28 @@
 <?php namespace App\Modules\Api\Models;
 
-class PendaftaranModel extends BaseModel
+class SiswaModel extends BaseModel
 {
 	const MALE = 'L';
     const FEMALE = 'P';
-    const REGISTER = 'mendaftar';
-    const RECIEVED = 'diterima';
-    const REJECTED = 'ditolak';
-    protected $table = 'pendaftaran';
-    protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
+    protected $table = 'siswa';
+    protected $returnType = 'App\Modules\Api\Entities\Siswa';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
     protected $allowedFields = [
-        'class_id',
-		'state',
+        'path_image',
 		'name',
-		'nis',
 		'nick_name',
-		'birth_date',
-		'birth_place',
 		'gender',
+		'birth_place',
+		'birth_date',
 		'provinsi_id',
 		'kota_id',
 		'kecamatan_id',
 		'desa_id',
 		'address',
+		'nis',
+		'class_id',
 		'school_origin',
-		'description',
 		'father_name',
 		'father_job',
 		'father_tlpn',
@@ -35,28 +31,27 @@ class PendaftaranModel extends BaseModel
 		'mother_job',
 		'mother_tlpn',
 		'mother_email',
-		'path_image',
+		'description',
 		'created_at',
 		'updated_at',
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
-		'class_id' => 'numeric|max_length[11]|required',
-		'state' => 'max_length[20]|required',
+        'id' => 'numeric|max_length[11]|required|is_unique[siswa.id,id,{id}]',
+		'path_image' => 'max_length[255]',
 		'name' => 'max_length[60]|required',
-		'nis' => 'numeric|max_length[11]',
 		'nick_name' => 'max_length[60]|required',
-		'birth_date' => 'valid_date|required',
-		'birth_place' => 'max_length[15]',
 		'gender' => 'max_length[20]|required',
+		'birth_place' => 'max_length[15]',
+		'birth_date' => 'valid_date|required',
 		'provinsi_id' => 'max_length[15]',
 		'kota_id' => 'max_length[15]',
 		'kecamatan_id' => 'max_length[15]',
 		'desa_id' => 'max_length[15]',
 		'address' => 'max_length[100]',
+		'nis' => 'numeric|max_length[11]',
+		'class_id' => 'numeric|max_length[11]|required',
 		'school_origin' => 'max_length[100]',
-		'description' => 'required',
 		'father_name' => 'max_length[60]|required',
 		'father_job' => 'max_length[60]|required',
 		'father_tlpn' => 'max_length[15]',
@@ -65,7 +60,7 @@ class PendaftaranModel extends BaseModel
 		'mother_job' => 'max_length[60]|required',
 		'mother_tlpn' => 'max_length[15]',
 		'mother_email' => 'max_length[35]',
-		'path_image' => 'max_length[255]',
+		'description' => 'required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
@@ -79,19 +74,10 @@ class PendaftaranModel extends BaseModel
 		];
 	}
 
-	public static function listStateRegister(){
-
-        return [
-			self::REGISTER => lang('crud.register'),
-			self::RECIEVED => lang('crud.recieved'),
-			self::REJECTED => lang('crud.rejected'),
-		];
-	}
-
 	public function findAll(int $limit = 0, int $offset = 0)
     {
         $this->selectColumn = [$this->table.'.*', 'kelas.name as kelas_name'];        
         $this->join('kelas', 'kelas.id = '.$this->table.'.class_id');
         return parent::findAll($limit, $offset);
-    } 
+    }
 }

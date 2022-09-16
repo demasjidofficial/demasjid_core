@@ -4,37 +4,24 @@ namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\PendaftaranModel;
+use App\Modules\Api\Models\SiswaModel;
 use App\Modules\Api\Models\WilayahModel;
-use App\Modules\Pesantren\Models\PendaftaranFilter;
+use App\Modules\Pesantren\Models\SiswaFilter;
 use App\Traits\UploadedFile;
-use App\Controllers\BaseController;
 
-class PendaftaranController extends AdminCrudController
+class SiswaController extends AdminCrudController
 {
     use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Pesantren\Views\pendaftaran\\';
-    protected $baseRoute = 'admin/pesantren/pendaftaran';
-    protected $langModel = 'pendaftaran';
-    protected $modelName = 'App\Modules\Api\Models\PendaftaranModel';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\siswa\\';
+    protected $baseRoute = 'admin/pesantren/siswa';
+    protected $langModel = 'siswa';
+    protected $modelName = 'App\Modules\Api\Models\SiswaModel';
     private $imageFolder = 'images';
 
     public function index()
     {
-        $pendaftaran = (new PendaftaranModel())->pesantren()->asArray()->find()->first();
-
-        $wilayah = collect((new WilayahModel())->extractWilayah($pendaftaran['desa_id'])->asArray()->findAll())->keyBy('kode');
-        $extractWilayah = extractWilayah($pendaftaran['desa_id']);
-        $provinsi_id = $extractWilayah['provinsi'];
-        $kota_id = $extractWilayah['kota/kabupaten'];
-        $kecamatan_id = $extractWilayah['kecamatan'];
-
-        $data['desa'] = $wilayah[$pendaftaran['desa_id']]['nama'];
-        $data['kecamatan'] = $wilayah[$kecamatan_id]['nama'];
-        $data['kota'] = $wilayah[$kota_id]['nama'];
-        $data['provinsi'] = $wilayah[$provinsi_id]['nama'];
-        return parent::index($data);
+        return parent::index();
     }
 
     public function edit($id = null)
@@ -76,30 +63,24 @@ class PendaftaranController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(PendaftaranFilter::class);
+        $model = model(SiswaFilter::class);
         return [
             'headers' => [
                 'path_image' => lang('crud.path_image'),
                 'name' => lang('crud.name'),
-                // 'nick_name' => lang('crud.nick_name'),
-                'nis' => lang('crud.nis'),
-                'class_id' => lang('crud.class_id'),
-                'school_origin' => lang('crud.school_origin'),
+                'nick_name' => lang('crud.nick_name'),
                 'gender' => lang('crud.gender'),
-
-                //tempat tanggal lahir
                 'birth_place' => lang('crud.tmpt_tgl_lahir'),
                 // 'birth_place' => lang('crud.birth_place'),
                 // 'birth_date' => lang('crud.birth_date'),
-
-                //alamat
-                'desa_id' => lang('crud.address'),
-                // 'provinsi_id' => lang('crud.provinsi_id'),
-                // 'kota_id' => lang('crud.kota_id'),
-                // 'kecamatan_id' => lang('crud.kecamatan_id'),
-                // 'desa_id' => lang('crud.desa_id'),
-                // 'address' => lang('crud.address'),
-
+                'provinsi_id' => lang('crud.provinsi_id'),
+                'kota_id' => lang('crud.kota_id'),
+                'kecamatan_id' => lang('crud.kecamatan_id'),
+                'desa_id' => lang('crud.desa_id'),
+                'address' => lang('crud.address'),
+                'nis' => lang('crud.nis'),
+                'class_id' => lang('crud.class_id'),
+                'school_origin' => lang('crud.school_origin'),
                 'father_name' => lang('crud.father_name'),
                 'father_job' => lang('crud.father_job'),
                 'father_tlpn' => lang('crud.father_tlpn'),
@@ -108,7 +89,6 @@ class PendaftaranController extends AdminCrudController
                 'mother_job' => lang('crud.mother_job'),
                 'mother_tlpn' => lang('crud.mother_tlpn'),
                 'mother_email' => lang('crud.mother_email'),
-                'state' => lang('crud.state'),
                 'description' => lang('crud.description'),
                 // 'created_by' => lang('crud.created_by')
             ],
@@ -124,11 +104,11 @@ class PendaftaranController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new PendaftaranModel();
+        $model = new SiswaModel();
         $dataEdit['kotaItems'] = ['' => 'Pilih kota/kabupaten'];
         $dataEdit['kecamatanItems'] = ['' => 'Pilih kecamatan'];
         $dataEdit['desaItems'] = ['' => 'Pilih desa'];
-        
+
         if (!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
@@ -146,10 +126,9 @@ class PendaftaranController extends AdminCrudController
             $dataEdit['desaItems'] += [$data->desa_id => $wilayah[$data->desa_id]['nama']];
         }
 
-        $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
-        $dataEdit['genderItems'] = PendaftaranModel::listState();
-        $dataEdit['registerItems'] = PendaftaranModel::listStateRegister();
+        $dataEdit['genderItems'] = SiswaModel::listState();
         $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

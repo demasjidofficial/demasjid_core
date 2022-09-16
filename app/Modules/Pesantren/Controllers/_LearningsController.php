@@ -94,10 +94,19 @@
                 'url'     => ADMIN_AREA . '/pesantren/penerimaanpendaftaran',
                 'faIcon' => 'fas fa-users',
             ]);
+
+            $bankSoalItem = new StatsItem([
+                'bgColor' => 'bg-primary',
+                'bgIcon' => 'bg-primary',
+                'title' => lang('crud.question_bank'),
+                'url'     => ADMIN_AREA . '/pesantren/penerimaanpendaftaran',
+                'faIcon' => 'fas fa-book',
+            ]);
     
             $widgets->widget('schedule')->collection('schedule')
                 ->addItem($kategoriPelajaranItem)
                 ->addItem($pelajaranItem)
+                ->addItem($bankSoalItem)
                 ->addItem($babItem)
                 ->addItem($materiItem)
                 ->addItem($absencesItem)

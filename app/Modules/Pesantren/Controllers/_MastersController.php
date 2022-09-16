@@ -51,7 +51,7 @@ class _MastersController extends AdminCrudController
             'bgColor' => 'bg-primary',
             'bgIcon' => 'bg-primary',
             'title' => lang('crud.student'),
-            'url'     => ADMIN_AREA . '/baitulmal/masterpaymentgateway',
+            'url'     => ADMIN_AREA . '/pesantren/siswa',
             'faIcon' => 'fas fa-users',
         ]);
 
