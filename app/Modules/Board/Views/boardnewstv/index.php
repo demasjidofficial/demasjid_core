@@ -121,6 +121,13 @@
         margin-right: auto;
         width: 100%;
     }
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        overflow: hidden !important;
+        object-fit: cover !important;
+    }
 </style>
 <?php $this->endSection(); ?>
 
