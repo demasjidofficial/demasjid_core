@@ -66,9 +66,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.deskripsi'), '', ['for' => 'deskripsi', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.description'), '', ['for' => 'deskripsi', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('deskripsi', old('deskripsi', $data->deskripsi ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.deskripsi') . "' ") ?>
+                    <?= form_input('deskripsi', old('deskripsi', $data->deskripsi ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.description') . "' ") ?>
                     <?php if (has_error('deskripsi')) { ?>
                         <p class="text-danger"><?php echo error('deskripsi'); ?></p>
                     <?php } ?>

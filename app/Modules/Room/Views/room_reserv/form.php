@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.alamat'), '', ['for' => 'alamat', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.address'), '', ['for' => 'alamat', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.alamat') . "' ") ?>
                     <?php if (has_error('alamat')) { ?>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.keterangan'), '', ['for' => 'keterangan', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.description'), '', ['for' => 'keterangan', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('keterangan', old('keterangan', $data->keterangan ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.keterangan') . "' ") ?>
                     <?php if (has_error('keterangan')) { ?>
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.status'), '', ['for' => 'status', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.state'), '', ['for' => 'status', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_dropdown('status', $stateItems, old('status', $data->status ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.status') . "' ") ?>
                     <?php if (has_error('status')) { ?>

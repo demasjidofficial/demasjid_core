@@ -34,7 +34,7 @@ class Module extends BaseModule
         ]);
 
         $comentItem = new MenuItem([
-            'title'           => lang('crud.coment'),
+            'title'           => lang('crud.comment'),
             'url'             => url_to('App\Modules\Room\Controllers\CommentRoomController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
