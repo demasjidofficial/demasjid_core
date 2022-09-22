@@ -9,6 +9,7 @@ use App\Modules\Api\Models\WilayahModel;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
 use App\Traits\UploadedFile;
 use App\Controllers\BaseController;
+use App\Modules\Api\Entities\Pendaftaran;
 
 class PendaftaranController extends AdminCrudController
 {
@@ -22,19 +23,21 @@ class PendaftaranController extends AdminCrudController
 
     public function index()
     {
-        $pendaftaran = (new PendaftaranModel())->pesantren()->asArray()->find()->first();
+        // $pendaftaran = (new PendaftaranModel())->pesantren()->asArray()->find()->first();
+        // $siswa = (new SiswaModel())->pesantren()->asArray()->find()->first();
 
-        $wilayah = collect((new WilayahModel())->extractWilayah($pendaftaran['desa_id'])->asArray()->findAll())->keyBy('kode');
-        $extractWilayah = extractWilayah($pendaftaran['desa_id']);
-        $provinsi_id = $extractWilayah['provinsi'];
-        $kota_id = $extractWilayah['kota/kabupaten'];
-        $kecamatan_id = $extractWilayah['kecamatan'];
+        // $wilayah = collect((new WilayahModel())->extractWilayah($pendaftaran['desa_id'])->asArray()->findAll())->keyBy('kode');
+        // $extractWilayah = extractWilayah($pendaftaran['desa_id']);
+        // $provinsi_id = $extractWilayah['provinsi'];
+        // $kota_id = $extractWilayah['kota/kabupaten'];
+        // $kecamatan_id = $extractWilayah['kecamatan'];
 
-        $data['desa'] = $wilayah[$pendaftaran['desa_id']]['nama'];
-        $data['kecamatan'] = $wilayah[$kecamatan_id]['nama'];
-        $data['kota'] = $wilayah[$kota_id]['nama'];
-        $data['provinsi'] = $wilayah[$provinsi_id]['nama'];
-        return parent::index($data);
+        // $data['desa'] = $wilayah[$pendaftaran['desa_id']]['nama'];
+        // $data['kecamatan'] = $wilayah[$kecamatan_id]['nama'];
+        // $data['kota'] = $wilayah[$kota_id]['nama'];
+        // $data['provinsi'] = $wilayah[$provinsi_id]['nama'];
+
+        return parent::index();
     }
 
     public function edit($id = null)
@@ -44,6 +47,7 @@ class PendaftaranController extends AdminCrudController
 
     public function update($id = null)
     {
+        $pendaftaran = (new PendaftaranModel())->pesantren()->asArray()->findAll();
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -51,6 +55,36 @@ class PendaftaranController extends AdminCrudController
                 $uploaded = $this->uploadFile('image');
                 $this->model->set('path_image', $uploaded);
             }
+        }
+
+            $photo = $pendaftaran['path_image'];
+            $name = $pendaftaran['name'];
+            $nickName = $pendaftaran['nick_name'];
+            $nis = $pendaftaran['nis'];
+            $kelas = $pendaftaran['class_id'];
+            $namaSekolah = $pendaftaran['school_origin'];
+            $gender = $pendaftaran['gender'];
+            $tempatLahir = $pendaftaran['birth_place'];
+            $tglLahir = $pendaftaran['birth_date'];
+            $provinsi = $pendaftaran['provinsi_id'];
+            $kota = $pendaftaran['kota_id'];
+            $kecamatan = $pendaftaran['kecamatan_id'];
+            $desa = $pendaftaran['desa_id'];
+            $alamat = $pendaftaran['address'];
+            $namaAyah = $pendaftaran['father_name'];
+            $pekerjaanAyah = $pendaftaran['father_job'];
+            $tlpnAyah = $pendaftaran['father_tlpn'];
+            $emailAyah = $pendaftaran['father_email'];
+            $namaIbu = $pendaftaran['father_name'];
+            $pekerjaanIbu = $pendaftaran['father_job'];
+            $tlpnIbu = $pendaftaran['father_tlpn'];
+            $emailIbu = $pendaftaran['father_email'];
+            $deskripsi = $pendaftaran['description'];
+
+        if ($this->db->table('pendaftaran')->like('state', 'diterima')){
+            $sqlInsert = "INSERT INTO siswa ('path_image', 'name', 'nick_name', 'nis', 'class_id', 'school_origin', 'gender', 'birth_place', 'birth_date', 'provinsi_id', 'kota_id', 'kecamatan_id', 'desa_id', 'address', 'father_name', 'father_job', 'father_tlpn', 'father_email', 'mother_name', 'mother_job', 'mother_tlpn', 'mother_email', 'description') 
+                        VALUES($photo, $name, $nickName, $nis, $kelas, $namaSekolah, $gender, $tempatLahir, $tglLahir, $provinsi, $kota, $kecamatan, $desa, $alamat, $namaAyah, $pekerjaanAyah, $tlpnAyah, $emailAyah, $namaIbu, $pekerjaanIbu, $tlpnIbu, $emailIbu, $deskripsi)";
+            $this->db->query($sqlInsert);
         }
 
         return parent::update($id);
@@ -145,6 +179,8 @@ class PendaftaranController extends AdminCrudController
             $dataEdit['kecamatanItems'] += [$data->kecamatan_id => $wilayah[$data->kecamatan_id]['nama']];
             $dataEdit['desaItems'] += [$data->desa_id => $wilayah[$data->desa_id]['nama']];
         }
+
+
 
         $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
         $dataEdit['genderItems'] = PendaftaranModel::listState();

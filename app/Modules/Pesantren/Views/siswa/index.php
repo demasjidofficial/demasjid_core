@@ -6,7 +6,7 @@
             <div class="col">
                 <h2><?= lang('crud.siswa') ?></h2>
             </div>
-            <div class="col-auto">
+            <div class="col-auto" style="visibility:hidden;">
                 <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
             </div>
         </div>
