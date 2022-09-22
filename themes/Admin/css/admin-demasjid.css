@@ -822,17 +822,21 @@ font-size: 20px;
 }
 
 .de_menu>.row>.col-md-3:nth-child(4) .small-box{
-    background-color: #1D6255 !important;
+    background: linear-gradient(88.86deg, #249A84 0%, #83B866 100%), linear-gradient(0deg, #FFFFFF, #FFFFFF) !important;
 }
 
 .de_menu>.row>.col-md-3:nth-child(5) .small-box{
+    background-color: #1D6255 !important;
+}
+
+.de_menu>.row>.col-md-3:nth-child(6) .small-box{
     background-color: #417121 !important;
 }
 
-.de_menu>.row>.col-md-3:nth-child(3){
+/*.de_menu>.row>.col-md-3:nth-child(3){
     flex: 0 0 50% !important;
     max-width: 50% !important;
-}
+}*/
 
 .main-footer strong,
 .main-footer b{
