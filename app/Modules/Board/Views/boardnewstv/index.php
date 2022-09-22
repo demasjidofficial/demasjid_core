@@ -138,7 +138,7 @@
         <div class="card-header">
             <div class="row text-center">
                 <div class="col col-sm-1 text-center">
-                    <img width="120px" src="/<?= esc($masjid_profile['path_image']) ?>">
+                    <img width="120px" src="/<?= esc($masjid_profile['path_logo']) ?>">
                 </div>
                 <div class="col text-left">
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
