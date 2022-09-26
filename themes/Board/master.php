@@ -27,6 +27,11 @@
     <?= asset_link('app/theme-charityworks/css/nice-select.css', 'css') ?>
     <?= asset_link('app/theme-charityworks/css/style.css', 'css') ?>
 
+    <!-- wow slider -->
+    <?= asset_link('board/plugins/wow/engine6/style.css', 'css') ?>
+    <?= asset_link('board/plugins/wow/engine6/jquery.js', 'js') ?>
+    <!-- wow  slider -->
+
     <?= $this->renderSection('styles') ?>
     <style>
         body,
@@ -34,6 +39,7 @@
             height: 100%;
             overflow: hidden;
             background-color: white;
+            /* margin: 0; */
         }
 
         html {
@@ -169,27 +175,6 @@
         document.getElementById("date").innerHTML = (day + ", " + d.getDate() + " " + month + " " + d.getFullYear());
 
 
-        // show countdown    
-        
-        // $('.card-sholat').each(function() {
-        //     var prayTitle = $(this).find('h3.card-title').text();
-        //     var prayTime = $(this).find('p.card-text').text()
-        //     console.log("Waktu " + prayTitle + " Pukul " + prayTime);
-        //     var now = new Date();
-        //     var timeNow = now.toLocaleTimeString();
-        //     var timeout = 60 * 5;
-        //     var display1 = document.getElementById('timer');
-
-        //     if (prayTime == 'prayTime') {
-
-        //         console.log(display1.textContent = "Memasuki Waktu Sholat " + prayTitle+' '+prayTime);
-        //         setTimeout(display1.textContent = "",10000);
-
-                
-        //     }
-        // })
-        
-
         function subtractMinutes(numOfMinutes, date = new Date()) {
             const now = new Date(date.getTime());
 
@@ -199,59 +184,9 @@
             return now;
 
         }
-
         const result = subtractMinutes(10);
         console.log(result);
 
-        // =================
-
-        // var todaydate = new Date();
-        // var countDownTime = new Date('Jul 27, 2022 15:10:00').getTime();
-        // var x = setInterval(function() {
-        //     var now = new Date().getTime();
-        //     var distance = countDownTime - now;
-        //     // var days = Math.floor(distance/ (1000*60*60*24));
-        //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        //     document.getElementById("countDownText").innerHTML = "Dhuhur -" + hours + " : " + minutes + ".  <small>" + seconds + "</small>";
-
-        //     // if (now == now) {
-        //     //     clearInterval(x)
-        //     //     console.log("Waktu Sholat Dhuhur");
-        //     // } else {
-        //     //     clearInterval(x)
-        //     //     console.log("Selesai");
-        //     // }
-
-        //     if (distance < 0) {
-        //         clearInterval(x);
-        //         document.getElementById("countDownText").innerHTML = "selesai"
-        //     }
-        // }, 1000);
-
-        //fullscreen mode
-        // var elem = document.getElementById("fullscreen");
-        // function openFullscreen() {
-        //     if (elem.requestFullscreen) {
-        //         elem.requestFullscreen();
-        //     } else if (elem.webkitRequestFullscreen) {
-        //         /* Safari */
-        //         elem.webkitRequestFullscreen();
-        //     } else if (elem.msRequestFullscreen) {
-        //         /* IE11 */
-        //         elem.msRequestFullscreen();
-        //     }
-
-        // }
-
-        // setTimeout(openFullscreen,3000);
-        // $(window).load(function() {
-        //     // $('#btnfullscreen').delay(3000).click(openFullscreen());
-        //     setTimeout(openFullscreen,3000);
-        //     alert("fullscreen");
-        // });
 
 
         //fulscreen with enter
