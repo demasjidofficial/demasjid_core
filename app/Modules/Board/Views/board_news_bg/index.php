@@ -21,7 +21,7 @@
                     <?php echo $pager->links() ?>
                 </div>
             </div>
-            <p><i>*untuk durasi delay slideshow diatur secara default menjadi 5s</i></p>
+            <p><i>*untuk delay slideshow diatur secara default menjadi 5s</i></p>
         </div>
 
     </x-admin-box>
