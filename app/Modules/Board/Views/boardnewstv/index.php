@@ -223,6 +223,10 @@
 <!-- wow slider -->
 
 <script>
-
+    $(document).ready(function() {
+        $("#wowslider-container6").wowSlider({
+            delay: $("img").get().Attr("duration"),
+        });
+    });
 </script>
 <?php $this->endSection(); ?>

@@ -55,15 +55,15 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="row mb-3">
-                < ?= form_label(lang('crud.duration'), '', ['for' => 'duration', 'class' => 'col-form-label col-sm-2']) ?>
+            <div class="row mb-3">
+                <?= form_label(lang('crud.duration'), '', ['for' => 'duration', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-1">
-                    < ?= form_input('duration', old('duration', $data->duration ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.duration'). " ms" . "' ") ?>
-                    < ?php if (has_error('duration')) { ?>
-                        <p class="text-danger">< ?php echo error('duration'); ?></p>
-                    < ?php } ?>
+                    <?= form_input('duration', old('duration', $data->duration ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.duration'). " ms" . "' ") ?>
+                    <?php if (has_error('duration')) { ?>
+                        <p class="text-danger"><?php echo error('duration'); ?></p>
+                    <?php } ?>
                 </div>
-            </div> -->
+            </div>
         </fieldset>
 
         <div class="text-end py-3">
