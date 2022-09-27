@@ -155,7 +155,7 @@
         <div class="ws_images">
             <ul>
                 <?php foreach ($board_news_bg as $bg) { ?>
-                    <li><img src="/<?= esc($bg['path_image']) ?>" duration='<?= esc($bg['duration']) ?>' alt="image slider" id="wows5_<?= $nomberId++; ?>" /></li>
+                    <li><img src="/<?= esc($bg['path_image']) ?>" duration='<?= esc($bg['duration']) ?>' class="slider" alt="image slider" id="wows5_<?= $nomberId++; ?>" /></li>
                 <?php } ?>
             </ul>
         </div>
@@ -223,10 +223,6 @@
 <!-- wow slider -->
 
 <script>
-    $(document).ready(function() {
-        $("#wowslider-container6").wowSlider({
-            delay: $("img").get().Attr("duration"),
-        });
-    });
+   
 </script>
 <?php $this->endSection(); ?>

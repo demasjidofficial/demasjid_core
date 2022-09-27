@@ -38,4 +38,4 @@ jQuery.extend(jQuery.easing,{easeInOutSine:function(j,i,b,c,d){return -c/2*(Math
 // Obfuscated by Javascript Obfuscator
 // http://javascript-source.com
 //***********************************************
-jQuery("#wowslider-container6").wowSlider({effect:"louvers,brick,domino",prev:"",next:"",duration:20*100,width:1280,height:720,autoPlay:true,autoPlayVideo:false,playPause:false,stopOnHover:false,loop:false,bullets:0,caption:false,captionEffect:"none",controls:false,controlsThumb:false,responsive:2,fullScreen:false,gestures:1,onBeforeStep:0,images:0});
+jQuery("#wowslider-container6").wowSlider({effect:"louvers,brick,domino",prev:"",next:"",duration:20*100,delay:$("img").attr("duration"),width:1280,height:720,autoPlay:true,autoPlayVideo:false,playPause:false,stopOnHover:false,loop:false,bullets:0,caption:false,captionEffect:"none",controls:false,controlsThumb:false,responsive:2,fullScreen:false,gestures:1,onBeforeStep:0,images:0});
