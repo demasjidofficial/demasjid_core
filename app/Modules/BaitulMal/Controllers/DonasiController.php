@@ -89,6 +89,26 @@ class DonasiController extends AdminCrudController
         return $dataEdit;
     }
 
+    protected function getDataEditDonasi($id = null)
+    {
+        $dataEdit = parent::getDataEdit($id);
+        $model = new DonasiModel();
+
+        if(!empty($id)){
+            $data = $model->find($id);
+            if (null === $data) {
+                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
+            }
+            $dataEdit['data'] = $data;
+        }
+
+        $dataEdit['campaignItems'] = ['' => 'Pilih Kampanye'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaignModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['donaturItems'] = ['' => 'Pilih Donatur'] + Arr::pluck(model('App\Modules\Api\Models\DonaturModel')->select(['id as key', 'no_hp as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['paymentMethodRekNoItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'rek_no as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['paymentMethodRekNameItems'] = ['' => 'Pilih Payment Method'] + Arr::pluck(model('App\Modules\Api\Models\PaymentMethodModel')->select(['id as key', 'rek_name as text'])->asArray()->findAll(), 'text', 'key');
+        return $dataEdit;
+    }
+
     protected function getDataCampaign($id)
     {
         $model = model(DonasiFilter::class);

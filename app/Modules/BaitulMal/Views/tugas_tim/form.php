@@ -28,6 +28,15 @@
 
         <fieldset>
             <div class="row mb-3">
+                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'tim_id', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_dropdown('tim_id', $provinsiItems, old('tim_id', $data->tim_id ?? ''), "class='form-control select2bs4 tim' required") ?>
+                    <?php if (has_error('tim_id')) { ?>
+                        <p class="text-danger"><?php echo error('tim_id'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row mb-3">
                 <?= form_label(lang('crud.staff'), '', ['for' => 'staff_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?php echo form_dropdown('staff_id', $staffItems, old('staff_id', $data->staff_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.staff') . "' "); ?>

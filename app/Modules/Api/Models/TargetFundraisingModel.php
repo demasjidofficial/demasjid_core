@@ -7,9 +7,24 @@ use CodeIgniter\Database\BaseBuilder;
 
 class TargetFundraisingModel extends BaseModel
 {
+	const TYPE = [
+        'tunai' => 'Tunai',
+        'transfer' => 'Transfer',
+        'perseorangan' => 'Perseorangan',
+        'lembaga' => 'Lembaga',
+		'perusahaan' => 'Perusahaan',
+        'ukm' => 'UKM',
+    ];
+    const TUNAI = '1';
+    const TRANSFER = '2';
+    const PERSEORANGAN = '1';
+    const LEMBAGA = '2';
+	const PERUSAHAAN = '3';
+    const UKM = '4';
 	protected $table = 'target_fundraising';
 	protected $returnType = 'App\Modules\Api\Entities\TargetFundraising';
 	protected $primaryKey = 'id';
+
 	protected $useTimestamps = true;
 	protected $allowedFields = [
 		'campaign',
@@ -23,6 +38,7 @@ class TargetFundraisingModel extends BaseModel
 		'updated_at',
 		'created_by',
 		'updated_by'
+	
 	];
 	protected $validationRules = [
 		'id' => 'numeric|max_length[11]|required|is_unique[target_fundraising.id,id,{id}]',
@@ -42,7 +58,7 @@ class TargetFundraisingModel extends BaseModel
 		$this->join('bmdonationcampaign', 'bmdonationcampaign.id = ' . $this->table . '.campaign');
 		$this->join('donaturcategory', 'donaturcategory.id = ' . $this->table . '.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id', 'left');
-
+		// $this->where($this->table . '.created_by',auth()->user()->id);
 		return parent::findAll($limit, $offset);
 	}
 	private function filterDonasi(string $type)
@@ -68,35 +84,35 @@ class TargetFundraisingModel extends BaseModel
 	public function tunai()
 	{
 
-		return $this->filterDonasi('1');
+		return $this->filterDonasi(self::TUNAI);
 	}
 	public function transfer()
 	{
 
-		return $this->filterDonasi('2');
+		return $this->filterDonasi(self::TRANSFER);
 	}
 
 
 	public function perseorangan()
 	{
 
-		return $this->filterDonaturKat('1');
+		return $this->filterDonaturKat(self::PERSEORANGAN);
 	}
 	public function lembaga()
 	{
 
-		return $this->filterDonaturKat('2');
+		return $this->filterDonaturKat(self::LEMBAGA);
 	}
 
 	public function perusahaan()
 	{
 
-		return $this->filterDonaturKat('3');
+		return $this->filterDonaturKat(self::PERUSAHAAN);
 	}
 	public function ukm()
 	{
 
-		return $this->filterDonaturKat('4');
+		return $this->filterDonaturKat(self::UKM);
 	}
 
 

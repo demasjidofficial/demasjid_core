@@ -87,7 +87,7 @@ static function ($routes) {
     $routes->resource('bmdonationcampaigns');
     $routes->resource('timStaffs');
     $routes->resource('donaturTypes');
- 
+    $routes->resource('donaturs');
     $routes->resource('donaturcategories',['except' => ['index']]);
     $routes->resource('targetFundraisings');
     $routes->resource('jadwalFundraisings');

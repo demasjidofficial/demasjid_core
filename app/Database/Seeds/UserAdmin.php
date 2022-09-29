@@ -13,9 +13,9 @@ class UserAdmin extends Seeder
         $users     = model(UserModel::class);
         $firstName = 'super';
         $lastName  = 'admin';
-        $username  = 'kamak';
-        $email     = 'kamak@gmail.com';
-        $password  = 'kamak@gmail.com';
+        $username  = 'superadmin';
+        $email     = 'admin@admin.com';
+        $password  = 'admin@admin.com';
         $user      = new User([
             'first_name' => $firstName,
             'last_name'  => $lastName,

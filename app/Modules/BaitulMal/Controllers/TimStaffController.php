@@ -74,4 +74,24 @@ class TimStaffController extends AdminCrudController
         $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
+
+    public function add_tugas()
+    {
+        # code...
+    //     $nominal_target = str_replace('.', '', $this->request->getPost('nominal_target'));
+
+    //    $tugasTim = new TugasTimModel();
+    //    $tugasTim->insert([
+          
+    //        'staff_id'       => $this->request->getPost('id'),
+    //        'nominal_target'    => $nominal_target,
+    //        'tugas'    => $this->request->getPost('tugas'),
+    //        'kode_tugas'  => $this->request->getPost('kode_tugas'),
+    //        'progres'    => 'BELUM MULAI',
+    //        'created_at' => date('Y-m-d H:i:s'),
+    //        'updated_at' => date('Y-m-d H:i:s')
+    //    ]);
+    echo"---";
+
+    }
 }

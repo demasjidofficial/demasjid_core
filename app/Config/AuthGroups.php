@@ -199,7 +199,7 @@ class AuthGroups extends ShieldGroups
          'baitulmal.takmir_fundraising.list' => 'Can delete tim fundraising',
          'baitulmal.donatur_fundraising.list' => 'Can delete tim fundraising',
 
-      
+      'baitulmal.qurbans.list'=>'baitulmal.qurbans.list',
 
 
         'tpq.profile.delete' => 'Can edit profile',      

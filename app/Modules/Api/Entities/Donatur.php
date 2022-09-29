@@ -28,40 +28,40 @@ class Donatur extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-
-	 *     description="name",
-	 *     title="name",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=128,
-	 * )
-	 *		 
-	 */
-	private $name;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="id_kategori",
-	 *     title="id_kategori",
+	 *     description="id_donatur_type",
+	 *     title="id_donatur_type",
 	 *     type="integer",
 	 * 	   format="-",	 
-	 * 	   nullable=false,
+	 * 	   nullable=true,
 	 * 	   maxLength=11,
 	 * )
 	 *		 
 	 */
-	private $id_kategori;
+	private $id_donatur_type;
 	/**
+	 * @OA\Property(		 		 		 
 	 *     description="donatur_type_id",
 	 *     title="donatur_type_id",
 	 *     type="integer",
 	 * 	   format="-",	 
-	 * 	   nullable=false,
+	 * 	   nullable=true,
 	 * 	   maxLength=11,
-	 * 
+	 * )
 	 *		 
 	 */
 	private $donatur_type_id;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="name",
+	 *     title="name",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $name;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="email",
@@ -69,7 +69,7 @@ class Donatur extends BaseEntity
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
-	 * 	   maxLength=50,
+	 * 	   maxLength=100,
 	 * )
 	 *		 
 	 */
@@ -81,7 +81,7 @@ class Donatur extends BaseEntity
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
-	 * 	   maxLength=50,
+	 * 	   maxLength=100,
 	 * )
 	 *		 
 	 */
@@ -98,14 +98,13 @@ class Donatur extends BaseEntity
 	 *		 
 	 */
 	private $alamat;
-
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
 	 *     title="created_at",
 	 *     type="string",
 	 * 	   format="date",	 
-	 * 	   nullable=false,
+	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
@@ -116,7 +115,7 @@ class Donatur extends BaseEntity
 	 *     title="updated_at",
 	 *     type="string",
 	 * 	   format="date",	 
-	 * 	   nullable=false,
+	 * 	   nullable=true,
 	 * )
 	 *		 
 	 */
@@ -132,21 +131,7 @@ class Donatur extends BaseEntity
 	 * )
 	 *		 
 	 */
-
-	private $created_by;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="updated_by",
-	 *     title="updated_by",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $updated_by; 
-
+	private $created_by; 
 }
 /**
  *

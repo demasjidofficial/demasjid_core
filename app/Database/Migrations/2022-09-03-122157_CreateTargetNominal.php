@@ -25,13 +25,15 @@ class CreateTargetNominal extends Migration
             'terkumpul_nominal' => [
                 'type'       => 'int',
                 'constraint' => 11,
-                'null'       => false,
+                'unsigned'   => true,
+                'null'       => true,   
             ],
 
             'target_nominal' => [
                 'type'       => 'int',
                 'constraint' => 11,
-                'null'       => false,
+                'unsigned'   => true,
+                'null'       => true,   
             ],
           
             'created_at' => [

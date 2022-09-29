@@ -9,6 +9,7 @@ class TimFundraisingModel extends BaseModel
     protected $returnType = 'App\Modules\Api\Entities\TimFundraising';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
+
     protected $allowedFields = [
         'target_id',
 
@@ -21,7 +22,8 @@ class TimFundraisingModel extends BaseModel
 		'nama_tim',
 
 		'supervisior',
-		'staff',
+		'created_by',
+		'updated_by',
 		'created_at',
 		'updated_at'
     ];
@@ -47,7 +49,7 @@ class TimFundraisingModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
     {
 
-        $this->selectColumn = [$this->table.'.status as status',$this->table.'.nama_tim as nama_tim',$this->table.'.id as id','target_fundraising.target_nominal as target_nominal','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir','users.username as supervisor','target_fundraising.id as target_fundraising_id','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
+        $this->selectColumn = [$this->table.'.*',$this->table.'.nama_tim as nama_tim',$this->table.'.id as id','target_fundraising.target_nominal as target_nominal','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir','users.username as supervisor','target_fundraising.id as target_fundraising_id','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
 
 		
 		$this->join('target_fundraising', 'target_fundraising.id = '.$this->table.'.target_id');
@@ -55,6 +57,7 @@ class TimFundraisingModel extends BaseModel
 		$this->join('donaturcategory', 'donaturcategory.id = target_fundraising.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
         $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
+		$this->where($this->table . '.supervisior',auth()->user()->id);
 		return parent::findAll($limit, $offset);
     }
 	
@@ -69,6 +72,7 @@ class TimFundraisingModel extends BaseModel
 		$this->join('donaturcategory', 'donaturcategory.id = target_fundraising.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
         $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
+		$this->where($this->table . '.supervisior',auth()->user()->id);
 		return parent::findAll($limit, $offset);
     }   
     public function insert($data = null, bool $returnID = true)
@@ -114,9 +118,8 @@ class TimFundraisingModel extends BaseModel
 			foreach($timStaff['id_user'] as $key => $user ){
                 $detail = [
 					'tim_id' => $id,
-					'user_id' => $user,
-					'nominal_max' => str_replace('.', '', $timStaff['nominal_max'][$key])
-
+					'user_id' => $user
+					
 				];
                 
                 (new TimStaffModel())->insert($detail);				

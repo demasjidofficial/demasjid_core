@@ -93,6 +93,7 @@ class AdminCrudController extends AdminController
         return $this->render($this->viewPrefix . 'form', $this->getDataEdit());
     }
 
+    
     /**
      * Create a new resource object, from "posted" parameters
      *

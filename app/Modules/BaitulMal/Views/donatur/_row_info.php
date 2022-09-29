@@ -1,8 +1,10 @@
+<td><?php echo esc($item->id_donatur_type) ?></a></td>
 <td><?php echo esc($item->donatur_type_id) ?></a></td>
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->email) ?></a></td>
 <td><?php echo esc($item->no_hp) ?></a></td>
 <td><?php echo esc($item->alamat) ?></a></td>
+<td><?php echo esc($item->created_by) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

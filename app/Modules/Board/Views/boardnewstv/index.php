@@ -2,8 +2,10 @@
 
 <?php $this->section('styles'); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<?= asset_link('board/plugins/responsive-slides/responsiveslides.css', 'css'); ?>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider-styles.css">
+
+<!-- coin slider -->
+<?= asset_link('board/plugins/coin-slider/coin-slider-styles.css', 'css'); ?>
+<!-- coin slider -->
 
 <style>
     /* header */
@@ -113,14 +115,6 @@
         margin-top: 5px;
         font-size: 2rem;
     }
-
-    /* Slideshow */
-    .img-show {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
 </style>
 <?php $this->endSection(); ?>
 
@@ -131,7 +125,7 @@
         <div class="card-header">
             <div class="row text-center">
                 <div class="col col-sm-1 text-center">
-                    <img width="120px" src="/<?= esc($masjid_profile['path_image']) ?>">
+                    <img width="120px" src="/<?= esc($masjid_profile['path_logo']) ?>">
                 </div>
                 <div class="col text-left">
                     <h1 class="text-header"><?= $masjid_profile['name']; ?></h1>
@@ -152,20 +146,23 @@
 
         </div>
     </div>
-
 </section>
 
 <!-- slideshow -->
 <section class="content-slideshow">
-        <div id='coin-slider'>
-            <a href="#">
+    <div id="wowslider-container6">
+        <?php $nomberId = 0; ?>
+        <div class="ws_images">
+            <ul>
                 <?php foreach ($board_news_bg as $bg) { ?>
-                    <img src='/<?= esc($bg['path_image']) ?>' duration='<?= esc($bg['duration']) ?>'>
+                    <li><img src="/<?= esc($bg['path_image']) ?>" duration='<?= esc($bg['duration']) ?>' class="slider" alt="image slider" id="wows5_<?= $nomberId++; ?>" /></li>
                 <?php } ?>
-            </a>
+            </ul>
         </div>
+        <div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">jquery slideshow</a> by WOWSlider.com v9.0</div>
+        <div class="ws_shadow"></div>
+    </div>
 </section>
-
 
 <!-- card jadwal sholat -->
 <section class="footer fixed-bottom mb-5">
@@ -212,20 +209,20 @@
 
 
 <?php $this->section('scripts'); ?>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<?= asset_link('board/plugins/responsive-slides/responsiveslides.js', 'js'); ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/coin-slider/1.0.0/coin-slider.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ResponsiveSlides.js/1.55/responsiveslides.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
+
+<!-- coin slider -->
+<?= asset_link('board/plugins/coin-slider/coin-slider.min.js', 'js'); ?>
+<!-- coin slider -->
+
+<!-- wow slider -->
+<?= asset_link('board/plugins/wow/engine6/wowslider.js', 'js'); ?>
+<?= asset_link('board/plugins/wow/engine6/script.js', 'js'); ?>
+<!-- wow slider -->
 
 <script>
-    $(document).ready(function() {
-        $('#coin-slider').coinslider({
-            width: 2000,
-            height: 1000,
-            navigation: false,
-            delay: $('img').attr('duration'),
-        });
-    });
+   
 </script>
 <?php $this->endSection(); ?>

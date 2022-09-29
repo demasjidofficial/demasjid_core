@@ -4,6 +4,7 @@ namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
 use App\Modules\Api\Models\TugasTimModel;
+use App\Modules\Api\Models\TimFundraisingModel;
 use App\Modules\BaitulMal\Models\TugasTimFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 
@@ -12,6 +13,7 @@ class TugasTimController extends AdminCrudController
     protected $baseController = __CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\tugas_tim\\';
     protected $baseRoute = 'admin/baitulmal/tugastim';
+    protected $donasiRoute = 'admin/baitulmal/donation';
     protected $langModel = 'tugas_tim';
     protected $modelName = 'App\Modules\Api\Models\TugasTimModel';
     public function index(){
@@ -67,7 +69,6 @@ class TugasTimController extends AdminCrudController
                 'tugas_nama' => lang('crud.tugas_tim'),
                 'tim_nama' => lang('crud.nama_tim'),
                 'staff' => lang('crud.staff_nama'),
-                'nominal' => lang('crud.nominal_tugas'),
                 
                 'progres' => lang('crud.progres')
             ],
@@ -92,7 +93,9 @@ class TugasTimController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+        
         $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\TimStaffModel')->select(['tim_staff.id as key', 'users.first_name as text', 'tim_fundraising.nama_tim as nama_tim'])->asArray()->findAll(),'text', 'key');
+        
         $dataEdit['stateItems'] = TugasTimModel::listState();
         return $dataEdit;
     }

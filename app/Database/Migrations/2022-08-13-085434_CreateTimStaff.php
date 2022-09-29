@@ -31,7 +31,8 @@ class CreateTimStaff extends Migration
             'nominal_max' => [
                 'type'       => 'int',
                 'constraint' => 11,
-                'null'       => false,
+                'unsigned'   => true,
+                'null'       => true,   
             ],
 
          

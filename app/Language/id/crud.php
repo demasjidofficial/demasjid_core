@@ -321,7 +321,15 @@ return [
 	'progres'=>'Progress',
 	'add_tugas_tim'=>'Tambah Tugas Tim',
 	'nominal_dapat'=>'Nominal Dapat',
+	'nominal'=>'Nominal',
 	'nominal_target'=>'Nominal Target',
 	'progres'=>'Progres',
-	'overview_manager'=>'Overview Manager'
+	'overview_manager'=>'Overview Manager',
+	'tambah'=>'Tambah Data',
+	'add_donasi'=>'Tambah Donatur',
+	'tgl_transaksi'=>'Tanggal Transaksi',
+	'ttd_donatur'=>'Tanda Tangan Donatur',
+	'alamat'=>'Alamat',
+	'add_donatur'=>'Tambah Donatur',
+	'data_donatur'=>'Data Donatur',
 ];

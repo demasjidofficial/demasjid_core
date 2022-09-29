@@ -196,67 +196,7 @@ class OverviewManagerController extends AdminController
 
 }
 
-    // private function setWidgetZis()
-    // {
-    //     $widgets = service('widgets');        
-    //     $zakatItem = new StatsItem([
-    //         'bgColor' => 'bg-warning',
-    //         'bgIcon' => 'bg-info',
-    //         'title' => 'Zakat',
-    //         'value' => number_to_currency(450,'IDR', 'id'),
-    //         // 'url'     => ADMIN_AREA . '/settings/groups',
-    //         'faIcon' => 'fas fa-tag',
-    //     ]);
-        
-    //     $infaqItem = new StatsItem([
-    //         'bgColor' => 'bg-success',
-    //         'bgIcon' => 'bg-success',
-    //         'title' => 'Infaq',
-    //         'value' => number_to_currency(400,'IDR', 'id'),
-    //         // 'url'     => ADMIN_AREA . '/settings/groups',
-    //         'faIcon' => 'fas fa-heart',
-    //     ]);
-        
-    //     $wakafItem = new StatsItem([
-    //         'bgColor' => 'bg-danger',
-    //         'bgIcon' => 'bg-danger',
-    //         'title' => 'Wakaf',
-    //         'value' => number_to_currency(4500,'IDR', 'id'),
-    //         // 'url'     => ADMIN_AREA . '/settings/groups',
-    //         'faIcon' => 'fas fa-cloud-download-alt',
-    //     ]);
-    //     $qurbanItem = new StatsItem([
-    //         'bgColor' => 'bg-info',
-    //         'bgIcon' => 'bg-warning',
-    //         'title' => 'Qurban',
-    //         'value' => number_to_currency(45000,'IDR', 'id'),
-    //         // 'url'     => ADMIN_AREA . '/settings/groups',
-    //         'faIcon' => 'fas fa-comment',
-    //     ]);
-    //     $widgets->widget('zis')->collection('zis')
-    //         ->addItem($zakatItem)
-    //         ->addItem($infaqItem)
-    //         ->addItem($wakafItem)
-    //         ->addItem($qurbanItem);
-    // }
-
-    // protected function generateProgram(){
-    //     $data = (new ProgramModel())->select(['name','description', 'state' ,'cost_estimate as anggaran'])->asArray()->findAll();
-    //     $table = new \CodeIgniter\View\Table();
-    //     $table->function = function ($item) {
-    //         if(is_numeric($item)){
-    //             return number_to_currency($item ?? 0,'IDR','id');
-    //         }
-            
-    //         return convertStateProgram($item);
-    //     };
-    //     $table->setHeading('Kode', 'Nama Program', 'Status', 'Anggaran');
-
-    //     $template = [
-    //         'table_open'         => '<table class="table m-0">'];
-    //     $table->setTemplate($template);
-    //     return $table->generate($data);
-    // }
+   
 
     
 

@@ -4,6 +4,7 @@
 <x-page-head>
     <div class="row">
         <div class="col">
+        <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a></br>
             <h2><?= lang('crud.target_fundraising') ?></h2>
         </div>
         <div class="col-auto">

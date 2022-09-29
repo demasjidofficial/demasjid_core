@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.tim_fundraising') ?></a>
+    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.kembali') ?></a>
     <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.tim_fundraising') ?></h4>
 </x-page-head>
 
@@ -79,9 +79,7 @@
                             <div class="input-group mb-2">
 
                                 <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
-                                <?php echo form_input('tim_staff[nominal_max][]', old('tim_staff[nominal_max]', $data->nominal_max ?? ''), "class='form-control numeric'  placeholder='jumlah' required"); ?>
-                        
-
+                              
 
 
                                 <div class="input-group-append">
@@ -103,9 +101,7 @@
                         <div class="input-group mb-2">
 
                             <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
-                            <?php echo form_input('tim_staff[nominal_max][]', old('tim_staff[nominal_max]', $data->nominal_max ?? ''), "class='form-control numeric'  placeholder='jumlah' required"); ?>
-                        
-
+                           
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
                                     <i class="fas fa-plus"></i>
@@ -152,11 +148,10 @@
                 </div>
             </div> -->
 
-
         </fieldset>
 
         <div class="text-end py-3">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.tim_fundraising') ?></button>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
         </div>
 
     </form>
@@ -173,11 +168,9 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
-
-
     function makeid(length) {
         var result = '';
-        var characters = '0123456789';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         var charactersLength = characters.length;
         for (var i = 0; i < length; i++) {
             result += characters.charAt(Math.floor(Math.random() *
@@ -188,8 +181,8 @@
 
     console.log(makeid(5));
     $('input[name="kode_tim"]').val(makeid(5));
-    $('input[name="kode_tim"]').attr('readonly', 'readonly'); 
-    
+    $('input[name="kode_tim"]').attr('readonly', 'readonly');
+
     $('.duallistbox').bootstrapDualListbox()
     $(function() {
         $('input[name=period]').daterangepicker({
@@ -200,10 +193,11 @@
         });
 
         $('.numeric').inputmask({
-            'alias': 'currency',
-            'rightAlign': false,
-            'digits': '0',
-            'allowMinus': 'false',
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
         })
     });
 
@@ -241,5 +235,8 @@
 
 
     }
+    $('select[name="target_id"]').change(function() {
+        $('input[name="target_nominal"]').val(parseInt(this.value) ? $('select[name="target_id"] option:selected').data() : '');
+    });
 </script>
 <?php $this->endSection(); ?>

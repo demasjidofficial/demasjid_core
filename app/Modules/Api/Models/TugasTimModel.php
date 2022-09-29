@@ -16,21 +16,23 @@ class TugasTimModel extends BaseModel
         'staff_id',
 		'tugas',
 		'nominal',
+        'progres',
+		'nominal_target',
+        'img_serah_terima',
+        'kode_tugas',
+        'img_ttd_serah_terima',
 		'created_at',
-		'updated_at',
-		'created_by',
-		'updated_by',
-		'progres',
-		'nominal_target'
+		'updated_at'
+	
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[tugas_tim.id,id,{id}]',
-		'staff_id' => 'numeric|max_length[11]|required',
-		'tugas' => 'max_length[255]|required',
-		'nominal' => 'numeric|max_length[11]|required',
+        // 'id' => 'numeric|max_length[11]|required|is_unique[tugas_tim.id,id,{id}]',
+		// 'staff_id' => 'numeric|max_length[11]|required',
+		// 'tugas' => 'max_length[255]|required',
+		// 'nominal' => 'numeric|max_length[11]|required',
 		
-		'progres' => 'max_length[100]',
-		'nominal_target' => 'numeric|max_length[11]'
+		// 'progres' => 'max_length[100]',
+		// 'nominal_target' => 'numeric|max_length[11]'
     ];   
 
     public function findAll(int $limit = 0, int $offset = 0)
@@ -39,10 +41,21 @@ class TugasTimModel extends BaseModel
         $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
         $this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
-		
+		$this->where('tim_staff.user_id',auth()->user()->id);
         return parent::findAll($limit, $offset);
     }
+    public function findWidget(int $limit = 0, int $offset = 0)
+    {
 
+        $this->selectColumn = [$this->table.'.img_serah_terima as img_serah_terima',$this->table.'.tugas as tugas',$this->table.'.tugas as tugas',$this->table.'.progres as progres',$this->table.'.nominal as nominal'];        
+
+		
+        $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
+        $this->join('users', 'users.id = tim_staff.user_id');
+		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
+		$this->where('tim_staff.user_id',auth()->user()->id);
+		return parent::findAll($limit, $offset);
+    }   
     public static function listState(){
 
         return [

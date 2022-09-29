@@ -33,6 +33,20 @@ class BaseModel extends ModelsBaseModel
         return $this;    
     }
 
+    protected function filterTim(string $type){    
+        $this->whereIn('supervisior', function(BaseBuilder $builder) use ($type){
+
+            return $builder->select('id')->from('tim_fundraising')->where('supervisior', $type);
+        });
+        return $this;    
+    }
+
+    public function supervisor(){
+
+        return $this->filterEntity(auth()->user()->id);
+    }
+
+
     public function masjid(){
 
         return $this->filterEntity(EntityModel::MASJID);
