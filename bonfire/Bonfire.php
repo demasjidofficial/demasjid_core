@@ -109,7 +109,11 @@ class Bonfire
             ->setFontAwesomeIcon('nav-icon fas fa-info')
             ->setCollapsible();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> 87a5dffeb97c44c9791234937f85b6b4d4215b0f
 =======
             
 >>>>>>> 87a5dffeb97c44c9791234937f85b6b4d4215b0f
