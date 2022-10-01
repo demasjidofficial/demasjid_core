@@ -78,7 +78,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.nominal'), '', ['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('nominal', old('nominal', $data->target_nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nominal') . "' ") ?>
+                    <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nominal') . "' ") ?>
                     <?php if (has_error('nominal')) { ?>
                         <p class="text-danger"><?php echo error('nominal'); ?></p>
                     <?php } ?>
@@ -98,7 +98,7 @@
                 <?= form_label(lang('crud.ttd_donatur'), '', ['for' => 'ttd_donatur', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <canvas id="signature-pad" style="<?= (isset($data->path_signature)) ? 'display:none;' : '' ?>" class="signature-pad"></canvas>
-                    <img id="signature_img" src="<?= (isset($data->path_signature)) ? site_url($data->path_signature) : '/uploads/images/blank.jpg' ?>" name="signature_img" alt="" class="img-thumbnail">
+                    <img id="signature_img"   src="<?= (isset($data->path_signature)) ? site_url($data->path_signature) : '/uploads/images/blank.jpg' ?>" name="signature_img" alt="" class="img-thumbnail">
                     <?= form_input('signature_path', old('signature_path', $data->path_signature ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.signature_path') . "' ") ?>
                     <?php if (has_error('signature_path')) { ?>
                         <p class="text-danger"><?php echo error('signature_path'); ?></p>
@@ -108,7 +108,7 @@
             </div>
 
 
-            <button type="button" style="<?= (!isset($data->path_signature)) ? 'display:none;' : '' ?>" class="btn btn-primary btn-sm" id="signature_open">Tanda Tangan Lagi</button>
+          
             <button type="button" style="<?= (isset($data->path_signature)) ? 'display:none;' : '' ?>" class="btn btn-primary btn-sm" id="save-png">Simpan Ttd</button>
             <button type="button" class="btn btn-danger btn-sm" id="clear">Reset Ttd</button>
             <br>
@@ -131,7 +131,7 @@
 
                         </div>
                         <div class="form-group">
-                            <?= form_input('image_path', old('image_path', $data->image_path ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.path_image') . "' ") ?>
+                            <?= form_input('image_path', old('image_path', $data->path_image ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.path_image') . "' ") ?>
                             <?php if (has_error('image_path')) { ?>
                                 <p class="text-danger"><?php echo error('image_path'); ?></p>
                             <?php } ?>
@@ -277,7 +277,7 @@
 
     document.getElementById('clear').addEventListener('click', function() {
         signaturePad.clear();
-
+        unlink(<?= site_url($data->path_signature) ?>);
 
         document.getElementById('save-png').style.display = "block";
         document.getElementById('signature_img').style.display = "none";

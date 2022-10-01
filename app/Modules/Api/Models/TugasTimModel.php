@@ -42,18 +42,24 @@ class TugasTimModel extends BaseModel
         $this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 		$this->where('tim_staff.user_id',auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
         return parent::findAll($limit, $offset);
     }
-    public function findWidget(int $limit = 0, int $offset = 0)
+    public function findWidget(int $limit = 5, int $offset = 0)
     {
 
-        $this->selectColumn = [$this->table.'.img_serah_terima as img_serah_terima',$this->table.'.tugas as tugas',$this->table.'.tugas as tugas',$this->table.'.progres as progres',$this->table.'.nominal as nominal'];        
+        $this->selectColumn = [$this->table.'.img_serah_terima as img_serah_terima',
+        $this->table.'.tugas as tugas', $this->table.'.tugas as tugas',$this->table.'.nominal_target as nominal_target',$this->table.'.progres as progres',
+        $this->table.'.nominal as nominal','tim_fundraising.nama_tim as nama_tim','users.first_name as first_name', 
+        'users.last_name as last_name'];        
 
 		
         $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
         $this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 		$this->where('tim_staff.user_id',auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
+        $this->limit(5);
 		return parent::findAll($limit, $offset);
     }   
     public static function listState(){

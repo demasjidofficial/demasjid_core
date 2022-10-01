@@ -14,7 +14,7 @@
     </div>
 <?php } ?>
 
-
+<?php echo auth()->user()->username ?>
 <x-admin-box>
 
 

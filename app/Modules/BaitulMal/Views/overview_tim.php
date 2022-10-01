@@ -41,24 +41,26 @@
                     'panel'   => $widgets->widget('tugasfund')->items(),
                     'title'  => 'Tugas'
                 ]) ?>
+                <a href="<?php echo site_url('/admin/baitulmal/tugastim'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
 
                 <?= view('App\Views\Widgets\_panel', [
                     'panel'   => $widgets->widget('donatur')->items(),
                     'title'  => 'Donatur'
                 ]) ?>
 
+                <a href="<?php echo site_url('/admin/baitulmal/donatur'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
 
 
             </div>
-            <div style="background-color:#067D68 ;" class="card col-md-3">
+            <div class="card col-md-3">
 
-                <div class="card-header">
+                <div class="card-header" style="background-color:#067D68 ;">
                     <h3 style="color:white;" class="card-title">
 
                         Menu
                     </h3>
                 </div>
-                <div class="body">
+                <div class="body" style="background-color:#067D68 ;">
 
 
                     <div class="info-box bg-default">

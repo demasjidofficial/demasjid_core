@@ -32,7 +32,16 @@ class TimStaffController extends AdminCrudController
     }
 
     public function create(){
-        return parent::create();
+        $data = $this->request->getPost();
+        $data['target_max'] = (float)(str_replace(',', '', $data['nominal_target']));
+       
+
+        if (!$this->model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -70,6 +79,7 @@ class TimStaffController extends AdminCrudController
             $dataEdit['data'] = $data;
             $dataEdit['tugasItems'] = (new TugasTimModel())->where('staff_id', $data->user_id)->findAll();
         }
+        $dataEdit['stateItems'] = TugasTimModel::listState();
         $dataEdit['timItems'] = ['' => 'Pilih Tim'] + Arr::pluck(model('App\Modules\Api\Models\TimFundraisingModel')->select(['tim_fundraising.id as key', 'tim_fundraising.nama_tim as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;

@@ -29,10 +29,10 @@ trait UploadedFile {
         $image = $this->request->getPost($name);
         $image = str_replace('data:image/png;base64,','', $image);
 		$image = base64_decode($image);
-        $imageFolder = 'signature/'.$this->ttdFolder;        
+        $imageFolder = 'uploads/signature/';        
 
         $newName = 'image_'.time().'.png';
-        file_put_contents(FCPATH.'/signature/'.$newName,$image);
+        file_put_contents(FCPATH.$imageFolder.$newName,$image);
 
         return $imageFolder.'/'.$newName;
     }
@@ -42,10 +42,10 @@ trait UploadedFile {
         $image = $this->request->getPost($name);
         $image = str_replace('data:image/jpeg;base64,','', $image);
 		$image = base64_decode($image);
-        $imageFolder = 'uploads/'.$this->imageFolder;        
+        $imageFolder = 'uploads/serah_terima/';        
 
         $newName = 'image_'.time().'.jpg';
-        file_put_contents(FCPATH.'/uploads/'.$newName,$image);
+        file_put_contents(FCPATH.$imageFolder.$newName,$image);
 
         return $imageFolder.'/'.$newName;
 

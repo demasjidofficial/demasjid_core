@@ -41,7 +41,7 @@ class TimFundraisingModel extends BaseModel
 
 		// 'created_at' => 'valid_date|required',
 		// 'updated_at' => 'valid_date|required'
-		// 'created_by' => 'numeric|max_length[11]',
+		'created_by' => 'numeric|max_length[11]',
 		// 'updated_by' => 'numeric|max_length[11]'
     ]; 
 	
@@ -58,10 +58,11 @@ class TimFundraisingModel extends BaseModel
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
         $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
 		$this->where($this->table . '.supervisior',auth()->user()->id);
+		$this->orwhere($this->table . '.created_by',auth()->user()->id);
 		return parent::findAll($limit, $offset);
     }
 	
-	public function findWidget(int $limit = 0, int $offset = 0)
+	public function findWidget(int $limit = 5, int $offset = 0)
     {
 
         $this->selectColumn = [$this->table.'.kode_tim as kode_tim',$this->table.'.nama_tim as nama_tim','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir'];        
@@ -73,6 +74,7 @@ class TimFundraisingModel extends BaseModel
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
         $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
 		$this->where($this->table . '.supervisior',auth()->user()->id);
+		$this->orwhere($this->table . '.created_by',auth()->user()->id);
 		return parent::findAll($limit, $offset);
     }   
     public function insert($data = null, bool $returnID = true)

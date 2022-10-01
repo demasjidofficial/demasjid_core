@@ -39,35 +39,36 @@
                 <!-- /.card -->
                 <?= view('App\Views\Widgets\_panel', [
                     'panel'   => $widgets->widget('tugasfund')->items(),
-                    'title'  => 'Daftar Tugas'
+                    'title'  => 'Tugas'
                 ]) ?>
-
+                <a href="<?php echo site_url('/admin/baitulmal/tugastim'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
 
             </div>
             <!-- /.col -->
-            <div style="background-color:#067D68 ;" class="card col-md-3">
+            <div  class="card col-md-3" style="height: 50px;">
 
-                <div class="card-header">
+                <div class="card-header" style="background-color:#067D68 ;">
                     <h3 style="color:white;" class="card-title">
 
                         Menu
                     </h3>
                 </div>
-                <div class="body">
+                <div class="body" style="background-color:#067D68 ;">
 
 
                     <div class="info-box bg-default">
                         <span class="info-box-icon"><i class="icon-icon_donatur"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text"><?= lang('crud.tugas_tim') ?></span>
+                            <span class="info-box-text"><?= lang('crud.add_tugas_tim') ?></span>
 
                             <span class="progress-description">
-                                <a href="<?= site_url('/admin/baitulmal/timstaff_') ?>" class="small-box-footer">
+                                <a href="<?= site_url('/admin/baitulmal/timstaff') ?>" class="small-box-footer">
                                     <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
                                 </a>
                             </span>
                         </div>
+
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
@@ -81,6 +82,17 @@
 
 
             </div>
+
+
+
+        </div>
+        <div class="col-md-12">
+
+            <!-- /.card -->
+            <?= view('App\Views\Widgets\_tim_fundraising', [
+                'panel'   => $widgets->widget('timfund')->items(),
+                'title'  => 'Tim Fundraising'
+            ]) ?>
 
 
         </div>

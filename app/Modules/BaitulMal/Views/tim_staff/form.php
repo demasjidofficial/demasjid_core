@@ -25,6 +25,7 @@
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />
             <input type="hidden" name="id" value="<?php echo $data->id; ?>">
+            <input type="hidden" name="tugas_tim[id]" value="<?php echo $data->id; ?>">
         <?php } ?>
 
         <fieldset>
@@ -75,6 +76,15 @@
                     <?php } ?>
                 </div>
             </div>
+            <div class="row mb-3">
+                <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?php echo form_dropdown('tugas_tim[progress]', $stateItems, old('tugas_tim[progress]', $data->progress ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.state') . "' "); ?>
+                    <?php if (has_error('tugas_tim[progress]')) { ?>
+                        <p class="text-danger"><?php echo error('tugas_tim[progress]'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
         </fieldset>
 
         <div class="text-end py-3">
@@ -96,7 +106,7 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <script type="text/javascript">
-     function makeid(length) {
+    function makeid(length) {
         var result = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         var charactersLength = characters.length;
@@ -106,8 +116,8 @@
         }
         return result;
     }
-    $('input[name="kode_tugas"]').val(makeid(5));
-    $('input[name="kode_tugas"]').attr('readonly', 'readonly');
+    $('input[name="tugas_tim[kode_tugas]"]').val(makeid(5));
+    $('input[name="tugas_tim[kode_tugas]"]').attr('readonly', 'readonly');
 
     $(function() {
 

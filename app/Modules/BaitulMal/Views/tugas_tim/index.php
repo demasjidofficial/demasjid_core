@@ -11,7 +11,7 @@
             <h2><?= lang('crud.tugas_tim') ?></h2>
         </div>
         <div class="col-auto">
-        <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_tugas_tim') ?></a>
+        <!-- <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_tugas_tim') ?></a> -->
         </div>
     </div>
 </x-page-head>

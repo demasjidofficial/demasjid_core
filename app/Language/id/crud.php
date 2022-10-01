@@ -332,4 +332,9 @@ return [
 	'alamat'=>'Alamat',
 	'add_donatur'=>'Tambah Donatur',
 	'data_donatur'=>'Data Donatur',
+	'manager'=>'Manager',
+	'kode_tugas'=>'Kode Tugas',
+	'selengkapnya'=>'Selengkapnya',
+	'petugas'=>'Petugas',
+	'add_donatur'=>'Tambah Donatur',
 ];

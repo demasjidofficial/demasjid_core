@@ -49,7 +49,7 @@ class OverviewTimController extends  AdminController
     private function setWidgetStats()
     {
         $widgets = service('widgets');
-        $timMaxCost = (new TimStaffModel())->selectSum('nominal_max')->first();
+        $targetCost = (new TugasTimModel())->selectSum('nominal_target')->first();
         $danaCost = (new TugasTimModel())->selectSum('nominal')->first();
         $DanaItem = new StatsItem([
             'bgColor' => 'bg-teal',
@@ -70,11 +70,16 @@ class OverviewTimController extends  AdminController
             'faIcon' => 'fas fa-users',
         ]);
 
+        if ($targetCost->nominal_target!=0) {
+            # code...
+            $valKumpul = @($targetCost->nominal_target / $danaCost->nominal * 100) . "%";
+        }
+        $valKumpul = "0%";
         $terkumpulItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-default',
             'title' => 'Pengumpulan dana',
-            'value' => ($timMaxCost->nominal_max / $danaCost->nominal * 100) . "%",
+            'value' => $valKumpul,
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-wallet',
         ]);
@@ -122,7 +127,7 @@ class OverviewTimController extends  AdminController
 
     protected function generateTugas()
     {
-        $data = (new TugasTimModel())->select(['tugas', 'progres', 'nominal'])->asArray()->findWidget();;
+        $data = (new TugasTimModel())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
@@ -131,7 +136,7 @@ class OverviewTimController extends  AdminController
 
             return convertStateProgram($item);
         };
-        $table->setHeading('Tugas', 'Status', 'Terkumpul');
+        $table->setHeading('Tugas', 'Status', 'Terkumpul', 'Target', 'Nama Tim', 'Nama Petugas');
 
         $template = [
             'table_open'         => '<table class="table m-0">'
@@ -142,7 +147,7 @@ class OverviewTimController extends  AdminController
     protected function generateDonatur()
     {
         # code...
-        $data = (new DonaturModel())->select(['tugas','tanggal_transaksi', 'name', 'donatur.nominal','nominal_target','nama_tim','username'])->asArray()->findWidget();;
+        $data = (new DonaturModel())->select(['tugas', 'tanggal_transaksi', 'name', 'donatur.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
@@ -151,7 +156,7 @@ class OverviewTimController extends  AdminController
 
             return convertStateProgram($item);
         };
-        $table->setHeading('Tugas','Tanggal', 'Donatur', 'Nominal', 'Target Nominal', 'Tim', 'Petugas');
+        $table->setHeading('Tugas', 'Tanggal', 'Donatur', 'Nominal', 'Target Nominal', 'Tim', 'Petugas');
 
         $template = [
             'table_open'         => '<table class="table m-0">'

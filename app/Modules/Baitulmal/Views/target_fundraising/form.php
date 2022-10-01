@@ -24,8 +24,10 @@
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />
             <input type="hidden" name="id" value="<?php echo $data->id; ?>">
+            <input type="hidden" name="created_by" value="<?php echo $data->created_by?>">
+           
         <?php } ?>
-
+        <input type="hidden" name="created_by" value="<?php echo auth()->user()->id ; ?>">
         <fieldset>
             <div class="row mb-3">
                 <?= form_label(lang('crud.campaign'), '', ['for' => 'campaign', 'class' => 'col-form-label col-sm-2']) ?>

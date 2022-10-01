@@ -79,7 +79,7 @@ class TimFundraisingController extends AdminCrudController
 
 
         }
-        $dataEdit['targetItems'] = ['' => 'Pilih Target'] + Arr::pluck(model('App\Modules\Api\Models\TargetFundraisingListModel')->select(['id as key', 'campaign_name as text','target_nominal as data'])->asArray()->findAll(), 'text','data', 'key');
+        $dataEdit['targetItems'] = ['' => 'Pilih Target'] + Arr::pluck(model('App\Modules\Api\Models\TargetFundraisingListModel')->select(['id as key', 'campaign_name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['supervisorItems'] = ['' => 'Pilih Supervisior'] + Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['users.id as key', 'users.username as text'])->asArray()->findSpv(), 'text', 'key');
         $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['users.id as key', 'users.username as text'])->asArray()->findStaff(), 'text', 'key');
         

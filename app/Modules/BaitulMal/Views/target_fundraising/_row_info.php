@@ -4,7 +4,7 @@
 <td><?php echo "Rp " . number_format(esc($item->target_nominal),2,',','.') ?></a></td>
 <td><?php echo esc($item->donasi) ?></a></td>
 <td><?php echo  date('d-m-Y',strtotime(esc($item->jadwal_mulai)))." - ". date('d-m-Y',strtotime(esc($item->jadwal_akhir))) ?></a></td>
-
+<td><?php echo esc($item->first_name)." ". esc($item->last_name)?></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?= lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
