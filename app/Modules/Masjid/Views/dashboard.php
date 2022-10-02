@@ -18,7 +18,7 @@
     </div>
 </x-page-head>
 
-<section class="content">
+<section class="content" id="de_front_dashboard">
   <div class="container-fluid">
     <!-- Info boxes -->
     <?= view('App\Views\Widgets\_stats', [
@@ -27,7 +27,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <div class="card">
+        <div class="card de_chart_gradient">
           <div class="card-header">
             <h5 class="card-title">Penganggaran vs Realisasi Bulanan</h5>
 
@@ -76,7 +76,7 @@
                   Pembangunan
                   <span class="float-right"><b>160</b>/200</span>
                   <div class="progress progress-sm">
-                    <div class="progress-bar bg-primary" style="width: 80%"></div>
+                    <div class="progress-bar bg-info" style="width: 80%"></div>
                   </div>
                 </div>
                 <!-- /.progress-group -->
@@ -170,7 +170,9 @@
           <div class="card-header border-0">
             <div class="d-flex justify-content-between">
               <h3 class="card-title">Jumlah Jamaah Kajian</h3>
-              <a href="javascript:void(0);">Tampilkan Detil</a>
+              <a href="javascript:void(0);" class="de_card_btn_top_grey">
+                <span class="icon-icon_external_link"></span>
+                Tampilkan Detil</a>
             </div>
           </div>
           <div class="card-body">
@@ -193,12 +195,12 @@
             </div>
 
             <div class="d-flex flex-row justify-content-end">
-              <span class="mr-2">
+              <span class="mr-2 text-primary">
                 <i class="fas fa-square text-primary"></i> Pekan Ini
               </span>
 
-              <span>
-                <i class="fas fa-square text-gray"></i> Pekan Terakhir
+              <span class="text-secondary">
+                <i class="fas fa-square text-secondary"></i> Pekan Terakhir
               </span>
             </div>
           </div>
