@@ -22,8 +22,8 @@ class CreateBoardNewsBg extends Migration
                 'null'       => true,
             ],
             'duration' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
+                'type'       => 'int',
+                'constraint' => 5,
                 'null'       => true,
             ],
             'created_at' => [

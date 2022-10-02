@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row de_row__infobox_bg">
     <?php foreach ($zis  as $elem) : ?>
 
     <?php foreach ($elem->items() as $index => $widget) : ?>
