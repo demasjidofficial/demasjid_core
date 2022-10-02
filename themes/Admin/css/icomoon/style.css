@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?nktnc6');
-  src:  url('fonts/icomoon.eot?nktnc6#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?nktnc6') format('truetype'),
-    url('fonts/icomoon.woff?nktnc6') format('woff'),
-    url('fonts/icomoon.svg?nktnc6#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?8lzcog');
+  src:  url('fonts/icomoon.eot?8lzcog#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?8lzcog') format('truetype'),
+    url('fonts/icomoon.woff?8lzcog') format('woff'),
+    url('fonts/icomoon.svg?8lzcog#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-icon_people_with_bg .path1:before {
+  content: "\e943";
+  color: rgb(243, 247, 246);
+}
+.icon-icon_people_with_bg .path2:before {
+  content: "\e944";
+  margin-left: -1.099609375em;
+  color: rgb(36, 154, 132);
+}
+.icon-icon_program_with_bg .path1:before {
+  content: "\e945";
+  color: rgb(243, 247, 246);
+}
+.icon-icon_program_with_bg .path2:before {
+  content: "\e946";
+  margin-left: -1.099609375em;
+  color: rgb(36, 154, 132);
+}
 .icon-icon_flag_ID .path1:before {
   content: "\e93e";
   color: rgb(255, 255, 255);
