@@ -1,4 +1,4 @@
-<td><img width="100px" src="/<?php echo ($item->master_paymentgateway_path_logo) ? esc($item->master_paymentgateway_path_logo   ) : $BLANK_IMG ?>"></a></td>
+<td><img width="100px" src="/<?php echo ($item->master_paymentgateway_path_logo) ? esc($item->master_paymentgateway_path_logo   ) : $blank_img ?>"></a></td>
 <td><?php echo esc($item->master_paymentgateway_name) ?></a></td>
 <td><?php echo esc($item->rek_no) ?></a></td>
 <td><?php echo esc($item->rek_name) ?></a></td>
