@@ -1,18 +1,20 @@
-<?php namespace App\Modules\Api\Models;
+<?php
+
+namespace App\Modules\Api\Models;
 
 class PendaftaranModel extends BaseModel
 {
 	const MALE = 'L';
-    const FEMALE = 'P';
-    const REGISTER = 'mendaftar';
-    const RECIEVED = 'diterima';
-    const REJECTED = 'ditolak';
-    protected $table = 'pendaftaran';
-    protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
-    protected $primaryKey = 'id';
-    protected $useTimestamps = true;  
-    protected $allowedFields = [
-        'class_id',
+	const FEMALE = 'P';
+	const REGISTER = 'mendaftar';
+	const RECIEVED = 'diterima';
+	const REJECTED = 'ditolak';
+	protected $table = 'pendaftaran';
+	protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
+	protected $primaryKey = 'id';
+	protected $useTimestamps = true;
+	protected $allowedFields = [
+		'class_id',
 		'state',
 		'name',
 		'nis',
@@ -39,9 +41,9 @@ class PendaftaranModel extends BaseModel
 		'created_at',
 		'updated_at',
 		'created_by'
-    ];
-    protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
+	];
+	protected $validationRules = [
+		'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
 		'class_id' => 'numeric|max_length[11]|required',
 		'state' => 'max_length[20]|required',
 		'name' => 'max_length[60]|required',
@@ -69,19 +71,21 @@ class PendaftaranModel extends BaseModel
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
-    ];   
+	];
 
-	public static function listState(){
+	public static function listState()
+	{
 
-        return [
+		return [
 			self::MALE => lang('crud.male'),
 			self::FEMALE => lang('crud.female'),
 		];
 	}
 
-	public static function listStateRegister(){
+	public static function listStateRegister()
+	{
 
-        return [
+		return [
 			self::REGISTER => lang('crud.register'),
 			self::RECIEVED => lang('crud.recieved'),
 			self::REJECTED => lang('crud.rejected'),
@@ -89,9 +93,12 @@ class PendaftaranModel extends BaseModel
 	}
 
 	public function findAll(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*', 'kelas.name as kelas_name'];        
-        $this->join('kelas', 'kelas.id = '.$this->table.'.class_id');
-        return parent::findAll($limit, $offset);
-    } 
+	{
+		$this->selectColumn = [$this->table . '.*', 'kelas.name as kelas_name'];
+		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
+		return parent::findAll($limit, $offset);
+	}
+
+	
+
 }
