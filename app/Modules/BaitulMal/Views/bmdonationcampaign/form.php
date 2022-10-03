@@ -98,7 +98,7 @@
                             <div class="col-md-12">
  
                                 <div class="justify-content-center photo-wrapper">           
-                                    <img id="campaign_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" >
+                                    <img id="campaign_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : $blank_img ?>" alt="" class="img-thumbnail" >
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">

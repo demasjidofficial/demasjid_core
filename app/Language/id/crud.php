@@ -311,5 +311,9 @@ return [
 	'instr_ibanking' => 'Instruksi via Ibanking',
 	'instr' => 'Instruksi Pembayaran',
 
-	'sitefooter' => 'Footer'
+	'sitefooter' => 'Footer',
+	'bmdonationtype' => 'Tipe Donasi',
+	'siteposts' => 'Artikel',
+	'sitesections' => 'Seksion',
+	'sitesliders' => 'Slide'
 ];

@@ -45,7 +45,7 @@ class BmdonationtypeController extends AdminCrudController
             'headers' => [
                 'name' => lang('crud.name'),
                 'description' => lang('crud.description'),
-                'uom_id' => lang('crud.uom_id'),
+                'uom_name' => lang('crud.uom'),
                 'state' => lang('crud.state')
             ],
             'controller' => $this->getBaseController(),
@@ -69,7 +69,10 @@ class BmdonationtypeController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+
+        $dataEdit['uomItems'] = ['' => 'Pilih Satuan'] + Arr::pluck(model('App\Modules\Api\Models\UomModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['stateItems'] = BmdonationtypeModel::listState();
+
         return $dataEdit;
     }
 }

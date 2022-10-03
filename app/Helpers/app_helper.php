@@ -52,6 +52,18 @@ if (!function_exists('convertStateProgram')) {
     }
 }
 
+if (!function_exists('convertStateActivated')) {
+    function convertStateActivated($state)
+    {
+        $validState = [
+            'active' => '<span class="badge badge-success">'.lang('app.active').'</span>',
+            'inactive' => '<span class="badge badge-warning">'.lang('app.inactive').'</span>'
+        ];    
+
+        return $validState[$state] ?? $state;
+    }
+}
+
 if (!function_exists('convertStateWebsite')) {
     function convertStateWebsite($state)
     {
