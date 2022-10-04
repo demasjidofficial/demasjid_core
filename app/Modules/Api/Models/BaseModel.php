@@ -33,6 +33,10 @@ class BaseModel extends ModelsBaseModel
         return $this;    
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0d1a51d39921ba2439d348c14afdfa54d767ef5a
 
 
     public function masjid(){

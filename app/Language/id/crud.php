@@ -337,4 +337,14 @@ return [
 	'selengkapnya'=>'Selengkapnya',
 	'petugas'=>'Petugas',
 	'add_donatur'=>'Tambah Donatur',
+<<<<<<< HEAD
 ];
+=======
+
+	'bmdonationtype' => 'Tipe Donasi',
+	'siteposts' => 'Artikel',
+	'sitesections' => 'Seksion',
+	'sitesliders' => 'Slide'
+];
+
+>>>>>>> 0d1a51d39921ba2439d348c14afdfa54d767ef5a
