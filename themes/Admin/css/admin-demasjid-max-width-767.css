@@ -23,4 +23,46 @@
     .de_menu>.row>.col-md-3>.small-box{
         margin-bottom: 8px;
     }
+
+    #de_front_dashboard .de_infobox_top .col-12.col-sm-6.col-md-3:nth-child(1),
+    #de_front_dashboard .de_infobox_top .col-12.col-sm-6.col-md-3:nth-child(4){
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        padding: 0px !important;
+    }
+
+    #de_front_dashboard .de_infobox_top .col-12.col-sm-6.col-md-3:nth-child(2),
+    #de_front_dashboard .de_infobox_top .col-12.col-sm-6.col-md-3:nth-child(3){
+        max-width: unset !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        padding: 0px !important;
+    }
+
+    #de_front_dashboard .de_infobox_top .col-12.col-sm-6.col-md-3:first-child .info-box{
+        border-left: 0px solid #F3F6F600;
+    }
+
+    .de_chart_gradient .card-footer{
+        padding: 12px !important;
+    }
+
+    .de_chart_gradient .card-footer .row>.col-6{
+        flex: 0 0 100% !important;
+        max-width: unset;
+    }
+
+    .de_chart_gradient .card-footer .row>.col-6 .border-right{
+        border-right: 0px solid #FFFFFF00 !important;
+        border-bottom: 1px solid #7DDA4A !important;
+        padding-bottom: 12px
+    }
+
+    .de_chart_gradient .card-footer .row>.col-6 .border-right:last-child{
+        border-bottom: 0px solid #FFFFFF00;
+    }
+
+    .de_chart_gradient .card-footer .row>.col-6:last-child .border-right{
+        padding-bottom: 0px
+    }
 }

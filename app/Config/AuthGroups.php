@@ -202,6 +202,11 @@ class AuthGroups extends ShieldGroups
       'baitulmal.qurbans.list'=>'baitulmal.qurbans.list',
 
 
+         'baitulmal.donasi.list' => 'Can view list donasi',
+         'baitulmal.donasi.create' => 'Can create donasi',
+         'baitulmal.donasi.edit' => 'Can edit donasi',
+         'baitulmal.donasi.delete' => 'Can delete donasi',
+
         'tpq.profile.delete' => 'Can edit profile',      
 
     ];

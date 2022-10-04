@@ -14,7 +14,7 @@ use Psr\Log\LoggerInterface;
 class AdminCrudController extends AdminController
 {
     use ResponseTrait;
-
+    const BLANK_IMG = 'assets/admin/images/blank.jpg';
     protected $theme      = 'Admin';
     protected $viewPrefix = '';
     protected $baseController;
@@ -202,6 +202,7 @@ class AdminCrudController extends AdminController
         return [
             'actionUrl' => $id ? url_to($this->getBaseController(), $id) : url_to($this->getBaseController()),
             'backUrl'   => url_to($this->getBaseController()),
+            'blank_img' => site_url().self::BLANK_IMG,
         ];
     }
 
