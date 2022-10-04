@@ -2414,6 +2414,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /donaturFundraisings:
+    get:
+      tags:
+        - DonaturFundraising
+      summary: 'Find list DonaturFundraising'
+      description: 'Returns list of DonaturFundraising'
+      operationId: getDonaturFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/DonaturFundraising' } }
+                type: object
+        '404':
+          description: 'DonaturFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - DonaturFundraising
+      summary: 'Add a new DonaturFundraising to the store'
+      operationId: addDonaturFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturFundraising'
+      responses:
+        '201':
+          description: 'Created DonaturFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donaturFundraisings/{id}':
+    get:
+      tags:
+        - DonaturFundraising
+      summary: 'Find DonaturFundraising by ID'
+      description: 'Returns a single DonaturFundraising'
+      operationId: getDonaturFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of DonaturFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'DonaturFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - DonaturFundraising
+      summary: 'Update an existing DonaturFundraising'
+      operationId: updateDonaturFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'DonaturFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - DonaturFundraising
+      summary: 'Deletes a DonaturFundraising'
+      operationId: deleteDonaturFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /donaturTypes:
     get:
       tags:
@@ -9936,6 +10092,106 @@ components:
           format: '-'
           maxLength: 11
       type: object
+    DonaturFundraising:
+      title: DonaturFundraising
+      description: DonaturFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        tugas_id:
+          nullable: true
+          title: tugas_id
+          description: tugas_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        nominal:
+          nullable: false
+          title: nominal
+          description: nominal
+          type: integer
+          format: '-'
+          maxLength: 11
+        no_transaksi:
+          nullable: true
+          title: no_transaksi
+          description: no_transaksi
+          type: string
+          format: '-'
+          maxLength: 255
+        tanggal_transaksi:
+          nullable: false
+          title: tanggal_transaksi
+          description: tanggal_transaksi
+          type: string
+          format: date
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        path_signature:
+          nullable: true
+          title: path_signature
+          description: path_signature
+          type: string
+          format: '-'
+          maxLength: 255
+        nama:
+          nullable: false
+          title: nama
+          description: nama
+          type: string
+          format: '-'
+          maxLength: 255
+        alamat:
+          nullable: false
+          title: alamat
+          description: alamat
+          type: string
+          format: '-'
+          maxLength: 255
+        email:
+          nullable: false
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 255
+        nohp:
+          nullable: false
+          title: nohp
+          description: nohp
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     DonaturType:
       title: DonaturType
       description: DonaturType
@@ -12864,6 +13120,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donatur'
+    DonaturFundraising:
+      description: 'DonaturFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/DonaturFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/DonaturFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DonaturFundraising'
     DonaturType:
       description: 'DonaturType object that needs to be added'
       content:
@@ -13425,6 +13693,9 @@ tags:
   -
     name: Donatur
     description: 'Everything about your Donatur'
+  -
+    name: DonaturFundraising
+    description: 'Everything about your DonaturFundraising'
   -
     name: DonaturType
     description: 'Everything about your DonaturType'
