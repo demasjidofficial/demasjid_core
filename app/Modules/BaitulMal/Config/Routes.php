@@ -14,7 +14,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/masterpaymentgateway', ['controller' => 'MasterPaymentgatewayController']);
     $routes->resource('baitulmal/masterewallet', ['controller' => 'MasterEwalletController']);
     $routes->resource('baitulmal/donation', ['controller' => 'DonasiController']);
-    $routes->resource('baitulmal/donation_tugas', ['controller' => 'DonaturController']);
+  
     $routes->resource('baitulmal/donatur', ['controller' => 'DonaturController']);
     $routes->resource('baitulmal/donaturtype', ['controller' => 'DonaturTypeController']);
     $routes->resource('baitulmal/paymentmethod', ['controller' => 'PaymentMethodController']);
@@ -29,7 +29,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\BaitulMal\Controllers']
     $routes->resource('baitulmal/timstaff_', ['controller' => 'TimStaffController_']);
     $routes->resource('baitulmal/timstaff/add_tugas', ['controller' => 'TimStaffController_/add_tugas']);
     $routes->resource('baitulmal/tugastim', ['controller' => 'TugasTimController']);
-    $routes->resource('baitulmal/nominalstaff', ['controller' => 'Nominal_targetController']);
+    $routes->resource('baitulmal/donaturfundraising', ['controller' => 'DonaturFundraisingController']);
     $routes->resource('baitulmal/overview_manager', ['controller' => 'OverviewManagerController']);
     $routes->resource('baitulmal/overview_tim', ['controller' => 'OverviewTimController']);
     $routes->resource('baitulmal/overview_spv', ['controller' => 'OverviewSpvController']);

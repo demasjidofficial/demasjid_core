@@ -48,7 +48,7 @@
                     'title'  => 'Donatur'
                 ]) ?>
 
-                <a href="<?php echo site_url('/admin/baitulmal/donatur'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
+                <a href="<?php echo site_url('/admin/baitulmal/donaturfundraising'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
 
 
             </div>
@@ -70,7 +70,7 @@
                             <span class="info-box-text"><?= lang('crud.add_donasi') ?></span>
 
                             <span class="progress-description">
-                                <a href="<?= site_url('admin/baitulmal/donation_tugas/new') ?>" class="small-box-footer">
+                                <a href="<?= site_url('admin/baitulmal/donaturfundraising/new') ?>" class="small-box-footer">
                                     <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
                                 </a>
                             </span>

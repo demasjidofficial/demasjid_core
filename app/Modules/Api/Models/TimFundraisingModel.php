@@ -1,7 +1,6 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-use App\Modules\Api\Entities\TimStaff;
+
 
 class TimFundraisingModel extends BaseModel
 {
@@ -41,7 +40,7 @@ class TimFundraisingModel extends BaseModel
 
 		// 'created_at' => 'valid_date|required',
 		// 'updated_at' => 'valid_date|required'
-		'created_by' => 'numeric|max_length[11]',
+		
 		// 'updated_by' => 'numeric|max_length[11]'
     ]; 
 	
@@ -116,15 +115,15 @@ class TimFundraisingModel extends BaseModel
 	private function insertDetail($id, $timStaff){
 		if(!empty($timStaff)){
 
-            (new TimStaffModel())->where('tim_id', $id)->delete();
-			foreach($timStaff['id_user'] as $key => $user ){
+            (new TimStaffTugasModel())->where('tim_id', $id)->delete();
+			foreach($timStaff['user_id'] as $key => $user ){
                 $detail = [
 					'tim_id' => $id,
 					'user_id' => $user
 					
 				];
                 
-                (new TimStaffModel())->insert($detail);				
+                (new TimStaffTugasModel())->insert($detail);				
 			}
 		}
 	}

@@ -2,11 +2,10 @@
 
 namespace App\Modules\BaitulMal\Models;
 
-use App\Modules\Api\Models\TimStaffModel;
-use App\Modules\Api\Models\TimStaffTugasModel;
+use App\Modules\Api\Models\DonaturFundraisingModel;
 use Bonfire\Traits\Filterable;
 
-class TimStaffFilter_ extends TimStaffTugasModel
+class DonaturFundraisingFilter extends DonaturFundraisingModel
 {
     use Filterable;
 

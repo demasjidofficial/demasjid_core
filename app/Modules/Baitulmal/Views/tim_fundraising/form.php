@@ -23,10 +23,10 @@
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />
             <input type="hidden" name="id" value="<?php echo $data->id; ?>">
-            <input type="hidden" name="created_by" value="<?php echo $data->created_by?>">
+
            
         <?php } ?>
-        <input type="hidden" name="created_by" value="<?php echo auth()->user()->id ; ?>">
+      
         <fieldset>
             <div class="row mb-3">
                 <?= form_label(lang('crud.target_id'), '', ['for' => 'target_id', 'class' => 'col-form-label col-sm-2']) ?>
@@ -53,7 +53,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? ''), "class='form-control int' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
+                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? generate_kode()), "class='form-control int' readonly='' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
                     <?php if (has_error('kode_tim')) { ?>
                         <p class="text-danger"><?php echo error('kode_tim'); ?></p>
                     <?php } ?>
@@ -79,7 +79,7 @@
                         <?php foreach ($timStaff as $index => $detail) { ?>
                             <div class="input-group mb-2">
 
-                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
+                                <?= form_dropdown('tim_staff[user_id][]', $staffItems, old('tim_staff[user_id]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
                               
 
 
@@ -101,7 +101,7 @@
                     <?php } else { ?>
                         <div class="input-group mb-2">
 
-                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
+                            <?= form_dropdown('tim_staff[user_id][]', $staffItems, old('tim_staff[user_id]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
                            
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
@@ -121,33 +121,6 @@
                 </div>
             </div>
 
-            <!-- <div class="row mb-3">
-                <?php echo form_label(lang('crud.staff'), '', ['for' => 'staff', 'class' => 'col-form-label col-sm-2']); ?>
-                <div class="col-sm-10 block_detail_program">
-                    <?php if (isset($timStaff) && !empty($timStaff)) { ?>
-                        <?php foreach ($timStaff as $index => $detail) { ?>
-                            <div class="input-group mb-2">
-                               
-                                <?= form_dropdown('timstaff[id_user][]', $staffItems, old('timstaff[id_user]', $data->staff ?? ''), "class='form-control duallistbox' multiple='multiple' required") ?>
-                        
-                            </div>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <div class="input-group mb-2">
-                        <?= form_dropdown('timstaff[id_user][]', $staffItems, old('timstaff[id_user]', $data->staff ?? ''), "class='form-control duallistbox' multiple='multiple' required") ?>
-                        
-                        </div>
-                    <?php } ?>
-                    <div class="input-group mb-2">
-
-                    </div>
-                    <?php echo form_hidden('staff', $data->staff ?? 0); ?>
-
-                    <?php if (has_error('staff')) { ?>
-                        <p class="text-danger"><?php echo error('staff'); ?></p>
-                    <?php } ?>
-                </div>
-            </div> -->
 
         </fieldset>
 
@@ -169,20 +142,8 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
-    function makeid(length) {
-        var result = '';
-        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        var charactersLength = characters.length;
-        for (var i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() *
-                charactersLength));
-        }
-        return result;
-    }
 
-    console.log(makeid(5));
-    $('input[name="kode_tim"]').val(makeid(5));
-    $('input[name="kode_tim"]').attr('readonly', 'readonly');
+
 
     $('.duallistbox').bootstrapDualListbox()
     $(function() {

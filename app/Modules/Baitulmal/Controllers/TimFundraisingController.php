@@ -75,7 +75,7 @@ class TimFundraisingController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
 
-            $dataEdit['timStaff'] = (new TimStaffModel())->where('tim_id', $id)->findAll();
+            $dataEdit['timStaff'] = (new TimStaffModel())->where('tim_id', $id)->findStaff();
 
 
         }

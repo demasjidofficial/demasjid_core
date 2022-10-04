@@ -2,7 +2,7 @@
 
 namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
+
 use CodeIgniter\Database\BaseBuilder;
 
 class TargetFundraisingModel extends BaseModel
@@ -45,7 +45,7 @@ class TargetFundraisingModel extends BaseModel
 		'campaign' => 'numeric|max_length[11]|required',
 		'campaign_name' => 'max_length[128]|required',
 		'donatur' => 'max_length[128]|required',
-		'created_by' => 'numeric|max_length[11]|required',
+
 
 
 	];

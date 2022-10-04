@@ -10,7 +10,7 @@ use App\Modules\Api\Models\DonasiModel;
 use App\Libraries\Widgets\Panel\Panel;
 use App\Libraries\Widgets\Panel\PanelItem;
 use App\Modules\Api\Models\TimStaffModel;
-use App\Modules\Api\Models\DonaturModel;
+use App\Modules\Api\Models\DonaturFundraisingModel;
 use App\Libraries\Widgets\Stats\Stats;
 
 class OverviewTimController extends  AdminController
@@ -70,9 +70,9 @@ class OverviewTimController extends  AdminController
             'faIcon' => 'fas fa-users',
         ]);
 
-        if ($targetCost->nominal_target!=0) {
+        if ($targetCost->nominal_target!=0 && $danaCost->nominal!=0) {
             # code...
-            $valKumpul = @($targetCost->nominal_target / $danaCost->nominal * 100) . "%";
+            $valKumpul = ($targetCost->nominal_target / $danaCost->nominal * 100) . "%";
         }
         $valKumpul = "0%";
         $terkumpulItem = new StatsItem([
@@ -147,7 +147,7 @@ class OverviewTimController extends  AdminController
     protected function generateDonatur()
     {
         # code...
-        $data = (new DonaturModel())->select(['tugas', 'tanggal_transaksi', 'name', 'donatur.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();;
+        $data = (new DonaturFundraisingModel())->select(['tugas', 'tanggal_transaksi', 'nama', 'donatur_fundraising.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {

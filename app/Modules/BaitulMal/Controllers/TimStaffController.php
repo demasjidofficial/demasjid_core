@@ -3,9 +3,9 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\TimStaffModel;
+use App\Modules\Api\Models\TimStaffTugasModel;
 use App\Modules\Api\Models\TugasTimModel;
-use App\Modules\BaitulMal\Models\TimStaffFilter;
+use App\Modules\BaitulMal\Models\TimStaffFilter_;
 use IlluminateAgnostic\Arr\Support\Arr;
 
 class TimStaffController extends AdminCrudController
@@ -50,7 +50,7 @@ class TimStaffController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(TimStaffFilter::class);
+        $model = model(TimStaffFilter_::class);
         return [
             'headers' => [
                                     'tim_id' => lang('crud.nama_tim'),
@@ -69,7 +69,7 @@ class TimStaffController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new TimStaffModel();
+        $model = new TimStaffTugasModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -85,23 +85,5 @@ class TimStaffController extends AdminCrudController
         return $dataEdit;
     }
 
-    public function add_tugas()
-    {
-        # code...
-    //     $nominal_target = str_replace('.', '', $this->request->getPost('nominal_target'));
 
-    //    $tugasTim = new TugasTimModel();
-    //    $tugasTim->insert([
-          
-    //        'staff_id'       => $this->request->getPost('id'),
-    //        'nominal_target'    => $nominal_target,
-    //        'tugas'    => $this->request->getPost('tugas'),
-    //        'kode_tugas'  => $this->request->getPost('kode_tugas'),
-    //        'progres'    => 'BELUM MULAI',
-    //        'created_at' => date('Y-m-d H:i:s'),
-    //        'updated_at' => date('Y-m-d H:i:s')
-    //    ]);
-    echo"---";
-
-    }
 }

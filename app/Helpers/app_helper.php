@@ -112,3 +112,30 @@ if (! function_exists('meta_tag')) {
         return $meta.$title;
     }
 }
+
+if(!function_exists('replace_float')){
+     function replace_float($text)
+    {
+        # code...
+       
+     
+        $nominal = (float)(str_replace(',', '', $text));
+        return $nominal;
+    }
+}
+
+
+if(!function_exists('generate_kode')){
+    function generate_kode()
+   {
+       # code...    
+       $key = '';
+       $keys = array_merge(range(0, 9), range('a', 'z'));
+   
+       for ($i = 0; $i < 4; $i++) {
+           $key .= $keys[array_rand($keys)];
+       }
+   
+       return $key;
+   }
+}

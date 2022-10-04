@@ -100,6 +100,8 @@ static function ($routes) {
     $routes->resource('PaymentMethods');
     $routes->resource('MasterBanks');
     $routes->resource('MasterPaymentgateways');
+    $routes->resource('donaturFundraisings');
+    $routes->resource('tugasTims');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

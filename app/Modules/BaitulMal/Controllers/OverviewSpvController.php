@@ -68,9 +68,9 @@ class OverviewSpvController extends  AdminController
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-users',
         ]);
-        if (!empty($targetCost->nominal_target)) {
+        if (!empty($targetCost->nominal_target)&& !empty($danaCost->nominal)) {
             # code...
-            $valKumpul = @($targetCost->nominal_target / $danaCost->nominal * 100) . "%";
+            $valKumpul = ($targetCost->nominal_target / $danaCost->nominal * 100) . "%";
         }
         $valKumpul = "0%";
         $terkumpulItem = new StatsItem([

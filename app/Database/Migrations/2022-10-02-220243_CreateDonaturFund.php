@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateDonatur extends Migration
+class CreateDonaturFund extends Migration
 {
     public function up()
     {
@@ -58,7 +58,7 @@ class CreateDonatur extends Migration
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],
-            'nohp' => [
+            'no_hp' => [
                 'type'       => 'varchar',
                 'constraint' => 20,
             ],
@@ -82,12 +82,12 @@ class CreateDonatur extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('tugas_id', 'tugas_tim', 'id');     
        
-        $this->forge->createTable('donatur', true);
+        $this->forge->createTable('donatur_fundraising', true);
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('donatur', true);
+        $this->forge->dropTable('donatur_fundraising', true);
     }
 }
