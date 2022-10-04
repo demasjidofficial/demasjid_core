@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="justify-content-center photo-wrapper">
-                                <img id="post_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" style="height:150px">
+                                <img id="post_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : $blank_img ?>" alt="" class="img-thumbnail" style="height:150px">
                             </div>
                         </div>
                     </div>

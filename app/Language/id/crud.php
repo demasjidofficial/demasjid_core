@@ -317,6 +317,7 @@ return [
 	'instr' => 'Instruksi Pembayaran',
 
 	'sitefooter' => 'Footer',
+
 	'nominal_tugas'=>'Nominal didapat / Nominal maximal',
 	'progres'=>'Progress',
 	'add_tugas_tim'=>'Tambah Tugas Tim',
@@ -337,4 +338,10 @@ return [
 	'selengkapnya'=>'Selengkapnya',
 	'petugas'=>'Petugas',
 	'add_donatur'=>'Tambah Donatur',
+
+	'bmdonationtype' => 'Tipe Donasi',
+	'siteposts' => 'Artikel',
+	'sitesections' => 'Seksion',
+	'sitesliders' => 'Slide'
 ];
+
