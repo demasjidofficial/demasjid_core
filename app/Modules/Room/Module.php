@@ -27,21 +27,21 @@ class Module extends BaseModule
         ]);
 
         $konfirmruanganItem = new MenuItem([
-            'title'           => lang('crud.konfirmruangan'),
-            'url'             => url_to('App\Modules\Room\Controllers\RoomReservController::index'),
+            'title'           => lang('crud.reservruangan'),
+            'url'             => url_to('App\Modules\Room\Controllers\RoomReservationController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $comentItem = new MenuItem([
-            'title'           => lang('crud.comment'),
+            'title'           => lang('crud.infaq_room'),
             'url'             => url_to('App\Modules\Room\Controllers\CommentRoomController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $rekaplaporanItem = new MenuItem([
-            'title'           => lang('crud.rekaplaporan'),
+            'title'           => lang('crud.summary'),
             'url'             => url_to('/'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',

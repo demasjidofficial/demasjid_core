@@ -2,18 +2,21 @@
 
 namespace App\Modules\Api\Models;
 
-class RoomReservModel extends BaseModel
+use asligresik\easyapi\Models\BaseModel;
+
+class RoomReservationModel extends BaseModel
 {
-	const ACCEPT = 'terima';
-	const REJECT = 'tolak';
-	protected $table = 'room_reserv';
-	protected $returnType = 'App\Modules\Api\Entities\RoomReserv';
+	const BEGIN = 'belum_mulai';
+	const END = 'selesai';
+	const CANCEL = 'batal';
+	const PROGRESS = 'berlangsung';
+	protected $table = 'room_reservation';
+	protected $returnType = 'App\Modules\Api\Entities\RoomReservation';
 	protected $primaryKey = 'id';
 	protected $useTimestamps = true;
 	protected $allowedFields = [
-		'name',
-		'namaruangan',
 		'room_id',
+		'namapemesan',
 		'no_tlp',
 		'alamat',
 		'start_date',
@@ -26,10 +29,9 @@ class RoomReservModel extends BaseModel
 		'created_by'
 	];
 	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[room_reserv.id,id,{id}]',
-		'name' => 'max_length[255]|required',
-		'namaruangan' => 'max_length[255]|required',
+		'id' => 'numeric|max_length[11]|required|is_unique[room_reservation.id,id,{id}]',
 		'room_id' => 'numeric|max_length[11]',
+		'namapemesan' => 'max_length[255]|required',
 		'no_tlp' => 'max_length[25]|required',
 		'alamat' => 'max_length[255]|required',
 		'start_date' => 'valid_date|required',
@@ -42,12 +44,16 @@ class RoomReservModel extends BaseModel
 		// 'created_by' => 'numeric|max_length[11]'
 	];
 
+
+
 	public static function listState()
 	{
 
 		return [
-			self::ACCEPT => lang('crud.diterima'),
-			self::REJECT => lang('crud.tolak'),
+			self::BEGIN => lang('crud.belum_mulai'),
+			self::PROGRESS => lang('crud.sedang_berlangsung'),
+			self::END => lang('crud.selesai'),
+			self::CANCEL => lang('crud.batal'),
 		];
 	}
 }

@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.room_reserv') ?></a>
+    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
     <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.room_reserv') ?></h4>
 </x-page-head>
 
@@ -28,20 +28,11 @@
 
         <fieldset>
             <div class="row mb-3">
-                <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.namapemesan'), '', ['for' => 'namapemesan', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.name') . "' ") ?>
-                    <?php if (has_error('name')) { ?>
-                        <p class="text-danger"><?php echo error('name'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.namaruangan'), '', ['for' => 'namaruangan', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('namaruangan', old('namaruangan', $data->namaruangan ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.namaruangan') . "' ") ?>
-                    <?php if (has_error('namaruangan')) { ?>
-                        <p class="text-danger"><?php echo error('namaruangan'); ?></p>
+                    <?= form_input('namapemesan', old('namapemesan', $data->namapemesan ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.namapemesan') . "' ") ?>
+                    <?php if (has_error('namapemesan')) { ?>
+                        <p class="text-danger"><?php echo error('namapemesan'); ?></p>
                     <?php } ?>
                 </div>
             </div>
@@ -66,7 +57,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.address'), '', ['for' => 'alamat', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.alamat') . "' ") ?>
+                    <?= form_input('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.address') . "' ") ?>
                     <?php if (has_error('alamat')) { ?>
                         <p class="text-danger"><?php echo error('alamat'); ?></p>
                     <?php } ?>
@@ -102,7 +93,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.description'), '', ['for' => 'keterangan', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('keterangan', old('keterangan', $data->keterangan ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.keterangan') . "' ") ?>
+                    <?= form_input('keterangan', old('keterangan', $data->keterangan ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.description') . "' ") ?>
                     <?php if (has_error('keterangan')) { ?>
                         <p class="text-danger"><?php echo error('keterangan'); ?></p>
                     <?php } ?>
@@ -121,7 +112,7 @@
         </fieldset>
 
         <div class="text-end py-3">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.room_reserv') ?></button>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
         </div>
 
     </form>

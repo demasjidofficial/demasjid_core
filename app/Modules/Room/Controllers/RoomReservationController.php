@@ -4,16 +4,16 @@ namespace App\Modules\Room\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\CommentRoomModel;
-use App\Modules\Room\Models\CommentRoomFilter;
+use App\Modules\Api\Models\RoomReservationModel;
+use App\Modules\Room\Models\RoomReservationFilter;
 
-class CommentRoomController extends AdminCrudController
+class RoomReservationController extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Room\Views\comment_room\\';
-    protected $baseRoute = 'admin/room/commentroom';
-    protected $langModel = 'comment_room';
-    protected $modelName = 'App\Modules\Api\Models\CommentRoomModel';
+    protected $viewPrefix = 'App\Modules\Room\Views\room_reservation\\';
+    protected $baseRoute = 'admin/room/roomreservation';
+    protected $langModel = 'room_reservation';
+    protected $modelName = 'App\Modules\Api\Models\RoomReservationModel';
     public function index()
     {
         return parent::index();
@@ -46,13 +46,19 @@ class CommentRoomController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(CommentRoomFilter::class);
+        $model = model(RoomReservationFilter::class);
         return [
             'headers' => [
                 'room_id' => lang('crud.room_id'),
-                'Kritik' => lang('crud.kritik'),
-                'Saran' => lang('crud.saran'),
-                // 'created_by' => lang('crud.created_by')
+                'namapemesan' => lang('crud.namapemesan'),
+                'no_tlp' => lang('crud.no_tlp'),
+                'alamat' => lang('crud.address'),
+                'start_date' => lang('crud.start_date'),
+                'end_date' => lang('crud.end_date'),
+                'agenda' => lang('crud.agenda'),
+                'keterangan' => lang('crud.description'),
+                'status' => lang('crud.state'),
+                //'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -66,7 +72,7 @@ class CommentRoomController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new CommentRoomModel();
+        $model = new RoomReservationModel();
 
         if (!empty($id)) {
             $data = $model->find($id);
@@ -75,7 +81,8 @@ class CommentRoomController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['roomItems'] = Arr::pluck(model('App\Modules\Api\Models\RoomModel')->select(['id as key'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['roomItems'] = Arr::pluck(model('App\Modules\Api\Models\RoomModel')->select(['id as key', 'nama as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['stateItems'] = RoomReservationModel::listState();
         return $dataEdit;
     }
 }

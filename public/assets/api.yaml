@@ -6782,6 +6782,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /roomReservations:
+    get:
+      tags:
+        - RoomReservation
+      summary: 'Find list RoomReservation'
+      description: 'Returns list of RoomReservation'
+      operationId: getRoomReservation
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/RoomReservation' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/RoomReservation' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/RoomReservation' } }
+                type: object
+        '404':
+          description: 'RoomReservation not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - RoomReservation
+      summary: 'Add a new RoomReservation to the store'
+      operationId: addRoomReservation
+      requestBody:
+        $ref: '#/components/requestBodies/RoomReservation'
+      responses:
+        '201':
+          description: 'Created RoomReservation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/roomReservations/{id}':
+    get:
+      tags:
+        - RoomReservation
+      summary: 'Find RoomReservation by ID'
+      description: 'Returns a single RoomReservation'
+      operationId: getRoomReservationById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of RoomReservation to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'RoomReservation not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - RoomReservation
+      summary: 'Update an existing RoomReservation'
+      operationId: updateRoomReservation
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'RoomReservation id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/RoomReservation'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'RoomReservation not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - RoomReservation
+      summary: 'Deletes a RoomReservation'
+      operationId: deleteRoomReservation
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'RoomReservation id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /roomReservs:
     get:
       tags:
@@ -12217,20 +12373,6 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        name:
-          nullable: false
-          title: name
-          description: name
-          type: string
-          format: '-'
-          maxLength: 255
-        namaruangan:
-          nullable: false
-          title: namaruangan
-          description: namaruangan
-          type: string
-          format: '-'
-          maxLength: 255
         room_id:
           nullable: true
           title: room_id
@@ -12238,6 +12380,112 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+        namaruangan:
+          nullable: false
+          title: namaruangan
+          description: namaruangan
+          type: string
+          format: '-'
+          maxLength: 255
+        namapemesan:
+          nullable: false
+          title: namapemesan
+          description: namapemesan
+          type: string
+          format: '-'
+          maxLength: 255
+        no_tlp:
+          nullable: false
+          title: no_tlp
+          description: no_tlp
+          type: string
+          format: '-'
+          maxLength: 25
+        alamat:
+          nullable: false
+          title: alamat
+          description: alamat
+          type: string
+          format: '-'
+          maxLength: 255
+        start_date:
+          nullable: false
+          title: start_date
+          description: start_date
+          type: string
+          format: date
+        end_date:
+          nullable: false
+          title: end_date
+          description: end_date
+          type: string
+          format: date
+        agenda:
+          nullable: false
+          title: agenda
+          description: agenda
+          type: string
+          format: '-'
+          maxLength: 50
+        keterangan:
+          nullable: false
+          title: keterangan
+          description: keterangan
+          type: string
+          format: '-'
+          maxLength: 50
+        status:
+          nullable: false
+          title: status
+          description: status
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    RoomReservation:
+      title: RoomReservation
+      description: RoomReservation
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        room_id:
+          nullable: true
+          title: room_id
+          description: room_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        namapemesan:
+          nullable: false
+          title: namapemesan
+          description: namapemesan
+          type: string
+          format: '-'
+          maxLength: 255
         no_tlp:
           nullable: false
           title: no_tlp
@@ -13861,6 +14109,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/RoomReserv'
+    RoomReservation:
+      description: 'RoomReservation object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RoomReservation'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/RoomReservation'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RoomReservation'
     Sitefooter:
       description: 'Sitefooter object that needs to be added'
       content:
@@ -14188,6 +14448,9 @@ tags:
   -
     name: RoomReserv
     description: 'Everything about your RoomReserv'
+  -
+    name: RoomReservation
+    description: 'Everything about your RoomReservation'
   -
     name: Sitefooter
     description: 'Everything about your Sitefooter'

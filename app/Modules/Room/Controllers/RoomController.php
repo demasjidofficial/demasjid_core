@@ -12,9 +12,9 @@ class RoomController extends AdminCrudController
 {
     use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Room\Views\room\\';
+    protected $viewPrefix = 'App\Modules\Room\Views\Room\\';
     protected $baseRoute = 'admin/room/room';
-    protected $langModel = 'room';
+    protected $langModel = 'Room';
     protected $modelName = 'App\Modules\Api\Models\RoomModel';
     private $imageFolder = 'images';
     public function index()
@@ -37,7 +37,6 @@ class RoomController extends AdminCrudController
                 $this->model->set('gambar', $uploaded);
             }
         }
-
         return parent::update($id);
     }
 
@@ -48,15 +47,8 @@ class RoomController extends AdminCrudController
 
     public function create()
     {
-        $image = $this->request->getFile('image');
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploadedImage = $this->uploadFile('image');
-                $this->model->set('gambar', $uploadedImage);
-            }
-        }
-
-
+        $uploadedImage = $this->uploadFile('image');
+        $this->model->set('gambar', $uploadedImage);
         return parent::create();
     }
 
@@ -71,8 +63,8 @@ class RoomController extends AdminCrudController
         return [
             'headers' => [
                 'gambar' => lang('crud.gambar'),
-                'namaruangan' => lang('crud.namaruangan'),
-                'Keterangan' => lang('crud.description'),
+                'nama' => lang('crud.name'),
+                'keterangan' => lang('crud.description'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),

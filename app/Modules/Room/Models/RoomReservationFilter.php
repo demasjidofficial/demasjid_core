@@ -2,10 +2,10 @@
 
 namespace App\Modules\Room\Models;
 
-use App\Modules\Api\Models\CommentRoomModel;
+use App\Modules\Api\Models\RoomReservationModel;
 use Bonfire\Traits\Filterable;
 
-class CommentRoomFilter extends CommentRoomModel
+class RoomReservationFilter extends RoomReservationModel
 {
     use Filterable;
 

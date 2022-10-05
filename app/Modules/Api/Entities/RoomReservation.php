@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class RoomReserv
+* Class RoomReservation
 * @OA\Schema(
-*     title="RoomReserv",
-*     description="RoomReserv"
+*     title="RoomReservation",
+*     description="RoomReservation"
 * )
 *
 * @OA\Tag(
-*     name="RoomReserv",
-*     description="Everything about your RoomReserv" 
+*     name="RoomReservation",
+*     description="Everything about your RoomReservation" 
 * )
 */ 
-class RoomReserv extends BaseEntity
+class RoomReservation extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -38,18 +38,6 @@ class RoomReserv extends BaseEntity
 	 *		 
 	 */
 	private $room_id;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="namaruangan",
-	 *     title="namaruangan",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=255,
-	 * )
-	 *		 
-	 */
-	private $namaruangan;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="namapemesan",
@@ -182,16 +170,16 @@ class RoomReserv extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="RoomReserv",
- *     description="RoomReserv object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/RoomReserv"),
+ *     request="RoomReservation",
+ *     description="RoomReservation object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/RoomReservation"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/RoomReserv")
+ *         @OA\Schema(ref="#/components/schemas/RoomReservation")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/RoomReserv")
+ *         @OA\Schema(ref="#/components/schemas/RoomReservation")
  *     )
  * )
  */

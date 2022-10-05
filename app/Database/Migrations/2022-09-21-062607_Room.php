@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Dataruangan extends Migration
+class Room extends Migration
 {
     public function up()
     {
@@ -15,33 +15,38 @@ class Dataruangan extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'gambar' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
             'nama' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-                'unsigned'   => false,
             ],
-            'ukuran' => [
+            'keterangan' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-                'unsigned'       => false,
             ],
-            'fasilitas' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-                'unsigned'       => false,
+            'created_at' => [
+                'type' => 'datetime',
+                'null' => false,
             ],
-            'kondisi' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-                'unsigned'   => false,
+            'updated_at' => [
+                'type' => 'datetime',
+                'null' => false,
+            ],
+            'created_by' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('dataruangan', true);
+        $this->forge->createTable('room', true);
     }
-
     public function down()
     {
-        $this->forge->dropTable('dataruangan', true);
+        $this->forge->dropTable('room', true);
     }
 }

@@ -1,6 +1,5 @@
-<td><?php echo esc($item->name) ?></a></td>
-<td><?php echo esc($item->namaruangan) ?></a></td>
 <td><?php echo esc($item->room_id) ?></a></td>
+<td><?php echo esc($item->namapemesan) ?></a></td>
 <td><?php echo esc($item->no_tlp) ?></a></td>
 <td><?php echo esc($item->alamat) ?></a></td>
 <td><?php echo esc($item->start_date) ?></a></td>
@@ -8,6 +7,7 @@
 <td><?php echo esc($item->agenda) ?></a></td>
 <td><?php echo esc($item->keterangan) ?></a></td>
 <td><?php echo esc($item->status) ?></a></td>
+<td><?php echo esc($item->created_by) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">
