@@ -91,7 +91,7 @@ class OverviewManagerController extends AdminController
             'faIcon' => 'fas fa-users',
         ]);
 
-        $tunaiCost = (new TargetFundraisingModel())->tunai()->where(['tipe_donasi' => TargetFundraisingModel::TUNAI])->selectSum('target_nominal')->first();
+        $tunaiCost = (new TargetFundraisingModel())->tunai()->selectSum('target_nominal')->first();
         $tunaiCost = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-default',
@@ -101,7 +101,7 @@ class OverviewManagerController extends AdminController
             'faIcon' => 'fas fa-wallet',
         ]);
 
-        $ttransferCost = (new TargetFundraisingModel())->transfer()->where(['tipe_donasi' => TargetFundraisingModel::TRANSFER])->selectSum('target_nominal')->first();
+        $ttransferCost = (new TargetFundraisingModel())->transfer()->selectSum('target_nominal')->first();
         $ttransferCost = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-default',
@@ -138,7 +138,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-primary',
 
             'title' => 'Perseorangan',
-            'value' => (new TargetFundraisingModel())->perseorangan()->where(['donatur' => TargetFundraisingModel::PERSEORANGAN])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->perseorangan()->countAllResults(false),
 
         ]);
 
@@ -146,7 +146,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-danger',
 
             'title' => 'Institusi/Lembaga/Organisasi',
-            'value' => (new TargetFundraisingModel())->lembaga()->where(['donatur' => TargetFundraisingModel::LEMBAGA])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->lembaga()->countAllResults(false),
 
         ]);
 
@@ -154,7 +154,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-warning',
 
             'title' => 'Perusahaan',
-            'value' => (new TargetFundraisingModel())->perusahaan()->where(['donatur' =>TargetFundraisingModel::PERUSAHAAN])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->perusahaan()->countAllResults(false),
 
         ]);
 
@@ -162,7 +162,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-success',
 
             'title' => 'UKM',
-            'value' => (new TargetFundraisingModel())->ukm()->where(['donatur' => TargetFundraisingModel::UKM])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->ukm()->countAllResults(false),
 
         ]);
         $widgets->widget('fundraising')->collection('fundraising')
