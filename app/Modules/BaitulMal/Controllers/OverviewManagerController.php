@@ -138,7 +138,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-primary',
 
             'title' => 'Perseorangan',
-            'value' => (new TargetFundraisingModel())->perseorangan()->where(['donatur' => TUNAI])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->perseorangan()->where(['donatur' => TargetFundraisingModel::PERSEORANGAN])->countAllResults(false),
 
         ]);
 
@@ -146,7 +146,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-danger',
 
             'title' => 'Institusi/Lembaga/Organisasi',
-            'value' => (new TargetFundraisingModel())->lembaga()->where(['donatur' => '2'])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->lembaga()->where(['donatur' => TargetFundraisingModel::LEMBAGA])->countAllResults(false),
 
         ]);
 
@@ -154,7 +154,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-warning',
 
             'title' => 'Perusahaan',
-            'value' => (new TargetFundraisingModel())->perusahaan()->where(['donatur' => '3'])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->perusahaan()->where(['donatur' =>TargetFundraisingModel::PERUSAHAAN])->countAllResults(false),
 
         ]);
 
@@ -162,7 +162,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-success',
 
             'title' => 'UKM',
-            'value' => (new TargetFundraisingModel())->ukm()->where(['donatur' => '4'])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->ukm()->where(['donatur' => TargetFundraisingModel::UKM])->countAllResults(false),
 
         ]);
         $widgets->widget('fundraising')->collection('fundraising')
