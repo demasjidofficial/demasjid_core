@@ -51,7 +51,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.kode_tugas'), '', ['for' => 'kode_tugas', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('tugas_tim[kode_tugas]', old('tugas_tim[kode_tugas]', $data->kode_tugas ?? ''), "class='form-control int' required placeholder='" . lang('crud.kode_tugas') . "' ") ?>
+                    <?= form_input('tugas_tim[kode_tugas]', old('tugas_tim[kode_tugas]', $data->kode_tugas ?? generate_kode()), "class='form-control int' readonly='' required placeholder='" . lang('crud.kode_tugas') . "' ") ?>
                     <?php if (has_error('kode_tugas')) { ?>
                         <p class="text-danger"><?php echo error('kode_tugas'); ?></p>
                     <?php } ?>
@@ -106,19 +106,7 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <script type="text/javascript">
-    function makeid(length) {
-        var result = '';
-        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        var charactersLength = characters.length;
-        for (var i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() *
-                charactersLength));
-        }
-        return result;
-    }
-    $('input[name="tugas_tim[kode_tugas]"]').val(makeid(5));
-    $('input[name="tugas_tim[kode_tugas]"]').attr('readonly', 'readonly');
-
+    
     $(function() {
 
 
