@@ -154,7 +154,7 @@ class OverviewManagerController extends AdminController
             'bgColor' => 'progress-bar bg-warning',
 
             'title' => 'Perusahaan',
-            'value' => (new TargetFundraisingModel())->perusahaan()->where(['donatur' =>TargetFundraisingModel::PERUSAHAAN])->countAllResults(false),
+            'value' => (new TargetFundraisingModel())->perusahaan()->where(['donatur' =>TargetFundraisingModel::PERUSAHAAN])->countAllResults(false), 
 
         ]);
 
