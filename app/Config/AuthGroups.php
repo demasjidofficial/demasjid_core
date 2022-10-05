@@ -199,9 +199,6 @@ class AuthGroups extends ShieldGroups
          'baitulmal.takmir_fundraising.list' => 'Can delete tim fundraising',
          'baitulmal.donatur_fundraising.list' => 'Can delete tim fundraising',
 
-<<<<<<< HEAD
-      'baitulmal.qurbans.list'=>'baitulmal.qurbans.list',
-=======
 
       'baitulmal.qurbans.list'=>'baitulmal.qurbans.list',
 
@@ -210,7 +207,6 @@ class AuthGroups extends ShieldGroups
          'baitulmal.bmdonationcampaign.edit' => 'Can edit campaign',
          'baitulmal.bmdonationcampaign.delete' => 'Can delete campaign',
 
->>>>>>> 0d1a51d39921ba2439d348c14afdfa54d767ef5a
 
 
          'baitulmal.donasi.list' => 'Can view list donasi',
