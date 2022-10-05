@@ -28,6 +28,12 @@ class CreateTugasTim extends Migration
                 'null'       => false,
             ],
 
+            'kode_tugas' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+                'null'       => false,
+            ],
+
             'nominal' => [
                 'type'       => 'int',
                 'constraint' => 11,

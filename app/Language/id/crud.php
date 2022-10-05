@@ -296,6 +296,11 @@ return [
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
 	'nama_tim'=>'Nama Tim',
+	'tugas_tim'=>'Tugas Tim',
+	'staff_nama'=>'Nama Staff',
+	'tim_staff'=>'Anggota Tim',
+	'tugas'=>'Detail Tugas',
+
 
 	'donasi' => 'Donasi',
 	'campaign_id' => 'Kampanye',
@@ -312,8 +317,30 @@ return [
 	'instr' => 'Instruksi Pembayaran',
 
 	'sitefooter' => 'Footer',
+	'nominal_tugas'=>'Nominal didapat / Nominal maximal',
+	'progres'=>'Progress',
+	'add_tugas_tim'=>'Tambah Tugas Tim',
+	'nominal_dapat'=>'Nominal Dapat',
+	'nominal'=>'Nominal',
+	'nominal_target'=>'Nominal Target',
+	'progres'=>'Progres',
+	'overview_manager'=>'Overview Manager',
+	'tambah'=>'Tambah Data',
+	'add_donasi'=>'Tambah Donatur',
+	'tgl_transaksi'=>'Tanggal Transaksi',
+	'ttd_donatur'=>'Tanda Tangan Donatur',
+	'alamat'=>'Alamat',
+	'add_donatur'=>'Tambah Donatur',
+	'data_donatur'=>'Data Donatur',
+	'manager'=>'Manager',
+	'kode_tugas'=>'Kode Tugas',
+	'selengkapnya'=>'Selengkapnya',
+	'petugas'=>'Petugas',
+	'add_donatur'=>'Tambah Donatur',
+
 	'bmdonationtype' => 'Tipe Donasi',
 	'siteposts' => 'Artikel',
 	'sitesections' => 'Seksion',
 	'sitesliders' => 'Slide'
 ];
+

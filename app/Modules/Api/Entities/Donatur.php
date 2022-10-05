@@ -28,7 +28,6 @@ class Donatur extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-
 	 *     description="name",
 	 *     title="name",
 	 *     type="string",

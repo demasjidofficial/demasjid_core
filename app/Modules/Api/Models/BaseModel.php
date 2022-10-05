@@ -33,6 +33,8 @@ class BaseModel extends ModelsBaseModel
         return $this;    
     }
 
+
+
     public function masjid(){
 
         return $this->filterEntity(EntityModel::MASJID);

@@ -62,7 +62,6 @@ class AdminCrudController extends AdminController
         return $this->render($view, $dataIndex);
     }
 
-
     /**
      * Return the properties of a resource object
      *
@@ -94,6 +93,7 @@ class AdminCrudController extends AdminController
         return $this->render($this->viewPrefix . 'form', $this->getDataEdit());
     }
 
+    
     /**
      * Create a new resource object, from "posted" parameters
      *
@@ -196,8 +196,6 @@ class AdminCrudController extends AdminController
     {
         return [];
     }
-
-    
 
     protected function getDataEdit($id = null)
     {
