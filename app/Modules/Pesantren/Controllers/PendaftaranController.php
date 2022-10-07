@@ -10,6 +10,7 @@ use App\Modules\Api\Models\SiswaModel;
 use App\Modules\Api\Models\WilayahModel;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
 use App\Traits\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Style\ConditionalFormatting\Wizard\TextValue;
 
 class PendaftaranController extends AdminCrudController
 {
@@ -42,17 +43,17 @@ class PendaftaranController extends AdminCrudController
             }
         }
 
-        // $dataEdit = parent::getDataEdit($id);
-        $model = new PendaftaranModel();
-        $penerimaanSiswa = new SiswaModel();
+        $model = (new PendaftaranModel());
+        $penerimaanSiswa = (new SiswaModel());
 
         if (!empty($id)) {
             $data = $model->find($id);
+
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
 
-            $array = [
+            $dataSiswa = [
                 'class_id' => $data->class_id,
                 // 'state' = $data->state'],
                 'name' => $data->name,
@@ -78,15 +79,15 @@ class PendaftaranController extends AdminCrudController
                 'mother_email' => $data->mother_email,
                 'path_image' => $data->path_image,
             ];
+
+
+            if ($model->student_status("diterima")) {
+                $penerimaanSiswa->set($dataSiswa);
+                $penerimaanSiswa->insert();
+            }
         }
 
-
-        if ($model->where('state', 'diterima')) {
-            $penerimaanSiswa->set($array);
-            $penerimaanSiswa->insert();
-        }
-
-        return parent::update($id, $penerimaanSiswa);
+        return parent::update($id);
     }
 
     public function show($id = null)

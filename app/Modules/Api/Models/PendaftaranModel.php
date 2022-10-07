@@ -99,6 +99,48 @@ class PendaftaranModel extends BaseModel
 		return parent::findAll($limit, $offset);
 	}
 
-	
+	// public function pindahData($table, $data)
+	// {
+	// 	$pendaftaran = [
+	// 		'class_id',
+	// 		// 'state',
+	// 		'name',
+	// 		'nis',
+	// 		'nick_name',
+	// 		'birth_date',
+	// 		'birth_place',
+	// 		'gender',
+	// 		'provinsi_id',
+	// 		'kota_id',
+	// 		'kecamatan_id',
+	// 		'desa_id',
+	// 		'address',
+	// 		'school_origin',
+	// 		'description',
+	// 		'father_name',
+	// 		'father_job',
+	// 		'father_tlpn',
+	// 		'father_email',
+	// 		'mother_name',
+	// 		'mother_job',
+	// 		'mother_tlpn',
+	// 		'mother_email',
+	// 		'path_image',
+	// 	];
 
+	// 	$this->where('state','diterima');
+
+	// 	return $this;
+	// 	// $this->db->table($table)->insert($data);
+	// }
+
+
+	public function student_status($status)
+	{
+		
+		$this->getSelectColumn('*');
+		$this->where('state', $status);
+
+		return $this;
+	}
 }
