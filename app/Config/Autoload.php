@@ -62,6 +62,7 @@ class Autoload extends AutoloadConfig
         'App\Modules\Board'     => ROOTPATH . 'app/Modules/Board',
         'App\Modules\Settings'  => ROOTPATH . 'app/Modules/Settings',
         'App\Modules\Bot'  => ROOTPATH . 'app/Modules/Bot',
+        'App\Modules\Room'  => ROOTPATH . 'app/Modules/Room',
     ];
 
     /**

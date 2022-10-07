@@ -2258,6 +2258,318 @@ paths:
       security:
         -
           bearer_auth: []
+  /commentRooms:
+    get:
+      tags:
+        - CommentRoom
+      summary: 'Find list CommentRoom'
+      description: 'Returns list of CommentRoom'
+      operationId: getCommentRoom
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/CommentRoom' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/CommentRoom' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/CommentRoom' } }
+                type: object
+        '404':
+          description: 'CommentRoom not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - CommentRoom
+      summary: 'Add a new CommentRoom to the store'
+      operationId: addCommentRoom
+      requestBody:
+        $ref: '#/components/requestBodies/CommentRoom'
+      responses:
+        '201':
+          description: 'Created CommentRoom'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentRoom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CommentRoom'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/commentRooms/{id}':
+    get:
+      tags:
+        - CommentRoom
+      summary: 'Find CommentRoom by ID'
+      description: 'Returns a single CommentRoom'
+      operationId: getCommentRoomById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of CommentRoom to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentRoom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CommentRoom'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'CommentRoom not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - CommentRoom
+      summary: 'Update an existing CommentRoom'
+      operationId: updateCommentRoom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'CommentRoom id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/CommentRoom'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'CommentRoom not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - CommentRoom
+      summary: 'Deletes a CommentRoom'
+      operationId: deleteCommentRoom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'CommentRoom id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /dataruangans:
+    get:
+      tags:
+        - Dataruangan
+      summary: 'Find list Dataruangan'
+      description: 'Returns list of Dataruangan'
+      operationId: getDataruangan
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Dataruangan' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Dataruangan' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Dataruangan' } }
+                type: object
+        '404':
+          description: 'Dataruangan not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Dataruangan
+      summary: 'Add a new Dataruangan to the store'
+      operationId: addDataruangan
+      requestBody:
+        $ref: '#/components/requestBodies/Dataruangan'
+      responses:
+        '201':
+          description: 'Created Dataruangan'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataruangan'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Dataruangan'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/dataruangans/{id}':
+    get:
+      tags:
+        - Dataruangan
+      summary: 'Find Dataruangan by ID'
+      description: 'Returns a single Dataruangan'
+      operationId: getDataruanganById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Dataruangan to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataruangan'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Dataruangan'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Dataruangan not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Dataruangan
+      summary: 'Update an existing Dataruangan'
+      operationId: updateDataruangan
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Dataruangan id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Dataruangan'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Dataruangan not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Dataruangan
+      summary: 'Deletes a Dataruangan'
+      operationId: deleteDataruangan
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Dataruangan id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /donasis:
     get:
       tags:
@@ -9948,6 +10260,98 @@ components:
           type: integer
           format: '-'
       type: object
+    CommentRoom:
+      title: CommentRoom
+      description: CommentRoom
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        room_id:
+          nullable: true
+          title: room_id
+          description: room_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        kritik:
+          nullable: false
+          title: kritik
+          description: kritik
+          type: string
+          format: '-'
+          maxLength: 50
+        saran:
+          nullable: false
+          title: saran
+          description: saran
+          type: string
+          format: '-'
+          maxLength: 50
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    Dataruangan:
+      title: Dataruangan
+      description: Dataruangan
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        nama:
+          nullable: false
+          title: nama
+          description: nama
+          type: string
+          format: '-'
+          maxLength: 255
+        ukuran:
+          nullable: false
+          title: ukuran
+          description: ukuran
+          type: string
+          format: '-'
+          maxLength: 255
+        fasilitas:
+          nullable: false
+          title: fasilitas
+          description: fasilitas
+          type: string
+          format: '-'
+          maxLength: 255
+        kondisi:
+          nullable: false
+          title: kondisi
+          description: kondisi
+          type: string
+          format: '-'
+          maxLength: 255
+      type: object
     Donasi:
       title: Donasi
       description: Donasi
@@ -13096,6 +13500,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ChartOfAccount'
+    CommentRoom:
+      description: 'CommentRoom object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/CommentRoom'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/CommentRoom'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CommentRoom'
+    Dataruangan:
+      description: 'Dataruangan object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Dataruangan'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Dataruangan'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Dataruangan'
     Donasi:
       description: 'Donasi object that needs to be added'
       content:
@@ -13687,6 +14115,12 @@ tags:
   -
     name: ChartOfAccount
     description: 'Everything about your ChartOfAccount'
+  -
+    name: CommentRoom
+    description: 'Everything about your CommentRoom'
+  -
+    name: Dataruangan
+    description: 'Everything about your Dataruangan'
   -
     name: Donasi
     description: 'Everything about your Donasi'
