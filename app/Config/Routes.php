@@ -144,23 +144,7 @@ static function ($routes) {
     //$routes->resource('sections');
     //$routes->resource('sliders');
     //$routes->resource('socials');
-});
-
-        $routes->resource('boardNewsBgs');
-        $routes->resource('boardNewsRuntexts');
-        $routes->resource('donaturs');
-        $routes->resource('donasis');
-        $routes->resource('PaymentMethods');
-        $routes->resource('MasterBanks');
-        $routes->resource('MasterPaymentgateways');
-        //$routes->resource('menus');
-        //$routes->resource('pages');
-        //$routes->resource('posts');
-        //$routes->resource('sections');
-        //$routes->resource('sliders');
-        //$routes->resource('socials');
-    }
-);
+});        
 
 
 $routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
