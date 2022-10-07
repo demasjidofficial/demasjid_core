@@ -12,7 +12,7 @@ class RoomController extends AdminCrudController
 {
     use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Room\Views\Room\\';
+    protected $viewPrefix = 'App\Modules\Room\Views\room\\';
     protected $baseRoute = 'admin/room/room';
     protected $langModel = 'Room';
     protected $modelName = 'App\Modules\Api\Models\RoomModel';
