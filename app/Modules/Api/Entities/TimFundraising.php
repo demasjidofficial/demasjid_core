@@ -28,8 +28,8 @@ class TimFundraising extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_target",
-	 *     title="id_target",
+	 *     description="target_id",
+	 *     title="target_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -37,7 +37,7 @@ class TimFundraising extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $id_target;
+	private $target_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="id_jadwal",
@@ -119,7 +119,31 @@ class TimFundraising extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $updated_by; 
+	private $updated_by;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="kode_tim",
+	 *     title="kode_tim",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $kode_tim;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="nama_tim",
+	 *     title="nama_tim",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $nama_tim; 
 }
 /**
  *

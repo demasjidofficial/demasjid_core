@@ -3,9 +3,10 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
+use App\Modules\Api\Models\TimStaffTugasModel;
+use App\Modules\Api\Models\TugasTimModel;
+use App\Modules\BaitulMal\Models\TimStaffFilter_;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\TimStaffModel;
-use App\Modules\BaitulMal\Models\TimStaffFilter;
 
 class TimStaffController extends AdminCrudController
 {
@@ -29,12 +30,18 @@ class TimStaffController extends AdminCrudController
     public function show($id = null){
         return parent::show($id);
     }
-    public function tim($id = null){
-        return parent::tim($id);
-    }
 
     public function create(){
-        return parent::create();
+        $data = $this->request->getPost();
+        $data['target_max'] = (float)(str_replace(',', '', $data['nominal_target']));
+       
+
+        if (!$this->model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $this->model->errors());
+        }
+        $this->writeLog();
+
+        return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
     public function delete($id = null){
@@ -43,15 +50,12 @@ class TimStaffController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(TimStaffFilter::class);
+        $model = model(TimStaffFilter_::class);
         return [
             'headers' => [
-                                    'id_tim' => lang('crud.id_tim'),
-                'id_user' => lang('crud.id_user'),
-                'created_by' => lang('crud.created_by'),
-                'updated_by' => lang('crud.updated_by'),
-                'tugas_tim' => lang('crud.tugas_tim'),
-                'target_nominal_tim' => lang('crud.target_nominal_tim')
+                                    'tim_id' => lang('crud.nama_tim'),
+                'user_id' => lang('crud.staff_nama'),
+      
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
@@ -62,27 +66,10 @@ class TimStaffController extends AdminCrudController
         ];
     }
 
-
-    protected function getDataTim($id=null)
-    {
-        $dataEdit = parent::getDataTim($id);
-        $model = new TimStaffModel();
-
-        if(!empty($id)){
-            $data = $model->find($id);
-            if (null === $data) {
-                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
-            }
-            $dataEdit['data'] = $data;
-            $dataEdit['timStaff'] = (new TimStaffModel())->where('id_tim', $id)->findAll();
-        }
-        return $dataEdit;
-    }
-
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new TimStaffModel();
+        $model = new TimStaffTugasModel();
 
         if(!empty($id)){
             $data = $model->find($id);
@@ -90,9 +77,13 @@ class TimStaffController extends AdminCrudController
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
-            $dataEdit['timStaff'] = (new TimStaffModel())->where('id_tim', $id)->findAll();
+            $dataEdit['tugasItems'] = (new TugasTimModel())->where('staff_id', $data->user_id)->findAll();
         }
-        
+        $dataEdit['stateItems'] = TugasTimModel::listState();
+        $dataEdit['timItems'] = ['' => 'Pilih Tim'] + Arr::pluck(model('App\Modules\Api\Models\TimFundraisingModel')->select(['tim_fundraising.id as key', 'tim_fundraising.nama_tim as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
+
+
 }

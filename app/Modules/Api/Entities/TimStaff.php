@@ -28,8 +28,8 @@ class TimStaff extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_tim",
-	 *     title="id_tim",
+	 *     description="tim_id",
+	 *     title="tim_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -37,11 +37,11 @@ class TimStaff extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $id_tim;
+	private $tim_id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="id_user",
-	 *     title="id_user",
+	 *     description="user_id",
+	 *     title="user_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -49,7 +49,7 @@ class TimStaff extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $id_user;
+	private $user_id;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -95,30 +95,7 @@ class TimStaff extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $updated_by;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="tugas_tim",
-	 *     title="tugas_tim",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * )
-	 *		 
-	 */
-	private $tugas_tim;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="target_nominal_tim",
-	 *     title="target_nominal_tim",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=true,
-	 * 	   maxLength=100,
-	 * )
-	 *		 
-	 */
-	private $target_nominal_tim; 
+	private $updated_by; 
 }
 /**
  *

@@ -83,6 +83,7 @@ class TargetFundraisingController extends AdminCrudController
                 'target_nominal' => lang('crud.target_nominal'),
                 'tipe_donasi' => lang('crud.tipe_donasi'),
                 'jadwal_mulai' => lang('crud.durasi'),
+                'first_name' => lang('crud.manager'),
 
             ],
             'controller' => $this->getBaseController(),

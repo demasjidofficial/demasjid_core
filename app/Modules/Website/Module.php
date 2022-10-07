@@ -48,7 +48,7 @@ class Module extends BaseModule
             'title'           => lang('app.slides'),
             'url'             => url_to('App\Modules\Website\Controllers\SiteslidersController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            //'permission'      => 'website.sliders.list',
+            'permission'      => 'website.sliders.list',
         ]);
         $sitesocialsItem = new MenuItem([
             'title'           => lang('app.socials'),
@@ -60,13 +60,13 @@ class Module extends BaseModule
             'title'           => lang('app.footer'),
             'url'             => url_to('App\Modules\Website\Controllers\SitefooterController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-            // 'permission'      => 'website.socials.list',
+            'permission'      => 'website.socials.list',
         ]);
         $visitsiteItem = new MenuItem([
             'title'           => lang('app.visit_site'),
             'url'             => site_url(),
             'fontAwesomeIcon' => 'fas fa-link nav-icon',
-            //'permission'      => 'website.socials.list',
+            'permission'      => 'website.socials.list',
         ]);
         $sidebar->menu('sidebar')->collection('website')
                                  ->addItem($sitemenusItem)

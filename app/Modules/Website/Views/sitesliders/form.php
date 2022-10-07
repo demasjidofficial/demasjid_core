@@ -87,7 +87,7 @@
                             <?php echo form_label(lang('crud.path_image'), '', ['for' => 'path_image', 'class' => 'col-form-label col-sm-2']); ?>
                             <div class="col-sm-10">
                                 <div class="justify-content-center photo-wrapper">
-                                    <img id="slider_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail" style="height:150px">
+                                    <img id="slider_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : $blank_img ?>" alt="" class="img-thumbnail" style="height:150px">
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
