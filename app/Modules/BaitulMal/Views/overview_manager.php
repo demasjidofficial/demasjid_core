@@ -19,10 +19,10 @@
 </x-page-head>
 
 <section class="content">
-  <div class="container-fluid">
+  <div class="container-fluid" id="overview_manager">
     <div class="row">
       <!-- Left col -->
-      <div class="col-md-9">
+      <div class="col-md-8">
         <?= view('App\Views\Widgets\_stats_target', [
           'stats'   => $widgets->widget('target')->items(),
         ]) ?>
@@ -39,7 +39,7 @@
 
 
       </div>
-      <div style="background-color:#067D68 ;" class="card col-md-3">
+      <div style="" id="de_menu_gradient" class="card col-md-4">
 
         <div class="card-header">
           <h3 style="color:white;" class="card-title">
@@ -47,7 +47,6 @@
             Menu
           </h3>
         </div>
-        <div class="body">
 
 
           <div class="info-box bg-default">
@@ -99,7 +98,6 @@
           </div>
           <!-- /.info-box -->
 
-        </div>
 
 
       </div>

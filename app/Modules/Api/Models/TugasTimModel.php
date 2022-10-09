@@ -8,7 +8,7 @@ class TugasTimModel extends BaseModel
     const END = 'selesai';
     const CANCEL = 'batal';
     const PROGRESS = 'berlangsung';
-    protected $table = 'tugas_tim';
+    protected $table = 'tugas_tim_';
     protected $returnType = 'App\Modules\Api\Entities\TugasTim';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  

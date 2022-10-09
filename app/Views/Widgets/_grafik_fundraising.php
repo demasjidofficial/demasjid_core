@@ -36,6 +36,15 @@
             <div class="chart">
               <!-- Sales Chart Canvas -->
               <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+              <div class="d-flex flex-row justify-content-end">
+              <span class="mr-2 text-primary">
+                <i class="fas fa-square text-primary"></i> Pekan Ini
+              </span>
+
+              <span class="text-secondary">
+                <i class="fas fa-square text-secondary"></i> Pekan Terakhir
+              </span>
+            </div>
             </div>
             <!-- /.chart-responsive -->
           </div>

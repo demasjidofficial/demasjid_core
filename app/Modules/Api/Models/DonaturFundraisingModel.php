@@ -40,13 +40,13 @@ class DonaturFundraisingModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
 		$this->selectColumn = [
-			$this->table . '.*', 'tugas_tim.tugas as tugas', 'tugas_tim.nominal_target as nominal_target',
-			'tim_fundraising.nama_tim as nama_tim', 'users.username','users.first_name as first_name','users.last_name as last_name','tugas_tim.tugas as tugas'
+			$this->table . '.*', 'tugas_tim_.tugas as tugas', 'tugas_tim_.nominal_target as nominal_target',
+			'tim_fundraising.nama_tim as nama_tim', 'users.username','users.first_name as first_name','users.last_name as last_name','tugas_tim_.tugas as tugas'
 		];
 
 
-		$this->join('tugas_tim', 'tugas_tim.id = ' . $this->table . '.tugas_id');
-		$this->join('tim_staff', 'tim_staff.id = tugas_tim.staff_id');
+		$this->join('tugas_tim_', 'tugas_tim_.id = ' . $this->table . '.tugas_id');
+		$this->join('tim_staff', 'tim_staff.id = tugas_tim_.staff_id');
 		$this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 
@@ -58,13 +58,13 @@ class DonaturFundraisingModel extends BaseModel
 	{
 
 		$this->selectColumn = [
-			$this->table . '.nama as nama', $this->table . '.tanggal_transaksi as tanggal_transaksi', $this->table . '.nominal as nominal', 'tugas_tim.tugas as tugas', 'tugas_tim.nominal_target as nominal_target',
+			$this->table . '.nama as nama', $this->table . '.tanggal_transaksi as tanggal_transaksi', $this->table . '.nominal as nominal', 'tugas_tim_.tugas as tugas', 'tugas_tim_.nominal_target as nominal_target',
 			'tim_fundraising.nama_tim as nama_tim', 'users.username'
 		];
 
 
-		$this->join('tugas_tim', 'tugas_tim.id = ' . $this->table . '.tugas_id');
-		$this->join('tim_staff', 'tim_staff.id = tugas_tim.staff_id');
+		$this->join('tugas_tim_', 'tugas_tim_.id = ' . $this->table . '.tugas_id');
+		$this->join('tim_staff', 'tim_staff.id = tugas_tim_.staff_id');
 		$this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 

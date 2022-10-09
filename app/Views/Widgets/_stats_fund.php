@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row de_infobox_top">
     <?php foreach ($stats  as $elem) : ?>
 
     <?php foreach ($elem->items() as $index => $widget) : ?>
