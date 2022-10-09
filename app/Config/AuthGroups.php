@@ -52,6 +52,22 @@ class AuthGroups extends ShieldGroups
             'title'       => 'Staff',
             'description' => 'Has access to beta-level features.',
         ],
+        'manager' => [
+            'title'       => 'Manager',
+            'description' => 'Has access to beta-level features.',
+        ],
+        'bendahara' => [
+            'title'       => 'Bendahara',
+            'description' => 'Has access to beta-level features.',
+        ],
+        'takmir' => [
+            'title'       => 'Ketua Takmir',
+            'description' => 'Has access to beta-level features.',
+        ],
+        'donatur' => [
+            'title'       => 'Donatur',
+            'description' => 'Has access to beta-level features.',
+        ],
     ];
 
     /**
@@ -175,22 +191,28 @@ class AuthGroups extends ShieldGroups
          'baitulmal.katDonatur.edit' => 'Can edit donatur category',
          'baitulmal.katDonatur.delete' => 'Can delete donatur category',
          
-         'baitulmal.timfundraising.list' => 'Can view list tim fundraising',
-         'baitulmal.timfundraising.create' => 'Can create tim fundraising',
-         'baitulmal.timfundraising.edit' => 'Can edit tim fundraising',
-         'baitulmal.timfundraising.delete' => 'Can delete tim fundraising',
-
-         'baitulmal.jadwalfundraising.list' => 'Can view list jadwal fundraising',
-         'baitulmal.jadwalfundraising.create' => 'Can create jadwal fundraising',
-         'baitulmal.jadwalfundraising.edit' => 'Can edit jadwal fundraising',
-         'baitulmal.jadwalfundraising.delete' => 'Can delete jadwal fundraising',
-
-         'baitulmal.targetfundraising.list' => 'Can view list target fundraising',
-         'baitulmal.targetfundraising.create' => 'Can create targetfundraising',
-         'baitulmal.targetfundraising.edit' => 'Can edit targetfundraising',
-         'baitulmal.targetfundraising.delete' => 'Can delete targetfundraising',
+         'baitulmal.fundraising.list' => 'Can view list module fundraising',
+         'baitulmal.manager_fundraising.list' => 'Can view list tim fundraising',
+         'baitulmal.supervisor_fundraising.list' => 'Can create tim fundraising',
+         'baitulmal.staf_fundraising.list' => 'Can edit tim fundraising',
+         'baitulmal.bendahara_fundraising.list' => 'Can delete tim fundraising',
+         'baitulmal.takmir_fundraising.list' => 'Can delete tim fundraising',
+         'baitulmal.donatur_fundraising.list' => 'Can delete tim fundraising',
 
 
+      'baitulmal.qurbans.list'=>'baitulmal.qurbans.list',
+
+         'baitulmal.bmdonationcampaign.list' => 'Can view list campaign',
+         'baitulmal.bmdonationcampaign.create' => 'Can create campaign',
+         'baitulmal.bmdonationcampaign.edit' => 'Can edit campaign',
+         'baitulmal.bmdonationcampaign.delete' => 'Can delete campaign',
+
+
+
+         'baitulmal.donasi.list' => 'Can view list donasi',
+         'baitulmal.donasi.create' => 'Can create donasi',
+         'baitulmal.donasi.edit' => 'Can edit donasi',
+         'baitulmal.donasi.delete' => 'Can delete donasi',
 
         'tpq.profile.delete' => 'Can edit profile',      
 
@@ -251,5 +273,23 @@ class AuthGroups extends ShieldGroups
         'beta' => [
             'beta.access',
         ],
+        'manager'=>[
+            'baitulmal.manager_fundraising.*'
+        ],
+        'supervisor'=>[
+            'baitulmal.supervisor_fundraising.*'
+        ],
+        'staff'=>[
+            'baitulmal.staff_fundraising.*'
+        ],
+        'bendahara'=>[
+            'baitulmal.bendahara_fundraising.*'
+        ],
+        'takmir'=>[
+            'baitulmal.takmir_fundraising.*'
+        ],
+        'donatur'=>[
+            'baitulmal.donatur_fundraising.*'
+        ]
     ];
 }

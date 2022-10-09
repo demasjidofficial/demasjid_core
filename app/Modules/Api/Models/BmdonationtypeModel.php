@@ -2,6 +2,8 @@
 
 class BmdonationtypeModel extends BaseModel
 {
+    const ACTIVE = 'active';
+    const INACTIVE = 'inactive';
     protected $table = 'bmdonationtype';
     protected $returnType = 'App\Modules\Api\Entities\Bmdonationtype';
     protected $primaryKey = 'id';
@@ -24,4 +26,20 @@ class BmdonationtypeModel extends BaseModel
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required'
     ];   
+
+	public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*', 'uom.name as uom_name'];
+        $this->join('uom', 'uom.id = '.$this->table.'.uom_id');
+
+        return parent::findAll($limit, $offset);
+    } 
+
+    public static function listState(){
+
+        return [
+			self::ACTIVE => lang('app.active'),
+			self::INACTIVE => lang('app.inactive'),
+		];
+	}
 }

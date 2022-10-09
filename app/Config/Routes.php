@@ -84,9 +84,9 @@ static function ($routes) {
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
     $routes->resource('bmdonationcampaigns');
-
+    $routes->resource('timStaffs');
     $routes->resource('donaturTypes');
- 
+    $routes->resource('donaturs');
     $routes->resource('donaturcategories',['except' => ['index']]);
     $routes->resource('targetFundraisings');
     $routes->resource('jadwalFundraisings');
@@ -108,6 +108,8 @@ static function ($routes) {
     $routes->resource('PaymentMethods');
     $routes->resource('MasterBanks');
     $routes->resource('MasterPaymentgateways');
+    $routes->resource('donaturFundraisings');
+    $routes->resource('tugasTims');
     //$routes->resource('menus');
     //$routes->resource('pages');
     //$routes->resource('posts');

@@ -73,7 +73,7 @@ class PaymentMethodTransferController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['bankItems'] = ['' => 'Pilih Bank'] + Arr::pluck(model('App\Modules\Api\Models\MasterBankModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['bankItems'] = ['' => 'Pilih Bank'] + Arr::pluck(model('App\Modules\Api\Models\MasterBankModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

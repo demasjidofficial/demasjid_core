@@ -73,7 +73,7 @@ class PaymentMethodPaygatController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-            $dataEdit['bankItems'] = ['' => 'Pilih Payment Gateway'] + Arr::pluck(model('App\Modules\Api\Models\MasterPaymentgatewayModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
+            $dataEdit['bankItems'] = ['' => 'Pilih Payment Gateway'] + Arr::pluck(model('App\Modules\Api\Models\MasterPaymentgatewayModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
 }

@@ -28,6 +28,13 @@ class CreateTimStaff extends Migration
                 'null'       => false,
             ],
 
+            'nominal_max' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => true,   
+            ],
+
          
           
             'created_at' => [

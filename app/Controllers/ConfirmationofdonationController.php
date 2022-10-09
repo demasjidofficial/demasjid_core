@@ -17,6 +17,7 @@ class ConfirmationofdonationController extends BaseController
      */
 
     use SiteProfile;
+    const BLANK_IMG = 'assets/admin/images/blank.jpg';
     public function ConfirmView()
     {
         helper(['form','number','app']);
@@ -32,6 +33,7 @@ class ConfirmationofdonationController extends BaseController
         $data['masjid_profile'] = $masjid_profile;
         $data['widgets'] = service('widgets');   
         $data['meta'] = meta_tag($masjid_profile["name"]); 
+        $data['blank_img'] = self::BLANK_IMG;
         
         $no_inv = current_url(true)->getQuery();
         $data['no_inv'] = (isset($no_inv)) ? substr($no_inv, 0 , -1) : $no_inv;

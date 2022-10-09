@@ -118,4 +118,7 @@ return [
 	'visit_site' => 'Tinjau Situs',
 	'learnings' => 'Pembelajaran',
 	'footer' => 'Footer',
+	'overview_tim'=>'Overview Tim Fundraising',
+	'overview_spv'=>'Overview Supervisior',
+	'open_menu'=>'Buka Menu'
 ];

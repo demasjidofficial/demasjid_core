@@ -43,49 +43,45 @@ class PendaftaranController extends AdminCrudController
             }
         }
 
-        $model = (new PendaftaranModel());
-        $penerimaanSiswa = (new SiswaModel());
+        $model = (new PendaftaranModel())->asArray()->find();
+        // $penerimaanSiswa = (new SiswaModel());
 
-        if (!empty($id)) {
-            $data = $model->find($id);
+        // if (!empty($id)) {
+        //     $data = $model->find($id);
 
-            if (null === $data) {
-                return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
-            }
+        //     if (null === $data) {
+        //         return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
+        //     }
 
-            $dataSiswa = [
-                'class_id' => $data->class_id,
-                // 'state' = $data->state'],
-                'name' => $data->name,
-                'nis' => $data->nis,
-                'nick_name' => $data->nick_name,
-                'birth_date' => $data->birth_date,
-                'birth_place' => $data->birth_place,
-                'gender' => $data->gender,
-                'provinsi_id' => $data->provinsi_id,
-                'kota_id' => $data->kota_id,
-                'kecamatan_id' => $data->kecamatan,
-                'desa_id' => $data->desa_id,
-                'address' => $data->address,
-                'school_origin' => $data->school_origin,
-                'description' => $data->description,
-                'father_name' => $data->father_name,
-                'father_job' => $data->father_job,
-                'father_tlpn' => $data->father_tlpn,
-                'father_email' => $data->father_email,
-                'mother_name' => $data->mother_name,
-                'mother_job' => $data->mother_job,
-                'mother_tlpn' => $data->mother_tlpn,
-                'mother_email' => $data->mother_email,
-                'path_image' => $data->path_image,
-            ];
+        //     $dataSiswa = [
+        //         'class_id' => $data->class_id,
+        //         // 'state' = $data->state'],
+        //         'name' => $data->name,
+        //         'nis' => $data->nis,
+        //         'nick_name' => $data->nick_name,
+        //         'birth_date' => $data->birth_date,
+        //         'birth_place' => $data->birth_place,
+        //         'gender' => $data->gender,
+        //         'provinsi_id' => $data->provinsi_id,
+        //         'kota_id' => $data->kota_id,
+        //         'kecamatan_id' => $data->kecamatan,
+        //         'desa_id' => $data->desa_id,
+        //         'address' => $data->address,
+        //         'school_origin' => $data->school_origin,
+        //         'description' => $data->description,
+        //         'father_name' => $data->father_name,
+        //         'father_job' => $data->father_job,
+        //         'father_tlpn' => $data->father_tlpn,
+        //         'father_email' => $data->father_email,
+        //         'mother_name' => $data->mother_name,
+        //         'mother_job' => $data->mother_job,
+        //         'mother_tlpn' => $data->mother_tlpn,
+        //         'mother_email' => $data->mother_email,
+        //         'path_image' => $data->path_image,
+        //     ];
 
-
-            if ($model->student_status("diterima")) {
-                $penerimaanSiswa->set($dataSiswa);
-                $penerimaanSiswa->insert();
-            }
-        }
+        $model->pindahData("siswa");
+        
 
         return parent::update($id);
     }

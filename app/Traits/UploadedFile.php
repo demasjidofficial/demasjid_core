@@ -24,4 +24,33 @@ trait UploadedFile {
         }        
         return false;
     }
+    protected function uploadTtd($name)
+    {        
+        $image = $this->request->getPost($name);
+        $image = str_replace('data:image/png;base64,','', $image);
+		$image = base64_decode($image);
+        $imageFolder = 'uploads/signature/';        
+
+        $newName = 'image_'.time().'.png';
+        file_put_contents(FCPATH.$imageFolder.$newName,$image);
+
+        return $imageFolder.'/'.$newName;
+    }
+    protected function uploadCamera($name)
+    {
+        # code...
+        $image = $this->request->getPost($name);
+        $image = str_replace('data:image/jpeg;base64,','', $image);
+		$image = base64_decode($image);
+        $imageFolder = 'uploads/serah_terima/';        
+
+        $newName = 'image_'.time().'.jpg';
+        file_put_contents(FCPATH.$imageFolder.$newName,$image);
+
+        return $imageFolder.'/'.$newName;
+
+		
+        
+
+    }
 }

@@ -2414,6 +2414,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /donaturFundraisings:
+    get:
+      tags:
+        - DonaturFundraising
+      summary: 'Find list DonaturFundraising'
+      description: 'Returns list of DonaturFundraising'
+      operationId: getDonaturFundraising
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturFundraising' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/DonaturFundraising' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/DonaturFundraising' } }
+                type: object
+        '404':
+          description: 'DonaturFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - DonaturFundraising
+      summary: 'Add a new DonaturFundraising to the store'
+      operationId: addDonaturFundraising
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturFundraising'
+      responses:
+        '201':
+          description: 'Created DonaturFundraising'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/donaturFundraisings/{id}':
+    get:
+      tags:
+        - DonaturFundraising
+      summary: 'Find DonaturFundraising by ID'
+      description: 'Returns a single DonaturFundraising'
+      operationId: getDonaturFundraisingById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of DonaturFundraising to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DonaturFundraising'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'DonaturFundraising not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - DonaturFundraising
+      summary: 'Update an existing DonaturFundraising'
+      operationId: updateDonaturFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturFundraising id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/DonaturFundraising'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'DonaturFundraising not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - DonaturFundraising
+      summary: 'Deletes a DonaturFundraising'
+      operationId: deleteDonaturFundraising
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'DonaturFundraising id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /donaturTypes:
     get:
       tags:
@@ -4910,6 +5066,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /nominalTargets:
+    get:
+      tags:
+        - NominalTarget
+      summary: 'Find list NominalTarget'
+      description: 'Returns list of NominalTarget'
+      operationId: getNominalTarget
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/NominalTarget' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/NominalTarget' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/NominalTarget' } }
+                type: object
+        '404':
+          description: 'NominalTarget not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - NominalTarget
+      summary: 'Add a new NominalTarget to the store'
+      operationId: addNominalTarget
+      requestBody:
+        $ref: '#/components/requestBodies/NominalTarget'
+      responses:
+        '201':
+          description: 'Created NominalTarget'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NominalTarget'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NominalTarget'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/nominalTargets/{id}':
+    get:
+      tags:
+        - NominalTarget
+      summary: 'Find NominalTarget by ID'
+      description: 'Returns a single NominalTarget'
+      operationId: getNominalTargetById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of NominalTarget to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NominalTarget'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/NominalTarget'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'NominalTarget not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - NominalTarget
+      summary: 'Update an existing NominalTarget'
+      operationId: updateNominalTarget
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'NominalTarget id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/NominalTarget'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'NominalTarget not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - NominalTarget
+      summary: 'Deletes a NominalTarget'
+      operationId: deleteNominalTarget
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'NominalTarget id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /nonRawatibSchedules:
     get:
       tags:
@@ -6614,6 +6926,162 @@ paths:
           name: id
           in: path
           description: 'RawatibSchedule id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /sitefooters:
+    get:
+      tags:
+        - Sitefooter
+      summary: 'Find list Sitefooter'
+      description: 'Returns list of Sitefooter'
+      operationId: getSitefooter
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitefooter' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Sitefooter' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Sitefooter' } }
+                type: object
+        '404':
+          description: 'Sitefooter not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Sitefooter
+      summary: 'Add a new Sitefooter to the store'
+      operationId: addSitefooter
+      requestBody:
+        $ref: '#/components/requestBodies/Sitefooter'
+      responses:
+        '201':
+          description: 'Created Sitefooter'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitefooter'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitefooter'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/sitefooters/{id}':
+    get:
+      tags:
+        - Sitefooter
+      summary: 'Find Sitefooter by ID'
+      description: 'Returns a single Sitefooter'
+      operationId: getSitefooterById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Sitefooter to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sitefooter'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Sitefooter'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Sitefooter not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Sitefooter
+      summary: 'Update an existing Sitefooter'
+      operationId: updateSitefooter
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitefooter id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Sitefooter'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Sitefooter not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Sitefooter
+      summary: 'Deletes a Sitefooter'
+      operationId: deleteSitefooter
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Sitefooter id to delete'
           required: true
           schema:
             type: integer
@@ -9809,34 +10277,41 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+        id_donatur_type:
+          nullable: true
+          title: id_donatur_type
+          description: id_donatur_type
+          type: integer
+          format: '-'
+          maxLength: 11
+        donatur_type_id:
+          nullable: true
+          title: donatur_type_id
+          description: donatur_type_id
+          type: integer
+          format: '-'
+          maxLength: 11
         name:
-          nullable: false
+          nullable: true
           title: name
           description: name
           type: string
           format: '-'
-          maxLength: 128
-        id_kategori:
-          nullable: false
-          title: id_kategori
-          description: id_kategori
-          type: integer
-          format: '-'
-          maxLength: 11
+          maxLength: 100
         email:
           nullable: true
           title: email
           description: email
           type: string
           format: '-'
-          maxLength: 50
+          maxLength: 100
         no_hp:
           nullable: true
           title: no_hp
           description: no_hp
           type: string
           format: '-'
-          maxLength: 50
+          maxLength: 100
         alamat:
           nullable: true
           title: alamat
@@ -9844,6 +10319,106 @@ components:
           type: string
           format: '-'
           maxLength: 100
+        created_at:
+          nullable: true
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: true
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    DonaturFundraising:
+      title: DonaturFundraising
+      description: DonaturFundraising
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        tugas_id:
+          nullable: true
+          title: tugas_id
+          description: tugas_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        nominal:
+          nullable: false
+          title: nominal
+          description: nominal
+          type: integer
+          format: '-'
+          maxLength: 11
+        no_transaksi:
+          nullable: true
+          title: no_transaksi
+          description: no_transaksi
+          type: string
+          format: '-'
+          maxLength: 255
+        tanggal_transaksi:
+          nullable: false
+          title: tanggal_transaksi
+          description: tanggal_transaksi
+          type: string
+          format: date
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        path_signature:
+          nullable: true
+          title: path_signature
+          description: path_signature
+          type: string
+          format: '-'
+          maxLength: 255
+        nama:
+          nullable: false
+          title: nama
+          description: nama
+          type: string
+          format: '-'
+          maxLength: 255
+        alamat:
+          nullable: false
+          title: alamat
+          description: alamat
+          type: string
+          format: '-'
+          maxLength: 255
+        email:
+          nullable: false
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 255
+        nohp:
+          nullable: false
+          title: nohp
+          description: nohp
+          type: string
+          format: '-'
+          maxLength: 20
         created_at:
           nullable: false
           title: created_at
@@ -9860,13 +10435,6 @@ components:
           nullable: true
           title: created_by
           description: created_by
-          type: integer
-          format: '-'
-          maxLength: 11
-        updated_by:
-          nullable: true
-          title: updated_by
-          description: updated_by
           type: integer
           format: '-'
           maxLength: 11
@@ -10721,6 +11289,65 @@ components:
           type: string
           format: date
       type: object
+    NominalTarget:
+      title: NominalTarget
+      description: NominalTarget
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        staff_id:
+          nullable: false
+          title: staff_id
+          description: staff_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        terkumpul_nominal:
+          nullable: false
+          title: terkumpul_nominal
+          description: terkumpul_nominal
+          type: integer
+          format: '-'
+          maxLength: 11
+        target_nominal:
+          nullable: true
+          title: target_nominal
+          description: target_nominal
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: true
+          title: created_at
+          description: created_at
+          type: string
+          format: '-'
+        updated_at:
+          nullable: true
+          title: updated_at
+          description: updated_at
+          type: string
+          format: '-'
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: string
+          format: '-'
+          maxLength: 100
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
+          type: string
+          format: '-'
+          maxLength: 100
+      type: object
     NonRawatibSchedule:
       title: NonRawatibSchedule
       description: NonRawatibSchedule
@@ -11327,17 +11954,11 @@ components:
           description: id
           type: integer
           format: '-'
-        name:
+          maxLength: 11
+        desa_id:
           nullable: false
-          title: name
-          description: name
-          type: string
-          format: '-'
-          maxLength: 255
-        wilayah_id:
-          nullable: false
-          title: wilayah_id
-          description: wilayah_id
+          title: desa_id
+          description: desa_id
           type: string
           format: '-'
           maxLength: 15
@@ -11355,6 +11976,20 @@ components:
           type: string
           format: '-'
           maxLength: 255
+        email:
+          nullable: true
+          title: email
+          description: email
+          type: string
+          format: '-'
+          maxLength: 50
+        telephone:
+          nullable: true
+          title: telephone
+          description: telephone
+          type: string
+          format: '-'
+          maxLength: 15
         path_logo:
           nullable: true
           title: path_logo
@@ -11375,6 +12010,7 @@ components:
           description: entity_id
           type: integer
           format: '-'
+          maxLength: 11
         created_at:
           nullable: false
           title: created_at
@@ -11387,6 +12023,13 @@ components:
           description: updated_at
           type: string
           format: date
+        name:
+          nullable: true
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
       type: object
     Program:
       title: Program
@@ -11664,6 +12307,64 @@ components:
           description: created_by
           type: integer
           format: '-'
+      type: object
+    Sitefooter:
+      title: Sitefooter
+      description: Sitefooter
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        title:
+          nullable: false
+          title: title
+          description: title
+          type: string
+          format: '-'
+          maxLength: 255
+        content:
+          nullable: false
+          title: content
+          description: content
+          type: string
+          format: '-'
+        language_id:
+          nullable: true
+          title: language_id
+          description: language_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        state:
+          nullable: true
+          title: state
+          description: state
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     Sitemenus:
       title: Sitemenus
@@ -12221,10 +12922,10 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        id_target:
+        target_id:
           nullable: false
-          title: id_target
-          description: id_target
+          title: target_id
+          description: target_id
           type: integer
           format: '-'
           maxLength: 11
@@ -12275,6 +12976,20 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+        kode_tim:
+          nullable: true
+          title: kode_tim
+          description: kode_tim
+          type: string
+          format: '-'
+          maxLength: 100
+        nama_tim:
+          nullable: true
+          title: nama_tim
+          description: nama_tim
+          type: string
+          format: '-'
+          maxLength: 100
       type: object
     TimStaff:
       title: TimStaff
@@ -12287,17 +13002,17 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        id_tim:
+        tim_id:
           nullable: false
-          title: id_tim
-          description: id_tim
+          title: tim_id
+          description: tim_id
           type: integer
           format: '-'
           maxLength: 11
-        id_user:
+        user_id:
           nullable: false
-          title: id_user
-          description: id_user
+          title: user_id
+          description: user_id
           type: integer
           format: '-'
           maxLength: 11
@@ -12327,19 +13042,6 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        tugas_tim:
-          nullable: true
-          title: tugas_tim
-          description: tugas_tim
-          type: string
-          format: '-'
-        target_nominal_tim:
-          nullable: true
-          title: target_nominal_tim
-          description: target_nominal_tim
-          type: string
-          format: '-'
-          maxLength: 100
       type: object
     TugasTim:
       title: TugasTim
@@ -12352,10 +13054,10 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        id_staff:
+        staff_id:
           nullable: false
-          title: id_staff
-          description: id_staff
+          title: staff_id
+          description: staff_id
           type: integer
           format: '-'
           maxLength: 11
@@ -12396,6 +13098,20 @@ components:
           nullable: true
           title: updated_by
           description: updated_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        progres:
+          nullable: true
+          title: progres
+          description: progres
+          type: string
+          format: '-'
+          maxLength: 100
+        nominal_target:
+          nullable: true
+          title: nominal_target
+          description: nominal_target
           type: integer
           format: '-'
           maxLength: 11
@@ -12819,6 +13535,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Donatur'
+    DonaturFundraising:
+      description: 'DonaturFundraising object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/DonaturFundraising'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/DonaturFundraising'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DonaturFundraising'
     DonaturType:
       description: 'DonaturType object that needs to be added'
       content:
@@ -12999,6 +13727,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Member'
+    NominalTarget:
+      description: 'NominalTarget object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/NominalTarget'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/NominalTarget'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NominalTarget'
     NonRawatibSchedule:
       description: 'NonRawatibSchedule object that needs to be added'
       content:
@@ -13167,6 +13907,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/RawatibSchedule'
+    Sitefooter:
+      description: 'Sitefooter object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Sitefooter'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Sitefooter'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sitefooter'
     Sitemenus:
       description: 'Sitemenus object that needs to be added'
       content:
@@ -13407,6 +14159,9 @@ tags:
     name: Donatur
     description: 'Everything about your Donatur'
   -
+    name: DonaturFundraising
+    description: 'Everything about your DonaturFundraising'
+  -
     name: DonaturType
     description: 'Everything about your DonaturType'
   -
@@ -13452,6 +14207,9 @@ tags:
     name: Member
     description: 'Everything about your Member'
   -
+    name: NominalTarget
+    description: 'Everything about your NominalTarget'
+  -
     name: NonRawatibSchedule
     description: 'Everything about your NonRawatibSchedule'
   -
@@ -13493,6 +14251,9 @@ tags:
   -
     name: RawatibSchedule
     description: 'Everything about your RawatibSchedule'
+  -
+    name: Sitefooter
+    description: 'Everything about your Sitefooter'
   -
     name: Sitemenus
     description: 'Everything about your Sitemenus'

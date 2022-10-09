@@ -134,13 +134,39 @@ class PendaftaranModel extends BaseModel
 	// 	// $this->db->table($table)->insert($data);
 	// }
 
-
-	public function student_status($status)
+	public function pindahData($saveTable)
 	{
-		
-		$this->getSelectColumn('*');
-		$this->where('state', $status);
+		$dataSiswa = array(
+			'class_id' => $_POST['class_id'],
+			// 'state',
+			'name' => $_POST['name'],
+			'nis' => $_POST['nis'],
+			'nick_name' => $_POST['nick_name'],
+			'birth_date' => $_POST['birth_date'],
+			'birth_place' => $_POST['birth_place'],
+			'gender' => $_POST['gender'],
+			'provinsi_id' => $_POST['provinsi_id'],
+			'kota_id' => $_POST['kota_id'],
+			'kecamatan_id' => $_POST['kecamatan_id'],
+			'desa_id' => $_POST['desa_id'],
+			'address' => $_POST['address'],
+			'school_origin' => $_POST['school_origin'],
+			'description' => $_POST['description'],
+			'father_name' => $_POST['father_name'],
+			'father_job' => $_POST['father_job'],
+			'father_tlpn' => $_POST['father_tlpn'],
+			'father_email' => $_POST['father_email'],
+			'mother_name' => $_POST['mother_name'],
+			'mother_job' => $_POST['mother_job'],
+			'mother_tlpn' => $_POST['mother_tlpn'],
+			'mother_email' => $_POST['mother_email'],
+			'path_image' => $_POST['path_image'],
+		);
 
-		return $this;
+		if ($this->where('state','diterima')) {
+			$this->db->table($saveTable)->insert($dataSiswa);
+		}
+		
+		
 	}
 }
