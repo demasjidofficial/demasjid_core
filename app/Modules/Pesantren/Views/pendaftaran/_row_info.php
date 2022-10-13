@@ -17,6 +17,7 @@
 <td>< ?php echo esc($item->address) ?></a></td> -->
 
 <td><?php echo esc($item->provinsi_id).', '.esc($item->kota_id).', '.esc($item->kecamatan_id).', '.esc($item->desa_id).', '.esc($item->address) ?></a></td>
+<!-- <td>< ?php echo $provinsi.', '.$kota.', '.$kecamatan.', '.$desa.', '.esc($item->address) ?></a></td> -->
 <!-- <td>< ?= ucwords(strtolower($item->desa . ', ' . $item->kecamatan . ', ' . $item->kota . ', ' . $item->provinsi)); ?></a></td> -->
 
 <td><?php echo esc($item->father_name) ?></a></td>

@@ -3,20 +3,18 @@
 namespace App\Modules\Pesantren\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Entities\Pendaftaran;
 use IlluminateAgnostic\Arr\Support\Arr;
 use App\Modules\Api\Models\PendaftaranModel;
 use App\Modules\Api\Models\SiswaModel;
 use App\Modules\Api\Models\WilayahModel;
 use App\Modules\Pesantren\Models\PendaftaranFilter;
 use App\Traits\UploadedFile;
-use PhpOffice\PhpSpreadsheet\Style\ConditionalFormatting\Wizard\TextValue;
 
 class PendaftaranController extends AdminCrudController
 {
     use UploadedFile;
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Pesantren\Views\pendaftaran\\';
+    protected $viewPrefix = 'App\Modules\Pesantren\Views\pendaftaran\\', $data;
     protected $baseRoute = 'admin/pesantren/pendaftaran';
     protected $langModel = 'pendaftaran';
     protected $modelName = 'App\Modules\Api\Models\PendaftaranModel';
@@ -24,6 +22,20 @@ class PendaftaranController extends AdminCrudController
 
     public function index()
     {
+        // masih belum bisa menampilkan text nama wilayah
+        $pendaftaran = (new PendaftaranModel())->asArray()->first();
+
+        $wilayah = collect((new WilayahModel())->extractWilayah($pendaftaran['desa_id'])->asArray()->findAll())->keyBy('kode');
+        $extractWilayah = extractWilayah($pendaftaran['desa_id']);
+        $provinsi_id = $extractWilayah['provinsi'];
+        $kota_id = $extractWilayah['kota/kabupaten'];
+        $kecamatan_id = $extractWilayah['kecamatan'];
+
+        $data['desa'] = $wilayah[$pendaftaran['desa_id']]['nama'];
+        $data['kecamatan'] = $wilayah[$kecamatan_id]['nama'];
+        $data['kota'] = $wilayah[$kota_id]['nama'];
+        $data['provinsi'] = $wilayah[$provinsi_id]['nama'];
+
         return parent::index();
     }
 
@@ -84,8 +96,8 @@ class PendaftaranController extends AdminCrudController
         $filter = $this->request->getPostGet('state');
         if ($filter === 'diterima') {
             $penerimaanSiswa->insert($dataSiswa);
-        } 
-        
+        }
+
 
         return parent::update($id);
     }
