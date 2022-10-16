@@ -8,7 +8,7 @@
 <?php $this->section('main') ?>
 
 <x-page-head>
-    <div class="row">
+    <div class="row de_infobox_top">
         <div class="col">
             <h2><?= lang('app.overview_tim') ?></h2>
         </div>
@@ -19,12 +19,51 @@
 </x-page-head>
 
 <section class="content">
-    <div class="container-fluid">
+    <div class="container-fluid" id="overview_tim">
         <!-- Info boxes -->
-
+        <div class="row">
+            <div class="col-md-9">
         <?= view('App\Views\Widgets\_stats', [
             'stats'   => $widgets->widget('stats')->items(),
         ]) ?>
+        </div>
+            <div class="card col-md-3" id="de_menu_gradient">
+
+                <div class="card-header" style="">
+                    <h3 style="color:white;" class="card-title">
+
+                        Menu
+                    </h3>
+                </div>
+                <div class="body" style="">
+
+
+                    <div class="info-box bg-default">
+                        <span class="info-box-icon"><i class="icon-icon_add_user"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text"><?= lang('crud.add_donasi') ?></span>
+
+                            <span class="progress-description">
+                                <a href="<?= site_url('admin/baitulmal/donaturfundraising/new') ?>" class="small-box-footer">
+                                    <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+
+
+
+
+                    <!-- /.info-box -->
+
+                </div>
+
+
+            </div>
+        </div>
 
 
 
@@ -49,42 +88,6 @@
                 ]) ?>
 
                 <a href="<?php echo site_url('/admin/baitulmal/donaturfundraising'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
-
-
-            </div>
-            <div class="card col-md-3">
-
-                <div class="card-header" style="background-color:#067D68 ;">
-                    <h3 style="color:white;" class="card-title">
-
-                        Menu
-                    </h3>
-                </div>
-                <div class="body" style="background-color:#067D68 ;">
-
-
-                    <div class="info-box bg-default">
-                        <span class="info-box-icon"><i class="icon-icon_donatur"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text"><?= lang('crud.add_donasi') ?></span>
-
-                            <span class="progress-description">
-                                <a href="<?= site_url('admin/baitulmal/donaturfundraising/new') ?>" class="small-box-footer">
-                                    <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
-                                </a>
-                            </span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-
-
-
-
-                    <!-- /.info-box -->
-
-                </div>
 
 
             </div>

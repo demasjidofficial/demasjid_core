@@ -253,6 +253,7 @@ return [
 	'campaigns' => 'Kampanye',
 
 	'donaturcategory'=>'Kategori Donatur',
+	'tambah_donaturcategory'=>'Tambah Kategori',
 	'updated_by'=>'Diperbarui Oleh',
 	'tim_fundraising'=>'Tim Fundraising',
 	'id_target'=>'Target Fundraising',
@@ -260,6 +261,7 @@ return [
 	'supervisior'=>'Supervisior',
 	'staff'=>'Staff',
 	'target_fundraising'=>'Target Fundraising',
+	'target_fundraising_add'=>'Tambah Target Fundraising',
 	'target_fundraising_add'=>'Tambah Target Fundraising',
 	'donatur'=>'Tipe Donatur',
 	'target_nominal'=>'Target Nominal',

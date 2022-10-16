@@ -65,4 +65,28 @@
     .de_chart_gradient .card-footer .row>.col-6:last-child .border-right{
         padding-bottom: 0px
     }
+
+    .container-fluid>.bg-white.p-4{
+        padding: 16px 12px !important;
+    }
+
+    form .card-body{
+        padding: 12px 0px !important;
+        box-shadow: 0px 0px 0px #00000000 !important;
+    }
+
+    form .card{
+        box-shadow: 0px 0px 0px #00000000 !important;
+    }
+
+    .tf-v1-sidetab-button{
+        left: 24px !important;
+    }
+
+    .tf-v1-sidetab{
+        left: 0 !important;
+        right: 0 !important;
+        margin-right: auto;
+        margin-left: auto
+    }
 }
