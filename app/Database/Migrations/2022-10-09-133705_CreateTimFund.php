@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTugasTim extends Migration
+class CreateTimFund extends Migration
 {
     public function up()
     {
@@ -16,29 +16,20 @@ class CreateTugasTim extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'staff_id' => [
+            'target_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'null'       => false,
             ],
 
-            'tugas' => [
+            'supervisor' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => false,
             ],
 
-            'kode_tugas' => [
-                'type'       => 'varchar',
-                'constraint' => 100,
-                'null'       => false,
-            ],
+           
 
-            'nominal' => [
-                'type'       => 'int',
-                'constraint' => 11,
-                'null'       => false,
-            ],
           
             'created_at' => [
                 'type'       => 'datetime',
@@ -64,12 +55,13 @@ class CreateTugasTim extends Migration
          
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('tugas_tim');
+        $this->forge->addForeignKey('target_id', 'target_fundraising', 'id');     
+        $this->forge->createTable('tim_fundraising');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('tugas_tim');
+        $this->forge->dropTable('tim_fundraising');
     }
 }

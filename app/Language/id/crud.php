@@ -3,11 +3,11 @@
 return [
 	'date' => 'Tanggal',
 	'transaction_date' => 'Tgl. Transaksi',
-    'description' => 'Keterangan',
-    'debit' => 'Debit',
-    'credit' => 'Kredit',    
-    'saldo'  => 'Saldo',
-    'account_balance_id' => 'Akun Id',
+	'description' => 'Keterangan',
+	'debit' => 'Debit',
+	'credit' => 'Kredit',
+	'saldo'  => 'Saldo',
+	'account_balance_id' => 'Akun Id',
 	'account' => 'Akun',
 	'balance' => 'Kas Masuk/Keluar',
 	'chart_of_account' => 'COA/Bagan Akun',
@@ -36,13 +36,13 @@ return [
 	'pages' => 'Halaman',
 	'add_new' => 'Tambah Baru',
 	'save' => 'simpan',
-	
+
 	'pengurus' => 'Pengurus',
 	'provinsi_id' => 'Provinsi',
 	'kota_id' => 'Kota',
 	'kecamatan_id' => 'Kecamatan',
 	'desa_id' => 'Desa',
-	'jabatan_id'=> 'Jabatan',
+	'jabatan_id' => 'Jabatan',
 	'wilayah_id' => 'Kode Wilayah',
 	'address' => 'Alamat',
 	'path_image' => 'Gambar',
@@ -104,9 +104,9 @@ return [
 	'job_position' => 'Jabatan',
 
 	'penerimaan_operasional' => 'Penerimaan Operasional',
-    'pengeluaran_operasional' => 'Pengeluaran Operasional',
-    'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
-    'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
+	'pengeluaran_operasional' => 'Pengeluaran Operasional',
+	'penerimaan_non_operasional' => 'Penerimaan Non Operasional',
+	'pengeluaran_non_operasional' => 'Pengeluaran Non Operasional',
 
 	'assets' => 'Aset',
 	'liability' => 'Liabilitas/Kewajiban',
@@ -125,7 +125,7 @@ return [
 	'report_cashflow' => 'Arus Kas',
 	'report_donation' => 'Rekap Donatur',
 	'report_generalledger' => 'Jurnal Umum',
-	'report_journal' => 'Jurnal',	
+	'report_journal' => 'Jurnal',
 	'report_cashbankmutation' => 'Mutasi Kas & Bank',
 
 	'kas' => 'Kas',
@@ -158,7 +158,7 @@ return [
 	'uom' => 'Satuan',
 	'uom_id' => 'Satuan',
 	'ratio' => 'Ratio',
-	
+
 	'kategori_pelajaran' => 'Kategori Pelajaran',
 	'kategori_pelajaran_id' => 'Kategori Pelajaran',
 
@@ -175,8 +175,8 @@ return [
 	'master_paymentgateway' => 'Master Payment Gateway',
 
 	'bab_id' => 'Bab',
-	'materi' => 'Materi',	
-	
+	'materi' => 'Materi',
+
 	'siswa' => 'Siswa',
 	'pendaftaran' => 'Pendaftaran',
 	'nick_name' => 'Nama Panggilan',
@@ -244,7 +244,7 @@ return [
 	'campaign_daterange' => 'Durasi',
 	'campaignstart_date' => 'Mulai',
 	'campaignend_date' => 'Akhir',
-	'campaigncategory_id'=> 'Kategori',
+	'campaigncategory_id' => 'Kategori',
 	'donationtype_id' => 'Tipe Donasi',
 	'campaign_tonase' => 'Target',
 	'campaign_collected' => 'Terkumpul',
@@ -289,10 +289,6 @@ return [
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
 	'action' => 'Aksi',
-	'campaign_name' => 'Nama Kampanye',
-	'jadwal_durasi'=>'Durasi Target',
-	'kembali'=>'Kembali',
-	'save'=>'Simpan',
 
 	'target'=>'Target Donatur',
 	'target_id'=>'Nama Target Donatur',

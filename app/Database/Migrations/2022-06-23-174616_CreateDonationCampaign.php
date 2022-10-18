@@ -92,7 +92,6 @@ class CreateDonationCampaign extends Migration
         $this->forge->addForeignKey('program_id', 'program', 'id');
         $this->forge->createTable('bmdonationcampaign', true);
     }
-
     public function down()
     {
         $this->forge->dropTable('bmdonationcampaign', true);
