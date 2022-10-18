@@ -62,7 +62,7 @@
         <!-- Main row -->
         <div class="row">
             <!-- Left col -->
-            <div class="col-md-9">
+            <div class="col">
 
                 <!-- /.card -->
                 <?= view('App\Views\Widgets\_panel', [

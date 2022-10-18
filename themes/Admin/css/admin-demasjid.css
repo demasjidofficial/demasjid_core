@@ -1446,7 +1446,9 @@ color: #636061
     line-height: 22px;
     letter-spacing: 0.01em;
     text-align: left;
-    color: #231F20
+    color: #231F20;
+    display: flex;
+    align-items: center;
 }
 
 .de_chart_gradient .card-footer .row>.col-6 .border-right{
@@ -1639,6 +1641,11 @@ canvas{
 
 .card:not(.de_chart_gradient) .card-body .d-flex:first-child{
     margin-bottom: 24px;
+    margin-top: -20px;
+}
+
+.card:not(.de_chart_gradient) .card-body .d-flex:first-child .d-flex{
+    margin-top: unset !important;
 }
 
 /*<================ Card ====================>*/
@@ -2449,7 +2456,10 @@ select.form-control ~ .input-group-append>span[onclick='removeRow(this)'] i:befo
 }
 
 .de_tabel_button_selengkapnya ~ a{
-    margin-bottom: 32px
+    margin-bottom: 32px;
+    padding-left: 4px !important;
+    padding-top:4px !important;
+    padding-bottom: 4px !important;
 }
 
 .de_tabel_button_selengkapnya ~ a .fa-database:before{
@@ -2506,4 +2516,49 @@ select.form-control ~ .input-group-append>span[onclick='removeRow(this)'] i:befo
 
 select.form-control ~ .input-group-append i:before {
     color: white;
+}
+
+span.badge-info,
+span.badge-success,
+span.badge-danger,
+span.badge-outline{
+    width: fit-content;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Nunito Sans;
+    font-size: 11px;
+    font-weight: 400 !important;
+    line-height: 12px;
+    padding: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+span.badge-info{
+    background-color: #536DFE;
+    border: 1px solid #536DFE;
+    color: white;
+}
+
+span.badge-success{
+    background-color: #00B248;
+    border: 1px solid #00B248;
+    color: white;
+}
+
+span.badge-danger{
+    background-color: #FF5252;
+    border: 1px solid #FF5252;
+    color: white;
+}
+
+span.badge-outline{
+    background-color: #FFFFFF;
+    border: 1px solid #249A84;
+    color: #249A84;
 }

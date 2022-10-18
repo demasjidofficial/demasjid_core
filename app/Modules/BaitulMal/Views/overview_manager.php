@@ -152,6 +152,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <?= asset_link('admin/theme-adminlte/adminlte-dashboard2.js', 'js'); ?>
 
+<!-- Chart.js Demasjid -->
+<?= asset_link('admin/js/admin-demasjid-chart.js', 'js'); ?>
+
 
 
 <?php $this->endSection() ?>

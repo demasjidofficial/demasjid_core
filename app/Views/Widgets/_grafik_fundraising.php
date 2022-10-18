@@ -35,7 +35,7 @@
 
             <div class="chart">
               <!-- Sales Chart Canvas -->
-              <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+              <canvas id="fundraisingChart" height="250" style="height: 250px;"></canvas>
               <div class="d-flex flex-row justify-content-end">
               <span class="mr-2 text-primary">
                 <i class="fas fa-square text-primary"></i> Pekan Ini
