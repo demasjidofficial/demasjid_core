@@ -472,11 +472,21 @@ a[href$="edit"]:before{
     font-size: 20px;
 }
 
-.nav-icon.fas.fa-users:before{
+.fas.fa-user.nav-icon:before{
+    content: '\e926';
+
+}
+
+.nav-icon.fas.fa-users:before,
+.fas.fa-users:before{
     content: "\e924" !important;
     font-family: 'icomoon';
     font-weight: 100;
     font-size: 20px;
+}
+
+.nav-icon.fas.fa-info-circle:before{
+    content: '\e919'
 }
 
 .nav-icon.fas.fa-book:before{
@@ -529,6 +539,27 @@ a[href$="edit"]:before{
     font-size: 20px;
 }
 
+.fas.fa-envelope.nav-icon:before{
+    content: "\e948"
+}
+
+.nav-icon.fas.fa-clipboard-list:before,
+.fas.fa-clipboard-list:before{
+    content: '\e932'
+}
+
+.fas.fa-recycle:before{
+    content: '\e94b'
+}
+
+.nav-icon.far.fa-object-group:before{
+    content: '\e94c';
+}
+
+.fas.fa-handshake:before{
+    content: '\e94d';
+}
+
 
 /*.flag-icon-id:before{
     content: "\e93e" !important;
@@ -575,6 +606,14 @@ border-radius: 2px;}
     font-family: 'icomoon';
     font-weight: 100;
     font-size: 20px;
+}
+
+.nav-icon.fas.fa-link:before{
+    content: '\e94e'
+}
+
+.nav-icon.fas.fa-bullhorn:before{
+    content: '\e94a';
 }
 
 .nav-sidebar .nav-item:last-child a{
@@ -2420,7 +2459,18 @@ form[role='search'] button[type='submit']{
 .fa-plus:before,
 .de_tabel_button_selengkapnya ~ a .fa-database:before,
 select.form-control:after,
-select.form-control ~ .input-group-append>span[onclick='removeRow(this)'] i:before{
+select.form-control ~ .input-group-append>span[onclick='removeRow(this)'] i:before,
+.nav-icon.fas.fa-users:before,
+.fas.fa-user.nav-icon:before,
+.nav-icon.fas.fa-clipboard-list:before,
+.fas.fa-recycle:before,
+.fas.fa-handshake:before,
+.nav-icon.far.fa-object-group:before,
+.nav-icon.fas.fa-bullhorn:before,
+.nav-icon.fas.fa-link:before,
+.nav-icon.fas.fa-link:before,
+.nav-icon.fas.fa-envelope:before,
+.nav-icon.fas.fa-info-circle:before{
     font-family: 'icomoon' !important;
     font-weight: 100;
     font-size: 20px;
@@ -2561,4 +2611,83 @@ span.badge-outline{
     background-color: #FFFFFF;
     border: 1px solid #249A84;
     color: #249A84;
+}
+
+table td{
+    color: #0C0A0A;
+    font-family: Nunito Sans;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.page-link{
+    color: #249A84;
+    border-color: #F1F1F1;
+    padding: 12px;
+    font-family: Nunito Sans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+}
+
+.page-link:hover{
+    background-color: #F1F1F1;
+    color: #1D6255
+}
+
+.page-item.active .page-link{
+    background-color: #249A84;
+    border-color: #249A84;
+
+}
+
+.page-item:first-child .page-link{
+    border-top-left-radius: 4px;
+}
+
+#user-list ~ div[x-show='filtered']{
+    border-left: 8px solid #249A84;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#user-list ~ div[x-show='filtered'] h2{
+        color: #249A84;
+        font-family: Montserrat;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        line-height: 24px !important;
+        letter-spacing: 0em;
+        text-align: left;
+        padding-bottom: 0px !important;
+        border-bottom: 0px solid #FFFFFF00 !important;
+}
+
+/* a[x-on:click='filtered = ! filtered']{
+    background-color: #249A84;
+    color: white;
+} */
+
+#user-list ~ div[x-show='filtered'] label{
+    padding: 12px;
+    font-family: Nunito Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-left: 8px;
+}
+
+#user-list ~ div[x-show='filtered'] .form-check{
+    display: flex;
+    align-items: center;
+
+}
+
+#user-list ~ div[x-show='filtered'] .form-check input{
+    margin: -2px 20px 0px 0px !important
 }
