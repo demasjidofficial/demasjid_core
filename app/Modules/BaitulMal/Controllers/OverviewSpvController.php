@@ -79,7 +79,7 @@ class OverviewSpvController extends  AdminController
             'title' => 'Pengumpulan dana',
             'value' => $valKumpul,
             // 'url'     => ADMIN_AREA . '/settings/groups',
-            'faIcon' => 'fas fa-wallet',
+            'faIcon' => 'fas fa-chart-pie-simple',
         ]);
         $tugasItem = new StatsItem([
             'bgColor' => 'bg-teal',
@@ -87,7 +87,7 @@ class OverviewSpvController extends  AdminController
             'title' => 'Jumlah Tugas',
             'value' => (new TugasTimModel())->countAllResults(false),
             // 'url'     => ADMIN_AREA . '/settings/groups',
-            'faIcon' => 'fas fa-users',
+            'faIcon' => 'fas fa-clipboard-list',
         ]);
         $widgets->widget('stats')->collection('stats')
 
