@@ -109,7 +109,7 @@ class TargetFundraisingController extends AdminCrudController
             $data->jadwal_durasi =  $start_date[2] . '/' . $start_date[1] . '/' . (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2));
             $dataEdit['data'] = $data;
         }
-        $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['donationtypeItems'] = ['' => 'Pilih Tipe'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationtypeModel')->select(['bmdonationtype.id as key', 'bmdonationtype.name as text'])->asArray()->findTipe(), 'text', 'key');
         $dataEdit['donationcampaign'] = ['' => 'Pilih Kampanye'] + Arr::pluck(model('App\Modules\Api\Models\BmdonationcampaignModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['tipedonatur'] = ['' => 'Pilih Kategori Donatur'] + Arr::pluck(model('App\Modules\Api\Models\DonaturCategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;

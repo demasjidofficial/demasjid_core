@@ -11,7 +11,7 @@
 <td><?php echo esc($item->donasi) ?></a></td> -->
 
 <td>Mulai : <?php echo local_date(esc($item->jadwal_mulai)) ?><br/>Selesai <?php echo local_date(esc($item->jadwal_akhir)) ?></a></td>
-
+<td><?php echo esc($item->staff) ?></td>
 
 
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
 
-            <a href="<?= site_url('admin/baitulmal/overview_manager') ?>" class="back">&larr; <?= lang('crud.kembali') ?></a></br>
+            <a href="<?= site_url('admin/baitulmal/overview_manager') ?>" class="back">&larr; <?= lang('crud.back') ?></a></br>
             <h2><?= lang('crud.target_fundraising') ?></h2>
         </div>
         <div class="col-auto">

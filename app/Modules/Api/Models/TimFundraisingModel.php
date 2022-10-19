@@ -48,7 +48,7 @@ class TimFundraisingModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
     {
 
-        $this->selectColumn = [$this->table.'.*',$this->table.'.nama_tim as nama_tim',$this->table.'.id as id','target_fundraising.target_nominal as target_nominal','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir','users.username as supervisor','target_fundraising.id as target_fundraising_id','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'];        
+        $this->selectColumn = [$this->table.'.*',$this->table.'.nama_tim as nama_tim',$this->table.'.id as id','target_fundraising.target_nominal as target_nominal','target_fundraising.campaign_name as campaign_name','target_fundraising.jadwal_mulai as jadwal_mulai','target_fundraising.jadwal_akhir as jadwal_akhir','users.username as supervisor','target_fundraising.id as target_fundraising_id','bmdonationcampaign.name as donasi','bmdonationcampaign.name as kampanye','bmdonationcampaign.campaignstart_date as campaignstart_date','bmdonationcampaign.campaignend_date as campaignend_date','bmdonationcampaign.campaign_tonase as campaign_tonase','bmdonationcampaign.id as donation_id','donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi','group_concat(u2.username) as staff'];        
 
 		
 		$this->join('target_fundraising', 'target_fundraising.id = '.$this->table.'.target_id');
@@ -56,8 +56,12 @@ class TimFundraisingModel extends BaseModel
 		$this->join('donaturcategory', 'donaturcategory.id = target_fundraising.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
         $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
+		$this->join('tim_staff', 'tim_staff.tim_id ='.$this->table.'.id','left');
+		$this->join('users u2', 'u2.id =tim_staff.user_id','left');
 		$this->where($this->table . '.supervisior',auth()->user()->id);
 		$this->orwhere($this->table . '.created_by',auth()->user()->id);
+		$this->groupBy('tim_staff.tim_id');
+
 		return parent::findAll($limit, $offset);
     }
 	
