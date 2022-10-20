@@ -98,5 +98,5 @@ class PendaftaranModel extends BaseModel
 		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
 		return parent::findAll($limit, $offset);
 	}
-	
+
 }

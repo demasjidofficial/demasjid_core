@@ -145,7 +145,7 @@ class CreateSiswa extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey('name');
+        $this->forge->addUniqueKey('nis');
         $this->forge->addForeignKey('class_id', 'kelas', 'id');
         $this->forge->createTable('siswa', true);
     }

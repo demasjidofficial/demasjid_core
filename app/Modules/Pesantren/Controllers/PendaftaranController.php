@@ -22,20 +22,6 @@ class PendaftaranController extends AdminCrudController
 
     public function index()
     {
-        // masih belum bisa menampilkan text nama wilayah
-        $pendaftaran = (new PendaftaranModel())->asArray()->first();
-
-        $wilayah = collect((new WilayahModel())->extractWilayah($pendaftaran['desa_id'])->asArray()->findAll())->keyBy('kode');
-        $extractWilayah = extractWilayah($pendaftaran['desa_id']);
-        $provinsi_id = $extractWilayah['provinsi'];
-        $kota_id = $extractWilayah['kota/kabupaten'];
-        $kecamatan_id = $extractWilayah['kecamatan'];
-
-        $data['desa'] = $wilayah[$pendaftaran['desa_id']]['nama'];
-        $data['kecamatan'] = $wilayah[$kecamatan_id]['nama'];
-        $data['kota'] = $wilayah[$kota_id]['nama'];
-        $data['provinsi'] = $wilayah[$provinsi_id]['nama'];
-
         return parent::index();
     }
 
@@ -198,4 +184,5 @@ class PendaftaranController extends AdminCrudController
         $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
+
 }

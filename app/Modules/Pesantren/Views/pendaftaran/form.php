@@ -384,15 +384,8 @@
 <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script> -->
 <script type="text/javascript">
     $(function() {
-        // date_birth
-        // $("input[name=birth_date]").datepicker({
-        //     autoclose: true,
-        //     "autoApply": true,
-        //     todayHighlight: true,
-        // });
 
         $('input[name=birth_date]').daterangepicker({
             "autoApply": true,
