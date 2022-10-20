@@ -110,7 +110,7 @@
 
                     <div class="chart">
                       <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                      <canvas id="salesChart" height="250" style="height: 250px;"></canvas>
                     </div>
                     <!-- /.chart-responsive -->
                   </div>
@@ -237,7 +237,7 @@
                 <!-- /.d-flex -->
 
                 <div class="position-relative mb-4">
-                  <canvas id="visitors-chart" height="200"></canvas>
+                  <canvas id="visitors-chart" height="250"></canvas>
                 </div>
 
                 <div class="d-flex flex-row justify-content-end">

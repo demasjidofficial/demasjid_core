@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <div class="row">
+    <div class="row de_head_back_title">
         <div class="col">
             <a href="<?= site_url('admin/baitulmal/overview_tim') ?>" class="back">&larr; <?= lang('crud.back') ?></a></br>
 
