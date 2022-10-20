@@ -43,13 +43,15 @@ class TimFundraisingController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(TimFundraisingFilter::class);
-     
+        $dataModel = $model->paginate(setting('App.perPage'));     
         return [
             'headers' => [
 
                 'id_target' => lang('crud.id_target'),
                 'campaign' => lang('crud.target'),
                 'jadwal_mulai' => lang('crud.durasi'),
+                'jadwal_mulai' => lang('crud.durasi'),
+                'tim'=>lang('crud.tim_fundraising'),
             
 
        
@@ -58,6 +60,7 @@ class TimFundraisingController extends AdminCrudController
             'viewPrefix' => $this->getViewPrefix(),
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
+            'timFund' => $this->getTimFund($dataModel),
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
         ];
@@ -103,5 +106,18 @@ class TimFundraisingController extends AdminCrudController
         }
        
         return $dataEdit;
+    }
+
+    public function getTimFund($dataModel)
+    {
+        # code...
+        $list_tim=[];
+        foreach ($dataModel as $d ) {
+            # code...
+            $timFund=collect((new TimStaffModel())->where('tim_id',$d->id)->asArray()->findStaff());
+            
+        }
+       
+        return $timFund;
     }
 }

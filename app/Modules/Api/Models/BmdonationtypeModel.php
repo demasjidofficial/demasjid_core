@@ -34,6 +34,13 @@ class BmdonationtypeModel extends BaseModel
 
         return parent::findAll($limit, $offset);
     } 
+	public function findTipe(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*'];
+      
+
+        return parent::findAll($limit, $offset);
+    } 
 
     public static function listState(){
 

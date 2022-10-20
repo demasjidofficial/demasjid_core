@@ -5,8 +5,12 @@
     <div class="row de_head_back_title">
         <div class="col">
 
-            <a href="<?= site_url('admin/baitulmal/overview_manager') ?>" class="back">&larr; <?= lang('crud.kembali') ?></a></br>
-            <h4><?= lang('crud.target_fundraising') ?></h4>
+            <a href="<?= site_url('admin/baitulmal/overview_manager') ?>" class="back">&larr; <?= lang('crud.back') ?></a></br>
+            <h2><?= lang('crud.target_fundraising') ?></h2>
+        </div>
+        <div class="col-auto">
+            <a href="<?php echo route_to($baseRoute . '/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i> <?= lang('crud.target_fundraising_add') ?></a>
+
         </div>
         <a href="<?php echo route_to($baseRoute . '/new'); ?>" class="btn btn-primary de_button_add_absolute"><i class="fas fa-plus"></i> <!--<?= lang('crud.target_fundraising_add') ?>--></a>
 

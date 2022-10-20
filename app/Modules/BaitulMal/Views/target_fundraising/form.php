@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.kembali') ?></a>
+    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
     <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.target_fundraising') ?></h4>
 </x-page-head>
 

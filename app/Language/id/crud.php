@@ -339,6 +339,7 @@ return [
 	'bmdonationtype' => 'Tipe Donasi',
 	'siteposts' => 'Artikel',
 	'sitesections' => 'Seksion',
-	'sitesliders' => 'Slide'
+	'sitesliders' => 'Slide',
+	'campaign_name'=>'Nama Target Fundraising'
 ];
 
