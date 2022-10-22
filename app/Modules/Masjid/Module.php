@@ -31,14 +31,14 @@ class Module extends BaseModule
             'title'           => 'Ringkasan',
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
             // 'url'             => url_to('App\Modules\Masjid\Controllers\RingkasanController::index'),
-            'fontAwesomeIcon' => 'fas fa-memo-pad',
+            'fontAwesomeIcon' => 'fas fa-users',
             'permission'      => 'masjid.ringkasan.list',
         ]);
         $profilItem = new MenuItem([
             'title'           => 'Profil',
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
             // 'url'             => url_to('App\Modules\Masjid\Controllers\ProfilController::index'),
-            'fontAwesomeIcon' => 'fas fa-user',
+            'fontAwesomeIcon' => 'fas fa-users',
             'permission'      => 'masjid.profil.list',
         ]);
         $pengurusItem = new MenuItem([
@@ -53,7 +53,7 @@ class Module extends BaseModule
             'title'           => 'Jadwal Sholat',
             // 'url'             => url_to('App\Modules\Masjid\Controllers\JadwalSholatController::index'),
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
-            'fontAwesomeIcon' => 'fas fa-clock',
+            'fontAwesomeIcon' => 'fas fa-users',
             'permission'      => 'masjid.jadwalsholat.list',
         ]);
         $programItem = new MenuItem([
@@ -67,7 +67,7 @@ class Module extends BaseModule
             'title'           => 'Kas',
             // 'url'             => url_to('App\Modules\Masjid\Controllers\JadwalSholatController::index'),
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
-            'fontAwesomeIcon' => 'fas fa-book',
+            'fontAwesomeIcon' => 'fas fa-users',
             'permission'      => 'masjid.kas.list',
         ]);
         $jabatanItem = new MenuItem([

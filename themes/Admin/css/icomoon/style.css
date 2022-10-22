@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?fe40or');
-  src:  url('fonts/icomoon.eot?fe40or#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?fe40or') format('truetype'),
-    url('fonts/icomoon.woff?fe40or') format('woff'),
-    url('fonts/icomoon.svg?fe40or#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?7fs57e');
+  src:  url('fonts/icomoon.eot?7fs57e#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?7fs57e') format('truetype'),
+    url('fonts/icomoon.woff?7fs57e') format('woff'),
+    url('fonts/icomoon.svg?7fs57e#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -56,12 +56,6 @@
   content: "\e940";
   margin-left: -1.7138671875em;
   color: rgb(225, 34, 55);
-}
-.icon-icon_camera:before {
-  content: "\e950";
-}
-.icon-icon_clock:before {
-  content: "\e94f";
 }
 .icon-icon_links:before {
   content: "\e94e";
