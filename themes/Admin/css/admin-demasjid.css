@@ -472,7 +472,8 @@ a[href$="edit"]:before{
     font-size: 20px;
 }
 
-.fas.fa-user.nav-icon:before{
+.fas.fa-user.nav-icon:before,
+.fas.fa-user:before{
     content: '\e926';
 
 }
@@ -552,6 +553,15 @@ a[href$="edit"]:before{
     content: '\e94b'
 }
 
+.fas.fa-camera:before{
+    content: '\e950';
+}
+
+
+.fas.fa-memo-pad:before{
+    content: '\e932'
+}
+
 .nav-icon.far.fa-object-group:before{
     content: '\e94c';
 }
@@ -614,6 +624,14 @@ border-radius: 2px;}
 
 .nav-icon.fas.fa-bullhorn:before{
     content: '\e94a';
+}
+
+.nav-icon.fas.fa-clock:before{
+    content: '\e947';
+}
+
+.fas.fa-clock:before{
+    content: "\e94f";
 }
 
 .nav-sidebar .nav-item:last-child a{
@@ -2470,7 +2488,12 @@ select.form-control ~ .input-group-append>span[onclick='removeRow(this)'] i:befo
 .nav-icon.fas.fa-link:before,
 .nav-icon.fas.fa-link:before,
 .nav-icon.fas.fa-envelope:before,
-.nav-icon.fas.fa-info-circle:before{
+.nav-icon.fas.fa-info-circle:before,
+.nav-icon.fas.fa-clock:before,
+.fas.fa-memo-pad:before,
+.fas.fa-user:before,
+.fas.fa-clock:before,
+.fas.fa-camera:before{
     font-family: 'icomoon' !important;
     font-weight: 100;
     font-size: 20px;
@@ -2690,4 +2713,252 @@ table td{
 
 #user-list ~ div[x-show='filtered'] .form-check input{
     margin: -2px 20px 0px 0px !important
+}
+
+.table-sm td, .table-sm th{
+    padding: 0.75rem
+}
+
+#de_form_donatur #de_form_name_nominal{
+    background-color: #249A84;
+    color: white;
+    padding: 24px 12px;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+    margin-bottom: 16px
+}
+
+#de_form_donatur #de_form_name_nominal .form-label,
+#de_form_donatur #de_form_name_nominal .col-form-label{
+    color: white
+}
+
+#de_form_donatur{
+    flex-direction: row;
+    gap: 16px
+}
+
+#de_form_donatur>div.col-6{
+    flex: 0 0 calc(50% - 8px)
+}
+
+#de_capture .photo-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#de_capture{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#de_form_donatur #de_capture #campaign_imgpreview[src='/uploads/images/blank.jpg']{
+    border: 2px solid #F1F1F1;
+    height: 96px;
+    padding: 0px;
+    width: 96px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+#de_form_donatur #de_capture #campaign_imgpreview[src='/uploads/images/blank.jpg']{
+    content: url('../images/thumbnail_capture_profile.png');
+}
+
+#de_form_donatur #de_capture input[value='Buka Kamera'],
+#de_form_donatur #de_capture .btn-danger{
+    margin-top: 8px;
+    padding: 6px 8px 6px 32px;
+    border: 1px solid #249A84;
+    color: #249A84;
+    font-family: Nunito Sans;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    height: 32px;
+    border-radius: 8px !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    -ms-border-radius: 8px !important;
+    -o-border-radius: 8px !important;
+}
+
+#de_form_donatur #de_capture i.fas.fa-camera::before,
+#de_form_donatur ::before{
+    margin-top: 8px;
+    position: absolute;
+    color: #249A84;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 8px;
+}
+
+#de_form_donatur #de_capture .btn-danger{
+    position: absolute;
+    box-shadow: 0px 4px 40px 0px #FFFFFF47;
+    border: 1px solid white;
+    background-color: white;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition-duration: 150ms;
+}
+
+#de_form_donatur #de_capture .btn-danger:hover{
+    transition-duration: 150ms;
+    transform: scale(1.12);
+    box-shadow: 0px 4px 64px 0px #FFFFFF24;
+    -webkit-transform: scale(1.12);
+    -moz-transform: scale(1.12);
+    -ms-transform: scale(1.12);
+    -o-transform: scale(1.12);
+}
+
+#de_form_donatur #de_capture #my_camera{
+    position: relative;
+}
+
+#de_form_donatur #de_form_name_nominal>.row.mb-3{
+    position: relative;
+    padding-left: 52px
+}
+
+#de_form_donatur #de_form_name_nominal>.row.mb-3:nth-child(2)::before{
+    content: '\e90f' !important;
+    font-family: 'icomoon' !important;
+    font-weight: 100;
+    font-size: 20px;
+    color: white;
+    font-size: 44px;
+    margin-top: 28px
+}
+
+#de_form_donatur #de_form_name_nominal>.row.mb-3:last-child::before{
+    content: '\e939';
+    font-family: 'icomoon' !important;
+    font-weight: 100;
+    font-size: 20px;
+    color: white;
+    font-size: 44px;
+    margin-top: 28px
+}
+
+#de_form_donatur #de_capture #my_camera video{
+    border: 2px solid #F1F1F1;
+}
+
+#de_form_donatur #campaign_imgpreview ~ #my_camera{
+    margin-top: -245px;
+}
+
+#de_form_donatur #campaign_imgpreview[src='/uploads/images/blank.jpg'] ~ #my_camera{
+    margin-top: -96px;
+}
+
+#de_form_donatur #signature-pad{
+    background: #F3F6F6;
+    min-height: 372px;
+    border: 0px solid #F3F6F600;
+    padding: 0px;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+}
+
+#de_form_donatur #de_signature>div{
+    border-radius: 24px;
+    background: #F3F6F6;
+    border: 2px solid #F3F6F6;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+}
+
+#de_form_donatur #de_signature>div,
+#de_form_donatur #de_signature label{
+    padding: 0px
+}
+
+#de_form_donatur #de_signature label{
+    position: absolute;
+    margin: 24px 0px 0px 12px;
+    z-index: 5;
+    height: 12px;
+    width: fit-content;
+}
+
+#de_form_donatur #de_signature label::selection{
+    background: #FFFFFF00
+}
+
+#de_form_donatur #de_signature button.btn-primary{
+    background-color: white;
+    color: #249A84;
+    width: fit-content;
+    border: 1px solid #249A84;
+    display: inline-block;
+    padding: 8px 6px
+}
+
+#de_form_donatur #de_signature button.btn-danger{
+    background-color: white;
+    color: #FF5252;
+    width: fit-content;
+    border: 0px solid #FF525200;
+    display: inline-block;
+    padding: 8px 6px
+}
+
+#de_form_donatur #de_signature button.btn-primary:hover{
+    background-color: #249A84;
+    color: #FFFFFF;
+}
+
+#de_form_donatur #de_signature button.btn-danger:hover{
+    background-color: #FF5252;
+    color: white;
+    width: fit-content;
+    border: 1px solid #FF5252;
+}
+
+#de_form_donatur #de_signature #de_wrap_button_small{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    background-color: white;
+    border: 0px solid white;
+    margin-top: 8px;
+}
+
+#de_form_donatur #de_signature img{
+    display: block;
+}
+
+#de_form_donatur #de_signature img[src='/uploads/images/blank.jpg']{
+    display: none;
+}
+
+#de_form_donatur textarea{
+    height: 120px;
 }

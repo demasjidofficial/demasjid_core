@@ -2,10 +2,10 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <div class="row">
+    <div class="row de_head_back_title">
         <div class="col">
             <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
-            <h4><?= lang('crud.job_position')?></h4>
+            <h2><?= lang('crud.job_position')?></h2>
         </div>
         <div class="col-auto">
             <a href="<?= route_to($baseRoute . '/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>
