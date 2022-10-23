@@ -38,7 +38,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="row" id="de_form_donatur">
+                        <div class="row" id="de_form_donatur">
                 <div class="col-6 col-sm-6">
                     <div class="row">
                         <div class="col-12" id="de_form_name_nominal">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-6">
+                                <div class="col-6 col-sm-6">
                     <div class="row mb-3" id="de_signature">
                         <?= form_label(lang('crud.ttd_donatur'), '', ['for' => 'ttd_donatur', 'class' => 'col-form-label col-12']) ?>
                         <div class="col-12">
@@ -148,6 +148,7 @@
                 </div>
             </div>
 <!--            <div class="row mb-3">
+
                 <?= form_label(lang('crud.nominal'), '', ['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nominal') . "' ") ?>
@@ -156,7 +157,7 @@
                     <?php } ?>
                 </div>
             </div>
-                    -->
+                     -->
 
         </fieldset>
 

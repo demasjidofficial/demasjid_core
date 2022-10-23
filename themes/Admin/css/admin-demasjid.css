@@ -475,7 +475,6 @@ a[href$="edit"]:before{
 .fas.fa-user.nav-icon:before,
 .fas.fa-user:before{
     content: '\e926';
-
 }
 
 .nav-icon.fas.fa-users:before,
@@ -2961,4 +2960,4 @@ table td{
 
 #de_form_donatur textarea{
     height: 120px;
-}
+    }

@@ -67,7 +67,7 @@ class Module extends BaseModule
             'title'           => 'Kas',
             // 'url'             => url_to('App\Modules\Masjid\Controllers\JadwalSholatController::index'),
             'url'             => url_to('App\Modules\Masjid\Controllers\JabatanController::index'),
-            'fontAwesomeIcon' => 'fas fa-book',
+            'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'masjid.kas.list',
         ]);
         $jabatanItem = new MenuItem([
