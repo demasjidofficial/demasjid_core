@@ -345,6 +345,15 @@
                             </div>
                         </div> -->
                         <div class="row mb-3">
+                            <?= form_label(lang('crud.tahun_ajaran'), '', ['for' => 'tahun_ajaran_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_dropdown('tahun_ajaran_id', $tahunAjaranItems, old('tahun_ajaran_id', $data->tahun_ajaran_id ?? ''), "class='form-control select2' required placeholder='" . lang('crud.tahun_ajaran') . "' ") ?>
+                                <?php if (has_error('tahun_ajaran_id')) { ?>
+                                    <p class="text-danger"><?php echo error('tahun_ajaran_id'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_textarea('description', old('description', $data->description ?? ''), "rows='4' class='form-control text' required placeholder='" . lang('crud.description') . "' ") ?>

@@ -62,7 +62,7 @@ class PendaftaranController extends AdminCrudController
                 'gender' => $data->gender,
                 'provinsi_id' => $data->provinsi_id,
                 'kota_id' => $data->kota_id,
-                'kecamatan_id' => $data->kecamatan,
+                'kecamatan_id' => $data->kecamatan_id,
                 'desa_id' => $data->desa_id,
                 'address' => $data->address,
                 'school_origin' => $data->school_origin,
@@ -76,6 +76,7 @@ class PendaftaranController extends AdminCrudController
                 'mother_tlpn' => $data->mother_tlpn,
                 'mother_email' => $data->mother_email,
                 'path_image' => $data->path_image,
+                'tahun_ajaran_id' => $data->tahun_ajaran_id,
             ];
         }
 
@@ -141,6 +142,7 @@ class PendaftaranController extends AdminCrudController
                 'mother_tlpn' => lang('crud.mother_tlpn'),
                 'mother_email' => lang('crud.mother_email'),
                 'state' => lang('crud.state'),
+                'tahun_ajaran_id' => lang('crud.tahun_ajaran'),
                 'description' => lang('crud.description'),
                 // 'created_by' => lang('crud.created_by')
             ],
@@ -181,6 +183,7 @@ class PendaftaranController extends AdminCrudController
         $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
         $dataEdit['genderItems'] = PendaftaranModel::listState();
         $dataEdit['registerItems'] = PendaftaranModel::listStateRegister();
+        $dataEdit['tahunAjaranItems'] = Arr::pluck(model('App\Modules\Api\Models\TahunAjaranModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }

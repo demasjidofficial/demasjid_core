@@ -126,6 +126,11 @@ class CreateSiswa extends Migration
                 'null'       => true,
                 'after'      => 'telephone'
             ],  
+            'tahun_ajaran_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
                 
             'description' => [
                 'type' => 'text',
@@ -148,6 +153,7 @@ class CreateSiswa extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('nis');
         $this->forge->addForeignKey('class_id', 'kelas', 'id');
+        $this->forge->addForeignKey('tahun_ajaran_id', 'tahun_ajaran', 'id');
         $this->forge->createTable('siswa', true);
     }
 

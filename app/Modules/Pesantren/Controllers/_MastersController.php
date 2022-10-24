@@ -63,11 +63,20 @@ class _MastersController extends AdminCrudController
             'faIcon' => 'fas fa-users',
         ]);
 
+        $tahunAjaranItem = new StatsItem([
+            'bgColor' => 'bg-primary',
+            'bgIcon' => 'bg-primary',
+            'title' => lang('crud.tahun_ajaran'),
+            'url'     => ADMIN_AREA . '/pesantren/tahunajaran',
+            'faIcon' => 'fas fa-users',
+        ]);
+
 
         $widgets->widget('schedule')->collection('schedule')
             ->addItem($levelItem)
             ->addItem($kelasItem)
             ->addItem($siswaItem)
+            ->addItem($tahunAjaranItem)
             ->addItem($guruItem);
             
     }

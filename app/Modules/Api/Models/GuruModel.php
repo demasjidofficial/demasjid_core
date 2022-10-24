@@ -2,8 +2,6 @@
 
 namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class GuruModel extends BaseModel
 {
 	const MALE = 'L';

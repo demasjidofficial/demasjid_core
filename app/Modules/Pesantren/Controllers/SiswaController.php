@@ -89,6 +89,7 @@ class SiswaController extends AdminCrudController
                 'mother_job' => lang('crud.mother_job'),
                 'mother_tlpn' => lang('crud.mother_tlpn'),
                 'mother_email' => lang('crud.mother_email'),
+                'tahun_ajaran_id' => lang('crud.tahun_ajaran'),
                 'description' => lang('crud.description'),
                 // 'created_by' => lang('crud.created_by')
             ],
@@ -127,6 +128,7 @@ class SiswaController extends AdminCrudController
         }
 
         $dataEdit['genderItems'] = SiswaModel::listState();
+        $dataEdit['tahunAjaranItems'] = Arr::pluck(model('App\Modules\Api\Models\TahunAjaranModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['kelasItems'] = Arr::pluck(model('App\Modules\Api\Models\KelasModel')->select(['kelas.id as key', 'kelas.name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
         return $dataEdit;

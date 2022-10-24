@@ -42,8 +42,8 @@ class CreatePendaftaran extends Migration
             ],
             'birth_place' => [
                 'type'       => 'varchar',
-                'constraint' => 15,
-                'null'       => true,                
+                'constraint' => 50,
+                'null'       => true,
             ],
             'gender' => [
                 'type'          => 'varchar',
@@ -52,29 +52,29 @@ class CreatePendaftaran extends Migration
             'provinsi_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true                
+                'null'       => true
             ],
             'kota_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true,                
+                'null'       => true,
             ],
             'kecamatan_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true,                
+                'null'       => true,
             ],
             'desa_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true                
-            ],            
+                'null'       => true
+            ],
             'address' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
                 'null'       => true,
                 'after'      => 'jabatan_id'
-            ],          
+            ],
             'school_origin' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
@@ -84,12 +84,12 @@ class CreatePendaftaran extends Migration
             'description' => [
                 'type' => 'text',
             ],
-            
+
             'father_name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            
+
             'father_job' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
@@ -105,13 +105,13 @@ class CreatePendaftaran extends Migration
                 'constraint' => 35,
                 'null'       => true,
                 'after'      => 'telephone'
-            ],   
-            
+            ],
+
             'mother_name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            
+
             'mother_job' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
@@ -127,13 +127,18 @@ class CreatePendaftaran extends Migration
                 'constraint' => 35,
                 'null'       => true,
                 'after'      => 'telephone'
-            ],      
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
                 'after'      => 'address'
-            ],                  
+            ],
+            'tahun_ajaran_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -146,12 +151,13 @@ class CreatePendaftaran extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey('name');
+        $this->forge->addUniqueKey('nis');
         $this->forge->addForeignKey('class_id', 'kelas', 'id');
+        $this->forge->addForeignKey('tahun_ajaran_id', 'tahun_ajaran', 'id');
         $this->forge->createTable('pendaftaran', true);
     }
 
@@ -160,6 +166,3 @@ class CreatePendaftaran extends Migration
         $this->forge->dropTable('pendaftaran', true);
     }
 }
-
-
-

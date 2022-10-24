@@ -17,6 +17,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Pesantren\Controllers']
     $routes->resource('pesantren/guru', ['controller' => 'GuruController']);
     $routes->resource('pesantren/tingkatpendidikan', ['controller' => 'TingkatPendidikanController']);
     $routes->resource('pesantren/siswa', ['controller' => 'SiswaController']);
+    $routes->resource('pesantren/tahunajaran', ['controller' => 'TahunAjaranController']);
 
     /**
      * SUB MODULE

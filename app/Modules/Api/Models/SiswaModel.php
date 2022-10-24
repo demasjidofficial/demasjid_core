@@ -31,6 +31,7 @@ class SiswaModel extends BaseModel
 		'mother_job',
 		'mother_tlpn',
 		'mother_email',
+		'tahun_ajaran_id',
 		'description',
 		'created_at',
 		'updated_at',
@@ -60,6 +61,7 @@ class SiswaModel extends BaseModel
 		'mother_job' => 'max_length[60]|required',
 		'mother_tlpn' => 'max_length[15]',
 		'mother_email' => 'max_length[35]',
+		'tahun_ajaran_id' => 'numeric|max_length[11]|required',
 		'description' => 'required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
@@ -76,8 +78,9 @@ class SiswaModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*', 'kelas.name as kelas_name'];        
+        $this->selectColumn = [$this->table.'.*', 'kelas.name as kelas_name', 'tahun_ajaran.name as tahunAjaran_name'];        
         $this->join('kelas', 'kelas.id = '.$this->table.'.class_id');
+		$this->join('tahun_ajaran', 'tahun_ajaran.id = ' . $this->table . '.tahun_ajaran_id');
         return parent::findAll($limit, $offset);
     }
 }

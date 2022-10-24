@@ -137,6 +137,7 @@ static function ($routes) {
     $routes->resource('kelas');
     $routes->resource('gurus');
     $routes->resource('siswas');
+    $routes->resource('tahunAjarans');
     $routes->resource('babs');
     $routes->resource('materis');
     $routes->resource('pendaftarans');

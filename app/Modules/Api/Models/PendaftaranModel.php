@@ -38,6 +38,7 @@ class PendaftaranModel extends BaseModel
 		'mother_tlpn',
 		'mother_email',
 		'path_image',
+		'tahun_ajaran_id',
 		'created_at',
 		'updated_at',
 		'created_by'
@@ -68,6 +69,7 @@ class PendaftaranModel extends BaseModel
 		'mother_tlpn' => 'max_length[15]',
 		'mother_email' => 'max_length[35]',
 		'path_image' => 'max_length[255]',
+		'tahun_ajaran_id' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
@@ -94,8 +96,9 @@ class PendaftaranModel extends BaseModel
 
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
-		$this->selectColumn = [$this->table . '.*', 'kelas.name as kelas_name'];
+		$this->selectColumn = [$this->table . '.*', 'kelas.name as kelas_name', 'tahun_ajaran.name as tahunAjaran_name'];
 		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
+		$this->join('tahun_ajaran', 'tahun_ajaran.id = ' . $this->table . '.tahun_ajaran_id');
 		return parent::findAll($limit, $offset);
 	}
 

@@ -203,6 +203,8 @@ return [
 	'father' => 'Ayah',
 	'mother' => 'Ibu',
 
+	'tahun_ajaran' => 'Tahun Ajaran',
+
 	'menunggu' => 'Menunggu',
 	'diterima' => 'Diterima',
 	'tidak_diterima' => 'Tidak Diterima',

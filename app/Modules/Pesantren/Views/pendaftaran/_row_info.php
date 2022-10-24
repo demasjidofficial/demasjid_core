@@ -28,6 +28,7 @@
 <td><?php echo esc($item->mother_tlpn) ?></a></td>
 <td><?php echo esc($item->mother_email) ?></a></td>
 <td><?php echo convertStateRegisterEducation($item->state) ?></a></td>
+<td><?php echo esc($item->tahunAjaran_name) ?></a></td>
 <td><?php echo esc($item->description) ?></a></td>
 
 <td class="d-flex justify-content-end" hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
