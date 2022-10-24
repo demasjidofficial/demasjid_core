@@ -75,6 +75,7 @@ class TahunAjaranController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
 
+        $dataEdit['stateItems'] = TahunAjaranModel::listState();
         return $dataEdit;
     }
 }

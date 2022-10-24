@@ -39,7 +39,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.state'), '', ['for' => 'status', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('status', old('status', $data->status ?? ''), "class='form-control char' required placeholder='" . lang('crud.state') . "' ") ?>
+                    <?= form_dropdown('status', $stateItems, old('status', $data->status ?? ''), "class='form-control char' required placeholder='" . lang('crud.status') . "' ") ?>
                     <?php if (has_error('status')) { ?>
                         <p class="text-danger"><?php echo error('status'); ?></p>
                     <?php } ?>

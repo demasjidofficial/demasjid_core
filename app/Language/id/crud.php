@@ -204,6 +204,8 @@ return [
 	'mother' => 'Ibu',
 
 	'tahun_ajaran' => 'Tahun Ajaran',
+	'active' => 'Aktif',
+	'nonactive' => 'Non-Aktif',
 
 	'menunggu' => 'Menunggu',
 	'diterima' => 'Diterima',

@@ -2,6 +2,8 @@
 
 class TahunAjaranModel extends BaseModel
 {
+    const AKTIF = '1';
+	const NONAKTIF = '0';
     protected $table = 'tahun_ajaran';
     protected $returnType = 'App\Modules\Api\Entities\TahunAjaran';
     protected $primaryKey = 'id';
@@ -21,4 +23,12 @@ class TahunAjaranModel extends BaseModel
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
     ];   
+
+    public static function listState()
+	{
+		return [
+			self::AKTIF => lang('crud.active'),
+			self::NONAKTIF => lang('crud.nonactive'),
+		];
+	}
 }
