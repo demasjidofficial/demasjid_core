@@ -76,18 +76,6 @@ class Guru extends BaseEntity
 	private $jns_kelamin;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="pelajaran_id",
-	 *     title="pelajaran_id",
-	 *     type="integer",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=11,
-	 * )
-	 *		 
-	 */
-	private $pelajaran_id;
-	/**
-	 * @OA\Property(		 		 		 
 	 *     description="created_at",
 	 *     title="created_at",
 	 *     type="string",

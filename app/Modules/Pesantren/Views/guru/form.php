@@ -76,22 +76,13 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.gender'), '', ['for' => 'jns_kelamin', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_dropdown('jns_kelamin', old('jns_kelamin', $genderItems, $data->jns_kelamin ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
+                    <?= form_dropdown('jns_kelamin', $genderItems, old('jns_kelamin', $data->jns_kelamin ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
                     <?php if (has_error('jns_kelamin')) { ?>
                         <p class="text-danger">
                             <?php echo error('jns_kelamin'); ?>
                         </p>
                     <?php } ?>
 
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.pelajaran_id'), '', ['for' => 'pelajaran_id', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_dropdown('pelajaran_id', $pelajaranItems, old('pelajaran_id', $data->pelajaran_id ?? ''), "class='form-control select2' required placeholder='" . lang('crud.pelajaran_id') . "' ") ?>
-                    <?php if (has_error('pelajaran_id')) { ?>
-                        <p class="text-danger"><?php echo error('pelajaran_id'); ?></p>
-                    <?php } ?>
                 </div>
             </div>
         </fieldset>
@@ -103,20 +94,5 @@
     </form>
 
 </x-admin-box>
-<?php $this->endSection(); ?>
 
-<?php $this->section('scripts'); ?>
-<?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
-<?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-    $(function() {
-        bsCustomFileInput.init();
-        $('input:file').change(function() {
-            var i = $(this).prev('label').clone();
-            var file = $(this).get(0).files[0].name;
-            $(this).prev('label').text(file);
-        });
-    });
-</script>
 <?php $this->endSection(); ?>

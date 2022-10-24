@@ -42,7 +42,7 @@ class SiswaModel extends BaseModel
 		'name' => 'max_length[60]|required',
 		'nick_name' => 'max_length[60]|required',
 		'gender' => 'max_length[20]|required',
-		'birth_place' => 'max_length[15]',
+		'birth_place' => 'max_length[50]',
 		'birth_date' => 'valid_date|required',
 		'provinsi_id' => 'max_length[15]',
 		'kota_id' => 'max_length[15]',

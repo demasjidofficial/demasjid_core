@@ -32,11 +32,6 @@ class CreateGuru extends Migration
                 'type'       => 'char',
                 'constraint' => 1,
             ],
-            'pelajaran_id' => [
-                'type'       => 'int',
-                'constraint' => 11,
-                'unsigned'   => true,
-            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -53,7 +48,6 @@ class CreateGuru extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('pelajaran_id', 'pelajaran', 'id');
         $this->forge->createTable('guru', true);
     }
 

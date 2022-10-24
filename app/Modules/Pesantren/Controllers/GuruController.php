@@ -38,7 +38,7 @@ class GuruController extends AdminCrudController
                 $this->model->set('path_image', $uploaded);
             }
         }
-        
+
         return parent::update($id);
     }
 
@@ -69,7 +69,6 @@ class GuruController extends AdminCrudController
                 'name' => lang('crud.name'),
                 'nip' => lang('crud.nip'),
                 'jns_kelamin' => lang('crud.gender'),
-                'pelajaran_id' => lang('crud.pelajaran_id'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),
@@ -93,8 +92,8 @@ class GuruController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
+
         $dataEdit['genderItems'] = GuruModel::listState();
-        $dataEdit['pelajaranItems'] = Arr::pluck(model('App\Modules\Api\Models\PelajaranModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 }

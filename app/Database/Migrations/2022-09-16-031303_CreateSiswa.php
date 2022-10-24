@@ -35,7 +35,7 @@ class CreateSiswa extends Migration
             ],
             'birth_place' => [
                 'type'       => 'varchar',
-                'constraint' => 15,
+                'constraint' => 50,
                 'null'       => true,                
             ],
             'birth_date' => [
@@ -71,6 +71,7 @@ class CreateSiswa extends Migration
 
             'nis' => [
                 'type'       => 'int',
+                'constraint' => 11,
                 'null'       => true,
             ],
             'class_id' => [
