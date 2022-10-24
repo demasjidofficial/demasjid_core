@@ -98,7 +98,7 @@ class OverviewManagerController extends AdminController
             'title' => 'Jumlah Tunai',
             'value' => number_to_currency($tunaiCost->target_nominal ?? 0, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
-            'faIcon' => 'fas fa-wallet',
+            'faIcon' => 'fas fa-hand-holding-dollar',
         ]);
 
         $ttransferCost = (new TargetFundraisingModel())->transfer()->selectSum('target_nominal')->first();
@@ -108,8 +108,9 @@ class OverviewManagerController extends AdminController
             'title' => 'Jumlah Transfer',
             'value' => number_to_currency($ttransferCost->target_nominal ?? 0, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
-            'faIcon' => 'fas fa-wallet',
+            'faIcon' => 'fas fa-plane',
         ]);
+        
         $widgets->widget('stats')->collection('stats')
 
             ->addItem($timItem)

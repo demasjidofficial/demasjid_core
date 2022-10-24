@@ -62,7 +62,7 @@
 
                 <div class="chart">
                   <!-- Sales Chart Canvas -->
-                  <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                  <canvas id="fundraisingChart" height="270" style="height: 270px;"></canvas>
                 </div>
                 <!-- /.chart-responsive -->
               </div>
@@ -191,7 +191,7 @@
             <!-- /.d-flex -->
 
             <div class="position-relative mb-4">
-              <canvas id="visitors-chart" height="200"></canvas>
+              <canvas id="visitors-chart" height="270"></canvas>
             </div>
 
             <div class="d-flex flex-row justify-content-end">
@@ -206,12 +206,6 @@
           </div>
         </div>
         <!-- /.card -->
-        <?= view('App\Views\Widgets\_panel', [
-          'panel'   => $widgets->widget('program')->items(),
-          'title'  => 'Program Terbaru'
-        ]) ?>
-        
-        <!-- /.card -->
       </div>
       <!-- /.col -->
 
@@ -224,6 +218,16 @@
       <!-- /.col -->
     </div>
     <!-- /.row -->
+
+    <div class="row">
+      <div class="col">        
+      <?= view('App\Views\Widgets\_panel', [
+          'panel'   => $widgets->widget('program')->items(),
+          'title'  => 'Program Terbaru'
+        ]) ?>
+        <!-- /.card -->
+      </div>
+    </div>
   </div>
   <!--/. container-fluid -->
 </section>
@@ -244,28 +248,40 @@
     'use strict'
 
     var ticksStyle = {
-      fontColor: '#495057',
-      fontStyle: 'bold'
+      fontColor: '#636061',
+      fontStyle: 'reguler'
     }
 
     var mode = 'index'
     var intersect = true
 
-    var $salesChart = $('#sales-chart')
+    var $fundraisingChart = $('#fundraisingChart')
     // eslint-disable-next-line no-unused-vars
-    var salesChart = new Chart($salesChart, {
-      type: 'bar',
+    var fundraisingChart = new Chart($fundraisingChart, {
+      type: 'line',
       data: {
-        labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-        datasets: [{
-            backgroundColor: '#007bff',
-            borderColor: '#007bff',
-            data: [1000, 2000, 3000, 2500, 2700, 2500, 3000]
-          },
+        labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli'],
+        datasets: [
           {
-            backgroundColor: '#ced4da',
-            borderColor: '#ced4da',
-            data: [700, 1700, 2700, 2000, 1800, 1500, 2000]
+            type: 'line',
+            data: [100, 120, 170, 20, 180, 177, 160],
+            backgroundColor: '#83b86633',
+            borderColor: '#FFFFFF99',
+            pointBorderColor: '#FFFFFF00',
+            pointBackgroundColor: '#83b86600',
+            fill: true,
+            pointHoverBackgroundColor: '#83b866',
+            pointHoverBorderColor    : '#FFFFFF'
+          },{
+            type: 'line',
+            data: [60, 80, 70, 67, 20, 77, 100],
+            backgroundColor: '#249a8488',
+            borderColor: '#FFFFFF99',
+            pointBorderColor: '#FFFFFF00',
+            pointBackgroundColor: '#249a8400',
+            fill: true,
+            pointHoverBackgroundColor: '#249a84',
+            pointHoverBorderColor    : '#FFFFFF'
           }
         ]
       },
@@ -301,7 +317,7 @@
                   value += 'k'
                 }
 
-                return '$' + value
+                return '' + value
               }
             }, ticksStyle)
           }],
@@ -325,23 +341,23 @@
             type: 'line',
             data: [100, 120, 170, 167, 180, 177, 160],
             backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            pointBorderColor: '#007bff',
-            pointBackgroundColor: '#007bff',
+            borderColor: '#83b86666',
+            pointBorderColor: '#83b866',
+            pointBackgroundColor: '#83b866',
             fill: false
-            // pointHoverBackgroundColor: '#007bff',
-            // pointHoverBorderColor    : '#007bff'
+            // pointHoverBackgroundColor: '#83b866',
+            // pointHoverBorderColor    : '#83b866'
           },
           {
             type: 'line',
             data: [60, 80, 70, 67, 80, 77, 100],
             backgroundColor: 'tansparent',
-            borderColor: '#ced4da',
-            pointBorderColor: '#ced4da',
-            pointBackgroundColor: '#ced4da',
+            borderColor: '#249a8466',
+            pointBorderColor: '#249a84',
+            pointBackgroundColor: '#249a84',
             fill: false
-            // pointHoverBackgroundColor: '#ced4da',
-            // pointHoverBorderColor    : '#ced4da'
+            // pointHoverBackgroundColor: '#249a84',
+            // pointHoverBorderColor    : '#249a84'
           }
         ]
       },
