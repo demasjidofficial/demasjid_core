@@ -106,12 +106,64 @@
 
     </div>
 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Grafik Fundraising</h5>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <!-- <div class="btn-group">
+            <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-wrench"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+              <a href="#" class="dropdown-item">Mingguan</a>
+              <a href="#" class="dropdown-item">Bulanan</a>
+              <a href="#" class="dropdown-item">Tahunan</a>
+              <a class="dropdown-divider"></a>
+              <a href="#" class="dropdown-item">Separated link</a>
+            </div>
+          </div> -->
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <?= view('App\Views\Widgets\_charts', [
+                  'charts'   => $widgets->widget('charts')->items(),
+                ]) ?>
 
 
+              </div>
+              <!-- /.col -->
+              <div class="col-md-4">
 
-    <?= view('App\Views\Widgets\_grafik_fundraising', [
-      'stats'   => $widgets->widget('fundraising')->items(),
-    ]) ?>
+
+                <?= view('App\Views\Widgets\_progress', [
+                  'stats'   => $widgets->widget('fundraising')->items(),
+                ]) ?>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+
+          <!-- /.card-footer -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+
+
 
     <!-- Info boxes -->
 

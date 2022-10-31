@@ -91,7 +91,7 @@ class CreateTugasTim extends Migration
          
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('staff_id', 'tim_staff', 'id');     
+      
         $this->forge->createTable('tugas_tim');
     }
 

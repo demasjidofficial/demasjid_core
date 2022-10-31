@@ -59,15 +59,21 @@ class TargetFundraisingModel extends BaseModel
 		 'bmdonationcampaign.campaign_tonase as campaign_tonase', 'bmdonationcampaign.id as donation_id',
 		  'donaturcategory.id as donatur_id', 'donaturcategory.name as donatur', 'bmdonationtype.name as donasi'
 		  ,'users.first_name','users.last_name'];
-
-	
-
-		$this->join('bmdonationcampaign', 'bmdonationcampaign.id = ' . $this->table . '.campaign');
+		  $this->join('bmdonationcampaign', 'bmdonationcampaign.id = ' . $this->table . '.campaign');
 		$this->join('donaturcategory', 'donaturcategory.id = ' . $this->table . '.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id', 'left');
 		$this->join('users', 'users.id = ' . $this->table . '.created_by');
 		$this->where($this->table . '.created_by',auth()->user()->id);
 		return parent::findAll($limit, $offset);
+	}
+
+	public function findChart(int $limit = 0, int $offset = 0)
+	{
+		# code...
+		$this->selectColumn = ['sum(target_nominal) as nominal','campaign_name'];
+		$this->groupBy('campaign_name');
+		return parent::findAll($limit, $offset);
+
 	}
 	private function filterDonasi(string $type)
 	{

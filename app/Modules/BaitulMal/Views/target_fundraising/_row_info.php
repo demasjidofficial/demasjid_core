@@ -1,4 +1,4 @@
-<td><?php echo esc($item->kampanye) ?></a></td>
+<td><?php echo esc($item->nama_kampanye) ?></a></td>
 <td><?php echo esc($item->campaign_name) ?></a></td>
 <td><?php echo esc($item->donatur) ?></a></td>
 <td><?php echo local_currency( esc($item->target_nominal),'IDR')  ?></a></td>

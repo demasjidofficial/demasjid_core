@@ -80,7 +80,7 @@ class CreateDonaturFund extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('tugas_id', 'tugas_tim', 'id');     
+      
        
         $this->forge->createTable('donatur_fundraising', true);
     }

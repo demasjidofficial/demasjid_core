@@ -69,7 +69,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.alamat'), '', ['for' => 'alamat', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.alamat') . "' ") ?>
+                    <?= form_textarea('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.alamat') . "' ") ?>
                     <?php if (has_error('alamat')) { ?>
                         <p class="text-danger"><?php echo error('alamat'); ?></p>
                     <?php } ?>

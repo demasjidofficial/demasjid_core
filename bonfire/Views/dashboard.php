@@ -346,7 +346,7 @@
                     <tr>
                       <td><a href="#">OR1848</a></td>
                       <td>Pasar Bahagia Batch #1</td>
-                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td><span class="badge badge-21rning">Pending</span></td>
                       <td>
                         <div class="sparkbar" data-color="#f39c12" data-height="20">Rp. 7.900.000</div>
                       </td>

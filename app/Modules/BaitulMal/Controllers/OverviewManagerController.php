@@ -10,7 +10,8 @@ use App\Libraries\Widgets\Stats\StatsItem;
 
 use App\Modules\Api\Models\TargetFundraisingModel;
 use App\Modules\Api\Models\TimFundraisingModel;
-use Bonfire\Libraries\Widgets\Charts\Charts;
+use App\Libraries\Widgets\Charts\Charts;
+use App\Libraries\Widgets\Charts\ChartsItem;
 
 class OverviewManagerController extends AdminController
 {
@@ -27,6 +28,7 @@ class OverviewManagerController extends AdminController
         $this->setWidgetFundraising();
         $this->setWidgetTimFund();
         $this->setWidgetStats();
+        $this->setWidgetCharts();
         $widgets = service('widgets');
         echo $this->render('App\Modules\BaitulMal\Views\overview_manager', [
             'widgets' => $widgets,
@@ -74,6 +76,21 @@ class OverviewManagerController extends AdminController
         $widgets->widget('target')->collection('target')
 
             ->addItem($targetItem);
+    }
+
+
+    private function setWidgetCharts(){
+        $widgets = service('widgets');
+        $targetCharts = new ChartsItem([
+            'title'    => 'Grafik Target Fundraising',
+            'type'     => 'bar',
+            'cssClass' => 'col-3',
+            'data'     => (new TargetFundraisingModel())->findChart(),
+            'label'   =>(new TargetFundraisingModel())->findChart(),
+        ]);
+        $widgets->widget('charts')->collection('charts')
+
+        ->addItem($targetCharts);
     }
 
     private function setWidgetStats()
@@ -191,4 +208,6 @@ class OverviewManagerController extends AdminController
         $table->setTemplate($template);
         return $table->generate($data);
     }
+
+
 }
