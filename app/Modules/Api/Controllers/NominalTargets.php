@@ -1,17 +1,17 @@
 <?php namespace App\Modules\Api\Controllers;
  
 use asligresik\easyapi\Controllers\BaseResourceController;
-class CommentRooms extends BaseResourceController
+class NominalTargets extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\CommentRoomModel';  
+    protected $modelName = 'App\Modules\Api\Models\NominalTargetModel';  
 
      /**
      * @OA\Get(
-     *     path="/commentRooms",
-     *     tags={"CommentRoom"},
-     *     summary="Find list CommentRoom",
-     *     description="Returns list of CommentRoom",
-     *     operationId="getCommentRoom",  
+     *     path="/nominalTargets",
+     *     tags={"NominalTarget"},
+     *     summary="Find list NominalTarget",
+     *     description="Returns list of NominalTarget",
+     *     operationId="getNominalTarget",  
      *     @OA\Parameter(
      *         name="search",
      *         in="query",
@@ -48,17 +48,17 @@ class CommentRooms extends BaseResourceController
      *         response=200,
      *         description="successful operation",     
      *         @OA\JsonContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/CommentRoom")),
+     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/NominalTarget")),
      *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
      *         ),
      *         @OA\XmlContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/CommentRoom")),
-     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/CommentRoom")),
+     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/NominalTarget")),
+     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/NominalTarget")),
      *         ),           
      *     ),     
      *     @OA\Response(
      *         response=404,
-     *         description="CommentRoom not found"
+     *         description="NominalTarget not found"
      *     ),
      *     security={
      *         {"bearer_auth": {}}
@@ -69,15 +69,15 @@ class CommentRooms extends BaseResourceController
 
     /**
      * @OA\Get(
-     *     path="/commentRooms/{id}",
-     *     tags={"CommentRoom"},
-     *     summary="Find CommentRoom by ID",
-     *     description="Returns a single CommentRoom",
-     *     operationId="getCommentRoomById",
+     *     path="/nominalTargets/{id}",
+     *     tags={"NominalTarget"},
+     *     summary="Find NominalTarget by ID",
+     *     description="Returns a single NominalTarget",
+     *     operationId="getNominalTargetById",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="ID of CommentRoom to return",
+     *         description="ID of NominalTarget to return",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
@@ -87,8 +87,8 @@ class CommentRooms extends BaseResourceController
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
-     *         @OA\JsonContent(ref="#/components/schemas/CommentRoom"),
-     *         @OA\XmlContent(ref="#/components/schemas/CommentRoom"),
+     *         @OA\JsonContent(ref="#/components/schemas/NominalTarget"),
+     *         @OA\XmlContent(ref="#/components/schemas/NominalTarget"),
      *     ),
      *     @OA\Response(
      *         response=400,
@@ -96,7 +96,7 @@ class CommentRooms extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="CommentRoom not found"
+     *         description="NominalTarget not found"
      *     ),
      *     security={
      *         {"bearer_auth": {}}
@@ -107,15 +107,15 @@ class CommentRooms extends BaseResourceController
 
     /**
      * @OA\Post(
-     *     path="/commentRooms",
-     *     tags={"CommentRoom"},
-     *     summary="Add a new CommentRoom to the store",
-     *     operationId="addCommentRoom",
+     *     path="/nominalTargets",
+     *     tags={"NominalTarget"},
+     *     summary="Add a new NominalTarget to the store",
+     *     operationId="addNominalTarget",
      *     @OA\Response(
      *         response=201,
-     *         description="Created CommentRoom",
-     *         @OA\JsonContent(ref="#/components/schemas/CommentRoom"),
-     *         @OA\XmlContent(ref="#/components/schemas/CommentRoom"),
+     *         description="Created NominalTarget",
+     *         @OA\JsonContent(ref="#/components/schemas/NominalTarget"),
+     *         @OA\XmlContent(ref="#/components/schemas/NominalTarget"),
      *     ),
      *     @OA\Response(
      *         response=405,
@@ -124,20 +124,20 @@ class CommentRooms extends BaseResourceController
      *     security={
      *         {"bearer_auth": {}}
      *     },     
-     *     requestBody={"$ref": "#/components/requestBodies/CommentRoom"}
+     *     requestBody={"$ref": "#/components/requestBodies/NominalTarget"}
      * )
      */
 
     /**
      * @OA\Put(
-     *     path="/commentRooms/{id}",
-     *     tags={"CommentRoom"},
-     *     summary="Update an existing CommentRoom",
-     *     operationId="updateCommentRoom",
+     *     path="/nominalTargets/{id}",
+     *     tags={"NominalTarget"},
+     *     summary="Update an existing NominalTarget",
+     *     operationId="updateNominalTarget",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="CommentRoom id to update",
+     *         description="NominalTarget id to update",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
@@ -150,7 +150,7 @@ class CommentRooms extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="CommentRoom not found"
+     *         description="NominalTarget not found"
      *     ),
      *     @OA\Response(
      *         response=405,
@@ -159,20 +159,20 @@ class CommentRooms extends BaseResourceController
      *     security={
      *         {"bearer_auth": {}}
      *     },     
-     *     requestBody={"$ref": "#/components/requestBodies/CommentRoom"}
+     *     requestBody={"$ref": "#/components/requestBodies/NominalTarget"}
      * )
      */
 
     /**
      * @OA\Delete(
-     *     path="/commentRooms/{id}",
-     *     tags={"CommentRoom"},
-     *     summary="Deletes a CommentRoom",
-     *     operationId="deleteCommentRoom",     
+     *     path="/nominalTargets/{id}",
+     *     tags={"NominalTarget"},
+     *     summary="Deletes a NominalTarget",
+     *     operationId="deleteNominalTarget",     
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="CommentRoom id to delete",
+     *         description="NominalTarget id to delete",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",

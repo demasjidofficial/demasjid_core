@@ -109,11 +109,6 @@ class Bonfire
             ->setFontAwesomeIcon('nav-icon fas fa-info')
             ->setCollapsible();
         $menus->menu('sidebar')
-
-            ->createCollection('info', 'Info')
-            ->setFontAwesomeIcon('nav-icon fas fa-info')
-            ->setCollapsible();
-        $menus->menu('sidebar')
             ->createCollection('board', 'Board')
             ->setFontAwesomeIcon('nav-icon fas fa-tv')
             ->setCollapsible();

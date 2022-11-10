@@ -104,7 +104,7 @@ STR;
         $dbDomain = 'dm_'.$this->domainFolder;
         $db->simpleQuery("create database IF NOT EXISTS $dbDomain");                    
         log_message('critical', 'create database success');
-        foreach($this->initdb() as $table){
+        foreach($db->listTables() as $table){
           if(in_array($table, ['wilayah','languages', 'uom_category', 'uom', 'settings', 'chart_of_account'])){
             $db->simpleQuery("CREATE TABLE IF NOT EXISTS {$dbDomain}.{$table} select * from {$dbName}.{$table};");
           }else{
@@ -128,54 +128,5 @@ STR;
         }
         
         log_message('critical', 'create seed database, success');
-    }
-
-    private function initdb(){                
-      return [
-        'users'
-        ,'account_balance'
-        ,'auth_activation_attempts'
-        ,'auth_groups_users'
-        ,'auth_identities'        
-        ,'auth_permissions_users'
-        ,'auth_remember_tokens'
-        ,'auth_reset_attempts'
-        ,'auth_logins'
-        ,'entity'
-        ,'bab'
-        ,'balance'
-        ,'bmdonationtype'
-        ,'bminfaqshodaqoh'
-        ,'bminfaqshodaqohcategory'
-        ,'chart_of_account'        
-        ,'imam'
-        ,'jabatan'
-        ,'kategori_pelajaran'
-        ,'kelas'
-        ,'languages'
-        ,'materi'
-        ,'member'
-        ,'meta_info'
-        ,'migrations'
-        ,'non_rawatib_schedule'
-        ,'pelajaran'
-        ,'pendaftaran'
-        ,'pengurus'
-        ,'profile'
-        ,'program'
-        ,'program_category'
-        ,'program_cost'
-        ,'rawatib_schedule'
-        ,'settings'
-        ,'sitemenus'
-        ,'sitepages'
-        ,'siteposts'
-        ,'sitesections'
-        ,'sitesliders'
-        ,'sitesocials'
-        ,'uom_category'
-        ,'uom'                
-        ,'wilayah'
-      ];
     }
 }

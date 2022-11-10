@@ -28,9 +28,9 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.text'),'',['for' => 'text', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.board_newsruntext'),'',['for' => 'text', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('text', old('text', $data->Text ?? ''), "class='form-control varchar'  placeholder='".lang('crud.board_newsruntext')."' ") ?>
+                        <?= form_textarea('text', old('text', $data->Text ?? ''), "class='form-control varchar' rows='4'  placeholder='".lang('crud.board_newsruntext')."' ") ?>
                         <?php if (has_error('text')) { ?>
                         <p class="text-danger"><?php echo error('Text'); ?></p>
                         <?php } ?>
@@ -48,7 +48,7 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.add_new') ?></button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
             </div>
 
         </form>

@@ -101,35 +101,50 @@ $routes->group(
 $routes->post('/api/senddonation', '\App\Modules\Api\Controllers\Donasis::insertDonation');
 $routes->post('/api/confirmdonation', '\App\Modules\Api\Controllers\Donasis::insertConfirmation');
 
-$routes->group(
-    '/api',
-    ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'],
-    static function ($routes) {
-        $routes->resource('users');
-        $routes->resource('jabatans');
-        $routes->resource('pengurus');
-        $routes->resource('wilayahs', ['except' => ['index']]);
-        $routes->resource('members', ['except' => ['create']]);
-        $routes->resource('entities');
-        $routes->resource('balances');
-        $routes->resource('profiles');
-        $routes->resource('pengurus');
-        $routes->resource('programs');
-        $routes->resource('kelas');
-        $routes->resource('uom');
-        $routes->resource('chartOfAccounts');
-        $routes->resource('programCosts');
-        $routes->resource('rawatibSchedules');
-        $routes->resource('nonRawatibSchedules');
-        $routes->resource('bmdonationcampaigncategories');
-        $routes->resource('bmdonationcampaigns');
+$routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], 
+static function ($routes) {
+    $routes->resource('users');
+    $routes->resource('jabatans');
+    $routes->resource('pengurus');
+    $routes->resource('wilayahs',['except' => ['index']]);
+    $routes->resource('members',['except' => ['create']]);
+    $routes->resource('entities');
+    $routes->resource('balances');
+    $routes->resource('profiles');
+    $routes->resource('pengurus');
+    $routes->resource('programs');
+    $routes->resource('kelas');
+    $routes->resource('uom');
+    $routes->resource('chartOfAccounts');
+    $routes->resource('programCosts');
+    $routes->resource('rawatibSchedules');
+    $routes->resource('nonRawatibSchedules');    
+    $routes->resource('bmdonationcampaigncategories');
+    $routes->resource('bmdonationcampaigns');
+    $routes->resource('timStaffs');
+    $routes->resource('donaturTypes');
+    $routes->resource('donaturs');
+    $routes->resource('donaturcategories',['except' => ['index']]);
+    $routes->resource('targetFundraisings');
+    $routes->resource('jadwalFundraisings');
+    $routes->resource('timFundraisings');
 
-        $routes->resource('donaturTypes');
-
-        $routes->resource('donaturcategories', ['except' => ['index']]);
-        $routes->resource('targetFundraisings');
-        $routes->resource('jadwalFundraisings');
-        $routes->resource('timFundraisings');
+    $routes->resource('boardNewsBgs');
+    $routes->resource('boardNewsRuntexts');
+    $routes->resource('donaturs');
+    $routes->resource('donasis');
+    $routes->resource('PaymentMethods');
+    $routes->resource('MasterBanks');
+    $routes->resource('MasterPaymentgateways');
+    $routes->resource('donaturFundraisings');
+    $routes->resource('tugasTims');
+    //$routes->resource('menus');
+    //$routes->resource('pages');
+    //$routes->resource('posts');
+    //$routes->resource('sections');
+    //$routes->resource('sliders');
+    //$routes->resource('socials');
+});
 
         $routes->resource('boardNewsBgs');
         $routes->resource('boardNewsRuntexts');

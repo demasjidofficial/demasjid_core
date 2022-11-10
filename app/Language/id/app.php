@@ -119,4 +119,7 @@ return [
 	'footer' => 'Footer',
 	'total_infaq' => 'Total Infaq',
 	'jumlah_infaq' => 'Jumlah Infaq',
+	'overview_tim'=>'Overview Tim Fundraising',
+	'overview_spv'=>'Overview Supervisior',
+	'open_menu'=>'Buka Menu'
 ];

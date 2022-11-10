@@ -1,4 +1,4 @@
-<!-- <td><img width="100px" src="/<php echo ($item->path_icon) ? esc($item->path_icon) : 'uploads/images/blank.jpg' ?>"></a></td> -->
+<!-- <td><img width="100px" src="/<php echo ($item->path_icon) ? esc($item->path_icon) : $blank_img ?>"></a></td> -->
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo esc($item->link) ?></a></td>
 <td><?php echo convertStateWebsite($item->state) ?></a></td>

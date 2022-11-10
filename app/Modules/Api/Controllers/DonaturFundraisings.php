@@ -1,17 +1,17 @@
 <?php namespace App\Modules\Api\Controllers;
  
 use asligresik\easyapi\Controllers\BaseResourceController;
-class RoomReservs extends BaseResourceController
+class DonaturFundraisings extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\RoomReservModel';  
+    protected $modelName = 'App\Modules\Api\Models\DonaturFundraisingModel';  
 
      /**
      * @OA\Get(
-     *     path="/roomReservs",
-     *     tags={"RoomReserv"},
-     *     summary="Find list RoomReserv",
-     *     description="Returns list of RoomReserv",
-     *     operationId="getRoomReserv",  
+     *     path="/donaturFundraisings",
+     *     tags={"DonaturFundraising"},
+     *     summary="Find list DonaturFundraising",
+     *     description="Returns list of DonaturFundraising",
+     *     operationId="getDonaturFundraising",  
      *     @OA\Parameter(
      *         name="search",
      *         in="query",
@@ -48,17 +48,17 @@ class RoomReservs extends BaseResourceController
      *         response=200,
      *         description="successful operation",     
      *         @OA\JsonContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/RoomReserv")),
+     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/DonaturFundraising")),
      *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
      *         ),
      *         @OA\XmlContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/RoomReserv")),
-     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/RoomReserv")),
+     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/DonaturFundraising")),
+     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/DonaturFundraising")),
      *         ),           
      *     ),     
      *     @OA\Response(
      *         response=404,
-     *         description="RoomReserv not found"
+     *         description="DonaturFundraising not found"
      *     ),
      *     security={
      *         {"bearer_auth": {}}
@@ -69,15 +69,15 @@ class RoomReservs extends BaseResourceController
 
     /**
      * @OA\Get(
-     *     path="/roomReservs/{id}",
-     *     tags={"RoomReserv"},
-     *     summary="Find RoomReserv by ID",
-     *     description="Returns a single RoomReserv",
-     *     operationId="getRoomReservById",
+     *     path="/donaturFundraisings/{id}",
+     *     tags={"DonaturFundraising"},
+     *     summary="Find DonaturFundraising by ID",
+     *     description="Returns a single DonaturFundraising",
+     *     operationId="getDonaturFundraisingById",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="ID of RoomReserv to return",
+     *         description="ID of DonaturFundraising to return",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
@@ -87,8 +87,8 @@ class RoomReservs extends BaseResourceController
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
-     *         @OA\JsonContent(ref="#/components/schemas/RoomReserv"),
-     *         @OA\XmlContent(ref="#/components/schemas/RoomReserv"),
+     *         @OA\JsonContent(ref="#/components/schemas/DonaturFundraising"),
+     *         @OA\XmlContent(ref="#/components/schemas/DonaturFundraising"),
      *     ),
      *     @OA\Response(
      *         response=400,
@@ -96,7 +96,7 @@ class RoomReservs extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="RoomReserv not found"
+     *         description="DonaturFundraising not found"
      *     ),
      *     security={
      *         {"bearer_auth": {}}
@@ -107,15 +107,15 @@ class RoomReservs extends BaseResourceController
 
     /**
      * @OA\Post(
-     *     path="/roomReservs",
-     *     tags={"RoomReserv"},
-     *     summary="Add a new RoomReserv to the store",
-     *     operationId="addRoomReserv",
+     *     path="/donaturFundraisings",
+     *     tags={"DonaturFundraising"},
+     *     summary="Add a new DonaturFundraising to the store",
+     *     operationId="addDonaturFundraising",
      *     @OA\Response(
      *         response=201,
-     *         description="Created RoomReserv",
-     *         @OA\JsonContent(ref="#/components/schemas/RoomReserv"),
-     *         @OA\XmlContent(ref="#/components/schemas/RoomReserv"),
+     *         description="Created DonaturFundraising",
+     *         @OA\JsonContent(ref="#/components/schemas/DonaturFundraising"),
+     *         @OA\XmlContent(ref="#/components/schemas/DonaturFundraising"),
      *     ),
      *     @OA\Response(
      *         response=405,
@@ -124,20 +124,20 @@ class RoomReservs extends BaseResourceController
      *     security={
      *         {"bearer_auth": {}}
      *     },     
-     *     requestBody={"$ref": "#/components/requestBodies/RoomReserv"}
+     *     requestBody={"$ref": "#/components/requestBodies/DonaturFundraising"}
      * )
      */
 
     /**
      * @OA\Put(
-     *     path="/roomReservs/{id}",
-     *     tags={"RoomReserv"},
-     *     summary="Update an existing RoomReserv",
-     *     operationId="updateRoomReserv",
+     *     path="/donaturFundraisings/{id}",
+     *     tags={"DonaturFundraising"},
+     *     summary="Update an existing DonaturFundraising",
+     *     operationId="updateDonaturFundraising",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="RoomReserv id to update",
+     *         description="DonaturFundraising id to update",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
@@ -150,7 +150,7 @@ class RoomReservs extends BaseResourceController
      *     ),
      *     @OA\Response(
      *         response=404,
-     *         description="RoomReserv not found"
+     *         description="DonaturFundraising not found"
      *     ),
      *     @OA\Response(
      *         response=405,
@@ -159,20 +159,20 @@ class RoomReservs extends BaseResourceController
      *     security={
      *         {"bearer_auth": {}}
      *     },     
-     *     requestBody={"$ref": "#/components/requestBodies/RoomReserv"}
+     *     requestBody={"$ref": "#/components/requestBodies/DonaturFundraising"}
      * )
      */
 
     /**
      * @OA\Delete(
-     *     path="/roomReservs/{id}",
-     *     tags={"RoomReserv"},
-     *     summary="Deletes a RoomReserv",
-     *     operationId="deleteRoomReserv",     
+     *     path="/donaturFundraisings/{id}",
+     *     tags={"DonaturFundraising"},
+     *     summary="Deletes a DonaturFundraising",
+     *     operationId="deleteDonaturFundraising",     
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="RoomReserv id to delete",
+     *         description="DonaturFundraising id to delete",
      *         required=true,
      *         @OA\Schema(
      *             type="integer",

@@ -4,10 +4,10 @@ use asligresik\easyapi\Models\BaseModel;
 
 class TugasTimModel extends BaseModel
 {
-	const BEGIN = 'belum_mulai';
+    const BEGIN = 'belum_mulai';
     const END = 'selesai';
     const CANCEL = 'batal';
-    const PROGRESS = 'berlangsung';	
+    const PROGRESS = 'berlangsung';
     protected $table = 'tugas_tim';
     protected $returnType = 'App\Modules\Api\Entities\TugasTim';
     protected $primaryKey = 'id';
@@ -16,31 +16,53 @@ class TugasTimModel extends BaseModel
         'staff_id',
 		'tugas',
 		'nominal',
+        'progres',
+		'nominal_target',
+        'img_serah_terima',
+        'kode_tugas',
+        'img_ttd_serah_terima',
 		'created_at',
-		'updated_at',
-		'created_by',
-		'updated_by'
+		'updated_at'
+	
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[tugas_tim.id,id,{id}]',
-
-		'id_staff' => 'numeric|max_length[11]|required',
-
-		'staff_id' => 'numeric|max_length[11]|required',
-
-		'tugas' => 'max_length[255]|required',
-		'nominal' => 'numeric|max_length[11]|required',
-		'created_at' => 'valid_date|required',
-		'updated_at' => 'valid_date|required',
-
-		//'created_by' => 'numeric|max_length[11]',
-
-		// 'created_by' => 'numeric|max_length[11]',
-
-		'updated_by' => 'numeric|max_length[11]'
+        // 'id' => 'numeric|max_length[11]|required|is_unique[tugas_tim.id,id,{id}]',
+		// 'staff_id' => 'numeric|max_length[11]|required',
+		// 'tugas' => 'max_length[255]|required',
+		// 'nominal' => 'numeric|max_length[11]|required',
+		
+		// 'progres' => 'max_length[100]',
+		// 'nominal_target' => 'numeric|max_length[11]'
     ];   
 
-	public static function listState(){
+    public function findAll(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','tim_fundraising.nama_tim as nama_tim'];        
+        $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
+        $this->join('users', 'users.id = tim_staff.user_id');
+		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
+		$this->where('tim_staff.user_id',auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
+        return parent::findAll($limit, $offset);
+    }
+    public function findWidget(int $limit = 5, int $offset = 0)
+    {
+
+        $this->selectColumn = [$this->table.'.img_serah_terima as img_serah_terima',
+        $this->table.'.tugas as tugas', $this->table.'.tugas as tugas',$this->table.'.nominal_target as nominal_target',$this->table.'.progres as progres',
+        $this->table.'.nominal as nominal','tim_fundraising.nama_tim as nama_tim','users.first_name as first_name', 
+        'users.last_name as last_name'];        
+
+		
+        $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
+        $this->join('users', 'users.id = tim_staff.user_id');
+		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
+		$this->where('tim_staff.user_id',auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
+        $this->limit(5);
+		return parent::findAll($limit, $offset);
+    }   
+    public static function listState(){
 
         return [
 			self::BEGIN => lang('crud.belum_mulai'),
@@ -48,58 +70,5 @@ class TugasTimModel extends BaseModel
 			self::END => lang('crud.selesai'),
 			self::CANCEL => lang('crud.batal'),
 		];
-	}
-
-	
-
-	public function insert($data = null, bool $returnID = true)
-    {   
-		$this->db->transBegin();
-        $tugasTim = $data['tugas'];
-        $newId = parent::insert($data, $returnID);
-		$this->insertDetail($newId, $tugasTim);
-
-		if ($this->db->transStatus() === false) {
-			$this->db->transRollback();
-
-            return false;
-		} else {
-			$this->db->transCommit();
-
-            return $newId;
-		}
-    }	
-
-	public function update($id = null, $data = null): bool
-    {   
-		$this->db->transBegin();
-        $tugasTim = $data['tugas_tim'];                
-        $result = parent::update($id, $data);
-        $this->insertDetail($id, $tugasTim);
-		if ($this->db->transStatus() === false) {
-			$this->db->transRollback();
-
-            return false;
-		} else {
-			$this->db->transCommit();
-
-            return $result;
-		}
-    }
-
-	private function insertDetail($id, $tugasTim){
-		if(!empty($tugasTim)){
-            (new TugasTimModel())->where('id_staff', $id)->delete();
-			foreach($tugasTim['tugas'] as $key => $tugas){
-                $detail = [
-					'id' => $id,
-					'tugas' => $tugas,					
-					'nominal' => str_replace('.', '', $tugasTim['nominal'][$key]),
-					'progres' =>  $tugasTim['progres'][$key]
-				];
-                
-                (new TugasTimModel())->insert($detail);				
-			}
-		}
 	}
 }

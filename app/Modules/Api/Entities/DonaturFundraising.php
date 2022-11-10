@@ -1,18 +1,18 @@
 <?php namespace App\Modules\Api\Entities;
 use asligresik\easyapi\Entities\BaseEntity;
 /**    
-* Class RoomReserv
+* Class DonaturFundraising
 * @OA\Schema(
-*     title="RoomReserv",
-*     description="RoomReserv"
+*     title="DonaturFundraising",
+*     description="DonaturFundraising"
 * )
 *
 * @OA\Tag(
-*     name="RoomReserv",
-*     description="Everything about your RoomReserv" 
+*     name="DonaturFundraising",
+*     description="Everything about your DonaturFundraising" 
 * )
 */ 
-class RoomReserv extends BaseEntity
+class DonaturFundraising extends BaseEntity
 {
     	/**
 	 * @OA\Property(		 		 		 
@@ -28,8 +28,8 @@ class RoomReserv extends BaseEntity
 	private $id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="room_id",
-	 *     title="room_id",
+	 *     description="tugas_id",
+	 *     title="tugas_id",
 	 *     type="integer",
 	 * 	   format="-",	 
 	 * 	   nullable=true,
@@ -37,11 +37,70 @@ class RoomReserv extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $room_id;
+	private $tugas_id;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="namaruangan",
-	 *     title="namaruangan",
+	 *     description="nominal",
+	 *     title="nominal",
+	 *     type="integer",
+	 * 	   format="-",	 
+	 * 	   nullable=false,
+	 * 	   maxLength=11,
+	 * )
+	 *		 
+	 */
+	private $nominal;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="no_transaksi",
+	 *     title="no_transaksi",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $no_transaksi;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="tanggal_transaksi",
+	 *     title="tanggal_transaksi",
+	 *     type="string",
+	 * 	   format="date",	 
+	 * 	   nullable=false,
+	 * )
+	 *		 
+	 */
+	private $tanggal_transaksi;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="path_image",
+	 *     title="path_image",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $path_image;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="path_signature",
+	 *     title="path_signature",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=255,
+	 * )
+	 *		 
+	 */
+	private $path_signature;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="nama",
+	 *     title="nama",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -49,31 +108,7 @@ class RoomReserv extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $namaruangan;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="namapemesan",
-	 *     title="namapemesan",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=255,
-	 * )
-	 *		 
-	 */
-	private $namapemesan;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="no_tlp",
-	 *     title="no_tlp",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=25,
-	 * )
-	 *		 
-	 */
-	private $no_tlp;
+	private $nama;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="alamat",
@@ -88,54 +123,20 @@ class RoomReserv extends BaseEntity
 	private $alamat;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="start_date",
-	 *     title="start_date",
-	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $start_date;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="end_date",
-	 *     title="end_date",
-	 *     type="string",
-	 * 	   format="date",	 
-	 * 	   nullable=false,
-	 * )
-	 *		 
-	 */
-	private $end_date;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="agenda",
-	 *     title="agenda",
+	 *     description="email",
+	 *     title="email",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
-	 * 	   maxLength=50,
+	 * 	   maxLength=255,
 	 * )
 	 *		 
 	 */
-	private $agenda;
+	private $email;
 	/**
 	 * @OA\Property(		 		 		 
-	 *     description="keterangan",
-	 *     title="keterangan",
-	 *     type="string",
-	 * 	   format="-",	 
-	 * 	   nullable=false,
-	 * 	   maxLength=50,
-	 * )
-	 *		 
-	 */
-	private $keterangan;
-	/**
-	 * @OA\Property(		 		 		 
-	 *     description="status",
-	 *     title="status",
+	 *     description="nohp",
+	 *     title="nohp",
 	 *     type="string",
 	 * 	   format="-",	 
 	 * 	   nullable=false,
@@ -143,7 +144,7 @@ class RoomReserv extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $status;
+	private $nohp;
 	/**
 	 * @OA\Property(		 		 		 
 	 *     description="created_at",
@@ -182,16 +183,16 @@ class RoomReserv extends BaseEntity
 /**
  *
  * @OA\RequestBody(
- *     request="RoomReserv",
- *     description="RoomReserv object that needs to be added", 
- *     @OA\JsonContent(ref="#/components/schemas/RoomReserv"),
+ *     request="DonaturFundraising",
+ *     description="DonaturFundraising object that needs to be added", 
+ *     @OA\JsonContent(ref="#/components/schemas/DonaturFundraising"),
  *     @OA\MediaType(
  *         mediaType="application/x-www-form-urlencoded",
- *         @OA\Schema(ref="#/components/schemas/RoomReserv")
+ *         @OA\Schema(ref="#/components/schemas/DonaturFundraising")
  *     ),
  *     @OA\MediaType(
  *         mediaType="application/xml",
- *         @OA\Schema(ref="#/components/schemas/RoomReserv")
+ *         @OA\Schema(ref="#/components/schemas/DonaturFundraising")
  *     )
  * )
  */

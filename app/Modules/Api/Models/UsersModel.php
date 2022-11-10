@@ -37,4 +37,20 @@ class UsersModel extends BaseModel
         'updated_at'     => 'valid_date',
         'deleted_at'     => 'valid_date',
     ];
+    public function findSpv(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*'];        
+        $this->join('auth_groups_users', 'auth_groups_users.user_id = '.$this->table.'.id');
+
+		$this->where('auth_groups_users.group','supervisior');
+        return parent::findAll($limit, $offset);
+    }
+    public function findStaff(int $limit = 0, int $offset = 0)
+    {
+        $this->selectColumn = [$this->table.'.*'];        
+        $this->join('auth_groups_users', 'auth_groups_users.user_id = '.$this->table.'.id');
+
+		$this->where('auth_groups_users.group','staff');
+        return parent::findAll($limit, $offset);
+    }
 }

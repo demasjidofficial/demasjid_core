@@ -12,7 +12,7 @@ class TargetFundraisingListModel extends BaseModel
         'campaign',
 		'donatur',
 		'campaign_nama',
-	
+		'target_nominal',
 		'created_at',
 		'updated_at',
 		'created_by',
@@ -23,7 +23,7 @@ class TargetFundraisingListModel extends BaseModel
 		'campaign' => 'max_length[128]|required',
 		'donatur' => 'max_length[128]|required',
 		'campaign_nama' => 'max_length[128]|required',
-	
+		'target_nominal' => 'numeric|max_length[11]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		'created_by' => 'numeric|max_length[11]',
