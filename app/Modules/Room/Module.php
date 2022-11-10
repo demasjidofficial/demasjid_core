@@ -26,31 +26,31 @@ class Module extends BaseModule
             //'permission'      => 'tpq.balance.list',
         ]);
 
-        $konfirmruanganItem = new MenuItem([
+        $reservruanganItem = new MenuItem([
             'title'           => lang('crud.reservruangan'),
             'url'             => url_to('App\Modules\Room\Controllers\RoomReservationController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
-        $comentItem = new MenuItem([
+        $InfaqruanganItem = new MenuItem([
             'title'           => lang('crud.infaq_room'),
-            'url'             => url_to('App\Modules\Room\Controllers\CommentRoomController::index'),
+            'url'             => url_to('App\Modules\Room\Controllers\InfaqRoomController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $rekaplaporanItem = new MenuItem([
             'title'           => lang('crud.summary'),
-            'url'             => url_to('/'),
+            'url'             => url_to('App\Modules\Room\Controllers\ReportRoomController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $sidebar->menu('sidebar')->collection('room')
             ->addItem($roomItem)
-            ->addItem($konfirmruanganItem)
-            ->addItem($comentItem)
+            ->addItem($reservruanganItem)
+            ->addItem($InfaqruanganItem)
             ->addItem($rekaplaporanItem);
     }
 }

@@ -24,7 +24,7 @@ return [
 	'article'	=> 'Artikel',
 	'agenda'	=> 'Agenda',
 
-	'home' 		=> 'Beranda', 
+	'home' 		=> 'Beranda',
 	'about'		=> 'Tentang',
 	'vision_mission'	=> 'Visi & Misi',
 	'structure'	=> 'Struktur',
@@ -52,12 +52,12 @@ return [
 	'construction_reports' => 'Pembangunan',
 	'contact'	=> 'Kontak',
 	'donation'	=> 'Donasi',
-	'activation'=> 'Aktivasi',
+	'activation' => 'Aktivasi',
 	'activation_msg_head' => '',
 	'activation_msg_submitted' => 'Your activation has been sent. Please check your mailbox for the activation',
 
-	'greetings1'=> 'Assalamualaikum',
-	'greetings2'=> 'Assalamualaikum Warohmatulloh Wabarokatuh',
+	'greetings1' => 'Assalamualaikum',
+	'greetings2' => 'Assalamualaikum Warohmatulloh Wabarokatuh',
 	'login_msg_head' 	=> 'Please entry your account to login',
 	'login_msg_success'	=> 'Login succeeded',
 
@@ -104,7 +104,7 @@ return [
 	'board_konfigurasi' => 'Konfigurasi',
 
 	'helpus_grow' => 'Beri Feedback',
-	'dashboard' => 'Dasbor',	
+	'dashboard' => 'Dasbor',
 	'more_info' => 'Lihat detil',
 	'search' => 'Cari',
 	'print' => 'Cetak',
@@ -117,6 +117,8 @@ return [
 	'slides' => 'Slide',
 	'visit_site' => 'Tinjau Situs',
 	'footer' => 'Footer',
+	'total_infaq' => 'Total Infaq',
+	'jumlah_infaq' => 'Jumlah Infaq',
 	'overview_tim'=>'Overview Tim Fundraising',
 	'overview_spv'=>'Overview Supervisior',
 	'open_menu'=>'Buka Menu'
