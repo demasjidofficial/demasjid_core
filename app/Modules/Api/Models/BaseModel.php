@@ -47,4 +47,9 @@ class BaseModel extends ModelsBaseModel
 
         return $this->filterEntity(EntityModel::TPQ);
     }
+
+    public function room(){
+
+        return $this->filterEntity(EntityModel::ROOM);
+    }
 }

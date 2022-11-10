@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Modules\Masjid\Controllers;
+namespace App\Modules\Room\Controllers;
 
 use App\Controllers\ReportController;
 use App\Modules\Api\Models\EntityModel;
 use CodeIgniter\I18n\Time;
 
-class ReportDonaturController extends ReportController
+class ReportRoomController extends ReportController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\Masjid\Views\report_donatur\\';
-    protected $baseRoute = 'admin/masjid/reportdonation';
-    protected $modelName = 'App\Modules\Masjid\Models\ReportDonationModel';
+    protected $viewPrefix = 'App\Modules\Masjid\Views\report_room\\';
+    protected $baseRoute = 'admin/masjid/reportroom';
+    protected $modelName = 'App\Modules\Masjid\Models\ReportRoomModel';
 
     public function index()
     {
@@ -54,7 +54,7 @@ class ReportDonaturController extends ReportController
         $startDate = $period[0] ?? $firstDateMonth;
         $endDate = $period[1] ?? $lastDateMonth;
         $model = model($this->modelName);
-        $model->masjid();
+        $model->room();
         $model->where("transaction_date between '{$startDate}' and  '{$endDate}'");
         $model->orderBy('transaction_date');
 
