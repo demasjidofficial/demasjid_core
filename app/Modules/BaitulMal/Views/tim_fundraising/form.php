@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.tim_fundraising') ?></a>
+    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.kembali') ?></a>
     <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.tim_fundraising') ?></h4>
 </x-page-head>
 
@@ -20,12 +20,13 @@
     <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
         <?php echo csrf_field(); ?>
-
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />
             <input type="hidden" name="id" value="<?php echo $data->id; ?>">
-        <?php } ?>
 
+           
+        <?php } ?>
+      
         <fieldset>
             <div class="row mb-3">
                 <?= form_label(lang('crud.target_id'), '', ['for' => 'target_id', 'class' => 'col-form-label col-sm-2']) ?>
@@ -33,24 +34,6 @@
                     <?= form_dropdown('target_id', $targetItems, old('target_id', $data->target_id ?? ''), "class='form-control select2bs4' required") ?>
                     <?php if (has_error('target_id')) { ?>
                         <p class="text-danger"><?php echo error('target_id'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
-                    <?php if (has_error('kode_tim')) { ?>
-                        <p class="text-danger"><?php echo error('kode_tim'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'nama_tim', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('nama_tim', old('nama_tim', $data->nama_tim ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nama_tim') . "' ") ?>
-                    <?php if (has_error('nama_tim')) { ?>
-                        <p class="text-danger"><?php echo error('nama_tim'); ?></p>
                     <?php } ?>
                 </div>
             </div>
@@ -66,15 +49,38 @@
 
 
 
+
+            <div class="row mb-3">
+                <?= form_label(lang('crud.kode_tim'), '', ['for' => 'kode_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('kode_tim', old('kode_tim', $data->kode_tim ?? generate_kode()), "class='form-control int' readonly='' required placeholder='" . lang('crud.kode_tim') . "' ") ?>
+                    <?php if (has_error('kode_tim')) { ?>
+                        <p class="text-danger"><?php echo error('kode_tim'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'nama_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('nama_tim', old('nama_tim', $data->nama_tim ?? ''), "class='form-control int' required placeholder='" . lang('crud.nama_tim') . "' ") ?>
+                    <?php if (has_error('nama_tim')) { ?>
+                        <p class="text-danger"><?php echo error('nama_tim'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
+
+
+
             <div class="row mb-3">
                 <?php echo form_label(lang('crud.staff'), '', ['for' => 'staff', 'class' => 'col-form-label col-sm-2']); ?>
                 <div class="col-sm-10 block_detail_program">
                     <?php if (isset($timStaff) && !empty($timStaff)) { ?>
                         <?php foreach ($timStaff as $index => $detail) { ?>
                             <div class="input-group mb-2">
-                                <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
 
-
+                                <?= form_dropdown('tim_staff[user_id][]', $staffItems, old('tim_staff[user_id]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
+                              
 
 
                                 <div class="input-group-append">
@@ -94,8 +100,9 @@
                         <?php } ?>
                     <?php } else { ?>
                         <div class="input-group mb-2">
-                            <?= form_dropdown('tim_staff[id_user][]', $staffItems, old('tim_staff[id_user]', $detail->id_user ?? ''), "class='form-control select2bs4' required") ?>
 
+                            <?= form_dropdown('tim_staff[user_id][]', $staffItems, old('tim_staff[user_id]', $detail->user_id ?? ''), "class='form-control select2bs4' required") ?>
+                           
                             <div class="input-group-append">
                                 <span class="input-group-text" role="button" onclick="addRow(this)">
                                     <i class="fas fa-plus"></i>
@@ -114,39 +121,11 @@
                 </div>
             </div>
 
-            <!-- <div class="row mb-3">
-                <?php echo form_label(lang('crud.staff'), '', ['for' => 'staff', 'class' => 'col-form-label col-sm-2']); ?>
-                <div class="col-sm-10 block_detail_program">
-                    <?php if (isset($timStaff) && !empty($timStaff)) { ?>
-                        <?php foreach ($timStaff as $index => $detail) { ?>
-                            <div class="input-group mb-2">
-                               
-                                <?= form_dropdown('timstaff[id_user][]', $staffItems, old('timstaff[id_user]', $data->staff ?? ''), "class='form-control duallistbox' multiple='multiple' required") ?>
-                        
-                            </div>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <div class="input-group mb-2">
-                        <?= form_dropdown('timstaff[id_user][]', $staffItems, old('timstaff[id_user]', $data->staff ?? ''), "class='form-control duallistbox' multiple='multiple' required") ?>
-                        
-                        </div>
-                    <?php } ?>
-                    <div class="input-group mb-2">
-
-                    </div>
-                    <?php echo form_hidden('staff', $data->staff ?? 0); ?>
-
-                    <?php if (has_error('staff')) { ?>
-                        <p class="text-danger"><?php echo error('staff'); ?></p>
-                    <?php } ?>
-                </div>
-            </div> -->
-
 
         </fieldset>
 
         <div class="text-end py-3">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.tim_fundraising') ?></button>
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
         </div>
 
     </form>
@@ -163,20 +142,8 @@
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
-    
-console.log(makeid(5));
-    function makeid(length) {
-        var result = '';
-        var characters = '0123456789';
-        var charactersLength = characters.length;
-        for (var i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() *
-                charactersLength));
-        }
-        return result;
-    }
-    
-    $('input[name="kode_tim"]').val(makeid(5));
+
+
 
     $('.duallistbox').bootstrapDualListbox()
     $(function() {
@@ -188,10 +155,11 @@ console.log(makeid(5));
         });
 
         $('.numeric').inputmask({
-            'alias': 'currency',
-            'rightAlign': false,
-            'digits': '0',
-            'allowMinus': 'false',
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
         })
     });
 
@@ -229,5 +197,8 @@ console.log(makeid(5));
 
 
     }
+    $('select[name="target_id"]').change(function() {
+        $('input[name="target_nominal"]').val(parseInt(this.value) ? $('select[name="target_id"] option:selected').data() : '');
+    });
 </script>
 <?php $this->endSection(); ?>

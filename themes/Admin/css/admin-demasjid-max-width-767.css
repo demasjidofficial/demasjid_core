@@ -65,4 +65,69 @@
     .de_chart_gradient .card-footer .row>.col-6:last-child .border-right{
         padding-bottom: 0px
     }
+
+    .container-fluid>.bg-white.p-4{
+        padding: 16px 12px !important;
+    }
+
+    form .card-body{
+        padding: 12px 0px !important;
+        box-shadow: 0px 0px 0px #00000000 !important;
+    }
+
+    form .card{
+        box-shadow: 0px 0px 0px #00000000 !important;
+    }
+
+    .tf-v1-sidetab-button{
+        left: 24px !important;
+    }
+
+    .tf-v1-sidetab{
+        left: 0 !important;
+        right: 0 !important;
+        margin-right: 8px;
+        margin-left: 0px
+    }
+
+    .tf-v1-sidetab.ready[style='height: 568px !important;']{
+        width: 320px
+    }
+
+    .tf-v1-sidetab.ready .tf-v1-sidetab-close{
+        opacity: 0.0;
+    }
+
+    .tf-v1-sidetab.ready.open .tf-v1-sidetab-close{
+        opacity: 1.0;
+    }
+
+    #de_form_donatur{
+        flex-direction: column;
+        /* flex */
+    }
+
+    #de_form_donatur>div.col-6{
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+
+    #de_form_donatur .col-6.col-sm-6{
+        display: flex;
+        flex-direction: column;
+        gap: 0px
+    }
+
+    #de_form_donatur #de_signature{
+        order: 3;
+        margin-top: 12px;
+    }
+
+    #de_form_donatur div:last-child .row.mb-3:nth-child(2){
+        order: 1;
+    }
+
+    #de_form_donatur div:last-child .row.mb-3:nth-child(2){
+        order: 1;
+    }
 }

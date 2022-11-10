@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.kembali') ?></a>
+    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
     <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.target_fundraising') ?></h4>
 </x-page-head>
 
@@ -24,8 +24,10 @@
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />
             <input type="hidden" name="id" value="<?php echo $data->id; ?>">
+          
+           
         <?php } ?>
-
+      
         <fieldset>
             <div class="row mb-3">
                 <?= form_label(lang('crud.campaign'), '', ['for' => 'campaign', 'class' => 'col-form-label col-sm-2']) ?>

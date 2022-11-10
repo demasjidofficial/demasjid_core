@@ -35,7 +35,7 @@ class TimStaffModel extends BaseModel
         $this->join('users', 'users.id = '.$this->table.'.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.tim_id');
 		$this->join('target_fundraising', 'target_fundraising.id = tim_fundraising.target_id');
-
+    
         return parent::findAll($limit, $offset);
     }
 

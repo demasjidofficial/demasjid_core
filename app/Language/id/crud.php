@@ -252,21 +252,23 @@ return [
 	'donasis' => 'Donasi',
 	'campaigns' => 'Kampanye',
 
-	'donaturcategory' => 'Kategori Donatur',
-	'updated_by' => 'Diperbarui Oleh',
-	'tim_fundraising' => 'Tim Fundraising',
-	'id_target' => 'Target Fundraising',
-	'id_jadwal' => 'Jadwal Fundraising',
-	'supervisior' => 'Supervisior',
-	'staff' => 'Staff',
-	'target_fundraising' => 'Target Fundraising',
-	'target_fundraising_add' => 'Tambah Target Fundraising',
-	'donatur' => 'Tipe Donatur',
-	'target_nominal' => 'Target Nominal',
-	'tipe_donasi' => 'Tipe Donasi',
-	'jadwal_mulai' => 'Jadwal Mulai',
-	'jadwal_akhir' => 'Jadwal Akhir',
-	'durasi' => 'durasi',
+	'donaturcategory'=>'Kategori Donatur',
+	'tambah_donaturcategory'=>'Tambah Kategori',
+	'updated_by'=>'Diperbarui Oleh',
+	'tim_fundraising'=>'Tim Fundraising',
+	'id_target'=>'Target Fundraising',
+	'id_jadwal'=>'Jadwal Fundraising',
+	'supervisior'=>'Supervisior',
+	'staff'=>'Staff',
+	'target_fundraising'=>'Target Fundraising',
+	'target_fundraising_add'=>'Tambah Target Fundraising',
+	'target_fundraising_add'=>'Tambah Target Fundraising',
+	'donatur'=>'Tipe Donatur',
+	'target_nominal'=>'Target Nominal',
+	'tipe_donasi'=>'Tipe Donasi',
+	'jadwal_mulai'=>'Jadwal Mulai',
+	'jadwal_akhir'=>'Jadwal Akhir',
+	'durasi'=>'durasi',
 
 	'news' => 'Berita',
 	'board_news' => 'Papan Berita',
@@ -360,3 +362,7 @@ return [
 	'sitesections' => 'Seksion',
 	'sitesliders' => 'Slide'
 ];
+	'sitesliders' => 'Slide',
+	'campaign_name'=>'Nama Target Fundraising'
+];
+

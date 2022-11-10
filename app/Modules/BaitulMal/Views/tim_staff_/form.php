@@ -4,7 +4,7 @@
 <x-page-head>
     <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
 
-    <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.tim_staff') ?></h4>
+    <h2><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.tim_staff') ?></h2>
 </x-page-head>
 
 <?php if (isset($data) && null !== $data->deleted_at) { ?>
