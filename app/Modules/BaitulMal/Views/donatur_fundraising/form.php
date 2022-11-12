@@ -29,7 +29,6 @@
         <?php } ?>
 
         <fieldset>
-
             <div class="row mb-3">
                 <?= form_label(lang('crud.tugas'), '', ['for' => 'tugas_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
@@ -39,43 +38,117 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.name'), '', ['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('nama', old('nama', $data->nama ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.name') . "' ") ?>
-                    <?php if (has_error('name')) { ?>
-                        <p class="text-danger"><?php echo error('name'); ?></p>
-                    <?php } ?>
+                        <div class="row" id="de_form_donatur">
+                <div class="col-6 col-sm-6">
+                    <div class="row">
+                        <div class="col-12" id="de_form_name_nominal">
+                            <div class="row">
+                                <div class="col-12 justify-content-center " id="de_capture">
+                                        <div class="photo-wrapper">
+                                            <img id="campaign_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail">
+                                            <div id="my_camera" style="display: none;">
+
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="form-group">
+                                            <?= form_input('image_path', old('image_path', $data->path_image ?? ''), "class='form-control varchar' hidden required placeholder='" . lang('crud.path_image') . "' ") ?>
+                                            <?php if (has_error('image_path')) { ?>
+                                                <p class="text-danger"><?php echo error('image_path'); ?></p>
+                                            <?php } ?>
+                                            <div class="input-group">
+                                                <div id="take_img" style="display: none;">
+                                                    <input type=button class="btn btn-danger btn-md" value="Ambil Gambar" onClick="take_snapshot()">
+                                                </div>
+                                                <i class="fas fa-camera">
+                                                    <input type=button value="Buka Kamera" class="btn btn-default btn-md" onClick="open_camera()">
+                                                </i>
+                                            </div>
+
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.name'), '', ['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('nama', old('nama', $data->nama ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.name') . "' ") ?>
+                                    <?php if (has_error('name')) { ?>
+                                        <p class="text-danger"><?php echo error('name'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <?= form_label(lang('crud.nominal'), '', ['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
+                                <div class="col-sm-10">
+                                    <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nominal') . "' ") ?>
+                                    <?php if (has_error('nominal')) { ?>
+                                        <p class="text-danger"><?php echo error('nominal'); ?></p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <?= form_label(lang('crud.tgl_transaksi'), '', ['for' => 'tanggal_transaksi', 'class' => 'col-form-label col-12']) ?>
+                        <div class="col-12">
+                            <?= form_input('tanggal_transaksi', old('tanggal_transaksi', $data->tanggal_transaksi ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.tgl_transaksi') . "' ") ?>
+                            <?php if (has_error('tanggal_transaksi')) { ?>
+                                <p class="text-danger"><?php echo error('tanggal_transaksi'); ?></p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <?= form_label(lang('crud.alamat'), '', ['for' => 'alamat', 'class' => 'col-form-label col-12']) ?>
+                        <div class="col-12">
+                            <?= form_textarea('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.alamat') . "' ") ?>
+                            <?php if (has_error('alamat')) { ?>
+                                <p class="text-danger"><?php echo error('alamat'); ?></p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                                <div class="col-6 col-sm-6">
+                    <div class="row mb-3" id="de_signature">
+                        <?= form_label(lang('crud.ttd_donatur'), '', ['for' => 'ttd_donatur', 'class' => 'col-form-label col-12']) ?>
+                        <div class="col-12">
+                            <canvas id="signature-pad"  class="signature-pad"></canvas>
+                            <img id="signature_img"   src="<?= (isset($data->path_signature)) ? site_url($data->path_signature) : '/uploads/images/blank.jpg' ?>" name="signature_img" alt="" class="img-thumbnail">
+                            <?= form_input('signature_path', old('signature_path', $data->path_signature ?? ''), "class='form-control varchar' hidden required placeholder='" . lang('crud.signature_path') . "' ") ?>
+                            <?php if (has_error('signature_path')) { ?>
+                                <p class="text-danger"><?php echo error('signature_path'); ?></p>
+                            <?php } ?>
+                            
+                        </div>  
+                        <div id="de_wrap_button_small">
+                            <button type="button" class="btn btn-danger btn-sm" id="clear">Reset Ttd</button>
+                            <button type="button" style="<?= (isset($data->path_signature)) ? 'display:none;' : '' ?>" class="btn btn-primary btn-sm" id="save-png">Simpan Ttd</button>
+                        </div>
+                        <br> 
+                    </div> 
+                    <div class="row mb-3">
+                        <?= form_label(lang('crud.email'), '', ['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
+                        <div class="col-sm-10">
+                            <?= form_input('email', old('email', $data->email ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.email') . "' ") ?>
+                            <?php if (has_error('email')) { ?>
+                                <p class="text-danger"><?php echo error('email'); ?></p>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <?= form_label(lang('crud.no_hp'), '', ['for' => 'no_hp', 'class' => 'col-form-label col-sm-2']) ?>
+                        <div class="col-sm-10">
+                            <?= form_input('no_hp', old('no_hp', $data->no_hp ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.no_hp') . "' ") ?>
+                            <?php if (has_error('no_hp')) { ?>
+                                <p class="text-danger"><?php echo error('no_hp'); ?></p>
+                            <?php } ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.email'), '', ['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('email', old('email', $data->email ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.email') . "' ") ?>
-                    <?php if (has_error('email')) { ?>
-                        <p class="text-danger"><?php echo error('email'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.no_hp'), '', ['for' => 'no_hp', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('no_hp', old('no_hp', $data->no_hp ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.no_hp') . "' ") ?>
-                    <?php if (has_error('no_hp')) { ?>
-                        <p class="text-danger"><?php echo error('no_hp'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.alamat'), '', ['for' => 'alamat', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_textarea('alamat', old('alamat', $data->alamat ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.alamat') . "' ") ?>
-                    <?php if (has_error('alamat')) { ?>
-                        <p class="text-danger"><?php echo error('alamat'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row mb-3">
+<!--            <div class="row mb-3">
+
                 <?= form_label(lang('crud.nominal'), '', ['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nominal') . "' ") ?>
@@ -84,68 +157,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="row mb-3">
-                <?= form_label(lang('crud.tgl_transaksi'), '', ['for' => 'tanggal_transaksi', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <?= form_input('tanggal_transaksi', old('tanggal_transaksi', $data->tanggal_transaksi ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.tgl_transaksi') . "' ") ?>
-                    <?php if (has_error('tanggal_transaksi')) { ?>
-                        <p class="text-danger"><?php echo error('tanggal_transaksi'); ?></p>
-                    <?php } ?>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <?= form_label(lang('crud.ttd_donatur'), '', ['for' => 'ttd_donatur', 'class' => 'col-form-label col-sm-2']) ?>
-                <div class="col-sm-10">
-                    <canvas id="signature-pad"  class="signature-pad"></canvas>
-                    <img id="signature_img"   src="<?= (isset($data->path_signature)) ? site_url($data->path_signature) : '/uploads/images/blank.jpg' ?>" name="signature_img" alt="" class="img-thumbnail">
-                    <?= form_input('signature_path', old('signature_path', $data->path_signature ?? ''), "class='form-control varchar' hidden required placeholder='" . lang('crud.signature_path') . "' ") ?>
-                    <?php if (has_error('signature_path')) { ?>
-                        <p class="text-danger"><?php echo error('signature_path'); ?></p>
-                    <?php } ?>
-                    
-                </div>
-            </div>
-
-
-          
-            <button type="button" style="<?= (isset($data->path_signature)) ? 'display:none;' : '' ?>" class="btn btn-primary btn-sm" id="save-png">Simpan Ttd</button>
-            <button type="button" class="btn btn-danger btn-sm" id="clear">Reset Ttd</button>
-            <br>
-
-            <div class="col-4">
-                <div class="row mb-3">
-                    <div class="col-md-12">
-
-
-                        <div class="justify-content-center photo-wrapper">
-                            <img id="campaign_imgpreview" src="<?= (isset($data->path_image)) ? site_url($data->path_image) : '/uploads/images/blank.jpg' ?>" alt="" class="img-thumbnail">
-                            <div id="my_camera" style="display: none;">
-
-                            </div>
-
-
-                            <div id="take_img" style="display: none;">
-                                <input type=button class="btn btn-danger btn-md" value="Ambil Gambar" onClick="take_snapshot()">
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <?= form_input('image_path', old('image_path', $data->path_image ?? ''), "class='form-control varchar' hidden required placeholder='" . lang('crud.path_image') . "' ") ?>
-                            <?php if (has_error('image_path')) { ?>
-                                <p class="text-danger"><?php echo error('image_path'); ?></p>
-                            <?php } ?>
-                            <div class="input-group">
-                                <i class="fas fa-camera"> <input type=button value="Buka Kamera" class="btn btn-default btn-md" onClick="open_camera()"></i>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+                     -->
 
         </fieldset>
 

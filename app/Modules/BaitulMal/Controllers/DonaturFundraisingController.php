@@ -150,7 +150,7 @@ class DonaturFundraisingController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['tugasItems'] = ['' => 'Pilih Tugas'] + Arr::pluck(model('App\Modules\Api\Models\TugasTimModel')->select(['tugas_tim.id as key', 'tugas_tim.tugas as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['tugasItems'] = ['' => 'Pilih Tugas'] + Arr::pluck(model('App\Modules\Api\Models\TugasTimModel')->select(['tugas_tim_.id as key', 'tugas_tim_.tugas as text'])->asArray()->findAll(), 'text', 'key');
 
         return $dataEdit;
     }

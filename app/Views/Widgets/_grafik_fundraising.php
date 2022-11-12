@@ -9,7 +9,10 @@
     $data[] = $widget->data();
 
 
-    echo json_encode($data);
+
+    echo json_encode($widget->label());
+
+   
   ?>
   <?php endforeach ?>
 <?php endforeach ?>

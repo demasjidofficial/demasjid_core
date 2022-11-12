@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card de_tabel_button_selengkapnya">
     <div class="card-header border-transparent">
         <h3 class="card-title"><?= $title ?></h3>
 

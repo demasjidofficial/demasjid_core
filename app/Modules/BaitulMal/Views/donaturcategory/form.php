@@ -2,8 +2,12 @@
 
 <?php $this->section('main'); ?>
 <x-page-head>
-    <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a></br>
-    <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.donaturcategory') ?></h4>
+    <div class="row de_head_back_title">
+        <div class="col">
+        <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a></br>
+        <h2><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '' ?> <?= lang('crud.tambah_donaturcategory') ?></h2>
+        </div>
+    </div>
     <!--<a href="<?php echo $backUrl ?>" class="back">&larr; Ubah Kategori</a>-->
 </x-page-head>
 

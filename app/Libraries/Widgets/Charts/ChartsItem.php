@@ -70,32 +70,32 @@ class ChartsItem extends chartsItems implements Item
     /**
      * @var string|null
      */
-    public $title;
+    protected $title;
 
     /**
      * @var array|string|null
      */
-    public $data;
+    protected $data;
 
     /**
      * @var array|string|null
      */
-    public $label;
+    protected $label;
 
     /**
      * @var string
      */
-    public $type = 'line';
+    protected $type = 'line';
 
     /**
      * @var string
      */
-    public $cssClass = 'col-6';
+    protected $cssClass = 'col-6';
 
     /**
      * @var string
      */
-    public $chartName;
+    protected $chartName;
 
     public function __construct(?array $data = null)
     {

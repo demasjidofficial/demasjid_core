@@ -116,5 +116,6 @@ $(function(){
 })
 </script>
 <?= $this->renderSection('scripts') ?>
+<?= asset_link('admin/js/admin-demasjid-canvas.js', 'js') ?>
 </body>
 </html>

@@ -79,19 +79,19 @@ class OverviewManagerController extends AdminController
     }
 
 
-    private function setWidgetCharts(){
-        $widgets = service('widgets');
-        $targetCharts = new ChartsItem([
-            'title'    => 'Grafik Target Fundraising',
-            'type'     => 'bar',
-            'cssClass' => 'col-3',
-            'data'     => (new TargetFundraisingModel())->findChart(),
-            'label'   =>(new TargetFundraisingModel())->findChart(),
-        ]);
-        $widgets->widget('charts')->collection('charts')
+    // private function setWidgetCharts(){
+    //     $widgets = service('widgets');
+    //     $targetCharts = new ChartsItem([
+    //         'title'    => 'Grafik Target Fundraising',
+    //         'type'     => 'bar',
+    //         'cssClass' => 'col-3',
+    //         'data'     => (new TargetFundraisingModel())->asArray()->findChart(),
+    //         'label'   =>(new TargetFundraisingModel())->asArray()->findChart(),
+    //     ]);
+    //     $widgets->widget('charts')->collection('charts')
 
-        ->addItem($targetCharts);
-    }
+    //     ->addItem($targetCharts);
+    // }
 
     private function setWidgetStats()
     {
@@ -115,7 +115,7 @@ class OverviewManagerController extends AdminController
             'title' => 'Jumlah Tunai',
             'value' => number_to_currency($tunaiCost->target_nominal ?? 0, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
-            'faIcon' => 'fas fa-wallet',
+            'faIcon' => 'fas fa-hand-holding-dollar',
         ]);
 
         $ttransferCost = (new TargetFundraisingModel())->transfer()->selectSum('target_nominal')->first();
@@ -125,8 +125,9 @@ class OverviewManagerController extends AdminController
             'title' => 'Jumlah Transfer',
             'value' => number_to_currency($ttransferCost->target_nominal ?? 0, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
-            'faIcon' => 'fas fa-wallet',
+            'faIcon' => 'fas fa-plane',
         ]);
+        
         $widgets->widget('stats')->collection('stats')
 
             ->addItem($timItem)
@@ -144,6 +145,19 @@ class OverviewManagerController extends AdminController
 
         $widgets->widget('timfund')->collection('timfund')
             ->addItem($timItem);
+    }
+
+    private function setWidgetCharts()
+    {
+        # code...
+        $widgets = service('widgets');
+        $chartItem=new ChartsItem(
+            [
+                'cssClass'=>'col-6',
+
+            ]
+
+            );
     }
 
     private function setWidgetFundraising()

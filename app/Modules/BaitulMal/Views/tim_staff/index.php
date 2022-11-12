@@ -2,7 +2,7 @@
 
 <?php $this->section('main'); ?>
     <x-page-head>
-        <div class="row">
+        <div class="row de_head_back_title">
             <div class="col">
             <a href="#" class="back" onclick="history.back()">&larr; <?= lang('crud.back') ?></a>
             <h2><?= lang('crud.tim_staff') ?></h2>
