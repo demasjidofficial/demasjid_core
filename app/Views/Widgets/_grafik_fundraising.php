@@ -4,9 +4,32 @@
 
 <?php foreach ($charts  as $elem) : ?>
 
+<<<<<<< HEAD
   <?php foreach ($elem->items() as $index => $widget) :
     $labels[] = $widget->label();
     $data[] = $widget->data();
+=======
+            <div class="chart">
+              <!-- Sales Chart Canvas -->
+              <canvas id="fundraisingChart" height="250" style="height: 250px;"></canvas>
+              <div class="d-flex flex-row justify-content-end">
+              <span class="mr-2 text-primary">
+                <i class="fas fa-square text-primary"></i> Pekan Ini
+              </span>
+
+              <span class="text-secondary">
+                <i class="fas fa-square text-secondary"></i> Pekan Terakhir
+              </span>
+            </div>
+            </div>
+            <!-- /.chart-responsive -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+            <p class="text-center">
+              <strong>Kategori Donatur</strong>
+            </p>
+>>>>>>> c54a2397676c4fb096f835eb0f0b6521533a1b26
 
 
 

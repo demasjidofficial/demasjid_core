@@ -289,7 +289,30 @@ return [
 	'program' => 'Program',
 	'payment' => 'Pembayaran',
 	'action' => 'Aksi',
-
+	'room' => 'Ruangan',
+	'reservruangan' => 'Reservasi Ruangan',
+	'infaq_room' => 'Infaq Ruangan',
+	'rekaplaporan' => 'Rekap Laporan',
+	'gambar' => 'Gambar',
+	'namapemesan' => 'Nama Pemesan',
+	'room_id' => 'Room_ID',
+	'summary' => 'Ringkasan',
+	'no_tlp' => 'Nomer Telepon',
+	'name' => 'Nama',
+	'agenda' => 'Agenda',
+	'room_reserv' => 'Reservasi Ruangan',
+	'kritik' => 'Kritik',
+	'saran' => 'Saran',
+	'tolak' => 'Tolak',
+	'infaq_date' => 'tanggal infaq',
+	'jumlahInfaq' => 'jumlah infaq',
+	'campaign_name' => 'Nama Kampanye',
+	'jadwal_durasi' => 'Durasi Target',
+	'kembali' => 'Kembali',
+	'save' => 'Simpan',
+	'kembali' => 'Kembali',
+	'cash' => 'Cash',
+	'debit' => 'Debit',
 	'target'=>'Target Donatur',
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
@@ -298,8 +321,6 @@ return [
 	'staff_nama'=>'Nama Staff',
 	'tim_staff'=>'Anggota Tim',
 	'tugas'=>'Detail Tugas',
-
-
 	'donasi' => 'Donasi',
 	'campaign_id' => 'Kampanye',
 	'paymentmethod_rek_no' => 'No Rekening',
@@ -340,6 +361,7 @@ return [
 	'siteposts' => 'Artikel',
 	'sitesections' => 'Seksion',
 	'sitesliders' => 'Slide',
+
 	'campaign_name'=>'Nama Target Fundraising'
 ];
 
