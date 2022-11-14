@@ -86,8 +86,8 @@ $routes->group(
         $routes->resource('donasis');
         $routes->resource('dataruangans');
         $routes->resource('rooms');
-        $routes->resource('commentRooms');
         $routes->resource('roomReservations');
+        $routes->resource('infaqRooms');
         //$routes->resource('menus');
         //$routes->resource('pages');
         //$routes->resource('posts');
