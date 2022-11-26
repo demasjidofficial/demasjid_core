@@ -128,7 +128,7 @@ class Module extends BaseModule
         ]);
 
         $fundraisingManagerItem = new MenuItem([
-            'title'           => 'Fundraising Manager',
+            'title'           => 'Fundraising',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewManagerController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'        => 'baitulmal.manager_fundraising.list',
@@ -136,14 +136,14 @@ class Module extends BaseModule
 
         
         $fundraisingSpvItem = new MenuItem([
-            'title'           => 'Fundraising Supervisor',
+            'title'           => 'Fundraising',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewSpvController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'        => 'baitulmal.supervisor_fundraising.list',
         ]);
 
         $fundraisingStaffItem = new MenuItem([
-            'title'           => 'Fundraising Staff',
+            'title'           => 'Fundraising',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewTimController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'        => 'baitulmal.staf_fundraising.list',

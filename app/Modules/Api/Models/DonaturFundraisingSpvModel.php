@@ -2,7 +2,7 @@
 
 use asligresik\easyapi\Models\BaseModel;
 
-class DonaturFundraisingModel extends BaseModel
+class DonaturFundraisingSpvModel extends BaseModel
 {
     protected $table = 'donatur_fundraising';
 	protected $returnType = 'App\Modules\Api\Entities\Donatur';
@@ -46,12 +46,12 @@ class DonaturFundraisingModel extends BaseModel
 
 
 		$this->join('tugas_tim', 'tugas_tim.id = ' . $this->table . '.tugas_id');
-		$this->join('tim_staff', 'tim_staff.id = tugas_tim.staff_id','left');
-		$this->join('users', 'users.id = tim_staff.user_id');
-		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
+	
+		
+		$this->join('tim_fundraising', 'tim_fundraising.id = tugas_tim.id_tim');
 
-		$this->where('tim_staff.user_id', auth()->user()->id);
-		$this->orwhere('tugas_tim.id_supervisor', auth()->user()->id);
+        $this->join('users', 'users.id = tugas_tim.id_supervisor');
+		$this->where('tugas_tim.id_supervisor', auth()->user()->id);
 		return parent::findAll($limit, $offset);
 	}
 
@@ -65,12 +65,13 @@ class DonaturFundraisingModel extends BaseModel
 
 
 		$this->join('tugas_tim', 'tugas_tim.id = ' . $this->table . '.tugas_id');
-		$this->join('tim_staff', 'tim_staff.id = tugas_tim.staff_id');
-		$this->join('users', 'users.id = tim_staff.user_id');
-		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
-
-		$this->where('tim_staff.user_id', auth()->user()->id);
-		$this->orwhere('tugas_tim.id_supervisor', auth()->user()->id);
+	
+		
+		$this->join('tim_fundraising', 'tim_fundraising.id = tugas_tim.id_tim');
+        $this->join('users', 'users.id = tugas_tim.id_supervisor');
+	
+		$this->where('tugas_tim.id_supervisor', auth()->user()->id);
+	
 		return parent::findAll($limit, $offset);
 	} 
 }

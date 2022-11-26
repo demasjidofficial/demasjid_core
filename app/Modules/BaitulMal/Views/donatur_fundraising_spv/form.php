@@ -82,7 +82,7 @@
                             <div class="row mb-3">
                                 <?= form_label(lang('crud.nominal'), '', ['for' => 'nominal', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
-                                    <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.nominal') . "' ") ?>
+                                    <?= form_input('nominal', old('nominal', $data->nominal ?? ''), "class='form-control numeric' required placeholder='" . lang('crud.nominal') . "' ") ?>
                                     <?php if (has_error('nominal')) { ?>
                                         <p class="text-danger"><?php echo error('nominal'); ?></p>
                                     <?php } ?>
@@ -303,6 +303,48 @@
             signaturePad.fromData(data);
         }
     });
+
+    function save() {
+      
+        var image_path =$('input[name="image"]').val();
+        var sign_path = $('textarea[name="path_signature"]').val();
+        var tugas_id = $('input[name="tugas_id"]').val();
+        var name = $('input[name="name"]').val();
+        var email = $('input[name="email"]').val();
+        var no_hp = $('input[name="no_hp"]').val();
+        var alamat = $('input[name="alamat"]').val();
+        var nominal = $('input[name="nominal"]').val();
+        var tanggal_transaksi = $('input[name="tanggal_transaksi"]').val();
+
+        $.ajax({
+                url: '<?php echo $actionUrl; ?>',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    tugas_id: tugas_id,
+                    name: name,
+                    no_hp: no_hp,
+                    alamat: alamat,
+                    nominal: nominal,
+                    tanggal_transaksi: tanggal_transaksi,
+                    image_path: image_path,
+                    sign_path: sign_path
+                },
+            })
+            .done(function(data) {
+                if (data > 0) {
+                    alert('insert data sukses');
+                  
+                }
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+
+    }
 
 </script>
 <?php $this->endSection(); ?>

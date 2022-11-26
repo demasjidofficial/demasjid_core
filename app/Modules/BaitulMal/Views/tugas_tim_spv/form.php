@@ -27,17 +27,25 @@
             <?php } ?>
 
             <fieldset>
+            <input type="hidden" name="id_supervisor" value="<?php echo auth()->user()->id; ?>">
             <div class="row mb-3">
-                <?= form_label(lang('crud.staff'), '', ['for' => 'staff_id', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'id_tim', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?php echo form_dropdown('staff_id', $staffItems, old('staff_id', $data->staff_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.staff') . "' "); ?>
-                    <?php if (has_error('user_id')) { ?>
-                        <p class="text-danger"><?php echo error('staff_id'); ?></p>
+                    <?php echo form_dropdown('id_tim', $timItems, old('id_tim', $data->id_tim ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.nama_tim') . "' "); ?>
+                    <?php if (has_error('id_tim')) { ?>
+                        <p class="text-danger"><?php echo error('id_tim'); ?></p>
                     <?php } ?>
                 </div>
             </div>
-
-
+            <div class="row mb-3">
+                <?= form_label(lang('crud.kode_tugas'), '', ['for' => 'kode_tugas', 'class' => 'col-form-label col-sm-2']) ?>
+                <div class="col-sm-10">
+                    <?= form_input('kode_tugas', old('kode_tugas', $data->kode_tugas ?? generate_kode()), "class='form-control int' readonly='' required placeholder='" . lang('crud.kode_tugas') . "' ") ?>
+                    <?php if (has_error('kode_tugas')) { ?>
+                        <p class="text-danger"><?php echo error('kode_tugas'); ?></p>
+                    <?php } ?>
+                </div>
+            </div>
             <div class="row mb-3">
                 <?= form_label(lang('crud.tugas'), '', ['for' => 'tugas', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
@@ -80,11 +88,54 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.tugas_tim') ?></button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
             </div>
 
         </form>
 
     </x-admin-box>
 
+<?php $this->endSection(); ?>
+
+<?php $this->section('styles') ?>
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?php $this->endSection(); ?>
+
+<?php $this->section('scripts'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<script type="text/javascript">
+     
+   
+    $(function() {
+
+
+        $('.numeric').inputmask({
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
+        })
+    });
+
+    function addRow(elm) {
+        const _topParent = $(elm).closest('.input-group');
+        const _clone = _topParent.clone();
+        _clone.find('input').val('');
+
+        _clone.find('span.input-group-text')
+            .replaceWith(`<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                <i class="fas fa-minus"></i>
+                            </span>`);
+        _clone.insertBefore(_topParent.siblings('.input-group:last'));
+    }
+
+    function removeRow(elm) {
+        const _topParent = $(elm).closest('.input-group')
+        const _elmOther = _topParent.prev()
+        _topParent.remove();
+
+    }
+</script>
 <?php $this->endSection(); ?>

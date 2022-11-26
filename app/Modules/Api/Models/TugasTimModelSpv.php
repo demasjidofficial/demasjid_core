@@ -2,7 +2,7 @@
 
 use asligresik\easyapi\Models\BaseModel;
 
-class TugasTimModel extends BaseModel
+class TugasTimModelSpv extends BaseModel
 {
     const BEGIN = 'belum_mulai';
     const END = 'selesai';
@@ -22,7 +22,9 @@ class TugasTimModel extends BaseModel
         'kode_tugas',
         'img_ttd_serah_terima',
 		'created_at',
-		'updated_at'
+		'updated_at',
+        'id_supervisor',
+        'id_tim'
 	
     ];
     protected $validationRules = [
@@ -38,26 +40,6 @@ class TugasTimModel extends BaseModel
     public function findAll(int $limit = 0, int $offset = 0)
     {
         $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','tim_fundraising.nama_tim as nama_tim'];        
-        $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
-        $this->join('users', 'users.id = tim_staff.user_id');
-		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
-		$this->where('tim_staff.user_id',auth()->user()->id);
-        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
-        return parent::findAll($limit, $offset);
-    }
-    public function findTugasStaff(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','tim_fundraising.nama_tim as nama_tim'];        
-        $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
-        $this->join('users', 'users.id = tim_staff.user_id');
-		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
-		$this->where('tim_staff.user_id',auth()->user()->id);
-      
-        return parent::findAll($limit, $offset);
-    }
-    public function findTugasSpv(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','tim_fundraising.nama_tim as nama_tim'];        
         $this->join('users', 'users.id = '.$this->table.'.id_supervisor');
 		$this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.id_tim');
 		$this->where($this->table.'.id_supervisor',auth()->user()->id);
@@ -70,13 +52,9 @@ class TugasTimModel extends BaseModel
         $this->table.'.tugas as tugas', $this->table.'.tugas as tugas',$this->table.'.nominal_target as nominal_target',$this->table.'.progres as progres',
         $this->table.'.nominal as nominal','tim_fundraising.nama_tim as nama_tim','users.first_name as first_name', 
         'users.last_name as last_name'];        
-
-		
-        $this->join('tim_staff', 'tim_staff.id = '.$this->table.'.staff_id');
-        $this->join('users', 'users.id = tim_staff.user_id');
-		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
-		$this->where('tim_staff.user_id',auth()->user()->id);
-        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
+        $this->join('users', 'users.id = '.$this->table.'.id_supervisor');
+		$this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.id_tim');
+		$this->where($this->table.'.id_supervisor',auth()->user()->id);
         $this->limit(5);
 		return parent::findAll($limit, $offset);
     }   

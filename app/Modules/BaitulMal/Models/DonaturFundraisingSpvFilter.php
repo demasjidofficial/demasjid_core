@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\BaitulMal\Models;
 
-use App\Modules\Api\Models\TimFundraisingModel;
+use App\Modules\Api\Models\DonaturFundraisingSpvModel;
 use Bonfire\Traits\Filterable;
 
-class TimFundraisingFilter extends TimFundraisingModel
+class DonaturFundraisingSpvFilter extends DonaturFundraisingSpvModel
 {
     use Filterable;
 

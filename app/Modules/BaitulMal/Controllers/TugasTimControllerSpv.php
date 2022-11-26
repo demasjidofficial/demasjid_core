@@ -4,16 +4,16 @@ namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
 use IlluminateAgnostic\Arr\Support\Arr;
-use App\Modules\Api\Models\TugasTimModel;
-use App\Modules\BaitulMal\Models\TugasTimFilter;
+use App\Modules\Api\Models\TugasTimModelSpv;
+use App\Modules\BaitulMal\Models\TugasTimSpvFilter;
 
-class TugasTimController extends AdminCrudController
+class TugasTimControllerSpv extends AdminCrudController
 {
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\BaitulMal\Views\tugas_tim\\';
-    protected $baseRoute = 'admin/baitulmal/tugastim';
-    protected $langModel = 'tugas_tim';
-    protected $modelName = 'App\Modules\Api\Models\TugasTimModel';
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\tugas_tim_spv\\';
+    protected $baseRoute = 'admin/baitulmal/tugastimspv';
+    protected $langModel = 'tugas_tim_spv';
+    protected $modelName = 'App\Modules\Api\Models\TugasTimModelSpv';
     public function index()
     {
         return parent::index();
@@ -27,8 +27,8 @@ class TugasTimController extends AdminCrudController
     public function update($id = null)
     {
         $data = $this->request->getPost();
-        $data['nominal'] = (float)(str_replace(',', '', $data['nominal']));
-        $data['nominal_target'] = (float)(str_replace(',', '', $data['nominal_target']));
+        $data['nominal'] = (float)(str_replace('.', '', $data['nominal']));
+        $data['nominal_target'] = (float)(str_replace('.', '', $data['nominal_target']));
 
 
         if (!$this->model->update($id, $data)) {
@@ -47,8 +47,8 @@ class TugasTimController extends AdminCrudController
     public function create()
     {
         $data = $this->request->getPost();
-        $data['nominal'] = (float)(str_replace(',', '', $data['nominal']));
-        $data['nominal_target'] = (float)(str_replace(',', '', $data['nominal_target']));
+        $data['nominal'] = (float)(str_replace('.', '', $data['nominal']));
+        $data['nominal_target'] = (float)(str_replace('.', '', $data['nominal_target']));
 
 
         if (!$this->model->insert($data)) {
@@ -67,13 +67,13 @@ class TugasTimController extends AdminCrudController
     protected function getDataIndex()
     {
 
-        $model = model(TugasTimFilter::class);
+        $model = model(TugasTimSpvFilter::class);
         return [
             'headers' => [
 
                 'tugas_nama' => lang('crud.tugas_tim'),
                 'tim_nama' => lang('crud.nama_tim'),
-                'staff' => lang('crud.staff_nama'),
+               
 
                 'progres' => lang('crud.progres')
             ],
@@ -89,7 +89,7 @@ class TugasTimController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new TugasTimModel();
+        $model = new TugasTimModelSpv();
 
         if (!empty($id)) {
             $data = $model->find($id);
@@ -99,9 +99,8 @@ class TugasTimController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
 
-        $dataEdit['staffItems'] = ['' => 'Pilih Staff'] + Arr::pluck(model('App\Modules\Api\Models\TimStaffModel')->select(['tim_staff.id as key', 'users.first_name as text', 'tim_fundraising.nama_tim as nama_tim'])->asArray()->findAll(), 'text', 'key');
-
-        $dataEdit['stateItems'] = TugasTimModel::listState();
+        $dataEdit['timItems'] = ['' => 'Pilih Tim'] + Arr::pluck(model('App\Modules\Api\Models\TimFundraisingModel')->select(['tim_fundraising.id as key', 'tim_fundraising.nama_tim as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['stateItems'] = TugasTimModelSpv::listState();
         return $dataEdit;
     }
 }

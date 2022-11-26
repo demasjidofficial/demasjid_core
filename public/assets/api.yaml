@@ -2258,318 +2258,6 @@ paths:
       security:
         -
           bearer_auth: []
-  /commentRooms:
-    get:
-      tags:
-        - CommentRoom
-      summary: 'Find list CommentRoom'
-      description: 'Returns list of CommentRoom'
-      operationId: getCommentRoom
-      parameters:
-        -
-          name: search
-          in: query
-          description: 'search by column defined'
-          schema:
-            type: object
-        -
-          name: order
-          in: query
-          description: 'order by column defined'
-          schema:
-            type: object
-        -
-          name: page
-          in: query
-          description: 'page to show'
-          schema:
-            type: int32
-        -
-          name: limit
-          in: query
-          description: 'count data display per page'
-          schema:
-            type: int32
-      responses:
-        '200':
-          description: 'successful operation'
-          content:
-            application/json:
-              schema:
-                properties:
-                  data: { type: array, items: { $ref: '#/components/schemas/CommentRoom' } }
-                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
-                type: object
-            application/xml:
-              schema:
-                properties:
-                  data: { type: array, items: { $ref: '#/components/schemas/CommentRoom' } }
-                  pagination: { type: array, items: { $ref: '#/components/schemas/CommentRoom' } }
-                type: object
-        '404':
-          description: 'CommentRoom not found'
-      security:
-        -
-          bearer_auth: []
-    post:
-      tags:
-        - CommentRoom
-      summary: 'Add a new CommentRoom to the store'
-      operationId: addCommentRoom
-      requestBody:
-        $ref: '#/components/requestBodies/CommentRoom'
-      responses:
-        '201':
-          description: 'Created CommentRoom'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CommentRoom'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CommentRoom'
-        '405':
-          description: 'Invalid input'
-      security:
-        -
-          bearer_auth: []
-  '/commentRooms/{id}':
-    get:
-      tags:
-        - CommentRoom
-      summary: 'Find CommentRoom by ID'
-      description: 'Returns a single CommentRoom'
-      operationId: getCommentRoomById
-      parameters:
-        -
-          name: id
-          in: path
-          description: 'ID of CommentRoom to return'
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: 'successful operation'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CommentRoom'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/CommentRoom'
-        '400':
-          description: 'Invalid ID supplier'
-        '404':
-          description: 'CommentRoom not found'
-      security:
-        -
-          bearer_auth: []
-    put:
-      tags:
-        - CommentRoom
-      summary: 'Update an existing CommentRoom'
-      operationId: updateCommentRoom
-      parameters:
-        -
-          name: id
-          in: path
-          description: 'CommentRoom id to update'
-          required: true
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        $ref: '#/components/requestBodies/CommentRoom'
-      responses:
-        '400':
-          description: 'Invalid ID supplied'
-        '404':
-          description: 'CommentRoom not found'
-        '405':
-          description: 'Validation exception'
-      security:
-        -
-          bearer_auth: []
-    delete:
-      tags:
-        - CommentRoom
-      summary: 'Deletes a CommentRoom'
-      operationId: deleteCommentRoom
-      parameters:
-        -
-          name: id
-          in: path
-          description: 'CommentRoom id to delete'
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '400':
-          description: 'Invalid ID supplied'
-        '404':
-          description: 'Pet not found'
-      security:
-        -
-          bearer_auth: []
-  /dataruangans:
-    get:
-      tags:
-        - Dataruangan
-      summary: 'Find list Dataruangan'
-      description: 'Returns list of Dataruangan'
-      operationId: getDataruangan
-      parameters:
-        -
-          name: search
-          in: query
-          description: 'search by column defined'
-          schema:
-            type: object
-        -
-          name: order
-          in: query
-          description: 'order by column defined'
-          schema:
-            type: object
-        -
-          name: page
-          in: query
-          description: 'page to show'
-          schema:
-            type: int32
-        -
-          name: limit
-          in: query
-          description: 'count data display per page'
-          schema:
-            type: int32
-      responses:
-        '200':
-          description: 'successful operation'
-          content:
-            application/json:
-              schema:
-                properties:
-                  data: { type: array, items: { $ref: '#/components/schemas/Dataruangan' } }
-                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
-                type: object
-            application/xml:
-              schema:
-                properties:
-                  data: { type: array, items: { $ref: '#/components/schemas/Dataruangan' } }
-                  pagination: { type: array, items: { $ref: '#/components/schemas/Dataruangan' } }
-                type: object
-        '404':
-          description: 'Dataruangan not found'
-      security:
-        -
-          bearer_auth: []
-    post:
-      tags:
-        - Dataruangan
-      summary: 'Add a new Dataruangan to the store'
-      operationId: addDataruangan
-      requestBody:
-        $ref: '#/components/requestBodies/Dataruangan'
-      responses:
-        '201':
-          description: 'Created Dataruangan'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Dataruangan'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Dataruangan'
-        '405':
-          description: 'Invalid input'
-      security:
-        -
-          bearer_auth: []
-  '/dataruangans/{id}':
-    get:
-      tags:
-        - Dataruangan
-      summary: 'Find Dataruangan by ID'
-      description: 'Returns a single Dataruangan'
-      operationId: getDataruanganById
-      parameters:
-        -
-          name: id
-          in: path
-          description: 'ID of Dataruangan to return'
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: 'successful operation'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Dataruangan'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Dataruangan'
-        '400':
-          description: 'Invalid ID supplier'
-        '404':
-          description: 'Dataruangan not found'
-      security:
-        -
-          bearer_auth: []
-    put:
-      tags:
-        - Dataruangan
-      summary: 'Update an existing Dataruangan'
-      operationId: updateDataruangan
-      parameters:
-        -
-          name: id
-          in: path
-          description: 'Dataruangan id to update'
-          required: true
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        $ref: '#/components/requestBodies/Dataruangan'
-      responses:
-        '400':
-          description: 'Invalid ID supplied'
-        '404':
-          description: 'Dataruangan not found'
-        '405':
-          description: 'Validation exception'
-      security:
-        -
-          bearer_auth: []
-    delete:
-      tags:
-        - Dataruangan
-      summary: 'Deletes a Dataruangan'
-      operationId: deleteDataruangan
-      parameters:
-        -
-          name: id
-          in: path
-          description: 'Dataruangan id to delete'
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '400':
-          description: 'Invalid ID supplied'
-        '404':
-          description: 'Pet not found'
-      security:
-        -
-          bearer_auth: []
   /donasis:
     get:
       tags:
@@ -3650,6 +3338,162 @@ paths:
           name: id
           in: path
           description: 'Imam id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /infaqRooms:
+    get:
+      tags:
+        - InfaqRoom
+      summary: 'Find list InfaqRoom'
+      description: 'Returns list of InfaqRoom'
+      operationId: getInfaqRoom
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/InfaqRoom' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/InfaqRoom' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/InfaqRoom' } }
+                type: object
+        '404':
+          description: 'InfaqRoom not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - InfaqRoom
+      summary: 'Add a new InfaqRoom to the store'
+      operationId: addInfaqRoom
+      requestBody:
+        $ref: '#/components/requestBodies/InfaqRoom'
+      responses:
+        '201':
+          description: 'Created InfaqRoom'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfaqRoom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InfaqRoom'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/infaqRooms/{id}':
+    get:
+      tags:
+        - InfaqRoom
+      summary: 'Find InfaqRoom by ID'
+      description: 'Returns a single InfaqRoom'
+      operationId: getInfaqRoomById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of InfaqRoom to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfaqRoom'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/InfaqRoom'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'InfaqRoom not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - InfaqRoom
+      summary: 'Update an existing InfaqRoom'
+      operationId: updateInfaqRoom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'InfaqRoom id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/InfaqRoom'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'InfaqRoom not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - InfaqRoom
+      summary: 'Deletes a InfaqRoom'
+      operationId: deleteInfaqRoom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'InfaqRoom id to delete'
           required: true
           schema:
             type: integer
@@ -7094,6 +6938,318 @@ paths:
       security:
         -
           bearer_auth: []
+  /roomReservations:
+    get:
+      tags:
+        - RoomReservation
+      summary: 'Find list RoomReservation'
+      description: 'Returns list of RoomReservation'
+      operationId: getRoomReservation
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/RoomReservation' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/RoomReservation' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/RoomReservation' } }
+                type: object
+        '404':
+          description: 'RoomReservation not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - RoomReservation
+      summary: 'Add a new RoomReservation to the store'
+      operationId: addRoomReservation
+      requestBody:
+        $ref: '#/components/requestBodies/RoomReservation'
+      responses:
+        '201':
+          description: 'Created RoomReservation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/roomReservations/{id}':
+    get:
+      tags:
+        - RoomReservation
+      summary: 'Find RoomReservation by ID'
+      description: 'Returns a single RoomReservation'
+      operationId: getRoomReservationById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of RoomReservation to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/RoomReservation'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'RoomReservation not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - RoomReservation
+      summary: 'Update an existing RoomReservation'
+      operationId: updateRoomReservation
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'RoomReservation id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/RoomReservation'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'RoomReservation not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - RoomReservation
+      summary: 'Deletes a RoomReservation'
+      operationId: deleteRoomReservation
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'RoomReservation id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
+  /rooms:
+    get:
+      tags:
+        - Room
+      summary: 'Find list Room'
+      description: 'Returns list of Room'
+      operationId: getRoom
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Room' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Room' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Room' } }
+                type: object
+        '404':
+          description: 'Room not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Room
+      summary: 'Add a new Room to the store'
+      operationId: addRoom
+      requestBody:
+        $ref: '#/components/requestBodies/Room'
+      responses:
+        '201':
+          description: 'Created Room'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/rooms/{id}':
+    get:
+      tags:
+        - Room
+      summary: 'Find Room by ID'
+      description: 'Returns a single Room'
+      operationId: getRoomById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Room to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Room'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Room not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Room
+      summary: 'Update an existing Room'
+      operationId: updateRoom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Room id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Room'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Room not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Room
+      summary: 'Deletes a Room'
+      operationId: deleteRoom
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Room id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /sitefooters:
     get:
       tags:
@@ -10260,98 +10416,6 @@ components:
           type: integer
           format: '-'
       type: object
-    CommentRoom:
-      title: CommentRoom
-      description: CommentRoom
-      properties:
-        id:
-          nullable: false
-          title: id
-          description: id
-          type: integer
-          format: '-'
-          maxLength: 11
-        room_id:
-          nullable: true
-          title: room_id
-          description: room_id
-          type: integer
-          format: '-'
-          maxLength: 11
-        kritik:
-          nullable: false
-          title: kritik
-          description: kritik
-          type: string
-          format: '-'
-          maxLength: 50
-        saran:
-          nullable: false
-          title: saran
-          description: saran
-          type: string
-          format: '-'
-          maxLength: 50
-        created_at:
-          nullable: false
-          title: created_at
-          description: created_at
-          type: string
-          format: date
-        updated_at:
-          nullable: false
-          title: updated_at
-          description: updated_at
-          type: string
-          format: date
-        created_by:
-          nullable: true
-          title: created_by
-          description: created_by
-          type: integer
-          format: '-'
-          maxLength: 11
-      type: object
-    Dataruangan:
-      title: Dataruangan
-      description: Dataruangan
-      properties:
-        id:
-          nullable: false
-          title: id
-          description: id
-          type: integer
-          format: '-'
-          maxLength: 11
-        nama:
-          nullable: false
-          title: nama
-          description: nama
-          type: string
-          format: '-'
-          maxLength: 255
-        ukuran:
-          nullable: false
-          title: ukuran
-          description: ukuran
-          type: string
-          format: '-'
-          maxLength: 255
-        fasilitas:
-          nullable: false
-          title: fasilitas
-          description: fasilitas
-          type: string
-          format: '-'
-          maxLength: 255
-        kondisi:
-          nullable: false
-          title: kondisi
-          description: kondisi
-          type: string
-          format: '-'
-          maxLength: 255
-      type: object
     Donasi:
       title: Donasi
       description: Donasi
@@ -10434,41 +10498,34 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        id_donatur_type:
-          nullable: true
-          title: id_donatur_type
-          description: id_donatur_type
-          type: integer
-          format: '-'
-          maxLength: 11
-        donatur_type_id:
-          nullable: true
-          title: donatur_type_id
-          description: donatur_type_id
-          type: integer
-          format: '-'
-          maxLength: 11
         name:
-          nullable: true
+          nullable: false
           title: name
           description: name
           type: string
           format: '-'
-          maxLength: 100
+          maxLength: 128
+        id_kategori:
+          nullable: false
+          title: id_kategori
+          description: id_kategori
+          type: integer
+          format: '-'
+          maxLength: 11
         email:
           nullable: true
           title: email
           description: email
           type: string
           format: '-'
-          maxLength: 100
+          maxLength: 50
         no_hp:
           nullable: true
           title: no_hp
           description: no_hp
           type: string
           format: '-'
-          maxLength: 100
+          maxLength: 50
         alamat:
           nullable: true
           title: alamat
@@ -10477,13 +10534,13 @@ components:
           format: '-'
           maxLength: 100
         created_at:
-          nullable: true
+          nullable: false
           title: created_at
           description: created_at
           type: string
           format: date
         updated_at:
-          nullable: true
+          nullable: false
           title: updated_at
           description: updated_at
           type: string
@@ -10492,6 +10549,13 @@ components:
           nullable: true
           title: created_by
           description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+        updated_by:
+          nullable: true
+          title: updated_by
+          description: updated_by
           type: integer
           format: '-'
           maxLength: 11
@@ -10811,6 +10875,64 @@ components:
           description: created_by
           type: integer
           format: '-'
+      type: object
+    InfaqRoom:
+      title: InfaqRoom
+      description: InfaqRoom
+      properties:
+        nama_pemesan:
+          nullable: false
+          title: nama_pemesan
+          description: nama_pemesan
+          type: string
+          format: '-'
+          maxLength: 255
+        room_id:
+          nullable: true
+          title: room_id
+          description: room_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        tanggal_infaq:
+          nullable: false
+          title: tanggal_infaq
+          description: tanggal_infaq
+          type: string
+          format: date
+        jumlah_infaq:
+          nullable: false
+          title: jumlah_infaq
+          description: jumlah_infaq
+          type: number
+          format: float
+          maxLength: 15
+        status:
+          nullable: false
+          title: status
+          description: status
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     Jabatan:
       title: Jabatan
@@ -12313,6 +12435,150 @@ components:
           type: integer
           format: '-'
       type: object
+    Room:
+      title: Room
+      description: Room
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        gambar:
+          nullable: false
+          title: gambar
+          description: gambar
+          type: string
+          format: '-'
+          maxLength: 255
+        namaruangan:
+          nullable: false
+          title: namaruangan
+          description: namaruangan
+          type: string
+          format: '-'
+          maxLength: 255
+        deskripsi:
+          nullable: false
+          title: deskripsi
+          description: deskripsi
+          type: string
+          format: '-'
+          maxLength: 255
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    RoomReservation:
+      title: RoomReservation
+      description: RoomReservation
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        room_id:
+          nullable: true
+          title: room_id
+          description: room_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        namapemesan:
+          nullable: false
+          title: namapemesan
+          description: namapemesan
+          type: string
+          format: '-'
+          maxLength: 255
+        no_tlp:
+          nullable: false
+          title: no_tlp
+          description: no_tlp
+          type: string
+          format: '-'
+          maxLength: 25
+        alamat:
+          nullable: false
+          title: alamat
+          description: alamat
+          type: string
+          format: '-'
+          maxLength: 255
+        start_date:
+          nullable: false
+          title: start_date
+          description: start_date
+          type: string
+          format: date
+        end_date:
+          nullable: false
+          title: end_date
+          description: end_date
+          type: string
+          format: date
+        agenda:
+          nullable: false
+          title: agenda
+          description: agenda
+          type: string
+          format: '-'
+          maxLength: 50
+        keterangan:
+          nullable: false
+          title: keterangan
+          description: keterangan
+          type: string
+          format: '-'
+          maxLength: 50
+        status:
+          nullable: false
+          title: status
+          description: status
+          type: string
+          format: '-'
+          maxLength: 20
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     Sitefooter:
       title: Sitefooter
       description: Sitefooter
@@ -13500,30 +13766,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ChartOfAccount'
-    CommentRoom:
-      description: 'CommentRoom object that needs to be added'
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/CommentRoom'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/CommentRoom'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CommentRoom'
-    Dataruangan:
-      description: 'Dataruangan object that needs to be added'
-      content:
-        application/x-www-form-urlencoded:
-          schema:
-            $ref: '#/components/schemas/Dataruangan'
-        application/xml:
-          schema:
-            $ref: '#/components/schemas/Dataruangan'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Dataruangan'
     Donasi:
       description: 'Donasi object that needs to be added'
       content:
@@ -13608,6 +13850,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Imam'
+    InfaqRoom:
+      description: 'InfaqRoom object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/InfaqRoom'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/InfaqRoom'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InfaqRoom'
     Jabatan:
       description: 'Jabatan object that needs to be added'
       content:
@@ -13884,6 +14138,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/RawatibSchedule'
+    Room:
+      description: 'Room object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Room'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Room'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Room'
+    RoomReservation:
+      description: 'RoomReservation object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/RoomReservation'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/RoomReservation'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RoomReservation'
     Sitefooter:
       description: 'Sitefooter object that needs to be added'
       content:
@@ -14116,12 +14394,6 @@ tags:
     name: ChartOfAccount
     description: 'Everything about your ChartOfAccount'
   -
-    name: CommentRoom
-    description: 'Everything about your CommentRoom'
-  -
-    name: Dataruangan
-    description: 'Everything about your Dataruangan'
-  -
     name: Donasi
     description: 'Everything about your Donasi'
   -
@@ -14142,6 +14414,9 @@ tags:
   -
     name: Imam
     description: 'Everything about your Imam'
+  -
+    name: InfaqRoom
+    description: 'Everything about your InfaqRoom'
   -
     name: Jabatan
     description: 'Everything about your Jabatan'
@@ -14211,6 +14486,12 @@ tags:
   -
     name: RawatibSchedule
     description: 'Everything about your RawatibSchedule'
+  -
+    name: Room
+    description: 'Everything about your Room'
+  -
+    name: RoomReservation
+    description: 'Everything about your RoomReservation'
   -
     name: Sitefooter
     description: 'Everything about your Sitefooter'
