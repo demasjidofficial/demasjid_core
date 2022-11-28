@@ -15,7 +15,7 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <!-- List pendaftarans -->
+                <!-- List pendaftarans siswa -->
                 <div class="col table-responsive" id="pendaftaran-list">
                     <?php echo $this->include($viewPrefix.'\_table'); ?>
                     <?php echo $pager->links() ?>
