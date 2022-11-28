@@ -384,6 +384,10 @@ return [
 	'sitesliders' => 'Slide',
 
 	// 'sitesliders' => 'Slide',
-	'campaign_name'=>'Nama Target Fundraising'
+	'campaign_name'=>'Nama Target Fundraising',
+
+	'sitesliders' => 'Slide',
+	
+	'add_tugas_saya'=>'Tambah Tugas Saya'
 ];
 

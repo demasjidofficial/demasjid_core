@@ -69,6 +69,19 @@ class TargetFundraisingModel extends BaseModel
 		$this->where($this->table . '.created_by',auth()->user()->id);
 		return parent::findAll($limit, $offset);
 	}
+	public function findWidget(int $limit = 5, int $offset = 0)
+    {
+
+        $this->selectColumn = [$this->table.'.target_nominal as target_nominal',$this->table.'.jadwal_mulai as jadwal_mulai',$this->table.'.jadwal_akhir as jadwal_akhir'
+		, 'donaturcategory.name as donatur'
+		];        
+		$this->join('bmdonationcampaign', 'bmdonationcampaign.id = ' . $this->table . '.campaign');
+		$this->join('donaturcategory', 'donaturcategory.id = ' . $this->table . '.donatur', 'left');
+		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id', 'left');
+		$this->join('users', 'users.id = ' . $this->table . '.created_by');
+		$this->where($this->table . '.created_by',auth()->user()->id);
+		return parent::findAll($limit, $offset);
+    }   
 	private function filterDonasi(string $type)
 	{
 		$this->whereIn('tipe_donasi', function (BaseBuilder $builder) use ($type) {

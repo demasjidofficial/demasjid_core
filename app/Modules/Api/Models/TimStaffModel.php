@@ -39,26 +39,26 @@ class TimStaffModel extends BaseModel
         return parent::findAll($limit, $offset);
     }
 
-    public function insert($data = null, bool $returnID = true)
-    {
-        if (!empty($data['tugas_tim'])) {
-            $this->db->transBegin();
-            $tugasTim = $data['tugas_tim'];
+    // public function insert($data = null, bool $returnID = true)
+    // {
+    //     if (!empty($data['tugas_tim'])) {
+    //         $this->db->transBegin();
+    //         $tugasTim = $data['tugas_tim'];
 
-            $newId = parent::insert($data, $returnID);
-            $this->insertDetail($newId, $tugasTim);
+    //         $newId = parent::insert($data, $returnID);
+    //         $this->insertDetail($newId, $tugasTim);
 
-            if ($this->db->transStatus() === false) {
-                $this->db->transRollback();
+    //         if ($this->db->transStatus() === false) {
+    //             $this->db->transRollback();
 
-                return false;
-            } else {
-                $this->db->transCommit();
+    //             return false;
+    //         } else {
+    //             $this->db->transCommit();
 
-                return $newId;
-            }
-        }
-    }
+    //             return $newId;
+    //         }
+    //     }
+    // }
 
     public function update($id = null, $data = null): bool
     {
@@ -87,7 +87,7 @@ class TimStaffModel extends BaseModel
             (new TugasTimModel())->where('staff_id', $id)->delete();
 
             $detail = [
-                'staff_id' => $tugasTim['id'],
+                'staff_id' => $tugasTim['staff_id'],
                 'tugas' => $tugasTim['tugas'],
                 'kode_tugas' => $tugasTim['kode_tugas'],
                 'progres' => $tugasTim['progress'],

@@ -3,20 +3,20 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\DonaturFundraisingModel;
-use App\Modules\BaitulMal\Models\DonaturFundraisingFilter;
+use App\Modules\Api\Models\DonaturFundraisingSpvModel;
+use App\Modules\BaitulMal\Models\DonaturFundraisingSpvFilter;
 use IlluminateAgnostic\Arr\Support\Arr;
 use App\Modules\Api\Models\TugasTimModel;
 use App\Traits\UploadedFile;
 
-class DonaturFundraisingController extends AdminCrudController
+class DonaturFundraisingSpvController extends AdminCrudController
 {
 
     protected $baseController = __CLASS__;
-    protected $viewPrefix = 'App\Modules\BaitulMal\Views\donatur_fundraising\\';
-    protected $baseRoute = 'admin/baitulmal/donaturfundraising';
-    protected $langModel = 'donatur_fundraising';
-    protected $modelName = 'App\Modules\Api\Models\DonaturFundraisingModel';
+    protected $viewPrefix = 'App\Modules\BaitulMal\Views\donatur_fundraising_spv\\';
+    protected $baseRoute = 'admin/baitulmal/donaturfundraisingspv';
+    protected $langModel = 'donatur_fundraising_spv';
+    protected $modelName = 'App\Modules\Api\Models\DonaturFundraisingSpvModel';
     use UploadedFile;
     public function index(){
         return parent::index();
@@ -116,7 +116,7 @@ class DonaturFundraisingController extends AdminCrudController
 
     protected function getDataIndex()
     {
-        $model = model(DonaturFundraisingFilter::class);
+        $model = model(DonaturFundraisingSpvFilter::class);
         return [
             'headers' => [
                 'tugas' => lang('crud.tugas'),
@@ -141,7 +141,7 @@ class DonaturFundraisingController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new DonaturFundraisingModel();
+        $model = new DonaturFundraisingSpvModel();
 
         if (!empty($id)) {
             $data = $model->find($id);
@@ -150,7 +150,7 @@ class DonaturFundraisingController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        $dataEdit['tugasItems'] = ['' => 'Pilih Tugas'] + Arr::pluck(model('App\Modules\Api\Models\TugasTimModel')->select(['tugas_tim.id as key', 'tugas_tim.tugas as text'])->asArray()->findTugasStaff(), 'text', 'key');
+        $dataEdit['tugasItems'] = ['' => 'Pilih Tugas'] + Arr::pluck(model('App\Modules\Api\Models\TugasTimModel')->select(['tugas_tim.id as key', 'tugas_tim.tugas as text'])->asArray()->findTugasSpv(), 'text', 'key');
 
         return $dataEdit;
     }
