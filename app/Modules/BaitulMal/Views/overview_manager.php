@@ -49,54 +49,54 @@
         </div>
 
 
-          <div class="info-box bg-default">
-            <span class="info-box-icon"><i class="icon-icon_donatur"></i></span>
+        <div class="info-box bg-default">
+          <span class="info-box-icon"><i class="icon-icon_donatur"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text"><?= lang('crud.donaturcategory') ?></span>
+          <div class="info-box-content">
+            <span class="info-box-text"><?= lang('crud.donaturcategory') ?></span>
 
-              <span class="progress-description">
-                <a href="<?= site_url('/admin/baitulmal/donaturcategory') ?>" class="small-box-footer">
-                  <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
-                </a>
-              </span>
-            </div>
-            <!-- /.info-box-content -->
+            <span class="progress-description">
+              <a href="<?= site_url('/admin/baitulmal/donaturcategory') ?>" class="small-box-footer">
+                <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </span>
           </div>
-          <!-- /.info-box -->
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
 
-          <div class="info-box bg-default">
-            <span class="info-box-icon"><i class="icon-icon_mapping"></i></span>
+        <div class="info-box bg-default">
+          <span class="info-box-icon"><i class="icon-icon_mapping"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text"><?= lang('crud.target_fundraising') ?></span>
+          <div class="info-box-content">
+            <span class="info-box-text"><?= lang('crud.target_fundraising') ?></span>
 
-              <span class="progress-description">
-                <a href="<?= site_url('/admin/baitulmal/targetfundraising') ?>" class="small-box-footer">
-                  <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
-                </a>
-              </span>
-            </div>
-            <!-- /.info-box-content -->
+            <span class="progress-description">
+              <a href="<?= site_url('/admin/baitulmal/targetfundraising') ?>" class="small-box-footer">
+                <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </span>
           </div>
-          <!-- /.info-box -->
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
 
 
-          <div class="info-box bg-default">
-            <span class="info-box-icon"><i class="icon-icon_organisasi"></i></span>
+        <div class="info-box bg-default">
+          <span class="info-box-icon"><i class="icon-icon_organisasi"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text"><?= lang('crud.tim_fundraising') ?></span>
+          <div class="info-box-content">
+            <span class="info-box-text"><?= lang('crud.tim_fundraising') ?></span>
 
-              <span class="progress-description">
-                <a href="<?= site_url('/admin/baitulmal/timfundraising') ?>" class="small-box-footer">
-                  <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
-                </a>
-              </span>
-            </div>
-            <!-- /.info-box-content -->
+            <span class="progress-description">
+              <a href="<?= site_url('/admin/baitulmal/timfundraising') ?>" class="small-box-footer">
+                <?= lang('app.open_menu') ?> <i class="fas fa-arrow-circle-right"></i>
+              </a>
+            </span>
           </div>
-          <!-- /.info-box -->
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
 
 
 
@@ -118,6 +118,16 @@
 
     <!-- Main row -->
     <div class="row">
+      <div class="col-md-12">
+
+        <!-- /.card -->
+        <?= view('App\Views\Widgets\_tim_fundraising', [
+          'panel'   => $widgets->widget('targetfund')->items(),
+          'title'  => 'Target Fundraising'
+        ]) ?>
+
+        <!-- /.card -->
+      </div>
       <!-- Left col -->
       <div class="col-md-12">
 

@@ -69,7 +69,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.target_nominal'), '', ['for' => 'target_nominal', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('target_nominal', old('target_nominal', $data->target_nominal ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.target_nominal') . "' ") ?>
+                    <?= form_input('target_nominal', old('target_nominal', $data->target_nominal ?? ''), "class='form-control numeric' required placeholder='" . lang('crud.target_nominal') . "' ") ?>
                     <?php if (has_error('target_nominal')) { ?>
                         <p class="text-danger"><?php echo error('target_nominal'); ?></p>
                     <?php } ?>
@@ -121,12 +121,17 @@
 
 
         bsCustomFileInput.init();
-        $('input[name=target_nominal]').inputmask({
-            'alias': 'currency',
-            'rightAlign': false,
-            'digits': '0',
-            'allowMinus': 'false',
-        });
+        $(function () {
+    
+        
+        $('.numeric').inputmask({
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
+        })
+    });
 
         $('select[name="campaign"]').change(function() {
             $('input[name="campaign_name"]').val(parseInt(this.value) ? $('select[name="campaign"] option:selected').text() : '');

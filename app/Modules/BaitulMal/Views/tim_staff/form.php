@@ -18,21 +18,21 @@
 <x-admin-box>
 
 
-    <form action="<?= site_url('/admin/baitulmal/timstaff/add_tugas') ?>" method="post" enctype="multipart/form-data">
+    <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
         <?php echo csrf_field(); ?>
 
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />
             <input type="hidden" name="id" value="<?php echo $data->id; ?>">
-            <input type="hidden" name="tugas_tim[id]" value="<?php echo $data->id; ?>">
+            <input type="hidden" name="tugas_tim[staff_id]" value="<?php echo $data->id; ?>">
         <?php } ?>
 
         <fieldset>
             <div class="row mb-3">
                 <?= form_label(lang('crud.nama_tim'), '', ['for' => 'tim_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?php echo form_dropdown('tim_id', $timItems, old('tim_id', $data->tim_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.nama_tim') . "' "); ?>
+                    <?php echo form_dropdown('tugas_tim[tim_id]', $timItems, old('tugas_tim[tim_id]', $data->tim_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.nama_tim') . "' "); ?>
                     <?php if (has_error('tim_id')) { ?>
                         <p class="text-danger"><?php echo error('tim_id'); ?></p>
                     <?php } ?>
@@ -41,7 +41,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.staff'), '', ['for' => 'user_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?php echo form_dropdown('tugas_tim[user_id]', $staffItems, old('tugas_tim[user_id]', $data->user_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.staff') . "' "); ?>
+                    <?php echo form_dropdown('user_id', $staffItems, old('user_id', $data->user_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.staff') . "' "); ?>
                     <?php if (has_error('user_id')) { ?>
                         <p class="text-danger"><?php echo error('user_id'); ?></p>
                     <?php } ?>
@@ -88,9 +88,8 @@
         </fieldset>
 
         <div class="text-end py-3">
-            <button formaction="<?= site_url('/admin/baitulmal/timstaff/add_tugas') ?>" type="submit" class="btn btn-success btn-lg"><i class="fas fa-save"></i>
-                <?php echo lang('app.save'); ?></button>
-        </div>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.tugas_tim') ?></button>
+            </div>
 
     </form>
 
