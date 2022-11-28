@@ -14,7 +14,7 @@ class GuruModel extends BaseModel
 		'path_image',
 		'name',
 		'nip',
-		'jns_kelamin',
+		'gender',
 		'created_at',
 		'updated_at',
 		'created_by'
@@ -24,7 +24,7 @@ class GuruModel extends BaseModel
 		'path_image' => 'max_length[255]',
 		'name' => 'max_length[255]|required',
 		'nip' => 'max_length[255]|required',
-		'jns_kelamin' => 'max_length[1]|required',
+		'gender' => 'max_length[1]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'

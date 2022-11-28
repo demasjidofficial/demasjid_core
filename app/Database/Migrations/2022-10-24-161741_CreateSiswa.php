@@ -30,8 +30,8 @@ class CreateSiswa extends Migration
                 'constraint' => 60,
             ],
             'gender' => [
-                'type'          => 'varchar',
-                'constraint'    => 20,
+                'type'       => 'char',
+                'constraint' => 1,
             ],
             'birth_place' => [
                 'type'       => 'varchar',
@@ -70,11 +70,10 @@ class CreateSiswa extends Migration
             ],
 
             'nis' => [
-                'type'       => 'int',
-                'constraint' => 11,
-                'null'       => true,
+                'type'       => 'varchar',
+                'constraint' => 10,
             ],
-            'class_id' => [
+            'kelas_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -152,7 +151,7 @@ class CreateSiswa extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('nis');
-        $this->forge->addForeignKey('class_id', 'kelas', 'id');
+        $this->forge->addForeignKey('kelas_id', 'kelas', 'id'); // apakah akan dibutuhkan, setiap ganti kelas akan mengganti satu persatu
         $this->forge->addForeignKey('tahun_ajaran_id', 'tahun_ajaran', 'id');
         $this->forge->createTable('siswa', true);
     }

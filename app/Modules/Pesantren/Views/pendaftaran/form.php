@@ -102,7 +102,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.gender'), '', ['for' => 'gender', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-5">
-                                <?= form_dropdown('gender', $genderItems, old('gender', $data->gender ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.gender') . "' ") ?>
+                                <?= form_dropdown('gender', $genderItems, old('gender', $data->gender ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
                                 <?php if (has_error('gender')) { ?>
                                     <p class="text-danger"><?php echo error('gender'); ?></p>
                                 <?php } ?>
@@ -195,18 +195,18 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.nis'), '', ['for' => 'nis', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_input('nis', old('nis', $data->nis ?? ''), "class='form-control int'  placeholder='" . lang('crud.nis') . "' ") ?>
+                                <?= form_input('nis', old('nis', $data->nis ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.nis') . "' ") ?>
                                 <?php if (has_error('nis')) { ?>
                                     <p class="text-danger"><?php echo error('nis'); ?></p>
                                 <?php } ?>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label(lang('crud.class_id'), '', ['for' => 'class_id', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label(lang('crud.kelas_id'), '', ['for' => 'kelas_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_dropdown('class_id', $kelasItems, old('class_id', $data->class_id ?? ''), "class='form-control select2' required placeholder='" . lang('crud.class_id') . "' ") ?>
-                                <?php if (has_error('class_id')) { ?>
-                                    <p class="text-danger"><?php echo error('class_id'); ?></p>
+                                <?= form_dropdown('kelas_id', $kelasItems, old('kelas_id', $data->kelas_id ?? ''), "class='form-control select2' required placeholder='" . lang('crud.kelas_id') . "' ") ?>
+                                <?php if (has_error('kelas_id')) { ?>
+                                    <p class="text-danger"><?php echo error('kelas_id'); ?></p>
                                 <?php } ?>
                             </div>
                         </div>

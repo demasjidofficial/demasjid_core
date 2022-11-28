@@ -14,7 +14,7 @@ class PendaftaranModel extends BaseModel
 	protected $primaryKey = 'id';
 	protected $useTimestamps = true;
 	protected $allowedFields = [
-		'class_id',
+		'kelas_id',
 		'state',
 		'name',
 		'nis',
@@ -45,14 +45,14 @@ class PendaftaranModel extends BaseModel
 	];
 	protected $validationRules = [
 		'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
-		'class_id' => 'numeric|max_length[11]|required',
+		'kelas_id' => 'numeric|max_length[11]|required',
 		'state' => 'max_length[20]|required',
 		'name' => 'max_length[60]|required',
-		'nis' => 'numeric|max_length[11]',
+		'nis' => 'max_length[10]|required',
 		'nick_name' => 'max_length[60]|required',
 		'birth_date' => 'valid_date|required',
 		'birth_place' => 'max_length[15]',
-		'gender' => 'max_length[20]|required',
+		'gender' => 'max_length[1]|required',
 		'provinsi_id' => 'max_length[15]',
 		'kota_id' => 'max_length[15]',
 		'kecamatan_id' => 'max_length[15]',
@@ -97,7 +97,7 @@ class PendaftaranModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
 		$this->selectColumn = [$this->table . '.*', 'kelas.name as kelas_name', 'tahun_ajaran.name as tahunAjaran_name'];
-		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
+		$this->join('kelas', 'kelas.id = ' . $this->table . '.kelas_id');
 		$this->join('tahun_ajaran', 'tahun_ajaran.id = ' . $this->table . '.tahun_ajaran_id');
 		return parent::findAll($limit, $offset);
 	}

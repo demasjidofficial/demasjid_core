@@ -79,7 +79,7 @@ class SiswaController extends AdminCrudController
                 'desa_id' => lang('crud.desa_id'),
                 'address' => lang('crud.address'),
                 'nis' => lang('crud.nis'),
-                'class_id' => lang('crud.class_id'),
+                'kelas_id' => lang('crud.kelas_id'),
                 'school_origin' => lang('crud.school_origin'),
                 'father_name' => lang('crud.father_name'),
                 'father_job' => lang('crud.father_job'),

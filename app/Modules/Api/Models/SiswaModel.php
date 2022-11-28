@@ -21,7 +21,7 @@ class SiswaModel extends BaseModel
 		'desa_id',
 		'address',
 		'nis',
-		'class_id',
+		'kelas_id',
 		'school_origin',
 		'father_name',
 		'father_job',
@@ -42,7 +42,7 @@ class SiswaModel extends BaseModel
 		'path_image' => 'max_length[255]',
 		'name' => 'max_length[60]|required',
 		'nick_name' => 'max_length[60]|required',
-		'gender' => 'max_length[20]|required',
+		'gender' => 'max_length[1]|required',
 		'birth_place' => 'max_length[50]',
 		'birth_date' => 'valid_date|required',
 		'provinsi_id' => 'max_length[15]',
@@ -50,8 +50,8 @@ class SiswaModel extends BaseModel
 		'kecamatan_id' => 'max_length[15]',
 		'desa_id' => 'max_length[15]',
 		'address' => 'max_length[100]',
-		'nis' => 'numeric|max_length[11]',
-		'class_id' => 'numeric|max_length[11]|required',
+		'nis' => 'max_length[10]|required',
+		'kelas_id' => 'numeric|max_length[11]|required',
 		'school_origin' => 'max_length[100]',
 		'father_name' => 'max_length[60]|required',
 		'father_job' => 'max_length[60]|required',
@@ -79,7 +79,7 @@ class SiswaModel extends BaseModel
 	public function findAll(int $limit = 0, int $offset = 0)
     {
         $this->selectColumn = [$this->table.'.*', 'kelas.name as kelas_name', 'tahun_ajaran.name as tahunAjaran_name'];        
-        $this->join('kelas', 'kelas.id = '.$this->table.'.class_id');
+        $this->join('kelas', 'kelas.id = '.$this->table.'.kelas_id');
 		$this->join('tahun_ajaran', 'tahun_ajaran.id = ' . $this->table . '.tahun_ajaran_id');
         return parent::findAll($limit, $offset);
     }

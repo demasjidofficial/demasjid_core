@@ -28,7 +28,7 @@ class CreateGuru extends Migration
                 'type'       => 'varchar',
                 'constraint' => 255,
             ],
-            'jns_kelamin' => [
+            'gender' => [
                 'type'       => 'char',
                 'constraint' => 1,
             ],

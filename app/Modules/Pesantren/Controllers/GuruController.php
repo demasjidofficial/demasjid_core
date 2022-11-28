@@ -68,7 +68,7 @@ class GuruController extends AdminCrudController
                 'path_image' => lang('crud.path_image'),
                 'name' => lang('crud.name'),
                 'nip' => lang('crud.nip'),
-                'jns_kelamin' => lang('crud.gender'),
+                'gender' => lang('crud.gender'),
                 // 'created_by' => lang('crud.created_by')
             ],
             'controller' => $this->getBaseController(),

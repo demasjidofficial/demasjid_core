@@ -15,7 +15,7 @@ class CreatePendaftaran extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'class_id' => [
+            'kelas_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -29,8 +29,8 @@ class CreatePendaftaran extends Migration
                 'constraint' => 60,
             ],
             'nis' => [
-                'type'       => 'int',
-                'null'       => true,
+                'type'       => 'varchar',
+                'constraint' => 10,
             ],
             'nick_name' => [
                 'type'       => 'varchar',
@@ -46,8 +46,8 @@ class CreatePendaftaran extends Migration
                 'null'       => true,
             ],
             'gender' => [
-                'type'          => 'varchar',
-                'constraint'    => 20,
+                'type'       => 'char',
+                'constraint' => 1,
             ],
             'provinsi_id' => [
                 'type'       => 'varchar',
@@ -156,7 +156,7 @@ class CreatePendaftaran extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('nis');
-        $this->forge->addForeignKey('class_id', 'kelas', 'id');
+        $this->forge->addForeignKey('kelas_id', 'kelas', 'id'); // untuk pendaftaran bagiamana?
         $this->forge->addForeignKey('tahun_ajaran_id', 'tahun_ajaran', 'id');
         $this->forge->createTable('pendaftaran', true);
     }

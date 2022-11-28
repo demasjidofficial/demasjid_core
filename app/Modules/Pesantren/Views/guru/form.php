@@ -74,12 +74,12 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.gender'), '', ['for' => 'jns_kelamin', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.gender'), '', ['for' => 'gender', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_dropdown('jns_kelamin', $genderItems, old('jns_kelamin', $data->jns_kelamin ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
-                    <?php if (has_error('jns_kelamin')) { ?>
+                    <?= form_dropdown('gender', $genderItems, old('jns_kelamin', $data->gender ?? ''), "class='form-control char' required placeholder='" . lang('crud.gender') . "' ") ?>
+                    <?php if (has_error('gender')) { ?>
                         <p class="text-danger">
-                            <?php echo error('jns_kelamin'); ?>
+                            <?php echo error('gender'); ?>
                         </p>
                     <?php } ?>
 
@@ -95,4 +95,22 @@
 
 </x-admin-box>
 
+<?php $this->endSection(); ?>
+
+<?php $this->section('scripts'); ?>
+<!-- bs-custom-file-input -->
+<?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
+<?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
+<script type="text/javascript">
+    $(function() {
+
+        bsCustomFileInput.init();
+        $('input:file').change(function() {
+            var i = $(this).prev('label').clone();
+            var file = $(this).get(0).files[0].name;
+            $(this).prev('label').text(file);
+        });
+    });
+</script>
 <?php $this->endSection(); ?>

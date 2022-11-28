@@ -116,7 +116,7 @@ class PendaftaranController extends AdminCrudController
                 'name' => lang('crud.name'),
                 // 'nick_name' => lang('crud.nick_name'),
                 'nis' => lang('crud.nis'),
-                'class_id' => lang('crud.class_id'),
+                'kelas_id' => lang('crud.kelas_id'),
                 'school_origin' => lang('crud.school_origin'),
                 'gender' => lang('crud.gender'),
 
