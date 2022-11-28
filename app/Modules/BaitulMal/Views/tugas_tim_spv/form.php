@@ -27,13 +27,13 @@
             <?php } ?>
 
             <fieldset>
-            <input type="hidden" name="id_supervisor" value="<?php echo auth()->user()->id; ?>">
+            <input type="hidden" name="supervisor_id" value="<?php echo auth()->user()->id; ?>">
             <div class="row mb-3">
-                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'id_tim', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.nama_tim'), '', ['for' => 'tim_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?php echo form_dropdown('id_tim', $timItems, old('id_tim', $data->id_tim ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.nama_tim') . "' "); ?>
-                    <?php if (has_error('id_tim')) { ?>
-                        <p class="text-danger"><?php echo error('id_tim'); ?></p>
+                    <?php echo form_dropdown('tim_id', $timItems, old('tim_id', $data->tim_id ?? ''), "class='form-control varchar' readonly required placeholder='" . lang('crud.nama_tim') . "' "); ?>
+                    <?php if (has_error('tim_id')) { ?>
+                        <p class="text-danger"><?php echo error('tim_id'); ?></p>
                     <?php } ?>
                 </div>
             </div>

@@ -51,7 +51,7 @@ class DonaturFundraisingModel extends BaseModel
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 
 		$this->where('tim_staff.user_id', auth()->user()->id);
-		$this->orwhere('tugas_tim.id_supervisor', auth()->user()->id);
+		$this->orwhere('tugas_tim.supervisor_id', auth()->user()->id);
 		return parent::findAll($limit, $offset);
 	}
 
@@ -70,7 +70,7 @@ class DonaturFundraisingModel extends BaseModel
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 
 		$this->where('tim_staff.user_id', auth()->user()->id);
-		$this->orwhere('tugas_tim.id_supervisor', auth()->user()->id);
+		$this->orwhere('tugas_tim.supervisor_id', auth()->user()->id);
 		return parent::findAll($limit, $offset);
 	} 
 }

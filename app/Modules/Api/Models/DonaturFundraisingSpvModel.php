@@ -48,10 +48,10 @@ class DonaturFundraisingSpvModel extends BaseModel
 		$this->join('tugas_tim', 'tugas_tim.id = ' . $this->table . '.tugas_id');
 	
 		
-		$this->join('tim_fundraising', 'tim_fundraising.id = tugas_tim.id_tim');
+		$this->join('tim_fundraising', 'tim_fundraising.id = tugas_tim.tim_id');
 
-        $this->join('users', 'users.id = tugas_tim.id_supervisor');
-		$this->where('tugas_tim.id_supervisor', auth()->user()->id);
+        $this->join('users', 'users.id = tugas_tim.supervisor_id');
+		$this->where('tugas_tim.supervisor_id', auth()->user()->id);
 		return parent::findAll($limit, $offset);
 	}
 
@@ -67,10 +67,10 @@ class DonaturFundraisingSpvModel extends BaseModel
 		$this->join('tugas_tim', 'tugas_tim.id = ' . $this->table . '.tugas_id');
 	
 		
-		$this->join('tim_fundraising', 'tim_fundraising.id = tugas_tim.id_tim');
-        $this->join('users', 'users.id = tugas_tim.id_supervisor');
+		$this->join('tim_fundraising', 'tim_fundraising.id = tugas_tim.tim_id');
+        $this->join('users', 'users.id = tugas_tim.supervisor_id');
 	
-		$this->where('tugas_tim.id_supervisor', auth()->user()->id);
+		$this->where('tugas_tim.supervisor_id', auth()->user()->id);
 	
 		return parent::findAll($limit, $offset);
 	} 

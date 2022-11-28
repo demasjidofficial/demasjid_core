@@ -9,12 +9,12 @@ class AddTugasTim extends Migration
     public function up()
     {
         $this->forge->addColumn('tugas_tim', [
-            'id_supervisor' => [
+            'supervisor_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'null'       => false,
             ],
-            'id_tim' => [
+            'tim_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'null'       => false,
@@ -26,6 +26,6 @@ class AddTugasTim extends Migration
     public function down()
     {
         //
-        $this->forge->dropColumn('tugas_tim', ['id_supervisor','id_tim']);
+        $this->forge->dropColumn('tugas_tim', ['supervisor_id','tim_id']);
     }
 }
