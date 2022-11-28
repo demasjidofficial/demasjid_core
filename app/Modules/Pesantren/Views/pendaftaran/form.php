@@ -201,6 +201,7 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <!-- pendaftaran siswa berdasarkan tingkat pendidikan, jadi perlu perbaikan -->
                         <div class="row mb-3">
                             <?= form_label(lang('crud.kelas_id'), '', ['for' => 'kelas_id', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
@@ -361,6 +362,7 @@
                                 <?php if (has_error('tahun_ajaran_id')) { ?>
                                     <p class="text-danger"><?php echo error('tahun_ajaran_id'); ?></p>
                                 <?php } ?>
+
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -402,7 +404,7 @@
             "locale": {
                 "format": 'YYYY-MM-DD'
             }
-        }); 
+        });
 
         // input image/photo
         bsCustomFileInput.init();
