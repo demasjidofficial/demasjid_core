@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateKategoriPelajaran extends Migration
+class CreateTahunAjaran extends Migration
 {
     public function up()
     {
@@ -17,13 +17,12 @@ class CreateKategoriPelajaran extends Migration
             ],
             'name' => [
                 'type'       => 'varchar',
-                'constraint' => 60,
-            ],
-            'description' => [
-                'type'       => 'varchar',
                 'constraint' => 255,
             ],
-            
+            'status' => [
+                'type'       => 'char',
+                'constraint' => 1,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -36,16 +35,16 @@ class CreateKategoriPelajaran extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey('name');
-        $this->forge->createTable('kategori_pelajaran', true);
+        $this->forge->createTable('tahun_ajaran', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('kategori_pelajaran', true);
+        //
+        $this->forge->dropTable('tahun_ajaran', true);
     }
 }

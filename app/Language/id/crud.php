@@ -31,6 +31,7 @@ return [
 	'menu' => 'Menu',
 	'language' => 'Bahasa',
 	'state' => 'Status',
+	'state_register' => 'Status Pendaftaran',
 
 	'back' => 'Kembali',
 	'pages' => 'Halaman',
@@ -77,6 +78,7 @@ return [
 	'schedules_lessontest' => 'Ujian Pelajaran',
 	'schedules_lessontestsemester' => 'Ujian Semester',
 	'learnings' => 'Pembelajaran',
+	'question_bank' => 'Bank Soal',
 
 	'sedang_berlangsung' => 'Sedang Berlangsung',
 	'berlangsung' => 'Sedang Berlangsung',
@@ -180,9 +182,11 @@ return [
 	'siswa' => 'Siswa',
 	'pendaftaran' => 'Pendaftaran',
 	'nick_name' => 'Nama Panggilan',
+	'fullname' => 'Nama Lengkap',
 	'nis' => 'NIS',
 	'birth_place' => 'Tempat Lahir',
 	'birth_date' => 'Tanggal Lahir',
+	'tmpt_tgl_lahir' => 'Tempat, Tanggal Lahir',
 	'gender' => 'Jenis Kelamin',
 	'school_origin' => 'Sekolah Asal',
 	'father_name' => 'Nama Ayah',
@@ -193,6 +197,15 @@ return [
 	'mother_job' => 'Pekerjaan Ibu',
 	'mother_tlpn' => 'Telepon Ibu',
 	'mother_email' => 'Email Ibu',
+	'biodata_diri' => 'Biodata Diri',
+	'data_pendidikan' => 'Data Pendidikan',
+	'data_orangtua' => 'Data OrangTua',
+	'father' => 'Ayah',
+	'mother' => 'Ibu',
+
+	'tahun_ajaran' => 'Tahun Ajaran',
+	'active' => 'Aktif',
+	'nonactive' => 'Non-Aktif',
 
 	'menunggu' => 'Menunggu',
 	'diterima' => 'Diterima',
@@ -200,11 +213,17 @@ return [
 
 	'student' => 'Siswa',
 	'teacher' => 'Guru',
+	'master_teacher' => 'Master Guru',
 	'absences' => 'Absensi',
+	'nip' => 'NIP',
 
 	'registration_open' => 'Buka Pendaftaran',
 	'registration' => 'Pendaftaran',
 	'registration_admission' => 'Penerimaan Pendaftaran',
+
+	'register' => 'Mendaftar',
+	'recieved' => 'Diterima',
+	'rejected' => 'Ditolak',
 
 	'configs' => 'Konfigurasi',
 	'zakats' => 'Zakat',
@@ -317,6 +336,8 @@ return [
 	'target_id'=>'Nama Target Donatur',
 	'kode_tim'=>'Kode Tim',
 	'nama_tim'=>'Nama Tim',
+	'male' => 'Laki - Laki',
+	'female' => 'Perempuan',
 	'tugas_tim'=>'Tugas Tim',
 	'staff_nama'=>'Nama Staff',
 	'tim_staff'=>'Anggota Tim',
@@ -360,6 +381,10 @@ return [
 	'bmdonationtype' => 'Tipe Donasi',
 	'siteposts' => 'Artikel',
 	'sitesections' => 'Seksion',
+	'sitesliders' => 'Slide',
+
+	// 'sitesliders' => 'Slide',
+	'campaign_name'=>'Nama Target Fundraising',
 
 	'sitesliders' => 'Slide',
 	

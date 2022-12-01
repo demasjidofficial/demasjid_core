@@ -2,10 +2,10 @@
 
 namespace App\Modules\Pesantren\Models;
 
-use App\Modules\Api\Models\ChartOfAccountModel;
+use App\Modules\Api\Models\GuruModel;
 use Bonfire\Traits\Filterable;
 
-class ChartOfAccountFilter extends ChartOfAccountModel
+class GuruFilter extends GuruModel
 {
     use Filterable;
 

@@ -123,6 +123,19 @@ if (! function_exists('meta_tag')) {
       
         return $meta.$title;
     }
+
+    if (!function_exists('convertStateRegisterEducation')) {
+        function convertStateRegisterEducation($state)
+        {
+            $validState = [
+                'mendaftar' => '<span class="badge badge-info">'.lang('crud.register').'</span>',
+                'diterima' => '<span class="badge badge-success">'.lang('crud.recieved').'</span>',
+                'ditolak' => '<span class="badge badge-danger">'.lang('crud.rejected').'</span>',
+            ];    
+    
+            return $validState[$state] ?? $state;
+        }
+    }
 }
 
 if(!function_exists('replace_float')){

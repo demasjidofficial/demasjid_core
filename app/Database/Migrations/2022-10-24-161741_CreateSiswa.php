@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreatePendaftaran extends Migration
+class CreateSiswa extends Migration
 {
     public function up()
     {
@@ -15,39 +15,32 @@ class CreatePendaftaran extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'class_id' => [
-                'type'       => 'int',
-                'constraint' => 11,
-                'unsigned'   => true,
-            ],
-            'state' => [
-                'type'          => 'varchar',
-                'constraint'    => 20,
+            'path_image' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'null'       => true,
+                'after'      => 'address'
             ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            'nis' => [
-                'type'       => 'int',
-                'null'       => true,
-            ],
             'nick_name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            'birth_date' => [
-                'type'          => 'date',
-                'null'          => false,
+            'gender' => [
+                'type'       => 'char',
+                'constraint' => 1,
             ],
             'birth_place' => [
                 'type'       => 'varchar',
-                'constraint' => 15,
+                'constraint' => 50,
                 'null'       => true,                
             ],
-            'gender' => [
-                'type'          => 'varchar',
-                'constraint'    => 20,
+            'birth_date' => [
+                'type'          => 'date',
+                'null'          => false,
             ],
             'provinsi_id' => [
                 'type'       => 'varchar',
@@ -74,22 +67,28 @@ class CreatePendaftaran extends Migration
                 'constraint' => 100,
                 'null'       => true,
                 'after'      => 'jabatan_id'
+            ],
+
+            'nis' => [
+                'type'       => 'varchar',
+                'constraint' => 10,
+            ],
+            'kelas_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],          
             'school_origin' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
                 'null'       => true,
                 'after'      => 'jabatan_id'
-            ],
-            'description' => [
-                'type' => 'text',
-            ],
-            
+            ],  
+
             'father_name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            
             'father_job' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
@@ -106,12 +105,10 @@ class CreatePendaftaran extends Migration
                 'null'       => true,
                 'after'      => 'telephone'
             ],   
-            
             'mother_name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            
             'mother_job' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
@@ -127,12 +124,15 @@ class CreatePendaftaran extends Migration
                 'constraint' => 35,
                 'null'       => true,
                 'after'      => 'telephone'
-            ],      
-            'path_image' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-                'null'       => true,
-                'after'      => 'address'
+            ],  
+            'tahun_ajaran_id' => [
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
+                
+            'description' => [
+                'type' => 'text',
             ],                  
             'created_at' => [
                 'type' => 'datetime',
@@ -150,16 +150,14 @@ class CreatePendaftaran extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey('name');
-        $this->forge->addForeignKey('class_id', 'kelas', 'id');
-        $this->forge->createTable('pendaftaran', true);
+        $this->forge->addUniqueKey('nis');
+        $this->forge->addForeignKey('kelas_id', 'kelas', 'id'); // apakah akan dibutuhkan, setiap ganti kelas akan mengganti satu persatu
+        $this->forge->addForeignKey('tahun_ajaran_id', 'tahun_ajaran', 'id');
+        $this->forge->createTable('siswa', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('pendaftaran', true);
+        $this->forge->dropTable('siswa', true);
     }
 }
-
-
-

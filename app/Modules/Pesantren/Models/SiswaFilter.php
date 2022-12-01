@@ -2,10 +2,10 @@
 
 namespace App\Modules\Pesantren\Models;
 
-use App\Modules\Api\Models\ProfileModel;
+use App\Modules\Api\Models\SiswaModel;
 use Bonfire\Traits\Filterable;
 
-class ProfileFilter extends ProfileModel
+class SiswaFilter extends SiswaModel
 {
     use Filterable;
 

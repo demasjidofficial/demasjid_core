@@ -3194,6 +3194,162 @@ paths:
       security:
         -
           bearer_auth: []
+  /gurus:
+    get:
+      tags:
+        - Guru
+      summary: 'Find list Guru'
+      description: 'Returns list of Guru'
+      operationId: getGuru
+      parameters:
+        -
+          name: search
+          in: query
+          description: 'search by column defined'
+          schema:
+            type: object
+        -
+          name: order
+          in: query
+          description: 'order by column defined'
+          schema:
+            type: object
+        -
+          name: page
+          in: query
+          description: 'page to show'
+          schema:
+            type: int32
+        -
+          name: limit
+          in: query
+          description: 'count data display per page'
+          schema:
+            type: int32
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Guru' } }
+                  pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
+                type: object
+            application/xml:
+              schema:
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Guru' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/Guru' } }
+                type: object
+        '404':
+          description: 'Guru not found'
+      security:
+        -
+          bearer_auth: []
+    post:
+      tags:
+        - Guru
+      summary: 'Add a new Guru to the store'
+      operationId: addGuru
+      requestBody:
+        $ref: '#/components/requestBodies/Guru'
+      responses:
+        '201':
+          description: 'Created Guru'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guru'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Guru'
+        '405':
+          description: 'Invalid input'
+      security:
+        -
+          bearer_auth: []
+  '/gurus/{id}':
+    get:
+      tags:
+        - Guru
+      summary: 'Find Guru by ID'
+      description: 'Returns a single Guru'
+      operationId: getGuruById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of Guru to return'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guru'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Guru'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'Guru not found'
+      security:
+        -
+          bearer_auth: []
+    put:
+      tags:
+        - Guru
+      summary: 'Update an existing Guru'
+      operationId: updateGuru
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Guru id to update'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Guru'
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Guru not found'
+        '405':
+          description: 'Validation exception'
+      security:
+        -
+          bearer_auth: []
+    delete:
+      tags:
+        - Guru
+      summary: 'Deletes a Guru'
+      operationId: deleteGuru
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Guru id to delete'
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: 'Invalid ID supplied'
+        '404':
+          description: 'Pet not found'
+      security:
+        -
+          bearer_auth: []
   /imams:
     get:
       tags:
@@ -8342,6 +8498,15 @@ paths:
       security:
         -
           bearer_auth: []
+
+  /tingkatPendidikans:
+    get:
+      tags:
+        - TingkatPendidikan
+      summary: 'Find list TingkatPendidikan'
+      description: 'Returns list of TingkatPendidikan'
+      operationId: getTingkatPendidikan
+
   /targetFundraisings:
     get:
       tags:
@@ -8381,22 +8546,51 @@ paths:
             application/json:
               schema:
                 properties:
+
+                  data: { type: array, items: { $ref: '#/components/schemas/TingkatPendidikan' } }
+
                   data: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
+
                   pagination: { properties: { currentPage: { type: integer }, totalPage: { type: integer } }, type: object }
                 type: object
             application/xml:
               schema:
                 properties:
+
+                  data: { type: array, items: { $ref: '#/components/schemas/TingkatPendidikan' } }
+                  pagination: { type: array, items: { $ref: '#/components/schemas/TingkatPendidikan' } }
+                type: object
+        '404':
+          description: 'TingkatPendidikan not found'
+
                   data: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
                   pagination: { type: array, items: { $ref: '#/components/schemas/TargetFundraising' } }
                 type: object
         '404':
           description: 'TargetFundraising not found'
+
       security:
         -
           bearer_auth: []
     post:
       tags:
+
+        - TingkatPendidikan
+      summary: 'Add a new TingkatPendidikan to the store'
+      operationId: addTingkatPendidikan
+      requestBody:
+        $ref: '#/components/requestBodies/TingkatPendidikan'
+      responses:
+        '201':
+          description: 'Created TingkatPendidikan'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+
         - TargetFundraising
       summary: 'Add a new TargetFundraising to the store'
       operationId: addTargetFundraising
@@ -8412,11 +8606,21 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/TargetFundraising'
+
         '405':
           description: 'Invalid input'
       security:
         -
           bearer_auth: []
+
+  '/tingkatPendidikans/{id}':
+    get:
+      tags:
+        - TingkatPendidikan
+      summary: 'Find TingkatPendidikan by ID'
+      description: 'Returns a single TingkatPendidikan'
+      operationId: getTingkatPendidikanById
+
   '/targetFundraisings/{id}':
     get:
       tags:
@@ -8424,11 +8628,16 @@ paths:
       summary: 'Find TargetFundraising by ID'
       description: 'Returns a single TargetFundraising'
       operationId: getTargetFundraisingById
+
       parameters:
         -
           name: id
           in: path
+
+          description: 'ID of TingkatPendidikan to return'
+
           description: 'ID of TargetFundraising to return'
+
           required: true
           schema:
             type: integer
@@ -8439,6 +8648,16 @@ paths:
           content:
             application/json:
               schema:
+
+                $ref: '#/components/schemas/TingkatPendidikan'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TingkatPendidikan'
+        '400':
+          description: 'Invalid ID supplier'
+        '404':
+          description: 'TingkatPendidikan not found'
+
                 $ref: '#/components/schemas/TargetFundraising'
             application/xml:
               schema:
@@ -8447,30 +8666,49 @@ paths:
           description: 'Invalid ID supplier'
         '404':
           description: 'TargetFundraising not found'
+
       security:
         -
           bearer_auth: []
     put:
       tags:
+
+        - TingkatPendidikan
+      summary: 'Update an existing TingkatPendidikan'
+      operationId: updateTingkatPendidikan
+
         - TargetFundraising
       summary: 'Update an existing TargetFundraising'
       operationId: updateTargetFundraising
+
       parameters:
         -
           name: id
           in: path
+
+          description: 'TingkatPendidikan id to update'
+
           description: 'TargetFundraising id to update'
+
           required: true
           schema:
             type: integer
             format: int64
       requestBody:
+
+        $ref: '#/components/requestBodies/TingkatPendidikan'
+
         $ref: '#/components/requestBodies/TargetFundraising'
+
       responses:
         '400':
           description: 'Invalid ID supplied'
         '404':
+
+          description: 'TingkatPendidikan not found'
+
           description: 'TargetFundraising not found'
+
         '405':
           description: 'Validation exception'
       security:
@@ -8478,13 +8716,22 @@ paths:
           bearer_auth: []
     delete:
       tags:
+
+        - TingkatPendidikan
+      summary: 'Deletes a TingkatPendidikan'
+      operationId: deleteTingkatPendidikan
+
         - TargetFundraising
       summary: 'Deletes a TargetFundraising'
       operationId: deleteTargetFundraising
+
       parameters:
         -
           name: id
           in: path
+
+          description: 'TingkatPendidikan id to delete'
+
           description: 'TargetFundraising id to delete'
           required: true
           schema:
@@ -10806,6 +11053,72 @@ components:
           type: integer
           format: '-'
       type: object
+    Guru:
+      title: Guru
+      description: Guru
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        path_image:
+          nullable: true
+          title: path_image
+          description: path_image
+          type: string
+          format: '-'
+          maxLength: 255
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        nip:
+          nullable: false
+          title: nip
+          description: nip
+          type: string
+          format: '-'
+          maxLength: 255
+        jns_kelamin:
+          nullable: false
+          title: jns_kelamin
+          description: jns_kelamin
+          type: string
+          format: '-'
+          maxLength: 1
+        pelajaran_id:
+          nullable: false
+          title: pelajaran_id
+          description: pelajaran_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
     Imam:
       title: Imam
       description: Imam
@@ -11105,13 +11418,13 @@ components:
           type: string
           format: '-'
           maxLength: 255
-        level:
+        level_id:
           nullable: false
-          title: level
-          description: level
-          type: string
+          title: level_id
+          description: level_id
+          type: integer
           format: '-'
-          maxLength: 255
+          maxLength: 11
         capacity:
           nullable: true
           title: capacity
@@ -11791,10 +12104,10 @@ components:
           type: integer
           format: '-'
           maxLength: 11
-        class_id:
+        kelas_id:
           nullable: false
-          title: class_id
-          description: class_id
+          title: kelas_id
+          description: kelas_id
           type: integer
           format: '-'
           maxLength: 11
@@ -12060,6 +12373,7 @@ components:
           description: id
           type: integer
           format: '-'
+          maxLength: 11
         name:
           nullable: false
           title: name
@@ -12079,6 +12393,7 @@ components:
           description: jabatan_id
           type: integer
           format: '-'
+          maxLength: 11
         address:
           nullable: true
           title: address
@@ -12153,6 +12468,7 @@ components:
           description: entity_id
           type: integer
           format: '-'
+          maxLength: 11
       type: object
     Profile:
       title: Profile
@@ -12379,6 +12695,89 @@ components:
           description: updated_at
           type: string
           format: date
+      type: object
+    PstrEducationlevel:
+      title: PstrEducationlevel
+      description: PstrEducationlevel
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
+      type: object
+    PstrKelas:
+      title: PstrKelas
+      description: PstrKelas
+      properties:
+        id:
+          nullable: false
+          title: id
+          description: id
+          type: integer
+          format: '-'
+          maxLength: 11
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 255
+        pstr_educationlevel_id:
+          nullable: true
+          title: pstr_educationlevel_id
+          description: pstr_educationlevel_id
+          type: integer
+          format: '-'
+          maxLength: 11
+        created_at:
+          nullable: false
+          title: created_at
+          description: created_at
+          type: string
+          format: date
+        updated_at:
+          nullable: false
+          title: updated_at
+          description: updated_at
+          type: string
+          format: date
+        created_by:
+          nullable: true
+          title: created_by
+          description: created_by
+          type: integer
+          format: '-'
+          maxLength: 11
       type: object
     RawatibSchedule:
       title: RawatibSchedule
@@ -13088,6 +13487,11 @@ components:
           type: integer
           format: '-'
       type: object
+
+    TingkatPendidikan:
+      title: TingkatPendidikan
+      description: TingkatPendidikan
+
     TargetFundraising:
       title: TargetFundraising
       description: TargetFundraising
@@ -13099,6 +13503,15 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+
+        name:
+          nullable: false
+          title: name
+          description: name
+          type: string
+          format: '-'
+          maxLength: 25
+
         campaign:
           nullable: false
           title: campaign
@@ -13158,6 +13571,8 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+
+
         updated_by:
           nullable: true
           title: updated_by
@@ -13838,6 +14253,18 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Entity'
+    Guru:
+      description: 'Guru object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/Guru'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Guru'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Guru'
     Imam:
       description: 'Imam object that needs to be added'
       content:
@@ -14126,6 +14553,30 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ProgramCost'
+    PstrEducationlevel:
+      description: 'PstrEducationlevel object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PstrEducationlevel'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/PstrEducationlevel'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PstrEducationlevel'
+    PstrKelas:
+      description: 'PstrKelas object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/PstrKelas'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/PstrKelas'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PstrKelas'
     RawatibSchedule:
       description: 'RawatibSchedule object that needs to be added'
       content:
@@ -14246,6 +14697,20 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Sitesocials'
+
+    TingkatPendidikan:
+      description: 'TingkatPendidikan object that needs to be added'
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: '#/components/schemas/TingkatPendidikan'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/TingkatPendidikan'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TingkatPendidikan'
+
     TargetFundraising:
       description: 'TargetFundraising object that needs to be added'
       content:
@@ -14412,6 +14877,9 @@ tags:
     name: Entity
     description: 'Everything about your Entity'
   -
+    name: Guru
+    description: 'Everything about your Guru'
+  -
     name: Imam
     description: 'Everything about your Imam'
   -
@@ -14484,6 +14952,12 @@ tags:
     name: ProgramCost
     description: 'Everything about your ProgramCost'
   -
+    name: PstrEducationlevel
+    description: 'Everything about your PstrEducationlevel'
+  -
+    name: PstrKelas
+    description: 'Everything about your PstrKelas'
+  -
     name: RawatibSchedule
     description: 'Everything about your RawatibSchedule'
   -
@@ -14514,6 +14988,10 @@ tags:
     name: Sitesocials
     description: 'Everything about your Sitesocials'
   -
+
+    name: TingkatPendidikan
+    description: 'Everything about your TingkatPendidikan'
+
     name: TargetFundraising
     description: 'Everything about your TargetFundraising'
   -

@@ -2,10 +2,10 @@
 
 namespace App\Modules\Pesantren\Models;
 
-use App\Modules\Api\Models\BalanceModel;
+use App\Modules\Api\Models\TingkatPendidikanModel;
 use Bonfire\Traits\Filterable;
 
-class BalanceFilter extends BalanceModel
+class TingkatPendidikanFilter extends TingkatPendidikanModel
 {
     use Filterable;
 

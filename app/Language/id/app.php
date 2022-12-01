@@ -116,6 +116,7 @@ return [
 	'socials' => 'Sosial Media',
 	'slides' => 'Slide',
 	'visit_site' => 'Tinjau Situs',
+	'learnings' => 'Pembelajaran',
 	'footer' => 'Footer',
 	'total_infaq' => 'Total Infaq',
 	'jumlah_infaq' => 'Jumlah Infaq',

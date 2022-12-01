@@ -113,7 +113,6 @@ static function ($routes) {
     $routes->resource('profiles');
     $routes->resource('pengurus');
     $routes->resource('programs');
-    $routes->resource('kelas');
     $routes->resource('uom');
     $routes->resource('chartOfAccounts');
     $routes->resource('programCosts');
@@ -133,6 +132,16 @@ static function ($routes) {
     $routes->resource('boardNewsRuntexts');
     $routes->resource('donaturs');
     $routes->resource('donasis');
+    $routes->resource('kategoriPelajarans');
+    $routes->resource('pelajarans');
+    $routes->resource('kelas');
+    $routes->resource('gurus');
+    $routes->resource('siswas');
+    $routes->resource('tahunAjarans');
+    $routes->resource('babs');
+    $routes->resource('materis');
+    $routes->resource('pendaftarans');
+    $routes->resource('tingkatPendidikans');
     $routes->resource('PaymentMethods');
     $routes->resource('MasterBanks');
     $routes->resource('MasterPaymentgateways');

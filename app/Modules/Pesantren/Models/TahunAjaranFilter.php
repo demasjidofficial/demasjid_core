@@ -2,10 +2,10 @@
 
 namespace App\Modules\Pesantren\Models;
 
-use App\Modules\Api\Models\AccountBalanceModel;
+use App\Modules\Api\Models\TahunAjaranModel;
 use Bonfire\Traits\Filterable;
 
-class AccountBalanceFilter extends AccountBalanceModel
+class TahunAjaranFilter extends TahunAjaranModel
 {
     use Filterable;
 
@@ -25,7 +25,7 @@ class AccountBalanceFilter extends AccountBalanceModel
      * @return UserFilter
      */
     public function filter(array $params = null)
-    {        
+    {
         return [];
     }
 }

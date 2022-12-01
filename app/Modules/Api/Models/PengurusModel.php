@@ -1,5 +1,7 @@
 <?php namespace App\Modules\Api\Models;
 
+use asligresik\easyapi\Models\BaseModel;
+
 class PengurusModel extends BaseModel
 {
     protected $table = 'pengurus';
@@ -23,10 +25,10 @@ class PengurusModel extends BaseModel
 		'entity_id'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[pengurus.id,id,{id}]',
+        'id' => 'numeric|max_length[11]|required|is_unique[pengurus.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		'description' => 'required',
-		'jabatan_id' => 'numeric|required',
+		'jabatan_id' => 'numeric|max_length[11]|required',
 		'address' => 'max_length[100]',
 		'path_image' => 'max_length[255]',
 		'telephone' => 'max_length[15]',
@@ -37,14 +39,6 @@ class PengurusModel extends BaseModel
 		'kota_id' => 'max_length[15]',
 		'kecamatan_id' => 'max_length[15]',
 		'desa_id' => 'max_length[15]',
-		'entity_id' => 'numeric'
-    ];
-
-	public function findAll(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*', 'jabatan.name as jabatan_name'];
-        $this->join('jabatan', 'jabatan.id = '.$this->table.'.jabatan_id');
-
-        return parent::findAll($limit, $offset);
-    }
+		'entity_id' => 'numeric|max_length[11]'
+    ];   
 }

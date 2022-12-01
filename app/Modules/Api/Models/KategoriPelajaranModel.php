@@ -6,7 +6,6 @@ class KategoriPelajaranModel extends BaseModel
     protected $returnType = 'App\Modules\Api\Entities\KategoriPelajaran';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;  
-    protected $beforeInsert = ['createdBy'];
     protected $allowedFields = [
         'name',
 		'description',
@@ -22,11 +21,4 @@ class KategoriPelajaranModel extends BaseModel
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
     ];   
-    public function findAll(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*', 'users.first_name', 'users.last_name'];
-        $this->join('users', 'users.id = '.$this->table.'.created_by');
-
-        return parent::findAll($limit, $offset);
-    }    
 }
