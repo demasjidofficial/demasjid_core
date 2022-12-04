@@ -33,7 +33,7 @@ class TimStaffController extends AdminCrudController
 
     public function create(){
         $data = $this->request->getPost();
-        $data['target_max'] = (float)(str_replace(',', '', $data['nominal_target']));
+        $data['target_max'] = (float)(str_replace('.', '', $data['nominal_target']));
        
 
         if (!$this->model->insert($data)) {

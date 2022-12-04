@@ -55,7 +55,7 @@ class CreateTimFund extends Migration
          
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('target_id', 'target_fundraising', 'id');     
+       
         $this->forge->createTable('tim_fundraising');
     }
 

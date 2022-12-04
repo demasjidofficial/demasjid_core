@@ -46,24 +46,6 @@ class CreateTugasTim extends Migration
                 'null'       => false,
             ],
 
-            'progres' => [
-                'type'       => 'varchar',
-                'constraint' => 100,
-                'null'       => false,
-            ],
-
-            'img_serah_terima' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-                'null'       => false,
-            ],
-
-
-            'img_ttd_serah_terima' => [
-                'type'       => 'varchar',
-                'constraint' => 255,
-                'null'       => false,
-            ],
 
 
           
@@ -91,7 +73,7 @@ class CreateTugasTim extends Migration
          
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('staff_id', 'tim_staff', 'id');     
+    
         $this->forge->createTable('tugas_tim');
     }
 

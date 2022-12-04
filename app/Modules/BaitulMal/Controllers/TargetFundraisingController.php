@@ -27,7 +27,7 @@ class TargetFundraisingController extends AdminCrudController
     public function update($id = null)
     {
         $data = $this->request->getPost();
-       
+        $data['target_nominal'] = (float)(str_replace('.','',$data['target_nominal']));
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
@@ -35,7 +35,7 @@ class TargetFundraisingController extends AdminCrudController
         $data['jadwal_mulai'] = date("Y-m-d", strtotime(($start_date[2] . '-' . $start_date[1] . '-' . $start_date[0])));
         unset($data['jadwal_durasi']);
 
-        if (!$this->model->insert($data)) {
+        if (!$this->model->update($id, $data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -51,7 +51,7 @@ class TargetFundraisingController extends AdminCrudController
     public function create()
     {
         $data = $this->request->getPost();
-    
+        $data['target_nominal'] = (float)(str_replace('.','',$data['target_nominal']));
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
