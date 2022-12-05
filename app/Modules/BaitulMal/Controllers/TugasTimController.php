@@ -27,8 +27,8 @@ class TugasTimController extends AdminCrudController
     public function update($id = null)
     {
         $data = $this->request->getPost();
-        $data['nominal'] = (float)(str_replace(',', '', $data['nominal']));
-        $data['nominal_target'] = (float)(str_replace(',', '', $data['nominal_target']));
+        $data['nominal'] = (float)(str_replace('.', '', $data['nominal']));
+        $data['nominal_target'] = (float)(str_replace('.', '', $data['nominal_target']));
 
 
         if (!$this->model->update($id, $data)) {
@@ -47,8 +47,8 @@ class TugasTimController extends AdminCrudController
     public function create()
     {
         $data = $this->request->getPost();
-        $data['nominal'] = (float)(str_replace(',', '', $data['nominal']));
-        $data['nominal_target'] = (float)(str_replace(',', '', $data['nominal_target']));
+        $data['nominal'] = (float)(str_replace('.', '', $data['nominal']));
+        $data['nominal_target'] = (float)(str_replace('.', '', $data['nominal_target']));
 
 
         if (!$this->model->insert($data)) {

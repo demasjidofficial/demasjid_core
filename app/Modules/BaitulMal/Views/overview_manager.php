@@ -125,6 +125,8 @@
           'panel'   => $widgets->widget('targetfund')->items(),
           'title'  => 'Target Fundraising'
         ]) ?>
+ <a href="<?php echo site_url('/admin/baitulmal/targetfundraising'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
+
 
         <!-- /.card -->
       </div>
@@ -136,6 +138,8 @@
           'panel'   => $widgets->widget('timfund')->items(),
           'title'  => 'Tim Fundraising'
         ]) ?>
+ <a href="<?php echo site_url('/admin/baitulmal/timfundraising'); ?>" class="btn btn-primary"><i class="fa fa-database"></i> <?= lang('crud.selengkapnya') ?></a>
+
 
         <!-- /.card -->
       </div>

@@ -80,11 +80,54 @@
             </fieldset>
 
             <div class="text-end py-3">
-                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.tugas_tim') ?></button>
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
             </div>
 
         </form>
 
     </x-admin-box>
 
+<?php $this->endSection(); ?>
+
+<?php $this->section('styles') ?>
+<?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+<?php $this->endSection(); ?>
+
+<?php $this->section('scripts'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
+<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<script type="text/javascript">
+     
+   
+    $(function() {
+
+
+        $('.numeric').inputmask({
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
+        })
+    });
+
+    function addRow(elm) {
+        const _topParent = $(elm).closest('.input-group');
+        const _clone = _topParent.clone();
+        _clone.find('input').val('');
+
+        _clone.find('span.input-group-text')
+            .replaceWith(`<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                <i class="fas fa-minus"></i>
+                            </span>`);
+        _clone.insertBefore(_topParent.siblings('.input-group:last'));
+    }
+
+    function removeRow(elm) {
+        const _topParent = $(elm).closest('.input-group')
+        const _elmOther = _topParent.prev()
+        _topParent.remove();
+
+    }
+</script>
 <?php $this->endSection(); ?>

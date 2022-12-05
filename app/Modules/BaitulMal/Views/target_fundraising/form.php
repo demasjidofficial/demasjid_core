@@ -51,7 +51,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.campaign_name'), '', ['for' => 'campaign_name', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('campaign_name', old('campaign_name', $data->name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.campaign_name') . "' ") ?>
+                    <?= form_input('campaign_name', old('campaign_name', $data->campaign_name ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.campaign_name') . "' ") ?>
                     <?php if (has_error('campaign_name')) { ?>
                         <p class="text-danger"><?php echo error('campaign_name'); ?></p>
                     <?php } ?>
@@ -81,7 +81,7 @@
             <div class="row mb-3">
                 <?= form_label(lang('crud.jadwal_durasi'), '', ['for' => 'jadwal_durasi', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_input('jadwal_durasi', old('jadwal_durasi', $data->jadwal_durasi ?? ''), "class='form-control varchar' required placeholder='" . lang('crud.jadwal_durasi') . "' ") ?>
+                    <?= form_input('jadwal_durasi', old('jadwal_durasi', $data->jadwal_durasi ?? ''), "class='form-control date' required placeholder='" . lang('crud.jadwal_durasi') . "' ") ?>
                     <?php if (has_error('jadwal_durasi')) { ?>
                         <p class="text-danger"><?php echo error('jadwal_durasi'); ?></p>
                     <?php } ?>
@@ -113,16 +113,16 @@
 <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
 <script type="text/javascript">
     $(function() {
+     
+
         $('input[name=jadwal_durasi]').daterangepicker({
             "locale": {
                 "format": 'DD/MM/YY'
             }
         });
-
-
+        
         bsCustomFileInput.init();
-        $(function () {
-    
+        
         
         $('.numeric').inputmask({
             'alias': 'numeric',
@@ -131,7 +131,6 @@
             'digits': 0,
             'autoGroup': true
         })
-    });
 
         $('select[name="campaign"]').change(function() {
             $('input[name="campaign_name"]').val(parseInt(this.value) ? $('select[name="campaign"] option:selected').text() : '');

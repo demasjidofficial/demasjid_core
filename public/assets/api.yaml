@@ -13785,6 +13785,27 @@ components:
           type: integer
           format: '-'
           maxLength: 11
+        img_serah_terima:
+          nullable: true
+          title: img_serah_terima
+          description: img_serah_terima
+          type: string
+          format: '-'
+          maxLength: 100
+        kode_tugas:
+          nullable: true
+          title: kode_tugas
+          description: kode_tugas
+          type: string
+          format: '-'
+          maxLength: 100
+        img_ttd_serah_terima:
+          nullable: true
+          title: img_ttd_serah_terima
+          description: img_ttd_serah_terima
+          type: string
+          format: '-'
+          maxLength: 100
       type: object
     Uom:
       title: Uom
