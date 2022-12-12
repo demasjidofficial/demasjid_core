@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class AddTugasTim extends Migration
+class AddTugasTimSpv extends Migration
 {
     public function up()
     {
