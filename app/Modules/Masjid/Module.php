@@ -142,13 +142,7 @@ class Module extends BaseModule
             //'permission'      => 'masjid.program.list',
         ]);
 
-        $programItem = new MenuItem([
-            'title'           => lang('crud.program'),
-            'url'             => url_to('App\Modules\Masjid\Controllers\ProgramController::index'),
-            'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
-            //'permission'      => 'masjid.program.list',
-        ]);
-
+  
         /**
          * SUB MODULE
          */
@@ -177,11 +171,7 @@ class Module extends BaseModule
             //'permission'      => 'masjid.masters.list',
         ]);
 
-        $sidebar->menu('sidebar')->collection('masjid')->addItem($jabatanItem)->addItem($pengurusItem)
-        ->addItem($memberItem)->addItem($wilayahItem)->addItem($masterItem)->addItem($ringkasanItem)
-        ->addItem($profilItem)->addItem($jadwalSholatItem)->addItem($programItem)
-        ->addItem($kasItem);
-
+      
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
             'url'             => url_to('App\Modules\Masjid\Controllers\SchedulesController::index'),
@@ -190,19 +180,18 @@ class Module extends BaseModule
         ]);        
         
         $sidebar->menu('sidebar')->collection('masjid')
-            //->addItem($jabatanItem)
-            //->addItem($pengurusItem)
-            //->addItem($profileItem)
-            //->addItem($memberItem)
-            //->addItem($wilayahItem)
-            //->addItem($entityItem)
-            //->addItem($accountBalanceItem)
-            //->addItem($programCategoryItem)
-            //->addItem($programItem)
-            //->addItem($chartOfAccoutItem)
-            //->addItem($balanceItem)
+            ->addItem($jabatanItem)
+            ->addItem($pengurusItem)
+            ->addItem($profileItem)
+            ->addItem($memberItem)
+            ->addItem($wilayahItem)
+            ->addItem($entityItem)
+            ->addItem($accountBalanceItem)
+            ->addItem($programCategoryItem)
+            ->addItem($programItem)
+            ->addItem($chartOfAccoutItem)
+            ->addItem($balanceItem)
             ->addItem($financesItem)
-            ->addItem($profilesItem)
             ->addItem($programsItem)
             ->addItem($mastersItem)
             ->addItem($schedulesItem)
