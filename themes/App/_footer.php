@@ -32,12 +32,12 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
-                                <?php echo $footer[0]['content'] ?>
+                                <?php echo $footer[0]['content'] ?? 'not defined' ?>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
-                                <?php echo $footer[1]['content'] ?>
+                                <?php echo $footer[1]['content'] ?? 'not defined' ?>
                             </div>
                         </div>
                     </div>

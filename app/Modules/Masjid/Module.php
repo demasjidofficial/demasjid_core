@@ -180,21 +180,21 @@ class Module extends BaseModule
         ]);        
         
         $sidebar->menu('sidebar')->collection('masjid')
-            ->addItem($jabatanItem)
-            ->addItem($pengurusItem)
+            // ->addItem($jabatanItem)
+            // ->addItem($pengurusItem)
             ->addItem($profileItem)
-            ->addItem($memberItem)
-            ->addItem($wilayahItem)
+            // ->addItem($memberItem)
+            // ->addItem($wilayahItem)
             ->addItem($entityItem)
-            ->addItem($accountBalanceItem)
-            ->addItem($programCategoryItem)
-            ->addItem($programItem)
-            ->addItem($chartOfAccoutItem)
-            ->addItem($balanceItem)
+            // ->addItem($accountBalanceItem)
+            // ->addItem($programCategoryItem)
+            // ->addItem($programItem)
+            // ->addItem($chartOfAccoutItem)
+            // ->addItem($balanceItem)
             ->addItem($financesItem)
             ->addItem($programsItem)
             ->addItem($mastersItem)
-            ->addItem($schedulesItem)
+            // ->addItem($schedulesItem)
             ;
 
     }
