@@ -72,7 +72,7 @@
                                                 if ($menu['parent'] == 0) { ?>
                                                     <li>
                                                         <a href="/id/<?php echo $menu['permalink'] ?> ">
-                                                            <?php echo $menu['label'] ?>
+                                                            <?php echo $menu['name'] ?>
                                                         </a>
                                                         <?php if (count($menu['sub_menu'])) {
                                                         ?>
@@ -81,7 +81,7 @@
                                                                     if ($sbmenu['parent'] == $menu['id']) { ?>
                                                                         <li>
                                                                             <a href="/id/<?php echo $sbmenu['permalink'] ?> ">
-                                                                                <?php echo $sbmenu['label'] ?>
+                                                                                <?php echo $sbmenu['name'] ?>
                                                                             </a>
                                                                         </li>
                                                                 <?php }

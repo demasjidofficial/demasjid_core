@@ -94,6 +94,24 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_dropdown('type', $typeItems, old('type', $data->type ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.type')."' required") ?>
+                                <?php if (has_error('type')) { ?>
+                                <p class="text-danger"><?php echo error('type'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <?= form_label('params','',['for' => 'params', 'class' => 'col-form-label col-sm-2']) ?>
+                            <div class="col-sm-10">
+                                <?= form_input('params', old('params', $data->params ?? ''), "class='form-control varchar'") ?>
+                                <?php if (has_error('params')) { ?>
+                                <p class="text-danger"><?php echo error('params'); ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <?= form_label(lang('crud.content'),'',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>

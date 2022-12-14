@@ -197,6 +197,7 @@
                     },
                     success: function(res) {
                         let data = JSON.parse(res);
+                        //return console.log(data);
                         return window.location = '/id/instructionofpayment/'+data.id;
                     },
                     error : function(res) {

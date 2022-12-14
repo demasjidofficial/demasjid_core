@@ -340,6 +340,10 @@ return [
 	'siteposts' => 'Artikel',
 	'sitesections' => 'Seksion',
 	'sitesliders' => 'Slide',
-	'campaign_name'=>'Nama Target Fundraising'
+	'campaign_name'=>'Nama Target Fundraising',
+
+	'blog' => 'Blog',
+	'general' => 'General',
+	'labels' => 'Label'
 ];
 

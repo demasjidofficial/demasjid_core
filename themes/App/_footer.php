@@ -4,42 +4,42 @@
             <div class="footer-area footer-padding" id="kontak">
                 <div class="container">
                     <div class="row d-flex justify-content-between">
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="single-footer-caption mb-30">
-                                <div class="footer-tittle">
-                                    <div class="footer-logo mb-20">
-                                        <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo'] ?? '-') ?>" alt=""></a>
+                        <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="single-footer-caption mb-30">
+                                    <div class="footer-tittle">
+                                        <div class="footer-logo mb-20">
+                                            <a href="#"><img src="<php echo site_url($masjid_profile['path_logo'] ?? '-') ?>" alt=""></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4><?= lang('app.contact_info')?></h4>
+                                    <h4><= lang('app.contact_info')?></h4>
                                     <ul>
                                         <li>
-                                            <p><?= lang('app.alamat')?> :<br/><?= $masjid_profile['address'] ?? '-';?> <br/>[city_name] [postal_code]</p>
+                                            <p><= lang('app.alamat')?> :<br/><= $masjid_profile['address'] ?? '-';?> <br/>[city_name] [postal_code]</p>
                                         </li>
-                                        <li><a href="#"><?= lang('app.phone')?> : <br/><?= $masjid_profile['telephone'] ?? '-';?></a></li>
-                                        <li><a href="#"><?= lang('app.email')?> : <br/><?= $masjid_profile['email'] ?? '-';?></a></li>
+                                        <li><a href="#"><= lang('app.phone')?> : <br/><= $masjid_profile['telephone'] ?? '-';?></a></li>
+                                        <li><a href="#"><= lang('app.email')?> : <br/><= $masjid_profile['email'] ?? '-';?></a></li>
                                     </ul>
                                 </div>
 
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <?php echo $footer[0]['content'] ?>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <?php echo $footer[1]['content'] ?>
-                            </div>
-                        </div>
+                        </div> -->
+                        <?php for($if = 0; $if <= 3; $if++ ) { 
+                            if (isset($footer[$if])) {
+                                ?>
+                                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                                    <div class="single-footer-caption mb-50">
+                                        <?php echo $footer[$if]['content'] ?>
+                                    </div>
+                                </div>
+                            <?php }
+                        }?>
                     </div>
                 </div>
             </div>

@@ -116,7 +116,7 @@
                             <img src="<?php echo site_url($item["path_image"]) ?>" alt="">
                         </div>
                         <div class="cases-caption">
-                            <h3><a href="#"><?php echo $item["name"]?></a></h3>
+                            <h3><a href="<?= site_url('/id/campaign/'.$item["id"])?>"><?php echo $item["name"]?></a></h3>
                             <!-- Progress Bar -->
                             <div class="single-skill mb-15">
                                 <div class="bar-progress">

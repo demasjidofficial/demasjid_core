@@ -75,7 +75,7 @@ class SitemenusController extends AdminCrudController
         }
 
         $dataEdit['sitemenusItems'] = Arr::pluck(model('App\Modules\Api\Models\SitemenusModel')->select(['id as key','label as text'])->where('parent', 0)->asArray()->findAllExcludeJoin(), 'text', 'key');
-        $dataEdit['languagesItems'] = Arr::pluck(model('App\Modules\Api\Models\LanguagesModel')->select(['id as key','name as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+        $dataEdit['languagesItems'] = Arr::pluck(model('App\Modules\Api\Models\LanguagesModel')->select(['id as key','name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['statesItems'] = $this->getStatesItems();
         
         return $dataEdit;

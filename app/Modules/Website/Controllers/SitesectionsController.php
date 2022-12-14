@@ -48,6 +48,7 @@ class SitesectionsController extends AdminCrudController
                 // 'content' => 'content',
                 'sitepage_id' => 'page',
                 'sequence' => 'sequence',
+                'type' => 'type',
                 'state' => 'state',
             ],
             'controller' => $this->getBaseController(),
@@ -55,7 +56,8 @@ class SitesectionsController extends AdminCrudController
 			'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
-            'pager' => $model->pager
+            'pager' => $model->pager,
+            'listType' => $model::listType()
         ];
     }
 
@@ -72,7 +74,8 @@ class SitesectionsController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
         $dataEdit['pageItems'] = Arr::pluck(model('App\Modules\Api\Models\SitepagesModel')->select(['id as key','title as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
-        
+        $dataEdit['typeItems'] = SitesectionsModel::listType();
+
         return $dataEdit;
     }
 }
