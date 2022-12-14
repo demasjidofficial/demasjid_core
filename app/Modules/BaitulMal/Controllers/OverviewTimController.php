@@ -83,6 +83,7 @@ class OverviewTimController extends  AdminController
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-chart-pie-simple',
         ]);
+        $jmlTugas = (new TugasTimModel())->selectCount('id')->first();
         $tugasItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-default',

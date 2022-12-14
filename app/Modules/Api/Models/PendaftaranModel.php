@@ -4,18 +4,17 @@ namespace App\Modules\Api\Models;
 
 class PendaftaranModel extends BaseModel
 {
-
-	const WAIT = 'menunggu';
-	const ACCEPT = 'diterima';
-	const CANCEL = 'batal';
-	const REJECT = 'tidak diterima';
+	const MALE = 'L';
+	const FEMALE = 'P';
+	const REGISTER = 'mendaftar';
+	const RECIEVED = 'diterima';
+	const REJECTED = 'ditolak';
 	protected $table = 'pendaftaran';
 	protected $returnType = 'App\Modules\Api\Entities\Pendaftaran';
 	protected $primaryKey = 'id';
-	protected $beforeInsert = ['createdBy'];
 	protected $useTimestamps = true;
 	protected $allowedFields = [
-		'class_id',
+		'kelas_id',
 		'state',
 		'name',
 		'nis',
@@ -39,20 +38,21 @@ class PendaftaranModel extends BaseModel
 		'mother_tlpn',
 		'mother_email',
 		'path_image',
+		'tahun_ajaran_id',
 		'created_at',
 		'updated_at',
 		'created_by'
 	];
 	protected $validationRules = [
 		'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
-		'class_id' => 'numeric|max_length[11]|required',
+		'kelas_id' => 'numeric|max_length[11]|required',
 		'state' => 'max_length[20]|required',
 		'name' => 'max_length[60]|required',
-		'nis' => 'numeric|max_length[11]',
+		'nis' => 'max_length[10]|required',
 		'nick_name' => 'max_length[60]|required',
 		'birth_date' => 'valid_date|required',
 		'birth_place' => 'max_length[15]',
-		'gender' => 'max_length[20]|required',
+		'gender' => 'max_length[1]|required',
 		'provinsi_id' => 'max_length[15]',
 		'kota_id' => 'max_length[15]',
 		'kecamatan_id' => 'max_length[15]',
@@ -69,6 +69,7 @@ class PendaftaranModel extends BaseModel
 		'mother_tlpn' => 'max_length[15]',
 		'mother_email' => 'max_length[35]',
 		'path_image' => 'max_length[255]',
+		'tahun_ajaran_id' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
 		// 'created_by' => 'numeric|max_length[11]'
@@ -78,18 +79,27 @@ class PendaftaranModel extends BaseModel
 	{
 
 		return [
-			self::WAIT => lang('crud.menunggu'),
-			self::ACCEPT => lang('crud.diterima'),
-			self::REJECT => lang('crud.tidak_diterima'),
-			self::CANCEL => lang('crud.batal'),
+			self::MALE => lang('crud.male'),
+			self::FEMALE => lang('crud.female'),
 		];
 	}
+
+	public static function listStateRegister()
+	{
+
+		return [
+			self::REGISTER => lang('crud.register'),
+			self::RECIEVED => lang('crud.recieved'),
+			self::REJECTED => lang('crud.rejected'),
+		];
+	}
+
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
-		$this->selectColumn = [$this->table . '.*', 'users.first_name', 'users.last_name',  'kelas.name as name_kelas'];
-		$this->join('users', 'users.id = ' . $this->table . '.created_by','left');
-		$this->join('kelas', 'kelas.id = ' . $this->table . '.class_id');
-
+		$this->selectColumn = [$this->table . '.*', 'kelas.name as kelas_name', 'tahun_ajaran.name as tahunAjaran_name'];
+		$this->join('kelas', 'kelas.id = ' . $this->table . '.kelas_id');
+		$this->join('tahun_ajaran', 'tahun_ajaran.id = ' . $this->table . '.tahun_ajaran_id');
 		return parent::findAll($limit, $offset);
 	}
+
 }

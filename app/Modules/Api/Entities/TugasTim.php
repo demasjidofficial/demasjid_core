@@ -131,7 +131,43 @@ class TugasTim extends BaseEntity
 	 * )
 	 *		 
 	 */
-	private $nominal_target; 
+	private $nominal_target;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="img_serah_terima",
+	 *     title="img_serah_terima",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $img_serah_terima;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="kode_tugas",
+	 *     title="kode_tugas",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $kode_tugas;
+	/**
+	 * @OA\Property(		 		 		 
+	 *     description="img_ttd_serah_terima",
+	 *     title="img_ttd_serah_terima",
+	 *     type="string",
+	 * 	   format="-",	 
+	 * 	   nullable=true,
+	 * 	   maxLength=100,
+	 * )
+	 *		 
+	 */
+	private $img_ttd_serah_terima; 
 }
 /**
  *

@@ -469,7 +469,7 @@
 
 		<?php endforeach; ?>
 
-	<?php endforeach; ?>
+	
 </script>
 <?php $this->endSection() ?>
 

@@ -7,7 +7,7 @@
                 <h2><?= lang('crud.pengurus') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('pengurus') ?></a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.pengurus') ?></a>
             </div>
         </div>
     </x-page-head>

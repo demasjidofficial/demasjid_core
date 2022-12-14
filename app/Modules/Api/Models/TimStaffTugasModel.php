@@ -25,7 +25,7 @@ class TimStaffTugasModel extends BaseModel
         $this->join('users', 'users.id = ' . $this->table . '.user_id');
         $this->join('tim_fundraising', 'tim_fundraising.id = ' . $this->table . '.tim_id');
         $this->where($this->table . '.user_id', auth()->user()->id);
-        $this->orwhere('tim_fundraising.supervisior', auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisor', auth()->user()->id);
         return parent::findAll($limit, $offset);
     }
 

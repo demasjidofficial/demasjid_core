@@ -75,7 +75,7 @@ app.baseURL = 'http://localhost:8080'
 # database.default.DBPrefix =
 
 database.default.hostname = localhost
-database.default.database = demasjid_baru
+database.default.database = demasjid_new
 database.default.username = root
 database.default.password =
 database.default.port = 3306

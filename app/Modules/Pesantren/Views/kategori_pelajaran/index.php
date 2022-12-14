@@ -7,7 +7,7 @@
                 <h2><?= lang('crud.kategori_pelajaran') ?></h2>
             </div>
             <div class="col-auto">
-                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.kategori_pelajaran') ?></a>
+                <a href="<?php echo route_to($baseRoute.'/new'); ?>" class="btn btn-primary"><i class="fas fa-plus"></i>  <?= lang('crud.add_new') ?></a>
             </div>
         </div>
     </x-page-head>

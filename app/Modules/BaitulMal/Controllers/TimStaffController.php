@@ -3,7 +3,7 @@
 namespace App\Modules\BaitulMal\Controllers;
 
 use App\Controllers\AdminCrudController;
-use App\Modules\Api\Models\TimStaffTugasModel;
+use App\Modules\Api\Models\TimStaffModel;
 use App\Modules\Api\Models\TugasTimModel;
 use App\Modules\BaitulMal\Models\TimStaffFilter_;
 use IlluminateAgnostic\Arr\Support\Arr;
@@ -33,7 +33,7 @@ class TimStaffController extends AdminCrudController
 
     public function create(){
         $data = $this->request->getPost();
-        $data['target_max'] = (float)(str_replace(',', '', $data['nominal_target']));
+        $data['target_max'] = (float)(str_replace('.', '', $data['nominal_target']));
        
 
         if (!$this->model->insert($data)) {
@@ -69,7 +69,7 @@ class TimStaffController extends AdminCrudController
     protected function getDataEdit($id = null)
     {
         $dataEdit = parent::getDataEdit($id);
-        $model = new TimStaffTugasModel();
+        $model = new TimStaffModel();
 
         if(!empty($id)){
             $data = $model->find($id);

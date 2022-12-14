@@ -26,6 +26,7 @@ class OverviewManagerController extends AdminController
         $this->setWidgetTarget();
         $this->setWidgetFundraising();
         $this->setWidgetTimFund();
+        $this->setWidgetTargetFund();
         $this->setWidgetStats();
         $widgets = service('widgets');
         echo $this->render('App\Modules\BaitulMal\Views\overview_manager', [
@@ -51,6 +52,11 @@ class OverviewManagerController extends AdminController
         $widgets->createWidget(Panel::class, 'timfund');
         $widgets->widget('timfund')
             ->createCollection('timfund');
+
+
+        $widgets->createWidget(Panel::class, 'targetfund');
+        $widgets->widget('targetfund')
+            ->createCollection('targetfund');
 
         $widgets->createWidget(Charts::class, 'charts');
         $widgets->widget('charts')
@@ -110,7 +116,7 @@ class OverviewManagerController extends AdminController
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-plane',
         ]);
-        
+
         $widgets->widget('stats')->collection('stats')
 
             ->addItem($timItem)
@@ -127,6 +133,18 @@ class OverviewManagerController extends AdminController
         ]);
 
         $widgets->widget('timfund')->collection('timfund')
+            ->addItem($timItem);
+    }
+
+    private function setWidgetTargetFund()
+    {
+        $widgets = service('widgets');
+        $timItem = new PanelItem([
+            'itemClass' => 'table-responsive',
+            'content' => $this->generateTargetFund()
+        ]);
+
+        $widgets->widget('targetfund')->collection('targetfund')
             ->addItem($timItem);
     }
 
@@ -175,7 +193,33 @@ class OverviewManagerController extends AdminController
 
     protected function generateTimFund()
     {
-        $data = (new TimFundraisingModel())->select(['kode_tim', 'nama_tim', 'campaign_name', 'target_nominal', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();;
+        try {
+            $data = (new TimFundraisingModel())->select(['kode_tim', 'nama_tim', 'campaign_name', 'target_nominal', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();
+            $table = new \CodeIgniter\View\Table();
+            $table->function = function ($item) {
+                if (is_numeric($item)) {
+                    return number_to_currency($item ?? 0, 'IDR', 'id');
+                }
+
+                return convertStateProgram($item);
+            };
+            $table->setHeading('Kode', 'Nama Tim', 'Donatur', 'Nominal', 'Jadwal Mulai', 'Jadwal Akhir');
+
+            $template = [
+                'table_open'         => '<table class="table m-0">'
+            ];
+            $table->setTemplate($template);
+            return $table->generate($data);
+        } catch (\Throwable $th) {
+            //throw $th;
+            log_message('error', (new TimFundraisingModel())->getLastQuery());
+        }
+        
+    }
+
+    protected function generateTargetFund()
+    {
+        $data = (new TargetFundraisingModel())->select(['campaign_name', 'donatur', 'campaign_name', 'target_nominal', 'bmdonationtype.name', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
@@ -184,7 +228,7 @@ class OverviewManagerController extends AdminController
 
             return convertStateProgram($item);
         };
-        $table->setHeading('Kode', 'Nama Tim', 'Donatur', 'Nominal', 'Jadwal Mulai', 'Jadwal Akhir');
+        $table->setHeading( 'Nama Target Fundraising', 'Tipe ', 'Target Nominal', 'Tipe Donasi', 'Jadwal Mulai', 'Jadwal Akhir');
 
         $template = [
             'table_open'         => '<table class="table m-0">'
@@ -192,4 +236,5 @@ class OverviewManagerController extends AdminController
         $table->setTemplate($template);
         return $table->generate($data);
     }
+    
 }

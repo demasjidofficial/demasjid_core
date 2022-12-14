@@ -47,19 +47,20 @@
                                             <a href="/login"><?= strtoupper(lang('app.login')) ?></a>
                                         <?php endif ?>
                                     </li>
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="header-bottom  header-sticky">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <!-- Logo -->
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo header-logo">
-                                <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo'] ?? '-') ?>" alt=""></a>
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo header-logo">
+                                    <a href="#"><img src="<?php echo site_url($masjid_profile['path_logo'] ?? '-') ?>" alt=""></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">
@@ -84,30 +85,30 @@
                                                                                 <?php echo $sbmenu['name'] ?>
                                                                             </a>
                                                                         </li>
-                                                                <?php }
-                                                                endforeach; ?>
-                                                            </ul>
-                                                        <?php
-                                                        } ?>
-                                                    </li>
-                                            <?php }
-                                            endforeach; ?>
-                                        </ul>
-                                    </nav>
+                                                                    <?php } endforeach;?>  
+                                                                 </ul>
+                                                                 <?php
+                                                            }?>
+                                                        </li>
+                                                <?php } endforeach;?>                                           
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Header-btn -->
+                                    <div class="header-right-btn d-none d-lg-block ml-20">
+                                        <a href="<?php echo $nav_header_donation ?? site_url().'id/donations' ?>" class="btn header-btn"><?= lang('app.donation')?></a>
+                                    </div>
                                 </div>
-                                <!-- Header-btn -->
-                                <div class="header-right-btn d-none d-lg-block ml-20">
-                                    <a href="<?php echo $nav_header_donation ?? site_url() . 'id/donations' ?>" class="btn header-btn"><?= lang('app.donation') ?></a>
-                                </div>
+                            </div> 
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                                </ul>
                             </div>
-                        </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
     </div>
     <!-- Header End -->

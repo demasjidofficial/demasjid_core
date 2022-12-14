@@ -15,23 +15,23 @@ class ReportDonaturController extends ReportController
 
     public function index()
     {
-        $view = $this->viewPrefix.'index';
+        $view = $this->viewPrefix . 'index';
         $dataIndex = $this->getDataIndex();
         $this->writeLog();
         $download = $this->request->getGet('download');
         if ($download) {
-            $view = $this->viewPrefix.'index_pdf';            
+            $view = $this->viewPrefix . 'index_pdf';
             $viewHtml = $this->render($view, $dataIndex);
-            
+
             switch ($download) {
-                case 'pdf':                    
-                    $filename = date('y-m-d-H-i-s').'-donatur.pdf';
+                case 'pdf':
+                    $filename = date('y-m-d-H-i-s') . '-donatur.pdf';
                     $this->exportPdf($filename, $viewHtml);
-                break;                
+                    break;
                 case 'xls':
-                    $filename = date('y-m-d-H-i-s').'-donatur.xls';              
+                    $filename = date('y-m-d-H-i-s') . '-donatur.xls';
                     $this->exportExcel($filename, $viewHtml);
-                break;
+                    break;
             }
 
             return;
@@ -43,7 +43,7 @@ class ReportDonaturController extends ReportController
     protected function getDataIndex()
     {
         $today = Time::today();
-        $firstDateMonth = $today->format('Y-m').'-01';
+        $firstDateMonth = $today->format('Y-m') . '-01';
         $firstNextMonth = Time::parse($firstDateMonth)->addMonths(1);
         $lastDateMonth = $firstNextMonth->subDays(1)->format('Y-m-d');
         $period = $this->request->getGet('period') ?? null;
@@ -73,18 +73,19 @@ class ReportDonaturController extends ReportController
             'data' => $model->findAll(),
             'actionUrl' => url_to($this->getBaseController()),
             'backUrl' => url_to($this->getBaseController()),
-            'period' => $startDate.' - '.$endDate,
+            'period' => $startDate . ' - ' . $endDate,
             'title' => [
-                    'name' => $this->getIdentityInfo(),
-                    'type' => 'Laporan Donatur',
-                    'period' => 'Periode '.Time::parse($startDate)->format('d M Y').' sd '.Time::parse($endDate)->format('d M Y')
-                ]
+                'name' => $this->getIdentityInfo(),
+                'type' => 'Laporan Donatur',
+                'period' => 'Periode ' . Time::parse($startDate)->format('d M Y') . ' sd ' . Time::parse($endDate)->format('d M Y')
+            ]
         ];
     }
-    
-    private function getIdentityInfo(){
+
+    private function getIdentityInfo()
+    {
         $entity = (new EntityModel())->masjid()->first();
 
         return $entity->name ?? 'Masjid not defined';
-    }    
+    }
 }

@@ -1,33 +1,32 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('main'); ?>
-<x-page-head>
-    <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.back') ?></a>
-    <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?> <?= lang('crud.tugas_tim') ?></h4>
-</x-page-head>
+    <x-page-head>
+        <a href="<?php echo $backUrl ?>" class="back">&larr; <?= lang('crud.tugas_tim') ?></a>
+        <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.tugas_tim') ?></h4>
+    </x-page-head>
 
-<?php if (isset($data) && null !== $data->deleted_at) { ?>
-    <div class="alert danger">
-        This <?= lang('crud.tugas_tim') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
-        <a href="#">Restore <?= lang('crud.tugas_tim') ?>?</a>
-    </div>
-<?php } ?>
-
-
-<x-admin-box>
+    <?php if (isset($data) && null !== $data->deleted_at) { ?>
+        <div class="alert danger">
+            This <?= lang('crud.tugas_tim') ?> was deleted on <?php echo $data->deleted_at->humanize(); ?>.
+            <a href="#">Restore <?= lang('crud.tugas_tim') ?>?</a>
+        </div>
+    <?php } ?>
 
 
-    <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
+    <x-admin-box>
 
-        <?php echo csrf_field(); ?>
 
-        <?php if (isset($data) && null !== $data) { ?>
-            <input type="hidden" name="_method" value="PUT" />
-            <input type="hidden" name="id" value="<?php echo $data->id; ?>">
-        <?php } ?>
+        <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
 
-        <fieldset>
-           
+            <?php echo csrf_field(); ?>
+
+            <?php if (isset($data) && null !== $data) { ?>
+                <input type="hidden" name="_method" value="PUT" />
+                <input type="hidden" name="id" value="<?php echo $data->id; ?>">
+            <?php } ?>
+
+            <fieldset>
             <div class="row mb-3">
                 <?= form_label(lang('crud.staff'), '', ['for' => 'staff_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
@@ -78,18 +77,18 @@
                     </div>
                 </div>
             </div>
+            </fieldset>
 
-        </fieldset>
+            <div class="text-end py-3">
+                <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
+            </div>
 
-        <div class="text-end py-3">
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> <?= lang('crud.save') ?></button>
-        </div>
+        </form>
 
-    </form>
-
-</x-admin-box>
+    </x-admin-box>
 
 <?php $this->endSection(); ?>
+
 <?php $this->section('styles') ?>
 <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
 <?php $this->endSection(); ?>
@@ -97,8 +96,9 @@
 <?php $this->section('scripts'); ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js'); ?>
 <?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
-<?php echo asset_link('admin/theme-adminlte//plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js', 'js'); ?>
 <script type="text/javascript">
+     
+   
     $(function() {
 
 
@@ -110,5 +110,24 @@
             'autoGroup': true
         })
     });
+
+    function addRow(elm) {
+        const _topParent = $(elm).closest('.input-group');
+        const _clone = _topParent.clone();
+        _clone.find('input').val('');
+
+        _clone.find('span.input-group-text')
+            .replaceWith(`<span class="input-group-text" role="button" onclick="removeRow(this)">
+                                <i class="fas fa-minus"></i>
+                            </span>`);
+        _clone.insertBefore(_topParent.siblings('.input-group:last'));
+    }
+
+    function removeRow(elm) {
+        const _topParent = $(elm).closest('.input-group')
+        const _elmOther = _topParent.prev()
+        _topParent.remove();
+
+    }
 </script>
 <?php $this->endSection(); ?>

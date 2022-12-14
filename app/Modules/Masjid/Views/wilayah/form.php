@@ -4,15 +4,8 @@
     <x-page-head>
 
 
-        <a href="<?php echo $backUrl ?>" class="back">&larr; wilayah</a>
+        <a href="<?= $backUrl ?>" class="back">&larr; wilayah</a>
         <h4><?php echo isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  wilayah</h4>
-
-        <a href="<?= $backUrl ?>" class="back">&larr; <?= lang('crud.back')?></a>
-        <h4><?= isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.zone')?></h4>
->>>>>>> 
-
-        <a href="<?= $backUrl ?>" class="back">&larr; <?= lang('crud.back')?></a>
-        <h4><?= isset($data) ? '<i class="fa fa-pencil"></i>' : '<i class="fa fa-plus"></i>' ?>  <?= lang('crud.zone')?></h4>
 
     </x-page-head>
 
@@ -25,15 +18,7 @@
 
     <x-admin-box>
 
-
-
-
-        <form action="<?php echo $actionUrl; ?>" method="post" enctype="multipart/form-data">
-
-
-
         <form action="<?= $actionUrl; ?>" method="post" enctype="multipart/form-data">
->>>>>>> 
 
             <?php echo csrf_field(); ?>
 
@@ -45,13 +30,7 @@
             <fieldset>
 
 
-                                <div class="row mb-3">
-                    <?= form_label('kode','',['for' => 'kode', 'class' => 'col-form-label col-sm-2']) ?>
-
-                <div class="row mb-3">
-                    <?= form_label(lang('crud.code'), '', ['for' => 'kode', 'class' => 'col-form-label col-sm-2']) ?>
->>>>>>> 
-
+            <div class="row mb-3">
                 <div class="row mb-3">
                     <?= form_label(lang('crud.code'), '', ['for' => 'kode', 'class' => 'col-form-label col-sm-2']) ?>
 
@@ -64,14 +43,7 @@
                 </div>
                 <div class="row mb-3">
 
-
-                    <?= form_label('nama','',['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
-
                     <?= form_label(lang('crud.name'), '', ['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
->>>>>>> 
-
-                    <?= form_label(lang('crud.name'), '', ['for' => 'nama', 'class' => 'col-form-label col-sm-2']) ?>
-
                     <div class="col-sm-10">
                         <?= form_input('nama', old('nama', $data->nama ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('nama')) { ?>
@@ -80,17 +52,6 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-
-
-                    <?= form_label('level','',['for' => 'level', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_input('level', old('level', $data->level ?? ''), "class='form-control varchar' required") ?>
-
-                    <?= form_label(lang('crud.zone_level'), '', ['for' => 'level', 'class' => 'col-form-label col-sm-2']) ?>
-                    <div class="col-sm-10">
-                        <?= form_dropdown('level', $zoneLevelItems, old('level', $data->level ?? ''), "class='form-control add-begin-option' data-label='".lang('crud.zone_level')."' required placeholder='".lang('crud.zone_level')."' ") ?>
->>>>>>> 
-
                     <?= form_label(lang('crud.zone_level'), '', ['for' => 'level', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('level', $zoneLevelItems, old('level', $data->level ?? ''), "class='form-control add-begin-option' data-label='".lang('crud.zone_level')."' required placeholder='".lang('crud.zone_level')."' ") ?>

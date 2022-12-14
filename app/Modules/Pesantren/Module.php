@@ -130,6 +130,7 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.learnings.list',
         ]);
+        
         $sidebar->menu('sidebar')->collection('pesantren')
             //->addItem($pengurusItem)
             //->addItem($profileItem)

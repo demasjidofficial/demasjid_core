@@ -27,13 +27,6 @@ class BmdonationtypeModel extends BaseModel
 		'updated_at' => 'valid_date|required'
     ];   
 
-	public function findAll(int $limit = 0, int $offset = 0)
-    {
-        $this->selectColumn = [$this->table.'.*', 'uom.name as uom_name'];
-        $this->join('uom', 'uom.id = '.$this->table.'.uom_id');
-
-        return parent::findAll($limit, $offset);
-    } 
 	public function findTipe(int $limit = 0, int $offset = 0)
     {
         $this->selectColumn = [$this->table.'.*'];

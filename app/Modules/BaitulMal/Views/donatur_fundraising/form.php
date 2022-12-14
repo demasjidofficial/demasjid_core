@@ -239,10 +239,11 @@
         });
         bsCustomFileInput.init();
         $('input[name=nominal]').inputmask({
-            'alias': 'currency',
-            'rightAlign': false,
-            'digits': '0',
-            'allowMinus': 'false',
+            'alias': 'numeric',
+            'groupSeparator': '.',
+            'radixPoint': ',',
+            'digits': 0,
+            'autoGroup': true
         });
 
 
@@ -302,48 +303,6 @@
             signaturePad.fromData(data);
         }
     });
-
-    function save() {
-      
-        var image_path =$('input[name="image"]').val();
-        var sign_path = $('textarea[name="path_signature"]').val();
-        var tugas_id = $('input[name="tugas_id"]').val();
-        var name = $('input[name="name"]').val();
-        var email = $('input[name="email"]').val();
-        var no_hp = $('input[name="no_hp"]').val();
-        var alamat = $('input[name="alamat"]').val();
-        var nominal = $('input[name="nominal"]').val();
-        var tanggal_transaksi = $('input[name="tanggal_transaksi"]').val();
-
-        $.ajax({
-                url: '<?php echo $actionUrl; ?>',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    tugas_id: tugas_id,
-                    name: name,
-                    no_hp: no_hp,
-                    alamat: alamat,
-                    nominal: nominal,
-                    tanggal_transaksi: tanggal_transaksi,
-                    image_path: image_path,
-                    sign_path: sign_path
-                },
-            })
-            .done(function(data) {
-                if (data > 0) {
-                    alert('insert data sukses');
-                  
-                }
-            })
-            .fail(function() {
-                console.log("error");
-            })
-            .always(function() {
-                console.log("complete");
-            });
-
-    }
 
 </script>
 <?php $this->endSection(); ?>
