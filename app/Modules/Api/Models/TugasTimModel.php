@@ -42,7 +42,7 @@ class TugasTimModel extends BaseModel
         $this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 		$this->where('tim_staff.user_id',auth()->user()->id);
-        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisor',auth()->user()->id);
         return parent::findAll($limit, $offset);
     }
     public function findTugasStaff(int $limit = 0, int $offset = 0)
@@ -76,7 +76,7 @@ class TugasTimModel extends BaseModel
         $this->join('users', 'users.id = tim_staff.user_id');
 		$this->join('tim_fundraising', 'tim_fundraising.id = tim_staff.tim_id');
 		$this->where('tim_staff.user_id',auth()->user()->id);
-        $this->orwhere('tim_fundraising.supervisior',auth()->user()->id);
+        $this->orwhere('tim_fundraising.supervisor',auth()->user()->id);
         $this->limit(5);
 		return parent::findAll($limit, $offset);
     }   
