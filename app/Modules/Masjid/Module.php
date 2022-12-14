@@ -194,7 +194,7 @@ class Module extends BaseModule
             ->addItem($financesItem)
             ->addItem($programsItem)
             ->addItem($mastersItem)
-            // ->addItem($schedulesItem)
+            ->addItem($schedulesItem)
             ;
 
     }

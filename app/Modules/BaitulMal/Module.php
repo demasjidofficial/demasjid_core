@@ -38,11 +38,11 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.donationtype.list',
         ]);
-        $shodaqohtypeItem = new MenuItem([
-            'title'           => 'Tipe Shodaqoh',
+        $donationTypeItem = new MenuItem([
+            'title'           => 'Tipe Donasi',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
-           'permission'      => 'baitulmal.donationtype.list',
+           // 'permission'      => 'baitulmal.donationtype.list',
         ]);
         $infaqItem = new MenuItem([
             'title'           => 'Infaq',
@@ -163,7 +163,7 @@ class Module extends BaseModule
            'permission'      => 'baitulmal.configs.list',
         ]);
         $sidebar->menu('sidebar')->collection('baitulmal')
-                //->addItem($zakatfitrahItem)
+                ->addItem($donationTypeItem)
                 //->addItem($zakatmalItem)
                 //->addItem($shodaqohItem)
                 //->addItem($shodaqohtypeItem)
