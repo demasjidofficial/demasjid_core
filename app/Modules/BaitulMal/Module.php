@@ -131,7 +131,7 @@ class Module extends BaseModule
             'title'           => 'Fundraising Manager',
             'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewManagerController::index'),
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
-           'permission'        => 'baitulmal.manager_fundraising.list',
+           //'permission'        => 'baitulmal.manager_fundraising.list',
            
         ]);
 

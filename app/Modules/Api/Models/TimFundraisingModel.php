@@ -20,7 +20,7 @@ class TimFundraisingModel extends BaseModel
 		'kode_tim',
 		'nama_tim',
 
-		'supervisior',
+		'supervisor',
 		'created_by',
 		'updated_by',
 		'created_at',
@@ -31,7 +31,7 @@ class TimFundraisingModel extends BaseModel
 
 		'target_id' => 'numeric|max_length[11]|required',
 		// 'id_jadwal' => 'numeric|max_length[11]|required',
-		'supervisior' => 'max_length[248]|required',
+		'supervisor' => 'max_length[248]|required',
 		'kode_tim' => 'max_length[248]|required',
 		'nama_tim' => 'max_length[248]|required',
 		// 'staff' => 'max_length[248]|required'
@@ -55,10 +55,10 @@ class TimFundraisingModel extends BaseModel
 		$this->join('bmdonationcampaign', 'bmdonationcampaign.id = target_fundraising.campaign');
 		$this->join('donaturcategory', 'donaturcategory.id = target_fundraising.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
-        $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
+        $this->join('users', 'users.id ='.$this->table.'.supervisor','left');
 		$this->join('tim_staff', 'tim_staff.tim_id ='.$this->table.'.id','left');
 		$this->join('users u2', 'u2.id =tim_staff.user_id','left');
-		$this->where($this->table . '.supervisior',auth()->user()->id);
+		$this->where($this->table . '.supervisor',auth()->user()->id);
 		$this->orwhere($this->table . '.created_by',auth()->user()->id);
 		$this->groupBy('tim_staff.tim_id');
 
@@ -75,8 +75,8 @@ class TimFundraisingModel extends BaseModel
 		$this->join('bmdonationcampaign', 'bmdonationcampaign.id = target_fundraising.campaign');
 		$this->join('donaturcategory', 'donaturcategory.id = target_fundraising.donatur', 'left');
 		$this->join('bmdonationtype', 'bmdonationtype.id = bmdonationcampaign.donationtype_id','left');
-        $this->join('users', 'users.id ='.$this->table.'.supervisior','left');
-		$this->where($this->table . '.supervisior',auth()->user()->id);
+        $this->join('users', 'users.id ='.$this->table.'.supervisor','left');
+		$this->where($this->table . '.supervisor',auth()->user()->id);
 		$this->orwhere($this->table . '.created_by',auth()->user()->id);
 		return parent::findAll($limit, $offset);
     }   

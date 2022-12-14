@@ -193,27 +193,33 @@ class OverviewManagerController extends AdminController
 
     protected function generateTimFund()
     {
-        $data = (new TimFundraisingModel())->select(['kode_tim', 'nama_tim', 'campaign_name', 'target_nominal', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();;
-        $table = new \CodeIgniter\View\Table();
-        $table->function = function ($item) {
-            if (is_numeric($item)) {
-                return number_to_currency($item ?? 0, 'IDR', 'id');
-            }
+        try {
+            $data = (new TimFundraisingModel())->select(['kode_tim', 'nama_tim', 'campaign_name', 'target_nominal', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();
+            $table = new \CodeIgniter\View\Table();
+            $table->function = function ($item) {
+                if (is_numeric($item)) {
+                    return number_to_currency($item ?? 0, 'IDR', 'id');
+                }
 
-            return convertStateProgram($item);
-        };
-        $table->setHeading('Kode', 'Nama Tim', 'Donatur', 'Nominal', 'Jadwal Mulai', 'Jadwal Akhir');
+                return convertStateProgram($item);
+            };
+            $table->setHeading('Kode', 'Nama Tim', 'Donatur', 'Nominal', 'Jadwal Mulai', 'Jadwal Akhir');
 
-        $template = [
-            'table_open'         => '<table class="table m-0">'
-        ];
-        $table->setTemplate($template);
-        return $table->generate($data);
+            $template = [
+                'table_open'         => '<table class="table m-0">'
+            ];
+            $table->setTemplate($template);
+            return $table->generate($data);
+        } catch (\Throwable $th) {
+            //throw $th;
+            log_message('error', (new TimFundraisingModel())->getLastQuery());
+        }
+        
     }
 
     protected function generateTargetFund()
     {
-        $data = (new TargetFundraisingModel())->select(['campaign_name', 'donatur', 'campaign_name', 'target_nominal', 'bmdonationtype.name', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();;
+        $data = (new TargetFundraisingModel())->select(['campaign_name', 'donatur', 'campaign_name', 'target_nominal', 'bmdonationtype.name', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {

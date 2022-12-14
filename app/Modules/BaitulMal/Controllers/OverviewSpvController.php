@@ -134,7 +134,7 @@ class OverviewSpvController extends  AdminController
 
     protected function generateTugas()
     {
-        $data = (new TugasTimModel())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();;
+        $data = (new TugasTimModel())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
