@@ -11,6 +11,9 @@ use App\Modules\Api\Models\SitefooterModel;
 
 trait SiteProfile {
     protected function siteHeaderFooter() {
+        // get active lang/locale
+        $locale = $this->request->getLocale();
+
         // get data of masjid socials
         $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
         
@@ -27,6 +30,7 @@ trait SiteProfile {
         $data['nav_menu'] = $nav_menu;
         $data['masjid_socials'] = $masjid_socials;
         $data['footer'] = $footer; 
+        $data['locale'] = $locale;
         return $data;
     }
 
