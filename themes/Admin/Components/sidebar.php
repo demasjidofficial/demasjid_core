@@ -39,18 +39,18 @@
           <?php foreach ($menu->collections() as $collection) : ?>
 
           <?php if ($collection->isCollapsible()) : ?> 
-          <li class="nav-item">
+          <li class="nav-item <?= $collection->isActive() ? 'menu-is-opening menu-open' : '' ?> ">
             <a href="#" class="nav-link <?= $collection->isActive() ? 'active' : '' ?>">
               <!--i class="nav-icon far fa-arrow-right"-->
               <?= $collection->icon ?>
               <p><?= $collection->title ?><i class="right fas fa-angle-left"></i></p>
             </a>
             <!-- Sub Menu List -->
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview" <?= $collection->isActive() ? 'style="display: block;"' : '' ?> >
             <?php foreach ($collection->items() as $item) : ?>
               <?php if ($item->userCanSee()): ?>
               <li class="nav-item">
-                <a class="nav-link <?= url_is($item->url . '*') ? 'active' : '' ?>" href="<?= $item->url ?>">
+                <a class="nav-link <?=  url_is((new \CodeIgniter\HTTP\URI($item->url))->getPath().'*') ? 'active' : '' ?>" href="<?= $item->url ?>" >
                   <?= $item->icon() ?>
                   <p><?= $item->title ?></p>
                 </a>
@@ -69,13 +69,7 @@
             </a>
           </li>
           
-          <?php endif ?>
-
-          <!--?php if (!$collection->isCollapsible()) : ?>
-          <li class="nav-item">
-            <a href="#">Tes</a>
-          </li>
-          < ?php endif ?-->
+          <?php endif ?>          
 
           <?php endforeach ?>
           <?php endif ?>
