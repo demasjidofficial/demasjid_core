@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\Response;
 use App\Modules\Api\Models\BmdonationcampaignModel;
 use App\Traits\SiteProfile;
 
-class Home extends BaseController
+class Home extends WebsiteController
 {
     /**
      * Displays the initial page that visitors
