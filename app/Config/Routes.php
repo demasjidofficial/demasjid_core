@@ -60,43 +60,6 @@ $routes->get('/api/timFundraisings', '\App\Modules\Api\Controllers\TimFundraisin
 
 
 $routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
-$routes->group(
-    '/api',
-    ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'],
-    static function ($routes) {
-        $routes->resource('users');
-        $routes->resource('jabatans');
-        $routes->resource('pengurus');
-        $routes->resource('wilayahs', ['except' => ['index']]);
-        $routes->resource('members', ['except' => ['create']]);
-        $routes->resource('entities');
-        $routes->resource('balances');
-        $routes->resource('profiles');
-        $routes->resource('pengurus');
-        $routes->resource('programs');
-        $routes->resource('kelas');
-        $routes->resource('uom');
-        $routes->resource('chartOfAccounts');
-        $routes->resource('programCosts');
-        $routes->resource('rawatibSchedules');
-        $routes->resource('nonRawatibSchedules');
-        $routes->resource('bmdonationcampaigncategories');
-        $routes->resource('bmdonationcampaigns');
-        $routes->resource('donaturs');
-        $routes->resource('donasis');
-        $routes->resource('dataruangans');
-        $routes->resource('rooms');
-        $routes->resource('roomReservations');
-        $routes->resource('infaqRooms');
-        //$routes->resource('menus');
-        //$routes->resource('pages');
-        //$routes->resource('posts');
-        //$routes->resource('sections');
-        //$routes->resource('sliders');
-        //$routes->resource('socials');
-    }
-);
-
 // Donasi tanpa login untuk site view
 $routes->post('/api/senddonation', '\App\Modules\Api\Controllers\Donasis::insertDonation');
 $routes->post('/api/confirmdonation', '\App\Modules\Api\Controllers\Donasis::insertConfirmation');
@@ -119,10 +82,13 @@ static function ($routes) {
     $routes->resource('rawatibSchedules');
     $routes->resource('nonRawatibSchedules');    
     $routes->resource('bmdonationcampaigncategories');
-    $routes->resource('bmdonationcampaigns');
+    $routes->resource('bmdonationcampaigns');        
+    $routes->resource('dataruangans');
+    $routes->resource('rooms');
+    $routes->resource('roomReservations');
+    $routes->resource('infaqRooms');
     $routes->resource('timStaffs');
-    $routes->resource('donaturTypes');
-    $routes->resource('donaturs');
+    $routes->resource('donaturTypes');    
     $routes->resource('donaturcategories',['except' => ['index']]);
     $routes->resource('targetFundraisings');
     $routes->resource('jadwalFundraisings');
@@ -167,7 +133,11 @@ $routes->get('{locale}/instructionofpayment/(:segment)', 'InformatonofpaymentCon
 $routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationController::ConfirmView');
 $routes->get('{locale}/donations', 'Donations::index');
 
-
+// setup new domain
+$routes->group('/setup', function($routes){
+    $routes->get('migrate', '\App\Controllers\SetupController::migrate');
+    $routes->get('seed', '\App\Controllers\SetupController::seed');    
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing

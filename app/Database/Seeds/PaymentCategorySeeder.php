@@ -8,11 +8,11 @@ class PaymentCategorySeeder extends Seeder
 {
     public function run()
     {   
-        $sql = <<<'SQL'
+        $sql = <<<SQL
                 INSERT INTO payment_category (`name`) VALUES
                 ('Transfer'),
                 ('Payment Gateway')
-        SQL;
+SQL;
 
         $this->db->query($sql);
     }

@@ -24,7 +24,7 @@ class Home extends WebsiteController
 
         $isPage = false;
         $page_data =   [
-            "path_image" => $profile['path_logo']
+            "path_image" => $profile['path_logo'] ?? ''
         ];
 
         // set site header footer data

@@ -34,6 +34,6 @@ class AddNameTelpEmailDonasi extends Migration
 
     public function down()
     {
-        $this->forge->dropColumn('donasi', ['name, email, no_hp', 'pesan']);
+        $this->forge->dropColumn('donasi', ['name', 'email', 'no_hp', 'pesan']);
     }
 }
