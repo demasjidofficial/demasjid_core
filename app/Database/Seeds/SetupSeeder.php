@@ -19,7 +19,7 @@ class SetupSeeder extends Seeder
         $this->call(EntitySeeder::class);
         $this->call(ProfileSeeder::class);
         $this->call(WilayahSeeder::class);
-        $this->call(BmDonationCampaignSeeder::class);
+        // $this->call(BmDonationCampaignSeeder::class);
     }
 	
 }
