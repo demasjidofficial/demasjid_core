@@ -20,6 +20,12 @@ class SetupController extends Controller
 
     public function migrate(){
         ini_set('max_execution_time', 0);
+        command('migrate --all -f');
+        echo 'migration success';
+    }
+
+    public function migrateRefresh(){
+        ini_set('max_execution_time', 0);
         command('migrate:refresh --all -f');
         echo 'migration success';
     }
