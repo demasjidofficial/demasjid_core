@@ -31,9 +31,14 @@ class SetupController extends Controller
     }
 
     public function seed(){
+        $seedFile = $this->request->getGet('seeder') ?? 'SetupSeeder';
         ini_set('max_execution_time', 0);
-        command('db:seed SetupSeeder');
-        echo 'setup seeder success';
+        try {
+            command('db:seed '.$seedFile);
+            echo 'setup file '.$seedFile.' seeder success ';
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }                
     }
 
 }
