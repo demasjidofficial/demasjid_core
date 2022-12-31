@@ -1,6 +1,6 @@
 <td><?php echo esc($item->code) ?></a></td>
 <td><?php echo esc($item->name) ?></a></td>
-<td><?php echo esc(lang('crud.'.$item->group_account)) ?></a></td>
+<td><?php echo esc($item->group_account) ?></a></td>
 <td><?php echo esc($item->entity_name) ?></a></td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
