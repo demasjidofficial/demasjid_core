@@ -50,7 +50,7 @@
                     <div class="col-md-12 text-center p-20">
                         <p>Harap transfer sesuai nominal diatas (sampai 3 digit terakhir) agar dapat terkonfirmasi otomatis dan kebaikan ini dapat kami teruskan.</p>
                         <p>Silahkan Konfirmasi Bukti Pembayaran ke :</p>
-                        <a class="btn borrad-10" target="_blank" href='<?= site_url('/id/confirmationofdonation').'?'.$donation['no_inv']?>'><i class="fa fa-check" aria-hidden="true"></i></i> Konfirmasi</a>
+                        <a class="btn borrad-10" target="_blank" href='<?= site_url('/'.$locale.'/confirmationofdonation').'?'.$donation['no_inv']?>'><i class="fa fa-check" aria-hidden="true"></i></i> Konfirmasi</a>
                         <a class="btn borrad-10" target="_blank" href="http://wa.me/"><i class="fab fa-whatsapp" aria-hidden="true"></i></i> Whatsapp</a>
                     </div>
                 </div>

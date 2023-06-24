@@ -72,7 +72,7 @@
                             </div>
                             <div class="col-md-12 mt-30">
                                 <div class="btn-donation-wrapper" style="text-align:center;">
-                                    <button type="submit" id="submitbtn" value=<?php echo $donation_campaigns["id"] ?>  class="btn btn-donation borrad-10">Donasi Sekarang</button>
+                                    <button type="submit" id="submitbtn" value=<?php echo $donation_campaigns["id"] ?> data-locale=<? echo $locale ?> class="btn btn-donation borrad-10">Donasi Sekarang</button>
                                 </div>
                             </div>
                         </form>                
@@ -169,6 +169,7 @@
                 event.preventDefault();
                 event.stopPropagation();
 
+                let _locale = $(this).data('locale');
                 let url = "<?php echo base_url()?>" + "/api/senddonation",
                 dana_in = parseInt($('input[name=dana_in]').val().replace('.', '')) + Math.floor(Math.random() * 500),
                 paymentmethod_id = $('input[name=paymentmethod_id]').data('id'),    
@@ -197,7 +198,8 @@
                     },
                     success: function(res) {
                         let data = JSON.parse(res);
-                        return window.location = '/id/instructionofpayment/'+data.id;
+                        //return console.log(data);
+                        return window.location = '/'+ _locale +'/instructionofpayment/' +data.id;
                     },
                     error : function(res) {
                         return console.log(res);

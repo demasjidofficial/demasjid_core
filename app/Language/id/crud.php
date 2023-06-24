@@ -382,12 +382,10 @@ return [
 	'siteposts' => 'Artikel',
 	'sitesections' => 'Seksion',
 	'sitesliders' => 'Slide',
-
-	// 'sitesliders' => 'Slide',
 	'campaign_name'=>'Nama Target Fundraising',
 
-	'sitesliders' => 'Slide',
-	
-	'add_tugas_saya'=>'Tambah Tugas Saya'
+	'blog' => 'Blog',
+	'general' => 'General',
+	'labels' => 'Label'
 ];
 

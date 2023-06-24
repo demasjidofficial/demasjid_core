@@ -2,6 +2,9 @@
 
 class SitesectionsModel extends BaseModel
 {
+	const DONATION = 'donation';
+    const BLOG = 'blog';
+    const GENERAL = 'general';
     protected $table = 'sitesections';
     protected $returnType = 'App\Modules\Api\Entities\Sitesections';
     protected $primaryKey = 'id';
@@ -47,4 +50,14 @@ class SitesectionsModel extends BaseModel
 
         return parent::findAll($limit, $offset);
     }  
+
+	public static function listType()
+	{
+
+		return [
+			self::DONATION => lang('crud.donation'),
+			self::BLOG => lang('crud.blog'),
+			self::GENERAL => lang('crud.general')
+		];
+	}
 }

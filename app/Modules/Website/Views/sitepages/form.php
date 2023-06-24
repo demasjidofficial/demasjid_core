@@ -98,15 +98,9 @@
         <div class="card card-primary card-outline">
             
             <div class="card-body">
-                <ul class="nav nav-tabs" id="tab-head-wrapper" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="tab-head-<?= lang('crud.country_id')?>" data-toggle="pill" href="#tab-content-<?= lang('crud.country_id')?>" role="tab" aria-controls="form-page-<?= lang('crud.country_id')?>" aria-selected="true"><?= lang('crud.country_id')?></a>
-                </li>
+                <!-- <ul class="nav nav-tabs" id="tab-head-wrapper" role="tablist"> -->
                 <!-- <li class="nav-item">
-                    <a class="nav-link" id="tab-head-<= lang('crud.country_ar')?>" data-toggle="pill" href="#tab-content-<?= lang('crud.country_ar')?>" role="tab" aria-controls="form-page-<?= lang('crud.country_ar')?>" aria-selected="true"><?= lang('crud.country_ar')?></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-head-<= lang('crud.country_en')?>" data-toggle="pill" href="#tab-content-<?= lang('crud.country_en')?>" role="tab" aria-controls="form-page-<?= lang('crud.country_en')?>" aria-selected="true"><?= lang('crud.country_en')?></a>
+                    <a class="nav-link active" id="tab-head-<= lang('crud.country_id')?>" data-toggle="pill" href="#tab-content-<= lang('crud.country_id')?>" role="tab" aria-controls="form-page-<= lang('crud.country_id')?>" aria-selected="true"><= lang('crud.country_id')?></a>
                 </li> -->
                 </ul>
                 <div class="tab-content" id="tab-content-wrapper">
@@ -134,7 +128,7 @@
                         <div class="row mb-3">
                             <?= form_label(lang('crud.content'),'',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
-                                <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>
+                                <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text'") ?>
                                 
                                 <?php if (has_error('content')) { ?>
                                 <p class="text-danger"><?php echo error('content'); ?></p>

@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="btn-donation-wrapper" style="text-align:center;">
-                            <a href='<?= site_url('/id/campaign/'.$item["id"])?>' class="btn btn-donation">Donasi Sekarang</a>
+                            <a href='<?= site_url('/'.$locale.'/campaign/'.$item["id"])?>' class="btn btn-donation">Donasi Sekarang</a>
                         </div>
                     </div>
                 </div>

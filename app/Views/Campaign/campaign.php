@@ -42,7 +42,7 @@
                 <div class="row pt-4">
                     <div class="col-md-12">
                         <div class="btn-donation-wrapper" style="text-align:center;">
-                            <a class="btn btn-donation borrad-10" href='<?= site_url('/id/checkout/'.$donation_campaigns["id"])?>'>Donasi Sekarang</a>
+                            <a class="btn btn-donation borrad-10" href='<?= site_url('/'.$locale.'/checkout/'.$donation_campaigns["id"])?>'>Donasi Sekarang</a>
                         </div>
                     </div>
                 </div>
