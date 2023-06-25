@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\KategoriPelajaranFilter;
 
 class KategoriPelajaranController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\kategori_pelajaran\\';
-    protected $baseRoute = 'admin/pesantren/kategoripelajaran';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/kategoripelajaran';
     protected $langModel = 'kategori_pelajaran';
     protected $modelName = 'App\Modules\Api\Models\KategoriPelajaranModel';
     public function index()

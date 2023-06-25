@@ -8,9 +8,9 @@ use Dompdf\Dompdf;
 
 class ReportBalanceSheetController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_balancesheet\\';
-    protected $baseRoute = 'admin/masjid/reportbalancesheet';
+    protected $baseRoute = ADMIN_AREA.'/masjid/reportbalancesheet';
     protected $modelName = 'App\Modules\Masjid\Models\ReportBalanceSheetModel';
 
     /*

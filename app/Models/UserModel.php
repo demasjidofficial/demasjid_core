@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Modules\Api\Entities\User;
 use Faker\Generator;
-use Sparks\Shield\Models\UserModel as ShieldUsers;
+use CodeIgniter\Shield\Models\UserModel as ShieldUsers;
 
 /**
  * This User model is ready for your customization.
@@ -39,13 +39,13 @@ class UserModel extends ShieldUsers
        ");
     }
 
-    public function fake(Generator &$faker)
+    public function fake(Generator &$faker) : User
     {
-        return [
+        return new User([
             'username'   => $faker->userName,
             'first_name' => $faker->firstName,
             'last_name'  => $faker->lastName,
             'active'     => true,
-        ];
+        ]);
     }
 }

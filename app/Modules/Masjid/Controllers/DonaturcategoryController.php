@@ -9,9 +9,9 @@ use App\Modules\Masjid\Models\DonaturcategoryFilter;
 
 class DonaturcategoryController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\donaturcategory\\';
-    protected $baseRoute = 'admin/masjid/donaturcategory';
+    protected $baseRoute = ADMIN_AREA.'/masjid/donaturcategory';
     protected $langModel = 'donaturcategory';
     protected $modelName = 'App\Modules\Api\Models\DonaturcategoryModel';
     public function index(){

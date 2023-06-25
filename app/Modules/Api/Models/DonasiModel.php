@@ -27,7 +27,7 @@ class DonasiModel extends BaseModel
 		'tgl_transaksi',
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[donasi.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[donasi.id,id,{id}]',
 		'paymentmethod_id' => 'numeric|max_length[11]|required',
 		'campaign_id' => 'numeric|max_length[11]|required',
 		'dana_in' => 'numeric|max_length[13]|required',

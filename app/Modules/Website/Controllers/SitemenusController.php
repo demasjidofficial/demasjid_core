@@ -10,9 +10,9 @@ use App\Modules\Api\Models\LanguagesModel;
 
 class SitemenusController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitemenus\\';
-    protected $baseRoute = 'admin/website/menus';
+    protected $baseRoute = ADMIN_AREA.'/website/menus';
     protected $langModel = 'sitemenus';
     protected $modelName = 'App\Modules\Api\Models\SitemenusModel';
     public function index(){

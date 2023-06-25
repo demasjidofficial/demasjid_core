@@ -10,9 +10,9 @@ use App\Modules\Masjid\Models\MemberFilter;
 
 class MemberController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\member\\';
-    protected $baseRoute = 'admin/masjid/member';
+    protected $baseRoute = ADMIN_AREA.'/masjid/member';
     protected $langModel = 'member';
     protected $modelName = 'App\Modules\Api\Models\MemberModel';
     private $pathLogo;
@@ -268,7 +268,9 @@ class MemberController extends AdminCrudController
         foreach($dataModel as $d){
             $listwilayah = array_merge($listwilayah, array_values(extractWilayah($d->wilayah_id)));
         }
-        $wilayah = collect((new WilayahModel())->whereIn('kode',array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
+
+        $wilayah = empty($listwilayah) ? collect() : collect((new WilayahModel())->whereIn('kode',array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
+        
         return $wilayah;
     }
 

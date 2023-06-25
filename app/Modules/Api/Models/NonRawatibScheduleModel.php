@@ -19,7 +19,7 @@ class NonRawatibScheduleModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[non_rawatib_schedule.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[non_rawatib_schedule.id,id,{id}]',
 		'type_sholat' => 'max_length[15]|required',
 		'name' => 'max_length[50]',
 		'pray_date' => 'valid_date|required',

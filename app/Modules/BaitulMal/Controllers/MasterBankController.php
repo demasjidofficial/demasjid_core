@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class MasterBankController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\master_bank\\';
-    protected $baseRoute = 'admin/baitulmal/masterbank';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/masterbank';
     protected $langModel = 'master_bank';
     protected $modelName = 'App\Modules\Api\Models\MasterBankModel';
     private $imageFolder = 'images';

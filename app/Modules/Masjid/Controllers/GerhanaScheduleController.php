@@ -4,8 +4,8 @@ namespace App\Modules\Masjid\Controllers;
 
 class GerhanaScheduleController extends NonRawatibScheduleController
 {
-    protected $baseController = __CLASS__;
-    protected $baseRoute = 'admin/masjid/gerhanaschedule';
+    protected $baseController = '\\'.__CLASS__;
+    protected $baseRoute = ADMIN_AREA.'/masjid/gerhanaschedule';
     protected $typeSholat = 'gerhana';
 
     public function create(){

@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\KelasFilter;
 
 class KelasController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\kelas\\';
-    protected $baseRoute = 'admin/pesantren/kelas';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/kelas';
     protected $langModel = 'kelas';
     protected $modelName = 'App\Modules\Api\Models\KelasModel';
     public function index()

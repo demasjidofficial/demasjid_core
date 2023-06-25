@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class BottelegramController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Bot\Views\bottelegram\\';
-    protected $baseRoute = 'admin/bot/telegram';
+    protected $baseRoute = ADMIN_AREA.'/bot/telegram';
     protected $langModel = 'bottelegram';
     //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
     

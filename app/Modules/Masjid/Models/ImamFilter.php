@@ -3,7 +3,7 @@
 namespace App\Modules\Masjid\Models;
 
 use App\Modules\Api\Models\ImamModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class ImamFilter extends ImamModel
 {

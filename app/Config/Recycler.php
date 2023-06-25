@@ -1,10 +1,19 @@
 <?php
 
+/**
+ * This file is part of Bonfire.
+ *
+ * (c) Lonnie Ezell <lonnieje@gmail.com>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 namespace Config;
 
-use Bonfire\Recycler\Config\Recycler as BaseRecycler;
+use Bonfire\Recycler\Config\Recycler as BonfireRecycler;
 
-class Recycler extends BaseRecycler
+class Recycler extends BonfireRecycler
 {
     /**
      * --------------------------------------------------------------------------
@@ -29,7 +38,7 @@ class Recycler extends BaseRecycler
     public $resources = [
         'users' => [
             'label'   => 'Users',
-            'model'   => 'App\Models\UserModel',
+            'model'   => 'Bonfire\Users\Models\UserModel',
             'columns' => [
                 'username', 'first_name', 'last_name', 'email',
             ],

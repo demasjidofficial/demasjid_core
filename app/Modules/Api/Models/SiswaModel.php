@@ -38,7 +38,7 @@ class SiswaModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[siswa.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[siswa.id,id,{id}]',
 		'path_image' => 'max_length[255]',
 		'name' => 'max_length[60]|required',
 		'nick_name' => 'max_length[60]|required',

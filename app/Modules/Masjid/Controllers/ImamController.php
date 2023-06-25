@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class ImamController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\imam\\';
-    protected $baseRoute = 'admin/masjid/imam';
+    protected $baseRoute = ADMIN_AREA.'/masjid/imam';
     protected $langModel = 'imam';
     protected $modelName = 'App\Modules\Api\Models\ImamModel';
     public function index(){

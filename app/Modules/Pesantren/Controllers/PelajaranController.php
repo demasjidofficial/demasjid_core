@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\PelajaranFilter;
 
 class PelajaranController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\pelajaran\\';
-    protected $baseRoute = 'admin/pesantren/pelajaran';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/pelajaran';
     protected $langModel = 'pelajaran';
     protected $modelName = 'App\Modules\Api\Models\PelajaranModel';
     public function index()

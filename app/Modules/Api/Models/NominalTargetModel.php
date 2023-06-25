@@ -18,7 +18,7 @@ class NominalTargetModel extends BaseModel
 		'updated_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[nominal_target.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[nominal_target.id,id,{id}]',
 		'staff_id' => 'numeric|max_length[11]|required',
 		'terkumpul_nominal' => 'numeric|max_length[11]|required',
 		'target_nominal' => 'numeric|max_length[11]',

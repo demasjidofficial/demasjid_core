@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class SitefooterController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitefooter\\';
-    protected $baseRoute = 'admin/website/sitefooter';
+    protected $baseRoute = ADMIN_AREA.'/website/sitefooter';
     protected $langModel = 'sitefooter';
     protected $modelName = 'App\Modules\Api\Models\SitefooterModel';
     public function index(){

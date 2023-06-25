@@ -11,8 +11,8 @@
 
 namespace App\Libraries\Widgets\Panel;
 
-use Bonfire\Libraries\Widgets\BaseWidget;
-use Bonfire\Libraries\Widgets\Interfaces\Widgets;
+use App\Libraries\Widgets\BaseWidget;
+use App\Libraries\Widgets\Interfaces\Widgets;
 
 class Panel extends BaseWidget implements Widgets
 {

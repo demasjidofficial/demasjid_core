@@ -9,9 +9,9 @@ use App\Modules\Board\Models\BoardNewsFilter;
 
 class BoardNewsController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Board\Views\board_news\\';
-    protected $baseRoute = 'admin/board/boardnews';
+    protected $baseRoute = ADMIN_AREA.'/board/boardnews';
     protected $langModel = 'board_news';
     protected $modelName = 'App\Modules\Api\Models\BoardNewsModel';
     public function index(){

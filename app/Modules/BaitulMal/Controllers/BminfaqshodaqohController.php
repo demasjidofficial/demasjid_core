@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class BminfaqshodaqohController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\bminfaqshodaqoh\\';
-    protected $baseRoute = 'admin/baitulmal/infaqshodaqoh';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/infaqshodaqoh';
     protected $langModel = 'bminfaqshodaqoh';
     protected $modelName = 'App\Modules\Api\Models\BminfaqshodaqohModel';
     public function index(){

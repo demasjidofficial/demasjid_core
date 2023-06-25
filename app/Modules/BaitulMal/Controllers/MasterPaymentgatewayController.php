@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class MasterPaymentgatewayController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\master_paymentgateway\\';
-    protected $baseRoute = 'admin/baitulmal/masterpaymentgateway';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/masterpaymentgateway';
     protected $langModel = 'master_paymentgateway';
     protected $modelName = 'App\Modules\Api\Models\MasterPaymentgatewayModel';
     private $imageFolder = 'images';

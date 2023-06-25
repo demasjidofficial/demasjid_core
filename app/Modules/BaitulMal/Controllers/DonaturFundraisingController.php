@@ -12,9 +12,9 @@ use App\Traits\UploadedFile;
 class DonaturFundraisingController extends AdminCrudController
 {
 
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donatur_fundraising\\';
-    protected $baseRoute = 'admin/baitulmal/donaturfundraising';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donaturfundraising';
     protected $langModel = 'donatur_fundraising';
     protected $modelName = 'App\Modules\Api\Models\DonaturFundraisingModel';
     use UploadedFile;

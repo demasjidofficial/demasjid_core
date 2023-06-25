@@ -4,8 +4,8 @@ namespace App\Modules\Masjid\Controllers;
 
 class IedScheduleController extends NonRawatibScheduleController
 {
-    protected $baseController = __CLASS__;
-    protected $baseRoute = 'admin/masjid/iedschedule';
+    protected $baseController = '\\'.__CLASS__;
+    protected $baseRoute = ADMIN_AREA.'/masjid/iedschedule';
     protected $typeSholat = 'ied';
 
     public function create(){

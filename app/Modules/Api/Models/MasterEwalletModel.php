@@ -14,7 +14,7 @@ class MasterEwalletModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[master_ewallet.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[master_ewallet.id,id,{id}]',
 		'logo' => 'max_length[255]',
 		'nama_ewallet' => 'max_length[100]',
 		'created_at' => 'valid_date|required',

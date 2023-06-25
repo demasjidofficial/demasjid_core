@@ -3,7 +3,7 @@
 namespace App\Modules\Pesantren;
 
 use App\Config\BaseModule;
-use Bonfire\Libraries\Menus\MenuItem;
+use Bonfire\Menus\MenuItem;
 
 /**
  * Pengurus Module setup.
@@ -21,72 +21,72 @@ class Module extends BaseModule
 
         $pengurusItem = new MenuItem([
             'title'           => lang('crud.pengurus'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PengurusController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/pengurus',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $profileItem = new MenuItem([
             'title'           => lang('crud.profile'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\ProfileController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/profile',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.pengurus.list',
         ]);
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
             'title'           => lang('crud.account_balance'), 
-            'url'             => url_to('App\Modules\Pesantren\Controllers\AccountBalanceController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/accountbalance',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.account_balance.list',
         ]);
 
         $chartOfAccoutItem = new MenuItem([
             'title'           => lang('crud.chart_of_account'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\ChartOfAccountController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/chartofaccount',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.account_balance.list',
         ]);
 
         $balanceItem = new MenuItem([
             'title'           => lang('crud.balance'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\BalanceController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/balance',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.balance.list',
         ]);
         $kelas = new MenuItem([
             'title'           => lang('crud.class'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\KelasController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/kelas',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
         $kategoriPelajaran = new MenuItem([
             'title'           => lang('crud.kategori_pelajaran'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\KategoriPelajaranController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/kategoripelajaran',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
-        $Pelajaran = new MenuItem([
+        $pelajaran = new MenuItem([
             'title'           => lang('crud.pelajaran'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PelajaranController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/pelajaran',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
-        $Bab = new MenuItem([
+        $bab = new MenuItem([
             'title'           => lang('crud.bab'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\BabController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/bab',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
-        $Materi = new MenuItem([
+        $materi = new MenuItem([
             'title'           => lang('crud.materi'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\MateriController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/materi',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
 
         $pendaftaran = new MenuItem([
             'title'           => lang('crud.pendaftaran'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\PendaftaranController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/pendaftaran',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'pesantren.kelas.list',
         ]);
@@ -96,41 +96,44 @@ class Module extends BaseModule
          */
         $financesItem = new MenuItem([
             'title'           => lang('crud.finances'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\_FinancesController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/finances',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.finances.list',
         ]);
         $profilesItem = new MenuItem([
             'title'           => lang('crud.profiles'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\_ProfilesController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/profiles',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.profiles.list',
         ]);
         $programsItem = new MenuItem([
             'title'           => lang('crud.programs'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\_ProgramsController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/programs',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.programs.list',
         ]);
         $mastersItem = new MenuItem([
             'title'           => lang('crud.masters'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\_MastersController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/masters',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.masters.list',
         ]);
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\_SchedulesController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/schedules',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.schedules.list',
         ]);
         $learningsItem = new MenuItem([
             'title'           => lang('crud.learnings'),
-            'url'             => url_to('App\Modules\Pesantren\Controllers\_LearningsController::index'),
+            'url'             => ADMIN_AREA.'/pesantren/learnings',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'pesantren.learnings.list',
         ]);
         
+        $sidebar->menu('sidebar')->createCollection('pesantren', 'Pesantren')
+                ->setFontAwesomeIcon('fas fa-home')
+                ->setCollapsible();
         $sidebar->menu('sidebar')->collection('pesantren')
             //->addItem($pengurusItem)
             //->addItem($profileItem)

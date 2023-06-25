@@ -3,7 +3,7 @@
 namespace App\Modules\Board\Models;
 
 use App\Modules\Api\Models\BoardNewsModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class BoardNewsFilter extends BoardNewsModel
 {

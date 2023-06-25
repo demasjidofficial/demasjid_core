@@ -21,7 +21,7 @@ class DonaturModel extends BaseModel
 		// 'alamat',
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[donatur.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[donatur.id,id,{id}]',
 		'name' => 'max_length[128]|required',
 		'id_kategori' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',

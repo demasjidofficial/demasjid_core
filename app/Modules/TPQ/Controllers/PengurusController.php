@@ -12,9 +12,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 class PengurusController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\TPQ\Views\pengurus\\';
-    protected $baseRoute = 'admin/tpq/pengurus';
+    protected $baseRoute = ADMIN_AREA.'/tpq/pengurus';
     protected $langModel = 'pengurus';
     protected $modelName = 'App\Modules\Api\Models\PengurusModel';
     private $imageFolder = 'images';

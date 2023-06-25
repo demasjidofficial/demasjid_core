@@ -9,9 +9,9 @@ use App\Modules\Board\Models\BoardDeviceFilter;
 
 class BoardDeviceController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Board\Views\board_device\\';
-    protected $baseRoute = 'admin/board/boarddevice';
+    protected $baseRoute = ADMIN_AREA.'/board/boarddevice';
     protected $langModel = 'board_device';
     protected $modelName = 'App\Modules\Api\Models\BoardDeviceModel';
     public function index(){

@@ -9,9 +9,9 @@ use App\Modules\Room\Models\InfaqRoomFilter;
 
 class InfaqRoomController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Room\Views\infaq_room\\';
-    protected $baseRoute = 'admin/room/infaqroom';
+    protected $baseRoute = ADMIN_AREA.'/room/infaqroom';
     protected $langModel = 'infaq_room';
     protected $modelName = 'App\Modules\Api\Models\InfaqRoomModel';
     public function index()

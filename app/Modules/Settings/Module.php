@@ -3,7 +3,7 @@
 namespace App\Modules\Settings;
 
 use App\Config\BaseModule;
-use Bonfire\Libraries\Menus\MenuItem;
+use Bonfire\Menus\MenuItem;
 
 /**
  * Pengurus Module setup.
@@ -21,21 +21,21 @@ class Module extends BaseModule
 
         $languagesItem = new MenuItem([
             'title'           => 'Bahasa',
-            'url'             => url_to('App\Modules\Settings\Controllers\LanguagesController::index'),
+            'url'             => ADMIN_AREA.'/settings/languages',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'settings.languages.list',
         ]);
 
         $uomItem = new MenuItem([
             'title'           => 'Satuan',
-            'url'             => url_to('App\Modules\Settings\Controllers\UomController::index'),
+            'url'             => ADMIN_AREA.'/settings/uom',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'settings.languages.list',
         ]);
 
         $uomcategoryItem = new MenuItem([
             'title'           => 'Kategori Satuan',
-            'url'             => url_to('App\Modules\Settings\Controllers\UomCategoryController::index'),
+            'url'             => ADMIN_AREA.'/settings/uom_category',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'settings.languages.list',
         ]);
@@ -62,7 +62,9 @@ class Module extends BaseModule
             //'permission'      => 'tpq.balance.list',
         ]);
         */
-
+        $sidebar->menu('sidebar')->createCollection('settings', 'Settings')
+                ->setFontAwesomeIcon('fas fa-gear')
+                ->setCollapsible();
         $sidebar->menu('sidebar')->collection('settings')
                 ->addItem($languagesItem)
                 ->addItem($uomItem)

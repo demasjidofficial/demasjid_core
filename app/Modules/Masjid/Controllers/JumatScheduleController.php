@@ -4,8 +4,8 @@ namespace App\Modules\Masjid\Controllers;
 
 class JumatScheduleController extends NonRawatibScheduleController
 {
-    protected $baseController = __CLASS__;
-    protected $baseRoute = 'admin/masjid/jumatschedule';
+    protected $baseController = '\\'.__CLASS__;
+    protected $baseRoute = ADMIN_AREA.'/masjid/jumatschedule';
     protected $typeSholat = 'jumat';
 
     public function create(){

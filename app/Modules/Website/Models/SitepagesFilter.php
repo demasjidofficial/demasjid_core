@@ -3,7 +3,7 @@
 namespace App\Modules\Website\Models;
 
 use App\Modules\Api\Models\SitepagesModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class SitepagesFilter extends SitepagesModel
 {

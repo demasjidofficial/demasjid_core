@@ -3,7 +3,7 @@
 namespace Tests\Bonfire\Auth;
 
 use CodeIgniter\Test\DatabaseTestTrait;
-use Sparks\Shield\Authentication\Actions\EmailActivator;
+use CodeIgniter\Shield\Authentication\Actions\EmailActivator;
 use Tests\Support\TestCase;
 
 /**

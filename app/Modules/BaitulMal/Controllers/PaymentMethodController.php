@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class PaymentMethodController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\payment_method\\';
-    protected $baseRoute = 'admin/baitulmal/paymentmethod';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/paymentmethod';
     protected $langModel = 'payment_method';
     protected $modelName = 'App\Modules\Api\Models\PaymentMethodModel';
     public function index(){

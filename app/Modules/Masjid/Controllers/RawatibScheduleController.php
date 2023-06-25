@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class RawatibScheduleController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\schedule\rawatib_schedule\\';
-    protected $baseRoute = 'admin/masjid/rawatibschedule';
+    protected $baseRoute = ADMIN_AREA.'/masjid/rawatibschedule';
     protected $langModel = 'rawatib_schedule';
     protected $modelName = 'App\Modules\Api\Models\RawatibScheduleModel';
     public function index()

@@ -11,9 +11,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 class BmdonationcampaignController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\bmdonationcampaign\\';
-    protected $baseRoute = 'admin/baitulmal/donationcampaign';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donationcampaign';
     protected $langModel = 'bmdonationcampaign';
     protected $modelName = 'App\Modules\Api\Models\BmdonationcampaignModel';
     private $imageFolder = 'images';

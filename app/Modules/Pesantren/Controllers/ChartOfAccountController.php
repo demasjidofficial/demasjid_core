@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class ChartOfAccountController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\chart_of_account\\';
-    protected $baseRoute = 'admin/pesantren/chartofaccount';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/chartofaccount';
     protected $langModel = 'chart_of_account';
     protected $modelName = 'App\Modules\Api\Models\ChartOfAccountModel';
     public function index(){

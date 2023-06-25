@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class BalanceController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\balance\\';
-    protected $baseRoute = 'admin/masjid/balance';
+    protected $baseRoute = ADMIN_AREA.'/masjid/balance';
     protected $langModel = 'balance';
     protected $modelName = 'App\Modules\Api\Models\BalanceModel';
     public function index(){

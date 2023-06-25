@@ -4,8 +4,8 @@ namespace App\Modules\Masjid\Controllers;
 
 class TarawihScheduleController extends NonRawatibScheduleController
 {
-    protected $baseController = __CLASS__;
-    protected $baseRoute = 'admin/masjid/tarawihschedule';
+    protected $baseController = '\\'.__CLASS__;
+    protected $baseRoute = ADMIN_AREA.'/masjid/tarawihschedule';
     protected $typeSholat = 'tarawih';
 
     public function create(){

@@ -23,7 +23,7 @@ use CodeIgniter\HTTP\IncomingRequest;
  * @property Response        $response
  */
 use CodeIgniter\HTTP\Response;
-use Sparks\Shield\Entities\AccessToken;
+use CodeIgniter\Shield\Entities\AccessToken;
 
 trait HasTokenTrait
 {

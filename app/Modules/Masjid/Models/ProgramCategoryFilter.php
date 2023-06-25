@@ -3,7 +3,7 @@
 namespace App\Modules\Masjid\Models;
 
 use App\Modules\Api\Models\ProgramCategoryModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class ProgramCategoryFilter extends ProgramCategoryModel
 {

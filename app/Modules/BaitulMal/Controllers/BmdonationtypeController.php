@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class BmdonationtypeController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\bmdonationtype\\';
-    protected $baseRoute = 'admin/baitulmal/donationtype';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donationtype';
     protected $langModel = 'bmdonationtype';
     protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
     public function index(){

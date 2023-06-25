@@ -29,7 +29,7 @@ class ProgramModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[program.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[program.id,id,{id}]',
 		'name' => 'max_length[50]|required',
 		'description' => 'required',
 		'start_date' => 'valid_date|required',		

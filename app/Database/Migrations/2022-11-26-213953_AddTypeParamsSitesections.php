@@ -23,6 +23,6 @@ class AddTypeParamsSitesections extends Migration
 
     public function down()
     {
-        $this->forge->dropColumn('sitesections', ['type, params']);
+        $this->forge->dropColumn('sitesections', ['type', 'params']);
     }
 }

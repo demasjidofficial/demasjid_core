@@ -18,7 +18,7 @@ class PaymentMethodTransferModel extends BaseModel
 		'isActived',
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[payment_method.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[payment_method.id,id,{id}]',
 		'master_payment_id' => 'numeric|max_length[11]|required',
 		'rek_no' => 'max_length[30]',
 		'rek_name' => 'max_length[50]',

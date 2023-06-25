@@ -9,9 +9,9 @@ use App\Modules\BaitulMal\Models\JadwalFundraisingFilter;
 
 class JadwalFundraisingController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\jadwal_fundraising\\';
-    protected $baseRoute = 'admin/baitulmal/jadwalfundraising';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/jadwalfundraising';
     protected $langModel = 'jadwal_fundraising';
     protected $modelName = 'App\Modules\Api\Models\JadwalFundraisingModel';
     public function index()

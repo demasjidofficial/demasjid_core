@@ -9,9 +9,9 @@ use App\Modules\Masjid\Models\TargetFundraisingFilter;
 
 class TargetFundraisingController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\target_fundraising\\';
-    protected $baseRoute = 'admin/masjid/targetfundraising';
+    protected $baseRoute = ADMIN_AREA.'/masjid/targetfundraising';
     protected $langModel = 'target_fundraising';
     protected $modelName = 'App\Modules\Api\Models\TargetFundraisingModel';
     public function index(){

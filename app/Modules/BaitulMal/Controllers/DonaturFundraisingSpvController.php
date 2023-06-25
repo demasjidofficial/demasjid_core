@@ -12,9 +12,9 @@ use App\Traits\UploadedFile;
 class DonaturFundraisingSpvController extends AdminCrudController
 {
 
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donatur_fundraising_spv\\';
-    protected $baseRoute = 'admin/baitulmal/donaturfundraisingspv';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donaturfundraisingspv';
     protected $langModel = 'donatur_fundraising_spv';
     protected $modelName = 'App\Modules\Api\Models\DonaturFundraisingSpvModel';
     use UploadedFile;

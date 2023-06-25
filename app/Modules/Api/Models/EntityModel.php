@@ -14,6 +14,8 @@ class EntityModel extends BaseModel
     const PESANTREN = 'pesantren';
     const SEKOLAH = 'sekolah';
     const TPQ = 'tpq';
+    const ROOM = 'room';
+
     protected $table = 'entity';
     protected $returnType = 'App\Modules\Api\Entities\Entity';
     protected $primaryKey = 'id';
@@ -27,7 +29,7 @@ class EntityModel extends BaseModel
         'created_by',
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[entity.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[entity.id,id,{id}]',
         'name' => 'max_length[50]|required',
         'type' => 'max_length[20]|required',
         'created_at' => 'valid_date|required',

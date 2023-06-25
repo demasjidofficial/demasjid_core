@@ -3,7 +3,7 @@
 namespace App\Modules\TPQ;
 
 use App\Config\BaseModule;
-use Bonfire\Libraries\Menus\MenuItem;
+use Bonfire\Menus\MenuItem;
 
 /**
  * Pengurus Module setup.
@@ -21,36 +21,36 @@ class Module extends BaseModule
 
         $pengurusItem = new MenuItem([
             'title'           => lang('crud.pengurus'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\PengurusController::index'),
+            'url'             => ADMIN_AREA.'/tpq/pengurus',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $profileItem = new MenuItem([
             'title'           => lang('crud.profile'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\ProfileController::index'),
+            'url'             => ADMIN_AREA.'/tpq/profile',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'masjid.pengurus.list',
         ]);
 
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
-            'title'           => lang('crud.chart_of_account'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\AccountBalanceController::index'),
+            'title'           => lang('crud.account_balance'),
+            'url'             => ADMIN_AREA.'/tpq/accountbalance',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.account_balance.list',
         ]);
 
         $chartOfAccoutItem = new MenuItem([
-            'title'           => lang('crud.account_balance'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\ChartOfAccountController::index'),
+            'title'           => lang('crud.chart_of_account'),
+            'url'             => ADMIN_AREA.'/tpq/chartofaccount',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'masjid.account_balance.list',
         ]);
 
         $balanceItem = new MenuItem([
             'title'           => lang('crud.balance'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\BalanceController::index'),
+            'url'             => ADMIN_AREA.'/tpq/balance',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
@@ -59,40 +59,44 @@ class Module extends BaseModule
          */
         $financesItem = new MenuItem([
             'title'           => lang('crud.finances'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\_FinancesController::index'),
+            'url'             => ADMIN_AREA.'/tpq/finances',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'tpq.finances.list',
         ]);
         $profilesItem = new MenuItem([
             'title'           => lang('crud.profiles'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\_ProfilesController::index'),
+            'url'             => ADMIN_AREA.'/tpq/profiles',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'tpq.profiles.list',
         ]);
         $programsItem = new MenuItem([
             'title'           => lang('crud.programs'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\_ProgramsController::index'),
+            'url'             => ADMIN_AREA.'/tpq/programs',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'tpq.programs.list',
         ]);
         $mastersItem = new MenuItem([
             'title'           => lang('crud.masters'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\_MastersController::index'),
+            'url'             => ADMIN_AREA.'/tpq/masters',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'tpq.masters.list',
         ]);
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\_SchedulesController::index'),
+            'url'             => ADMIN_AREA.'/tpq/schedules',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'tpq.schedules.list',
         ]);
         $learningsItem = new MenuItem([
             'title'           => lang('crud.learnings'),
-            'url'             => url_to('App\Modules\TPQ\Controllers\_LearningsController::index'),
+            'url'             => ADMIN_AREA.'/tpq/learnings',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             //'permission'      => 'tpq.learnings.list',
         ]);
+
+        $sidebar->menu('sidebar')->createCollection('tpq', 'TPQ')
+                ->setFontAwesomeIcon('fas fa-home')
+                ->setCollapsible();
         $sidebar->menu('sidebar')->collection('tpq')
             //->addItem($pengurusItem)
             //->addItem($profileItem)

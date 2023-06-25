@@ -21,7 +21,7 @@ class ImamModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[imam.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[imam.id,id,{id}]',
 		'name' => 'max_length[60]|required',
 		'contact' => 'max_length[60]',
 		'address' => 'max_length[100]',

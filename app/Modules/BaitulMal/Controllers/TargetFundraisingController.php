@@ -9,9 +9,9 @@ use App\Modules\BaitulMal\Models\TargetFundraisingFilter;
 
 class TargetFundraisingController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\target_fundraising\\';
-    protected $baseRoute = 'admin/baitulmal/targetfundraising';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/targetfundraising';
     protected $langModel = 'target_fundraising';
     protected $modelName = 'App\Modules\Api\Models\TargetFundraisingModel';
     public function index()

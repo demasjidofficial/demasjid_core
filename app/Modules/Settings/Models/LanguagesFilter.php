@@ -3,7 +3,7 @@
 namespace App\Modules\Settings\Models;
 
 use App\Modules\Api\Models\LanguagesModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class LanguagesFilter extends LanguagesModel
 {

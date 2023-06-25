@@ -3,7 +3,7 @@
 namespace App\Modules\BaitulMal\Models;
 
 use App\Modules\Api\Models\MasterPaymentgatewayModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class MasterPaymentgatewayFilter extends MasterPaymentgatewayModel
 {

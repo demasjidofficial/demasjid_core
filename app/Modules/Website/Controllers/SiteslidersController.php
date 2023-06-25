@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class SiteslidersController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesliders\\';
-    protected $baseRoute = 'admin/website/sliders';
+    protected $baseRoute = ADMIN_AREA.'/website/sliders';
     protected $langModel = 'sitesliders';
     protected $modelName = 'App\Modules\Api\Models\SiteslidersModel';
     private $imageFolder = 'images';

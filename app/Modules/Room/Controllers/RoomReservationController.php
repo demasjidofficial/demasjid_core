@@ -9,9 +9,9 @@ use App\Modules\Room\Models\RoomReservationFilter;
 
 class RoomReservationController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Room\Views\room_reservation\\';
-    protected $baseRoute = 'admin/room/roomreservation';
+    protected $baseRoute = ADMIN_AREA.'/room/roomreservation';
     protected $langModel = 'room_reservation';
     protected $modelName = 'App\Modules\Api\Models\RoomReservationModel';
     public function index()

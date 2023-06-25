@@ -22,7 +22,7 @@ class App extends BaseConfig
      *
      * The name that should be displayed for the site.
      */
-    public $siteName = 'Bonfire';
+    public $siteName = 'Demasjid';
 
     /**
      * --------------------------------------------------------------------------

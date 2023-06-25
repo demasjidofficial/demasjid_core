@@ -9,9 +9,9 @@ use App\Modules\Board\Models\BoardNewsRuntextFilter;
 
 class BoardNewsRuntextController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Board\Views\board_news_runtext\\';
-    protected $baseRoute = 'admin/board/boardnewsruntext';
+    protected $baseRoute = ADMIN_AREA.'/board/boardnewsruntext';
     protected $langModel = 'board_news_runtext';
     protected $modelName = 'App\Modules\Api\Models\BoardNewsRuntextModel';
     public function index(){

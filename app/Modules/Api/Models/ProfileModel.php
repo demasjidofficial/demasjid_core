@@ -20,7 +20,7 @@ class ProfileModel extends BaseModel
 		'name'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[profile.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[profile.id,id,{id}]',
 		'desa_id' => 'max_length[15]|required',
 		'code' => 'max_length[18]',
 		'address' => 'max_length[255]|required',

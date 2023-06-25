@@ -3,7 +3,7 @@
 namespace App\Modules\Settings\Models;
 
 use App\Modules\Api\Models\UomModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class UomFilter extends UomModel
 {

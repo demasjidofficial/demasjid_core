@@ -3,7 +3,7 @@
 namespace App\Modules\Room\Models;
 
 use App\Modules\Api\Models\RoomReservationModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class RoomReservationFilter extends RoomReservationModel
 {

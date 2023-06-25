@@ -45,7 +45,7 @@ final class AdminSettingsTest extends TestCase
                 'email2FA'              => 1,
                 'minimumPasswordLength' => 10,
                 'validators'            => [
-                    'Sparks\Shield\Authentication\Passwords\CompositionValidator',
+                    'CodeIgniter\Shield\Authentication\Passwords\CompositionValidator',
                 ],
                 'defaultGroup' => 'developer',
             ]);
@@ -55,7 +55,7 @@ final class AdminSettingsTest extends TestCase
         $this->assertTrue(setting('Auth.allowRegistration'));
         $this->assertSame(10, setting('Auth.minimumPasswordLength'));
         $this->assertSame('developer', setting('AuthGroups.defaultGroup'));
-        $this->assertSame(['Sparks\Shield\Authentication\Passwords\CompositionValidator'], setting('Auth.passwordValidators'));
+        $this->assertSame(['CodeIgniter\Shield\Authentication\Passwords\CompositionValidator'], setting('Auth.passwordValidators'));
         $this->assertSame(['login' => '1', 'register' => '1'], setting('Auth.actions'));
     }
 }

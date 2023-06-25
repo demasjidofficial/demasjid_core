@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class MasterEwalletController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\master_ewallet\\';
-    protected $baseRoute = 'admin/baitulmal/masterewallet';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/masterewallet';
     protected $langModel = 'master_ewallet';
     protected $modelName = 'App\Modules\Api\Models\MasterEwalletModel';
     private $imageFolder = 'images';

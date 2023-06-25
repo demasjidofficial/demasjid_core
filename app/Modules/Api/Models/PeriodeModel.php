@@ -17,7 +17,7 @@ class PelajaranModel extends BaseModel
     ];
     
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[pelajaran.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[pelajaran.id,id,{id}]',
         'name' => 'max_length[60]|required',
         'created_at' => 'valid_date|required',
         'updated_at' => 'valid_date|required',

@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class BoardNewsBgController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Board\Views\board_news_bg\\';
-    protected $baseRoute = 'admin/board/boardnewsbg';
+    protected $baseRoute = ADMIN_AREA.'/board/boardnewsbg';
     protected $langModel = 'board_news_bg';
     protected $modelName = 'App\Modules\Api\Models\BoardNewsBgModel';
     private $imageFolder = 'images';

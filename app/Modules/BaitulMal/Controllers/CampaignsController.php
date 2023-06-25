@@ -9,9 +9,9 @@ use App\Modules\BaitulMal\Models\CampaignsFilter;
 
 class CampaignsController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\campaigns\\';
-    protected $baseRoute = 'admin/baitulmal/campaigns';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/campaigns';
     protected $langModel = 'campaigns';
     protected $modelName = 'App\Modules\Api\Models\CampaignsModel';
     public function index(){

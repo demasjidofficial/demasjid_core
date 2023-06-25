@@ -3,7 +3,7 @@
 namespace Tests\Bonfire\Groups;
 
 use App\Entities\User;
-use Sparks\Shield\Authorization\Groups;
+use CodeIgniter\Shield\Authorization\Groups;
 use Tests\Support\TestCase;
 
 /**

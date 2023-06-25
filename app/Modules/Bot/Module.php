@@ -3,7 +3,7 @@
 namespace App\Modules\Bot;
 
 use App\Config\BaseModule;
-use Bonfire\Libraries\Menus\MenuItem;
+use Bonfire\Menus\MenuItem;
 
 /**
  * Pengurus Module setup.
@@ -22,29 +22,26 @@ class Module extends BaseModule
         // Content Menu for sidebar
         $botWhatsappItem = new MenuItem([
             'title'           => 'Whatsapp',
-            'url'             => url_to('App\Modules\Bot\Controllers\BotwaController::index'),
+            'url'             => ADMIN_AREA.'/bot/easywa',
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.donationtype.list',
         ]);
         $botTelegramItem = new MenuItem([
             'title'           => 'Telegram',
-            'url'             => url_to('App\Modules\Bot\Controllers\BottelegramController::index'),
+            'url'             => ADMIN_AREA.'/bot/telegram',
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqoh.list',
         ]);
         $botEmailItem = new MenuItem([
             'title'           => 'Email',
-            'url'             => url_to('App\Modules\Bot\Controllers\BotemailController::index'),
+            'url'             => ADMIN_AREA.'/bot/email',
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
-
-
-        // $sidebar->menu('sidebar')->collection('bot')
-        //         ->addItem($botWhatsappItem)
-        //         ->addItem($botTelegramItem)
-        //         ->addItem($botEmailItem);
-
+        
+        $sidebar->menu('sidebar')->createCollection('bot', 'Bot')
+                ->setFontAwesomeIcon('fas fa-cog')
+                ->setCollapsible();
         $sidebar->menu('sidebar')->collection('bot')
                 ->addItem($botWhatsappItem)
                 ->addItem($botTelegramItem)

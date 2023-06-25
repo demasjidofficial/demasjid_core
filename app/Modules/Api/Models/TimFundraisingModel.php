@@ -27,7 +27,7 @@ class TimFundraisingModel extends BaseModel
 		'updated_at'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[tim_fundraising.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[tim_fundraising.id,id,{id}]',
 
 		'target_id' => 'numeric|max_length[11]|required',
 		// 'id_jadwal' => 'numeric|max_length[11]|required',

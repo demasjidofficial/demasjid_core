@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\TahunAjaranFilter;
 
 class TahunAjaranController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\tahun_ajaran\\';
-    protected $baseRoute = 'admin/pesantren/tahunajaran';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/tahunajaran';
     protected $langModel = 'tahun_ajaran';
     protected $modelName = 'App\Modules\Api\Models\TahunAjaranModel';
     public function index()

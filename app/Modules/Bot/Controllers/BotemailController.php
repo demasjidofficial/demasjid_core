@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class BotemailController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Bot\Views\botemail\\';
-    protected $baseRoute = 'admin/bot/email';
+    protected $baseRoute = ADMIN_AREA.'/bot/email';
     protected $langModel = 'botemail';
     //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
     

@@ -3,7 +3,7 @@
 namespace App\Modules\BaitulMal\Models;
 
 use App\Modules\Api\Models\DonaturTypeModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class DonaturTypeFilter extends DonaturTypeModel
 {

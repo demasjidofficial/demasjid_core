@@ -13,9 +13,9 @@ use App\Traits\UploadedFile;
 class PendaftaranController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\pendaftaran\\', $data;
-    protected $baseRoute = 'admin/pesantren/pendaftaran';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/pendaftaran';
     protected $langModel = 'pendaftaran';
     protected $modelName = 'App\Modules\Api\Models\PendaftaranModel';
     private $imageFolder = 'images';

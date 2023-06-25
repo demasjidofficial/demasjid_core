@@ -4,7 +4,7 @@ namespace App\Modules\BaitulMal\Models;
 
 use App\Modules\Api\Models\TimStaffModel;
 use App\Modules\Api\Models\TimStaffTugasModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class TimStaffFilter_ extends TimStaffTugasModel
 {

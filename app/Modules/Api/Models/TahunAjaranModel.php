@@ -16,7 +16,7 @@ class TahunAjaranModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[tahun_ajaran.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[tahun_ajaran.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		'status' => 'max_length[1]|required',
 		'created_at' => 'valid_date|required',

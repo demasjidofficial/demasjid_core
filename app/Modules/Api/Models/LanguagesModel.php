@@ -18,7 +18,7 @@ class LanguagesModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[languages.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[languages.id,id,{id}]',
 		'code' => 'max_length[255]|required',
 		'name' => 'max_length[255]|required',
 		'path_icon' => 'max_length[255]',

@@ -3,7 +3,7 @@
 namespace App\Modules\Masjid\Models;
 
 use App\Modules\Api\Models\BalanceModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class BalanceFilter extends BalanceModel
 {

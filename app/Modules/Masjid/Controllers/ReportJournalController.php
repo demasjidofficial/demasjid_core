@@ -8,9 +8,9 @@ use Dompdf\Dompdf;
 
 class ReportJournalController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_masjidcashstandard\\';
-    protected $baseRoute = 'admin/masjid/reportmasjidcashstandard';
+    protected $baseRoute = ADMIN_AREA.'/masjid/reportmasjidcashstandard';
     protected $modelName = 'App\Modules\Masjid\Models\ReportJournalModel';
 
     /*

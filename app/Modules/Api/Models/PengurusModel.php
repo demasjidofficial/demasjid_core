@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class PengurusModel extends BaseModel
 {
     protected $table = 'pengurus';
@@ -25,7 +23,7 @@ class PengurusModel extends BaseModel
 		'entity_id'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[pengurus.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[pengurus.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		'description' => 'required',
 		'jabatan_id' => 'numeric|max_length[11]|required',

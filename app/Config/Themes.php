@@ -21,7 +21,7 @@ class Themes
      * @var array
      */
     public $collections = [
-        ROOTPATH . 'themes/',
+        __DIR__ . '/../../themes/',
     ];
 
     /**

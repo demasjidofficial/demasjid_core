@@ -9,9 +9,9 @@ use CodeIgniter\I18n\Time;
 
 class ReportCashBankMutationController extends ReportController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_cashbankmutation\\';
-    protected $baseRoute = 'admin/masjid/reportcashbankmutation';
+    protected $baseRoute = ADMIN_AREA.'/masjid/reportcashbankmutation';
     protected $modelName = 'App\Modules\Masjid\Models\ReportCashBankMutationModel';
 
     public function index()

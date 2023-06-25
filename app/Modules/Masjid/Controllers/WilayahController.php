@@ -8,7 +8,7 @@ use App\Modules\Masjid\Models\WilayahFilter;
 
 class WilayahController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix     = 'App\Modules\Masjid\Views\wilayah\\';
     protected $baseRoute      = 'admin/masjid/wilayah';
     protected $langModel      = 'wilayah';

@@ -3,7 +3,7 @@
 namespace App\Modules\Masjid\Models;
 
 use App\Modules\Api\Models\JabatanModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class JabatanFilter extends JabatanModel
 {

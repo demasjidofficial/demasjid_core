@@ -11,8 +11,8 @@
 
 namespace App\Libraries\Widgets\Stats;
 
-use Bonfire\Libraries\Widgets\BaseWidget;
-use Bonfire\Libraries\Widgets\Interfaces\Widgets;
+use App\Libraries\Widgets\BaseWidget;
+use App\Libraries\Widgets\Interfaces\Widgets;
 
 class Stats extends BaseWidget implements Widgets
 {

@@ -10,7 +10,7 @@ use App\Libraries\Widgets\Stats\StatsItem;
 
 use App\Modules\Api\Models\TargetFundraisingModel;
 use App\Modules\Api\Models\TimFundraisingModel;
-use Bonfire\Libraries\Widgets\Charts\Charts;
+use App\Libraries\Widgets\Charts\Charts;
 
 class OverviewManagerController extends AdminController
 {

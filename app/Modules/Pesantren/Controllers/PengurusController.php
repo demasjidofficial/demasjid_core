@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\PengurusFilter;
 
 class PengurusController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\pengurus\\';
-    protected $baseRoute = 'admin/pesantren/pengurus';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/pengurus';
     protected $langModel = 'pengurus';
     protected $modelName = 'App\Modules\Api\Models\PengurusModel';
     public function index(){

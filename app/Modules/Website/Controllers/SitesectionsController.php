@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class SitesectionsController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesections\\';
-    protected $baseRoute = 'admin/website/sections';
+    protected $baseRoute = ADMIN_AREA.'/website/sections';
     protected $langModel = 'sitesections';
     protected $modelName = 'App\Modules\Api\Models\SitesectionsModel';
     public function index(){

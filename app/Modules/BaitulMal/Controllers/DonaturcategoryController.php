@@ -9,9 +9,9 @@ use App\Modules\BaitulMal\Models\DonaturcategoryFilter;
 
 class DonaturcategoryController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donaturcategory\\';
-    protected $baseRoute = 'admin/baitulmal/donaturcategory';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donaturcategory';
     protected $langModel = 'donaturcategory';
     protected $modelName = 'App\Modules\Api\Models\DonaturcategoryModel';
     public function index(){

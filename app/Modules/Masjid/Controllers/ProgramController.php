@@ -12,9 +12,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 class ProgramController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\program\\';
-    protected $baseRoute = 'admin/masjid/program';
+    protected $baseRoute = ADMIN_AREA.'/masjid/program';
     protected $langModel = 'program';
     protected $modelName = 'App\Modules\Api\Models\ProgramModel';
     private $imageFolder = 'images';

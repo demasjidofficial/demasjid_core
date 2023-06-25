@@ -18,7 +18,7 @@ class BmdonationtypeModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[bmdonationtype.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[bmdonationtype.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		'description' => 'max_length[255]',
 		'uom_id' => 'numeric',

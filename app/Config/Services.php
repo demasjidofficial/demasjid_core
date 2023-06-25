@@ -2,11 +2,7 @@
 
 namespace Config;
 
-use Bonfire\Bonfire;
-use Bonfire\View\View;
 use CodeIgniter\Config\BaseService;
-use Config\Services as AppServices;
-use Config\View as ViewConfig;
 
 /**
  * Services Configuration file.
@@ -23,79 +19,14 @@ use Config\View as ViewConfig;
  */
 class Services extends BaseService
 {
-    /**
-     * The Renderer class is the class that actually displays a file to the user.
-     * The default View class within CodeIgniter is intentionally simple, but this
-     * service could easily be replaced by a template engine if the user needed to.
+    /*
+     * public static function example($getShared = true)
+     * {
+     *     if ($getShared) {
+     *         return static::getSharedInstance('example');
+     *     }
      *
-     * @return View
+     *     return new \CodeIgniter\Example();
+     * }
      */
-    public static function renderer(?string $viewPath = null, ?ViewConfig $config = null, bool $getShared = true)
-    {
-        if ($getShared) {
-            return static::getSharedInstance('renderer', $viewPath, $config);
-        }
-
-        $viewPath = $viewPath ?: config('Paths')->viewDirectory;
-        $config ??= config('View');
-
-        return new View($config, $viewPath, AppServices::locator(), CI_DEBUG, AppServices::logger());
-    }
-
-    /**
-     * Core utility class for Bonfire's system.
-     *
-     * @return Bonfire|mixed
-     */
-    public static function bonfire(bool $getShared = true)
-    {
-        if ($getShared) {
-            return static::getSharedInstance('bonfire');
-        }
-
-        return new Bonfire();
-    }
-
-    /**
-     * Returns the system menu manager
-     *
-     * @return Bonfire\Libraries\Menus\Manager|mixed
-     */
-    public static function menus(bool $getShared = true)
-    {
-        if ($getShared) {
-            return static::getSharedInstance('menus');
-        }
-
-        return new \Bonfire\Libraries\Menus\Manager();
-    }
-
-    /**
-     * Returns the Resource Tab manager that integrates
-     * extra tabs into resources like Users, User Groups, etc.
-     *
-     * @return \Bonfire\Resources\ResourceTabs|mixed
-     */
-    public static function resourceTabs(bool $getShared = true)
-    {
-        if ($getShared) {
-            return static::getSharedInstance('resourceTabs');
-        }
-
-        return new \Bonfire\Resources\ResourceTabs();
-    }
-
-    /**
-     * Returns the system widgets stats manager
-     *
-     * @return Bonfire\Libraries\Widgets\Manager|mixed
-     */
-    public static function widgets(bool $getShared = true)
-    {
-        if ($getShared) {
-            return static::getSharedInstance('widgets');
-        }
-
-        return new \App\Libraries\Widgets\Manager();
-    }
 }

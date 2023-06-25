@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class BotwaController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Bot\Views\botwhatsapp\\';
-    protected $baseRoute = 'admin/bot/easywa';
+    protected $baseRoute = ADMIN_AREA.'/bot/easywa';
     protected $langModel = 'botwhatsapp';
     //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
     

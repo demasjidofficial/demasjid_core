@@ -9,9 +9,9 @@ use App\Modules\Settings\Models\UomCategoryFilter;
 
 class UomCategoryController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Settings\Views\uom_category\\';
-    protected $baseRoute = 'admin/settings/uom_category';
+    protected $baseRoute = ADMIN_AREA.'/settings/uom_category';
     protected $langModel = 'uom_category';
     protected $modelName = 'App\Modules\Api\Models\UomCategoryModel';
     public function index(){

@@ -16,7 +16,7 @@ class SitefooterModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[sitefooter.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[sitefooter.id,id,{id}]',
 		'title' => 'max_length[255]|required',
 		'content' => 'required',
 		'language_id' => 'numeric|max_length[11]',

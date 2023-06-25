@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class NominalTargetController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\nominal_target\\';
-    protected $baseRoute = 'admin/baitulmal/nominaltarget';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/nominaltarget';
     protected $langModel = 'nominal_target';
     protected $modelName = 'App\Modules\Api\Models\NominalTargetModel';
     public function index(){

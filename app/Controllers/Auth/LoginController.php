@@ -3,7 +3,7 @@
 namespace App\Controllers\Auth;
 
 use App\Entities\User;
-use Sparks\Shield\Controllers\LoginController as ShieldLogin;
+use CodeIgniter\Shield\Controllers\LoginController as ShieldLogin;
 
 class LoginController extends ShieldLogin
 {

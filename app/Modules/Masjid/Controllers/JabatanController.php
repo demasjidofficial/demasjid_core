@@ -8,7 +8,7 @@ use App\Modules\Masjid\Models\JabatanFilter;
 
 class JabatanController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix     = 'App\Modules\Masjid\Views\jabatan\\';
     protected $baseRoute      = 'admin/masjid/jabatan';
     protected $langModel      = 'jabatan';

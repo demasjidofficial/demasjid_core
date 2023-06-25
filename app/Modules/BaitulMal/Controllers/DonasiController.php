@@ -12,9 +12,9 @@ use App\Modules\BaitulMal\Models\BmdonationcampaignFilter;
 
 class DonasiController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donasi\\';
-    protected $baseRoute = 'admin/baitulmal/donation';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donation';
     protected $langModel = 'donasi';
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
     public function index(){

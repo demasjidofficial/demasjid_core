@@ -8,9 +8,9 @@
 		"php": "^7.4||^8.0",
 		"ext-json": "*",	
 		"codeigniter4/framework": "^4",	
-		"components/font-awesome": "^5.15",
-		"league/commonmark": "^2.0",
-		"lonnieezell/codigniter-shield": "dev-develop",
+		"components/font-awesome": "^6",
+		"league/commonmark": "^2.0",		
+        "codeigniter4/shield": "dev-develop",
 		"roave/security-advisories": "dev-latest",
 		"spatie/commonmark-highlighter": "^3.0",
 		"tatter/alerts": "^3.0",
@@ -18,8 +18,12 @@
 		"pragmarx/ia-arr": "^7.3",
 		"tightenco/collect": "^8.83",
 		"endroid/qr-code": "^4.4",
-		"dompdf/dompdf": "^1.2",
-		"phpoffice/phpspreadsheet": "^1.22"				
+		"dompdf/dompdf": "^2",
+		"phpoffice/phpspreadsheet": "^1.22",
+		"tatter/menus": "dev-develop",
+        "lonnieezell/bonfire": "dev-develop",
+        "codeigniter4/translations": "4.x-dev",
+        "nesbot/carbon": "3.x-dev"
 	},
 	"require-dev": {
 		"codeigniter/coding-standard": "^1.1",

@@ -13,9 +13,9 @@ use App\Modules\BaitulMal\Models\BmdonationcampaignFilter;
 class DonasiTugasController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donasi_tugas\\';
-    protected $baseRoute = 'admin/baitulmal/donation_tugas';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/donation_tugas';
     protected $langModel = 'donasi';
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
     public function index(){

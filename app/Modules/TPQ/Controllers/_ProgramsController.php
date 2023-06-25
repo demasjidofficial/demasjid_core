@@ -9,9 +9,9 @@ use App\Controllers\AdminCrudController;
 
 class _ProgramsController extends AdminCrudController
 {
-    //protected $baseController = __CLASS__;
+    //protected $baseController = '\\'.__CLASS__;
     //protected $viewPrefix = 'App\Modules\TPQ\Views\submodules\\';
-    //protected $baseRoute = 'admin/masjid/';
+    //protected $baseRoute = ADMIN_AREA.'/masjid/';
     //protected $langModel = 'accounting';
     //protected $modelName = 'App\Modules\Api\Models\ProgramsModel';
     public function index(){

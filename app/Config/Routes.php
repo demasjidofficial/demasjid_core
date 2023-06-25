@@ -33,6 +33,11 @@ $routes->addRedirect('/', '/id');
 $routes->get('{locale}', 'Home::index', ['priority' => 1]);
 $routes->get('{locale}/(:segment)', 'Home::index/$1', ['priority' => 1]);
 
+// Override route dari bonfire
+$routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], static function ($routes) {
+    $routes->get('/', 'Dashboard::index');
+});
+
 // Auth routes
 $routes->get('register', '\App\Controllers\Auth\RegisterController::registerView');
 $routes->get('login', '\App\Controllers\Auth\LoginController::loginView');
@@ -132,7 +137,8 @@ $routes->get('{locale}/checkout/(:segment)', 'CheckoutController::CheckoutView/$
 $routes->get('{locale}/instructionofpayment/(:segment)', 'InformatonofpaymentController::InformationView/$1/$2');
 $routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationController::ConfirmView');
 $routes->get('{locale}/donations', 'Donations::index');
-
+// override assetController module bonfire
+$routes->get('assets/(:any)', '\App\Controllers\AssetController::serve/$1');
 // setup new domain
 $routes->group('/setup', function($routes){
     $routes->get('migrate', '\App\Controllers\SetupController::migrate');

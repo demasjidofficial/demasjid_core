@@ -2,8 +2,8 @@
 
 namespace App\Entities;
 
-use Bonfire\Traits\HasMeta;
-use Sparks\Shield\Entities\User as ShieldUser;
+use App\Traits\HasMeta;
+use CodeIgniter\Shield\Entities\User as ShieldUser;
 
 class User extends ShieldUser
 {

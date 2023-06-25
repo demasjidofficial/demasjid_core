@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Auth;
 
-use Sparks\Shield\Controllers\RegisterController as ShieldRegister;
+use CodeIgniter\Shield\Controllers\RegisterController as ShieldRegister;
 
 class RegisterController extends ShieldRegister
 {

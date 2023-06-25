@@ -23,7 +23,7 @@ class BalanceModel extends BaseModel
     ];
 	
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[balance.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[balance.id,id,{id}]',
 		'account_balance_id' => 'numeric|required',		
 		'description' => 'max_length[200]|required',
 		'type' => 'string|required',		

@@ -31,7 +31,7 @@ class ChartOfAccountModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[chart_of_account.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[chart_of_account.id,id,{id}]',
 		'code' => 'max_length[10]',
 		'name' => 'max_length[60]|required',
 		'group_account' => 'max_length[60]|required',

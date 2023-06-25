@@ -12,9 +12,9 @@ use App\Traits\UploadedFile;
 class SiswaController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\siswa\\';
-    protected $baseRoute = 'admin/pesantren/siswa';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/siswa';
     protected $langModel = 'siswa';
     protected $modelName = 'App\Modules\Api\Models\SiswaModel';
     private $imageFolder = 'images';

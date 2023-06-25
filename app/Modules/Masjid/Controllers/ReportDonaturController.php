@@ -8,9 +8,9 @@ use CodeIgniter\I18n\Time;
 
 class ReportDonaturController extends ReportController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_donatur\\';
-    protected $baseRoute = 'admin/masjid/reportdonation';
+    protected $baseRoute = ADMIN_AREA.'/masjid/reportdonation';
     protected $modelName = 'App\Modules\Masjid\Models\ReportDonationModel';
 
     public function index()

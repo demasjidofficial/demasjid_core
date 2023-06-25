@@ -9,9 +9,9 @@ use App\Controllers\AdminCrudController;
 
 class ReportGeneralLedgerController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_generalledger\\';
-    //protected $baseRoute = 'admin/masjid/';
+    //protected $baseRoute = ADMIN_AREA.'/masjid/';
     //protected $langModel = 'accounting';
     //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
     public function index(){

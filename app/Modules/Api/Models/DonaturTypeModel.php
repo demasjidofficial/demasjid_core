@@ -14,7 +14,7 @@ class DonaturTypeModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[donatur_type.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[donatur_type.id,id,{id}]',
 		// 'name' => 'max_length[255]|required',
 		'type' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',

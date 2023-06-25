@@ -17,7 +17,7 @@ class CommentRoomModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[comment_room.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[comment_room.id,id,{id}]',
 		'room_id' => 'numeric|max_length[11]',
 		'kritik' => 'max_length[50]|required',
 		'saran' => 'max_length[50]|required',

@@ -21,7 +21,7 @@ class CampaignsModel extends BaseModel
 		'modified_date'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[campaigns.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[campaigns.id,id,{id}]',
 		'id_program' => 'numeric|max_length[11]|required',
 		'status' => 'max_length[10]',
 		'is_active' => 'max_length[5]',

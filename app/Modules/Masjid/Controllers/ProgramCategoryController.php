@@ -8,9 +8,9 @@ use App\Modules\Masjid\Models\ProgramCategoryFilter;
 
 class ProgramCategoryController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\program_category\\';
-    protected $baseRoute = 'admin/masjid/programcategory';
+    protected $baseRoute = ADMIN_AREA.'/masjid/programcategory';
     protected $langModel = 'program_category';
     protected $modelName = 'App\Modules\Api\Models\ProgramCategoryModel';
 

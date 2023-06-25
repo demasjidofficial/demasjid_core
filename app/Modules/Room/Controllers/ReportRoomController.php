@@ -8,9 +8,9 @@ use CodeIgniter\I18n\Time;
 
 class ReportRoomController extends ReportController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_room\\';
-    protected $baseRoute = 'admin/masjid/reportroom';
+    protected $baseRoute = ADMIN_AREA.'/masjid/reportroom';
     protected $modelName = 'App\Modules\Masjid\Models\ReportRoomModel';
 
     public function index()

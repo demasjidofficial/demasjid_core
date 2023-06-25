@@ -11,9 +11,9 @@ use App\Modules\BaitulMal\Models\TimFundraisingFilter;
 
 class TimFundraisingController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\tim_fundraising\\';
-    protected $baseRoute = 'admin/baitulmal/timfundraising';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/timfundraising';
     protected $langModel = 'tim_fundraising';
     protected $modelName = 'App\Modules\Api\Models\TimFundraisingModel';
     public function index($id = null){

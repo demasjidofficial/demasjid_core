@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class EntityController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\entity\\';
-    protected $baseRoute = 'admin/masjid/entity';
+    protected $baseRoute = ADMIN_AREA.'/masjid/entity';
     protected $langModel = 'entity';
     protected $modelName = 'App\Modules\Api\Models\EntityModel';
     public function index(){

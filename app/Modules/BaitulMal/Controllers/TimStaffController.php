@@ -10,9 +10,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class TimStaffController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\tim_staff\\';
-    protected $baseRoute = 'admin/baitulmal/timstaff';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/timstaff';
     protected $langModel = 'tim_staff';
     protected $modelName = 'App\Modules\Api\Models\TimStaffModel';
     public function index(){

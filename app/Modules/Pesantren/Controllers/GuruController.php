@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class GuruController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\guru\\';
-    protected $baseRoute = 'admin/pesantren/guru';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/guru';
     protected $langModel = 'guru';
     protected $modelName = 'App\Modules\Api\Models\GuruModel';
     private $imageFolder = 'images';

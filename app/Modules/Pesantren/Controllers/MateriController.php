@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\MateriFilter;
 
 class MateriController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\materi\\';
-    protected $baseRoute = 'admin/pesantren/materi';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/materi';
     protected $langModel = 'materi';
     protected $modelName = 'App\Modules\Api\Models\MateriModel';
     public function index()

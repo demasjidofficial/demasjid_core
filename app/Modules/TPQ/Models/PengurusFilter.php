@@ -3,7 +3,7 @@
 namespace App\Modules\TPQ\Models;
 
 use App\Modules\Api\Models\PengurusModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class PengurusFilter extends PengurusModel
 {

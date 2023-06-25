@@ -30,7 +30,7 @@ class BmdonationcampaignModel extends BaseModel
 
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[bmdonationcampaign.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[bmdonationcampaign.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		// 'label' => 'max_length[255]',
 		'path_image' => 'max_length[255]',

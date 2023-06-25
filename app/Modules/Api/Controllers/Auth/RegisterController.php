@@ -110,7 +110,7 @@ class RegisterController extends ResourceController
     /**
      * Returns the Entity class that should be used.
      *
-     * @return \Sparks\Shield\Entities\User
+     * @return \CodeIgniter\Shield\Entities\User
      */
     protected function getUserEntity()
     {

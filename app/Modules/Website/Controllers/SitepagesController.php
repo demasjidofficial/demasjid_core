@@ -11,9 +11,9 @@ use App\Traits\UploadedFile;
 class SitepagesController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitepages\\';
-    protected $baseRoute = 'admin/website/pages';
+    protected $baseRoute = ADMIN_AREA.'/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
     private $imageFolder = 'images';

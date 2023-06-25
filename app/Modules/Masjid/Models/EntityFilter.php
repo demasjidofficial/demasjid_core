@@ -3,7 +3,7 @@
 namespace App\Modules\Masjid\Models;
 
 use App\Modules\Api\Models\EntityModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class EntityFilter extends EntityModel
 {

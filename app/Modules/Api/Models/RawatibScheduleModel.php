@@ -18,7 +18,7 @@ class RawatibScheduleModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[rawatib_schedule.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[rawatib_schedule.id,id,{id}]',
 		'name' => 'max_length[15]|required',
 		'pray_time' => 'required',
 		'is_automatic' => 'numeric|max_length[1]|required',

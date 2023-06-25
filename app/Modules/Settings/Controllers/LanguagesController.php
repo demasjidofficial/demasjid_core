@@ -9,9 +9,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class LanguagesController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Settings\Views\languages\\';
-    protected $baseRoute = 'admin/settings/languages';
+    protected $baseRoute = ADMIN_AREA.'/settings/languages';
     protected $langModel = 'languages';
     protected $modelName = 'App\Modules\Api\Models\LanguagesModel';
     public function index(){

@@ -9,9 +9,9 @@ use App\Modules\Settings\Models\UomFilter;
 
 class UomController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Settings\Views\uom\\';
-    protected $baseRoute = 'admin/settings/uom';
+    protected $baseRoute = ADMIN_AREA.'/settings/uom';
     protected $langModel = 'uom';
     protected $modelName = 'App\Modules\Api\Models\UomModel';
     public function index(){

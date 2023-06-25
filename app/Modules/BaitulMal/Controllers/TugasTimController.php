@@ -9,9 +9,9 @@ use App\Modules\BaitulMal\Models\TugasTimFilter;
 
 class TugasTimController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\tugas_tim\\';
-    protected $baseRoute = 'admin/baitulmal/tugastim';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/tugastim';
     protected $langModel = 'tugas_tim';
     protected $modelName = 'App\Modules\Api\Models\TugasTimModel';
     public function index()

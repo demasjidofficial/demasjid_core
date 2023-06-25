@@ -2,18 +2,17 @@
 
 namespace Config;
 
-use Bonfire\Modules\Users\Libraries\UserRules;
-use CodeIgniter\Validation\CreditCardRules;
-use CodeIgniter\Validation\FileRules;
-use CodeIgniter\Validation\FormatRules;
-use CodeIgniter\Validation\Rules;
-use Sparks\Shield\Authentication\Passwords\ValidationRules as PasswordRules;
+use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Validation\StrictRules\CreditCardRules;
+use CodeIgniter\Validation\StrictRules\FileRules;
+use CodeIgniter\Validation\StrictRules\FormatRules;
+use CodeIgniter\Validation\StrictRules\Rules;
 
-class Validation
+class Validation extends BaseConfig
 {
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
     // Setup
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
 
     /**
      * Stores the classes that contain the
@@ -21,13 +20,11 @@ class Validation
      *
      * @var string[]
      */
-    public $ruleSets = [
+    public array $ruleSets = [
         Rules::class,
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
-        PasswordRules::class,
-        UserRules::class,
     ];
 
     /**
@@ -36,19 +33,12 @@ class Validation
      *
      * @var array<string, string>
      */
-    public $templates = [
+    public array $templates = [
         'list'   => 'CodeIgniter\Validation\Views\list',
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
-    //--------------------------------------------------------------------
+    // --------------------------------------------------------------------
     // Rules
-    //--------------------------------------------------------------------
-
-    public $users = [
-        'email'      => 'required|valid_email|unique_email[{id}]',
-        'username'   => 'required|string|is_unique[users.username,id,{id}]',
-        'first_name' => 'permit_empty|string|min_length[3]',
-        'last_name'  => 'permit_empty|string|min_length[3]',
-    ];
+    // --------------------------------------------------------------------
 }

@@ -19,7 +19,7 @@ use App\Libraries\Widgets\Stats\StatsItem;
 use App\Modules\Api\Models\BalanceModel;
 use App\Modules\Api\Models\ProgramModel;
 use App\Modules\Api\Models\UserModel;
-use Bonfire\Libraries\Widgets\Charts\Charts;
+use App\Libraries\Widgets\Charts\Charts;
 
 /**
  * Class Dashboard.

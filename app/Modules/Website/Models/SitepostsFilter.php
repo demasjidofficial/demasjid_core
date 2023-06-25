@@ -3,7 +3,7 @@
 namespace App\Modules\Website\Models;
 
 use App\Modules\Api\Models\SitepostsModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class SitepostsFilter extends SitepostsModel
 {

@@ -3,7 +3,7 @@
 namespace App\Modules\Website\Models;
 
 use App\Modules\Api\Models\SiteslidersModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class SiteslidersFilter extends SiteslidersModel
 {

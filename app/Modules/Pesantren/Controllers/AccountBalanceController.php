@@ -10,9 +10,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 
 class AccountBalanceController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\account_balance\\';
-    protected $baseRoute = 'admin/pesantren/accountbalance';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/accountbalance';
     protected $langModel = 'account_balance';
     protected $modelName = 'App\Modules\Api\Models\AccountBalanceModel';
     public function index(){

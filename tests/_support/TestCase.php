@@ -8,7 +8,7 @@ use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
 use CodeIgniter\Test\FeatureTestTrait;
 use Faker\Factory;
-use Sparks\Shield\Test\AuthenticationTesting;
+use CodeIgniter\Shield\Test\AuthenticationTesting;
 
 /**
  * @internal

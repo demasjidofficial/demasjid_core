@@ -2,7 +2,7 @@
 
 namespace Config;
 
-use Sparks\Shield\Config\AuthGroups as ShieldGroups;
+use CodeIgniter\Shield\Config\AuthGroups as ShieldGroups;
 
 class AuthGroups extends ShieldGroups
 {
@@ -12,7 +12,7 @@ class AuthGroups extends ShieldGroups
      * --------------------------------------------------------------------
      * The group that a newly registered user is added to.
      */
-    public $defaultGroup = 'user';
+    public string $defaultGroup = 'user';
 
     /**
      * --------------------------------------------------------------------
@@ -23,7 +23,7 @@ class AuthGroups extends ShieldGroups
      * by alias in the auth helper:
      *      auth('api')->attempt($credentials);
      */
-    public $groups = [
+    public array $groups = [
         'superadmin' => [
             'title'       => 'Super Admin',
             'description' => 'Complete control of the site.',
@@ -79,7 +79,7 @@ class AuthGroups extends ShieldGroups
      *
      * If a permission is not listed here it cannot be used.
      */
-    public $permissions = [
+    public array $permissions = [
         'admin.access'        => 'Can access the sites admin area',
         'admin.settings'      => 'Can access the main site settings',
         'groups.settings'     => 'Can edit existing user groups',
@@ -224,7 +224,7 @@ class AuthGroups extends ShieldGroups
      * --------------------------------------------------------------------
      * Maps permissions to groups.
      */
-    public $matrix = [
+    public array $matrix = [
         'superadmin' => [
             'admin.*',
             'groups.*',

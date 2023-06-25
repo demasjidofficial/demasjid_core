@@ -3,7 +3,7 @@
 namespace App\Controllers\Auth;
 
 use Bonfire\View\Themeable;
-use Sparks\Shield\Controllers\MagicLinkController as ShieldMagicLinkController;
+use CodeIgniter\Shield\Controllers\MagicLinkController as ShieldMagicLinkController;
 
 class MagicLinkController extends ShieldMagicLinkController
 {

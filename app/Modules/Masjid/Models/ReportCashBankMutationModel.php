@@ -2,7 +2,7 @@
 
 namespace App\Modules\Masjid\Models;
 
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 use CodeIgniter\Database\BaseBuilder;
 use App\Modules\Api\Models\BalanceModel;
 use App\Modules\Masjid\Config\Finance;

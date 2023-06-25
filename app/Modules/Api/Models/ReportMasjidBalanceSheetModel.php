@@ -22,7 +22,7 @@ class ReportMasjidBalanceSheetModel extends BaseModel
         'created_by',
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[account_balance.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[account_balance.id,id,{id}]',
         'name' => 'max_length[50]|required',
         'account' => 'max_length[50]|required',
         'entity_id' => 'numeric|required',

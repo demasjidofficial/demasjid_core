@@ -16,7 +16,7 @@ class SitesocialsModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[sitesocials.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[sitesocials.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		'link' => 'max_length[255]|required',
 		// 'path_icon' => 'max_length[255]',

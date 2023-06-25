@@ -25,7 +25,7 @@
 
                 <!-- Filters -->
                 <div class="col-auto" x-show="filtered" x-transition.duration.240ms>
-                    <?= view_cell('Bonfire\Libraries\Cells\Filters::renderList', 'model=WilayahFilter target=#wilayah-list') ?>
+                    <?= view_cell('App\Libraries\Cells\Filters::renderList', 'model=WilayahFilter target=#wilayah-list') ?>
                 </div>
             </div>
         </div>

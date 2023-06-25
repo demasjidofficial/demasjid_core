@@ -3,7 +3,7 @@
 namespace App\Modules\BaitulMal;
 
 use App\Config\BaseModule;
-use Bonfire\Libraries\Menus\MenuItem;
+use Bonfire\Menus\MenuItem;
 
 /**
  * Pengurus Module setup.
@@ -22,61 +22,61 @@ class Module extends BaseModule
         // Content Menu for sidebar
         $zakatfitrahItem = new MenuItem([
             'title'           => 'Zakat Fitrah',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/donationtype',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.donationtype.list',
         ]);
         $zakatmalItem = new MenuItem([
             'title'           => 'Zakat Mal',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/donationtype',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.donationtype.list',
         ]);
         $shodaqohItem = new MenuItem([
             'title'           => 'Shodaqoh',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/donationtype',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.donationtype.list',
         ]);
         $donationTypeItem = new MenuItem([
             'title'           => 'Tipe Donasi',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationtypeController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/donationtype',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            // 'permission'      => 'baitulmal.donationtype.list',
         ]);
         $infaqItem = new MenuItem([
             'title'           => 'Infaq',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/infaqshodaqoh',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.infaqshodaqoh.list',
         ]);
         $infaqtypeItem = new MenuItem([
             'title'           => 'Tipe Infaq',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/infaqshodaqohcategory',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
         $wakafItem = new MenuItem([
             'title'           => 'Wakaf',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/infaqshodaqohcategory',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
         $qurbanItem = new MenuItem([
             'title'           => 'Qurban',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/infaqshodaqohcategory',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
         $donasiItem = new MenuItem([
             'title'           => 'Donasi',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/infaqshodaqohcategory',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
         $masterItem = new MenuItem([
             'title'           => 'Master',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BminfaqshodaqohcategoryController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/infaqshodaqohcategory',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
            'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
@@ -86,50 +86,50 @@ class Module extends BaseModule
          */
         // $campaignsItem = new MenuItem([
         //     'title'           => lang('crud.campaigns'),
-        //     'url'             => url_to('App\Modules\BaitulMal\Controllers\_CampaignsController::index'),
+        //     'url'             => ADMIN_AREA.'/baitulmal/_Campaigns',
         //     'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
         //    'permission'      => 'baitulmal.zakats.list',
         // ]);
         $zakatsItem = new MenuItem([
             'title'           => lang('crud.zakats'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_ZakatsController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/_Zakats',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.zakats.list',
         ]);
         $infaqsItem = new MenuItem([
             'title'           => lang('crud.infaqs'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_InfaqsController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/_Infaqs',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.infaqs.list',
         ]);
         $shodaqohsItem = new MenuItem([
             'title'           => lang('crud.shodaqohs'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_ShodaqohsController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/_Shodaqohs',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.shodaqohs.list',
         ]);
         $wakafsItem = new MenuItem([
             'title'           => lang('crud.wakafs'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_WakafsController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/_Wakafs',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.wakafs.list',
         ]);
         $qurbansItem = new MenuItem([
             'title'           => lang('crud.qurbans'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_QurbansController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/_Qurbans',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.qurbans.list',
         ]);
         $donasisItem = new MenuItem([
             'title'           => lang('crud.donasis'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\BmdonationcampaignController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/donationcampaign',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
         //    'permission'      => 'baitulmal.qurbans.list',
         ]);
 
         $fundraisingManagerItem = new MenuItem([
             'title'           => 'Fundraising Manager',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewManagerController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/OverviewManager',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            //'permission'        => 'baitulmal.manager_fundraising.list',
            
@@ -138,40 +138,36 @@ class Module extends BaseModule
         
         $fundraisingSpvItem = new MenuItem([
             'title'           => 'Fundraising',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewSpvController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/OverviewSpv',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'        => 'baitulmal.supervisor_fundraising.list',
         ]);
 
         $fundraisingStaffItem = new MenuItem([
             'title'           => 'Fundraising',
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\OverviewTimController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/OverviewTim',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'        => 'baitulmal.staf_fundraising.list',
         ]);
       
         $masterBaitulMalsItem = new MenuItem([
             'title'           => lang('crud.masters'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\MasterController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/Master',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.qurbans.list',
         ]);
         $configsItem = new MenuItem([
             'title'           => lang('crud.configs'),
-            'url'             => url_to('App\Modules\BaitulMal\Controllers\_ConfigsController::index'),
+            'url'             => ADMIN_AREA.'/baitulmal/_Configs',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'      => 'baitulmal.configs.list',
         ]);
+
+        $sidebar->menu('sidebar')->createCollection('baitulmal', 'Baitul Mal')
+                    ->setFontAwesomeIcon('fas fa-money')
+                    ->setCollapsible();
         $sidebar->menu('sidebar')->collection('baitulmal')
-                ->addItem($donationTypeItem)
-                //->addItem($zakatmalItem)
-                //->addItem($shodaqohItem)
-                //->addItem($shodaqohtypeItem)
-                //->addItem($infaqItem)
-                //->addItem($infaqtypeItem)
-                //->addItem($wakafItem)
-                //->addItem($qurbanItem)
-                //->addItem($campaignsItem)
+                ->addItem($donationTypeItem)                
                 ->addItem($donasisItem)
                 ->addItem($zakatsItem)
                 ->addItem($infaqsItem)

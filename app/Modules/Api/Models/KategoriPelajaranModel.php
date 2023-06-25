@@ -14,7 +14,7 @@ class KategoriPelajaranModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[kategori_pelajaran.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[kategori_pelajaran.id,id,{id}]',
 		'name' => 'max_length[60]|required',
 		'description' => 'max_length[255]|required',
 		'created_at' => 'valid_date|required',

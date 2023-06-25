@@ -11,9 +11,9 @@ use IlluminateAgnostic\Arr\Support\Arr;
 class SitesocialsController extends AdminCrudController
 {
     use UploadedFile;
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\sitesocials\\';
-    protected $baseRoute = 'admin/website/socials';
+    protected $baseRoute = ADMIN_AREA.'/website/socials';
     protected $langModel = 'sitesocials';
     protected $modelName = 'App\Modules\Api\Models\SitesocialsModel';
     private $imageFolder = 'images';

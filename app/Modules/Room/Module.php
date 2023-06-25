@@ -3,7 +3,7 @@
 namespace App\Modules\Room;
 
 use App\Config\BaseModule;
-use Bonfire\Libraries\Menus\MenuItem;
+use Bonfire\Menus\MenuItem;
 
 /**
  * Pengurus Module setup.
@@ -21,32 +21,35 @@ class Module extends BaseModule
 
         $roomItem = new MenuItem([
             'title'           => lang('crud.room'),
-            'url'             => url_to('App\Modules\Room\Controllers\RoomController::index'),
+            'url'             => ADMIN_AREA.'/room/room',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $reservruanganItem = new MenuItem([
             'title'           => lang('crud.reservruangan'),
-            'url'             => url_to('App\Modules\Room\Controllers\RoomReservationController::index'),
+            'url'             => ADMIN_AREA.'/room/roomreservation',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $InfaqruanganItem = new MenuItem([
             'title'           => lang('crud.infaq_room'),
-            'url'             => url_to('App\Modules\Room\Controllers\InfaqRoomController::index'),
+            'url'             => ADMIN_AREA.'/room/infaqroom',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
 
         $rekaplaporanItem = new MenuItem([
             'title'           => lang('crud.summary'),
-            'url'             => url_to('App\Modules\Room\Controllers\ReportRoomController::index'),
+            'url'             => ADMIN_AREA.'/room/reportroom',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
-
+        $sidebar->menu('sidebar')->createCollection('room', 'Room')
+                ->setFontAwesomeIcon('fas fa-home')
+                ->setCollapsible();
+            
         $sidebar->menu('sidebar')->collection('room')
             ->addItem($roomItem)
             ->addItem($reservruanganItem)

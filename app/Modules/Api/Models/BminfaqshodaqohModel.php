@@ -24,7 +24,7 @@ class BminfaqshodaqohModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[bminfaqshodaqoh.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[bminfaqshodaqoh.id,id,{id}]',
 		'name' => 'max_length[128]|required',
 		'label' => 'max_length[255]|required',
 		'needed_funds' => 'decimal|max_length[10]',

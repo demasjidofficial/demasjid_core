@@ -9,9 +9,9 @@ use App\Controllers\AdminCrudController;
 
 class ReportCashFlowController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Masjid\Views\report_cashflow\\';
-    //protected $baseRoute = 'admin/masjid/';
+    //protected $baseRoute = ADMIN_AREA.'/masjid/';
     //protected $langModel = 'accounting';
     //protected $modelName = 'App\Modules\Api\Models\FinancesModel';
     public function index(){

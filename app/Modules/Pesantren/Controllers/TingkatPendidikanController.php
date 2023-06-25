@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\TingkatPendidikanFilter;
 
 class TingkatPendidikanController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\tingkat_pendidikan\\';
-    protected $baseRoute = 'admin/pesantren/tingkatpendidikan';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/tingkatpendidikan';
     protected $langModel = 'tingkat_pendidikan';
     protected $modelName = 'App\Modules\Api\Models\TingkatPendidikanModel';
     public function index()

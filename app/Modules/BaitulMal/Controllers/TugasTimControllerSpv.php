@@ -9,9 +9,9 @@ use App\Modules\BaitulMal\Models\TugasTimSpvFilter;
 
 class TugasTimControllerSpv extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\tugas_tim_spv\\';
-    protected $baseRoute = 'admin/baitulmal/tugastimspv';
+    protected $baseRoute = ADMIN_AREA.'/baitulmal/tugastimspv';
     protected $langModel = 'tugas_tim_spv';
     protected $modelName = 'App\Modules\Api\Models\TugasTimModelSpv';
     public function index()

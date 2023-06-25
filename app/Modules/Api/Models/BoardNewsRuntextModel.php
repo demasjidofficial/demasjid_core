@@ -14,7 +14,7 @@ class BoardNewsRuntextModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[board_news_runtext.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[board_news_runtext.id,id,{id}]',
 		'text' => 'max_length[255]',
 		// 'duration' => 'max_length[255]',
 		'created_at' => 'valid_date|required',

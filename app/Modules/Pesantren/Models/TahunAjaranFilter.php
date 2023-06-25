@@ -3,7 +3,7 @@
 namespace App\Modules\Pesantren\Models;
 
 use App\Modules\Api\Models\TahunAjaranModel;
-use Bonfire\Traits\Filterable;
+use App\Traits\Filterable;
 
 class TahunAjaranFilter extends TahunAjaranModel
 {

@@ -18,7 +18,7 @@ class JadwalFundraisingModel extends BaseModel
 	
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[jadwal_fundraising.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[jadwal_fundraising.id,id,{id}]',
 		'jadwal_durasi' => 'max_length[100]|required',
 		'jadwal_mulai' => 'valid_date',
 		'jadwal_akhir' => 'valid_date',

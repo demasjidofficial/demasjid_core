@@ -9,9 +9,9 @@ use App\Modules\Pesantren\Models\BabFilter;
 
 class BabController extends AdminCrudController
 {
-    protected $baseController = __CLASS__;
+    protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Pesantren\Views\bab\\';
-    protected $baseRoute = 'admin/pesantren/bab';
+    protected $baseRoute = ADMIN_AREA.'/pesantren/bab';
     protected $langModel = 'bab';
     protected $modelName = 'App\Modules\Api\Models\BabModel';
     public function index()

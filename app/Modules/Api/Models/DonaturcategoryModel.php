@@ -13,7 +13,7 @@ class DonaturcategoryModel extends BaseModel
 	
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[donaturcategory.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[donaturcategory.id,id,{id}]',
 		'name' => 'max_length[128]|required',
 
     ];   

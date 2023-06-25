@@ -15,7 +15,7 @@ class BmdonationcampaigncategoryModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[bmdonationcampaigncategory.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[bmdonationcampaigncategory.id,id,{id}]',
 		'name' => 'max_length[128]|required',
 		'label' => 'max_length[255]|required',
 		'description' => 'required',

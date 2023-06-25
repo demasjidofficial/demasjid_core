@@ -22,7 +22,7 @@ class SitepostsModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[siteposts.id,id,{id}]',
+       // 'id' => 'numeric|required|is_unique[siteposts.id,id,{id}]',
 		'title' => 'max_length[255]|required',
 		'subtitle' => 'max_length[255]|required',
 		// 'path_image' => 'max_length[255]',

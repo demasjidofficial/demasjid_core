@@ -13,7 +13,7 @@ class BoardDeviceModel extends BaseModel
 		'created_by'
     ];
     protected $validationRules = [
-        'id' => 'numeric|max_length[11]|required|is_unique[board_device.id,id,{id}]',
+       // 'id' => 'numeric|max_length[11]|required|is_unique[board_device.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		// 'created_at' => 'valid_date|required',
 		// 'updated_at' => 'valid_date|required',
