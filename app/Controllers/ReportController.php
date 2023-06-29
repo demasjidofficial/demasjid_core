@@ -205,7 +205,7 @@ class ReportController extends AdminController
         // instantiate and use the dompdf class
         $dompdf = new Dompdf();
         // load HTML content
-        $dompdf->loadHtml($viewHtml);
+        $dompdf->loadHtml($viewHtml);        
         // (optional) setup the paper size and orientation
         $dompdf->setPaper('A4');
         // render html as PDF

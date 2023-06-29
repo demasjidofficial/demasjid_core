@@ -4,7 +4,7 @@
     <?= $title['period'] ?><br>
 </div>
 <hr>
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered" width="100%">
     <thead>
         <?php if (isset($headers) && count($headers)) : ?>
         <tr class="text-center">            
@@ -21,7 +21,7 @@
         ?>
         <?php if (isset($data) && count($data)) : ?>        
         <?php foreach ($data as $item) : 
-          if($item->amount > 0){
+          if($item->type == 'debit'){
             $totalDebit += $item->amount ;
           }else{
             $totalCredit += $item->amount ;
