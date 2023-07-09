@@ -65,7 +65,7 @@ class SiteFooterSeeder extends Seeder
                                     <div id="mc_embed_signup">
                                     <input type="email" name="email" id="newsletter-form-email" placeholder="email" class="placeholder hide-on-focus" onfocus="this.placeholder = " onblur="this.placeholder = "Email Address" >
                                     <div class="form-icon">
-                                        <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="/assets/app/theme-charityworks/img/gallery/form.png" alt=""></button>
+                                        <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src=<?= assetUrl("app/theme-charityworks/img/gallery/form.png"); ?> alt=""></button>
                                     </div>
                                     <div class="mt-10 info"></div>
                                     

@@ -104,12 +104,12 @@
 
 <?php $this->endSection(); ?>
 <?php $this->section('styles') ?>
-    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css'), 'css') ?>
 <?php $this->endSection(); ?>
 <?php $this->section('scripts') ?>
     <!-- bs-custom-file-input -->    
-    <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
-    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js'), 'js') ?>
     <script type="text/javascript">
         $(function () {
             $('input[name=transaction_date]').daterangepicker({

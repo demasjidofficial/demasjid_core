@@ -11,8 +11,8 @@ For the examples, we will link to assets for the Admin theme.
 
 ## Linking to assets
 
-Within your views you can link to assets anywhere within your project with the `asset()` or `asset_link()` helper function.
-`asset_link()` takes two arguments. The first is the path to the file to load. The first segment of this path must be one of the defined
+Within your views you can link to assets anywhere within your project with the `asset()` or `assetUrlLink(assetUrl()))` helper function.
+`assetUrlLink(assetUrl()))` takes two arguments. The first is the path to the file to load. The first segment of this path must be one of the defined
 `$folders` in the configuration file. The rest of the path would be based on the actual file structure within that
 location. For the `Admin` theme, a folder has been defined called `admin`. Both the `Auth` and `App` themes have
 similar folders already defined.  
@@ -21,8 +21,8 @@ The second argument is the type of asset being loaded. This tells it how the res
 Currently, it only supports `css` and `js` files.
 
 ```php
-<?= asset_link('admin/css/admin.css', 'css') ?>
-<?= asset_link('admin/js/admin.js', 'js') ?>
+<?= assetUrlLink(assetUrl('admin/css/admin.css'), 'css') ?>
+<?= assetUrlLink(assetUrl('admin/js/admin.js'), 'js') ?>
 ```
 
 The `asset()` function is similar, except it only returns the URL. This is helpful as the function also inserts
@@ -75,8 +75,8 @@ the vendor folder are setup by default.
 ```php
 public $folders = [
     'app' => ROOTPATH.'themes/app',
-    'admin' => ROOTPATH.'themes/Admin',
-    'auth' => ROOTPATH.'themes/Auth',
+    'admin' => ROOTPATH.'themes/admin',
+    'auth' => ROOTPATH.'themes/auth',
     'other' => ROOTPATH.'vendor',
 ];
 ```

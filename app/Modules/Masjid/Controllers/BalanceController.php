@@ -15,7 +15,7 @@ class BalanceController extends AdminCrudController
     protected $langModel = 'balance';
     protected $modelName = 'App\Modules\Api\Models\BalanceModel';
     public function index(){
-        helper('number');
+        
         return parent::index();
     }
 

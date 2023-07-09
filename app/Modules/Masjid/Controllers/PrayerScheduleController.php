@@ -27,7 +27,7 @@ class PrayerScheduleController extends AdminController
      *
      * @var string
      */
-    protected $theme = 'Admin';
+    protected $theme = 'admin';
     /**
      * Displays the site's initial page.
      */

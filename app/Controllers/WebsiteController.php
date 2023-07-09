@@ -14,7 +14,7 @@ class WebsiteController extends BaseController
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        $this->theme = 'App'; // next will be replace with current active themes in database
+        $this->theme = 'app'; // next will be replace with current active themes in database
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
     }

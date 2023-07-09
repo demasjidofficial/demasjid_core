@@ -33,15 +33,13 @@ class Dashboard extends AdminController
      *
      * @var string
      */
-    protected $theme = 'Admin';
+    protected $theme = 'admin';
 
     /**
      * Displays the site's initial page.
      */
     public function index()
-    {
-        helper('number');
-        helper('app');
+    {        
         $this->setupWidgets();
         $this->setWidgetStats();
         $this->setWidgetZis();

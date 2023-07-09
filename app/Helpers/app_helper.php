@@ -164,3 +164,28 @@ if(!function_exists('generate_kode')){
        return $key;
    }
 }
+
+if(!function_exists('assetUrl')){
+    function assetUrl($path)
+   {       
+       $baseUrl = config('App')->assetUrl; 
+       return $baseUrl.DIRECTORY_SEPARATOR.$path;
+   }
+}
+if(!function_exists('assetUrlLink')){
+    function assetUrlLink(string $path, string $type): string
+    {        
+        $tag = '';
+
+        switch ($type) {
+            case 'css':
+                $tag = "<link href='{$path}' rel='stylesheet' />";
+                break;
+
+            case 'js':
+                $tag = "<script src='{$path}'></script>";
+        }
+
+        return $tag;
+    }
+}

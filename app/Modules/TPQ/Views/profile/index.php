@@ -18,14 +18,14 @@
 <?php $this->endSection(); ?>
 
 <?= $this->section('styles') ?>
-<?= asset_link('admin/theme-adminlte/plugins/select2/css/select2.min.css', 'css') ?>
-<?= asset_link('admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css', 'css') ?>
+<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2/css/select2.min.css'), 'css') ?>
+<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'), 'css') ?>
 <?php $this->endSection(); ?>
 <?= $this->section('scripts') ?>
     <!-- bs-custom-file-input -->
-    <?= asset_link('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js', 'js') ?>
-    <?= asset_link('admin/theme-adminlte/plugins/select2/js/select2.js', 'js') ?>
-    <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2/js/select2.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js') ?>
     
     
     <script type="text/javascript">

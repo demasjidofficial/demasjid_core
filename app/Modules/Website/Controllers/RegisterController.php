@@ -15,7 +15,7 @@ use App\Modules\Api\Models\SitesocialsModel;
 class RegisterController extends AdminCrudController
 {
     use UploadedFile;
-    protected $theme      = 'App';
+    protected $theme      = 'app';
     protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\Website\Views\register\\';
     protected $baseRoute = 'website/register';

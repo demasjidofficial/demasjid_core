@@ -17,7 +17,7 @@ use Endroid\QrCode\Writer\PngWriter;
 
 class TPQController extends BaseController
 {
-    protected $theme = 'Auth';
+    protected $theme = 'auth';
 
     use UploadedFile;
     protected $modelName = 'App\Modules\Api\Models\MemberModel';

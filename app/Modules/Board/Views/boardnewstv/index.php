@@ -142,7 +142,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 <!-- coin slider -->
-<?= asset_link('board/plugins/coin-slider/coin-slider-styles.css', 'css'); ?>
+<?= assetUrlLink(assetUrl('board/plugins/coin-slider/coin-slider-styles.css'), 'css'); ?>
 <!-- coin slider -->
 
 <style>
@@ -361,12 +361,12 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
 
 <!-- coin slider -->
-<?= asset_link('board/plugins/coin-slider/coin-slider.min.js', 'js'); ?>
+<?= assetUrlLink(assetUrl('board/plugins/coin-slider/coin-slider.min.js'), 'js'); ?>
 <!-- coin slider -->
 
 <!-- wow slider -->
-<?= asset_link('board/plugins/wow/engine6/wowslider.js', 'js'); ?>
-<?= asset_link('board/plugins/wow/engine6/script.js', 'js'); ?>
+<?= assetUrlLink(assetUrl('board/plugins/wow/engine6/wowslider.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('board/plugins/wow/engine6/script.js'), 'js'); ?>
 <!-- wow slider -->
 
 <script>

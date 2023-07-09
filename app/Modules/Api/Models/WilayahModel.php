@@ -25,7 +25,7 @@ class WilayahModel extends BaseModel
     ];
 
     public function extractWilayah($kode){
-        helper('app');
+        
         $this->whereIn('kode', extractWilayah($kode));
 
         return $this;

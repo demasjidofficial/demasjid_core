@@ -79,11 +79,11 @@
                 <!-- about-img -->
                 <div class="about-img ">
                     <div class="about-font-img d-none d-lg-block">
-                        <img src="/assets/app/theme-charityworks/img/gallery/masjid-alfurqon-upi.png" alt=""
+                        <img src="<?= assetUrl("app/theme-charityworks/img/gallery/masjid-alfurqon-upi.png"); ?>" alt=""
                             style="width:60%;">
                     </div>
                     <div class="about-back-img ">
-                        <img src="/assets/app/theme-charityworks/img/gallery/alfurqon-UPi.jpeg" alt=""
+                        <img src="<?= assetUrl("app/theme-charityworks/img/gallery/alfurqon-UPi.jpeg"); ?>" alt=""
                             style="width:60%;margin-left:25%;">
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                 <div class="home-blog-single mb-30">
                     <div class="blog-img-cap">
                         <div class="blog-img">
-                            <img src="/assets/app/theme-charityworks/img/gallery/lelaki-shalat-sujud.jpeg" alt="">
+                            <img src="<?= assetUrl("app/theme-charityworks/img/gallery/lelaki-shalat-sujud.jpeg"); ?>" alt="">
                             <!-- Blog date -->
                             <div class="blog-date text-center">
                                 <span>24</span>
@@ -194,7 +194,7 @@
                 <div class="home-blog-single mb-30">
                     <div class="blog-img-cap">
                         <div class="blog-img">
-                            <img src="/assets/app/theme-charityworks/img/gallery/riba.jpeg" alt="">
+                            <img src="<?= assetUrl("app/theme-charityworks/img/gallery/riba.jpeg"); ?>" alt="">
                             <!-- Blog date -->
                             <div class="blog-date text-center">
                                 <span>23</span>
@@ -214,7 +214,7 @@
 <!-- Blog Area End -->
 <!--? Count Down Start -->
 <div class="count-down-area pt-25 section-bg"
-    data-background="/assets/app/theme-charityworks/img/gallery/section_bg02.png">
+    data-background=<?= assetUrl("app/theme-charityworks/img/gallery/section_bg02.png"); ?>">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12">

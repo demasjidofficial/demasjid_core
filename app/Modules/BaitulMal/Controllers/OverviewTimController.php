@@ -16,13 +16,13 @@ use App\Libraries\Widgets\Stats\Stats;
 class OverviewTimController extends  AdminController
 {
 
-    protected $theme = 'Admin';
+    protected $theme = 'admin';
     protected $donasiRoute = 'admin/baitulmal/donation';
     public function index()
     {
         # code...
-        helper('number');
-        helper('app');
+        
+        
         $this->setupWidgets();
         $this->setWidgetStats();
         $this->setWidgetTugas();

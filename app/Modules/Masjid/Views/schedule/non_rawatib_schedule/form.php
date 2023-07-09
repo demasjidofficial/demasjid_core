@@ -75,10 +75,10 @@
 
 <?php $this->endSection(); ?>
 <?php $this->section('styles') ?>
-    <?= asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css', 'css') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css'), 'css') ?>
 <?php $this->endSection(); ?>
 <?php $this->section('scripts'); ?>
-<?php echo asset_link('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js', 'js'); ?>
+<?php echo assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js'), 'js'); ?>
 <script type="text/javascript">
     $(function () {
         let isJumat = <?php echo $type == 'jumat' ? 1 : 0 ?>;

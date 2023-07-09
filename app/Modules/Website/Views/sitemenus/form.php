@@ -1,8 +1,8 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('styles'); ?>
-    <?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css', 'css') ?>
-    <?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css', 'css') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css'), 'css') ?>
 <?= $this->endSection() ?>
 
 <?php $this->section('main'); ?>
@@ -90,8 +90,8 @@
 <?php $this->endSection(); ?>
 
 <?= $this->section('scripts') ?>
-<?= asset_link('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js', 'js') ?>
-<?= asset_link('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js', 'js') ?>
+<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js'), 'js') ?>
 <script type="text/javascript">
 $(function(){
     $('.add-begin-option').each(function(){

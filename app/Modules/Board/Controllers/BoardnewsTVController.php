@@ -15,7 +15,7 @@ use App\Modules\Api\Entities\Profile;
 
 class BoardnewsTVController extends BaseController
 {
-    protected $theme = 'Board';
+    protected $theme = 'board';
 
     public function index()
     {

@@ -14,13 +14,13 @@ use App\Libraries\Widgets\Charts\Charts;
 
 class OverviewManagerController extends AdminController
 {
-    protected $theme = 'Admin';
+    protected $theme = 'admin';
 
     public function index()
     {
         # code...
-        helper('number');
-        helper('app');
+        
+        
 
         $this->setupWidgets();
         $this->setWidgetTarget();

@@ -23,7 +23,7 @@ class CheckoutController extends BaseController
         $CATEGORY_BANK = 1;
         $CATEGORY_PAYMENT_GATEWAY = 2;
 
-        helper(['form','number','app']);
+        
         $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
         $masjid_profile = $profile;
         

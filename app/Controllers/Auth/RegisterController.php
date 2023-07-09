@@ -6,7 +6,7 @@ use CodeIgniter\Shield\Controllers\RegisterController as ShieldRegister;
 
 class RegisterController extends ShieldRegister
 {
-    protected $theme = 'Auth';
+    protected $theme = 'auth';
 
     /**
      * Displays the registration form.

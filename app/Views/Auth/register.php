@@ -71,6 +71,6 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
-<?= asset_link('auth/js/passStrength.js', 'js') ?>
+<?= assetUrlLink(assetUrl('auth/js/passStrength.js'), 'js') ?>
 <script src="/zxcvbn.js"></script>
 <?= $this->endSection() ?>

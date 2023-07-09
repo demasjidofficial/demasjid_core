@@ -158,7 +158,7 @@
 
 <?php $this->endSection(); ?>
 <?php $this->section('scripts') ?>      
-    <?= asset_link('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js', 'js') ?>    
+    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js') ?>    
     <script type="text/javascript">
         $(function () {            
             $('input[name=domain]').inputmask({

@@ -23,7 +23,7 @@ final class AssetHelperTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('You must provide a valid filename and extension to the asset() helper.');
 
-        asset_link('foo', 'css');
+        assetUrlLink(assetUrl('foo', 'css'));
     }
 
     public function testAssetThrowsNoExtension()
@@ -31,7 +31,7 @@ final class AssetHelperTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('You must provide a valid filename and extension to the asset() helper.');
 
-        asset_link('admin/foo', 'css');
+        assetUrlLink(assetUrl('admin/foo', 'css'));
     }
 
     public function testAssetVersion()
@@ -40,7 +40,7 @@ final class AssetHelperTest extends TestCase
         $config->bustingType = 'version';
         Factories::injectMock('config', 'Assets', $config);
 
-        $link = asset_link('admin/css/admin.css', 'css');
+        $link = assetUrlLink(assetUrl('admin/css/admin.css'), 'css');
 
         // In testing environment, would be the current timestamp
         // so just test the pattern to ensure that works.
@@ -54,7 +54,7 @@ final class AssetHelperTest extends TestCase
         $config->bustingType = 'file';
         Factories::injectMock('config', 'Assets', $config);
 
-        $link = asset_link('admin/css/admin.css', 'css');
+        $link = assetUrlLink(assetUrl('admin/css/admin.css'), 'css');
 
         // In testing environment, would be the current timestamp
         // so just test the pattern to ensure that works.

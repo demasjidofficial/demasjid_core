@@ -7,7 +7,7 @@ use CodeIgniter\Shield\Controllers\LoginController as ShieldLogin;
 
 class LoginController extends ShieldLogin
 {
-    protected $theme = 'Auth';
+    protected $theme = 'auth';
 
     /**
      * Display the login view

@@ -15,7 +15,7 @@ class AdminCrudController extends AdminController
 {
     use ResponseTrait;
     const BLANK_IMG = 'assets/admin/images/blank.jpg';
-    protected $theme      = 'Admin';
+    protected $theme      = 'admin';
     protected $viewPrefix = '';
     protected $baseController;
     protected $baseRoute;
@@ -42,7 +42,7 @@ class AdminCrudController extends AdminController
     {
         parent::initController($request, $response, $logger);
         $this->setModel($this->modelName);
-        helper(['form','number','app']);
+        
         
     }
 
