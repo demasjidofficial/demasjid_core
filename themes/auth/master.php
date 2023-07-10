@@ -4,8 +4,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title><?= config('App')->siteName ?? 'Demasjid' ?> Panel </title>
-
-    <link rel='icon' href='assets/auth/img/demasjid-logo-icon.png' />
+    
+    <link rel='icon' href='<?= assetUrl('auth/img/demasjid-logo-icon.png') ?>' />
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
