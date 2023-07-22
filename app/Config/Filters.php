@@ -47,8 +47,8 @@ class Filters extends BaseConfig
      */
     public $globals = [
         'before' => [
-            'online' => ['except' => ['site-offline', 'setup/*']],
-            // 'csrf'   => ['except' => 'api/*']            
+            'online' => ['except' => ['setup/*']],
+            'csrf'   => ['except' => 'api/*']            
         ],
         'after' => [
             'alerts',
@@ -69,7 +69,7 @@ class Filters extends BaseConfig
      * @var array
      */
     public $methods = [
-      //  'post' => ['csrf'],
+        'post' => ['csrf'],
     ];
 
     /**

@@ -62,9 +62,7 @@ class Module extends BaseModule
             //'permission'      => 'tpq.balance.list',
         ]);
         */
-        $sidebar->menu('sidebar')->createCollection('settings', 'Settings')
-                ->setFontAwesomeIcon('fas fa-gear')
-                ->setCollapsible();
+        
         $sidebar->menu('sidebar')->collection('settings')
                 ->addItem($languagesItem)
                 ->addItem($uomItem)

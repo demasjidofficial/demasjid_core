@@ -236,8 +236,8 @@ class AuthGroups extends ShieldGroups
             'recycler.*',
             'masjid.*',
             'website.*',
-            'pesantren.*',
-            'tpq.*'        
+            // 'pesantren.*',
+            // 'tpq.*'        
         ],
         'admin' => [
             'admin.access',

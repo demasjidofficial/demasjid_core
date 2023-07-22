@@ -163,20 +163,20 @@ class Module extends BaseModule
            'permission'      => 'baitulmal.configs.list',
         ]);
 
-        $sidebar->menu('sidebar')->createCollection('baitulmal', 'Baitul Mal')
-                    ->setFontAwesomeIcon('fas fa-money')
-                    ->setCollapsible();
-        $sidebar->menu('sidebar')->collection('baitulmal')
-                ->addItem($donationTypeItem)                
-                ->addItem($donasisItem)
-                ->addItem($zakatsItem)
-                ->addItem($infaqsItem)
-                ->addItem($masterBaitulMalsItem)
-                ->addItem($fundraisingManagerItem)
-                ->addItem($fundraisingSpvItem)
-                ->addItem($fundraisingStaffItem)
-                ->addItem($wakafsItem)
-                ->addItem($qurbansItem)
-                ->addItem($configsItem);
+        // $sidebar->menu('sidebar')->createCollection('baitulmal', 'Baitul Mal')
+        //             ->setFontAwesomeIcon('fas fa-money')
+        //             ->setCollapsible();
+        // $sidebar->menu('sidebar')->collection('baitulmal')
+        //         ->addItem($donationTypeItem)                
+        //         ->addItem($donasisItem)
+        //         ->addItem($zakatsItem)
+        //         ->addItem($infaqsItem)
+        //         ->addItem($masterBaitulMalsItem)
+        //         ->addItem($fundraisingManagerItem)
+        //         ->addItem($fundraisingSpvItem)
+        //         ->addItem($fundraisingStaffItem)
+        //         ->addItem($wakafsItem)
+        //         ->addItem($qurbansItem)
+        //         ->addItem($configsItem);
     }
 }

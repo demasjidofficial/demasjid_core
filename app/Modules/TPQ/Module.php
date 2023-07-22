@@ -94,20 +94,20 @@ class Module extends BaseModule
             //'permission'      => 'tpq.learnings.list',
         ]);
 
-        $sidebar->menu('sidebar')->createCollection('tpq', 'TPQ')
-                ->setFontAwesomeIcon('fas fa-home')
-                ->setCollapsible();
-        $sidebar->menu('sidebar')->collection('tpq')
-            //->addItem($pengurusItem)
-            //->addItem($profileItem)
-            //->addItem($accountBalanceItem)
-            //->addItem($chartOfAccoutItem)
-            //->addItem($balanceItem)
-            ->addItem($financesItem)
-            ->addItem($profilesItem)
-            ->addItem($programsItem)
-            ->addItem($mastersItem)
-            ->addItem($schedulesItem)
-            ->addItem($learningsItem);
+        // $sidebar->menu('sidebar')->createCollection('tpq', 'TPQ')
+        //         ->setFontAwesomeIcon('fas fa-home')
+        //         ->setCollapsible();
+        // $sidebar->menu('sidebar')->collection('tpq')
+        //     //->addItem($pengurusItem)
+        //     //->addItem($profileItem)
+        //     //->addItem($accountBalanceItem)
+        //     //->addItem($chartOfAccoutItem)
+        //     //->addItem($balanceItem)
+        //     ->addItem($financesItem)
+        //     ->addItem($profilesItem)
+        //     ->addItem($programsItem)
+        //     ->addItem($mastersItem)
+        //     ->addItem($schedulesItem)
+        //     ->addItem($learningsItem);
     }
 }

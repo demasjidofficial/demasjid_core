@@ -32,8 +32,8 @@
 		"nexusphp/cs-config": "^3.1",
 		"nexusphp/tachycardia": "^1.0",
 		"phpstan/phpstan": "^1.1",
-		"phpunit/phpunit": "^9.1",
-		"psr/container": "^1.0"
+		"phpunit/phpunit": "^9.5",
+		"psr/container": "^2.0"
     },	
 	"suggest": {
 		"ext-fileinfo": "Improves mime type detection for files"
@@ -41,7 +41,7 @@
 	"autoload": {
 		"psr-4": {
 			"App\\": "app",
-			"Config\\": "app/Config",
+			"Config\\": "app/Config",			
 			"App\\Modules\\Masjid\\":"app/Modules/Masjid",
 			"App\\Modules\\Website\\":"app/Modules/Website",
 			"App\\Modules\\Room\\":"app/Modules/Room"
@@ -79,7 +79,8 @@
 		"inspect": "deptrac analyze --cache-file=build/deptrac.cache",
 		"style": "php-cs-fixer fix --verbose --ansi --using-cache=no",
 		"swagger-doc":"openapi -o public/assets/api.yaml app",
-		"test": "phpunit"
+		"test": "phpunit",
+		"post-autoload-dump": ["cp -fr app/Overrides/Bonfire/Config/Registrar.php vendor/lonnieezell/bonfire/src/Config/Registrar.php"]
 	},
 	"support": {
 		"forum": "http://forum.codeigniter.com/",

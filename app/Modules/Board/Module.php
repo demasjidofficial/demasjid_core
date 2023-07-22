@@ -52,16 +52,16 @@ class Module extends BaseModule
         ]);
 
         
-        $sidebar->menu('sidebar')->createCollection('board', 'Board')
-                    ->setFontAwesomeIcon('fas fa-cog')
-                    ->setCollapsible();
-        $sidebar->menu('sidebar')->collection('board')
-                ->addItem($boardnewsItem)
-                ->addItem($boardtempItem)
-                ->addItem($boarddonationItem)
+        // $sidebar->menu('sidebar')->createCollection('board', 'Board')
+        //             ->setFontAwesomeIcon('fas fa-cog')
+        //             ->setCollapsible();
+        // $sidebar->menu('sidebar')->collection('board')
+        //         ->addItem($boardnewsItem)
+        //         ->addItem($boardtempItem)
+        //         ->addItem($boarddonationItem)
 
-                ->addItem($boardlivebroadcastItem)
-                ->addItem($boardkonfigurasiItem);
+        //         ->addItem($boardlivebroadcastItem)
+        //         ->addItem($boardkonfigurasiItem);
 
 
     }

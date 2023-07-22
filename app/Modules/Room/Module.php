@@ -46,14 +46,14 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'tpq.balance.list',
         ]);
-        $sidebar->menu('sidebar')->createCollection('room', 'Room')
-                ->setFontAwesomeIcon('fas fa-home')
-                ->setCollapsible();
+        // $sidebar->menu('sidebar')->createCollection('room', 'Room')
+        //         ->setFontAwesomeIcon('fas fa-home')
+        //         ->setCollapsible();
             
-        $sidebar->menu('sidebar')->collection('room')
-            ->addItem($roomItem)
-            ->addItem($reservruanganItem)
-            ->addItem($InfaqruanganItem)
-            ->addItem($rekaplaporanItem);
+        // $sidebar->menu('sidebar')->collection('room')
+        //     ->addItem($roomItem)
+        //     ->addItem($reservruanganItem)
+        //     ->addItem($InfaqruanganItem)
+        //     ->addItem($rekaplaporanItem);
     }
 }
