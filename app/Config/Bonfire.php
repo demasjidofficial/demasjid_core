@@ -60,7 +60,7 @@ class Bonfire extends BonfireBonfire
      *
      */
     public $menuWeights = [
-        'admin/masjid' => 1,
-        'admin/tpq' => 2,
+        // 'admin/masjid' => 0,
+        // 'admin/tpq' => 2,
     ];
 }

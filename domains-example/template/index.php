@@ -1,22 +1,21 @@
 <?php
 
-// Check PHP version.
-$minPhpVersion = '7.4'; // If you update this, don't forget to update `spark`.
-if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
-    $message = sprintf(
-        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
-        $minPhpVersion,
-        PHP_VERSION
-    );
-
-    exit($message);
+// Valid PHP Version?
+$minPHPVersion = '8.1';
+if (phpversion() < $minPHPVersion)
+{
+	die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . phpversion());
 }
+unset($minPHPVersion);
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-// Ensure the current directory is pointing to the front controller's directory
-chdir(FCPATH);
+// Location of the Paths config file.
+// This is the line that might need to be changed, depending on your folder structure.
+$pathsPath = realpath(FCPATH. '../../demasjid/app/Config/Paths.php');
+// $pathsPath = FCPATH . '../app/Config/Paths.php';
+// ^^^ Change this if you move your application folder
 
 /*
  *---------------------------------------------------------------
@@ -27,12 +26,12 @@ chdir(FCPATH);
  * and fires up an environment-specific bootstrapping.
  */
 
-// Load our paths config file
-// This is the line that might need to be changed, depending on your folder structure.
-require FCPATH . '../app/Config/Paths.php';
-// ^^^ Change this line if you move your application folder
+// Ensure the current directory is pointing to the front controller's directory
 
+// Load our paths config file
+require $pathsPath;
 $paths = new Config\Paths();
+$paths->writableDirectory = FCPATH.'writable';
 
 // Location of the framework bootstrap file.
 require rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
@@ -46,7 +45,6 @@ config('Database')->{'default'} = array_merge(config('Database')->{'default'}, $
 foreach($newEnv['app'] as $_key => $val){
     config('App')->{$_key} = $val;
 }
-
 /*
  * ---------------------------------------------------------------
  * GRAB OUR CODEIGNITER INSTANCE
