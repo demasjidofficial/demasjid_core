@@ -42,19 +42,7 @@ class Autoload extends AutoloadConfig
      */
     public $psr4 = [
         APP_NAMESPACE      => APPPATH, // For custom app namespace
-        'Config'           => APPPATH . 'Config',
-        'Bonfire'          => ROOTPATH . 'bonfire',
-        'Bonfire\Email'    => ROOTPATH . 'bonfire/Modules/Email',
-        'Bonfire\Users'    => ROOTPATH . 'bonfire/Modules/Users',
-        'Bonfire\Groups'   => ROOTPATH . 'bonfire/Modules/Groups',
-        'Bonfire\Assets'   => ROOTPATH . 'bonfire/Modules/Assets',
-        'Bonfire\Tools'    => ROOTPATH . 'bonfire/Modules/Tools',
-        'Bonfire\Search'   => ROOTPATH . 'bonfire/Modules/Search',
-        'Bonfire\Settings' => ROOTPATH . 'bonfire/Modules/Settings',
-        'Bonfire\Guides'   => ROOTPATH . 'bonfire/Modules/Guides',
-        'Bonfire\Recycler' => ROOTPATH . 'bonfire/Modules/Recycler',
-        'Bonfire\Consent'  => ROOTPATH . 'bonfire/Modules/Consent',
-        'Bonfire\Widgets'  => ROOTPATH . 'bonfire/Modules/Widgets',
+        'Config'           => APPPATH . 'Config',        
         'Themes'           => ROOTPATH . 'themes',
         'App\Modules\Pesantren' => ROOTPATH . 'app/Modules/Pesantren',
         'App\Modules\TPQ'       => ROOTPATH . 'app/Modules/TPQ',
@@ -104,4 +92,18 @@ class Autoload extends AutoloadConfig
      * @var array<int, string>
      */
     public $files = [];
+
+    /**
+     * -------------------------------------------------------------------
+     * Helpers
+     * -------------------------------------------------------------------
+     * Prototype:
+     *   $helpers = [
+     *       'form',
+     *   ];
+     *
+     * @var string[]
+     * @phpstan-var list<string>
+     */
+    public $helpers = ['app'];
 }
