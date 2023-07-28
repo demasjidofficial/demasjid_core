@@ -137,8 +137,7 @@ $routes->get('{locale}/checkout/(:segment)', 'CheckoutController::CheckoutView/$
 $routes->get('{locale}/instructionofpayment/(:segment)', 'InformatonofpaymentController::InformationView/$1/$2');
 $routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationController::ConfirmView');
 $routes->get('{locale}/donations', 'Donations::index');
-// override assetController module bonfire
-$routes->get('assets/(:any)', '\App\Controllers\AssetController::serve/$1');
+
 // setup new domain
 $routes->group('/setup', function($routes){
     $routes->get('migrate', '\App\Controllers\SetupController::migrate');

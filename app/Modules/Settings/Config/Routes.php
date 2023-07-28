@@ -6,6 +6,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Settings\Controllers'],
     $routes->resource('settings/languages', ['controller' => 'LanguagesController']);
     $routes->resource('settings/uom', ['controller' => 'UomController']);
     $routes->resource('settings/uom_category', ['controller' => 'UomCategoryController']);
+    $routes->resource('settings/settings', ['controller' => 'SettingsController']);
     //$routes->resource('tpq/profile', ['controller' => 'ProfileController']);
     //$routes->resource('tpq/accountbalance', ['controller' => 'AccountBalanceController']);
     //$routes->resource('tpq/balance', ['controller' => 'BalanceController']);

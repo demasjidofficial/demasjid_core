@@ -15,10 +15,8 @@
     <x-admin-box>
         <div>
             <div class="row">
-                <div class="col-md-12">
-                    <!--iframe src="http://easywa.demasjid.com" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe-->
-
-                        <iframe id="iframe-wa" runat="server" scrolling="no" width="600px" height="400px" src=""></iframe>
+                <div class="col-md-12">                    
+                    <iframe id="iframe-wa" runat="server" scrolling="no" width="800px" height="500px" src=""></iframe>
                 </div>
             </div>
         </div>
@@ -29,7 +27,7 @@
 <?php $this->section('scripts'); ?>
 <script>
     $(function(){
-        $('#iframe-wa').attr('src','http://easywa.demasjid.com');
+        $('#iframe-wa').attr('src','https://easywa.demasjid.id/<?= $number_whatsapp  ?>/panel');
     })
 </script>
 <?php $this->endSection(); ?>
