@@ -29,7 +29,7 @@ class RoomReservationModel extends BaseModel
 		'created_by'
 	];
 	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[room_reservation.id,id,{id}]',
+		// 'id' => 'numeric|max_length[11]|required|is_unique[room_reservation.id,id,{id}]',
 		'room_id' => 'numeric|max_length[11]',
 		'namapemesan' => 'max_length[255]|required',
 		'no_tlp' => 'max_length[25]|required',
@@ -41,7 +41,7 @@ class RoomReservationModel extends BaseModel
 		'status' => 'max_length[20]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
 	];
 
 

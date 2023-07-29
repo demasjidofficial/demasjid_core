@@ -44,7 +44,7 @@ class PendaftaranModel extends BaseModel
 		'created_by'
 	];
 	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
+		// 'id' => 'numeric|max_length[11]|required|is_unique[pendaftaran.id,id,{id}]',
 		'kelas_id' => 'numeric|max_length[11]|required',
 		'state' => 'max_length[20]|required',
 		'name' => 'max_length[60]|required',
@@ -72,7 +72,7 @@ class PendaftaranModel extends BaseModel
 		'tahun_ajaran_id' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
 	];
 
 	public static function listState()

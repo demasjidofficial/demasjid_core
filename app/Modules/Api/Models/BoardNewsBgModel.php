@@ -19,6 +19,6 @@ class BoardNewsBgModel extends BaseModel
 		'duration' => 'numeric|max_length[5]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
     ];   
 }

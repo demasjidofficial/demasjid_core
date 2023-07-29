@@ -23,6 +23,6 @@ class BminfaqshodaqohcategoryModel extends BaseModel
 		'description' => 'required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric'
+		// 'created_by' => 'numeric'
     ];   
 }

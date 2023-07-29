@@ -24,7 +24,7 @@ class UsersModel extends BaseModel
         'deleted_at',
     ];
     protected $validationRules = [
-        'id'             => 'numeric|required|is_unique[users.id,id,{id}]',
+        // 'id'             => 'numeric|required|is_unique[users.id,id,{id}]',
         'username'       => 'max_length[30]',
         'first_name'     => 'max_length[255]',
         'last_name'      => 'max_length[255]',

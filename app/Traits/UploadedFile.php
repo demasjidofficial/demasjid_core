@@ -3,6 +3,8 @@
 namespace App\Traits;
 use RuntimeException;
 trait UploadedFile {
+    protected $imageFolder = 'images';
+
     protected function uploadFile($name)
     {        
         $image = $this->request->getFile($name);
@@ -48,9 +50,5 @@ trait UploadedFile {
         file_put_contents(FCPATH.$imageFolder.$newName,$image);
 
         return $imageFolder.'/'.$newName;
-
-		
-        
-
     }
 }

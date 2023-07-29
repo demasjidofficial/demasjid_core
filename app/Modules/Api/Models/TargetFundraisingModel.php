@@ -41,7 +41,7 @@ class TargetFundraisingModel extends BaseModel
 	
 	];
 	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[target_fundraising.id,id,{id}]',
+		// 'id' => 'numeric|max_length[11]|required|is_unique[target_fundraising.id,id,{id}]',
 		'campaign' => 'numeric|max_length[11]|required',
 		'campaign_name' => 'max_length[128]|required',
 		'donatur' => 'max_length[128]|required',

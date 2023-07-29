@@ -28,7 +28,7 @@ class PelajaranModel extends BaseModel
 		'sequence' => 'numeric|max_length[11]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
     ];  
 	
 	public function findAll(int $limit = 0, int $offset = 0)

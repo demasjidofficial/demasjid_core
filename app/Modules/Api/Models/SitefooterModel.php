@@ -23,6 +23,6 @@ class SitefooterModel extends BaseModel
 		'state' => 'max_length[20]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
     ];   
 }

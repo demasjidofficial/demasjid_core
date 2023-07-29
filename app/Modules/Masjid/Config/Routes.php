@@ -4,6 +4,7 @@ namespace App\Modules\Config;
 
 $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], static function ($routes) {
     $routes->get('/', 'Dashboard::index');
+    $routes->resource('masjid/asset', ['controller' => 'AssetController']);
     $routes->resource('masjid/pengurus', ['controller' => 'PengurusController']);
     $routes->resource('masjid/profile', ['controller' => 'ProfileController']);    
     $routes->resource('masjid/jabatan', ['controller' => 'JabatanController']);

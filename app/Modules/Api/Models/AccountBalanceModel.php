@@ -29,7 +29,7 @@ class AccountBalanceModel extends BaseModel
         'created_at' => 'valid_date|required',
         'updated_at' => 'valid_date|required',
         'group_account' => 'required',
-        // 'created_by' => 'numeric'
+        //  'created_by' => 'numeric'
     ];
 
     public function findAll(int $limit = 0, int $offset = 0)

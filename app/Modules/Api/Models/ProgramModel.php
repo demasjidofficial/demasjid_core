@@ -14,6 +14,7 @@ class ProgramModel extends BaseModel
     protected $useTimestamps = true;
 	protected $beforeInsert = ['createdBy', 'clearAmountFormat'];
 	protected $beforeUpdate = ['clearAmountFormat'];
+	protected $numericField = ['cost_estimate'];
     protected $allowedFields = [
         'name',
 		'description',
@@ -27,7 +28,8 @@ class ProgramModel extends BaseModel
 		'created_at',
 		'updated_at',
 		'created_by'
-    ];
+    ];	
+
     protected $validationRules = [
        // 'id' => 'numeric|required|is_unique[program.id,id,{id}]',
 		'name' => 'max_length[50]|required',
@@ -38,7 +40,7 @@ class ProgramModel extends BaseModel
 		'state' => 'max_length[20]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric'
+		//  'created_by' => 'numeric'
     ];
 
 	public static function listState(){
@@ -49,17 +51,7 @@ class ProgramModel extends BaseModel
 			self::END => lang('crud.selesai'),
 			self::CANCEL => lang('crud.batal'),
 		];
-	}
-
-	protected function clearAmountFormat(array $data)
-    {
-        
-        if (isset($data['data']['cost_estimate'])) {
-            $data['data']['cost_estimate'] = str_replace('.', '', $data['data']['cost_estimate']);
-        }        
-
-        return $data;
-    }
+	}	
 
 	public function insert($data = null, bool $returnID = true)
     {   

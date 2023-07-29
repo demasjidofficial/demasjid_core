@@ -25,7 +25,7 @@ class RawatibScheduleModel extends BaseModel
 		'imam_id' => 'numeric|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric'
+		//  'created_by' => 'numeric'
     ];   
 
 	private $listSholat = [

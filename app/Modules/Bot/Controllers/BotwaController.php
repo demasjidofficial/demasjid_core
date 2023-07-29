@@ -21,7 +21,8 @@ class BotwaController extends AdminCrudController
     protected function getDataIndex()
     {   $whatsapp = (new SettingsModel)->where(['key' => 'whatsapp','class' => 'bot'])->first();
         return [
-            'number_whatsapp' => $whatsapp->value ?? null
+            'number_whatsapp' => $whatsapp->value ?? null,
+            'url_whatsapp' => env('app.whatsappUrl')
         ];
     }
 }

@@ -26,7 +26,7 @@ class DonaturModel extends BaseModel
 		'id_kategori' => 'numeric|max_length[11]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]',
+		// 'created_by' => 'numeric|max_length[11]',
 		'updated_by' => 'numeric|max_length[11]'
     ];   
 }

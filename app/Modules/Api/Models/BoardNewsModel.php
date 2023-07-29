@@ -21,6 +21,6 @@ class BoardNewsModel extends BaseModel
 		'rawatib_schedule_id' => 'numeric|max_length[11]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
     ];   
 }

@@ -27,7 +27,7 @@
 <?php $this->section('scripts'); ?>
 <script>
     $(function(){
-        $('#iframe-wa').attr('src','https://easywa.demasjid.id/<?= $number_whatsapp  ?>/panel');
+        $('#iframe-wa').attr('src','<?= "$url_whatsapp/$number_whatsapp" ?>/panel');
     })
 </script>
 <?php $this->endSection(); ?>

@@ -168,7 +168,7 @@ class CrudViewGenerator extends BaseCommand
         $fk     = $this->db->getForeignKeyData($tableName);
         if (! empty($fk)) {
             foreach ($fk as $key => $field) {
-                $result[$field->column_name] = ['foreign_table_name' => $field->foreign_table_name, 'foreign_column_name' => $field->foreign_column_name];
+                $result[$field->column_name[0]] = ['foreign_table_name' => $field->foreign_table_name, 'foreign_column_name' => $field->foreign_column_name[0]];
             }
         }
 

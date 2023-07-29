@@ -28,7 +28,7 @@ class CampaignsModel extends BaseModel
 		'is_delete' => 'max_length[5]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]',
+		// 'created_by' => 'numeric|max_length[11]',
 		'create_date' => 'valid_date|required',
 		'modified_by' => 'numeric|max_length[11]',
 		'modified_date' => 'valid_date|required'

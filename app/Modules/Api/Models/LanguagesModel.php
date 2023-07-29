@@ -25,6 +25,6 @@ class LanguagesModel extends BaseModel
 		'state' => 'max_length[20]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		//'created_by' => 'numeric'
+		//  'created_by' => 'numeric
     ];   
 }

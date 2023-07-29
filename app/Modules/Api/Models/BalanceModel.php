@@ -21,6 +21,7 @@ class BalanceModel extends BaseModel
 		'updated_at',        
 		'created_by'
     ];
+    protected $numericField = ['amount'];
 	
     protected $validationRules = [
        // 'id' => 'numeric|required|is_unique[balance.id,id,{id}]',
@@ -31,18 +32,8 @@ class BalanceModel extends BaseModel
 		'transaction_date' => 'valid_date|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric'
+		//  'created_by' => 'numeric'
     ];   
-
-	protected function clearAmountFormat(array $data)
-    {
-        
-        if (isset($data['data']['amount'])) {
-            $data['data']['amount'] = str_replace('.', '', $data['data']['amount']);
-        }        
-
-        return $data;
-    }
 
 	public function findAll(int $limit = 0, int $offset = 0)
     {

@@ -23,7 +23,7 @@ class DonaturFundraisingModel extends BaseModel
 		'created_by'
 	];
 	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[donatur.id,id,{id}]',
+		// 'id' => 'numeric|max_length[11]|required|is_unique[donatur.id,id,{id}]',
 		'tugas_id' => 'numeric|max_length[11]',
 		'tanggal_transaksi' => 'valid_date',
 		'nama' => 'max_length[100]',

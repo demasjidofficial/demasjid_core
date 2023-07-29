@@ -34,7 +34,7 @@ class EntityModel extends BaseModel
         'type' => 'max_length[20]|required',
         'created_at' => 'valid_date|required',
         'updated_at' => 'valid_date|required',
-        // 'created_by' => 'numeric'
+        //  'created_by' => 'numeric'
     ];
 
     public function findAll(int $limit = 0, int $offset = 0)

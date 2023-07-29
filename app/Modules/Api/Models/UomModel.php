@@ -21,14 +21,14 @@ class UomModel extends BaseModel
 		'uomcategory_id'
 	];
 	protected $validationRules = [
-		'id' => 'numeric|max_length[11]|required|is_unique[uom.id,id,{id}]',
+		// 'id' => 'numeric|max_length[11]|required|is_unique[uom.id,id,{id}]',
 		'name' => 'max_length[255]|required',
 		'code' => 'max_length[255]',
 		'type' => 'max_length[255]',
 		'ratio' => 'decimal',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]',
+		//  'created_by' => 'numeric|max_length[11]',
 		'uomcategory_id' => 'numeric|max_length[11]'
 	];
 	public function findAll(int $limit = 0, int $offset = 0)

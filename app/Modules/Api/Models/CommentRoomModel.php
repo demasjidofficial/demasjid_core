@@ -23,6 +23,6 @@ class CommentRoomModel extends BaseModel
 		'saran' => 'max_length[50]|required',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		'created_by' => 'numeric|max_length[11]'
+		// 'created_by' => 'numeric|max_length[11]'
     ];   
 }

@@ -8,6 +8,7 @@ use CodeIgniter\Database\BaseBuilder;
 class BaseModel extends ModelsBaseModel
 {
     protected $beforeInsert = ['createdBy'];
+    protected $numericField = [];
 
     protected function createdBy(array $data)
     {
@@ -16,6 +17,19 @@ class BaseModel extends ModelsBaseModel
                 $data['data']['created_by'] = auth()->user()->id;
             }
 
+        }
+
+        return $data;
+    }
+
+    protected function clearAmountFormat(array $data)
+    {
+        if ($this->numericField){
+            foreach($this->numericField as $numeric){
+                if (isset($data['data'][$numeric])) {
+                    $data['data'][$numeric] = str_replace(',', '.', str_replace('.', '', $data['data'][$numeric]));
+                }
+            }
         }
 
         return $data;
@@ -32,8 +46,6 @@ class BaseModel extends ModelsBaseModel
         });
         return $this;    
     }
-
-
 
     public function masjid(){
 

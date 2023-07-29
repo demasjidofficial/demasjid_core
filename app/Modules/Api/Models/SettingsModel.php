@@ -1,7 +1,5 @@
 <?php namespace App\Modules\Api\Models;
 
-use asligresik\easyapi\Models\BaseModel;
-
 class SettingsModel extends BaseModel
 {
     protected $table = 'settings';
@@ -18,7 +16,7 @@ class SettingsModel extends BaseModel
 		'updated_at'
     ];
     protected $validationRules = [
-        'id' => 'numeric|required|is_unique[settings.id,id,{id}]',
+        // 'id' => 'numeric|required|is_unique[settings.id,id,{id}]',
 		'class' => 'max_length[255]|required',
 		'key' => 'max_length[255]|required',
 		'type' => 'max_length[31]|required',

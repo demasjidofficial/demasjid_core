@@ -19,6 +19,6 @@ class MasterEwalletModel extends BaseModel
 		'nama_ewallet' => 'max_length[100]',
 		'created_at' => 'valid_date|required',
 		'updated_at' => 'valid_date|required',
-		// 'created_by' => 'numeric|max_length[11]'
+		//  'created_by' => 'numeric|max_length[11]'
     ];   
 }

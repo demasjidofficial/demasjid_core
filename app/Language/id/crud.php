@@ -386,6 +386,16 @@ return [
 
 	'blog' => 'Blog',
 	'general' => 'General',
-	'labels' => 'Label'
+	'labels' => 'Label',
+
+	'settings' => 'Setting',
+	'key' => 'Kunci',
+	'value' => 'Nilai',
+	'context' => 'Context',
+
+	'asset' => 'Asset',
+	'purchased_date'=> 'Tgl Pembelian',
+	'purchased_price'=> 'Harga Beli',
+	'estimated_price'=> 'Harga Perkiraan (Sekarang)',
 ];
 
