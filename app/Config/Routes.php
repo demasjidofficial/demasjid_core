@@ -139,7 +139,8 @@ $routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationControlle
 $routes->get('{locale}/donations', 'Donations::index');
 
 // setup new domain
-$routes->group('/setup', function($routes){
+$routes->group('/setup', function($routes){    
+    $routes->get('installDb', '\App\Controllers\SetupController::migrateInstall');
     $routes->get('migrate', '\App\Controllers\SetupController::migrate');
     $routes->get('migrateRefresh', '\App\Controllers\SetupController::migrateRefresh');
     $routes->get('seed', '\App\Controllers\SetupController::seed');    

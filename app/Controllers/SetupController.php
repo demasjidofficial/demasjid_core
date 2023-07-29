@@ -17,17 +17,20 @@ class SetupController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
     }
+    
+    public function migrateInstall(){
+        ini_set('max_execution_time', 0);
+        print(command('migrate --all'));    
+    }
 
     public function migrate(){
         ini_set('max_execution_time', 0);
-        command('migrate --all -f');
-        echo 'migration success';
+        print(command('migrate'));    
     }
 
     public function migrateRefresh(){
         ini_set('max_execution_time', 0);
-        command('migrate:refresh --all -f');
-        echo 'migration success';
+        print(command('migrate:refresh'));
     }
 
     public function seed(){
