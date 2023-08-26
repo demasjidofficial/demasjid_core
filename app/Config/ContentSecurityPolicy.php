@@ -61,14 +61,14 @@ class ContentSecurityPolicy extends BaseConfig
      *
      * @var string|string[]
      */
-    public $styleSrc = 'self';
+    public $styleSrc = ['self', 'https://assets.demasjid.id/'];
 
     /**
      * Defines the origins from which images can be loaded.
      *
      * @var string|string[]
      */
-    public $imageSrc = 'self';
+    public $imageSrc = ['self', 'https://assets.demasjid.id/'];
 
     /**
      * Restricts the URLs that can appear in a page's `<base>` element.

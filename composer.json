@@ -79,8 +79,7 @@
 		"inspect": "deptrac analyze --cache-file=build/deptrac.cache",
 		"style": "php-cs-fixer fix --verbose --ansi --using-cache=no",
 		"swagger-doc":"openapi -o public/assets/api.yaml app",
-		"test": "phpunit",
-		"post-autoload-dump": ["cp -fr app/Overrides/Bonfire/Config/Registrar.php vendor/lonnieezell/bonfire/src/Config/Registrar.php"]
+		"test": "phpunit"		
 	},
 	"support": {
 		"forum": "http://forum.codeigniter.com/",

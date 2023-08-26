@@ -2,33 +2,16 @@
 
 namespace Config;
 
-// Create a new instance of our RouteCollection class.
-$routes = Services::routes();
-
-// Load the system's routing file first, so that the app and ENVIRONMENT
-// can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
-}
+use CodeIgniter\Router\RouteCollection;
 
 /**
- * --------------------------------------------------------------------
- * Router Setup
- * --------------------------------------------------------------------
+ * @var RouteCollection $routes
  */
-$routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
-$routes->setTranslateURIDashes(false);
-$routes->set404Override();
-$routes->setAutoRoute(false);
-
 /*
  * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
  */
-$routes->setPrioritize();
 $routes->addRedirect('/', '/id');
 $routes->get('{locale}', 'Home::index', ['priority' => 1]);
 $routes->get('{locale}/(:segment)', 'Home::index/$1', ['priority' => 1]);
