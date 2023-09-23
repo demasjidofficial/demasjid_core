@@ -16,13 +16,13 @@ class BmDonationCampaignSeeder extends Seeder
                 'label' => 'Pengecoran Masjid Darussalam',
                 'path_image' => '',
                 'description' => '',
-                'campaignstart_date'=>'2022-08-10',
-                'campaignend_date'=>'2022-12-31',
-                'campaign_tonase'=>'6000000000',
+                'campaignstart_date' => '2022-08-10',
+                'campaignend_date' => '2022-12-31',
+                'campaign_tonase' => '6000000000',
 
-                'donationtype_id'=>'1',
-                'program_id'=>'2',
-                'state'=>'Belum Mulai',
+                'donationtype_id' => '1',
+                'program_id' => '2',
+                'state' => 'Belum Mulai',
             ]
 
         ];

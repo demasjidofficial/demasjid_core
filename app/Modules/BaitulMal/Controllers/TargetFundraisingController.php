@@ -27,7 +27,7 @@ class TargetFundraisingController extends AdminCrudController
     public function update($id = null)
     {
         $data = $this->request->getPost();
-        $data['target_nominal'] = (float)(str_replace('.','',$data['target_nominal']));
+        $data['target_nominal'] = (float)(str_replace('.', '', $data['target_nominal']));
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
@@ -51,7 +51,7 @@ class TargetFundraisingController extends AdminCrudController
     public function create()
     {
         $data = $this->request->getPost();
-        $data['target_nominal'] = (float)(str_replace('.','',$data['target_nominal']));
+        $data['target_nominal'] = (float)(str_replace('.', '', $data['target_nominal']));
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);

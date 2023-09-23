@@ -82,5 +82,5 @@ class CrudModelFilterGenerator extends ModelGenerator
     protected function renderTemplate(array $data = []): string
     {
         return view("App\\Commands\\Views\\{$this->template}", $data, ['debug' => false]);
-    }    
+    }
 }

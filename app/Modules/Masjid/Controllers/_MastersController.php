@@ -3,6 +3,7 @@
 namespace App\Modules\Masjid\Controllers;
 
 use App\Controllers\AdminCrudController;
+
 //use App\Modules\Api\Models\MastersModel;
 //use App\Modules\Masjid\Models\MastersFilter;
 //use IlluminateAgnostic\Arr\Support\Arr;
@@ -14,9 +15,10 @@ class _MastersController extends AdminCrudController
     //protected $baseRoute = ADMIN_AREA.'/masjid/';
     //protected $langModel = 'accounting';
     //protected $modelName = 'App\Modules\Api\Models\MastersModel';
-    public function index(){
+    public function index()
+    {
         //return parent::index();
-        return $this->render('App\Modules\Masjid\Views\_submodules\masters',[]);
+        return $this->render('App\Modules\Masjid\Views\_submodules\masters', []);
     }
 
     /*
@@ -44,28 +46,28 @@ class _MastersController extends AdminCrudController
     /*
     protected function getDataIndex()
     {
-        
+
         $model = model(MastersFilter::class);
         $model->masjid();
         $model->orderBy('transaction_date');
         return [
-            'headers' => [                
+            'headers' => [
                 'transaction_date' => lang('crud.transaction_date'),
                 'description' => lang('crud.description'),
                 'debit' => lang('crud.debit'),
-                'credit' => lang('crud.credit'),                
+                'credit' => lang('crud.credit'),
                 'saldo'  => lang('crud.saldo'),
                 'chart_of_account_id' => lang('crud.chart_of_account'),
                 'account_balance_id' => lang('crud.account'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
         ];
-        
+
     }
 
     protected function getDataEdit($id = null)
@@ -84,7 +86,7 @@ class _MastersController extends AdminCrudController
             $dataEdit['account_balanceItems'] = Arr::pluck(model('App\Modules\Api\Models\AccountMastersModel')->select(['account_balance.id as key', 'account_balance.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
             $dataEdit['chart_of_accountItems'] = Arr::pluck(model('App\Modules\Api\Models\ChartOfAccountModel')->select(['id as key','name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
-        
+
     }
     */
 }

@@ -6,7 +6,7 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->get('/', 'Dashboard::index');
     $routes->resource('masjid/asset', ['controller' => 'AssetController']);
     $routes->resource('masjid/pengurus', ['controller' => 'PengurusController']);
-    $routes->resource('masjid/profile', ['controller' => 'ProfileController']);    
+    $routes->resource('masjid/profile', ['controller' => 'ProfileController']);
     $routes->resource('masjid/jabatan', ['controller' => 'JabatanController']);
     $routes->resource('masjid/wilayah', ['controller' => 'WilayahController']);
     $routes->resource('masjid/member', ['controller' => 'MemberController']);
@@ -27,12 +27,12 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/iedschedule', ['controller' => 'IedScheduleController']);
     $routes->resource('masjid/tarawihschedule', ['controller' => 'TarawihScheduleController']);
 
-    $routes->resource('masjid/gerhanaschedule', ['controller' => 'GerhanaScheduleController']);  
-    $routes->resource('masjid/tipedonatur', ['controller' => 'DonaturTypeController']);   
+    $routes->resource('masjid/gerhanaschedule', ['controller' => 'GerhanaScheduleController']);
+    $routes->resource('masjid/tipedonatur', ['controller' => 'DonaturTypeController']);
 
-    $routes->resource('masjid/gerhanaschedule', ['controller' => 'GerhanaScheduleController']);    
+    $routes->resource('masjid/gerhanaschedule', ['controller' => 'GerhanaScheduleController']);
 
-    
+
     /**
      * SUB MODULE
      */
@@ -40,5 +40,5 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Masjid\Controllers'], s
     $routes->resource('masjid/profiles', ['controller' => '_ProfilesController']);
     $routes->resource('masjid/programs', ['controller' => '_ProgramsController']);
     $routes->resource('masjid/masters', ['controller' => '_MastersController']);
-    $routes->get('masjid/schedules', 'SchedulesController::index');    
+    $routes->get('masjid/schedules', 'SchedulesController::index');
 });

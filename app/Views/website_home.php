@@ -2,57 +2,14 @@
 
 <?= $this->section('main') ?>
 
-<!-- slider Area Start-->
-<div class="slider-area">
-    <div class="slider-active">
-        <!-- Single Slider -->
-        <div class="single-slider slider-height d-flex align-items-center">
-            <div class="container" style="margin-top:-22%;">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
-                        <div class="hero__caption">
-                            <h1 data-animation="fadeInUp" data-delay=".6s">Masjid sebagai<br> pusat peradaban.</h1>
-                            <P data-animation="fadeInUp" data-delay=".8s">Dengan meneladani Rosululloh berupaya
-                                menjadikan masjid kembali sebagai sarana segala aktifitas umat yang paripurna.</P>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<?= view('App\Views\Partials\slider', ['sliders' => $sliders]) ?>
 
-        <!-- Single Slider -->
-        <div class="single-slider slider-height d-flex align-items-center">
-            <div class="container" style="margin-top:-22%;">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
-                        <div class="hero__caption">
-                            <h1 data-animation="fadeInUp" data-delay=".6s">Dari, Oleh, <br> & Untuk Masjid.</h1>
-                            <P data-animation="fadeInUp" data-delay=".8s">Berbagai program-program meliputi pesantren,
-                                baitul mal, muamalah, kajian, dst untuk kemakmuran masjid dan kemaslahatan jamaah.</P>
-                            <!-- Hero-btn -->
-                            <div class="hero__btn">
-                                <a href="#" class="btn hero-btn mb-10" data-animation="fadeInLeft"
-                                    data-delay=".8s">Donasi</a>
-                                <a href="#" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
-                                    <i class="flaticon-null"></i>
-                                    <p>+62 851 6136 4811</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-<!-- slider Area End-->
 <!--? Services Area Start -->
 <div class="service-area section-padding24">
     <?= view('App\Views\Widgets\_services', [
-				                    'services'   => $widgets->widget('service')->items(),				
-                                    ]) 
-                            ?>
+                                    'services'   => $widgets->widget('service')->items(),
+                                    ])
+?>
 </div>
 <!-- Services Area End -->
 
@@ -124,7 +81,7 @@
                                         <div class="tipWrap">
                                             <span class="tip" style="left:0 !important"></span>
                                         </div>
-                                        <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"]*100, 0, '.', '')) ?>" ></span>
+                                        <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"] * 100, 0, '.', '')) ?>" ></span>
                                     </div>
                                 </div>
                             </div>
@@ -140,9 +97,9 @@
                     </div>
                 </div>
 
-            <?php 
-                } 
-                $counter++; 
+            <?php
+            }
+                $counter++;
             ?>
 
         <?php endforeach ?>
@@ -159,59 +116,8 @@
 <?php endif; ?>
 <!-- Our Cases End -->
 
-<!--? Blog Area Start -->
-<section class="home-blog-area section-padding24">
-    <div class="container">
-        <!-- Section Tittle -->
-        <div class="row justify-content-center">
-            <div class="col-xl-5 col-lg-6 col-md-9 col-sm-10">
-                <div class="section-tittle text-center mb-90">
-                    <span>Berita Terbaru Kami</span>
-                    <h3><b>Membagikan wawasan dari artikel-artikel kami</b></h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="home-blog-single mb-30">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="<?= assetUrl("app/theme-charityworks/img/gallery/lelaki-shalat-sujud.jpeg"); ?>" alt="">
-                            <!-- Blog date -->
-                            <div class="blog-date text-center">
-                                <span>24</span>
-                                <p>Nov</p>
-                            </div>
-                        </div>
-                        <div class="blog-cap">
-                            <p>Admin Masjid</p>
-                            <h3><a href="#">Lezat & Manisnya Iman</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="home-blog-single mb-30">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="<?= assetUrl("app/theme-charityworks/img/gallery/riba.jpeg"); ?>" alt="">
-                            <!-- Blog date -->
-                            <div class="blog-date text-center">
-                                <span>23</span>
-                                <p>Nov</p>
-                            </div>
-                        </div>
-                        <div class="blog-cap">
-                            <p>Admin Masjid</p>
-                            <h3><a href="#">Mengenal Apa Itu RIBA?</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Blog Area End -->
+<?= view('App\Views\Partials\article', ['articles' => $articles]) ?>
+
 <!--? Count Down Start -->
 <div class="count-down-area pt-25 section-bg"
     data-background=<?= assetUrl("app/theme-charityworks/img/gallery/section_bg02.png"); ?>">
@@ -221,9 +127,9 @@
                 <div class="count-down-wrapper">
                     <div class="row justify-content-between">
                         <?= view('App\Views\Widgets\_counter', [
-				                    'counter'   => $widgets->widget('counter')->items(),				
-                                    ]) 
-                            ?>
+                                    'counter'   => $widgets->widget('counter')->items(),
+                                    ])
+?>
                     </div>
                 </div>
             </div>

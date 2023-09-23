@@ -24,16 +24,12 @@ class BaseModule
      * to perform any setup necessary, like hooking into the
      * sidebar menu, etc.
      */
-    public function initAdmin()
-    {
-    }
+    public function initAdmin() {}
 
     /**
      * During system boot for the front end, this method
      * is called on all module config classes, allowing them
      * to perform any setup necessary.
      */
-    public function initFront()
-    {
-    }
+    public function initFront() {}
 }

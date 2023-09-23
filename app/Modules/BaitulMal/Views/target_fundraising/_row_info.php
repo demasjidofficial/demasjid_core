@@ -1,7 +1,7 @@
 <td><?php echo esc($item->kampanye) ?></a></td>
 <td><?php echo esc($item->campaign_name) ?></a></td>
 <td><?php echo esc($item->donatur) ?></a></td>
-<td><?php echo local_currency( esc($item->target_nominal),'IDR')  ?></a></td>
+<td><?php echo local_currency(esc($item->target_nominal), 'IDR')  ?></a></td>
 <td><?php echo esc($item->donasi) ?></a></td>
 <td><?php echo local_date(esc($item->jadwal_mulai))." - ".local_date(esc($item->jadwal_akhir))  ?></a></td>
 <td><?php echo esc($item->first_name)." ". esc($item->last_name)?></td>

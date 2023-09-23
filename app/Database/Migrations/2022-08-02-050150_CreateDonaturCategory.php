@@ -32,7 +32,7 @@ class CreateDonaturCategory extends Migration
             'description' => [
                 'type'       => 'text',
             ],
-          
+
             'created_at' => [
                 'type'       => 'datetime',
                 'null'       => false,
@@ -45,13 +45,13 @@ class CreateDonaturCategory extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'updated_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addKey('id', true);

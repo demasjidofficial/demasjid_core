@@ -27,16 +27,16 @@ class ReportBalanceSheetController extends AdminCrudController
         $this->writeLog();
         $download = $this->request->getGet('download');
         if ($download) {
-            // $viewHtml = $this->render($view, $dataIndex);    
-            switch($download){        
+            // $viewHtml = $this->render($view, $dataIndex);
+            switch($download) {
                 case 'pdf':
                     $viewHtml = '<div>tess</div>';
                     $this->generate($viewHtml);
-                break;
+                    break;
                 case 'xls':
                     //$viewHtml = '<div>tess</div>';
                     //$this->generate($viewHtml);
-                break;
+                    break;
             }
             return;
         }

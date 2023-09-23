@@ -6,7 +6,7 @@ use CodeIgniter\Database\Migration;
 
 class CreateDonationType extends Migration
 {
-    /* 
+    /*
      Contoh tipe donasi yaitu Uang, Barang, Jasa.
     */
     public function up()
@@ -21,7 +21,7 @@ class CreateDonationType extends Migration
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'description' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -51,7 +51,7 @@ class CreateDonationType extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

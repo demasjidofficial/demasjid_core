@@ -27,18 +27,18 @@ class JadwalFundraisingController extends AdminCrudController
     public function update($id = null)
     {
         $data = $this->request->getPost();
-        
+
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
-        $data['target_dana'] = (float)(str_replace(',','',$data['target_dana']));
+        $data['target_dana'] = (float)(str_replace(',', '', $data['target_dana']));
         $data['jadwal_akhir'] = date("Y-m-d", strtotime(($end_date[2].'-'.$end_date[1].'-'.$end_date[0])));
         $data['jadwal_mulai'] = date("Y-m-d", strtotime(($start_date[2].'-'.$start_date[1].'-'.$start_date[0])));
-    
+
 
 
         $updateData = array_filter($data);
-        
+
         if (! $this->model->update($id, $updateData)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
@@ -55,16 +55,16 @@ class JadwalFundraisingController extends AdminCrudController
     public function create()
     {
         $data = $this->request->getPost();
-       
+
         $datarange = explode(' - ', $data['jadwal_durasi']);
         $start_date = explode('/', $datarange[0]);
         $end_date = explode('/', $datarange[1]);
-        $data['target_dana'] = (float)(str_replace(',','',$data['target_dana']));
+        $data['target_dana'] = (float)(str_replace(',', '', $data['target_dana']));
         $data['jadwal_akhir'] = date("Y-m-d", strtotime(($end_date[2].'-'.$end_date[1].'-'.$end_date[0])));
         $data['jadwal_mulai'] = date("Y-m-d", strtotime(($start_date[2].'-'.$start_date[1].'-'.$start_date[0])));
-    
 
-        if (! $this->model->insert($data)) {            
+
+        if (! $this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -108,7 +108,7 @@ class JadwalFundraisingController extends AdminCrudController
             }
             $start_date = explode('-', $data->jadwal_mulai);
             $end_date = explode('-', $data->jadwal_akhir);
-            $data->jadwal_durasi =  $start_date[2] . '/' . $start_date[1] .'/'. (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2)); 
+            $data->jadwal_durasi =  $start_date[2] . '/' . $start_date[1] .'/'. (substr($start_date[0], 2)) . ' - ' . $end_date[2] . '/' . $end_date[1] . '/' . (substr($end_date[0], 2));
             $dataEdit['data'] = $data;
         }
 

@@ -33,5 +33,5 @@ return [
     'new'              => 'Baru',
     'register'         => 'Daftar',
     'detail'           => 'Detail',
-    'tambah_tugas'     =>'Tambah Tugas',
+    'tambah_tugas'     => 'Tambah Tugas',
 ];

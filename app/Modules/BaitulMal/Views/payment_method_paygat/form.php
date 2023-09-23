@@ -28,16 +28,16 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.paymentgateway'),'',['for' => 'master_payment_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.paymentgateway'), '', ['for' => 'master_payment_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('master_payment_id',$bankItems ,old('master_payment_id', $data->master_payment_id ?? ''), "class='form-control select2' required ") ?>
+                        <?= form_dropdown('master_payment_id', $bankItems, old('master_payment_id', $data->master_payment_id ?? ''), "class='form-control select2' required ") ?>
                         <?php if (has_error('master_payment_id')) { ?>
                         <p class="text-danger"><?php echo error('master_payment_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.rek_no'),'',['for' => 'rek_no', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.rek_no'), '', ['for' => 'rek_no', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('rek_no', old('rek_no', $data->rek_no ?? ''), "class='form-control int'  placeholder='".lang('crud.rek_no')."' ") ?>
                         <?php if (has_error('rek_no')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.rek_name'),'',['for' => 'rek_name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.rek_name'), '', ['for' => 'rek_name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('rek_name', old('rek_name', $data->rek_name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.rek_name')."' ") ?>
                         <?php if (has_error('rek_name')) { ?>

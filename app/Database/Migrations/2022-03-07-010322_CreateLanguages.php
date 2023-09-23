@@ -22,7 +22,7 @@ class CreateLanguages extends Migration
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'path_icon' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -38,7 +38,7 @@ class CreateLanguages extends Migration
                 'type'       => 'int',
                 'constraint' => 1,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'created_at' => [
                 'type'       => 'datetime',
@@ -52,7 +52,7 @@ class CreateLanguages extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

@@ -8,7 +8,7 @@ class AddEmailActivation extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('member',[
+        $this->forge->addColumn('member', [
             'email' => [
                 'type'       => 'varchar',
                 'constraint' => 50,

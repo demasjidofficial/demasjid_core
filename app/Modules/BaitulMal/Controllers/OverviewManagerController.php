@@ -19,8 +19,8 @@ class OverviewManagerController extends AdminController
     public function index()
     {
         # code...
-        
-        
+
+
 
         $this->setupWidgets();
         $this->setWidgetTarget();
@@ -214,7 +214,7 @@ class OverviewManagerController extends AdminController
             //throw $th;
             log_message('error', (new TimFundraisingModel())->getLastQuery());
         }
-        
+
     }
 
     protected function generateTargetFund()
@@ -228,7 +228,7 @@ class OverviewManagerController extends AdminController
 
             return convertStateProgram($item);
         };
-        $table->setHeading( 'Nama Target Fundraising', 'Tipe ', 'Target Nominal', 'Tipe Donasi', 'Jadwal Mulai', 'Jadwal Akhir');
+        $table->setHeading('Nama Target Fundraising', 'Tipe ', 'Target Nominal', 'Tipe Donasi', 'Jadwal Mulai', 'Jadwal Akhir');
 
         $template = [
             'table_open'         => '<table class="table m-0">'
@@ -236,5 +236,5 @@ class OverviewManagerController extends AdminController
         $table->setTemplate($template);
         return $table->generate($data);
     }
-    
+
 }

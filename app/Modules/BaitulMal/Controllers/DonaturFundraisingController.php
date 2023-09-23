@@ -11,23 +11,26 @@ use App\Traits\UploadedFile;
 
 class DonaturFundraisingController extends AdminCrudController
 {
+    use UploadedFile;
 
     protected $baseController = '\\'.__CLASS__;
     protected $viewPrefix = 'App\Modules\BaitulMal\Views\donatur_fundraising\\';
     protected $baseRoute = ADMIN_AREA.'/baitulmal/donaturfundraising';
     protected $langModel = 'donatur_fundraising';
     protected $modelName = 'App\Modules\Api\Models\DonaturFundraisingModel';
-    use UploadedFile;
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
-       
+    public function update($id = null)
+    {
+
         $data = $this->request->getPost();
         $image = $data['image_path'];
         $signature_img = $data['signature_path'];
@@ -40,7 +43,7 @@ class DonaturFundraisingController extends AdminCrudController
                 $this->model->set('path_signature', $uploadedSign);
             }
         } else {
-     
+
             if (!empty($signature_img)) {
                 $uploadedSign = $this->uploadTtd('signature_path');
                 $this->model->set('path_signature', $uploadedSign);
@@ -61,7 +64,7 @@ class DonaturFundraisingController extends AdminCrudController
                 $this->model->set('path_image', $uploadedImage);
                 $data['path_image'] = $uploadedImage;
             }
-         
+
         }
         $data['nominal'] = replace_float($data['nominal']);
         $updateData = array_filter($data);
@@ -73,11 +76,13 @@ class DonaturFundraisingController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $data = $this->request->getPost();
         $image = $data['image_path'];
         if (!empty($image)) {
@@ -107,10 +112,11 @@ class DonaturFundraisingController extends AdminCrudController
         $this->writeLog();
 
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
-    
+
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 

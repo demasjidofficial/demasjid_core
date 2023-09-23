@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar'  placeholder='".lang('crud.description')."' ") ?>
                         <?php if (has_error('description')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">  
-                    <?= form_label(lang('crud.uom_id'),'',['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                    <?= form_label(lang('crud.uom_id'), '', ['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
                     <div class="col-sm-10">
                         <?= form_dropdown('uom_id', $uomItems, old('uom_id', $data->uom_id ?? ''), "class='form-control select2bs4' required") ?>                                                                                                                                                                                                                                                                                                     
                         <?php if (has_error('uom_id')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('state', $stateItems, old('state', $data->state ?? ''), "class='form-control select2bs4' required") ?>                                                                                                                                                                                                                                                                                                     
                         <?php if (has_error('state')) { ?>

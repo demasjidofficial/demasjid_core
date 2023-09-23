@@ -8,12 +8,12 @@ class AddNoinvDonasi extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('donasi',[
+        $this->forge->addColumn('donasi', [
             'no_inv' => [
                 'type' => 'varchar',
                 'constraint' => 50,
                 'null' => true
-            ]   
+            ]
         ]);
     }
 

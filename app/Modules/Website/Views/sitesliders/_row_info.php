@@ -1,5 +1,5 @@
 <td><?php echo esc($item->name) ?></a></td>
-<td><img width="150px" src="/<?php echo ($item->path_image)? esc($item->path_image) : $blank_img ?>"></a></td>
+<td><img width="150px" src="/<?php echo ($item->path_image) ? esc($item->path_image) : $blank_img ?>"></a></td>
 <td><?php echo esc($item->sitepages_title) ?></a></td>
 <td><?php echo esc($item->sequence) ?></a></td>
 <td><?php echo convertStateWebsite($item->state) ?></a></td>

@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.label'),'',['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.label'), '', ['for' => 'label', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('label', old('label', $data->label ?? ''), "class='form-control varchar' required placeholder='".lang('crud.label')."' ") ?>
                         <?php if (has_error('label')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.path_image'), '', ['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar'  placeholder='".lang('crud.path_image')."' ") ?>
                         <?php if (has_error('path_image')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('description', old('description', $data->description ?? ''), "rows='4' class='form-control text' required placeholder='".lang('crud.description')."' ") ?>
                         <?php if (has_error('description')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.created_by'), '', ['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
                         <?php if (has_error('created_by')) { ?>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.updated_by'),'',['for' => 'updated_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.updated_by'), '', ['for' => 'updated_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('updated_by', old('updated_by', $data->updated_by ?? ''), "class='form-control int'  placeholder='".lang('crud.updated_by')."' ") ?>
                         <?php if (has_error('updated_by')) { ?>

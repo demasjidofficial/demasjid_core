@@ -8,17 +8,17 @@ class AddDomainMembers extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('member',[
+        $this->forge->addColumn('member', [
             'domain' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
                 'null' => true,
-            ],            
+            ],
         ]);
     }
 
     public function down()
-    {        
+    {
         $this->forge->dropColumn('member', ['domain']);
     }
 }

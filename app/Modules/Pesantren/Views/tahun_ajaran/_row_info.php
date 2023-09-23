@@ -1,9 +1,9 @@
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php if (esc($item->status == 0)) {
-        echo "Tidak Aktif";
-    } else {
-        echo "Aktif";
-    }  ?></a></td>
+    echo "Tidak Aktif";
+} else {
+    echo "Aktif";
+}  ?></a></td>
 <td class="d-flex justify-content-end" hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->
     <div class="dropdown">

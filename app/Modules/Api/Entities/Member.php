@@ -157,11 +157,12 @@ class Member extends BaseEntity
      * 	   nullable=false,
      * )
      */
-    private $updated_at;    
-    public function getDetailWilayah(){
-        
+    private $updated_at;
+    public function getDetailWilayah()
+    {
+
         return !empty($this->attributes['wilayah_id']) ? extractWilayah($this->attributes['wilayah_id']) : [];
-    } 
+    }
 }
 /**
  * @OA\RequestBody(

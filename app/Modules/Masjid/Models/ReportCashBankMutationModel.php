@@ -29,5 +29,5 @@ class ReportCashBankMutationModel extends BalanceModel
     public function filter(array $params = null)
     {
         return [];
-    }    
+    }
 }

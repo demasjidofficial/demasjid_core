@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="row mb-3">
-                        <?= form_label(lang('crud.pages'),'',['for' => 'sitepage_id', 'class' => 'col-form-label col-sm-2']) ?>
+                        <?= form_label(lang('crud.pages'), '', ['for' => 'sitepage_id', 'class' => 'col-form-label col-sm-2']) ?>
                         <div class="col-sm-10">
                             <?= form_dropdown('sitepage_id', $pageItems, old('sitepage_id', $data->sitepage_id ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.pages')."' required") ?>
                             <?php if (has_error('sitepage_id')) { ?>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_dropdown('state', ['draft' => lang('app.draft'), 'release' => lang('app.release')], old('state', $data->state ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.state')."' required") ?>
                         <?php if (has_error('state')) { ?>
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="row mb-3">
-                        <?= form_label('sequence','',['for' => 'sequence', 'class' => 'col-form-label col-sm-2']) ?>
+                        <?= form_label('sequence', '', ['for' => 'sequence', 'class' => 'col-form-label col-sm-2']) ?>
                         <div class="col-sm-10">
                             <?= form_input('sequence', old('sequence', $data->sequence ?? ''), "class='form-control int' ") ?>
                             <?php if (has_error('sequence')) { ?>
@@ -76,7 +76,7 @@
 
                     <fieldset>
                         <div class="row mb-3">
-                            <?= form_label('title','',['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label('title', '', ['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_input('title', old('title', $data->title ?? ''), "class='form-control varchar' required") ?>
                                 <?php if (has_error('title')) { ?>
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label('subtitle','',['for' => 'subtitle', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label('subtitle', '', ['for' => 'subtitle', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_input('subtitle', old('subtitle', $data->subtitle ?? ''), "class='form-control varchar' required") ?>
                                 <?php if (has_error('subtitle')) { ?>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label(lang('crud.type'), '', ['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_dropdown('type', $typeItems, old('type', $data->type ?? ''), "class='form-control select2bs4 add-begin-option' data-label='".lang('crud.type')."' required") ?>
                                 <?php if (has_error('type')) { ?>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label('params','',['for' => 'params', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label('params', '', ['for' => 'params', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_input('params', old('params', $data->params ?? ''), "class='form-control varchar'") ?>
                                 <?php if (has_error('params')) { ?>
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <?= form_label(lang('crud.content'),'',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
+                            <?= form_label(lang('crud.content'), '', ['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
                             <div class="col-sm-10">
                                 <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>
                                 

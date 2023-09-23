@@ -14,7 +14,7 @@ class CreateProgramCost extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'program_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
@@ -27,23 +27,23 @@ class CreateProgramCost extends Migration
             'cost_estimate' => [
                 'type'          => 'int',
                 'constraint'     => 11,
-                'unsigned'       => true                
+                'unsigned'       => true
             ],
             'cost_actual' => [
                 'type'          => 'int',
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'null'          => true,
-                'default'       => 0, 
+                'default'       => 0,
             ],
             'created_at' => [
                 'type'          => 'datetime',
-                'null'          => false,                
+                'null'          => false,
             ],
             'updated_at' => [
                 'type'          => 'datetime',
                 'null'          => false,
-            ]            
+            ]
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('program_id', 'program', 'id');

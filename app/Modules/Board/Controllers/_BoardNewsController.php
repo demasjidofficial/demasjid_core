@@ -58,7 +58,7 @@ class _BoardNewsController extends AdminCrudController
             'url'     => '/board/news_viewtv',
             'faIcon' => 'fas fa-link nav-icon',
         ]);
-        
+
         $widgets->widget('schedule')->collection('schedule')
         ->addItem($boardNewsBGItem)
         ->addItem($runTextItem)

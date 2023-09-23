@@ -8,7 +8,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 class SetupController extends Controller
-{        
+{
     /**
      * Constructor.
      */
@@ -17,23 +17,27 @@ class SetupController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
     }
-    
-    public function migrateInstall(){
+
+    public function migrateInstall()
+    {
         ini_set('max_execution_time', 0);
-        print(command('migrate --all'));    
+        print(command('migrate --all'));
     }
 
-    public function migrate(){
+    public function migrate()
+    {
         ini_set('max_execution_time', 0);
-        print(command('migrate'));    
+        print(command('migrate'));
     }
 
-    public function migrateRefresh(){
+    public function migrateRefresh()
+    {
         ini_set('max_execution_time', 0);
         print(command('migrate:refresh'));
     }
 
-    public function seed(){
+    public function seed()
+    {
         $seedFile = $this->request->getGet('seeder') ?? 'SetupSeeder';
         ini_set('max_execution_time', 0);
         try {
@@ -41,7 +45,7 @@ class SetupController extends Controller
             echo 'setup file '.$seedFile.' seeder success ';
         } catch (\Exception $e) {
             echo $e->getMessage();
-        }                
+        }
     }
 
 }

@@ -194,18 +194,18 @@ class ReportController extends AdminController
         $reader = new Html();
         $spreadsheet = $reader->loadFromString($viewHtml);
 
-        $writer = IOFactory::createWriter($spreadsheet, 'Xls');        
+        $writer = IOFactory::createWriter($spreadsheet, 'Xls');
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment; filename="'.urlencode($filename).'"');
         $writer->save('php://output');
     }
 
     protected function exportPdf($filename, $viewHtml)
-    {        
+    {
         // instantiate and use the dompdf class
         $dompdf = new Dompdf();
         // load HTML content
-        $dompdf->loadHtml($viewHtml);        
+        $dompdf->loadHtml($viewHtml);
         // (optional) setup the paper size and orientation
         $dompdf->setPaper('A4');
         // render html as PDF

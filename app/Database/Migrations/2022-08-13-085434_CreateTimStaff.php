@@ -32,11 +32,11 @@ class CreateTimStaff extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
 
-         
-          
+
+
             'created_at' => [
                 'type'       => 'datetime',
                 'null'       => false,
@@ -49,21 +49,21 @@ class CreateTimStaff extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'updated_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'updated_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
-         
+
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('tim_staff');

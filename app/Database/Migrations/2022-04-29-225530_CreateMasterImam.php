@@ -14,21 +14,21 @@ class CreateMasterImam extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
-            ],            
+            ],
             'contact' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
                 'null' => true
-            ],                                   
+            ],
             'address' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
-                'null'       => true,              
-            ],            
+                'null'       => true,
+            ],
             'description' => [
                 'type' => 'text',
             ],
@@ -39,7 +39,7 @@ class CreateMasterImam extends Migration
             'is_khotib' => [
                 'type' => 'boolean',
                 'default' => true
-            ],           
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -52,10 +52,10 @@ class CreateMasterImam extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
-        $this->forge->addPrimaryKey('id');               
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('imam', true);
     }
 

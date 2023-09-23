@@ -8,11 +8,11 @@ class AddGroupAccountBalance extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('account_balance',[
+        $this->forge->addColumn('account_balance', [
             'group_account' => [
                 'type'       => 'varchar',
-                'constraint' => 15,                
-                'comment'    => 'kas, bank'          
+                'constraint' => 15,
+                'comment'    => 'kas, bank'
             ],
         ]);
     }

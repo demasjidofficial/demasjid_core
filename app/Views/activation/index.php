@@ -156,7 +156,7 @@
     
     <div class="card-footer paddinglr0">
         <!-- Button Aktifkan -->
-        <?= form_submit('','AKTIFKAN', 'class="btn btn-success btn-block"') ?>
+        <?= form_submit('', 'AKTIFKAN', 'class="btn btn-success btn-block"') ?>
     </div><!-- /.card-footer -->
 
     <?= form_close() ?>

@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.campaign'),'',['for' => 'campaign', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.campaign'), '', ['for' => 'campaign', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('campaign', old('campaign', $data->campaign ?? ''), "class='form-control varchar' required placeholder='".lang('crud.campaign')."' ") ?>
                         <?php if (has_error('campaign')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.donatur'),'',['for' => 'donatur', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.donatur'), '', ['for' => 'donatur', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('donatur', old('donatur', $data->donatur ?? ''), "class='form-control varchar' required placeholder='".lang('crud.donatur')."' ") ?>
                         <?php if (has_error('donatur')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.target_nominal'),'',['for' => 'target_nominal', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.target_nominal'), '', ['for' => 'target_nominal', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('target_nominal', old('target_nominal', $data->target_nominal ?? ''), "class='form-control varchar' required placeholder='".lang('crud.target_nominal')."' ") ?>
                         <?php if (has_error('target_nominal')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.tipe_donasi'),'',['for' => 'tipe_donasi', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.tipe_donasi'), '', ['for' => 'tipe_donasi', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('tipe_donasi', old('tipe_donasi', $data->tipe_donasi ?? ''), "class='form-control varchar' required placeholder='".lang('crud.tipe_donasi')."' ") ?>
                         <?php if (has_error('tipe_donasi')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.created_by'), '', ['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
                         <?php if (has_error('created_by')) { ?>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.updated_by'),'',['for' => 'updated_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.updated_by'), '', ['for' => 'updated_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('updated_by', old('updated_by', $data->updated_by ?? ''), "class='form-control int'  placeholder='".lang('crud.updated_by')."' ") ?>
                         <?php if (has_error('updated_by')) { ?>

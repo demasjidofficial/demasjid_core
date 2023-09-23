@@ -21,7 +21,7 @@
                     </label>
                 </li>
             <?php } ?>
-            <?php } else{ ?>
+            <?php } else { ?>
                 <li class="form-check">
                     <input class="form-input filter-check" type="input" name="filters[<?= $key ?>]">                    
                 </li>

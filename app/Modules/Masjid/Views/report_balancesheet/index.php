@@ -17,7 +17,7 @@
                 <!--fieldset-->
                     <!--div class="row mb-3"-->
                     <div class="form-group row">
-                        <?= form_label(lang('crud.period'),'',['for' => 'period', 'class' => 'col-sm-1 col-form-label']) ?>
+                        <?= form_label(lang('crud.period'), '', ['for' => 'period', 'class' => 'col-sm-1 col-form-label']) ?>
                         <div class="col-sm-3">
                             <?= form_input('period', old('period', $period ?? ''), "class='form-control date' required readonly") ?>
                         </div>

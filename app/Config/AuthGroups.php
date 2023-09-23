@@ -99,8 +99,8 @@ class AuthGroups extends ShieldGroups
         'widgets.settings'    => 'Can view the settings for site Widgets',
         'consent.settings'    => 'Can view the settings for the Consent module',
         'recycler.view'       => 'Can view the Recycler area',
-        
-        /** module masjid */        
+
+        /** module masjid */
         'masjid.member.list' => 'Can view list member',
         'masjid.member.create' => 'Can create member',
         'masjid.member.edit' => 'Can edit member',
@@ -130,10 +130,10 @@ class AuthGroups extends ShieldGroups
 
         'masjid.balance.list' => 'Can view list account balance',
         'masjid.account_balance.list' => 'Can view list account balance',
-        
+
         'masjid.program.list' => 'Can view list program',
-        
-        /** module website */        
+
+        /** module website */
         'website.menus.list' => 'Can view list menus on website',
         'website.menus.create' => 'Can create menus on website',
         'website.menus.edit' => 'Can edit menus on website',
@@ -175,22 +175,22 @@ class AuthGroups extends ShieldGroups
 
         /** tpq */
         'tpq.balance.list' => 'Can view list account balance',
-        'tpq.account_balance.list' => 'Can view list account balance',  
+        'tpq.account_balance.list' => 'Can view list account balance',
 
         'tpq.profile.list' => 'Can view list profile',
         'tpq.profile.create' => 'Can create profile',
         'tpq.profile.edit' => 'Can edit profile',
 
-        'tpq.profile.delete' => 'Can edit profile', 
-        
-        
+        'tpq.profile.delete' => 'Can edit profile',
+
+
          /** baitulmal */
 
          'baitulmal.katDonatur.list' => 'Can view list donatur category',
          'baitulmal.katDonatur.create' => 'Can create donatur category',
          'baitulmal.katDonatur.edit' => 'Can edit donatur category',
          'baitulmal.katDonatur.delete' => 'Can delete donatur category',
-         
+
          'baitulmal.fundraising.list' => 'Can view list module fundraising',
          'baitulmal.manager_fundraising.list' => 'Can view list tim fundraising',
          'baitulmal.supervisor_fundraising.list' => 'Can create tim fundraising',
@@ -200,7 +200,7 @@ class AuthGroups extends ShieldGroups
          'baitulmal.donatur_fundraising.list' => 'Can delete tim fundraising',
 
 
-      'baitulmal.qurbans.list'=>'baitulmal.qurbans.list',
+      'baitulmal.qurbans.list' => 'baitulmal.qurbans.list',
 
          'baitulmal.bmdonationcampaign.list' => 'Can view list campaign',
          'baitulmal.bmdonationcampaign.create' => 'Can create campaign',
@@ -214,7 +214,7 @@ class AuthGroups extends ShieldGroups
          'baitulmal.donasi.edit' => 'Can edit donasi',
          'baitulmal.donasi.delete' => 'Can delete donasi',
 
-        'tpq.profile.delete' => 'Can edit profile',      
+        'tpq.profile.delete' => 'Can edit profile',
 
     ];
 
@@ -237,7 +237,7 @@ class AuthGroups extends ShieldGroups
             'masjid.*',
             'website.*',
             // 'pesantren.*',
-            // 'tpq.*'        
+            // 'tpq.*'
         ],
         'admin' => [
             'admin.access',
@@ -273,22 +273,22 @@ class AuthGroups extends ShieldGroups
         'beta' => [
             'beta.access',
         ],
-        'manager'=>[
+        'manager' => [
             'baitulmal.manager_fundraising.*'
         ],
-        'supervisor'=>[
+        'supervisor' => [
             'baitulmal.supervisor_fundraising.*'
         ],
-        'staff'=>[
+        'staff' => [
             'baitulmal.staff_fundraising.*'
         ],
-        'bendahara'=>[
+        'bendahara' => [
             'baitulmal.bendahara_fundraising.*'
         ],
-        'takmir'=>[
+        'takmir' => [
             'baitulmal.takmir_fundraising.*'
         ],
-        'donatur'=>[
+        'donatur' => [
             'baitulmal.donatur_fundraising.*'
         ]
     ];

@@ -14,18 +14,18 @@ class CreateMasterEwallet extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'logo' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
                 'after'      => 'last_name',
-            ],     
+            ],
             'nama_ewallet' => [
                 'type' => 'varchar',
                 'constraint' => 100,
                 'null' => true
-            ],   
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -38,7 +38,7 @@ class CreateMasterEwallet extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 

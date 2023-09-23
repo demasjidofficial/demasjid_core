@@ -8,7 +8,7 @@ class AddCostActualProgram extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('program',[            
+        $this->forge->addColumn('program', [
             'cost_actual' => [
                 'type'          => 'int',
                 'constraint'     => 11,

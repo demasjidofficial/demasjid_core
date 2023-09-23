@@ -1,7 +1,7 @@
 <td><?php echo esc($item->jadwal_durasi) ?></a></td>
 <td><?php echo esc($item->jadwal_mulai) ?></a></td>
 <td><?php echo esc($item->jadwal_akhir) ?></a></td>
-<td><?php echo  "Rp " . number_format(esc($item->target_dana),2,',','.'); ?></a></td>
+<td><?php echo  "Rp " . number_format(esc($item->target_dana), 2, ',', '.'); ?></a></td>
 
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">
     <!-- Action Menu -->

@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('description', old('description', $data->description ?? ''), "rows='4' class='form-control text' required placeholder='".lang('crud.description')."' ") ?>
                         <?php if (has_error('description')) { ?>
@@ -46,16 +46,16 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.jabatan_id'),'',['for' => 'jabatan_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.jabatan_id'), '', ['for' => 'jabatan_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('jabatan_id',$jabatanItems ,old('jabatan_id', $data->jabatan_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.jabatan_id')."' ") ?>
+                        <?= form_dropdown('jabatan_id', $jabatanItems, old('jabatan_id', $data->jabatan_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.jabatan_id')."' ") ?>
                         <?php if (has_error('jabatan_id')) { ?>
                         <p class="text-danger"><?php echo error('jabatan_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.address'),'',['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.address'), '', ['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('address', old('address', $data->address ?? ''), "class='form-control varchar'  placeholder='".lang('crud.address')."' ") ?>
                         <?php if (has_error('address')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.path_image'), '', ['for' => 'path_image', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('path_image', old('path_image', $data->path_image ?? ''), "class='form-control varchar'  placeholder='".lang('crud.path_image')."' ") ?>
                         <?php if (has_error('path_image')) { ?>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.telephone'),'',['for' => 'telephone', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.telephone'), '', ['for' => 'telephone', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('telephone', old('telephone', $data->telephone ?? ''), "class='form-control varchar'  placeholder='".lang('crud.telephone')."' ") ?>
                         <?php if (has_error('telephone')) { ?>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.email'),'',['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.email'), '', ['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('email', old('email', $data->email ?? ''), "class='form-control varchar'  placeholder='".lang('crud.email')."' ") ?>
                         <?php if (has_error('email')) { ?>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.provinsi_id'),'',['for' => 'provinsi_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.provinsi_id'), '', ['for' => 'provinsi_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('provinsi_id', old('provinsi_id', $data->provinsi_id ?? ''), "class='form-control varchar'  placeholder='".lang('crud.provinsi_id')."' ") ?>
                         <?php if (has_error('provinsi_id')) { ?>
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.kota_id'),'',['for' => 'kota_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.kota_id'), '', ['for' => 'kota_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('kota_id', old('kota_id', $data->kota_id ?? ''), "class='form-control varchar'  placeholder='".lang('crud.kota_id')."' ") ?>
                         <?php if (has_error('kota_id')) { ?>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.kecamatan_id'),'',['for' => 'kecamatan_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.kecamatan_id'), '', ['for' => 'kecamatan_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('kecamatan_id', old('kecamatan_id', $data->kecamatan_id ?? ''), "class='form-control varchar'  placeholder='".lang('crud.kecamatan_id')."' ") ?>
                         <?php if (has_error('kecamatan_id')) { ?>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.desa_id'),'',['for' => 'desa_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.desa_id'), '', ['for' => 'desa_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('desa_id', old('desa_id', $data->desa_id ?? ''), "class='form-control varchar'  placeholder='".lang('crud.desa_id')."' ") ?>
                         <?php if (has_error('desa_id')) { ?>
@@ -127,9 +127,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.entity_id'),'',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.entity_id'), '', ['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.entity_id')."' ") ?>
+                        <?= form_dropdown('entity_id', $entityItems, old('entity_id', $data->entity_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.entity_id')."' ") ?>
                         <?php if (has_error('entity_id')) { ?>
                         <p class="text-danger"><?php echo error('entity_id'); ?></p>
                         <?php } ?>

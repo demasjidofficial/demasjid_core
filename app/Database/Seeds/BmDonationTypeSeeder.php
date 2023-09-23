@@ -12,15 +12,15 @@ class BmDonationTypeSeeder extends Seeder
         $data = [
             [
                 'name' => 'Uang',
-                'uom_id' => 11,                
+                'uom_id' => 11,
                 'state' => 'A',
-                'description' => 'Bantuan dalam bentuk uang',                
+                'description' => 'Bantuan dalam bentuk uang',
             ],
             [
                 'name' => 'Barang',
-                'uom_id' => 11,                
+                'uom_id' => 11,
                 'state' => 'A',
-                'description' => 'Bantuan dalam bentuk barang',                
+                'description' => 'Bantuan dalam bentuk barang',
             ],
 
         ];

@@ -14,13 +14,13 @@ class CreateRawatibSchedule extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-            ],            
+            ],
             'pray_time' => [
-                'type'       => 'time'                            
+                'type'       => 'time'
             ],
             'is_automatic' => [
                 'type' => 'boolean',
@@ -30,7 +30,7 @@ class CreateRawatibSchedule extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-            ],            
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -43,11 +43,11 @@ class CreateRawatibSchedule extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('imam_id', 'imam', 'id');     
+        $this->forge->addForeignKey('imam_id', 'imam', 'id');
         $this->forge->createTable('rawatib_schedule', true);
     }
 

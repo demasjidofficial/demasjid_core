@@ -31,7 +31,7 @@
                                         <div class="tipWrap">
                                             <span class="tip" style="left:0 !important"></span>
                                         </div>
-                                        <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"]*100, 0, '.', '')) ?>" ></span>
+                                        <span class="fill" data-percentage="<?php echo min(100, number_format($item["campaign_collected"] / $item["campaign_tonase"] * 100, 0, '.', '')) ?>" ></span>
                                     </div>
                                 </div>
                             </div>

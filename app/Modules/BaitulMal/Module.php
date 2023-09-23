@@ -132,10 +132,10 @@ class Module extends BaseModule
             'url'             => ADMIN_AREA.'/baitulmal/OverviewManager',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            //'permission'        => 'baitulmal.manager_fundraising.list',
-           
+
         ]);
 
-        
+
         $fundraisingSpvItem = new MenuItem([
             'title'           => 'Fundraising',
             'url'             => ADMIN_AREA.'/baitulmal/OverviewSpv',
@@ -149,7 +149,7 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
            'permission'        => 'baitulmal.staf_fundraising.list',
         ]);
-      
+
         $masterBaitulMalsItem = new MenuItem([
             'title'           => lang('crud.masters'),
             'url'             => ADMIN_AREA.'/baitulmal/Master',
@@ -167,7 +167,7 @@ class Module extends BaseModule
         //             ->setFontAwesomeIcon('fas fa-money')
         //             ->setCollapsible();
         // $sidebar->menu('sidebar')->collection('baitulmal')
-        //         ->addItem($donationTypeItem)                
+        //         ->addItem($donationTypeItem)
         //         ->addItem($donasisItem)
         //         ->addItem($zakatsItem)
         //         ->addItem($infaqsItem)

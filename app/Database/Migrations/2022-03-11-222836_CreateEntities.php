@@ -27,7 +27,7 @@ class CreateEntities extends Migration
             ],
             'created_at' => [
                 'type'          => 'datetime',
-                'null'          => false,                
+                'null'          => false,
             ],
             'updated_at' => [
                 'type'          => 'datetime',
@@ -37,7 +37,7 @@ class CreateEntities extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

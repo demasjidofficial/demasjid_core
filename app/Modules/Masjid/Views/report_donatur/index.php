@@ -16,7 +16,7 @@
             <form action="<?php echo $actionUrl; ?>" method="get">
                 <fieldset>
                     <div class="row mb-3">
-                        <?= form_label(lang('crud.period'),'',['for' => 'period', 'class' => 'col-form-label col-auto']) ?>
+                        <?= form_label(lang('crud.period'), '', ['for' => 'period', 'class' => 'col-form-label col-auto']) ?>
                         <div class="col-auto">
                             <?= form_input('period', old('period', $period ?? ''), "class='form-control date' required readonly") ?>
                         </div>

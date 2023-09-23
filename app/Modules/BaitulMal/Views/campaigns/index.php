@@ -21,9 +21,9 @@
                         <!-- <h3>&nbsp;</h3> -->
                         <h4><?= lang('app.total_donation')?></h4>
                             <h3>
-                                <?php  
+                                <?php
                                     echo "Rp 00.000.000";
-                                ?>
+?>
                             </h3>
 
                             <p>

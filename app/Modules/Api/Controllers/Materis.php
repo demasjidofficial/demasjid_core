@@ -1,71 +1,74 @@
-<?php namespace App\Modules\Api\Controllers;
- 
+<?php
+
+namespace App\Modules\Api\Controllers;
+
 use asligresik\easyapi\Controllers\BaseResourceController;
+
 class Materis extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\MateriModel';  
+    protected $modelName = 'App\Modules\Api\Models\MateriModel';
 
-     /**
-     * @OA\Get(
-     *     path="/materis",
-     *     tags={"Materi"},
-     *     summary="Find list Materi",
-     *     description="Returns list of Materi",
-     *     operationId="getMateri",  
-     *     @OA\Parameter(
-     *         name="search",
-     *         in="query",
-     *         description="search by column defined",     
-     *         @OA\Schema(
-     *             type="object"              
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="order",
-     *         in="query",
-     *         description="order by column defined",     
-     *         @OA\Schema(
-     *             type="object"              
-     *         )
-     *     ),    
-     *     @OA\Parameter(
-     *         name="page",
-     *         in="query",
-     *         description="page to show",     
-     *         @OA\Schema(
-     *             type="int32"     
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="limit",
-     *         in="query",
-     *         description="count data display per page",     
-     *         @OA\Schema(
-     *             type="int32"     
-     *         )
-     *     ),   
-     *     @OA\Response(
-     *         response=200,
-     *         description="successful operation",     
-     *         @OA\JsonContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Materi")),
-     *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
-     *         ),
-     *         @OA\XmlContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Materi")),
-     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/Materi")),
-     *         ),           
-     *     ),     
-     *     @OA\Response(
-     *         response=404,
-     *         description="Materi not found"
-     *     ),
-     *     security={
-     *         {"bearer_auth": {}}
-     *     }
-     * )
-     *     
-     */
+    /**
+    * @OA\Get(
+    *     path="/materis",
+    *     tags={"Materi"},
+    *     summary="Find list Materi",
+    *     description="Returns list of Materi",
+    *     operationId="getMateri",
+    *     @OA\Parameter(
+    *         name="search",
+    *         in="query",
+    *         description="search by column defined",
+    *         @OA\Schema(
+    *             type="object"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="order",
+    *         in="query",
+    *         description="order by column defined",
+    *         @OA\Schema(
+    *             type="object"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="page",
+    *         in="query",
+    *         description="page to show",
+    *         @OA\Schema(
+    *             type="int32"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="limit",
+    *         in="query",
+    *         description="count data display per page",
+    *         @OA\Schema(
+    *             type="int32"
+    *         )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="successful operation",
+    *         @OA\JsonContent(type="object",
+    *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Materi")),
+    *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
+    *         ),
+    *         @OA\XmlContent(type="object",
+    *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/Materi")),
+    *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/Materi")),
+    *         ),
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="Materi not found"
+    *     ),
+    *     security={
+    *         {"bearer_auth": {}}
+    *     }
+    * )
+    *
+    */
 
     /**
      * @OA\Get(
@@ -102,7 +105,7 @@ class Materis extends BaseResourceController
      *         {"bearer_auth": {}}
      *     }
      * )
-     *     
+     *
      */
 
     /**
@@ -123,7 +126,7 @@ class Materis extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },     
+     *     },
      *     requestBody={"$ref": "#/components/requestBodies/Materi"}
      * )
      */
@@ -158,7 +161,7 @@ class Materis extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },     
+     *     },
      *     requestBody={"$ref": "#/components/requestBodies/Materi"}
      * )
      */
@@ -168,7 +171,7 @@ class Materis extends BaseResourceController
      *     path="/materis/{id}",
      *     tags={"Materi"},
      *     summary="Deletes a Materi",
-     *     operationId="deleteMateri",     
+     *     operationId="deleteMateri",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -192,4 +195,4 @@ class Materis extends BaseResourceController
      *     },
      * )
      */
-} 
+}

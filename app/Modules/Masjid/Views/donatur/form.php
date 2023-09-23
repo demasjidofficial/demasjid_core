@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label('name','',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('name', '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('id_kategori','',['for' => 'id_kategori', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('id_kategori', '', ['for' => 'id_kategori', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('id_kategori', old('id_kategori', $data->id_kategori ?? ''), "class='form-control int' required") ?>
                         <?php if (has_error('id_kategori')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('created_by','',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('created_by', '', ['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int' ") ?>
                         <?php if (has_error('created_by')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label('updated_by','',['for' => 'updated_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label('updated_by', '', ['for' => 'updated_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('updated_by', old('updated_by', $data->updated_by ?? ''), "class='form-control int' ") ?>
                         <?php if (has_error('updated_by')) { ?>

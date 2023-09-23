@@ -41,13 +41,14 @@ class MemberModel extends BaseModel
         'updated_at' => 'valid_date|required',
     ];
 
-    public function getCodeUnique($wilayahId){
+    public function getCodeUnique($wilayahId)
+    {
         $lastSequence = 0;
-        $lastMember = $this->where('wilayah_id',$wilayahId)->orderBy('id','desc')->first();
-        if($lastMember){
+        $lastMember = $this->where('wilayah_id', $wilayahId)->orderBy('id', 'desc')->first();
+        if($lastMember) {
             $lastSequence = intval(substr($lastMember->code, -2));
         }
         $lastSequence++;
-        return str_replace('.','',$wilayahId).str_pad($lastSequence,2,'0',STR_PAD_LEFT);
-    }    
+        return str_replace('.', '', $wilayahId).str_pad($lastSequence, 2, '0', STR_PAD_LEFT);
+    }
 }

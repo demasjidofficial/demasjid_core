@@ -28,7 +28,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.logo'),'',['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.logo'), '', ['for' => 'logo', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?php if (isset($data->logo)) { ?>
                         <div class="justify-content-center photo-wrapper">
@@ -43,7 +43,7 @@
                                     <?php if (has_error('logo')) { ?>
                                         p class="text-danger"><?php echo error('logo'); ?></p>
                                     <?php } ?>
-                                    <?= form_label(lang('crud.path_logo'),'',['for' => 'path_logo', 'class' => 'custom-file-label']) ?>
+                                    <?= form_label(lang('crud.path_logo'), '', ['for' => 'path_logo', 'class' => 'custom-file-label']) ?>
                                 </div>
                                 <div class="input-group-append clickable">
                                     <span class="input-group-text">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.ewallet'),'',['for' => 'nama_ewallet', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.ewallet'), '', ['for' => 'nama_ewallet', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('nama_ewallet', old('nama_ewallet', $data->nama_ewallet ?? ''), "class='form-control varchar'  placeholder='".lang('crud.ewallet')."' ") ?>
                         <?php if (has_error('nama_ewallet')) { ?>

@@ -24,7 +24,7 @@ class CreateMateri extends Migration
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            
+
             'duration' => [
                 'type'       => 'int',
                 'null'       => true,
@@ -50,7 +50,7 @@ class CreateMateri extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

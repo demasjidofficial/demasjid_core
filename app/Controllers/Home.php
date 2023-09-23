@@ -19,8 +19,8 @@ class Home extends WebsiteController
     use SiteProfile;
     public function index($slug_page = null)
     {
-        
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity','entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
+
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name', 'wilayah.nama as wilayah_nama'])->join('entity', 'entity.id = profile.entity_id')->join('wilayah', 'wilayah.kode = profile.desa_id', 'LEFT')->masjid()->asArray()->first();
 
         $isPage = false;
         $page_data =   [
@@ -38,10 +38,13 @@ class Home extends WebsiteController
                 // load section of that page
                 $data['sections'] = model('App\Modules\Api\Models\SitesectionsModel', false)->asArray()->findAllByPagerelease($page[0]['id']);
                 // load slider of that page
-                $data['sliders'] = model('App\Modules\Api\Models\SiteslidersModel', false)->asArray()->findAllByPagerelease($page[0]['id']);    
+                $data['sliders'] = model('App\Modules\Api\Models\SiteslidersModel', false)->asArray()->findAllByPagerelease($page[0]['id']);
             }
+        }else {
+            $data['articles']  = model('App\Modules\Api\Models\SitepostsModel', false)->asArray()->findAllByPagerelease(4);
+            $data['sliders'] = model('App\Modules\Api\Models\SiteslidersModel', false)->asArray()->findAllByPagerelease();
         }
-       
+        
         // load widgets
         $this->siteWidgets();
 
@@ -52,86 +55,18 @@ class Home extends WebsiteController
         // passing data to view
         $data['masjid_profile'] = $masjid_profile;
         $data['donation_campaigns'] = $donation_campaigns;
-        $data['widgets'] = service('widgets'); 
-        $data['page'] = $page_data; 
-        $data['meta'] = meta_tag($masjid_profile["name"], $page_data);  
-        
+        $data['widgets'] = service('widgets');
+        $data['page'] = $page_data;
+        $data['meta'] = meta_tag($masjid_profile["name"], $page_data);
+
         // render view
         // jika page dan home
-        if ($isPage) return $this->render('App\Modules\Website\Views\page', $data);
-        else {
+        if ($isPage) {
+            return $this->render('App\Modules\Website\Views\page', $data);
+        } else {
             // to keep in home view but scroll to donation section
             $data['nav_header_donation'] = '#donasi';
             return $this->render('website_home', $data);
         }
     }
-
-    // /**
-    //  * Method for Pages Feature
-    //  */
-    // public function p()
-    // {
-    //     $permalink = $this->request->getGet('pl');
-    //     $content = '';
-
-    //     if (str_contains($permalink, 'donasi')) {
-    //         //return $this->donasi();
-    //     }    
-        
-    //     $data['pl'] = $permalink;
-    //     $data['content'] = $content;
-
-    //     return $this->render('App\Modules\Website\Views\page', $data);
-    // }
-
-    /**
-     * Method for Posts/Blogs Feature
-     */
-    // private function b()
-    // {
-    //     $permalink = $this->request->getGet('pl');
-    //     return $permalink;
-    // }
-
-    // private function ws()
-    // {
-    //     return 'ws';
-    // }
-
-    /*
-    public function donasi($data = null)
-    {
-        return $this->render('App\Modules\Website\Views\donasi', $data);
-
-        //return 'donasi';
-    }
-    
-    public function pesantren()
-    {
-        $request = $this->request->getGet('req');
-        $data = [];
-
-        if ($request == 'pendaftaran') {
-            return $this->render('App\Modules\Pesantren\Views\website\pendaftaran', $data);
-        }
-        if ($request == 'pengumuman') {
-            return $this->render('App\Modules\Pesantren\Views\website\pengumuman', $data);
-        }
-        return null;
-    }
-
-    public function tpq($data = null)
-    {
-        $request = $this->request->getGet('req');
-        $data = [];
-
-        if ($request == 'pendaftaran') {
-            return $this->render('App\Modules\TPQ\Views\website\pendaftaran', $data);
-        }
-        if ($request == 'pengumuman') {
-            return $this->render('App\Modules\TPQ\Views\website\pengumuman', $data);
-        }
-        return null;
-    }
-    */
 }

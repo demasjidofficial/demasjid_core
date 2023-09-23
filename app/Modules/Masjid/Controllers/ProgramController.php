@@ -18,15 +18,18 @@ class ProgramController extends AdminCrudController
     protected $langModel = 'program';
     protected $modelName = 'App\Modules\Api\Models\ProgramModel';
     private $imageFolder = 'images';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -35,17 +38,19 @@ class ProgramController extends AdminCrudController
                 $this->model->set('path_image', $uploaded);
             }
         }
-        list($startDate, $endDate) = explode(' - ',$this->request->getPost('period'));
+        list($startDate, $endDate) = explode(' - ', $this->request->getPost('period'));
         $this->model->set('start_date', $startDate);
         $this->model->set('end_date', $endDate);
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -55,13 +60,14 @@ class ProgramController extends AdminCrudController
             }
         }
 
-        list($startDate, $endDate) = explode(' - ',$this->request->getPost('period'));
+        list($startDate, $endDate) = explode(' - ', $this->request->getPost('period'));
         $this->model->set('start_date', $startDate);
         $this->model->set('end_date', $endDate);
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -75,12 +81,12 @@ class ProgramController extends AdminCrudController
                 'name' => lang('crud.name'),
                 'cost_estimate' => lang('crud.cost_estimate'),
                 'cost_actual' => lang('crud.cost_actual'),
-                'description' => lang('crud.program_description'),                
-                'state' => lang('crud.state'),                
+                'description' => lang('crud.program_description'),
+                'state' => lang('crud.state'),
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -92,7 +98,7 @@ class ProgramController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new ProgramModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -101,11 +107,11 @@ class ProgramController extends AdminCrudController
             $dataEdit['data'] = $data;
 
             $dataEdit['detailProgramCost'] = (new ProgramCostModel())->where('program_id', $id)->findAll();
-            
+
         }
         $dataEdit['stateItems'] = ProgramModel::listState();
         $dataEdit['programCategoryItems'] = Arr::pluck(model('App\Modules\Api\Models\ProgramCategoryModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
-        
+
         return $dataEdit;
     }
 }

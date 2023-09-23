@@ -28,7 +28,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.board_newsruntext'),'',['for' => 'text', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.board_newsruntext'), '', ['for' => 'text', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('text', old('text', $data->Text ?? ''), "class='form-control varchar' rows='4'  placeholder='".lang('crud.board_newsruntext')."' ") ?>
                         <?php if (has_error('text')) { ?>

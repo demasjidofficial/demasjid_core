@@ -14,8 +14,9 @@ class BotemailController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/bot/email';
     protected $langModel = 'botemail';
     //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
-    
-    public function index(){
+
+    public function index()
+    {
         return parent::index();
     }
 
@@ -55,7 +56,7 @@ class BotemailController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -74,7 +75,7 @@ class BotemailController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+
         return $dataEdit;
     }
     */

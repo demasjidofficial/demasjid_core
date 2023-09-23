@@ -8,27 +8,27 @@ class AddContactAddressPengurus extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('pengurus',[
+        $this->forge->addColumn('pengurus', [
             'provinsi_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true                
+                'null'       => true
             ],
             'kota_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true,                
+                'null'       => true,
             ],
             'kecamatan_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true,                
+                'null'       => true,
             ],
             'desa_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true                
-            ],            
+                'null'       => true
+            ],
             'address' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
@@ -46,8 +46,8 @@ class AddContactAddressPengurus extends Migration
                 'constraint' => 35,
                 'null'       => true,
                 'after'      => 'telephone'
-            ],            
-        ]);   
+            ],
+        ]);
 
         $this->forge->addColumn('pengurus', [
             'entity_id' => [

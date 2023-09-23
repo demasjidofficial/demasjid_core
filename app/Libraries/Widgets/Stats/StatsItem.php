@@ -179,7 +179,7 @@ class StatsItem implements Item
 
     /**
      * Get the value of bgIcon
-     */ 
+     */
     public function bgIcon(): ?string
     {
         return $this->bgIcon;
@@ -189,7 +189,7 @@ class StatsItem implements Item
      * Set the value of bgIcon
      *
      * @return  self
-     */ 
+     */
     public function setBgIcon($bgIcon)
     {
         $this->bgIcon = $bgIcon;

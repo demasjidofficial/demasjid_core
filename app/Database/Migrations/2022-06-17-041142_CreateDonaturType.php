@@ -14,11 +14,11 @@ class CreateDonaturType extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ], 
+            ],
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 128,
-            ],      
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -31,11 +31,11 @@ class CreateDonaturType extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');  
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('donatur_type', true);
     }
 

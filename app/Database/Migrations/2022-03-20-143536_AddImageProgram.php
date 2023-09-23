@@ -8,7 +8,7 @@ class AddImageProgram extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('program',[
+        $this->forge->addColumn('program', [
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,

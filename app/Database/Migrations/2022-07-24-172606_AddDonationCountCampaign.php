@@ -8,13 +8,13 @@ class AddDonationCountCampaign extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('bmdonationcampaign',[
+        $this->forge->addColumn('bmdonationcampaign', [
             'donation_count' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'default' => 0,
                 'unsigned'   => true,
-            ],            
+            ],
         ]);
     }
 

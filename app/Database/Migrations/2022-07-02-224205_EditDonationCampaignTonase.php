@@ -13,19 +13,19 @@ class AddDonationCampaignProgramId extends Migration
             'type'       => 'decimal',
             'constraint' => 15,0,
             'unsigned'   => true,
-            'null'       => true, 
-        ],   
+            'null'       => true,
+        ],
         'campaign_collected' => [
             'type'       => 'decimal',
             'constraint' => 15,0,
             'unsigned'   => true,
-            'null'       => true, 
-            'default'       => 0, 
+            'null'       => true,
+            'default'       => 0,
         ]];
 
-        $this->forge->modifyColumn('bmdonationcampaign', $fields); 
+        $this->forge->modifyColumn('bmdonationcampaign', $fields);
     }
-    
+
 
     public function down()
     {

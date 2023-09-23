@@ -14,7 +14,7 @@ class CreateProfile extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'desa_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
@@ -44,7 +44,7 @@ class CreateProfile extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-            ],            
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -54,13 +54,13 @@ class CreateProfile extends Migration
                 'null' => false,
             ],
         ]);
-        $this->forge->addPrimaryKey('id');   
-        $this->forge->addForeignKey('entity_id', 'entity', 'id');     
+        $this->forge->addPrimaryKey('id');
+        $this->forge->addForeignKey('entity_id', 'entity', 'id');
         $this->forge->createTable('profile', true);
     }
 
     public function down()
-    {        
+    {
         $this->forge->dropTable('profile');
     }
 }

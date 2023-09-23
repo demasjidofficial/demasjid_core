@@ -5,7 +5,7 @@ namespace App\Database\Migrations;
 use CodeIgniter\Database\Migration;
 
 class CreateAssetEntity extends Migration
-{    
+{
     public function up()
     {
         $this->forge->addField([
@@ -32,7 +32,7 @@ class CreateAssetEntity extends Migration
                 'type'       => 'bigInt',
                 'unsigned'   => true,
                 'null'       => false,
-            ],            
+            ],
             'entity_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
@@ -40,9 +40,9 @@ class CreateAssetEntity extends Migration
             ],
             'description'  => [
                 'type'     => 'varchar',
-                'constraint' => 255, 
+                'constraint' => 255,
                 'null'       => true,
-            ], 
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -50,7 +50,7 @@ class CreateAssetEntity extends Migration
             ],
             'created_at' => [
                 'type'          => 'datetime',
-                'null'          => false,                
+                'null'          => false,
             ],
             'updated_at' => [
                 'type'          => 'datetime',
@@ -60,7 +60,7 @@ class CreateAssetEntity extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

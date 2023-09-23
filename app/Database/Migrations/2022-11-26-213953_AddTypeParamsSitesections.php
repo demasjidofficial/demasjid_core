@@ -8,11 +8,11 @@ class AddTypeParamsSitesections extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('sitesections',[
+        $this->forge->addColumn('sitesections', [
             'type' => [
                 'type'       => 'varchar',
                 'constraint' => 50,
-            ],      
+            ],
             'params' => [
                 'type' => 'varchar',
                 'constraint' => 50,

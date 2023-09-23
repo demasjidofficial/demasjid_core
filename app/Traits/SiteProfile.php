@@ -9,14 +9,16 @@ use App\Modules\Api\Models\SitesocialsModel;
 use App\Modules\Api\Models\SitemenusModel;
 use App\Modules\Api\Models\SitefooterModel;
 
-trait SiteProfile {
-    protected function siteHeaderFooter() {
+trait SiteProfile
+{
+    protected function siteHeaderFooter()
+    {
         // get active lang/locale
         $locale = $this->request->getLocale();
 
         // get data of masjid socials
         $masjid_socials = (new SitesocialsModel())->asArray()->findAllRelease();
-        
+
         // get data of activated languages
         $languages = (new LanguagesModel())->asArray()->findAll();
 
@@ -29,19 +31,19 @@ trait SiteProfile {
         $data['languages'] = $languages;
         $data['nav_menu'] = $nav_menu;
         $data['masjid_socials'] = $masjid_socials;
-        $data['footer'] = $footer; 
+        $data['footer'] = $footer;
         $data['locale'] = $locale;
         return $data;
     }
 
     protected function siteWidgets()
-    {        
+    {
         $this->setupWidgets();
         $this->setWidgetCounter();
         $this->setWidgetService();
     }
 
-    function setupWidgets()
+    public function setupWidgets()
     {
         $widgets = service('widgets');
 
@@ -56,9 +58,9 @@ trait SiteProfile {
         ;
     }
 
-    function setWidgetCounter()
+    public function setWidgetCounter()
     {
-        $widgets = service('widgets');        
+        $widgets = service('widgets');
         $programItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-info',
@@ -76,7 +78,7 @@ trait SiteProfile {
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-cog',
         ]);
-        
+
         $salurDonasiItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-info',
@@ -102,9 +104,9 @@ trait SiteProfile {
             ->addItem($santriItem);
     }
 
-    function setWidgetService()
+    public function setWidgetService()
     {
-        $widgets = service('widgets');        
+        $widgets = service('widgets');
         $zakatItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-info',
@@ -122,7 +124,7 @@ trait SiteProfile {
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'flaticon-think',
         ]);
-        
+
         $wakafItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-info',
@@ -131,7 +133,7 @@ trait SiteProfile {
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'flaticon-gear',
         ]);
-        
+
         $widgets->widget('service')->collection('items')
             ->addItem($zakatItem)
             ->addItem($infaqItem)

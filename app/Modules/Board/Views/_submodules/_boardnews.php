@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <!-- Info boxes -->
             <?= view('App\Views\Widgets\_link', [
-                        'groups'   => $widgets->widget('schedule')->items(),				
+                        'groups'   => $widgets->widget('schedule')->items(),
                     ]) ?>      
         </div>
         <!--/. container-fluid -->

@@ -22,7 +22,7 @@ class CreateSiteSections extends Migration
             'subtitle' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'content' => [
                 'type'       => 'text',
             ],
@@ -56,7 +56,7 @@ class CreateSiteSections extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

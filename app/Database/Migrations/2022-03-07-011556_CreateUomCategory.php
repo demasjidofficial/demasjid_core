@@ -18,7 +18,7 @@ class CreateUomCategory extends Migration
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'description' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -36,7 +36,7 @@ class CreateUomCategory extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

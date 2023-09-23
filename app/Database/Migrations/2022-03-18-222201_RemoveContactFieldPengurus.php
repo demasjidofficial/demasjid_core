@@ -13,7 +13,7 @@ class RemoveContactFieldPengurus extends Migration
 
     public function down()
     {
-        $this->forge->addColumn('pengurus',[
+        $this->forge->addColumn('pengurus', [
             'contact' => [
                 'type'       => 'varchar',
                 'constraint' => 255,

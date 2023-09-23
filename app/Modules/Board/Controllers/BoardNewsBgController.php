@@ -17,16 +17,19 @@ class BoardNewsBgController extends AdminCrudController
     protected $langModel = 'board_news_bg';
     protected $modelName = 'App\Modules\Api\Models\BoardNewsBgModel';
     private $imageFolder = 'images';
-    
-    public function index(){
+
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -35,22 +38,25 @@ class BoardNewsBgController extends AdminCrudController
                 $this->model->set('path_image', $uploaded);
             }
         }
-        
+
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $uploadedImage = $this->uploadFile('image');
         $this->model->set('path_image', $uploadedImage);
 
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -65,7 +71,7 @@ class BoardNewsBgController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -77,14 +83,14 @@ class BoardNewsBgController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new BoardNewsBgModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
         }
-        
+
         return $dataEdit;
     }
 }

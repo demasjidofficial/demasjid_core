@@ -22,7 +22,7 @@ class CreateSiteSocials extends Migration
             'link' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'path_icon' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -46,7 +46,7 @@ class CreateSiteSocials extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

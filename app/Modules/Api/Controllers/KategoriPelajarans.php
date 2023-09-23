@@ -1,71 +1,74 @@
-<?php namespace App\Modules\Api\Controllers;
- 
+<?php
+
+namespace App\Modules\Api\Controllers;
+
 use asligresik\easyapi\Controllers\BaseResourceController;
+
 class KategoriPelajarans extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\KategoriPelajaranModel';  
+    protected $modelName = 'App\Modules\Api\Models\KategoriPelajaranModel';
 
-     /**
-     * @OA\Get(
-     *     path="/kategoriPelajarans",
-     *     tags={"KategoriPelajaran"},
-     *     summary="Find list KategoriPelajaran",
-     *     description="Returns list of KategoriPelajaran",
-     *     operationId="getKategoriPelajaran",  
-     *     @OA\Parameter(
-     *         name="search",
-     *         in="query",
-     *         description="search by column defined",     
-     *         @OA\Schema(
-     *             type="object"              
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="order",
-     *         in="query",
-     *         description="order by column defined",     
-     *         @OA\Schema(
-     *             type="object"              
-     *         )
-     *     ),    
-     *     @OA\Parameter(
-     *         name="page",
-     *         in="query",
-     *         description="page to show",     
-     *         @OA\Schema(
-     *             type="int32"     
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="limit",
-     *         in="query",
-     *         description="count data display per page",     
-     *         @OA\Schema(
-     *             type="int32"     
-     *         )
-     *     ),   
-     *     @OA\Response(
-     *         response=200,
-     *         description="successful operation",     
-     *         @OA\JsonContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/KategoriPelajaran")),
-     *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
-     *         ),
-     *         @OA\XmlContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/KategoriPelajaran")),
-     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/KategoriPelajaran")),
-     *         ),           
-     *     ),     
-     *     @OA\Response(
-     *         response=404,
-     *         description="KategoriPelajaran not found"
-     *     ),
-     *     security={
-     *         {"bearer_auth": {}}
-     *     }
-     * )
-     *     
-     */
+    /**
+    * @OA\Get(
+    *     path="/kategoriPelajarans",
+    *     tags={"KategoriPelajaran"},
+    *     summary="Find list KategoriPelajaran",
+    *     description="Returns list of KategoriPelajaran",
+    *     operationId="getKategoriPelajaran",
+    *     @OA\Parameter(
+    *         name="search",
+    *         in="query",
+    *         description="search by column defined",
+    *         @OA\Schema(
+    *             type="object"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="order",
+    *         in="query",
+    *         description="order by column defined",
+    *         @OA\Schema(
+    *             type="object"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="page",
+    *         in="query",
+    *         description="page to show",
+    *         @OA\Schema(
+    *             type="int32"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="limit",
+    *         in="query",
+    *         description="count data display per page",
+    *         @OA\Schema(
+    *             type="int32"
+    *         )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="successful operation",
+    *         @OA\JsonContent(type="object",
+    *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/KategoriPelajaran")),
+    *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
+    *         ),
+    *         @OA\XmlContent(type="object",
+    *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/KategoriPelajaran")),
+    *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/KategoriPelajaran")),
+    *         ),
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="KategoriPelajaran not found"
+    *     ),
+    *     security={
+    *         {"bearer_auth": {}}
+    *     }
+    * )
+    *
+    */
 
     /**
      * @OA\Get(
@@ -102,7 +105,7 @@ class KategoriPelajarans extends BaseResourceController
      *         {"bearer_auth": {}}
      *     }
      * )
-     *     
+     *
      */
 
     /**
@@ -123,7 +126,7 @@ class KategoriPelajarans extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },     
+     *     },
      *     requestBody={"$ref": "#/components/requestBodies/KategoriPelajaran"}
      * )
      */
@@ -158,7 +161,7 @@ class KategoriPelajarans extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },     
+     *     },
      *     requestBody={"$ref": "#/components/requestBodies/KategoriPelajaran"}
      * )
      */
@@ -168,7 +171,7 @@ class KategoriPelajarans extends BaseResourceController
      *     path="/kategoriPelajarans/{id}",
      *     tags={"KategoriPelajaran"},
      *     summary="Deletes a KategoriPelajaran",
-     *     operationId="deleteKategoriPelajaran",     
+     *     operationId="deleteKategoriPelajaran",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -192,4 +195,4 @@ class KategoriPelajarans extends BaseResourceController
      *     },
      * )
      */
-} 
+}

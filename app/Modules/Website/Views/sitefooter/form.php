@@ -35,7 +35,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.title'),'',['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.title'), '', ['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('title', old('title', $data->title ?? ''), "class='form-control varchar' required disabled placeholder='".lang('crud.title')."' ") ?>
                         <?php if (has_error('title')) { ?>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.content'),'',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.content'), '', ['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required placeholder='".lang('crud.content')."' ") ?>
                         <?php if (has_error('content')) { ?>

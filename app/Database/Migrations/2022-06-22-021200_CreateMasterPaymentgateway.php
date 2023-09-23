@@ -14,17 +14,17 @@ class CreateMasterPaymentgateway extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'path_logo' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
-            ],     
+            ],
             'name' => [
                 'type' => 'varchar',
                 'constraint' => 100,
                 'null' => true
-            ],   
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -37,7 +37,7 @@ class CreateMasterPaymentgateway extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 

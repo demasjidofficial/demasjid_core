@@ -19,7 +19,7 @@ class CreateWilayah extends Migration
             ],
             'level' => [
                 'type'       => 'varchar',
-                'constraint' => 50,                
+                'constraint' => 50,
             ],
         ]);
         $this->forge->addPrimaryKey('kode');

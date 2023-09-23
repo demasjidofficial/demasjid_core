@@ -14,30 +14,36 @@ class PaymentMethodTransferController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/paymentmethod_transfer';
     protected $langModel = 'payment_method';
     protected $modelName = 'App\Modules\Api\Models\PaymentMethodTransferModel';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         /** Auto fill for transfer */
         $this->model->set('payment_category_id', (new PaymentMethodTransferModel())->transfer());
 
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -54,7 +60,7 @@ class PaymentMethodTransferController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -66,7 +72,7 @@ class PaymentMethodTransferController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new PaymentMethodTransferModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));

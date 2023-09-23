@@ -1,71 +1,74 @@
-<?php namespace App\Modules\Api\Controllers;
- 
+<?php
+
+namespace App\Modules\Api\Controllers;
+
 use asligresik\easyapi\Controllers\BaseResourceController;
+
 class BoardNewsRuntexts extends BaseResourceController
 {
-    protected $modelName = 'App\Modules\Api\Models\BoardNewsRuntextModel';  
+    protected $modelName = 'App\Modules\Api\Models\BoardNewsRuntextModel';
 
-     /**
-     * @OA\Get(
-     *     path="/boardNewsRuntexts",
-     *     tags={"BoardNewsRuntext"},
-     *     summary="Find list BoardNewsRuntext",
-     *     description="Returns list of BoardNewsRuntext",
-     *     operationId="getBoardNewsRuntext",  
-     *     @OA\Parameter(
-     *         name="search",
-     *         in="query",
-     *         description="search by column defined",     
-     *         @OA\Schema(
-     *             type="object"              
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="order",
-     *         in="query",
-     *         description="order by column defined",     
-     *         @OA\Schema(
-     *             type="object"              
-     *         )
-     *     ),    
-     *     @OA\Parameter(
-     *         name="page",
-     *         in="query",
-     *         description="page to show",     
-     *         @OA\Schema(
-     *             type="int32"     
-     *         )
-     *     ),
-     *     @OA\Parameter(
-     *         name="limit",
-     *         in="query",
-     *         description="count data display per page",     
-     *         @OA\Schema(
-     *             type="int32"     
-     *         )
-     *     ),   
-     *     @OA\Response(
-     *         response=200,
-     *         description="successful operation",     
-     *         @OA\JsonContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/BoardNewsRuntext")),
-     *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
-     *         ),
-     *         @OA\XmlContent(type="object",
-     *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/BoardNewsRuntext")),
-     *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/BoardNewsRuntext")),
-     *         ),           
-     *     ),     
-     *     @OA\Response(
-     *         response=404,
-     *         description="BoardNewsRuntext not found"
-     *     ),
-     *     security={
-     *         {"bearer_auth": {}}
-     *     }
-     * )
-     *     
-     */
+    /**
+    * @OA\Get(
+    *     path="/boardNewsRuntexts",
+    *     tags={"BoardNewsRuntext"},
+    *     summary="Find list BoardNewsRuntext",
+    *     description="Returns list of BoardNewsRuntext",
+    *     operationId="getBoardNewsRuntext",
+    *     @OA\Parameter(
+    *         name="search",
+    *         in="query",
+    *         description="search by column defined",
+    *         @OA\Schema(
+    *             type="object"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="order",
+    *         in="query",
+    *         description="order by column defined",
+    *         @OA\Schema(
+    *             type="object"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="page",
+    *         in="query",
+    *         description="page to show",
+    *         @OA\Schema(
+    *             type="int32"
+    *         )
+    *     ),
+    *     @OA\Parameter(
+    *         name="limit",
+    *         in="query",
+    *         description="count data display per page",
+    *         @OA\Schema(
+    *             type="int32"
+    *         )
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="successful operation",
+    *         @OA\JsonContent(type="object",
+    *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/BoardNewsRuntext")),
+    *            @OA\Property(property="pagination",type="object",@OA\Property(property="currentPage", type="integer"),@OA\Property(property="totalPage", type="integer")),
+    *         ),
+    *         @OA\XmlContent(type="object",
+    *            @OA\Property(property="data",type="array",@OA\Items(ref="#/components/schemas/BoardNewsRuntext")),
+    *            @OA\Property(property="pagination",type="array",@OA\Items(ref="#/components/schemas/BoardNewsRuntext")),
+    *         ),
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="BoardNewsRuntext not found"
+    *     ),
+    *     security={
+    *         {"bearer_auth": {}}
+    *     }
+    * )
+    *
+    */
 
     /**
      * @OA\Get(
@@ -102,7 +105,7 @@ class BoardNewsRuntexts extends BaseResourceController
      *         {"bearer_auth": {}}
      *     }
      * )
-     *     
+     *
      */
 
     /**
@@ -123,7 +126,7 @@ class BoardNewsRuntexts extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },     
+     *     },
      *     requestBody={"$ref": "#/components/requestBodies/BoardNewsRuntext"}
      * )
      */
@@ -158,7 +161,7 @@ class BoardNewsRuntexts extends BaseResourceController
      *     ),
      *     security={
      *         {"bearer_auth": {}}
-     *     },     
+     *     },
      *     requestBody={"$ref": "#/components/requestBodies/BoardNewsRuntext"}
      * )
      */
@@ -168,7 +171,7 @@ class BoardNewsRuntexts extends BaseResourceController
      *     path="/boardNewsRuntexts/{id}",
      *     tags={"BoardNewsRuntext"},
      *     summary="Deletes a BoardNewsRuntext",
-     *     operationId="deleteBoardNewsRuntext",     
+     *     operationId="deleteBoardNewsRuntext",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -192,4 +195,4 @@ class BoardNewsRuntexts extends BaseResourceController
      *     },
      * )
      */
-} 
+}

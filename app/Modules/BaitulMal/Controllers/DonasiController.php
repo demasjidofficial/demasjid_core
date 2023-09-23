@@ -17,29 +17,35 @@ class DonasiController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/donation';
     protected $langModel = 'donasi';
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         $view = $this->viewPrefix . ($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
         $dataIndex = $this->getDataCampaign($id);
-        return $this->render($view , $dataIndex);
+        return $this->render($view, $dataIndex);
     }
 
-    public function create(){
+    public function create()
+    {
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -60,7 +66,7 @@ class DonasiController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
@@ -74,7 +80,7 @@ class DonasiController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new DonasiModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -94,7 +100,7 @@ class DonasiController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new DonasiModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -116,7 +122,7 @@ class DonasiController extends AdminCrudController
         $uri = current_url(true);
 
         $campaign = model(BmdonationcampaignFilter::class)->asArray()->find($id);
-        
+
         $data = $model->paginate(setting('App.perPage'));
 
         return [
@@ -132,7 +138,7 @@ class DonasiController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $data,
             'pager' => $model->pager,
@@ -141,7 +147,8 @@ class DonasiController extends AdminCrudController
         ];
     }
 
-    protected function getDataStats($donasi, $campaign) {
+    protected function getDataStats($donasi, $campaign)
+    {
         $totalDonation = 0;
         $totalActiveCampaign = 0;
         $countDonation = 0;
@@ -151,7 +158,7 @@ class DonasiController extends AdminCrudController
             $countDonation = $campaign['donation_count'];
             $totalActiveCampaign = ($campaign['state'] == model('App\Modules\Api\Models\BmdonationcampaignModel')::END) ? 0 : 1;
         }
-        
+
         return (object)[
             'totalDonation' => $totalDonation,
             'totalActiveCampaign' => $totalActiveCampaign,
@@ -159,5 +166,5 @@ class DonasiController extends AdminCrudController
             'totalInDonation' => count($donasi),
         ];
     }
-       
+
 }

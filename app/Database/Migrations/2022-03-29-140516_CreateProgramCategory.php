@@ -14,21 +14,21 @@ class CreateProgramCategory extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],                        
+            ],
             'name' => [
                 'type'          => 'varchar',
                 'constraint'    => 50,
-            ],            
+            ],
             'created_at' => [
                 'type'          => 'datetime',
-                'null'          => false,                
+                'null'          => false,
             ],
             'updated_at' => [
                 'type'          => 'datetime',
                 'null'          => false,
-            ]            
+            ]
         ]);
-        $this->forge->addPrimaryKey('id');        
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('program_category', true);
     }
 

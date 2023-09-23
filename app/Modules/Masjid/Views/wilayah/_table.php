@@ -7,7 +7,7 @@
                 <td>
                     <input type="checkbox" name="selects[]" class="form-check">
                 </td>
-                <?php echo view($viewPrefix.'\_row_info', ['item' => $item, 'editUrl' => url_to($controller,$item->kode), 'deleteUrl' => url_to($controller,$item->kode)]) ?>
+                <?php echo view($viewPrefix.'\_row_info', ['item' => $item, 'editUrl' => url_to($controller, $item->kode), 'deleteUrl' => url_to($controller, $item->kode)]) ?>
             </tr>
         <?php endforeach ?>
     <?php endif ?>

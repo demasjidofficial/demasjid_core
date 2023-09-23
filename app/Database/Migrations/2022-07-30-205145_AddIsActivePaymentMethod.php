@@ -8,12 +8,12 @@ class AddIsActiveIsDeletedPaymentMethod extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('payment_method',[
+        $this->forge->addColumn('payment_method', [
             'isActived' => [
                 'type'       => 'int',
                 'constraint' => 1,
                 'default' => 1
-            ],      
+            ],
         ]);
     }
 

@@ -197,47 +197,49 @@ class Members extends BaseResourceController
      * )
      */
     public function create()
-    {        
+    {
         $wilayahId = $this->request->getPost('wilayah_id');
         $this->uploadLogo();
         $this->uploadImage();
         $this->model->set('path_logo', $this->getPathLogo());
         $this->model->set('path_image', $this->getPathImage());
         $this->model->set('code', $this->model->getCodeUnique($wilayahId));
-        
+
         return parent::create();
     }
 
-    private function uploadLogo(){
+    private function uploadLogo()
+    {
         $this->uploadFile('logo');
     }
 
-    private function uploadImage(){
+    private function uploadImage()
+    {
         $this->uploadFile('image');
     }
 
     private function uploadFile($name)
-    {        
+    {
         $image = $this->request->getFile($name);
-        
-        if(empty($image)){
+
+        if(empty($image)) {
             throw new RuntimeException('file '.$name.' is required');
-        }        
+        }
 
         if (! $image->isValid()) {
             throw new RuntimeException($image->getErrorString() . '(' . $image->getError() . ')');
         }
-        $imageFolder = 'uploads/'.$this->imageFolder;        
+        $imageFolder = 'uploads/'.$this->imageFolder;
 
         if ($image->isValid() && ! $image->hasMoved()) {
             $newName = $image->getRandomName();
             $image->move(ROOTPATH . 'public/'.$imageFolder, $newName);
-            if($name == 'image'){
+            if($name == 'image') {
                 $this->setPathImage($imageFolder.'/' . $image->getName());
-            }else{
+            } else {
                 $this->setPathLogo($imageFolder.'/' . $image->getName());
             }
-            
+
         }
     }
 
@@ -283,5 +285,5 @@ class Members extends BaseResourceController
         $this->pathImage = $pathImage;
 
         return $this;
-    }    
+    }
 }

@@ -9,8 +9,8 @@ class AddTugasTim extends Migration
     public function up()
     {
         //
-        $this->forge->addColumn('tugas_tim',[
-        
+        $this->forge->addColumn('tugas_tim', [
+
             'progres' => [
                 'type'       => 'varchar',
                 'constraint' => 100,

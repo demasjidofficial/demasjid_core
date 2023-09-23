@@ -25,12 +25,12 @@ class CreateInfaqShodaqoh extends Migration
             ],
             'needed_funds' => [
                 'type'       => 'decimal',
-                'null'       => true, 
+                'null'       => true,
             ],
             'collected_funds' => [
                 'type'       => 'decimal',
-                'null'       => true, 
-            ],  
+                'null'       => true,
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -75,7 +75,7 @@ class CreateInfaqShodaqoh extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

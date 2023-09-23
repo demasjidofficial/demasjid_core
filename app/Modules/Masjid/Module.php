@@ -32,7 +32,7 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             'permission'      => 'masjid.member.list',
         ]);
-  
+
         $financesItem = new MenuItem([
             'title'           => lang('crud.finances'),
             'url'             => ADMIN_AREA.'/masjid/finances',
@@ -66,27 +66,27 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             'permission'      => 'masjid.masters.list',
         ]);
-      
+
         $schedulesItem = new MenuItem([
             'title'           => lang('crud.schedules'),
             'url'             => ADMIN_AREA.'/masjid/schedules',
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             'permission'      => 'masjid.schedules.list',
-        ]);        
-        
+        ]);
+
         $sidebar->menu('sidebar')->createCollection('masjid', 'Masjid')
                 ->setFontAwesomeIcon('fas fa-home')
                 ->setCollapsible();
-        $sidebar->menu('sidebar')->collection('masjid')            
+        $sidebar->menu('sidebar')->collection('masjid')
             ->addItem($profileItem)
-            ->addItem($memberItem)            
-            ->addItem($entityItem)            
+            ->addItem($memberItem)
+            ->addItem($entityItem)
             ->addItem($financesItem)
             ->addItem($assetItem)
             ->addItem($programsItem)
             ->addItem($mastersItem)
             ->addItem($schedulesItem)
-            ;
+        ;
 
     }
 }

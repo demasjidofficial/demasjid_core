@@ -45,8 +45,8 @@ class Module extends BaseModule
             'url'             => ADMIN_AREA.'/settings/uom_category',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             //'permission'      => 'settings.languages.list',
-        ]);        
-        
+        ]);
+
         $sidebar->menu('sidebar')->collection('settings')
                 ->addItem($settingItem)
                 ->addItem($languagesItem)

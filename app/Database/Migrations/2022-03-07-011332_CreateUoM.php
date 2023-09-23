@@ -18,7 +18,7 @@ class CreateUoM extends Migration
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'code' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -51,7 +51,7 @@ class CreateUoM extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

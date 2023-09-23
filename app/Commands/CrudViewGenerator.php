@@ -224,14 +224,14 @@ class CrudViewGenerator extends BaseCommand
                 $formInput = <<<FIELD
                     <?= form_textarea('{$name}', old('{$name}', \$data->{$name} ?? ''), "rows='4' class='{$classInput}' {$required} placeholder='".lang('crud.{$name}')."' ") ?>
                     FIELD;
-            break;
+                break;
 
             case 'select2':
                 $optionItems = $objForeignKey['foreign_table_name'] . 'Items';
                 $formInput   = <<<FIELD
                     <?= form_dropdown('{$name}',\${$optionItems} ,old('{$name}', \$data->{$name} ?? ''), "class='{$classInput}' {$required} placeholder='".lang('crud.{$name}')."' ") ?>
                     FIELD;
-            break;
+                break;
 
             default:
                 $formInput = <<<FIELD

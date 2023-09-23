@@ -16,26 +16,19 @@ class SiteslidersController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/website/sliders';
     protected $langModel = 'sitesliders';
     protected $modelName = 'App\Modules\Api\Models\SiteslidersModel';
-    private $imageFolder = 'images';
 
-    public function index(){
-        $image = $this->request->getFile('image');
-
-        if (!empty($image)) {
-            if ($image->getSize() > 0) {
-                $uploaded = $this->uploadFile('image');
-                $this->model->set('path_image', $uploaded);
-            }
-        }
-
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -44,15 +37,17 @@ class SiteslidersController extends AdminCrudController
                 $this->model->set('path_image', $uploaded);
             }
         }
-        
+
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -65,7 +60,8 @@ class SiteslidersController extends AdminCrudController
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -82,7 +78,7 @@ class SiteslidersController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -94,7 +90,7 @@ class SiteslidersController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new SiteslidersModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -102,8 +98,8 @@ class SiteslidersController extends AdminCrudController
             $dataEdit['data'] = $data;
         }
 
-        $dataEdit['pageItems'] = Arr::pluck(model('App\Modules\Api\Models\SitepagesModel')->select(['id as key','title as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
-        
+        $dataEdit['pageItems'] = ['' => 'Pilih halaman'] + Arr::pluck(model('App\Modules\Api\Models\SitepagesModel')->select(['id as key','title as text'])->asArray()->findAllExcludeJoin(), 'text', 'key');
+
         return $dataEdit;
     }
 }

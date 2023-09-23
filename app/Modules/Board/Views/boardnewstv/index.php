@@ -24,15 +24,15 @@
         <div class="row">
             <?php
                 $now = strtotime(date('Y/m/D'));
-                $time = date('H:i:s',strtotime(time()));
-                $awal  = strtotime($now . $time);
-                $akhir = strtotime('2022-08-12 11:07:33');
-                $diff  = $akhir - $awal;
+$time = date('H:i:s', strtotime(time()));
+$awal  = strtotime($now . $time);
+$akhir = strtotime('2022-08-12 11:07:33');
+$diff  = $akhir - $awal;
 
-                $jam   = floor($diff / (60 * 60));
-                $menit = $diff - ($jam * (60 * 60));
-                $detik = $diff % 60;
-            ?>
+$jam   = floor($diff / (60 * 60));
+$menit = $diff - ($jam * (60 * 60));
+$detik = $diff % 60;
+?>
             <div class="col">
                 <h2 id="timer" class="text-countdown">
                     <!-- < ?= 'Waktu tinggal: ' . $jam .  ' jam, ' . floor($menit / 60) . ' menit, ' . $detik . ' detik'; ?> -->
@@ -52,7 +52,7 @@
             <div>
                 <li><img src="/<?= esc($bg['path_image']) ?>" <?= $duration = $bg['duration']; ?>  alt="imgslide"></li>
             </div>
-        <?php } 
+        <?php }
 
         ?>
     </div>
@@ -69,7 +69,7 @@
 
                 // $time = date('H:i', strtotime($sholat['pray_time']));
                 $time = $sholat['pray_time'];
-            ?>
+                ?>
 
                 <div class="col">
                     <div class="card  w-40 card-pray-bg bg-color<?= $no ?>">
@@ -318,7 +318,7 @@
             <?php foreach ($rawatib_schedule as $sholat) {
                 $no = $sholat['id'];
                 $time = $sholat['pray_time'];
-            ?>
+                ?>
 
                 <div class="col">
                     <div class="card  w-40 card-pray-bg bg-color<?= $no ?>">

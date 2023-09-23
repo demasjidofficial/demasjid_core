@@ -18,25 +18,30 @@ class DonasiTugasController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/donation_tugas';
     protected $langModel = 'donasi';
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         $view = $this->viewPrefix . ($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
         $dataIndex = $this->getDataCampaign($id);
-        return $this->render($view , $dataIndex);
+        return $this->render($view, $dataIndex);
     }
 
-    public function create(){
+    public function create()
+    {
         $image = $this->request->getFile('image');
         if (!empty($image)) {
             if ($image->getSize() > 0) {
@@ -53,17 +58,17 @@ class DonasiTugasController extends AdminCrudController
             }
         }
 
-    
+
         $data = $this->request->getPost();
-        $data['target_nominal'] = (float)(str_replace(',','',$data['target_nominal']));
-        
-        $tgl_transaksi = explode('/',$data['tgl_transaksi']);
-     
+        $data['target_nominal'] = (float)(str_replace(',', '', $data['target_nominal']));
+
+        $tgl_transaksi = explode('/', $data['tgl_transaksi']);
+
         $data['tgl_transaksi'] = date("Y-m-d", strtotime(($tgl_transaksi[2].'-'.$tgl_transaksi[1].'-'.$tgl_transaksi[0])));
-      
+
         unset($data['tgl_transaksi']);
 
-        if (! $this->model->insert($data)) {            
+        if (! $this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -71,7 +76,8 @@ class DonasiTugasController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -92,7 +98,7 @@ class DonasiTugasController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
@@ -108,7 +114,7 @@ class DonasiTugasController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new DonasiModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -117,7 +123,7 @@ class DonasiTugasController extends AdminCrudController
         }
 
         $dataEdit['tugasItems'] = ['' => 'Pilih Tugas'] + Arr::pluck(model('App\Modules\Api\Models\TugasTimModel')->select(['tugas_tim.id as key', 'tugas_tim.tugas as text'])->asArray()->findAll(), 'text', 'key');
-      
+
         return $dataEdit;
     }
 
@@ -128,7 +134,7 @@ class DonasiTugasController extends AdminCrudController
         $uri = current_url(true);
 
         $campaign = model(BmdonationcampaignFilter::class)->asArray()->find($id);
-        
+
         $data = $model->paginate(setting('App.perPage'));
 
         return [
@@ -144,7 +150,7 @@ class DonasiTugasController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $data,
             'pager' => $model->pager,
@@ -153,7 +159,8 @@ class DonasiTugasController extends AdminCrudController
         ];
     }
 
-    protected function getDataStats($donasi, $campaign) {
+    protected function getDataStats($donasi, $campaign)
+    {
         $totalDonation = 0;
         $totalActiveCampaign = 0;
         $countDonation = 0;
@@ -163,7 +170,7 @@ class DonasiTugasController extends AdminCrudController
             $countDonation = $campaign['donation_count'];
             $totalActiveCampaign = ($campaign['state'] == model('App\Modules\Api\Models\BmdonationcampaignModel')::END) ? 0 : 1;
         }
-        
+
         return (object)[
             'totalDonation' => $totalDonation,
             'totalActiveCampaign' => $totalActiveCampaign,
@@ -171,5 +178,5 @@ class DonasiTugasController extends AdminCrudController
             'totalInDonation' => count($donasi),
         ];
     }
-       
+
 }

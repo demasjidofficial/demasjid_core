@@ -18,4 +18,3 @@ $routes->group(ADMIN_AREA, ['namespace' => '\App\Modules\Board\Controllers'], st
 });
 
 $routes->get('board/news_viewtv', '\App\Modules\Board\Controllers\BoardnewsTVController::index');
-

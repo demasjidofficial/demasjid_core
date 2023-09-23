@@ -28,7 +28,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?php echo form_dropdown('name', $socialItems, old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' "); ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.link'),'',['for' => 'link', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.link'), '', ['for' => 'link', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('link', old('link', $data->link ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('link')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
 

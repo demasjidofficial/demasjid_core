@@ -14,8 +14,9 @@ class BottelegramController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/bot/telegram';
     protected $langModel = 'bottelegram';
     //protected $modelName = 'App\Modules\Api\Models\BmdonationtypeModel';
-    
-    public function index(){
+
+    public function index()
+    {
         return parent::index();
     }
 
@@ -55,7 +56,7 @@ class BottelegramController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -74,7 +75,7 @@ class BottelegramController extends AdminCrudController
             }
             $dataEdit['data'] = $data;
         }
-        
+
         return $dataEdit;
     }
     */

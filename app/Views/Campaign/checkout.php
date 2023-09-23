@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="text-center checkout-info">
-                    <p><i class="fa fa-map-pin" aria-hidden="true"></i> <?php echo $masjid_profile['name']?>, <?php echo ($masjid_profile['address']) ?></p>
+                    <p><i class="fa fa-map-pin" aria-hidden="true"></i> <?php echo $masjid_profile['name']?>, <?php echo($masjid_profile['address']) ?></p>
                     <p>Anda akan berdonasi pada program : </p>
                     <h1><?php echo $donation_campaigns["name"]?></h1>    
                 </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="col-md-12 mt-30">
                                 <div class="btn-donation-wrapper" style="text-align:center;">
-                                    <button type="submit" id="submitbtn" value=<?php echo $donation_campaigns["id"] ?> data-locale=<? echo $locale ?> class="btn btn-donation borrad-10">Donasi Sekarang</button>
+                                    <button type="submit" id="submitbtn" value=<?php echo $donation_campaigns["id"] ?> data-locale=<?php echo $locale ?> class="btn btn-donation borrad-10">Donasi Sekarang</button>
                                 </div>
                             </div>
                         </form>                
@@ -93,45 +93,45 @@
         </button>
       </div>
       <div class="modal-body paymentlist">
-        <?php 
+        <?php
             if (isset($paymentListBank) && count($paymentListBank)) {
-            ?>
+                ?>
                 <h5 class="paymentheader">Transfer Bank (Verifikasi Manual 1x24jam)</h5>
                 <ul>
                     <?php
-                        foreach ($paymentListBank as $bank) {
-                        ?>
+                            foreach ($paymentListBank as $bank) {
+                                ?>
                              <li name="paymentList" data-id=<?php echo $bank['id']?>>
                                 <img src="<?php echo site_url().$bank['path_logo'] ?>">
                                 <span><?php echo $bank['name']?> : <?php echo $bank['rek_name']?></span>
                             </li>
 
                         <?php
-                        }
-                    ?>
+                            }
+                ?>
                 </ul>
             <?php
             }
 
             if (isset($paymentListPayGat) && count($paymentListPayGat)) {
-            ?>
+                ?>
                 <h5 class="paymentheader">Payment Gateway</h5>
                 <ul>
                     <?php
-                        foreach ($paymentListPayGat as $paygat) {
-                        ?>
+                            foreach ($paymentListPayGat as $paygat) {
+                                ?>
                              <li name="paymentList" data-id=<?php echo $paygat['id']?>>
                                 <img src="<?php echo site_url().$paygat['path_logo'] ?>">
                                 <span><?php echo $paygat['name']?> : <?php echo $paygat['rek_name']?></span>
                             </li>
 
                         <?php
-                        }
-                    ?>
+                            }
+                ?>
                 </ul>
             <?php
             }
-        ?>
+?>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@ class AddForeignkeyCategoryUom extends Migration
     public function up()
     {
         //
-        
+
         $this->forge->dropColumn('uom', ['uomcategory_id']);
         $this->forge->addColumn('uom', [
             'uomcategory_id' => [
@@ -27,7 +27,7 @@ class AddForeignkeyCategoryUom extends Migration
         //
         $this->forge->dropForeignKey('uom', 'fk_uom_category_id');
         $this->forge->dropColumn('uom', ['uomcategory_id']);
-        $this->forge->addColumn('uom',[
+        $this->forge->addColumn('uom', [
             'uomcategory_id' => [
                 'type'       => 'int',
                 'constraint' => 11,

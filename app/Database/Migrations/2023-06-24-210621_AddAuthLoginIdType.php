@@ -12,7 +12,7 @@ class AddAuthLoginIdType extends Migration
 
         $fields = $db->getFieldNames('auth_logins');
         if (! in_array('id_type', $fields)) {
-            $this->forge->addColumn('auth_logins',[
+            $this->forge->addColumn('auth_logins', [
                 'id_type' => [
                     'type'       => 'varchar',
                     'constraint' => 255,
@@ -21,10 +21,10 @@ class AddAuthLoginIdType extends Migration
                 'identifier' => [
                     'type'       => 'varchar',
                     'constraint' => 255,
-                    'before'     => 'user_id'             
+                    'before'     => 'user_id'
                 ],
             ]);
-        }        
+        }
     }
 
     public function down()

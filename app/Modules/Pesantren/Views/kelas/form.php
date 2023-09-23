@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar' required placeholder='".lang('crud.description')."' ") ?>
                         <?php if (has_error('description')) { ?>
@@ -46,16 +46,16 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.level_id'),'',['for' => 'level_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.level_id'), '', ['for' => 'level_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('level_id',$tingkat_pendidikanItems ,old('level_id', $data->level_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.level_id')."' ") ?>
+                        <?= form_dropdown('level_id', $tingkat_pendidikanItems, old('level_id', $data->level_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.level_id')."' ") ?>
                         <?php if (has_error('level_id')) { ?>
                         <p class="text-danger"><?php echo error('level_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.capacity'),'',['for' => 'capacity', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.capacity'), '', ['for' => 'capacity', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('capacity', old('capacity', $data->capacity ?? ''), "class='form-control int'  placeholder='".lang('crud.capacity')."' ") ?>
                         <?php if (has_error('capacity')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.duration'),'',['for' => 'duration', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.duration'), '', ['for' => 'duration', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('duration', old('duration', $data->duration ?? ''), "class='form-control int'  placeholder='".lang('crud.duration')."' ") ?>
                         <?php if (has_error('duration')) { ?>
@@ -73,18 +73,18 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.uom_id'),'',['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.uom_id'), '', ['for' => 'uom_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('uom_id',$uomItems ,old('uom_id', $data->uom_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.uom_id')."' ") ?>
+                        <?= form_dropdown('uom_id', $uomItems, old('uom_id', $data->uom_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.uom_id')."' ") ?>
                         <?php if (has_error('uom_id')) { ?>
                         <p class="text-danger"><?php echo error('uom_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.entity_id'),'',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.entity_id'), '', ['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.entity_id')."' ") ?>
+                        <?= form_dropdown('entity_id', $entityItems, old('entity_id', $data->entity_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.entity_id')."' ") ?>
                         <?php if (has_error('entity_id')) { ?>
                         <p class="text-danger"><?php echo error('entity_id'); ?></p>
                         <?php } ?>

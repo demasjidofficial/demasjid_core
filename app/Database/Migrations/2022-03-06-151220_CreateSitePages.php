@@ -22,7 +22,7 @@ class CreateSitePages extends Migration
             'subtitle' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ],  
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -72,7 +72,7 @@ class CreateSitePages extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

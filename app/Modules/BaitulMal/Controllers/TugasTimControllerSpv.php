@@ -73,7 +73,7 @@ class TugasTimControllerSpv extends AdminCrudController
 
                 'tugas_nama' => lang('crud.tugas_tim'),
                 'tim_nama' => lang('crud.nama_tim'),
-               
+
 
                 'progres' => lang('crud.progres')
             ],

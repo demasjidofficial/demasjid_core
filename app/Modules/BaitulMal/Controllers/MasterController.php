@@ -38,7 +38,7 @@ class MasterController extends AdminCrudController
         $bankItem = new StatsItem([
             'bgColor' => 'bg-success',
             'bgIcon' => 'bg-info',
-            'title' => 'Bank',            
+            'title' => 'Bank',
             'url'     => ADMIN_AREA . '/baitulmal/masterbank',
             'faIcon' => 'fas fa-university',
         ]);
@@ -46,7 +46,7 @@ class MasterController extends AdminCrudController
         $ewalletItem = new StatsItem([
             'bgColor' => 'bg-warning',
             'bgIcon' => 'bg-info',
-            'title' => 'e-Wallet',            
+            'title' => 'e-Wallet',
             'url'     => ADMIN_AREA . '/baitulmal/masterewallet',
             'faIcon' => 'fas fa-wallet',
         ]);
@@ -54,11 +54,11 @@ class MasterController extends AdminCrudController
         $paymentGatewayItem = new StatsItem([
             'bgColor' => 'bg-primary',
             'bgIcon' => 'bg-primary',
-            'title' => 'Payment Gateway',            
+            'title' => 'Payment Gateway',
             'url'     => ADMIN_AREA . '/baitulmal/masterpaymentgateway',
             'faIcon' => 'fas fa-credit-card',
         ]);
-        
+
         $widgets->widget('schedule')->collection('schedule')
             ->addItem($bankItem)
             ->addItem($ewalletItem)

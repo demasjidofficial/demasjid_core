@@ -83,12 +83,13 @@ class BaseController extends Controller
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        $this->helpers = array_merge($this->helpers, ['form', 'number', 'app', 'alerts', 'assets', 'auth', 'consent', 'setting']);        
+        $this->helpers = array_merge($this->helpers, ['form', 'number', 'app', 'alerts', 'assets', 'auth', 'consent', 'setting']);
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
     }
 
-    public function constructMenu($list) {
+    public function constructMenu($list)
+    {
         $nav = [];
         foreach ($list as $menu) {
             if ($menu['parent'] == 0) {

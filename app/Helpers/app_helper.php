@@ -16,9 +16,9 @@ if (!function_exists('extractWilayah')) {
         ];
         $tmp = explode('.', $kode);
         $prev = [];
-        foreach ($tmp as $index => $chunk) {            
+        foreach ($tmp as $index => $chunk) {
             $prev[] = $chunk;
-            $result[$level[$index]] = implode('.',$prev);            
+            $result[$level[$index]] = implode('.', $prev);
         }
 
         return $result;
@@ -30,10 +30,10 @@ if (!function_exists('descWilayah')) {
     {
         $result = [];
         $tmp =  extractWilayah($kode);
-        foreach($tmp as $k => $v){
+        foreach($tmp as $k => $v) {
             $result[] = $k.' : '.$wilayahMap[$kode]['nama'];
         }
-        return '<div>'.implode('</div><div>',$result).'</div>';
+        return '<div>'.implode('</div><div>', $result).'</div>';
     }
 }
 
@@ -46,7 +46,7 @@ if (!function_exists('convertStateProgram')) {
             'selesai' => '<span class="badge badge-danger">'.lang('crud.selesai').'</span>',
             'batal' => '<span class="badge badge-warning">'.lang('crud.batal').'</span>',
             'berlangsung' => '<span class="badge badge-success">'.lang('crud.berlangsung').'</span>'
-        ];    
+        ];
 
         return $validState[$state] ?? $state;
     }
@@ -58,7 +58,7 @@ if (!function_exists('convertStateActivated')) {
         $validState = [
             'active' => '<span class="badge badge-success">'.lang('app.active').'</span>',
             'inactive' => '<span class="badge badge-warning">'.lang('app.inactive').'</span>'
-        ];    
+        ];
 
         return $validState[$state] ?? $state;
     }
@@ -70,7 +70,7 @@ if (!function_exists('convertStateWebsite')) {
         $validState = [
             'draft' => '<span class="badge badge-info">'.lang('crud.draft').'</span>',
             'release' => '<span class="badge badge-success">'.lang('crud.release').'</span>'
-        ];    
+        ];
 
         return $validState[$state] ?? $state;
     }
@@ -91,7 +91,7 @@ if (! function_exists('local_currency')) {
 if (! function_exists('local_date')) {
     function local_date(string $date)
     {
-        $months= array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November' ,'Desember');
+        $months = array('', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November' ,'Desember');
 
         $ar = explode('-', substr($date, 0, 10));
         return $ar[2].' ' . $months[(int)$ar[1]].' ' . $ar[0];
@@ -105,22 +105,21 @@ if (! function_exists('meta_tag')) {
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
             ';
-        
+
         if (isset($data['meta_desc'])) {
             $meta .= '<meta name="description" content="'. $data['meta_desc'] .'">';
-        }
-        else {
-            $meta .= '<meta name="description" content="'. $name . ' | '. ( config('App')->siteName ?? 'Demasjid') .'">';
+        } else {
+            $meta .= '<meta name="description" content="'. $name . ' | '. (config('App')->siteName ?? 'Demasjid') .'">';
         }
 
         if (isset($data['path_image'])) {
             $meta .= '<meta property="og:image" content="'. site_url() . $data['path_image'] .'" />';
         }
 
-        $meta_title = isset($data['meta_title']) ? ($data["meta_title"] . " - " ) : "";
-        $title = "<title>". $meta_title . $name . " | ". ( config('App')->siteName ?? 'Demasjid') ."</title>";
-        
-      
+        $meta_title = isset($data['meta_title']) ? ($data["meta_title"] . " - ") : "";
+        $title = "<title>". $meta_title . $name . " | ". (config('App')->siteName ?? 'Demasjid') ."</title>";
+
+
         return $meta.$title;
     }
 
@@ -131,50 +130,50 @@ if (! function_exists('meta_tag')) {
                 'mendaftar' => '<span class="badge badge-info">'.lang('crud.register').'</span>',
                 'diterima' => '<span class="badge badge-success">'.lang('crud.recieved').'</span>',
                 'ditolak' => '<span class="badge badge-danger">'.lang('crud.rejected').'</span>',
-            ];    
-    
+            ];
+
             return $validState[$state] ?? $state;
         }
     }
 }
 
-if(!function_exists('replace_float')){
-     function replace_float($text)
+if(!function_exists('replace_float')) {
+    function replace_float($text)
     {
         # code...
-       
-     
+
+
         $nominal = (float)(str_replace(',', '', $text));
         return $nominal;
     }
 }
 
 
-if(!function_exists('generate_kode')){
+if(!function_exists('generate_kode')) {
     function generate_kode()
-   {
-       # code...    
-       $key = '';
-       $keys = array_merge(range(0, 9), range('a', 'z'));
-   
-       for ($i = 0; $i < 4; $i++) {
-           $key .= $keys[array_rand($keys)];
-       }
-   
-       return $key;
-   }
+    {
+        # code...
+        $key = '';
+        $keys = array_merge(range(0, 9), range('a', 'z'));
+
+        for ($i = 0; $i < 4; $i++) {
+            $key .= $keys[array_rand($keys)];
+        }
+
+        return $key;
+    }
 }
 
-if(!function_exists('assetUrl')){
+if(!function_exists('assetUrl')) {
     function assetUrl($path)
-   {       
-       $baseUrl = config('App')->assetUrl; 
-       return $baseUrl.DIRECTORY_SEPARATOR.$path;
-   }
+    {
+        $baseUrl = config('App')->assetUrl;
+        return $baseUrl.DIRECTORY_SEPARATOR.$path;
+    }
 }
-if(!function_exists('assetUrlLink')){
+if(!function_exists('assetUrlLink')) {
     function assetUrlLink(string $path, string $type): string
-    {        
+    {
         $tag = '';
 
         switch ($type) {

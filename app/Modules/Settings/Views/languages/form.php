@@ -28,7 +28,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.code'),'',['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.code'), '', ['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('code', old('code', $data->code ?? ''), "class='form-control varchar' required placeholder='".lang('crud.code')."' ") ?>
                         <?php if (has_error('code')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.path_icon'),'',['for' => 'path_icon', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.path_icon'), '', ['for' => 'path_icon', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('path_icon', old('path_icon', $data->path_icon ?? ''), "class='form-control varchar'  placeholder='".lang('crud.path_icon')."' ") ?>
                         <?php if (has_error('path_icon')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar'  placeholder='".lang('crud.state')."' ") ?-->
 

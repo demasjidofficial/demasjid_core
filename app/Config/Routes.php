@@ -52,62 +52,59 @@ $routes->post('/api/members', '\App\Modules\Api\Controllers\Members::create');
 $routes->post('/api/senddonation', '\App\Modules\Api\Controllers\Donasis::insertDonation');
 $routes->post('/api/confirmdonation', '\App\Modules\Api\Controllers\Donasis::insertConfirmation');
 
-$routes->group('/api', ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'], 
-static function ($routes) {
-    $routes->resource('users');
-    $routes->resource('jabatans');
-    $routes->resource('pengurus');
-    $routes->resource('wilayahs',['except' => ['index']]);
-    $routes->resource('members',['except' => ['create']]);
-    $routes->resource('entities');
-    $routes->resource('balances');
-    $routes->resource('profiles');
-    $routes->resource('pengurus');
-    $routes->resource('programs');
-    $routes->resource('uom');
-    $routes->resource('chartOfAccounts');
-    $routes->resource('programCosts');
-    $routes->resource('rawatibSchedules');
-    $routes->resource('nonRawatibSchedules');    
-    $routes->resource('bmdonationcampaigncategories');
-    $routes->resource('bmdonationcampaigns');        
-    $routes->resource('dataruangans');
-    $routes->resource('rooms');
-    $routes->resource('roomReservations');
-    $routes->resource('infaqRooms');
-    $routes->resource('timStaffs');
-    $routes->resource('donaturTypes');    
-    $routes->resource('donaturcategories',['except' => ['index']]);
-    $routes->resource('targetFundraisings');
-    $routes->resource('jadwalFundraisings');
-    $routes->resource('timFundraisings');
+$routes->group(
+    '/api',
+    ['namespace' => '\App\Modules\Api\Controllers', 'filter' => 'api'],
+    static function ($routes) {
+        $routes->resource('users');
+        $routes->resource('jabatans');
+        $routes->resource('pengurus');
+        $routes->resource('wilayahs', ['except' => ['index']]);
+        $routes->resource('members', ['except' => ['create']]);
+        $routes->resource('entities');
+        $routes->resource('balances');
+        $routes->resource('profiles');
+        $routes->resource('pengurus');
+        $routes->resource('programs');
+        $routes->resource('uom');
+        $routes->resource('chartOfAccounts');
+        $routes->resource('programCosts');
+        $routes->resource('rawatibSchedules');
+        $routes->resource('nonRawatibSchedules');
+        $routes->resource('bmdonationcampaigncategories');
+        $routes->resource('bmdonationcampaigns');
+        $routes->resource('dataruangans');
+        $routes->resource('rooms');
+        $routes->resource('roomReservations');
+        $routes->resource('infaqRooms');
+        $routes->resource('timStaffs');
+        $routes->resource('donaturTypes');
+        $routes->resource('donaturcategories', ['except' => ['index']]);
+        $routes->resource('targetFundraisings');
+        $routes->resource('jadwalFundraisings');
+        $routes->resource('timFundraisings');
 
-    $routes->resource('boardNewsBgs');
-    $routes->resource('boardNewsRuntexts');
-    $routes->resource('donaturs');
-    $routes->resource('donasis');
-    $routes->resource('kategoriPelajarans');
-    $routes->resource('pelajarans');
-    $routes->resource('kelas');
-    $routes->resource('gurus');
-    $routes->resource('siswas');
-    $routes->resource('tahunAjarans');
-    $routes->resource('babs');
-    $routes->resource('materis');
-    $routes->resource('pendaftarans');
-    $routes->resource('tingkatPendidikans');
-    $routes->resource('PaymentMethods');
-    $routes->resource('MasterBanks');
-    $routes->resource('MasterPaymentgateways');
-    $routes->resource('donaturFundraisings');
-    $routes->resource('tugasTims');
-    //$routes->resource('menus');
-    //$routes->resource('pages');
-    //$routes->resource('posts');
-    //$routes->resource('sections');
-    //$routes->resource('sliders');
-    //$routes->resource('socials');
-});        
+        $routes->resource('boardNewsBgs');
+        $routes->resource('boardNewsRuntexts');
+        $routes->resource('donaturs');
+        $routes->resource('donasis');
+        $routes->resource('kategoriPelajarans');
+        $routes->resource('pelajarans');
+        $routes->resource('kelas');
+        $routes->resource('gurus');
+        $routes->resource('siswas');
+        $routes->resource('tahunAjarans');
+        $routes->resource('babs');
+        $routes->resource('materis');
+        $routes->resource('pendaftarans');
+        $routes->resource('tingkatPendidikans');
+        $routes->resource('PaymentMethods');
+        $routes->resource('MasterBanks');
+        $routes->resource('MasterPaymentgateways');
+        $routes->resource('donaturFundraisings');
+        $routes->resource('tugasTims');        
+    }
+);
 
 
 $routes->post('/api/update_paymentmethod_activation', '\App\Modules\Api\Controllers\PaymentMethods::updateActived');
@@ -122,11 +119,11 @@ $routes->get('{locale}/confirmationofdonation', 'ConfirmationofdonationControlle
 $routes->get('{locale}/donations', 'Donations::index');
 
 // setup new domain
-$routes->group('/setup', function($routes){    
+$routes->group('/setup', function ($routes) {
     $routes->get('installDb', '\App\Controllers\SetupController::migrateInstall');
     $routes->get('migrate', '\App\Controllers\SetupController::migrate');
     $routes->get('migrateRefresh', '\App\Controllers\SetupController::migrateRefresh');
-    $routes->get('seed', '\App\Controllers\SetupController::seed');    
+    $routes->get('seed', '\App\Controllers\SetupController::seed');
 });
 /*
  * --------------------------------------------------------------------

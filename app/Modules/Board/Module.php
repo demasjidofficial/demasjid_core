@@ -51,7 +51,7 @@ class Module extends BaseModule
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
 
-        
+
         // $sidebar->menu('sidebar')->createCollection('board', 'Board')
         //             ->setFontAwesomeIcon('fas fa-cog')
         //             ->setCollapsible();

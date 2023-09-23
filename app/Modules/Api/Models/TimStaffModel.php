@@ -2,7 +2,6 @@
 
 namespace App\Modules\Api\Models;
 
-
 class TimStaffModel extends BaseModel
 {
     protected $table = 'tim_staff';
@@ -31,11 +30,11 @@ class TimStaffModel extends BaseModel
 
     public function findStaff(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','target_fundraising.campaign_name as tim'];        
+        $this->selectColumn = [$this->table.'.*','users.first_name as first_name', 'users.last_name as last_name','target_fundraising.campaign_name as tim'];
         $this->join('users', 'users.id = '.$this->table.'.user_id');
-		$this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.tim_id');
-		$this->join('target_fundraising', 'target_fundraising.id = tim_fundraising.target_id');
-    
+        $this->join('tim_fundraising', 'tim_fundraising.id = '.$this->table.'.tim_id');
+        $this->join('target_fundraising', 'target_fundraising.id = tim_fundraising.target_id');
+
         return parent::findAll($limit, $offset);
     }
 
@@ -82,21 +81,21 @@ class TimStaffModel extends BaseModel
 
     private function insertDetail($id, $tugasTim)
     {
-       
 
-            (new TugasTimModel())->where('staff_id', $id)->delete();
 
-            $detail = [
-                'staff_id' => $tugasTim['staff_id'],
-                'tugas' => $tugasTim['tugas'],
-                'kode_tugas' => $tugasTim['kode_tugas'],
-                'progres' => $tugasTim['progress'],
-                'nominal'=>0,
-                'nominal_target' => str_replace('.', '', $tugasTim['nominal_target'])
+        (new TugasTimModel())->where('staff_id', $id)->delete();
 
-            ];
+        $detail = [
+            'staff_id' => $tugasTim['staff_id'],
+            'tugas' => $tugasTim['tugas'],
+            'kode_tugas' => $tugasTim['kode_tugas'],
+            'progres' => $tugasTim['progress'],
+            'nominal' => 0,
+            'nominal_target' => str_replace('.', '', $tugasTim['nominal_target'])
 
-            (new TugasTimModel())->insert($detail);
-        
+        ];
+
+        (new TugasTimModel())->insert($detail);
+
     }
 }

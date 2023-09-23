@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,9 +37,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>                    
+                    <?= form_label(lang('crud.type'), '', ['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>                    
                     <div class="col-sm-10">
-                        <?= form_dropdown('type', $typeItems ,old('type', $data->type ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.type')."' required") ?>
+                        <?= form_dropdown('type', $typeItems, old('type', $data->type ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.type')."' required") ?>
                         <?php if (has_error('type')) { ?>
                         <p class="text-danger"><?php echo error('type'); ?></p>
                         <?php } ?>

@@ -8,7 +8,7 @@ class CreatePelajaran extends Migration
 {
     public function up()
     {
-        
+
         $this->forge->addField([
             'id' => [
                 'type'           => 'int',
@@ -25,7 +25,7 @@ class CreatePelajaran extends Migration
                 'type'       => 'varchar',
                 'constraint' => 60,
             ],
-            
+
             'category_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
@@ -56,7 +56,7 @@ class CreatePelajaran extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

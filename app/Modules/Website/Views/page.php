@@ -8,7 +8,7 @@
         $indicator = "";
         $inner = "";
 
-        foreach ($sliders as $item) : 
+        foreach ($sliders as $item) :
             $indicator .= '<li data-target="#sliderIndicators" data-slide-to='.$counter.' class='. ((!$counter) ? "active" : "") .'></li>';
             $inner .= '
                  <div class="carousel-item '. ((!$counter) ? "active" : "") .'">
@@ -36,14 +36,14 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    <?php 
-        
-    }; 
+    <?php
+
+    };
 ?>
 
 <div class="mt-60 mb-100">
 
-<?php 
+<?php
     if (isset($sections) && count($sections)) {
         foreach ($sections as $item) : ?>
         <section class="about-low-area">
@@ -51,9 +51,9 @@
                 <?php echo $item['content']; ?>
             </div>
         </section>
-    <?php 
-        endforeach; 
-    }; 
+    <?php
+        endforeach;
+    };
 ?>
 
     <section class="about-low-area">

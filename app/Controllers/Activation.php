@@ -14,12 +14,10 @@ use Endroid\QrCode\QrCode;
 use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
 
-
 class Activation extends BaseController
 {
-    protected $theme = 'auth';
-
     use UploadedFile;
+    protected $theme = 'auth';
     protected $modelName = 'App\Modules\Api\Models\MemberModel';
     private $pathLogo;
     private $pathImage;
@@ -28,7 +26,7 @@ class Activation extends BaseController
 
     public function index()
     {
-        helper('form');        
+        helper('form');
         return $this->render('activation/index');
     }
 
@@ -47,14 +45,14 @@ class Activation extends BaseController
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
-        
+
         return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique]));
     }
 
     public function qrcode()
-    {        
+    {
         $code = $this->request->getGet('code');
-        $masjid = (new MemberModel)->where(['code' => $code])->first();        
+        $masjid = (new MemberModel())->where(['code' => $code])->first();
         $writer = new PngWriter();
         $qrCode = QrCode::create($code)
             ->setEncoding(new Encoding('UTF-8'))
@@ -77,7 +75,7 @@ class Activation extends BaseController
             ->setTextColor(new Color(255, 0, 0));
 
         $result = $writer->write($qrCode, $logo, $label);
-        $fullAddress = (new WilayahModel())->extractWilayah($masjid->wilayah_id)->orderBy('kode','desc')->findAll();
+        $fullAddress = (new WilayahModel())->extractWilayah($masjid->wilayah_id)->orderBy('kode', 'desc')->findAll();
         return $this->render('activation/qrcode', ['dataUri' => $result->getDataUri(), 'masjid' => $masjid, 'full' => $fullAddress]);
     }
 
@@ -143,7 +141,7 @@ class Activation extends BaseController
 
     public function newUser()
     {
-        helper('form');        
+        helper('form');
         return $this->render('activation/newuser');
     }
 
@@ -161,7 +159,7 @@ class Activation extends BaseController
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
-        
+
         return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique]));
     }
 

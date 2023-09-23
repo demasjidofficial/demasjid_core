@@ -96,9 +96,9 @@ class ProfileController extends AdminCrudController
         $entities = $model->findAll();
         $entityId = $this->request->getGet('entity') ?? null;
         $profileId = null;
-        if(!empty($entityId)){
+        if(!empty($entityId)) {
             $tmpProfile = (new ProfileModel())->where(['entity_id' => $entityId])->first();
-            if($tmpProfile){
+            if($tmpProfile) {
                 $profileId = $tmpProfile->id;
             }
         }

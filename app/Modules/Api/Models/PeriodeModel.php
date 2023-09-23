@@ -2,7 +2,6 @@
 
 namespace App\Modules\Api\Models;
 
-
 class PelajaranModel extends BaseModel
 {
     protected $table = 'periode';
@@ -15,7 +14,7 @@ class PelajaranModel extends BaseModel
         'updated_at',
         'created_by'
     ];
-    
+
     protected $validationRules = [
        // 'id' => 'numeric|max_length[11]|required|is_unique[pelajaran.id,id,{id}]',
         'name' => 'max_length[60]|required',

@@ -15,26 +15,31 @@ class TimStaffController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/timstaff';
     protected $langModel = 'tim_staff';
     protected $modelName = 'App\Modules\Api\Models\TimStaffModel';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $data = $this->request->getPost();
         $data['target_max'] = (float)(str_replace('.', '', $data['nominal_target']));
-       
+
 
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
@@ -44,7 +49,8 @@ class TimStaffController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -55,11 +61,11 @@ class TimStaffController extends AdminCrudController
             'headers' => [
                                     'tim_id' => lang('crud.nama_tim'),
                 'user_id' => lang('crud.staff_nama'),
-      
+
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -71,7 +77,7 @@ class TimStaffController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new TimStaffModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -81,7 +87,7 @@ class TimStaffController extends AdminCrudController
         }
         $dataEdit['stateItems'] = TugasTimModel::listState();
         $dataEdit['timItems'] = ['' => 'Pilih Tim'] + Arr::pluck(model('App\Modules\Api\Models\TimFundraisingModel')->select(['tim_fundraising.id as key', 'tim_fundraising.nama_tim as text'])->asArray()->findAll(), 'text', 'key');
-        $dataEdit['staffItems'] = ['' => 'Pilih Staff'] +Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
+        $dataEdit['staffItems'] = ['' => 'Pilih Staff'] + Arr::pluck(model('App\Modules\Api\Models\UsersModel')->select(['id as key', 'username as text'])->asArray()->findAll(), 'text', 'key');
         return $dataEdit;
     }
 

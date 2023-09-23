@@ -1,11 +1,11 @@
-<td><img width="100px" src="/<?php echo ($item->master_paymentgateway_path_logo) ? esc($item->master_paymentgateway_path_logo   ) : $blank_img ?>"></a></td>
+<td><img width="100px" src="/<?php echo ($item->master_paymentgateway_path_logo) ? esc($item->master_paymentgateway_path_logo) : $blank_img ?>"></a></td>
 <td><?php echo esc($item->master_paymentgateway_name) ?></a></td>
 <td><?php echo esc($item->rek_no) ?></a></td>
 <td><?php echo esc($item->rek_name) ?></a></td>
 <td class="text-center">
 <div class="custom-control custom-switch">
         <input type="checkbox" data-toggle="confirmation" class="custom-control-input" data-isActived="<?php echo $item->isActived; ?>" id="<?php echo $item->id; ?>" <?php echo ((int)$item->isActived) ? 'checked' : ''; ?> >
-        <label class="custom-control-label" for="<?php echo $item->id; ?>"><?php echo ((int)$item->isActived)? "Active" : "No Active" ?></label>
+        <label class="custom-control-label" for="<?php echo $item->id; ?>"><?php echo ((int)$item->isActived) ? "Active" : "No Active" ?></label>
     </div>
 </td>
 <td class="d-flex justify-content-end"  hx-confirm="<?php echo lang('Bonfire.deleteMessage') ?>" hx-target="closest tr" hx-select="" hx-swap="outerHTML swap:1s">

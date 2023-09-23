@@ -14,7 +14,7 @@ class CreateDonasi extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'donatur_id' => [
                 'type'           => 'int',
                 'constraint'     => 11,
@@ -30,9 +30,9 @@ class CreateDonasi extends Migration
             'campaign_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
-                'unsigned'   => true, 
-                'null'       => true,   
-            ],        
+                'unsigned'   => true,
+                'null'       => true,
+            ],
             'dana_in' => [
                 'type'       => 'int',
                 'constraint' => 13,
@@ -40,7 +40,7 @@ class CreateDonasi extends Migration
             ],
             'date' => [
                 'type'       => 'date'
-            ], 
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -56,7 +56,7 @@ class CreateDonasi extends Migration
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
-            ],          
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -69,14 +69,14 @@ class CreateDonasi extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('donatur_id', 'donatur', 'id');     
-        $this->forge->addForeignKey('paymentmethod_id', 'payment_method', 'id');     
-        $this->forge->addForeignKey('campaign_id', 'bmdonationcampaign', 'id');     
+        $this->forge->addForeignKey('donatur_id', 'donatur', 'id');
+        $this->forge->addForeignKey('paymentmethod_id', 'payment_method', 'id');
+        $this->forge->addForeignKey('campaign_id', 'bmdonationcampaign', 'id');
         $this->forge->createTable('donasi', true);
     }
 

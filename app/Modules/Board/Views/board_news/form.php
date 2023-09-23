@@ -28,27 +28,27 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.board_newsbg_id'),'',['for' => 'board_newsbg_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.board_newsbg_id'), '', ['for' => 'board_newsbg_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('board_newsbg_id',$board_newsbgItems ,old('board_newsbg_id', $data->board_newsbg_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.board_newsbg_id')."' ") ?>
+                        <?= form_dropdown('board_newsbg_id', $board_newsbgItems, old('board_newsbg_id', $data->board_newsbg_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.board_newsbg_id')."' ") ?>
                         <?php if (has_error('board_newsbg_id')) { ?>
                         <p class="text-danger"><?php echo error('board_newsbg_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.board_newsruntext_id'),'',['for' => 'board_newsruntext_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.board_newsruntext_id'), '', ['for' => 'board_newsruntext_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('board_newsruntext_id',$board_newsruntextItems ,old('board_newsruntext_id', $data->board_newsruntext_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.board_newsruntext_id')."' ") ?>
+                        <?= form_dropdown('board_newsruntext_id', $board_newsruntextItems, old('board_newsruntext_id', $data->board_newsruntext_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.board_newsruntext_id')."' ") ?>
                         <?php if (has_error('board_newsruntext_id')) { ?>
                         <p class="text-danger"><?php echo error('board_newsruntext_id'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.rawatib_schedule_id'),'',['for' => 'rawatib_schedule_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.rawatib_schedule_id'), '', ['for' => 'rawatib_schedule_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('rawatib_schedule_id',$rawatib_scheduleItems ,old('rawatib_schedule_id', $data->rawatib_schedule_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.rawatib_schedule_id')."' ") ?>
+                        <?= form_dropdown('rawatib_schedule_id', $rawatib_scheduleItems, old('rawatib_schedule_id', $data->rawatib_schedule_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.rawatib_schedule_id')."' ") ?>
                         <?php if (has_error('rawatib_schedule_id')) { ?>
                         <p class="text-danger"><?php echo error('rawatib_schedule_id'); ?></p>
                         <?php } ?>

@@ -8,12 +8,12 @@ class AddIsProtectedSitesections extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('sitesections',[
+        $this->forge->addColumn('sitesections', [
             'isProtected' => [
                 'type'       => 'int',
                 'constraint' => 1,
                 'default' => 1
-            ],      
+            ],
         ]);
     }
 

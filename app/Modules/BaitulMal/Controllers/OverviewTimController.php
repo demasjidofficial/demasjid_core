@@ -13,16 +13,15 @@ use App\Modules\Api\Models\TimStaffModel;
 use App\Modules\Api\Models\DonaturFundraisingModel;
 use App\Libraries\Widgets\Stats\Stats;
 
-class OverviewTimController extends  AdminController
+class OverviewTimController extends AdminController
 {
-
     protected $theme = 'admin';
     protected $donasiRoute = 'admin/baitulmal/donation';
     public function index()
     {
         # code...
-        
-        
+
+
         $this->setupWidgets();
         $this->setWidgetStats();
         $this->setWidgetTugas();
@@ -70,7 +69,7 @@ class OverviewTimController extends  AdminController
             'faIcon' => 'fas fa-users',
         ]);
 
-        if ($targetCost->nominal_target!=0 && $danaCost->nominal!=0) {
+        if ($targetCost->nominal_target != 0 && $danaCost->nominal != 0) {
             # code...
             $valKumpul = ($targetCost->nominal_target / $danaCost->nominal * 100) . "%";
         }
@@ -128,7 +127,8 @@ class OverviewTimController extends  AdminController
 
     protected function generateTugas()
     {
-        $data = (new TugasTimModel())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();;
+        $data = (new TugasTimModel())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();
+        ;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
@@ -148,7 +148,8 @@ class OverviewTimController extends  AdminController
     protected function generateDonatur()
     {
         # code...
-        $data = (new DonaturFundraisingModel())->select(['tugas', 'tanggal_transaksi', 'nama', 'donatur_fundraising.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();;
+        $data = (new DonaturFundraisingModel())->select(['tugas', 'tanggal_transaksi', 'nama', 'donatur_fundraising.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();
+        ;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {

@@ -8,7 +8,8 @@ class JumatScheduleController extends NonRawatibScheduleController
     protected $baseRoute = ADMIN_AREA.'/masjid/jumatschedule';
     protected $typeSholat = 'jumat';
 
-    public function create(){
+    public function create()
+    {
         $this->model->set('type_sholat', $this->typeSholat);
         return parent::create();
     }

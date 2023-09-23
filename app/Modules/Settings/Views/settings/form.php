@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.class'),'',['for' => 'class', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.class'), '', ['for' => 'class', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('class', old('class', $data->class ?? ''), "class='form-control varchar' required placeholder='".lang('crud.class')."' ") ?>
                         <?php if (has_error('class')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.key'),'',['for' => 'key', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.key'), '', ['for' => 'key', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('key', old('key', $data->key ?? ''), "class='form-control varchar' required placeholder='".lang('crud.key')."' ") ?>
                         <?php if (has_error('key')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.value'),'',['for' => 'value', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.value'), '', ['for' => 'value', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('value', old('value', $data->value ?? ''), "rows='4' class='form-control text'  placeholder='".lang('crud.value')."' ") ?>
                         <?php if (has_error('value')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.type'), '', ['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('type', old('type', $data->type ?? ''), "class='form-control varchar' required placeholder='".lang('crud.type')."' ") ?>
                         <?php if (has_error('type')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.context'),'',['for' => 'context', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.context'), '', ['for' => 'context', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('context', old('context', $data->context ?? ''), "class='form-control varchar'  placeholder='".lang('crud.context')."' ") ?>
                         <?php if (has_error('context')) { ?>

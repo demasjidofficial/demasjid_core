@@ -28,7 +28,7 @@
 
             <fieldset>
                                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.code'),'',['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.code'), '', ['for' => 'code', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('code', old('code', $data->code ?? ''), "class='form-control varchar'  placeholder='".lang('crud.code')."' ") ?>
                         <?php if (has_error('code')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.type'), '', ['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('type', old('type', $data->type ?? ''), "class='form-control varchar'  placeholder='".lang('crud.type')."' ") ?>
                         <?php if (has_error('type')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.ratio'),'',['for' => 'ratio', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.ratio'), '', ['for' => 'ratio', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('ratio', old('ratio', $data->ratio ?? ''), "class='form-control float'  placeholder='".lang('crud.ratio')."' ") ?>
                         <?php if (has_error('ratio')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <!-- <div class="row mb-3">
-                    <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.created_by'), '', ['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
                         <?php if (has_error('created_by')) { ?>
@@ -73,9 +73,9 @@
                     </div>
                 </div> -->
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.uom_category'),'',['for' => 'uomcategory_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.uom_category'), '', ['for' => 'uomcategory_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('uomcategory_id',$uom_categoryItems ,old('uomcategory_id', $data->uomcategory_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.uomcategory_id')."' ") ?>
+                        <?= form_dropdown('uomcategory_id', $uom_categoryItems, old('uomcategory_id', $data->uomcategory_id ?? ''), "class='form-control select2'  placeholder='".lang('crud.uomcategory_id')."' ") ?>
                         <?php if (has_error('uomcategory_id')) { ?>
                         <p class="text-danger"><?php echo error('uomcategory_id'); ?></p>
                         <?php } ?>

@@ -30,7 +30,7 @@ class CreateTargetFundraising extends Migration
             ],
             'target_nominal' => [
                 'type'       => 'varchar',
-                'constraint' => 128, 
+                'constraint' => 128,
             ],
             'tipe_donasi' => [
                 'type'       => 'varchar',
@@ -46,7 +46,7 @@ class CreateTargetFundraising extends Migration
                 'null'       => false,
             ],
 
-            
+
             'created_at' => [
                 'type'       => 'datetime',
                 'null'       => false,
@@ -59,13 +59,13 @@ class CreateTargetFundraising extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'updated_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addKey('id', true);

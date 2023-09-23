@@ -96,13 +96,13 @@ class ProfileController extends AdminCrudController
         $entities = $model->findAll();
         $entityId = $this->request->getGet('entity') ?? null;
         $profileId = null;
-        if(!empty($entityId)){
+        if(!empty($entityId)) {
             $tmpProfile = (new ProfileModel())->where(['entity_id' => $entityId])->first();
-            if($tmpProfile){
+            if($tmpProfile) {
                 $profileId = $tmpProfile->id;
             }
         }
-        
+
 
         return [
             'controller' => $this->getBaseController(),
@@ -120,7 +120,7 @@ class ProfileController extends AdminCrudController
         $dataEdit['kotaItems'] = ['' => 'Pilih kota/kabupaten'];
         $dataEdit['kecamatanItems'] = ['' => 'Pilih kecamatan'];
         $dataEdit['desaItems'] = ['' => 'Pilih desa'];
-        
+
 
         if (!empty($id)) {
             $data = $model->find($id);

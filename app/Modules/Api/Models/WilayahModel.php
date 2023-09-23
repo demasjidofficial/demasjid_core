@@ -6,10 +6,10 @@ use asligresik\easyapi\Models\BaseModel;
 
 class WilayahModel extends BaseModel
 {
-    const PROVINSI = 'provinsi';
-    const KOTA = 'kota/kabupaten';
-    const KECAMATAN = 'kecamatan';
-    const DESA = 'desa';
+    public const PROVINSI = 'provinsi';
+    public const KOTA = 'kota/kabupaten';
+    public const KECAMATAN = 'kecamatan';
+    public const DESA = 'desa';
     protected $table         = 'wilayah';
     protected $returnType    = 'App\Modules\Api\Entities\Wilayah';
     protected $primaryKey    = 'kode';
@@ -17,36 +17,41 @@ class WilayahModel extends BaseModel
     protected $allowedFields = [
         'nama',
         'level',
-    ];    
+    ];
     protected $validationRules = [
         'kode'  => 'max_length[15]|required|is_unique[wilayah.kode,id,{id}]',
         'nama'  => 'max_length[70]|required',
         'level' => 'required',
     ];
 
-    public function extractWilayah($kode){
-        
+    public function extractWilayah($kode)
+    {
+
         $this->whereIn('kode', extractWilayah($kode));
 
         return $this;
     }
 
-    public function provinsi(){
+    public function provinsi()
+    {
         $this->where('level', self::PROVINSI);
         return $this;
     }
 
-    public function kota(){
+    public function kota()
+    {
         $this->where('level', self::KOTA);
         return $this;
     }
 
-    public function kecamatan(){
+    public function kecamatan()
+    {
         $this->where('level', self::KECAMATAN);
         return $this;
     }
 
-    public function desa(){
+    public function desa()
+    {
         $this->where('level', self::DESA);
         return $this;
     }

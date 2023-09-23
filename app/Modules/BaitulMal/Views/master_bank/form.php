@@ -47,7 +47,7 @@
                                     <?php if (has_error('path_logo')) { ?>
                                         <p class="text-danger"><?php echo error('path_logo'); ?></p>
                                     <?php } ?>
-                                    <?= form_label(lang('crud.path_logo'),'',['for' => 'path_logo', 'class' => 'custom-file-label']) ?>
+                                    <?= form_label(lang('crud.path_logo'), '', ['for' => 'path_logo', 'class' => 'custom-file-label']) ?>
                                 </div>
                                 <div class="input-group-append clickable">
                                     <span class="input-group-text">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar'  placeholder='".lang('crud.name')."' ") ?>
                         <?php if (has_error('name')) { ?>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.instr_atm'),'',['for' => 'instr_atm', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.instr_atm'), '', ['for' => 'instr_atm', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('instr_atm', old('instr_atm', $data->instr_atm ?? ''), "rows='4' class='form-control text'") ?>
                         
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.instr_mbanking'),'',['for' => 'instr_mbanking', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.instr_mbanking'), '', ['for' => 'instr_mbanking', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('instr_mbanking', old('instr_mbanking', $data->instr_mbanking ?? ''), "rows='4' class='form-control text'") ?>
                         
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.instr_ibanking'),'',['for' => 'instr_ibanking', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.instr_ibanking'), '', ['for' => 'instr_ibanking', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('instr_ibanking', old('instr_ibanking', $data->instr_ibanking ?? ''), "rows='4' class='form-control text'") ?>
                         

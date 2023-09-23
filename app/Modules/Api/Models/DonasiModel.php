@@ -1,57 +1,59 @@
-<?php namespace App\Modules\Api\Models;
+<?php
+
+namespace App\Modules\Api\Models;
 
 class DonasiModel extends BaseModel
 {
     protected $table = 'donasi';
     protected $returnType = 'App\Modules\Api\Entities\Donasi';
     protected $primaryKey = 'id';
-    protected $useTimestamps = true;  
+    protected $useTimestamps = true;
     protected $allowedFields = [
         'donatur_id',
-		'paymentmethod_id',
-		'campaign_id',
-		'dana_in',
-		'date',
-		'path_image',
-		'state',
-		'created_at',
-		'updated_at',
-		'name',
-		'email',
-		'no_hp',
-		'pesan',
-		'no_inv',
-		'path_image',
-		'nominal_donasi',
-		'tugas_id',
-		'tgl_transaksi',
+        'paymentmethod_id',
+        'campaign_id',
+        'dana_in',
+        'date',
+        'path_image',
+        'state',
+        'created_at',
+        'updated_at',
+        'name',
+        'email',
+        'no_hp',
+        'pesan',
+        'no_inv',
+        'path_image',
+        'nominal_donasi',
+        'tugas_id',
+        'tgl_transaksi',
     ];
     protected $validationRules = [
        // 'id' => 'numeric|max_length[11]|required|is_unique[donasi.id,id,{id}]',
-		'paymentmethod_id' => 'numeric|max_length[11]|required',
-		'campaign_id' => 'numeric|max_length[11]|required',
-		'dana_in' => 'numeric|max_length[13]|required',
-		// not related with checkout page
-		// 'tugas_id' => 'numeric|max_length[11]|required',
-		// 'nominal_donasi' => 'decimal|max_length[15]',
-		'path_image' => 'max_length[255]',
-		'path_signature' => 'max_length[255]',
-		'date' => 'valid_date|required',
-		'name' => 'max_length[255]',
-		'email' => 'max_length[50]',
-		'no_hp' => 'max_length[50]',
-		// 'tgl_transaksi' => 'valid_date|required',
-		'created_at' => 'valid_date|required',
-		'updated_at' => 'valid_date|required',
+        'paymentmethod_id' => 'numeric|max_length[11]|required',
+        'campaign_id' => 'numeric|max_length[11]|required',
+        'dana_in' => 'numeric|max_length[13]|required',
+        // not related with checkout page
+        // 'tugas_id' => 'numeric|max_length[11]|required',
+        // 'nominal_donasi' => 'decimal|max_length[15]',
+        'path_image' => 'max_length[255]',
+        'path_signature' => 'max_length[255]',
+        'date' => 'valid_date|required',
+        'name' => 'max_length[255]',
+        'email' => 'max_length[50]',
+        'no_hp' => 'max_length[50]',
+        // 'tgl_transaksi' => 'valid_date|required',
+        'created_at' => 'valid_date|required',
+        'updated_at' => 'valid_date|required',
     ];
-	
-	public function findAll(int $limit = 0, int $offset = 0)
+
+    public function findAll(int $limit = 0, int $offset = 0)
     {
         $this->join('bmdonationcampaign', 'bmdonationcampaign.id = '.$this->table.'.campaign_id');
-		$this->join('payment_method', 'payment_method.id = '.$this->table.'.paymentmethod_id');
-		$this->join('master_bank', 'payment_method.payment_category_id = 1 AND master_bank.id = payment_method.master_payment_id', 'left',FALSE);
-		$this->join('master_paymentgateway', 'payment_method.payment_category_id = 2 AND master_paymentgateway.id = payment_method.master_payment_id', 'left',FALSE);
-		$this->select('
+        $this->join('payment_method', 'payment_method.id = '.$this->table.'.paymentmethod_id');
+        $this->join('master_bank', 'payment_method.payment_category_id = 1 AND master_bank.id = payment_method.master_payment_id', 'left', false);
+        $this->join('master_paymentgateway', 'payment_method.payment_category_id = 2 AND master_paymentgateway.id = payment_method.master_payment_id', 'left', false);
+        $this->select('
 			'.$this->table.'.id,
 			'.$this->table.'.no_inv, 
 			'.$this->table.'.dana_in, 
@@ -75,16 +77,16 @@ class DonasiModel extends BaseModel
 			master_paymentgateway.path_logo as paymentgateway_path_logo,
 			master_paymentgateway.instr as paymentgateway_instr
 		');
-		return parent::findAll($limit, $offset);
+        return parent::findAll($limit, $offset);
     }
 
-	public function findById($id= null)
+    public function findById($id = null)
     {
         $this->join('bmdonationcampaign', 'bmdonationcampaign.id = '.$this->table.'.campaign_id');
-		$this->join('payment_method', 'payment_method.id = '.$this->table.'.paymentmethod_id');
-		$this->join('master_bank', 'payment_method.payment_category_id = 1 AND master_bank.id = payment_method.master_payment_id', 'left',FALSE);
-		$this->join('master_paymentgateway', 'payment_method.payment_category_id = 2 AND master_paymentgateway.id = payment_method.master_payment_id', 'left',FALSE);
-		$this->select('
+        $this->join('payment_method', 'payment_method.id = '.$this->table.'.paymentmethod_id');
+        $this->join('master_bank', 'payment_method.payment_category_id = 1 AND master_bank.id = payment_method.master_payment_id', 'left', false);
+        $this->join('master_paymentgateway', 'payment_method.payment_category_id = 2 AND master_paymentgateway.id = payment_method.master_payment_id', 'left', false);
+        $this->select('
 			'.$this->table.'.id,
 			'.$this->table.'.no_inv, 
 			'.$this->table.'.dana_in, 
@@ -108,7 +110,7 @@ class DonasiModel extends BaseModel
 			master_paymentgateway.path_logo as paymentgateway_path_logo,
 			master_paymentgateway.instr as paymentgateway_instr
 		');
-		return parent::find($id);
+        return parent::find($id);
     }
 
 }

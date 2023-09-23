@@ -43,7 +43,7 @@ class Registrar
         // nested arrays within the registrars....
         $ref   = new ReflectionClass('Config\Filters');
         $props = $ref->getDefaultProperties();
-        
+
         return [
             'aliases' => [
                 'session' => SessionAuth::class,

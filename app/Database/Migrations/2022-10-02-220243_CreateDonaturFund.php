@@ -15,7 +15,7 @@ class CreateDonaturFund extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'tugas_id' => [
                 'type'           => 'int',
                 'constraint'     => 11,
@@ -35,7 +35,7 @@ class CreateDonaturFund extends Migration
             ],
             'tanggal_transaksi' => [
                 'type'       => 'date'
-            ], 
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -66,7 +66,7 @@ class CreateDonaturFund extends Migration
                 'type' => 'datetime',
                 'null' => false,
             ],
-        
+
             'updated_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -75,13 +75,13 @@ class CreateDonaturFund extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 
         $this->forge->addPrimaryKey('id');
-     
-       
+
+
         $this->forge->createTable('donatur_fundraising', true);
     }
 

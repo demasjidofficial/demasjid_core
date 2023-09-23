@@ -66,7 +66,7 @@
                     <?php echo form_label(lang('crud.is_permanent'), '', ['for' => 'is_permanent', 'class' => 'col-form-label col-sm-2']); ?>
                     <div class="col-sm-10">
                         <div class="form-check">
-                        <?php echo form_checkbox(['name' => 'is_permanent'], true , $data->is_permanent ?? true, "class='form-check-input' placeholder='".lang('crud.is_permanent')."' "); ?>
+                        <?php echo form_checkbox(['name' => 'is_permanent'], true, $data->is_permanent ?? true, "class='form-check-input' placeholder='".lang('crud.is_permanent')."' "); ?>
                         <?php if (has_error('is_permanent')) { ?>
                         <p class="text-danger"><?php echo error('is_permanent'); ?></p>
                         <?php } ?>

@@ -8,7 +8,7 @@ class AddEmailTelponProfile extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('profile',[
+        $this->forge->addColumn('profile', [
              'email' => [
                 'type'       => 'varchar',
                 'constraint' => 50,
@@ -20,7 +20,7 @@ class AddEmailTelponProfile extends Migration
                 'constraint' => 15,
                 'null'       => true,
                 'after'      => 'email'
-            ],      
+            ],
         ]);
     }
 

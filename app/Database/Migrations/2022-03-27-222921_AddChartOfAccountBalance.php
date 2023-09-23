@@ -8,11 +8,11 @@ class AddChartOfAccountBalance extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('balance',[
+        $this->forge->addColumn('balance', [
             'chart_of_account_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
-                'unsigned'   => true,     
+                'unsigned'   => true,
             ],
             'CONSTRAINT fk_balance_chart_of_account_id FOREIGN KEY(`chart_of_account_id`) REFERENCES `chart_of_account`(`id`)'
         ]);

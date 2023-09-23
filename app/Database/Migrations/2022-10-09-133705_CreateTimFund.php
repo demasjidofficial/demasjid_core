@@ -28,9 +28,9 @@ class CreateTimFund extends Migration
                 'null'       => false,
             ],
 
-           
 
-          
+
+
             'created_at' => [
                 'type'       => 'datetime',
                 'null'       => false,
@@ -43,19 +43,19 @@ class CreateTimFund extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'updated_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
-       
-         
+
+
         ]);
         $this->forge->addKey('id', true);
-       
+
         $this->forge->createTable('tim_fundraising');
     }
 

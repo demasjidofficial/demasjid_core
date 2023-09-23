@@ -6,20 +6,19 @@ use CodeIgniter\Database\Seeder;
 
 class LanguagesSeeder extends Seeder
 {
-	
     public function run()
     {
         // $sql = <<<'SQL'
         //             INSERT INTO languages (`code`,`name`,`state`,`is_default`) VALUES
         //     	 	('id','Indonesia','Inactive',1),
         //     	 	('sa','Arabic','Inactive',0),
-		// 		 	('en','English','Inactive',0)
+        // 		 	('en','English','Inactive',0)
         //     SQL;
 
         // $this->db->query($sql);
 
         // script ditas error invalid indentation. mixed spaces and tabs are not allowed.intelephense(1028)
-        
+
         $data = [
             [
                 'id' => 1,
@@ -48,5 +47,5 @@ class LanguagesSeeder extends Seeder
 
         $this->db->table('languages')->insertBatch($data);
     }
-	
+
 }

@@ -18,7 +18,7 @@ class Module extends BaseModule
         helper('url');
         // Settings menu for sidebar
         $sidebar = service('menus');
-        
+
         // Content Menu for sidebar
         $sitemenusItem = new MenuItem([
             'title'           => lang('app.menus'),
@@ -71,7 +71,7 @@ class Module extends BaseModule
         $sidebar->menu('sidebar')->createCollection('website', 'Website')
                 ->setFontAwesomeIcon('fas fa-home')
                 ->setCollapsible();
-            
+
         $sidebar->menu('sidebar')->collection('website')
                                  ->addItem($sitemenusItem)
                                  ->addItem($sitepagesItem)

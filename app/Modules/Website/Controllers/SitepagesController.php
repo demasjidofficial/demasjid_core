@@ -16,9 +16,9 @@ class SitepagesController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/website/pages';
     protected $langModel = 'sitepages';
     protected $modelName = 'App\Modules\Api\Models\SitepagesModel';
-    private $imageFolder = 'images';
-    
-    public function index(){
+
+    public function index()
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -31,11 +31,13 @@ class SitepagesController extends AdminCrudController
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -48,11 +50,13 @@ class SitepagesController extends AdminCrudController
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -66,14 +70,15 @@ class SitepagesController extends AdminCrudController
         // default to language_id = 1 / indonesia
         $data['language_id'] = 1;
 
-        if (! $this->model->insert($data)) {            
+        if (! $this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -91,7 +96,7 @@ class SitepagesController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
@@ -103,7 +108,7 @@ class SitepagesController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new SitepagesModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));

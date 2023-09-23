@@ -70,8 +70,8 @@ class CrudControllerGenerator extends ControllerGenerator
      * Performs pseudo-variables contained within view file.
      */
     protected function parseTemplate(string $class, array $search = [], array $replace = [], array $data = []): string
-    {        
-        $namespace = explode('/',$this->getOption('namespace'));
+    {
+        $namespace = explode('/', $this->getOption('namespace'));
         $module = end($namespace);
         $controllerName = explode('\\', $class);
         $model          = str_replace('Controller', '', end($controllerName));
@@ -79,7 +79,7 @@ class CrudControllerGenerator extends ControllerGenerator
         $table          = $this->getOption('table');
 
         $this->prepareDataRelation($table);
-        
+
         $search[]  = '{table}';
         $search[]  = '{model}';
         $search[]  = '{filterNamespace}';
@@ -104,7 +104,7 @@ class CrudControllerGenerator extends ControllerGenerator
         $result = [];
         $fk     = $this->db->getForeignKeyData($tableName);
         if (! empty($fk)) {
-            foreach ($fk as $key => $field) {                
+            foreach ($fk as $key => $field) {
                 $result[$field->column_name[0]] = ['foreign_table_name' => $field->foreign_table_name, 'foreign_column_name' => $field->foreign_column_name[0]];
             }
         }

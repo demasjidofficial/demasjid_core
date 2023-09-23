@@ -8,12 +8,12 @@ class AddIsProtectedSitesmenus extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('sitemenus',[
+        $this->forge->addColumn('sitemenus', [
             'isProtected' => [
                 'type'       => 'int',
                 'constraint' => 1,
                 'default' => 0
-            ],      
+            ],
         ]);
     }
 

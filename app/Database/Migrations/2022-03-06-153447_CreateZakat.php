@@ -25,12 +25,12 @@ class CreateZakat extends Migration
             ],
             'zakat_tonase' => [
                 'type'       => 'decimal',
-                'null'       => true, 
+                'null'       => true,
             ],
             'zakat_nominal' => [
                 'type'       => 'decimal',
-                'null'       => true, 
-            ],  
+                'null'       => true,
+            ],
             'zakatcategory_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
@@ -75,7 +75,7 @@ class CreateZakat extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

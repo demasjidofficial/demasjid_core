@@ -41,12 +41,12 @@
                     <div class="col-sm-10">
                         <div class="input-group">                        
                             <?php
-                                if(isset($data->wilayah_id)){
+                                if(isset($data->wilayah_id)) {
                                     echo form_input('wilayah_id', old('wilayah_id', $data->wilayah_id ?? ''), "class='form-control varchar' readonly");
-                                }else{
+                                } else {
                                     echo form_input('wilayah_id', old('wilayah_id', $data->wilayah_id ?? ''), "class='form-control varchar' required");
                                 }
-                            ?>                        
+?>                        
                             <button type="button" class="btn btn-outline-secondary"><i class="fa fa-search"></i> </button>
                             <?php if (has_error('wilayah_id')) { ?>
                             <p class="text-danger"><?= error('wilayah_id'); ?></p>
@@ -66,7 +66,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.kota_id'), '', ['for' => 'kota', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('', old('kota', $data->kota?? ''), "class='form-control varchar' readonly") ?>
+                        <?= form_input('', old('kota', $data->kota ?? ''), "class='form-control varchar' readonly") ?>
                         <?php if (has_error('kota')) { ?>
                         <p class="text-danger"><?= error('kota'); ?></p>
                         <?php } ?>
@@ -75,7 +75,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.kecamatan_id'), '', ['for' => 'kecamatan', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('', old('kecamatan', $data->kecamatan?? ''), "class='form-control varchar' readonly") ?>
+                        <?= form_input('', old('kecamatan', $data->kecamatan ?? ''), "class='form-control varchar' readonly") ?>
                         <?php if (has_error('kecamatan')) { ?>
                         <p class="text-danger"><?= error('kecamatan'); ?></p>
                         <?php } ?>
@@ -84,7 +84,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.desa_id'), '', ['for' => 'desa', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_input('', old('desa', $data->desa?? ''), "class='form-control varchar' readonly") ?>
+                        <?= form_input('', old('desa', $data->desa ?? ''), "class='form-control varchar' readonly") ?>
                         <?php if (has_error('desa')) { ?>
                         <p class="text-danger"><?= error('desa'); ?></p>
                         <?php } ?>
@@ -140,7 +140,7 @@
                 <div class="row mb-3">
                     <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('state', $state ,old('state', $data->state ?? ''), "class='form-control enum' ") ?>
+                        <?= form_dropdown('state', $state, old('state', $data->state ?? ''), "class='form-control enum' ") ?>
                         <?php if (has_error('state')) { ?>
                         <p class="text-danger"><?= error('state'); ?></p>
                         <?php } ?>

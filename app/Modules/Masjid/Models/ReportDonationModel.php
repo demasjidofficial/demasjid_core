@@ -33,9 +33,9 @@ class ReportDonationModel extends BalanceModel
 
     public function findAll(int $limit = 0, int $offset = 0)
     {
-        $finance = new Finance;        
-        $this->whereIn('chart_of_account_id', function(BaseBuilder $builder) use($finance) {            
-            return $builder->select('id')->from('chart_of_account')->whereIn('code',$finance->donationAccount);
+        $finance = new Finance();
+        $this->whereIn('chart_of_account_id', function (BaseBuilder $builder) use ($finance) {
+            return $builder->select('id')->from('chart_of_account')->whereIn('code', $finance->donationAccount);
         });
 
         return parent::findAll($limit, $offset);

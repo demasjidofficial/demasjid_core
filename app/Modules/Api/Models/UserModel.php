@@ -37,7 +37,7 @@ class UserModel extends ShieldUsers
        ");
     }
 
-    public function fake(Generator &$faker) : User
+    public function fake(Generator &$faker): User
     {
         return new User([
             'username'   => $faker->userName,

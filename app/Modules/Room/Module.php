@@ -49,7 +49,7 @@ class Module extends BaseModule
         // $sidebar->menu('sidebar')->createCollection('room', 'Room')
         //         ->setFontAwesomeIcon('fas fa-home')
         //         ->setCollapsible();
-            
+
         // $sidebar->menu('sidebar')->collection('room')
         //     ->addItem($roomItem)
         //     ->addItem($reservruanganItem)

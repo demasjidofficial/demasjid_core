@@ -29,7 +29,7 @@
 
         <fieldset>
             <div class="row mb-3">
-                <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_dropdown('name', $sholatItems, old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                     <?php if (has_error('name')) { ?>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.pray_time'),'',['for' => 'pray_time', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.pray_time'), '', ['for' => 'pray_time', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('pray_time', old('pray_time', $data->pray_time ?? ''), "class='form-control time' required placeholder='".lang('crud.pray_time')."' ") ?>
                     <?php if (has_error('pray_time')) { ?>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.is_automatic'),'',['for' => 'is_automatic', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.is_automatic'), '', ['for' => 'is_automatic', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <div class="form-check">
                         <?php echo form_checkbox(['name' => 'is_automatic'], true, $data->is_automatic ?? false, "class='form-check-input' placeholder='".lang('crud.is_automatic')."' "); ?>
@@ -58,9 +58,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.imam_id'),'',['for' => 'imam_id', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.imam_id'), '', ['for' => 'imam_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_dropdown('imam_id',$imamItems ,old('imam_id', $data->imam_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.imam_id')."' ") ?>
+                    <?= form_dropdown('imam_id', $imamItems, old('imam_id', $data->imam_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.imam_id')."' ") ?>
                     <?php if (has_error('imam_id')) { ?>
                     <p class="text-danger"><?php echo error('imam_id'); ?></p>
                     <?php } ?>

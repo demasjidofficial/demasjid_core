@@ -32,11 +32,11 @@ class PengurusController extends AdminCrudController
     public function update($id = null)
     {
         $image = $this->request->getFile('image');
-        if(!empty($image)){
+        if(!empty($image)) {
             $uploaded = $this->uploadFile('image');
             $this->model->set('path_image', $uploaded);
         }
-        
+
         return parent::update($id);
     }
 
@@ -94,7 +94,7 @@ class PengurusController extends AdminCrudController
         $dataEdit['kotaItems'] = ['' => 'Pilih kota/kabupaten'];
         $dataEdit['kecamatanItems'] = ['' => 'Pilih kecamatan'];
         $dataEdit['desaItems'] = ['' => 'Pilih desa'];
-        
+
         if (!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
@@ -110,7 +110,7 @@ class PengurusController extends AdminCrudController
         $dataEdit['jabatanItems'] = Arr::pluck(model('App\Modules\Api\Models\JabatanModel')->select(['id as key', 'name as text'])->asArray()->findAll(), 'text', 'key');
         $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['id as key', 'name as text'])->tpq()->asArray()->findAllExcludeJoin(), 'text', 'key');
         $dataEdit['provinsiItems'] = ['' => 'Pilih provinsi'] + Arr::pluck(model('App\Modules\Api\Models\WilayahModel')->select(['kode as key', 'nama as text'])->provinsi()->asArray()->findAll(), 'text', 'key');
-        
+
 
         return $dataEdit;
     }

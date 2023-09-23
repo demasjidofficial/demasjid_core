@@ -21,7 +21,7 @@
 
         <?php
         echo csrf_field();
-        ?>
+?>
 
         <?php if (isset($data) && null !== $data) { ?>
             <input type="hidden" name="_method" value="PUT" />

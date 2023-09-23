@@ -18,12 +18,12 @@ class CreateDonationCampaign extends Migration
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-            ], 
+            ],
             'label' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
-            ], 
+            ],
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
@@ -42,12 +42,12 @@ class CreateDonationCampaign extends Migration
             ],
             'campaign_tonase' => [
                 'type'       => 'decimal',
-                'null'       => true, 
-            ],   
+                'null'       => true,
+            ],
             'campaign_collected' => [
                 'type'       => 'decimal',
-                'default'       => 0, 
-            ],       
+                'default'       => 0,
+            ],
             'campaigncategory_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
@@ -83,12 +83,12 @@ class CreateDonationCampaign extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('campaigncategory_id', 'bmdonationcampaigncategory', 'id');     
-        $this->forge->addForeignKey('donationtype_id', 'bmdonationtype', 'id'); 
+        $this->forge->addForeignKey('campaigncategory_id', 'bmdonationcampaigncategory', 'id');
+        $this->forge->addForeignKey('donationtype_id', 'bmdonationtype', 'id');
         $this->forge->addForeignKey('program_id', 'program', 'id');
         $this->forge->createTable('bmdonationcampaign', true);
     }

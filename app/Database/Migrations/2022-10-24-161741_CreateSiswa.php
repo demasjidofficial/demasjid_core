@@ -36,7 +36,7 @@ class CreateSiswa extends Migration
             'birth_place' => [
                 'type'       => 'varchar',
                 'constraint' => 50,
-                'null'       => true,                
+                'null'       => true,
             ],
             'birth_date' => [
                 'type'          => 'date',
@@ -45,23 +45,23 @@ class CreateSiswa extends Migration
             'provinsi_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true                
+                'null'       => true
             ],
             'kota_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true,                
+                'null'       => true,
             ],
             'kecamatan_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true,                
+                'null'       => true,
             ],
             'desa_id' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
-                'null'       => true                
-            ],            
+                'null'       => true
+            ],
             'address' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
@@ -77,13 +77,13 @@ class CreateSiswa extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-            ],          
+            ],
             'school_origin' => [
                 'type'       => 'varchar',
                 'constraint' => 100,
                 'null'       => true,
                 'after'      => 'jabatan_id'
-            ],  
+            ],
 
             'father_name' => [
                 'type'       => 'varchar',
@@ -104,7 +104,7 @@ class CreateSiswa extends Migration
                 'constraint' => 35,
                 'null'       => true,
                 'after'      => 'telephone'
-            ],   
+            ],
             'mother_name' => [
                 'type'       => 'varchar',
                 'constraint' => 60,
@@ -124,16 +124,16 @@ class CreateSiswa extends Migration
                 'constraint' => 35,
                 'null'       => true,
                 'after'      => 'telephone'
-            ],  
+            ],
             'tahun_ajaran_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
-                
+
             'description' => [
                 'type' => 'text',
-            ],                  
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -146,7 +146,7 @@ class CreateSiswa extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

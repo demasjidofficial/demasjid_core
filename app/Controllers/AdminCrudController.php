@@ -14,7 +14,7 @@ use Psr\Log\LoggerInterface;
 class AdminCrudController extends AdminController
 {
     use ResponseTrait;
-    const BLANK_IMG = 'assets/admin/images/blank.jpg';
+    public const BLANK_IMG = 'assets/admin/images/blank.jpg';
     protected $theme      = 'admin';
     protected $viewPrefix = '';
     protected $baseController;
@@ -42,8 +42,8 @@ class AdminCrudController extends AdminController
     {
         parent::initController($request, $response, $logger);
         $this->setModel($this->modelName);
-        
-        
+
+
     }
 
     /**
@@ -55,7 +55,7 @@ class AdminCrudController extends AdminController
     {
         /** @var jabatanFilter $jabatanModel */
         // $jabatanModel = model(jabatanFilter::class);
-        
+
         $view = $this->viewPrefix . ($this->request->isAJAX() || $this->isHxRequest() ? '_table' : 'index');
         $dataIndex = $this->getDataIndex();
         $this->writeLog();
@@ -93,7 +93,7 @@ class AdminCrudController extends AdminController
         return $this->render($this->viewPrefix . 'form', $this->getDataEdit());
     }
 
-    
+
     /**
      * Create a new resource object, from "posted" parameters
      *
@@ -102,7 +102,7 @@ class AdminCrudController extends AdminController
     public function create()
     {
         $data = $this->request->getPost();
-        if (! $this->model->insert($data)) {            
+        if (! $this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -130,10 +130,10 @@ class AdminCrudController extends AdminController
      * @return array an array
      */
     public function update($id = null)
-    {        
+    {
         $data                                 = $this->request->getPost();
         $updateData                           = array_filter($data);
-        
+
         if (! $this->model->update($id, $updateData)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
@@ -150,7 +150,7 @@ class AdminCrudController extends AdminController
      * @return array an array
      */
     public function delete($id = null)
-    {        
+    {
         $delete = $this->model->delete($id);
         if ($this->model->db->affectedRows() === 0) {
             if ($this->isHxRequest()) {
@@ -163,12 +163,12 @@ class AdminCrudController extends AdminController
         }
         $this->writeLog();
         if ($this->isHxRequest()) {
-            Services::session()->setFlashdata('message', lang('Bonfire.resourceDeleted', [$this->langModel]));            
+            Services::session()->setFlashdata('message', lang('Bonfire.resourceDeleted', [$this->langModel]));
             return '<aside id="alerts-wrapper" hx-swap-oob="true">{alerts}</aside>';
         }
 
         return redirect()->back()->with('message', lang('Bonfire.resourceDeleted', [$this->langModel]));
-    }    
+    }
 
     /**
      * Get the value of baseController
@@ -277,18 +277,21 @@ class AdminCrudController extends AdminController
         return $this;
     }
 
-    protected function listPesantrenEntity(){
+    protected function listPesantrenEntity()
+    {
 
-        return Arr::pluck((new EntityModel())->pesantren()->asArray()->findAllExcludeJoin(),'id');
+        return Arr::pluck((new EntityModel())->pesantren()->asArray()->findAllExcludeJoin(), 'id');
     }
 
-    protected function listMasjidEntity(){
+    protected function listMasjidEntity()
+    {
 
-        return Arr::pluck((new EntityModel())->masjid()->asArray()->findAllExcludeJoin(),'id');
+        return Arr::pluck((new EntityModel())->masjid()->asArray()->findAllExcludeJoin(), 'id');
     }
 
-    protected function listTpqEntity(){
+    protected function listTpqEntity()
+    {
 
-        return Arr::pluck((new EntityModel())->tpq()->asArray()->findAllExcludeJoin(),'id');
+        return Arr::pluck((new EntityModel())->tpq()->asArray()->findAllExcludeJoin(), 'id');
     }
 }

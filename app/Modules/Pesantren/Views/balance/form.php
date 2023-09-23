@@ -28,7 +28,7 @@
 
             <fieldset>                
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.transaction_date'),'',['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.transaction_date'), '', ['for' => 'transaction_date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('transaction_date', old('transaction_date', $data->transaction_date ?? ''), "class='form-control date' required readonly") ?>
                         <?php if (has_error('transaction_date')) { ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>                
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_textarea('description', old('description', $data->description ?? ''), "class='form-control varchar' required rows=3") ?>
                         <?php if (has_error('description')) { ?>
@@ -46,15 +46,15 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.type'),'',['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.type'), '', ['for' => 'type', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <div class="row col-sm-12">
                             <div class="form-check col-sm-6">
-                                <?= form_radio(['name' => 'type'], 'debit' , (isset($data->type) ? ($data->type == 'debit' ? true: false) : true) , "class='form-check-input' required") ?>
+                                <?= form_radio(['name' => 'type'], 'debit', (isset($data->type) ? ($data->type == 'debit' ? true : false) : true), "class='form-check-input' required") ?>
                                 <label class="form-check-label">Kas Masuk</label>
                             </div>
                             <div class="form-check col-sm-6">
-                                <?= form_radio(['name' => 'type'], 'credit' , (isset($data->type) ? ($data->type == 'credit' ? true: false) : false) , "class='form-check-input' required") ?>
+                                <?= form_radio(['name' => 'type'], 'credit', (isset($data->type) ? ($data->type == 'credit' ? true : false) : false), "class='form-check-input' required") ?>
                                 <label class="form-check-label">Kas Keluar</label>
                             </div>                     
                         </div>                           
@@ -65,9 +65,9 @@
                 </div>
                 
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.chart_of_account'),'',['for' => 'chart_of_account_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.chart_of_account'), '', ['for' => 'chart_of_account_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('chart_of_account_id',$chart_of_accountItems ,old('chart_of_account_id', $data->chart_of_account_id ?? ''), "class='form-control select2' required") ?>
+                        <?= form_dropdown('chart_of_account_id', $chart_of_accountItems, old('chart_of_account_id', $data->chart_of_account_id ?? ''), "class='form-control select2' required") ?>
                         <?php if (has_error('chart_of_account_id')) { ?>
                         <p class="text-danger"><?php echo error('chart_of_account_id'); ?></p>
                         <?php } ?>
@@ -76,7 +76,7 @@
                 
 
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.amount'),'',['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.amount'), '', ['for' => 'amount', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('amount', old('amount', $data->amount ?? ''), "class='form-control int' required") ?>
                         <?php if (has_error('amount')) { ?>
@@ -85,9 +85,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.account'),'',['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.account'), '', ['for' => 'account_balance_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('account_balance_id',$account_balanceItems ,old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2' required") ?>
+                        <?= form_dropdown('account_balance_id', $account_balanceItems, old('account_balance_id', $data->account_balance_id ?? ''), "class='form-control select2' required") ?>
                         <?php if (has_error('account_balance_id')) { ?>
                         <p class="text-danger"><?php echo error('account_balance_id'); ?></p>
                         <?php } ?>

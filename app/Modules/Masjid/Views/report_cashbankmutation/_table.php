@@ -15,18 +15,18 @@
         <?php endif ?>
     </thead>
     <tbody>
-        <?php 
+        <?php
             $totalDebit = $totalCredit = 0;
-            $no = 1;
-        ?>
+    $no = 1;
+    ?>
         <?php if (isset($data) && count($data)) : ?>        
-        <?php foreach ($data as $item) : 
-          if($item->type == 'debit'){
-            $totalDebit += $item->amount ;
-          }else{
-            $totalCredit += $item->amount ;
-          }          
-        ?>
+        <?php foreach ($data as $item) :
+            if($item->type == 'debit') {
+                $totalDebit += $item->amount ;
+            } else {
+                $totalCredit += $item->amount ;
+            }
+            ?>
         <tr>
             <td class="text-center"><?= $no++ ?></td>
             <?php echo view($viewPrefix.'\_row_info', ['item' => $item]) ?>

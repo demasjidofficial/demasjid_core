@@ -6,7 +6,7 @@ use CodeIgniter\Database\Migration;
 
 class CreateAccountBalance extends Migration
 {
-        public function up()
+    public function up()
     {
         $this->forge->addField([
             'id' => [
@@ -18,7 +18,7 @@ class CreateAccountBalance extends Migration
             'name' => [
                 'type'          => 'varchar',
                 'constraint'    => 50,
-            ],            
+            ],
             'account' => [
                 'type'          => 'varchar',
                 'constraint'    => 50,
@@ -31,7 +31,7 @@ class CreateAccountBalance extends Migration
             ],
             'created_at' => [
                 'type'          => 'datetime',
-                'null'          => false,                
+                'null'          => false,
             ],
             'updated_at' => [
                 'type'          => 'datetime',
@@ -41,7 +41,7 @@ class CreateAccountBalance extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

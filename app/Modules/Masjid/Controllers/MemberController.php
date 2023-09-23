@@ -25,7 +25,7 @@ class MemberController extends AdminCrudController
     }
 
     public function edit($id = null)
-    {        
+    {
         return parent::edit($id);
     }
 
@@ -45,7 +45,7 @@ class MemberController extends AdminCrudController
         }
 
         $isActivation = $this->isActivation($id);
-        
+
         $data = $this->request->getPost();
         $updateData = array_filter($data);
 
@@ -53,7 +53,7 @@ class MemberController extends AdminCrudController
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
-        if($isActivation){
+        if($isActivation) {
             $this->sendEmailActivation($id);
         }
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
@@ -128,7 +128,7 @@ class MemberController extends AdminCrudController
     protected function getDataIndex()
     {
         $model = model(MemberFilter::class);
-        $dataModel = $model->paginate(setting('App.perPage'));        
+        $dataModel = $model->paginate(setting('App.perPage'));
         return [
             'headers' => [
                 'name' => lang('crud.name'),
@@ -150,7 +150,7 @@ class MemberController extends AdminCrudController
             'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'wilayahMap' => $this->getWilayah($dataModel),
-            'data' => $dataModel,            
+            'data' => $dataModel,
             'pager' => $model->pager,
         ];
     }
@@ -170,7 +170,7 @@ class MemberController extends AdminCrudController
             $data->desa = $wilayah[$extractWilayah['desa']]['nama'] ?? '';
             $data->kota = $wilayah[$extractWilayah['kota/kabupaten']]['nama'] ?? '';
             $data->kecamatan = $wilayah[$extractWilayah['kecamatan']]['nama'] ?? '';
-            $dataEdit['data'] = $data;            
+            $dataEdit['data'] = $data;
 
         }
         $dataEdit['state'] = array_combine(MemberModel::$state, MemberModel::$state);
@@ -206,8 +206,8 @@ class MemberController extends AdminCrudController
     }
 
     private function isActivation($id)
-    {        
-        $newState = $this->request->getPost('state');        
+    {
+        $newState = $this->request->getPost('state');
         $data = $this->model->find($id);
         if ($data->state == MemberModel::$defaultState) {
             if ($newState == MemberModel::$finalState) {
@@ -219,7 +219,7 @@ class MemberController extends AdminCrudController
     }
 
     private function sendEmailActivation($id)
-    {        
+    {
         $data = $this->model->find($id);
         // $data->email = 'ahmad.afandi85@gmail.com';
         $this->generateDomainFolder($data);
@@ -229,52 +229,56 @@ class MemberController extends AdminCrudController
         $email->setFrom(setting('Email.fromEmail'), setting('Email.fromName'))
             ->setTo($data->email)
             ->setSubject(lang('crud.activation_user').' Demasjid')
-            ->setMessage(view($this->getViewPrefix().'email_activation', ['data' => $data]));        
-        if($email->send()){            
-            log_message('critical','Email berhasil dikirim '.$data->email);
-        }else{
-            log_message('critical','Email gagal dikirim '.$email->printDebugger());
+            ->setMessage(view($this->getViewPrefix().'email_activation', ['data' => $data]));
+        if($email->send()) {
+            log_message('critical', 'Email berhasil dikirim '.$data->email);
+        } else {
+            log_message('critical', 'Email gagal dikirim '.$email->printDebugger());
         }
     }
 
-    private function executeShell($id){
+    private function executeShell($id)
+    {
         $data = $this->model->find($id);
         $password = service('passwords')->hash($data->password);
         shell_exec("init_db {$id} {$password}");
     }
 
-    private function generateDomainFolder($data){
+    private function generateDomainFolder($data)
+    {
         $domainName = $data->domain;
         $domainFolder = $data->code;
-        helper('filesystem');        
+        helper('filesystem');
         $original = env('domain.template.source').'template';
         $target = env('domain.template.destination').$domainFolder;
         try {
             directory_mirror($original, $target, false);
             $envPathFile = $target.DIRECTORY_SEPARATOR.'.env';
-            $hostPathFile = $target.DIRECTORY_SEPARATOR.$domainFolder.'.conf';            
+            $hostPathFile = $target.DIRECTORY_SEPARATOR.$domainFolder.'.conf';
             $generator = new Generator($envPathFile, $hostPathFile, $domainName, $domainFolder);
             $generator->env();
             $generator->config();
             $password = service('passwords')->hash($data->code);
             $generator->database($data->id, $password);
         } catch (\Throwable $th) {
-             log_message('critical','Failed generate domain folder '.$th->getMessage());
-        }        
-    }    
+            log_message('critical', 'Failed generate domain folder '.$th->getMessage());
+        }
+    }
 
-    private function getWilayah($dataModel){
+    private function getWilayah($dataModel)
+    {
         $listwilayah = [];
-        foreach($dataModel as $d){
+        foreach($dataModel as $d) {
             $listwilayah = array_merge($listwilayah, array_values(extractWilayah($d->wilayah_id)));
         }
 
-        $wilayah = empty($listwilayah) ? collect() : collect((new WilayahModel())->whereIn('kode',array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
-        
+        $wilayah = empty($listwilayah) ? collect() : collect((new WilayahModel())->whereIn('kode', array_unique($listwilayah))->asArray()->findAll())->keyBy('kode');
+
         return $wilayah;
     }
 
-    private function copyAssetImage($data){
+    private function copyAssetImage($data)
+    {
         $domainFolder = $data->code;
         $target = env('domain.template.destination').$domainFolder;
         copy($data->path_logo, $target.DIRECTORY_SEPARATOR.$data->path_logo);

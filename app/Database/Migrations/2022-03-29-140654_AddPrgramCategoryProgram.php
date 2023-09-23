@@ -8,11 +8,11 @@ class AddPrgramCategoryProgram extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('program',[
+        $this->forge->addColumn('program', [
             'program_category_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
-                'unsigned'   => true,     
+                'unsigned'   => true,
             ],
             'CONSTRAINT fk_program_program_category_id FOREIGN KEY(`program_category_id`) REFERENCES `program_category`(`id`)'
         ]);

@@ -8,7 +8,8 @@ class GerhanaScheduleController extends NonRawatibScheduleController
     protected $baseRoute = ADMIN_AREA.'/masjid/gerhanaschedule';
     protected $typeSholat = 'gerhana';
 
-    public function create(){
+    public function create()
+    {
         $this->model->set('type_sholat', $this->typeSholat);
         return parent::create();
     }

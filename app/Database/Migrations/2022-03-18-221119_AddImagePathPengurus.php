@@ -8,13 +8,13 @@ class AddImagePathPengurus extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('pengurus',[
+        $this->forge->addColumn('pengurus', [
             'path_image' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
                 'null'       => true,
                 'after'      => 'address'
-            ],            
+            ],
         ]);
     }
 

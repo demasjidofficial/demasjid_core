@@ -26,7 +26,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('name')) { ?>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.bank_account'),'',['for' => 'account', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.bank_account'), '', ['for' => 'account', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('account', old('account', $data->account ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('account')) { ?>
@@ -44,18 +44,18 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.group_account'),'',['for' => 'group_account', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.group_account'), '', ['for' => 'group_account', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('group_account',$groupAccountItems ,old('group_account', $data->group_account ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.group_account')."' required") ?>
+                        <?= form_dropdown('group_account', $groupAccountItems, old('group_account', $data->group_account ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.group_account')."' required") ?>
                         <?php if (has_error('group_account')) { ?>
                         <p class="text-danger"><?php echo error('group_account'); ?></p>
                         <?php } ?>
                     </div>
                 </div>                
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.entity'),'',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.entity'), '', ['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.entity')."' required") ?>
+                        <?= form_dropdown('entity_id', $entityItems, old('entity_id', $data->entity_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.entity')."' required") ?>
                         <?php if (has_error('entity_id')) { ?>
                         <p class="text-danger"><?php echo error('entity_id'); ?></p>
                         <?php } ?>

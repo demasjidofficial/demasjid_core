@@ -1,5 +1,5 @@
-<?php 
-    $wilayahDetail = $item->detail_wilayah;
+<?php
+$wilayahDetail = $item->detail_wilayah;
 ?>
 <td><?= esc($item->name) ?></a></td>
 <td><?= esc($item->wilayah_id)?></a></td>

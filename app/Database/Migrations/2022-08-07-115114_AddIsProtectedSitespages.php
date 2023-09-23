@@ -8,12 +8,12 @@ class AddIsProtectedSitespages extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('sitepages',[
+        $this->forge->addColumn('sitepages', [
             'isProtected' => [
                 'type'       => 'int',
                 'constraint' => 1,
                 'default' => 1
-            ],      
+            ],
         ]);
     }
 

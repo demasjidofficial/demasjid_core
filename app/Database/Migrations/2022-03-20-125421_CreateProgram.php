@@ -20,7 +20,7 @@ class CreateProgram extends Migration
                 'constraint'    => 50,
             ],
             'description' => [
-                'type'          => 'text',                
+                'type'          => 'text',
                 'comment'       => 'deskripsi singkat program'
             ],
             'start_date' => [
@@ -38,7 +38,7 @@ class CreateProgram extends Migration
             ],
             'created_at' => [
                 'type'          => 'datetime',
-                'null'          => false,                
+                'null'          => false,
             ],
             'updated_at' => [
                 'type'          => 'datetime',
@@ -48,7 +48,7 @@ class CreateProgram extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');

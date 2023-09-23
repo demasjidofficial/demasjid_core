@@ -39,18 +39,18 @@ class UsersModel extends BaseModel
     ];
     public function findSpv(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*'];        
+        $this->selectColumn = [$this->table.'.*'];
         $this->join('auth_groups_users', 'auth_groups_users.user_id = '.$this->table.'.id');
 
-		$this->where('auth_groups_users.group','supervisior');
+        $this->where('auth_groups_users.group', 'supervisior');
         return parent::findAll($limit, $offset);
     }
     public function findStaff(int $limit = 0, int $offset = 0)
     {
-        $this->selectColumn = [$this->table.'.*'];        
+        $this->selectColumn = [$this->table.'.*'];
         $this->join('auth_groups_users', 'auth_groups_users.user_id = '.$this->table.'.id');
 
-		$this->where('auth_groups_users.group','staff');
+        $this->where('auth_groups_users.group', 'staff');
         return parent::findAll($limit, $offset);
     }
 }

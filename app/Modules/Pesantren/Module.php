@@ -34,7 +34,7 @@ class Module extends BaseModule
         ]);
         // Content Menu for sidebar
         $accountBalanceItem = new MenuItem([
-            'title'           => lang('crud.account_balance'), 
+            'title'           => lang('crud.account_balance'),
             'url'             => ADMIN_AREA.'/pesantren/accountbalance',
             'fontAwesomeIcon' => 'fas fa-book nav-icon',
             'permission'      => 'pesantren.account_balance.list',
@@ -130,9 +130,9 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-book fa-1 nav-icon',
             'permission'      => 'pesantren.learnings.list',
         ]);
-        
+
         // $sidebar->menu('sidebar')->createCollection('pesantren', 'Pesantren')
-        //         ->setFontAwesomeIcon('fas fa-home')                                
+        //         ->setFontAwesomeIcon('fas fa-home')
         //         ->setCollapsible();
         // $sidebar->menu('sidebar')->collection('pesantren')
         //     //->addItem($pengurusItem)
@@ -152,6 +152,6 @@ class Module extends BaseModule
         //     ->addItem($mastersItem)
         //     ->addItem($schedulesItem)
         //     ->addItem($learningsItem);
-          
+
     }
 }

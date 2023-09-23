@@ -21,18 +21,18 @@ class ReportCashBankMutationController extends ReportController
         $this->writeLog();
         $download = $this->request->getGet('download');
         if ($download) {
-            $view = $this->viewPrefix.'index_pdf';            
+            $view = $this->viewPrefix.'index_pdf';
             $viewHtml = $this->render($view, $dataIndex);
-            
+
             switch ($download) {
-                case 'pdf':                    
+                case 'pdf':
                     $filename = date('y-m-d-H-i-s').'-mutasi-kas-bank.pdf';
                     $this->exportPdf($filename, $viewHtml);
-                break;                
+                    break;
                 case 'xls':
-                    $filename = date('y-m-d-H-i-s').'-mutasi-kas-bank.xls';              
+                    $filename = date('y-m-d-H-i-s').'-mutasi-kas-bank.xls';
                     $this->exportExcel($filename, $viewHtml);
-                break;
+                    break;
             }
 
             return;
@@ -84,15 +84,17 @@ class ReportCashBankMutationController extends ReportController
                 ]
         ];
     }
-    
-    private function getStartBalance($startDate){
+
+    private function getStartBalance($startDate)
+    {
         $balance = (new BalanceModel())->selectSum('amount', 'saldo')->where('transaction_date <', $startDate)->first();
 
         return $balance->saldo ?? 0;
     }
-    private function getIdentityInfo(){
+    private function getIdentityInfo()
+    {
         $entity = (new EntityModel())->masjid()->first();
 
         return $entity->name ?? 'Masjid not defined';
-    }    
+    }
 }

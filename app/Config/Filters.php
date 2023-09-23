@@ -48,7 +48,7 @@ class Filters extends BaseConfig
     public $globals = [
         'before' => [
             'online' => ['except' => ['setup/*']],
-            'csrf'   => ['except' => 'api/*']            
+            'csrf'   => ['except' => 'api/*']
         ],
         'after' => [
             'alerts',

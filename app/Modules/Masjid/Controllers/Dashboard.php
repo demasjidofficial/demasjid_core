@@ -39,7 +39,7 @@ class Dashboard extends AdminController
      * Displays the site's initial page.
      */
     public function index()
-    {        
+    {
         $this->setupWidgets();
         $this->setWidgetStats();
         $this->setWidgetZis();
@@ -77,7 +77,7 @@ class Dashboard extends AdminController
 
     private function setWidgetStats()
     {
-        $widgets = service('widgets');        
+        $widgets = service('widgets');
         $programItem = new StatsItem([
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-info',
@@ -91,7 +91,7 @@ class Dashboard extends AdminController
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-success',
             'title' => 'Dana Masuk',
-            'value' => number_to_currency($allIncome->amount ?? 0,'IDR','id'),
+            'value' => number_to_currency($allIncome->amount ?? 0, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-thumbs-up',
         ]);
@@ -100,7 +100,7 @@ class Dashboard extends AdminController
             'bgColor' => 'bg-teal',
             'bgIcon' => 'bg-danger',
             'title' => 'Dana Keluar',
-            'value' => number_to_currency($allCost->amount ?? 0,'IDR', 'id'),
+            'value' => number_to_currency($allCost->amount ?? 0, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-shopping-cart',
         ]);
@@ -121,42 +121,42 @@ class Dashboard extends AdminController
 
     private function setWidgetProgram()
     {
-        $widgets = service('widgets');        
+        $widgets = service('widgets');
         $programItem = new PanelItem([
             'itemClass' => 'table-responsive',
-            'content' => $this->generateProgram()  
+            'content' => $this->generateProgram()
         ]);
-        
+
         $widgets->widget('program')->collection('program')
             ->addItem($programItem);
     }
 
     private function setWidgetZis()
     {
-        $widgets = service('widgets');        
+        $widgets = service('widgets');
         $zakatItem = new StatsItem([
             'bgColor' => 'bg-warning',
             'bgIcon' => 'bg-info',
             'title' => 'Zakat',
-            'value' => number_to_currency(450,'IDR', 'id'),
+            'value' => number_to_currency(450, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-tag',
         ]);
-        
+
         $infaqItem = new StatsItem([
             'bgColor' => 'bg-success',
             'bgIcon' => 'bg-success',
             'title' => 'Infaq',
-            'value' => number_to_currency(400,'IDR', 'id'),
+            'value' => number_to_currency(400, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-heart',
         ]);
-        
+
         $wakafItem = new StatsItem([
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-danger',
             'title' => 'Wakaf',
-            'value' => number_to_currency(4500,'IDR', 'id'),
+            'value' => number_to_currency(4500, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-cloud-download-alt',
         ]);
@@ -164,7 +164,7 @@ class Dashboard extends AdminController
             'bgColor' => 'bg-info',
             'bgIcon' => 'bg-warning',
             'title' => 'Qurban',
-            'value' => number_to_currency(45000,'IDR', 'id'),
+            'value' => number_to_currency(45000, 'IDR', 'id'),
             // 'url'     => ADMIN_AREA . '/settings/groups',
             'faIcon' => 'fas fa-comment',
         ]);
@@ -175,14 +175,15 @@ class Dashboard extends AdminController
             ->addItem($qurbanItem);
     }
 
-    protected function generateProgram(){
+    protected function generateProgram()
+    {
         $data = (new ProgramModel())->select(['name','description', 'state' ,'cost_estimate as anggaran'])->asArray()->findAll();
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
-            if(is_numeric($item)){
-                return number_to_currency($item ?? 0,'IDR','id');
+            if(is_numeric($item)) {
+                return number_to_currency($item ?? 0, 'IDR', 'id');
             }
-            
+
             return convertStateProgram($item);
         };
         $table->setHeading('Kode', 'Nama Program', 'Status', 'Anggaran');

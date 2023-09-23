@@ -14,27 +14,33 @@ class BoardNewsRuntextController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/board/boardnewsruntext';
     protected $langModel = 'board_news_runtext';
     protected $modelName = 'App\Modules\Api\Models\BoardNewsRuntextModel';
-    public function index(){
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         return parent::update($id);
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         return parent::create();
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -49,7 +55,7 @@ class BoardNewsRuntextController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -61,14 +67,14 @@ class BoardNewsRuntextController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new BoardNewsRuntextModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
         }
-        
+
         return $dataEdit;
     }
 }

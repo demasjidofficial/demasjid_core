@@ -21,7 +21,7 @@ namespace App\Libraries\Widgets\Panel;
  * @property string $value
  */
 class PanelItem
-{    
+{
     protected $content;
     protected $itemClass;
     public function __construct(?array $data = null)
@@ -47,7 +47,7 @@ class PanelItem
 
     /**
      * Get the value of content
-     */ 
+     */
     public function content()
     {
         return $this->content;
@@ -57,7 +57,7 @@ class PanelItem
      * Set the value of content
      *
      * @return  self
-     */ 
+     */
     public function setContent($content)
     {
         $this->content = $content;
@@ -67,7 +67,7 @@ class PanelItem
 
     /**
      * Get the value of itemClass
-     */ 
+     */
     public function itemClass()
     {
         return $this->itemClass;
@@ -77,7 +77,7 @@ class PanelItem
      * Set the value of itemClass
      *
      * @return  self
-     */ 
+     */
     public function setItemClass($itemClass)
     {
         $this->itemClass = $itemClass;

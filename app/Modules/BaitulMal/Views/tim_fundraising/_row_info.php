@@ -7,7 +7,7 @@
 <!-- 
 <td><?php echo esc($item->supervisor) ?></a></td>
 <td><?php echo esc($item->donatur) ?></a></td>
-<td><?php echo local_currency(esc($item->campaign_tonase),'IDR') ?></a></td>
+<td><?php echo local_currency(esc($item->campaign_tonase), 'IDR') ?></a></td>
 <td><?php echo esc($item->donasi) ?></a></td> -->
 
 <td>Mulai : <?php echo local_date(esc($item->jadwal_mulai)) ?><br/>Selesai <?php echo local_date(esc($item->jadwal_akhir)) ?></a></td>

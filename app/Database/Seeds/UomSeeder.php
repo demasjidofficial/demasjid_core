@@ -6,9 +6,8 @@ use CodeIgniter\Database\Seeder;
 
 class UomSeeder extends Seeder
 {
-	
     public function run()
-    {        
+    {
         $data = [
             ['name' => 'kg','code' => 'kg', 'ratio' => 1,'uomcategory_id' => 1, 'type' => 'reference'],
             ['name' => 'kw','code' => 'kw', 'ratio' => 100,'uomcategory_id' => 1, 'type' => 'bigger'],
@@ -19,7 +18,7 @@ class UomSeeder extends Seeder
             ['name' => 'km','code' => 'km', 'ratio' => 1000,'uomcategory_id' => 2, 'type' => 'bigger'],
             ['name' => 'dm','code' => 'dm', 'ratio' => 10,'uomcategory_id' => 2, 'type' => 'bigger'],
             ['name' => 'cm','code' => 'cm', 'ratio' => 100,'uomcategory_id' => 2, 'type' => 'smaller'],
-            ['name' => 'mm','code' => 'mm', 'ratio' => 1000,'uomcategory_id' => 2, 'type' => 'smaller'],            
+            ['name' => 'mm','code' => 'mm', 'ratio' => 1000,'uomcategory_id' => 2, 'type' => 'smaller'],
             ['name' => 'pcs','code' => 'pcs', 'ratio' => 12,'uomcategory_id' => 3, 'type' => 'smaller'],
             ['name' => 'lusin','code' => 'lusin', 'ratio' => 1,'uomcategory_id' => 3, 'type' => 'reference'],
             ['name' => 'jam','code' => 'jam', 'ratio' => 1,'uomcategory_id' => 4, 'type' => 'reference'],
@@ -29,5 +28,5 @@ class UomSeeder extends Seeder
         ];
 
         $this->db->table('uom')->insertBatch($data);
-    }	
+    }
 }

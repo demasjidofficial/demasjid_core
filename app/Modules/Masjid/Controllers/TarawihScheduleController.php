@@ -8,7 +8,8 @@ class TarawihScheduleController extends NonRawatibScheduleController
     protected $baseRoute = ADMIN_AREA.'/masjid/tarawihschedule';
     protected $typeSholat = 'tarawih';
 
-    public function create(){
+    public function create()
+    {
         $this->model->set('type_sholat', $this->typeSholat);
         return parent::create();
     }

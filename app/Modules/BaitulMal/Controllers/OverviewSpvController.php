@@ -14,16 +14,15 @@ use App\Modules\Api\Models\TimFundraisingModel;
 use App\Modules\Api\Models\DonaturFundraisingModel;
 use App\Modules\Api\Models\DonaturFundraisingSpvModel;
 
-class OverviewSpvController extends  AdminController
+class OverviewSpvController extends AdminController
 {
-
     protected $theme = 'admin';
 
     public function index()
     {
         # code...
-        
-        
+
+
         $this->setupWidgets();
         $this->setWidgetStats();
         $this->setWidgetTugas();
@@ -153,7 +152,8 @@ class OverviewSpvController extends  AdminController
     }
     protected function generateTugasSpv()
     {
-        $data = (new TugasTimModelSpv())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();;
+        $data = (new TugasTimModelSpv())->select(['tugas', 'progres', 'nominal', 'nominal_target', 'nama_tim', 'first_name'])->asArray()->findWidget();
+        ;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
@@ -185,7 +185,8 @@ class OverviewSpvController extends  AdminController
 
     protected function generateTimFund()
     {
-        $data = (new TimFundraisingModel())->select(['kode_tim', 'nama_tim', 'campaign_name', 'target_nominal', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();;
+        $data = (new TimFundraisingModel())->select(['kode_tim', 'nama_tim', 'campaign_name', 'target_nominal', 'jadwal_mulai', 'jadwal_akhir'])->asArray()->findWidget();
+        ;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {
@@ -219,7 +220,8 @@ class OverviewSpvController extends  AdminController
     protected function generateDonatur()
     {
         # code...
-        $data = (new DonaturFundraisingSpvModel())->select(['tugas', 'tanggal_transaksi', 'nama', 'donatur_fundraising.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();;
+        $data = (new DonaturFundraisingSpvModel())->select(['tugas', 'tanggal_transaksi', 'nama', 'donatur_fundraising.nominal', 'nominal_target', 'nama_tim', 'username'])->asArray()->findWidget();
+        ;
         $table = new \CodeIgniter\View\Table();
         $table->function = function ($item) {
             if (is_numeric($item)) {

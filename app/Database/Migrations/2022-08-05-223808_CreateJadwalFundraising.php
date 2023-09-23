@@ -16,7 +16,7 @@ class CreateJadwalFundraising extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-     
+
             'jadwal_mulai' => [
                 'type'       => 'datetime',
                 'null'       => false,
@@ -31,7 +31,7 @@ class CreateJadwalFundraising extends Migration
                 'null'       => false,
             ],
 
-          
+
             'created_at' => [
                 'type'       => 'datetime',
                 'null'       => false,
@@ -44,13 +44,13 @@ class CreateJadwalFundraising extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
             'updated_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addKey('id', true);

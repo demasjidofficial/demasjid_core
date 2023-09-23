@@ -8,16 +8,16 @@ class AddMasterBankInstructions extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('master_bank',[
+        $this->forge->addColumn('master_bank', [
             'instr_atm' => [
                 'type'       => 'text',
-            ], 
+            ],
             'instr_mbanking' => [
                 'type'       => 'text',
-            ],     
+            ],
             'instr_ibanking' => [
                 'type'       => 'text',
-            ],    
+            ],
         ]);
     }
 

@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1><?php echo $donation_campaigns["name"]?></h1>
-                        <p><i class="fa fa-map-pin" aria-hidden="true"></i> <?php echo $masjid_profile['name']?>, <?php echo ($masjid_profile['address']) ?></p>
+                        <p><i class="fa fa-map-pin" aria-hidden="true"></i> <?php echo $masjid_profile['name']?>, <?php echo($masjid_profile['address']) ?></p>
                     </div>
                 </div>
                 <div class="row section-padding60">
@@ -28,7 +28,7 @@
                                         <div class="tipWrap">
                                             <span class="tip" style="left:0 !important"></span>
                                         </div>
-                                        <span class="fill" data-percentage="<?php echo min(100, number_format($donation_campaigns["campaign_collected"] / $donation_campaigns["campaign_tonase"]*100, 0, '.', '')) ?>" ></span>
+                                        <span class="fill" data-percentage="<?php echo min(100, number_format($donation_campaigns["campaign_collected"] / $donation_campaigns["campaign_tonase"] * 100, 0, '.', '')) ?>" ></span>
                                     </div>
                                 </div>
                             </div>
@@ -76,9 +76,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p>
-                                    <?php 
-                                        echo ($donation_campaigns['description']);
-                                    ?>
+                                    <?php
+                                        echo($donation_campaigns['description']);
+?>
                                 </p>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="row">
                             <div class="col-md-12 overflow-auto campaign-timeline">
                                 <ul>
-                                    <?php if (isset($donation_list) && count($donation_list)) { 
+                                    <?php if (isset($donation_list) && count($donation_list)) {
                                         foreach ($donation_list as $dl) {
                                             ?>
                                              
@@ -111,12 +111,12 @@
                         <div class="row">
                             <div class="col-md-12 overflow-auto donation-list">
                                 <ul>
-                                    <?php if (isset($donation_list) && count($donation_list)) { 
+                                    <?php if (isset($donation_list) && count($donation_list)) {
                                         foreach ($donation_list as $dl) {
                                             ?>
                                              
                                              <li>
-                                                <span><?php echo ($dl->name)?></span>
+                                                <span><?php echo($dl->name)?></span>
                                                 <p>Berdonasi sebesar <?php echo local_currency($dl->dana_in)?></p>
                                             </li>
                                             

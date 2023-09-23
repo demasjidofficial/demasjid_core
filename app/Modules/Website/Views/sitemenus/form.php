@@ -33,7 +33,7 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required") ?>
                         <?php if (has_error('name')) { ?>
@@ -42,9 +42,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.parent'),'',['for' => 'parent', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.parent'), '', ['for' => 'parent', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('parent',$sitemenusItems ,old('parent', $data->parent ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.parent')."' ") ?>
+                        <?= form_dropdown('parent', $sitemenusItems, old('parent', $data->parent ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.parent')."' ") ?>
                         <?php if (has_error('parent')) { ?>
                         <p class="text-danger"><?php echo error('parent'); ?></p>
                         <?php } ?>
@@ -52,12 +52,12 @@
                 </div>
                 
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.language'),'',['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.language'), '', ['for' => 'language_id', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
 
                         <!--?= form_input('language_id', old('language_id', $data->language_id ?? ''), "class='form-control int' ") ?-->
 
-                        <?= form_dropdown('language_id',$languagesItems ,old('language_id', $data->language_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.language')."' ") ?>
+                        <?= form_dropdown('language_id', $languagesItems, old('language_id', $data->language_id ?? ''), "class='form-control select2 add-begin-option' data-label='".lang('crud.language')."' ") ?>
                         <?php if (has_error('language_id')) { ?>
                         <p class="text-danger"><?php echo error('language_id'); ?></p>
                         <?php } ?>
@@ -65,7 +65,7 @@
                 </div>
                 
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
 

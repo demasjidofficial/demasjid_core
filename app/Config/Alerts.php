@@ -8,7 +8,7 @@ class Alerts extends ConfigAlerts
 {
     /**
      * Template to use for HTML output.
-     */    
+     */
     public string $template = 'App\Views\_alerts.php';
 
     /**

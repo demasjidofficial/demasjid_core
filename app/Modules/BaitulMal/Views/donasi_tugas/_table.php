@@ -3,16 +3,16 @@
     <tbody>
     <?php if (isset($data) && count($data)) : ?>
         <?php $counter = 0; ?>
-        <?php foreach ($data as $item) : 
+        <?php foreach ($data as $item) :
             ?>
             <tr>
                 <td>
-                    <?php 
+                    <?php
                         echo ++$counter;
-                    ?>
+            ?>
                     <!-- <input type="checkbox" name="selects[]" class="form-check"> -->
                 </td>
-                <?php echo view($viewPrefix.'\_row_info', ['item' => $item, 'editUrl' => url_to($controller,$item->id), 'deleteUrl' => url_to($controller,$item->id)]) ?>
+                <?php echo view($viewPrefix.'\_row_info', ['item' => $item, 'editUrl' => url_to($controller, $item->id), 'deleteUrl' => url_to($controller, $item->id)]) ?>
             </tr>
         <?php endforeach ?>
     <?php endif ?>

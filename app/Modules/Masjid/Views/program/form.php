@@ -96,16 +96,16 @@
                         <?php echo form_input('program_cost[name][]', old('program_cost[name]', $detail->name ?? ''), "class='form-control mr-1' placeholder='deskripsi' required"); ?>                        
                         <?php echo form_input('program_cost[cost_estimate][]', old('program_cost[cost_estimate]', $detail->cost_estimate ?? ''), "class='form-control numeric' onchange='updateTotal(this)' placeholder='jumlah' required"); ?>                        
                         <div class="input-group-append">
-                            <?php if(!$index){
+                            <?php if(!$index) {
                                 echo '<span class="input-group-text" role="button" onclick="addRow(this)">
                                         <i class="fas fa-plus"></i>
                                     </span>';
-                                }else{
+                            } else {
                                 echo '<span class="input-group-text" role="button" onclick="removeRow(this)">
                                         <i class="fas fa-minus"></i>
                                     </span>';
-                                }
-                            ?>
+                            }
+                        ?>
                             
                         </div>
                     </div>

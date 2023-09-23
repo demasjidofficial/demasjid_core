@@ -45,7 +45,7 @@
                                         <?php if (has_error('path_image')) { ?>
                                             <p class="text-danger"><?php echo error('path_image'); ?></p>
                                         <?php } ?>
-                                        <?= form_label(lang('crud.path_image'),'',['for' => 'path_image', 'class' => 'custom-file-label']) ?>
+                                        <?= form_label(lang('crud.path_image'), '', ['for' => 'path_image', 'class' => 'custom-file-label']) ?>
                                     </div>
                                     <div class="input-group-append clickable">
                                         <span class="input-group-text">
@@ -63,7 +63,7 @@
                 
                 <div class="col-md-5">
                     <div class="row mb-3">
-                    <?= form_label(lang('crud.state'),'',['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.state'), '', ['for' => 'state', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <!--?= form_input('state', old('state', $data->state ?? ''), "class='form-control varchar' ") ?-->
 
@@ -97,7 +97,7 @@
                         <br/>
                         <fieldset>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.title'),'',['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.title'), '', ['for' => 'title', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_input('title', old('title', $data->title ?? ''), "class='form-control varchar' placeholder='Masukkan teks Indonesia' required") ?>
                                     <?php if (has_error('title')) { ?>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.subtitle'),'',['for' => 'subtitle', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.subtitle'), '', ['for' => 'subtitle', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_input('subtitle', old('subtitle', $data->subtitle ?? ''), "class='form-control varchar' required") ?>
                                     <?php if (has_error('subtitle')) { ?>
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.labels'),'',['for' => 'labels', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.labels'), '', ['for' => 'labels', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_input('labels', old('labels', $data->labels ?? ''), "class='form-control varchar' placeholder='Masukkan teks Indonesia' required") ?>
                                     <?php if (has_error('labels')) { ?>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.content'),'',['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.content'), '', ['for' => 'content', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_textarea('content', old('content', $data->content ?? ''), "rows='4' class='form-control text' required") ?>
                                     
@@ -134,7 +134,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.permalink'),'',['for' => 'permalink', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.permalink'), '', ['for' => 'permalink', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_input('permalink', old('permalink', $data->permalink ?? ''), "class='form-control varchar' required") ?>
                                     <?php if (has_error('permalink')) { ?>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.meta_title'),'',['for' => 'meta_title', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.meta_title'), '', ['for' => 'meta_title', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_input('meta_title', old('meta_title', $data->meta_title ?? ''), "class='form-control varchar' required") ?>
                                     <?php if (has_error('meta_title')) { ?>
@@ -152,7 +152,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <?= form_label(lang('crud.meta_desc'),'',['for' => 'meta_desc', 'class' => 'col-form-label col-sm-2']) ?>
+                                <?= form_label(lang('crud.meta_desc'), '', ['for' => 'meta_desc', 'class' => 'col-form-label col-sm-2']) ?>
                                 <div class="col-sm-10">
                                     <?= form_textarea('meta_desc', old('meta_desc', $data->meta_desc ?? ''), "rows='4' class='form-control text' required") ?>
                                     <?php if (has_error('meta_desc')) { ?>

@@ -8,10 +8,10 @@ class AddMasterPaymentGatewayInstructions extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('master_paymentgateway',[
+        $this->forge->addColumn('master_paymentgateway', [
             'instr' => [
                 'type'       => 'text',
-            ]   
+            ]
         ]);
     }
 

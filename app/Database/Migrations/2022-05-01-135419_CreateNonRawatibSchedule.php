@@ -14,7 +14,7 @@ class CreateNonRawatibSchedule extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
             'type_sholat' => [
                 'type'       => 'varchar',
                 'constraint' => 15,
@@ -26,7 +26,7 @@ class CreateNonRawatibSchedule extends Migration
             ],
             'pray_date' => [
                 'type'       => 'date'
-            ],            
+            ],
             'imam_id' => [
                 'type'       => 'int',
                 'constraint' => 11,
@@ -36,8 +36,8 @@ class CreateNonRawatibSchedule extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
-            ],            
+                'null'       => true,
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -50,12 +50,12 @@ class CreateNonRawatibSchedule extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('imam_id', 'imam', 'id');     
-        $this->forge->addForeignKey('khotib_id', 'imam', 'id');     
+        $this->forge->addForeignKey('imam_id', 'imam', 'id');
+        $this->forge->addForeignKey('khotib_id', 'imam', 'id');
         $this->forge->createTable('non_rawatib_schedule', true);
     }
 

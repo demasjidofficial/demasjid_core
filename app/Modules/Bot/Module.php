@@ -38,7 +38,7 @@ class Module extends BaseModule
             'fontAwesomeIcon' => 'fas fa-envelope nav-icon',
             //'permission'      => 'baitulmal.infaqshodaqohcategory.list',
         ]);
-        
+
         $sidebar->menu('sidebar')->createCollection('bot', 'Bot')
                 ->setFontAwesomeIcon('fas fa-cog')
                 ->setCollapsible();

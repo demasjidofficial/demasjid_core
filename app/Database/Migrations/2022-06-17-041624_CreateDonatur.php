@@ -17,7 +17,7 @@ class CreateDonatur extends Migration
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],            
+            ],
 
             'id_donatur_type' => [
                 'type'           => 'int',
@@ -34,7 +34,7 @@ class CreateDonatur extends Migration
             'name' => [
                 'type'       => 'varchar',
                 'constraint' => 128,
-            ],      
+            ],
 
             'email' => [
                 'type' => 'varchar',
@@ -50,7 +50,7 @@ class CreateDonatur extends Migration
                 'type' => 'varchar',
                 'constraint' => 100,
                 'null' => true
-            ],         
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -63,15 +63,15 @@ class CreateDonatur extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 
         $this->forge->addPrimaryKey('id');
 
-       
 
-        $this->forge->addForeignKey('donatur_type_id', 'donatur_type', 'id');    
+
+        $this->forge->addForeignKey('donatur_type_id', 'donatur_type', 'id');
         $this->forge->createTable('donatur', true);
 
     }

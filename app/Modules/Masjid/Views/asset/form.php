@@ -29,7 +29,7 @@
 
         <fieldset>
             <div class="row mb-3">
-                <?= form_label(lang('crud.name'),'',['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.name'), '', ['for' => 'name', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('name', old('name', $data->name ?? ''), "class='form-control varchar' required placeholder='".lang('crud.name')."' ") ?>
                     <?php if (has_error('name')) { ?>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.purchased_date'),'',['for' => 'purchased_date', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.purchased_date'), '', ['for' => 'purchased_date', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('purchased_date', old('purchased_date', $data->purchased_date ?? ''), "class='form-control date' required placeholder='".lang('crud.purchased_date')."' ") ?>
                     <?php if (has_error('purchased_date')) { ?>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.purchased_price'),'',['for' => 'purchased_price', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.purchased_price'), '', ['for' => 'purchased_price', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('purchased_price', old('purchased_price', $data->purchased_price ?? ''), "class='form-control bigint' required placeholder='".lang('crud.purchased_price')."' ") ?>
                     <?php if (has_error('purchased_price')) { ?>
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.estimated_price'),'',['for' => 'estimated_price', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.estimated_price'), '', ['for' => 'estimated_price', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('estimated_price', old('estimated_price', $data->estimated_price ?? ''), "class='form-control bigint' required placeholder='".lang('crud.estimated_price')."' ") ?>
                     <?php if (has_error('estimated_price')) { ?>
@@ -65,16 +65,16 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.entity_id'),'',['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.entity_id'), '', ['for' => 'entity_id', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
-                    <?= form_dropdown('entity_id',$entityItems ,old('entity_id', $data->entity_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.entity_id')."' ") ?>
+                    <?= form_dropdown('entity_id', $entityItems, old('entity_id', $data->entity_id ?? ''), "class='form-control select2' required placeholder='".lang('crud.entity_id')."' ") ?>
                     <?php if (has_error('entity_id')) { ?>
                     <p class="text-danger"><?php echo error('entity_id'); ?></p>
                     <?php } ?>
                 </div>
             </div>
             <div class="row mb-3">
-                <?= form_label(lang('crud.description'),'',['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
+                <?= form_label(lang('crud.description'), '', ['for' => 'description', 'class' => 'col-form-label col-sm-2']) ?>
                 <div class="col-sm-10">
                     <?= form_input('description', old('description', $data->description ?? ''), "class='form-control varchar'  placeholder='".lang('crud.description')."' ") ?>
                     <?php if (has_error('description')) { ?>

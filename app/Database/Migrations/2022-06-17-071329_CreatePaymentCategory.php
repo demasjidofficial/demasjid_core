@@ -18,7 +18,7 @@ class CreatePaymentCategory extends Migration
             'name' => [
                 'type' => 'varchar',
                 'constraint' => 50,
-            ],        
+            ],
             'created_at' => [
                 'type' => 'datetime',
                 'null' => false,
@@ -31,11 +31,11 @@ class CreatePaymentCategory extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,   
+                'null'       => true,
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');    
+        $this->forge->addPrimaryKey('id');
         $this->forge->createTable('payment_category', true);
     }
 

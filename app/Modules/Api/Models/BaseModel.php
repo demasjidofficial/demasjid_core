@@ -24,8 +24,8 @@ class BaseModel extends ModelsBaseModel
 
     protected function clearAmountFormat(array $data)
     {
-        if ($this->numericField){
-            foreach($this->numericField as $numeric){
+        if ($this->numericField) {
+            foreach($this->numericField as $numeric) {
                 if (isset($data['data'][$numeric])) {
                     $data['data'][$numeric] = str_replace(',', '.', str_replace('.', '', $data['data'][$numeric]));
                 }
@@ -35,34 +35,40 @@ class BaseModel extends ModelsBaseModel
         return $data;
     }
 
-    public function findAllExcludeJoin(int $limit = 0, int $offset = 0){
+    public function findAllExcludeJoin(int $limit = 0, int $offset = 0)
+    {
         return parent::findAll($limit, $offset);
     }
 
-    protected function filterEntity(string $type){    
-        $this->whereIn('entity_id', function(BaseBuilder $builder) use ($type){
+    protected function filterEntity(string $type)
+    {
+        $this->whereIn('entity_id', function (BaseBuilder $builder) use ($type) {
 
             return $builder->select('id')->from('entity')->where('type', $type);
         });
-        return $this;    
+        return $this;
     }
 
-    public function masjid(){
+    public function masjid()
+    {
 
         return $this->filterEntity(EntityModel::MASJID);
     }
 
-    public function pesantren(){
+    public function pesantren()
+    {
 
         return $this->filterEntity(EntityModel::PESANTREN);
     }
 
-    public function tpq(){
+    public function tpq()
+    {
 
         return $this->filterEntity(EntityModel::TPQ);
     }
 
-    public function room(){
+    public function room()
+    {
 
         return $this->filterEntity(EntityModel::ROOM);
     }

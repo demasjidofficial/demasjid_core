@@ -22,8 +22,8 @@
   <div class="container-fluid">
     <!-- Info boxes -->
     <?= view('App\Views\Widgets\_stats', [
-				'stats'   => $widgets->widget('stats')->items(),				
-			]) ?>
+                'stats'   => $widgets->widget('stats')->items(),
+            ]) ?>
 
     <div class="row">
       <div class="col-md-12">
@@ -211,8 +211,8 @@
 
       <div class="col-md-4">
         <?= view('App\Views\Widgets\_zis', [
-				'zis'   => $widgets->widget('zis')->items(),				
-			]) ?>
+                'zis'   => $widgets->widget('zis')->items(),
+            ]) ?>
 
       </div>
       <!-- /.col -->

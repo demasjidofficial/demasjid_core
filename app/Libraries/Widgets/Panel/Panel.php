@@ -59,7 +59,7 @@ class Panel extends BaseWidget implements Widgets
 
     /**
      * Get the value of title
-     */ 
+     */
     public function getTitle()
     {
         return $this->title;
@@ -69,7 +69,7 @@ class Panel extends BaseWidget implements Widgets
      * Set the value of title
      *
      * @return  self
-     */ 
+     */
     public function setTitle($title)
     {
         $this->title = $title;

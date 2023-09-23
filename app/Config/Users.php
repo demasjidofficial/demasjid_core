@@ -35,7 +35,7 @@ class Users extends BaseConfig
      * has been uploaded. Valid choices are either 'name' or 'username'.
      */
     public $avatarNameBasis = 'name';
-    
+
     /**
      * --------------------------------------------------------------------------
      * Avatar Background Colors

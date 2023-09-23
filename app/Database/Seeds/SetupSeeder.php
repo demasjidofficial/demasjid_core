@@ -6,13 +6,12 @@ use CodeIgniter\Database\Seeder;
 
 class SetupSeeder extends Seeder
 {
-	
     public function run()
     {
         $this->call(SuperAdmin::class);
         $this->call(PeriodeSeeder::class);
         $this->call(LanguagesSeeder::class);
-        $this->call(DonaturKategoriSeeder::class);        
+        $this->call(DonaturKategoriSeeder::class);
         $this->call(PaymentCategorySeeder::class);
         $this->call(SiteFooterSeeder::class);
         $this->call(SiteMenusSeeder::class);
@@ -23,5 +22,5 @@ class SetupSeeder extends Seeder
         $this->call(UomSeeder::class);
         $this->call(CoaSeeder::class);
         $this->call(BmDonationTypeSeeder::class);
-    }	
+    }
 }

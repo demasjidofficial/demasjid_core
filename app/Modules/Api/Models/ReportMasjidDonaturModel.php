@@ -4,7 +4,7 @@ namespace App\Modules\Api\Models;
 
 class ReportMasjidDonaturModel extends BaseModel
 {
-    const GROUP = [
+    public const GROUP = [
         'kas',
         'bank'
     ];
@@ -41,8 +41,9 @@ class ReportMasjidDonaturModel extends BaseModel
         return parent::findAll($limit, $offset);
     }
 
-    public static function groupAccountList(){
+    public static function groupAccountList()
+    {
 
         return array_combine(self::GROUP, [lang('crud.kas'),lang('crud.bank') ]);
-	}
+    }
 }

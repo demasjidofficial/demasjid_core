@@ -9,7 +9,7 @@ class Generator
     private $domainName;
     private $domainFolder;
 
-    function __construct(String $envPathFile, String $hostPathFile, String $domainName, String $domainFolder)
+    public function __construct(String $envPathFile, String $hostPathFile, String $domainName, String $domainFolder)
     {
         $this->envPathFile = $envPathFile;
         $this->domainName = $domainName;
@@ -84,37 +84,39 @@ STR;
         write_file($this->hostPathFile, $content);
     }
 
-    private function migrate($dbDomain){
+    private function migrate($dbDomain)
+    {
         // $config          = new Migrations();
         // $config->enabled = true;
-        // $dbConfig      = config('Database');        
-        // $domainDbConfig = $dbConfig->default;        
+        // $dbConfig      = config('Database');
+        // $domainDbConfig = $dbConfig->default;
         // $domainDbConfig['database'] = $dbDomain;
-        // config('Database')->default['database'] = $dbDomain;        
+        // config('Database')->default['database'] = $dbDomain;
         // $migrations = Services::migrations();
         // $migrations->setSilent(true);
         // $migrations->setNamespace(null);
         // $migrations->latest();
         // config('Database')->default['database'] = 'default';
     }
-    public function database($idMember, $passwordParam){
+    public function database($idMember, $passwordParam)
+    {
         log_message('critical', 'create database starting .....');
         $db = db_connect();
         $dbName = $db->getDatabase();
         $dbDomain = 'dm_'.$this->domainFolder;
-        $db->simpleQuery("create database IF NOT EXISTS $dbDomain");                    
+        $db->simpleQuery("create database IF NOT EXISTS $dbDomain");
         log_message('critical', 'create database success');
-        foreach($db->listTables() as $table){
-          if(in_array($table, ['wilayah','languages', 'uom_category', 'uom', 'settings', 'chart_of_account'])){
-            $db->simpleQuery("CREATE TABLE IF NOT EXISTS {$dbDomain}.{$table} select * from {$dbName}.{$table};");
-          }else{
-            $db->simpleQuery("CREATE TABLE IF NOT EXISTS {$dbDomain}.{$table} LIKE {$dbName}.{$table};");
-          }
-          
-          log_message('critical', "create table {$dbDomain}.{$table} success");
+        foreach($db->listTables() as $table) {
+            if(in_array($table, ['wilayah','languages', 'uom_category', 'uom', 'settings', 'chart_of_account'])) {
+                $db->simpleQuery("CREATE TABLE IF NOT EXISTS {$dbDomain}.{$table} select * from {$dbName}.{$table};");
+            } else {
+                $db->simpleQuery("CREATE TABLE IF NOT EXISTS {$dbDomain}.{$table} LIKE {$dbName}.{$table};");
+            }
+
+            log_message('critical', "create table {$dbDomain}.{$table} success");
         }
-        log_message('critical', 'create seed database, starting .........');            
-        
+        log_message('critical', 'create seed database, starting .........');
+
         $sqls = [
         "INSERT INTO $dbDomain.users (username,first_name,last_name,created_at,updated_at) select email, name, name, now() , now() from $dbName.member where id = $idMember",
         "INSERT INTO $dbDomain.auth_groups_users (user_id,`group`,created_at) VALUES (1,'superadmin',now())",
@@ -123,10 +125,10 @@ STR;
         "INSERT INTO $dbDomain.profile (desa_id,code,address,path_logo,path_image,entity_id,created_at,updated_at) select wilayah_id, code, address, path_logo, path_image , 1, now(), now() from $dbName.member where id = $idMember"
         ];
 
-        foreach($sqls as $sql){
+        foreach($sqls as $sql) {
             $db->simpleQuery($sql);
         }
-        
+
         log_message('critical', 'create seed database, success');
     }
 }

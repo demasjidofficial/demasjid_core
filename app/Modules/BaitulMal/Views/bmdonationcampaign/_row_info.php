@@ -1,4 +1,4 @@
-<td><img width="100px" src="/<?php echo ($item->path_image)? esc($item->path_image) : $blank_img ?>"></a></td>
+<td><img width="100px" src="/<?php echo ($item->path_image) ? esc($item->path_image) : $blank_img ?>"></a></td>
 <td><?php echo esc($item->name) ?></a></td>
 <td><?php echo local_currency($item->campaign_tonase) ?></a></td>
 <td><?php echo local_currency($item->campaign_collected) ?></a></td>

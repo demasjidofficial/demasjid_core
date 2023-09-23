@@ -4,22 +4,22 @@ namespace App\Modules\Api\Models;
 
 class EntityModel extends BaseModel
 {
-    const TYPE = [
+    public const TYPE = [
         'masjid' => 'Masjid',
         'pesantren' => 'Pesantren',
         'sekolah' => 'Sekolah',
         'tpq' => 'TPQ',
     ];
-    const MASJID = 'masjid';
-    const PESANTREN = 'pesantren';
-    const SEKOLAH = 'sekolah';
-    const TPQ = 'tpq';
-    const ROOM = 'room';
+    public const MASJID = 'masjid';
+    public const PESANTREN = 'pesantren';
+    public const SEKOLAH = 'sekolah';
+    public const TPQ = 'tpq';
+    public const ROOM = 'room';
 
     protected $table = 'entity';
     protected $returnType = 'App\Modules\Api\Entities\Entity';
     protected $primaryKey = 'id';
-    protected $useTimestamps = true;    
+    protected $useTimestamps = true;
 
     protected $allowedFields = [
         'name',
@@ -43,19 +43,22 @@ class EntityModel extends BaseModel
         $this->join('users', 'users.id = '.$this->table.'.created_by');
 
         return parent::findAll($limit, $offset);
-    }    
+    }
 
-    public function masjid(){
+    public function masjid()
+    {
         $this->where('type', self::MASJID);
         return $this;
     }
 
-    public function pesantren(){
+    public function pesantren()
+    {
         $this->where('type', self::PESANTREN);
         return $this;
     }
 
-    public function tpq(){
+    public function tpq()
+    {
         $this->where('type', self::TPQ);
         return $this;
     }

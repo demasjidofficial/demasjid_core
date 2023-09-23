@@ -8,7 +8,6 @@ use App\Libraries\Widgets\Stats\StatsItem;
 
 class _MastersController extends AdminCrudController
 {
-
     public function index()
     {
         $this->setupWidgets();
@@ -78,6 +77,6 @@ class _MastersController extends AdminCrudController
             ->addItem($siswaItem)
             ->addItem($tahunAjaranItem)
             ->addItem($guruItem);
-            
+
     }
 }

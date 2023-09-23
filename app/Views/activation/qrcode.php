@@ -21,7 +21,7 @@
            <img class="img-thumbnail" src="<?= site_url($masjid->path_image) ?>" />
            <br/>
            <div>Masjid <?= $masjid->name ?></div>            
-           <div class="text-uppercase"><?= $masjid->address ?> <?= implode(' ',array_column($full,'nama')) ?></div>
+           <div class="text-uppercase"><?= $masjid->address ?> <?= implode(' ', array_column($full, 'nama')) ?></div>
       </div>
       <div class="row justify-content-center qrcode-wrapper">
            <br/> 

@@ -16,9 +16,9 @@ class SitesocialsController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/website/socials';
     protected $langModel = 'sitesocials';
     protected $modelName = 'App\Modules\Api\Models\SitesocialsModel';
-    private $imageFolder = 'images';
-    
-    public function index(){
+
+    public function index()
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -30,11 +30,13 @@ class SitesocialsController extends AdminCrudController
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -56,11 +58,13 @@ class SitesocialsController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -73,7 +77,7 @@ class SitesocialsController extends AdminCrudController
         $data = $this->request->getPost();
         $data['path_icon'] = SitesocialsModel::getIconSosials($data['name']);
 
-        if (! $this->model->insert($data)) {            
+        if (! $this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
         $this->writeLog();
@@ -81,7 +85,8 @@ class SitesocialsController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -97,7 +102,7 @@ class SitesocialsController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager,
@@ -109,7 +114,7 @@ class SitesocialsController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new SitesocialsModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
@@ -119,11 +124,12 @@ class SitesocialsController extends AdminCrudController
 
         $dataEdit['socialItems'] = SitesocialsModel::listSocials();
         $dataEdit['statesItems'] = $this->getStatesItems();
-        
+
         return $dataEdit;
     }
 
-    public function getStatesItems() {
+    public function getStatesItems()
+    {
         return  ([
             //NULL => 'Pilih status',
             'draft' => 'Draft',

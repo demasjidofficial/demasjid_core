@@ -28,16 +28,16 @@
 
             <fieldset>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.id_program'),'',['for' => 'id_program', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.id_program'), '', ['for' => 'id_program', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
-                        <?= form_dropdown('id_program',$programItems ,old('id_program', $data->id_program ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_program')."' ") ?>
+                        <?= form_dropdown('id_program', $programItems, old('id_program', $data->id_program ?? ''), "class='form-control select2' required placeholder='".lang('crud.id_program')."' ") ?>
                         <?php if (has_error('id_program')) { ?>
                         <p class="text-danger"><?php echo error('id_program'); ?></p>
                         <?php } ?>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.status'),'',['for' => 'status', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.status'), '', ['for' => 'status', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('status', old('status', $data->status ?? ''), "class='form-control varchar'  placeholder='".lang('crud.status')."' ") ?>
                         <?php if (has_error('status')) { ?>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.is_active'),'',['for' => 'is_active', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.is_active'), '', ['for' => 'is_active', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('is_active', old('is_active', $data->is_active ?? ''), "class='form-control varchar'  placeholder='".lang('crud.is_active')."' ") ?>
                         <?php if (has_error('is_active')) { ?>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.is_delete'),'',['for' => 'is_delete', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.is_delete'), '', ['for' => 'is_delete', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('is_delete', old('is_delete', $data->is_delete ?? ''), "class='form-control varchar'  placeholder='".lang('crud.is_delete')."' ") ?>
                         <?php if (has_error('is_delete')) { ?>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.created_by'),'',['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.created_by'), '', ['for' => 'created_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('created_by', old('created_by', $data->created_by ?? ''), "class='form-control int'  placeholder='".lang('crud.created_by')."' ") ?>
                         <?php if (has_error('created_by')) { ?>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.create_date'),'',['for' => 'create_date', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.create_date'), '', ['for' => 'create_date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('create_date', old('create_date', $data->create_date ?? ''), "class='form-control datetime' required placeholder='".lang('crud.create_date')."' ") ?>
                         <?php if (has_error('create_date')) { ?>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.modified_by'),'',['for' => 'modified_by', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.modified_by'), '', ['for' => 'modified_by', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('modified_by', old('modified_by', $data->modified_by ?? ''), "class='form-control int'  placeholder='".lang('crud.modified_by')."' ") ?>
                         <?php if (has_error('modified_by')) { ?>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <?= form_label(lang('crud.modified_date'),'',['for' => 'modified_date', 'class' => 'col-form-label col-sm-2']) ?>
+                    <?= form_label(lang('crud.modified_date'), '', ['for' => 'modified_date', 'class' => 'col-form-label col-sm-2']) ?>
                     <div class="col-sm-10">
                         <?= form_input('modified_date', old('modified_date', $data->modified_date ?? ''), "class='form-control datetime' required placeholder='".lang('crud.modified_date')."' ") ?>
                         <?php if (has_error('modified_date')) { ?>

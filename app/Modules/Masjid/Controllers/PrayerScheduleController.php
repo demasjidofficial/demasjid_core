@@ -57,7 +57,7 @@ class PrayerScheduleController extends AdminController
         $rawatibItem = new StatsItem([
             'bgColor' => 'bg-success',
             'bgIcon' => 'bg-info',
-            'title' => 'Rawatib',            
+            'title' => 'Rawatib',
             'url'     => ADMIN_AREA . '/masjid/rawatibschedule',
             'faIcon' => 'fas fa-book',
         ]);
@@ -65,7 +65,7 @@ class PrayerScheduleController extends AdminController
         $jumatItem = new StatsItem([
             'bgColor' => 'bg-warning',
             'bgIcon' => 'bg-info',
-            'title' => 'Jumat',            
+            'title' => 'Jumat',
             'url'     => ADMIN_AREA . '/masjid/rawatibschedule',
             'faIcon' => 'fas fa-tag',
         ]);
@@ -73,7 +73,7 @@ class PrayerScheduleController extends AdminController
         $tarawihItem = new StatsItem([
             'bgColor' => 'bg-primary',
             'bgIcon' => 'bg-primary',
-            'title' => 'Tarawih',            
+            'title' => 'Tarawih',
             'url'     => ADMIN_AREA . '/masjid/rawatibschedule',
             'faIcon' => 'fas fa-tag',
         ]);
@@ -81,11 +81,11 @@ class PrayerScheduleController extends AdminController
         $iedItem = new StatsItem([
             'bgColor' => 'bg-danger',
             'bgIcon' => 'bg-primary',
-            'title' => 'Ied',            
+            'title' => 'Ied',
             'url'     => ADMIN_AREA . '/masjid/rawatibschedule',
             'faIcon' => 'fas fa-tag',
         ]);
-        
+
         $widgets->widget('schedule')->collection('schedule')
             ->addItem($rawatibItem)
             ->addItem($jumatItem)

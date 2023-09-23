@@ -10,7 +10,7 @@
     <input type="hidden" name="entity_id" value="<?php echo $activeEntity; ?>">
     <fieldset>
         <div class="row mb-3">
-            <?= form_label(lang('crud.path_logo'),'',['for' => 'path_logo', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.path_logo'), '', ['for' => 'path_logo', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-md-5">
                 <?php if(isset($data->path_logo)): ?>
                 <div class="justify-content-center photo-wrapper">           
@@ -53,7 +53,7 @@
             </div>
         </div>        
         <div class="row mb-3">
-            <?= form_label(lang('crud.provinsi_id'),'',['for' => 'provinsi_id', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.provinsi_id'), '', ['for' => 'provinsi_id', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-sm-10">
                 <?= form_dropdown('provinsi_id', $provinsiItems, old('provinsi_id', $data->provinsi_id ?? ''), "class='form-control select2bs4 provinsi' required") ?>
                 <?php if (has_error('provinsi_id')) { ?>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="row mb-3">
-            <?= form_label(lang('crud.kota_id'),'',['for' => 'kota_id', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.kota_id'), '', ['for' => 'kota_id', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-sm-10">
                 <?= form_dropdown('kota_id', $kotaItems, old('kota_id', $data->kota_id ?? ''), "class='form-control select2bs4 kota' data-level='kota/kabupaten' data-reference='select.provinsi' required") ?>
                 <?php if (has_error('kota_id')) { ?>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="row mb-3">
-            <?= form_label(lang('crud.kecamatan_id'),'',['for' => 'kecamatan_id', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.kecamatan_id'), '', ['for' => 'kecamatan_id', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-sm-10">
                 <?= form_dropdown('kecamatan_id', $kecamatanItems, old('kecamatan_id', $data->kecamatan_id ?? ''), "class='form-control select2bs4 kecamatan' data-level='kecamatan' data-reference='select.kota' required") ?>
                 <?php if (has_error('kecamatan_id')) { ?>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="row mb-3">
-            <?= form_label(lang('crud.desa_id'),'',['for' => 'desa_id', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.desa_id'), '', ['for' => 'desa_id', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-sm-10">
                 <?= form_dropdown('desa_id', $desaItems, old('desa_id', $data->desa_id ?? ''), "class='form-control select2bs4 desa' data-level='desa' data-reference='select.kecamatan' required placeholder='".lang('crud.desa_id')."' ") ?>
                 <?php if (has_error('desa_id')) { ?>
@@ -89,7 +89,7 @@
             </div>
         </div>        
         <div class="row mb-3">
-            <?= form_label(lang('crud.address'),'',['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
+            <?= form_label(lang('crud.address'), '', ['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-sm-10">
                 <?= form_textarea('address', old('address', $data->address ?? ''), "class='form-control varchar' rows='4' required placeholder='".lang('crud.address')."' ") ?>
                 <?php if (has_error('address')) { ?>

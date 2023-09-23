@@ -8,7 +8,6 @@ use App\Libraries\Widgets\Stats\StatsItem;
 
 class _SchedulesController extends AdminCrudController
 {
-
     public function index()
     {
         $this->setupWidgets();
@@ -69,7 +68,6 @@ class _SchedulesController extends AdminCrudController
             ->addItem($academiccalendarItem)
             ->addItem($lessontestItem)
             ->addItem($lessontestsemesterItem);
-            
+
     }
 }
-

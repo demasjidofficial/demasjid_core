@@ -6,9 +6,8 @@ use CodeIgniter\Database\Seeder;
 
 class CoaSeeder extends Seeder
 {
-	
     public function run()
-    {        
+    {
         $data = [
             ['name' => 'Aset Lancar / Aktiva','code' => '10', 'group_account' => 'Aset','entity_id' => 1],
             ['name' => 'Kas','code' => '101', 'group_account' => 'Aset','entity_id' => 1],
@@ -58,5 +57,5 @@ class CoaSeeder extends Seeder
         ];
 
         $this->db->table('chart_of_account')->insertBatch($data);
-    }	
+    }
 }

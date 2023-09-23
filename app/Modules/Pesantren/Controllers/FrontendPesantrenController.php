@@ -16,14 +16,14 @@ class FrontendPesantrenController extends BaseController
 
     public function index()
     {
-        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity','entity.id = profile.entity_id')->masjid()->asArray()->first();
+        $profile = (new ProfileModel())->setSelectColumn(['profile.*','entity.name'])->join('entity', 'entity.id = profile.entity_id')->masjid()->asArray()->first();
         $masjid_profile = $profile;
-        
+
         $data = [];
 
         return $this->render('App\Modules\Pesantren\Views\website\index', $data);
     }
-    
+
     public function pendaftaran()
     {
         $request = $this->request->getGet('req');

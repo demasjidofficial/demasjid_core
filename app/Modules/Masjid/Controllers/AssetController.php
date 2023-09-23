@@ -17,16 +17,19 @@ class AssetController extends AdminCrudController
     protected $langModel = 'asset';
     protected $modelName = 'App\Modules\Api\Models\AssetModel';
     protected $imageFolder = 'images';
-    
-    public function index(){
+
+    public function index()
+    {
         return parent::index();
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         return parent::edit($id);
     }
 
-    public function update($id = null){
+    public function update($id = null)
+    {
         $image = $this->request->getFile('image');
 
         if (!empty($image)) {
@@ -34,7 +37,7 @@ class AssetController extends AdminCrudController
                 $uploaded = $this->uploadFile('image');
                 $this->model->set('path_image', $uploaded);
             }
-        }        
+        }
 
         $data = $this->request->getPost();
         $updateData = array_filter($data);
@@ -46,13 +49,15 @@ class AssetController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function show($id = null){
+    public function show($id = null)
+    {
         return parent::show($id);
     }
 
-    public function create(){
+    public function create()
+    {
         $uploadedImage = $this->uploadFile('image');
-        $this->model->set('path_image', $uploadedImage);        
+        $this->model->set('path_image', $uploadedImage);
 
         $data = $this->request->getPost();
         if (!$this->model->insert($data)) {
@@ -63,7 +68,8 @@ class AssetController extends AdminCrudController
         return redirect()->to(url_to($this->getBaseController()))->with('message', lang('Bonfire.resourceSaved', [$this->langModel]));
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         return parent::delete($id);
     }
 
@@ -83,7 +89,7 @@ class AssetController extends AdminCrudController
             ],
             'controller' => $this->getBaseController(),
             'viewPrefix' => $this->getViewPrefix(),
-			'baseRoute' => $this->getBaseRoute(),
+            'baseRoute' => $this->getBaseRoute(),
             'showSelectAll' => true,
             'data' => $model->paginate(setting('App.perPage')),
             'pager' => $model->pager
@@ -95,13 +101,13 @@ class AssetController extends AdminCrudController
         $dataEdit = parent::getDataEdit($id);
         $model = new AssetModel();
 
-        if(!empty($id)){
+        if(!empty($id)) {
             $data = $model->find($id);
             if (null === $data) {
                 return redirect()->back()->with('error', lang('Bonfire.resourceNotFound', [$this->langModel]));
             }
             $dataEdit['data'] = $data;
-        }            
+        }
         $dataEdit['entityItems'] = Arr::pluck(model('App\Modules\Api\Models\EntityModel')->select(['entity.id as key', 'entity.name as text'])->masjid()->asArray()->findAllExcludeJoin(), 'text', 'key');
         return $dataEdit;
     }
