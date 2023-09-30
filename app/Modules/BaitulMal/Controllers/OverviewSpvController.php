@@ -16,7 +16,7 @@ use App\Modules\Api\Models\DonaturFundraisingSpvModel;
 
 class OverviewSpvController extends AdminController
 {
-    protected $theme = 'admin';
+    protected $theme = 'Admin';
 
     public function index()
     {

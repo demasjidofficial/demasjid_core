@@ -2,9 +2,9 @@
 
 <?php $this->section('styles') ?>
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" /> -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css'), 'css') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2/css/select2.min.css'), 'css') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'), 'css') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css'), 'css') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/select2/css/select2.min.css'), 'css') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css'), 'css') ?>
 <?php $this->endSection(); ?>
 
 <?php $this->section('main'); ?>
@@ -391,10 +391,10 @@
 <?php $this->endSection(); ?>
 
 <?php $this->section('scripts'); ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js'); ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
-<?php echo assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js'), 'js'); ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2/js/select2.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
+<?php echo assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/select2/js/select2.js'), 'js') ?>
 <script type="text/javascript">
     $(function() {
 

@@ -1,10 +1,10 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('styles'); ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/codemirror.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/theme/monokai.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/codemirror.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/theme/monokai.css'), 'css') ?>
 <?= $this->endSection() ?>
 
 <?php $this->section('main'); ?>
@@ -109,14 +109,14 @@
 
 <?php $this->endSection(); ?>
 <?php $this->section('scripts'); ?>
-<?php echo assetUrlLink(assetUrl('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js'); ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/codemirror.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/mode/css/css.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js'), 'js') ?>
+<?php echo assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/codemirror.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/mode/css/css.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js'), 'js') ?>
 
 <script type="text/javascript">
     $(function () {

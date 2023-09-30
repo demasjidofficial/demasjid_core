@@ -21,8 +21,8 @@ The second argument is the type of asset being loaded. This tells it how the res
 Currently, it only supports `css` and `js` files.
 
 ```php
-<?= assetUrlLink(assetUrl('admin/css/admin.css'), 'css') ?>
-<?= assetUrlLink(assetUrl('admin/js/admin.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/css/admin.css'), 'css') ?>
+<?= assetUrlLink(assetUrl('Admin/js/admin.js'), 'js') ?>
 ```
 
 The `asset()` function is similar, except it only returns the URL. This is helpful as the function also inserts

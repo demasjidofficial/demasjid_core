@@ -15,7 +15,7 @@ class ReportController extends AdminController
 {
     use ResponseTrait;
 
-    protected $theme = 'admin';
+    protected $theme = 'Admin';
     protected $viewPrefix = '';
     protected $baseController;
     protected $baseRoute;

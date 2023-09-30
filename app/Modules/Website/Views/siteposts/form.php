@@ -1,10 +1,10 @@
 <?php $this->extend('master'); ?>
 
 <?php $this->section('styles'); ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/codemirror.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/theme/monokai.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/summernote/summernote-bs4-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/dropzone/min/dropzone-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/codemirror.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/theme/monokai.css'), 'css') ?>
 <?= $this->endSection() ?>
 
 <?php $this->section('main'); ?>
@@ -182,12 +182,12 @@
 <?php $this->endSection(); ?>
 
 <?= $this->section('scripts') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js'), 'js') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js'), 'js') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/codemirror.js'), 'js') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/mode/css/css.js'), 'js') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js'), 'js') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/summernote/summernote-bs4-min.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/dropzone/min/dropzone-min.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/codemirror.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/mode/css/css.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/mode/xml/xml.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/codemirror/mode/htmlmixed/htmlmixed.js'), 'js') ?>
     <script type="text/javascript">
         $(function(){
             $('input:file').change(function() {

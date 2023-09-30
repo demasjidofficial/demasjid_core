@@ -75,8 +75,8 @@
 
 <?php $this->endSection(); ?>
 <?php $this->section('scripts'); ?>
-<?php echo assetUrlLink(assetUrl('admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js'); ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
+<?php echo assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/inputmask/jquery-inputmask-min.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/bs-custom-file-input/bs-custom-file-input.js'), 'js') ?>
 <script type="text/javascript">
     $(function () {
         bsCustomFileInput.init();   

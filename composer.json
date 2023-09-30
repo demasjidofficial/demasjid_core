@@ -79,7 +79,10 @@
 		"inspect": "deptrac analyze --cache-file=build/deptrac.cache",
 		"style": "php-cs-fixer fix --verbose --ansi --using-cache=no",
 		"swagger-doc":"openapi -o public/assets/api.yaml app",
-		"test": "phpunit"		
+		"test": "phpunit",
+		"post-install-cmd": [
+            "php -r \"copy('override/Bonfire/Core/AdminController.php', 'vendor/lonnieezell/bonfire/src/Core/AdminController.php');\""            
+        ]		
 	},
 	"support": {
 		"forum": "http://forum.codeigniter.com/",

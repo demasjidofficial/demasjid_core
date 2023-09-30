@@ -1,7 +1,7 @@
 <?php $this->extend('master') ?>
 
 <?php $this->section('styles') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/chart-js/Chart.css'), 'css'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/chart-js/Chart.css'), 'css'); ?>
 <?php $this->endSection() ?>
 
 
@@ -238,10 +238,10 @@
 <?= $this->section('scripts') ?>
 
 <!-- OPTIONAL SCRIPTS -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/chart-js/Chart.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/chart-js/Chart.js'), 'js'); ?>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/adminlte-dashboard2.js'), 'js'); ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/adminlte-dashboard2.js'), 'js'); ?>
 
 <script>
   $(function () {

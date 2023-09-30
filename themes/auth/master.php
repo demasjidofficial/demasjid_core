@@ -10,15 +10,15 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css'), 'css') ?>
     <!-- iCheck -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/icheck-bootstrap/icheck-bootstrap-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/icheck-bootstrap/icheck-bootstrap-min.css'), 'css') ?>
     <!-- Select2 -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/select2/css/select2.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/select2/css/select2.css'), 'css') ?>
     <!-- Theme style -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/adminlte-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/adminlte-min.css'), 'css') ?>
     <!-- Demasjid style -->
-    <?= assetUrlLink(assetUrl('admin/css/admin-demasjid.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/css/admin-demasjid.css'), 'css') ?>
 
     <?= $this->renderSection('styles') ?>
 </head>
@@ -39,11 +39,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/jquery/jquery-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/jquery/jquery-min.js'), 'js') ?>
 <!-- Bootstrap 4 -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js'), 'js') ?>
 <!-- AdminLTE App -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/adminlte.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/adminlte.js'), 'js') ?>
 
 <?= $this->renderSection('scripts') ?>
 </body>

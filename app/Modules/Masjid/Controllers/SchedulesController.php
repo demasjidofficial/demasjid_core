@@ -27,7 +27,7 @@ class SchedulesController extends AdminController
      *
      * @var string
      */
-    protected $theme = 'admin';
+    protected $theme = 'Admin';
     /**
      * Displays the site's initial page.
      */

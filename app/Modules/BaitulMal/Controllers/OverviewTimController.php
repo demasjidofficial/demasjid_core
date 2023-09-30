@@ -15,7 +15,7 @@ use App\Libraries\Widgets\Stats\Stats;
 
 class OverviewTimController extends AdminController
 {
-    protected $theme = 'admin';
+    protected $theme = 'Admin';
     protected $donasiRoute = 'admin/baitulmal/donation';
     public function index()
     {

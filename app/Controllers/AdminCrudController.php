@@ -15,7 +15,7 @@ class AdminCrudController extends AdminController
 {
     use ResponseTrait;
     public const BLANK_IMG = 'assets/admin/images/blank.jpg';
-    protected $theme      = 'admin';
+    protected $theme      = 'Admin';
     protected $viewPrefix = '';
     protected $baseController;
     protected $baseRoute;

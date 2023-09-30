@@ -50,11 +50,11 @@
 </x-admin-box>
 <?php $this->endSection(); ?>
 <?php $this->section('styles') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/daterangepicker/daterangepicker.css'), 'css') ?>
 <?php $this->endSection(); ?>
 
 <?php $this->section('scripts'); ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/daterangepicker/daterangepicker.js'), 'js') ?>
 <script type="text/javascript">
     $(function () {
         $('input[name=period]').daterangepicker({

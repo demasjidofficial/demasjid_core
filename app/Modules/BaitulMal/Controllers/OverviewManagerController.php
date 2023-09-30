@@ -14,7 +14,7 @@ use App\Libraries\Widgets\Charts\Charts;
 
 class OverviewManagerController extends AdminController
 {
-    protected $theme = 'admin';
+    protected $theme = 'Admin';
 
     public function index()
     {

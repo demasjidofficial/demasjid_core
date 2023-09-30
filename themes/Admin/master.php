@@ -21,22 +21,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/fontawesome-free/css/all-min.css'), 'css') ?>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     
     <!-- Theme style -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/adminlte-min.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/custom.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/adminlte-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/custom.css'), 'css') ?>
     <!-- overlayScrollbars -->
-    <?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/overlayScrollbars/css/OverlayScrollbars-min.css'), 'css') ?>
         
-    <?= assetUrlLink(assetUrl('admin/css/admin-demasjid.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/css/admin-demasjid-max-width-767.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/css/icomoon/style.css'), 'css') ?>
-    <?= assetUrlLink(assetUrl('admin/js/admin-demasjid.js'), 'js') ?>
+    <?= assetUrlLink(assetUrl('Admin/css/admin-demasjid.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/css/admin-demasjid-max-width-767.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/css/icomoon/style.css'), 'css') ?>
+    <?= assetUrlLink(assetUrl('Admin/js/admin-demasjid.js'), 'js') ?>
     <!--    
-    < ?= assetUrlLink(assetUrl('admin/css/admin.css'), 'css') ?>
+    < ?= assetUrlLink(assetUrl('Admin/css/admin.css'), 'css') ?>
     < ?= assetUrlLink(assetUrl('other/components/font-awesome/css/all.css'), 'css') ?>
     -->
     <style>
@@ -88,17 +88,17 @@
   </div><!--/.wrapper-->
 
 <!-- jQuery -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/jquery/jquery-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/jquery/jquery-min.js'), 'js') ?>
 
 <!-- Bootstrap 4 -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/bootstrap/js/bootstrap-bundle-min.js'), 'js') ?>
 <!-- Moment -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/moment/moment-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/moment/moment-min.js'), 'js') ?>
 <!-- overlayScrollbars -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/overlayScrollbars/js/jquery-overlayScrollbars-min.js'), 'js') ?>
 <!-- AdminLTE App -->
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/adminlte.js'), 'js') ?>
-<?= assetUrlLink(assetUrl('admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/adminlte.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/theme-adminlte/plugins/bootstrap-confirmation/bootstrap-confirmation.js'), 'js') ?>
 
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.7.0"></script>
@@ -116,6 +116,6 @@ $(function(){
 })
 </script>
 <?= $this->renderSection('scripts') ?>
-<?= assetUrlLink(assetUrl('admin/js/admin-demasjid-canvas.js'), 'js') ?>
+<?= assetUrlLink(assetUrl('Admin/js/admin-demasjid-canvas.js'), 'js') ?>
 </body>
 </html>
