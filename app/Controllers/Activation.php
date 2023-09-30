@@ -21,7 +21,7 @@ class Activation extends BaseController
     protected $modelName = 'App\Modules\Api\Models\MemberModel';
     private $pathLogo;
     private $pathImage;
-    private $imageFolder = 'images';
+    
     private $model;
 
     public function index()
@@ -45,6 +45,8 @@ class Activation extends BaseController
         if (!$this->model->insert($data)) {
             return redirect()->back()->withInput()->with('errors', $this->model->errors());
         }
+        
+        $this->sendNotification($data);
 
         return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique]));
     }
@@ -65,7 +67,7 @@ class Activation extends BaseController
         ;
 
         // Create generic logo
-        $pathLogo = ROOTPATH.'themes/App/theme-charityworks/img/logo/loder.png';
+        $pathLogo = ROOTPATH.'themes/app/theme-charityworks/img/logo/loder.png';
         $logo = Logo::create($pathLogo)
             //->setPunchoutBackground(true)
             ->setResizeToWidth(100);
@@ -163,4 +165,20 @@ class Activation extends BaseController
         return redirect()->to('qrcode?'.http_build_query(['code' => $codeUnique]));
     }
 
+    public function sendNotification($data){        
+        $token = config('App')->tokenTelegram;        
+        $idGroup = config('App')->groupIdTelegram;
+        $client = \Config\Services::curlrequest();
+
+        $client = \Config\Services::curlrequest();
+        $url = "https://api.telegram.org/bot$token/sendMessage";
+        $messageText = "Masjid dengan data berikut telah melakukan pendaftaran ".json_encode($data)." mohon diproses";
+        $client->get($url, [
+            'query' => [
+                'chat_id' => $idGroup,
+                'text' => $messageText
+            ]
+        ]);        
+        
+    }
 }

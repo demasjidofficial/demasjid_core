@@ -16,7 +16,7 @@ class RoomController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/room/room';
     protected $langModel = 'Room';
     protected $modelName = 'App\Modules\Api\Models\RoomModel';
-    private $imageFolder = 'images';
+    
     public function index()
     {
         return parent::index();

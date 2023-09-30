@@ -17,7 +17,7 @@ class PengurusController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/masjid/pengurus';
     protected $langModel = 'pengurus';
     protected $modelName = 'App\Modules\Api\Models\PengurusModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

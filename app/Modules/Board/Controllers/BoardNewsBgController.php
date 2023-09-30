@@ -16,7 +16,7 @@ class BoardNewsBgController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/board/boardnewsbg';
     protected $langModel = 'board_news_bg';
     protected $modelName = 'App\Modules\Api\Models\BoardNewsBgModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

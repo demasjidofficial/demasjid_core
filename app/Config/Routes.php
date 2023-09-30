@@ -33,6 +33,7 @@ service('auth')->routes($routes, ['except' => ['login', 'register']]);
 // route since we don't have to scan directories.
 
 $routes->get('/activation', 'Activation::index');
+
 $routes->get('/qrcode', 'Activation::qrcode');
 $routes->post('/activation', 'Activation::create');
 $routes->get('/swagger', 'Swagger::index');

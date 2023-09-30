@@ -18,7 +18,7 @@ class ProfileController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/tpq/profile';
     protected $langModel = 'profile';
     protected $modelName = 'App\Modules\Api\Models\ProfileModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

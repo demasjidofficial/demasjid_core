@@ -17,7 +17,7 @@ class MemberController extends AdminCrudController
     protected $modelName = 'App\Modules\Api\Models\MemberModel';
     private $pathLogo;
     private $pathImage;
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

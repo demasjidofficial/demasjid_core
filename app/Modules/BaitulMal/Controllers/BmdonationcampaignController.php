@@ -16,7 +16,7 @@ class BmdonationcampaignController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/donationcampaign';
     protected $langModel = 'bmdonationcampaign';
     protected $modelName = 'App\Modules\Api\Models\BmdonationcampaignModel';
-    private $imageFolder = 'images';
+    
     public function index()
     {
         return parent::index();

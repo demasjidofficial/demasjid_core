@@ -16,7 +16,7 @@ class MasterBankController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/masterbank';
     protected $langModel = 'master_bank';
     protected $modelName = 'App\Modules\Api\Models\MasterBankModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

@@ -16,7 +16,7 @@ class MasterEwalletController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/masterewallet';
     protected $langModel = 'master_ewallet';
     protected $modelName = 'App\Modules\Api\Models\MasterEwalletModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

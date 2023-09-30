@@ -16,7 +16,7 @@ class GuruController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/pesantren/guru';
     protected $langModel = 'guru';
     protected $modelName = 'App\Modules\Api\Models\GuruModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

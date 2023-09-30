@@ -17,7 +17,7 @@ class ProgramController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/masjid/program';
     protected $langModel = 'program';
     protected $modelName = 'App\Modules\Api\Models\ProgramModel';
-    private $imageFolder = 'images';
+    
     public function index()
     {
         return parent::index();

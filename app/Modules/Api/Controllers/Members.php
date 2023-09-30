@@ -10,7 +10,7 @@ class Members extends BaseResourceController
     protected $modelName = 'App\Modules\Api\Models\MemberModel';
     private $pathLogo;
     private $pathImage;
-    private $imageFolder = 'images';
+    
     /**
      * @OA\Get(
      *     path="/members",

@@ -98,6 +98,24 @@
             </div>
         </div>
         <div class="row mb-3">
+            <?= form_label(lang('crud.telephone'), '', ['for' => 'telephone', 'class' => 'col-form-label col-sm-2']) ?>
+            <div class="col-sm-10">
+                <?= form_input('telephone', old('telephone', $data->telephone ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.telephone') . "' ") ?>
+                <?php if (has_error('telephone')) { ?>
+                    <p class="text-danger"><?php echo error('telephone'); ?></p>
+                <?php } ?>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <?= form_label(lang('crud.email'), '', ['for' => 'email', 'class' => 'col-form-label col-sm-2']) ?>
+            <div class="col-sm-10">
+                <?= form_input('email', old('email', $data->email ?? ''), "class='form-control varchar'  placeholder='" . lang('crud.email') . "' ") ?>
+                <?php if (has_error('email')) { ?>
+                    <p class="text-danger"><?php echo error('email'); ?></p>
+                <?php } ?>
+            </div>
+        </div>
+        <div class="row mb-3">
             <?= form_label(lang('crud.address'), '', ['for' => 'address', 'class' => 'col-form-label col-sm-2']) ?>
             <div class="col-sm-10">
                 <?= form_textarea('address', old('address', $data->address ?? ''), "class='form-control varchar' rows='4' required placeholder='" . lang('crud.address') . "' ") ?>

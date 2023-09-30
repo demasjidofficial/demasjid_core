@@ -17,7 +17,7 @@ class SiswaController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/pesantren/siswa';
     protected $langModel = 'siswa';
     protected $modelName = 'App\Modules\Api\Models\SiswaModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

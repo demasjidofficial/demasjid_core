@@ -16,7 +16,7 @@ class MasterPaymentgatewayController extends AdminCrudController
     protected $baseRoute = ADMIN_AREA.'/baitulmal/masterpaymentgateway';
     protected $langModel = 'master_paymentgateway';
     protected $modelName = 'App\Modules\Api\Models\MasterPaymentgatewayModel';
-    private $imageFolder = 'images';
+    
 
     public function index()
     {

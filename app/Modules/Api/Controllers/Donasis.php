@@ -15,7 +15,7 @@ class Donasis extends BaseResourceController
 
     protected $modelName = 'App\Modules\Api\Models\DonasiModel';
     private $pathImage;
-    private $imageFolder = 'images';
+    
 
     /**
     * @OA\Get(

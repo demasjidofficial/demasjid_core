@@ -177,4 +177,8 @@ class App extends BaseConfig
     public bool $CSPEnabled = false;
 
     public $assetUrl = 'https://assets.demasjid.id';
+
+    public $tokenTelegram = '';
+
+    public $groupIdTelegram = '';
 }
